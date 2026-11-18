@@ -56,7 +56,7 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1일 전"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1일 읽음"
@@ -86,11 +86,11 @@ msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1쪽 읽음"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1쪽"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1쪽/시간"
 
@@ -138,7 +138,7 @@ msgstr "(현재)"
 msgid "+ Brightness"
 msgstr "+ 밝기"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+%1권 더"
 
@@ -252,7 +252,7 @@ msgstr "모두 끝냄"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "연간"
 
@@ -330,11 +330,11 @@ msgstr ""
 msgid "Battery"
 msgstr "배터리"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "최고의 날"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "최고의 달"
 
@@ -455,7 +455,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -630,11 +630,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "지금 읽는 책"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "일별 리듬"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "일일 평균"
 
@@ -650,7 +650,7 @@ msgstr "날짜"
 msgid "Date finished"
 msgstr "끝낸 날짜"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "%1일"
 
@@ -668,16 +668,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "12월"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "이 책의 통계 모두 삭제"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "모든 통계를 삭제할까요?"
 
@@ -686,11 +686,11 @@ msgstr "모든 통계를 삭제할까요?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "이 날의 독서 시간을 삭제할까요?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "이 날의 독서 시간 삭제"
 
@@ -802,7 +802,7 @@ msgstr "위젯 없음"
 msgid "Empty collection"
 msgstr "빈 컬렉션"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "빈 폴더"
 
@@ -1028,11 +1028,11 @@ msgstr "격자: %1열"
 msgid "HIGHLIGHT"
 msgstr "강조 표시"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "하이라이트"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "아직 오지 않은 날입니다"
 
@@ -1285,11 +1285,11 @@ msgstr "일치"
 msgid "MATCH %d"
 msgstr "일치 %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "월별 리듬"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "가장 많이 읽은 책"
 
@@ -1370,7 +1370,7 @@ msgstr "폴더 섞기"
 msgid "Mix series"
 msgstr "연속물 섞기"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "월간"
 
@@ -1502,7 +1502,7 @@ msgstr "CoverBrowser 데이터 없음"
 msgid "No book in progress"
 msgstr "읽는 중인 책 없음"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "필터와 일치하는 책 없음"
 
@@ -1542,7 +1542,7 @@ msgstr "현재 책 없음"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "데이터 없음: 통계 플러그인을 켜고 조금 읽어 보세요"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1555,7 +1555,7 @@ msgstr "다음으로 읽을 책 없음"
 msgid "No previous book"
 msgstr "이전 책 없음"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "이 기간에 독서 기록 없음"
 
@@ -2305,7 +2305,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "현재 책은 연속물에 속하지 않습니다"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "이 컬렉션은 비어 있습니다"
 
@@ -2389,7 +2389,7 @@ msgstr "오늘 및 연속 기록"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "가장 많이 읽은 저자"
 
@@ -2444,7 +2444,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "어휘 복습"
 
@@ -2506,7 +2506,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "이미 최신 버전입니다 (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "그날은 읽지 않았습니다"
 
@@ -2514,7 +2514,7 @@ msgstr "그날은 읽지 않았습니다"
 msgid "You don't have any highlights yet"
 msgstr "아직 강조 표시가 없습니다"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "아직 연 책이 없습니다"
 
@@ -2577,7 +2577,7 @@ msgstr ""
 msgid "files"
 msgstr "파일"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "끝낸 책"
@@ -2632,7 +2632,7 @@ msgstr "%1 / %2쪽"
 msgid "p. %1 of %2"
 msgstr "%2쪽 중 %1쪽"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "읽은 페이지"
 
@@ -2640,7 +2640,7 @@ msgstr "읽은 페이지"
 msgid "port %1"
 msgstr "포트 %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "독서 시간"
 

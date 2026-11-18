@@ -56,7 +56,7 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 ngày trước"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 ngày đọc"
@@ -86,11 +86,11 @@ msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "Đã đọc %1 tr."
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 tr."
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 tr./giờ"
 
@@ -138,7 +138,7 @@ msgstr "(hiện tại)"
 msgid "+ Brightness"
 msgstr "+ Độ sáng"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+%1 cuốn nữa"
 
@@ -252,7 +252,7 @@ msgstr "Tất cả đã hoàn thành"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "Hằng năm"
 
@@ -330,11 +330,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Pin"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "Ngày tốt nhất"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "Tháng tốt nhất"
 
@@ -455,7 +455,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -630,11 +630,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Đang đọc"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "NHỊP ĐỌC THEO NGÀY"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "Trung bình mỗi ngày"
 
@@ -650,7 +650,7 @@ msgstr "Ngày"
 msgid "Date finished"
 msgstr "Ngày hoàn thành"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "Ngày %1"
 
@@ -668,16 +668,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "tháng 12"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Xóa toàn bộ thống kê sách"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Xóa toàn bộ thống kê?"
 
@@ -686,11 +686,11 @@ msgstr "Xóa toàn bộ thống kê?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Xóa số phút của ngày này?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Xóa số phút của ngày này"
 
@@ -802,7 +802,7 @@ msgstr "Không có tiện ích"
 msgid "Empty collection"
 msgstr "Bộ sưu tập trống"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Thư mục trống"
 
@@ -1028,11 +1028,11 @@ msgstr "Lưới: %1 cột"
 msgid "HIGHLIGHT"
 msgstr "ĐÁNH DẤU"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "ĐIỂM NỔI BẬT"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Chưa tới"
 
@@ -1285,11 +1285,11 @@ msgstr "KẾT QUẢ"
 msgid "MATCH %d"
 msgstr "KẾT QUẢ %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "NHỊP ĐỌC THEO THÁNG"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "ĐỌC NHIỀU NHẤT"
 
@@ -1369,7 +1369,7 @@ msgstr "Trộn thư mục"
 msgid "Mix series"
 msgstr "Trộn series"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "Hằng tháng"
 
@@ -1500,7 +1500,7 @@ msgstr "Không có dữ liệu CoverBrowser"
 msgid "No book in progress"
 msgstr "Không có sách đang đọc"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Không có sách khớp với bộ lọc"
 
@@ -1540,7 +1540,7 @@ msgstr "Không có sách hiện tại"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Không có dữ liệu: hãy bật tiện ích Thống kê và đọc một chút"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1553,7 +1553,7 @@ msgstr "Không có sách chưa hoàn thành tiếp theo"
 msgid "No previous book"
 msgstr "Không có sách trước"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "Không có hoạt động đọc trong khoảng thời gian này"
 
@@ -2303,7 +2303,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Sách hiện tại không thuộc series nào"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "Bộ sưu tập này trống"
 
@@ -2387,7 +2387,7 @@ msgstr "Hôm nay và chuỗi ngày"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "Tác giả đọc nhiều nhất"
 
@@ -2442,7 +2442,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Ôn tập từ vựng"
 
@@ -2504,7 +2504,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Bạn đã có phiên bản mới nhất (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "Bạn không đọc vào ngày đó"
 
@@ -2512,7 +2512,7 @@ msgstr "Bạn không đọc vào ngày đó"
 msgid "You don't have any highlights yet"
 msgstr "Bạn chưa có điểm nổi bật nào"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Bạn chưa mở cuốn sách nào"
 
@@ -2575,7 +2575,7 @@ msgstr ""
 msgid "files"
 msgstr "tệp"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "cuốn đã hoàn thành"
@@ -2630,7 +2630,7 @@ msgstr "tr. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "tr. %1 / %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "trang đã đọc"
 
@@ -2638,7 +2638,7 @@ msgstr "trang đã đọc"
 msgid "port %1"
 msgstr "cổng %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "thời gian đọc"
 

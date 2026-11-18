@@ -31,6 +31,8 @@ local OverlapGroup = require("ui/widget/overlapgroup")
 local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
 local TextWidget = require("ui/widget/textwidget")
+local VerticalGroup = require("ui/widget/verticalgroup")
+local VerticalSpan = require("ui/widget/verticalspan")
 local WidgetContainer = require("ui/widget/container/widgetcontainer")
 local Screen = Device.screen
 local AireUI = package.loaded.aire_ui
@@ -46,6 +48,9 @@ M.METRICS = {
     DOCK_GAP_ABOVE     = 6,  -- entre el contenido (o los puntos) y el dock
     DOCK_MARGIN_BOTTOM = 12, -- debajo del dock
     DOTS_H             = 26, -- alto de la fila de puntos de página
+    DOTS_GAP           = 6,  -- entre el contenido y los puntos de página
+    DOTS_BOTTOM        = 6,  -- debajo de los puntos: hasta el dock (es DOCK_GAP_ABOVE)
+                             -- o, sin dock, hasta el borde inferior
     TITLE_PAD_V        = 3,  -- encima y debajo de la fila del título
     ICON               = 24, -- iconos de la cabecera (‹, menú)
     SUB_GAP            = 2,  -- entre el título y el subtítulo
@@ -159,6 +164,17 @@ function Pager:paintTo(bb, x, y)
             px = px + d + gap
         end
     end
+end
+
+-- Pie con los puntos: con dock, los puntos tal cual (el hueco hasta el dock
+-- ya va en dockReserve); sin dock, con el mismo hueco hasta el borde inferior
+function M.pagerFooter(pager, has_dock)
+    if has_dock then return pager end
+    return VerticalGroup:new{
+        align = "center",
+        pager,
+        VerticalSpan:new{ width = AireUI.S(M.METRICS.DOTS_BOTTOM) },
+    }
 end
 
 --===========================================================================

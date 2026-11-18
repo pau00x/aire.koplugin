@@ -68,7 +68,7 @@ msgstr[0] "před %1 dnem"
 msgstr[1] "před %1 dny"
 msgstr[2] "před %1 dny"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 den čtení"
@@ -110,11 +110,11 @@ msgstr[0] "přečteno %1 str."
 msgstr[1] "přečteno %1 str."
 msgstr[2] "přečteno %1 str."
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 str."
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 str./h"
 
@@ -170,7 +170,7 @@ msgstr "(aktuální)"
 msgid "+ Brightness"
 msgstr "+ Jas"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+%1 další"
 
@@ -284,7 +284,7 @@ msgstr "Vše dočteno"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "Roční"
 
@@ -362,11 +362,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Baterie"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "Nejlepší den"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "Nejlepší měsíc"
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -662,11 +662,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Právě čtu"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "DENNÍ RYTMUS"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "Denní průměr"
 
@@ -682,7 +682,7 @@ msgstr "Datum"
 msgid "Date finished"
 msgstr "Datum dočtení"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "%1. den"
 
@@ -700,16 +700,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "prosince"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Smazat všechny statistiky knihy"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Smazat všechny statistiky?"
 
@@ -718,11 +718,11 @@ msgstr "Smazat všechny statistiky?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Smazat minuty tohoto dne?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Smazat minuty z tohoto dne"
 
@@ -834,7 +834,7 @@ msgstr "Bez widgetů"
 msgid "Empty collection"
 msgstr "Prázdná sbírka"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Prázdná složka"
 
@@ -1060,11 +1060,11 @@ msgstr "Mřížka: %1 sloupce"
 msgid "HIGHLIGHT"
 msgstr "ZVÝRAZNĚNÍ"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "TO NEJLEPŠÍ"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Ještě nenastal"
 
@@ -1317,11 +1317,11 @@ msgstr "SHODA"
 msgid "MATCH %d"
 msgstr "SHODA %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "MĚSÍČNÍ RYTMUS"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "NEJČTENĚJŠÍ"
 
@@ -1402,7 +1402,7 @@ msgstr "Míchat složky"
 msgid "Mix series"
 msgstr "Míchat série"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "Měsíční"
 
@@ -1534,7 +1534,7 @@ msgstr "Žádná data CoverBrowseru"
 msgid "No book in progress"
 msgstr "Žádná rozečtená kniha"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Filtru neodpovídá žádná kniha"
 
@@ -1574,7 +1574,7 @@ msgstr "Žádná aktuální kniha"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Žádná data: zapněte doplněk Statistiky a chvíli čtěte"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1587,7 +1587,7 @@ msgstr "Žádná další nedočtená kniha"
 msgid "No previous book"
 msgstr "Žádná předchozí kniha"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "V tomto období žádné čtení"
 
@@ -2337,7 +2337,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Aktuální kniha není součástí série"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "Tato sbírka je prázdná"
 
@@ -2421,7 +2421,7 @@ msgstr "Dnes a série"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "Nejčtenější autor"
 
@@ -2476,7 +2476,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Opakování slovíček"
 
@@ -2540,7 +2540,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Už máte nejnovější verzi (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "Ten den jste nečetli"
 
@@ -2548,7 +2548,7 @@ msgstr "Ten den jste nečetli"
 msgid "You don't have any highlights yet"
 msgstr "Zatím nemáte žádná zvýraznění"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Zatím jste neotevřeli žádnou knihu"
 
@@ -2613,7 +2613,7 @@ msgstr ""
 msgid "files"
 msgstr "soubory"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "dočtená kniha"
@@ -2670,7 +2670,7 @@ msgstr "str. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "str. %1 z %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "přečtené stránky"
 
@@ -2678,7 +2678,7 @@ msgstr "přečtené stránky"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "doba čtení"
 

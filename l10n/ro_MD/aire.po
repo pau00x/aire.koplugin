@@ -68,7 +68,7 @@ msgstr[0] "acum %1 zi"
 msgstr[1] "acum %1 zile"
 msgstr[2] "acum %1 de zile"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 zi de citit"
@@ -110,11 +110,11 @@ msgstr[0] "%1 pagină citită"
 msgstr[1] "%1 pagini citite"
 msgstr[2] "%1 de pagini citite"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 pag."
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 pag./h"
 
@@ -170,7 +170,7 @@ msgstr "(curent)"
 msgid "+ Brightness"
 msgstr "+ Luminozitate"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+încă %1"
 
@@ -284,7 +284,7 @@ msgstr "Toate finalizate"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "Anual"
 
@@ -362,11 +362,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Baterie"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "Cea mai bună zi"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "Cea mai bună lună"
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -662,11 +662,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Citești acum"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "RITM ZILNIC"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "Medie zilnică"
 
@@ -682,7 +682,7 @@ msgstr "Dată"
 msgid "Date finished"
 msgstr "Data finalizării"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "Ziua %1"
 
@@ -700,16 +700,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembrie"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Șterge toate statisticile cărții"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Ștergi toate statisticile?"
 
@@ -718,11 +718,11 @@ msgstr "Ștergi toate statisticile?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Ștergi minutele din această zi?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Șterge minutele din această zi"
 
@@ -834,7 +834,7 @@ msgstr "Fără widgeturi"
 msgid "Empty collection"
 msgstr "Colecție goală"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Dosar gol"
 
@@ -1060,11 +1060,11 @@ msgstr "Grilă: %1 coloane"
 msgid "HIGHLIGHT"
 msgstr "EVIDENȚIERE"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "MOMENTE-CHEIE"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Încă nu a sosit"
 
@@ -1317,11 +1317,11 @@ msgstr "POTRIVIRE"
 msgid "MATCH %d"
 msgstr "POTRIVIRE %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "RITM LUNAR"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "CELE MAI CITITE"
 
@@ -1402,7 +1402,7 @@ msgstr "Amestecă dosarele"
 msgid "Mix series"
 msgstr "Amestecă seriile"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "Lunar"
 
@@ -1534,7 +1534,7 @@ msgstr "Nu există date CoverBrowser"
 msgid "No book in progress"
 msgstr "Nicio carte în curs"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Nicio carte nu corespunde filtrului"
 
@@ -1574,7 +1574,7 @@ msgstr "Nicio carte curentă"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Fără date: activează plugin-ul Statistici și citește puțin"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1587,7 +1587,7 @@ msgstr "Nicio carte următoare nefinalizată"
 msgid "No previous book"
 msgstr "Nicio carte anterioară"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "Nicio activitate de citire în această perioadă"
 
@@ -2337,7 +2337,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Cartea curentă nu face parte dintr-o serie"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "Această colecție este goală"
 
@@ -2421,7 +2421,7 @@ msgstr "Azi și serie"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "Autorul cel mai citit"
 
@@ -2476,7 +2476,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Recapitulare vocabular"
 
@@ -2540,7 +2540,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Ai deja cea mai recentă versiune (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "În ziua aceea nu ai citit"
 
@@ -2548,7 +2548,7 @@ msgstr "În ziua aceea nu ai citit"
 msgid "You don't have any highlights yet"
 msgstr "Încă nu ai evidențieri"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Încă nu ai deschis nicio carte"
 
@@ -2613,7 +2613,7 @@ msgstr ""
 msgid "files"
 msgstr "fișiere"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "carte finalizată"
@@ -2670,7 +2670,7 @@ msgstr "pag. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "pag. %1 din %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "pagini citite"
 
@@ -2678,7 +2678,7 @@ msgstr "pagini citite"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "timp de citire"
 

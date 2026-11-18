@@ -62,7 +62,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "fa %1 dia"
 msgstr[1] "fa %1 dies"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 dia llegint"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 pàg. llegida"
 msgstr[1] "%1 pàg. llegides"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 pàg."
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 pàg./h"
 
@@ -154,7 +154,7 @@ msgstr "(actual)"
 msgid "+ Brightness"
 msgstr "+ Lluentor"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+%1 més"
 
@@ -266,7 +266,7 @@ msgstr "Tots acabats"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "Anual"
 
@@ -344,11 +344,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Bateria"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "Millor dia"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "Millor mes"
 
@@ -469,7 +469,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -644,11 +644,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Llegint ara"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "RITME DIARI"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "Mitjana diària"
 
@@ -664,7 +664,7 @@ msgstr "Data"
 msgid "Date finished"
 msgstr "Data de finalització"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "Dia %1"
 
@@ -682,16 +682,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "de desembre"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Suprimeix totes les estadístiques del llibre"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Voleu suprimir totes les estadístiques?"
 
@@ -700,11 +700,11 @@ msgstr "Voleu suprimir totes les estadístiques?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Voleu suprimir els minuts d'aquest dia?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Suprimeix els minuts d'aquest dia"
 
@@ -816,7 +816,7 @@ msgstr "Sense ginys"
 msgid "Empty collection"
 msgstr "Col·lecció buida"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Carpeta buida"
 
@@ -1042,11 +1042,11 @@ msgstr "Graella: %1 columnes"
 msgid "HIGHLIGHT"
 msgstr "SUBRATLLAT"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "FITES"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Encara no ha arribat"
 
@@ -1299,11 +1299,11 @@ msgstr "COINCIDÈNCIA"
 msgid "MATCH %d"
 msgstr "COINCIDÈNCIA %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "RITME MENSUAL"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "MÉS LLEGITS"
 
@@ -1383,7 +1383,7 @@ msgstr "Barreja carpetes"
 msgid "Mix series"
 msgstr "Barreja sèries"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "Mensual"
 
@@ -1515,7 +1515,7 @@ msgstr "No hi ha dades de CoverBrowser"
 msgid "No book in progress"
 msgstr "Cap llibre en curs"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Cap llibre coincideix amb el filtre"
 
@@ -1555,7 +1555,7 @@ msgstr "No hi ha cap llibre actual"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Sense dades: activeu el complement Estadístiques i llegiu una mica"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1568,7 +1568,7 @@ msgstr "No hi ha cap llibre següent sense acabar"
 msgid "No previous book"
 msgstr "No hi ha cap llibre anterior"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "Cap activitat de lectura en aquest període"
 
@@ -2318,7 +2318,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "El llibre actual no forma part de cap sèrie"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "Aquesta col·lecció és buida"
 
@@ -2402,7 +2402,7 @@ msgstr "Avui i ratxa"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "Autor més llegit"
 
@@ -2457,7 +2457,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Repàs de vocabulari"
 
@@ -2520,7 +2520,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Ja tens l'última versió (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "Aquell dia no vau llegir"
 
@@ -2528,7 +2528,7 @@ msgstr "Aquell dia no vau llegir"
 msgid "You don't have any highlights yet"
 msgstr "Encara no teniu subratllats"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Encara no heu obert cap llibre"
 
@@ -2592,7 +2592,7 @@ msgstr ""
 msgid "files"
 msgstr "fitxers"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "llibre acabat"
@@ -2648,7 +2648,7 @@ msgstr "pàg. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "pàg. %1 de %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "pàgines llegides"
 
@@ -2656,7 +2656,7 @@ msgstr "pàgines llegides"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "temps llegint"
 

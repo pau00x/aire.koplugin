@@ -74,7 +74,7 @@ msgstr[1] "%1 дні тому"
 msgstr[2] "%1 днів тому"
 msgstr[3] "%1 дня тому"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 день читання"
@@ -122,11 +122,11 @@ msgstr[1] "прочитано %1 с."
 msgstr[2] "прочитано %1 с."
 msgstr[3] "прочитано %1 с."
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 с."
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 с./год"
 
@@ -186,7 +186,7 @@ msgstr "(поточний)"
 msgid "+ Brightness"
 msgstr "+ Яскравість"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+ще %1"
 
@@ -300,7 +300,7 @@ msgstr "Усі прочитано"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "За рік"
 
@@ -378,11 +378,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Акумулятор"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "Найкращий день"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "Найкращий місяць"
 
@@ -503,7 +503,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -678,11 +678,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Зараз читаю"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "РИТМ ЗА ДНЯМИ"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "У середньому за день"
 
@@ -698,7 +698,7 @@ msgstr "Дата"
 msgid "Date finished"
 msgstr "Дата прочитання"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "День %1"
 
@@ -716,16 +716,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "грудня"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Видалити всю статистику книги"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Видалити всю статистику?"
 
@@ -734,11 +734,11 @@ msgstr "Видалити всю статистику?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Видалити хвилини за цей день?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Видалити хвилини за цей день"
 
@@ -850,7 +850,7 @@ msgstr "Без віджетів"
 msgid "Empty collection"
 msgstr "Добірка порожня"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Тека порожня"
 
@@ -1076,11 +1076,11 @@ msgstr "Сітка: стовпців — %1"
 msgid "HIGHLIGHT"
 msgstr "ВИДІЛЕННЯ"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "ГОЛОВНЕ"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Ще не настав"
 
@@ -1333,11 +1333,11 @@ msgstr "ЗБІГ"
 msgid "MATCH %d"
 msgstr "ЗБІГ %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "РИТМ ЗА МІСЯЦЯМИ"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "НАЙБІЛЬШЕ ЧИТАНІ"
 
@@ -1418,7 +1418,7 @@ msgstr "Змішувати теки"
 msgid "Mix series"
 msgstr "Змішувати серії"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "За місяць"
 
@@ -1550,7 +1550,7 @@ msgstr "Немає даних CoverBrowser"
 msgid "No book in progress"
 msgstr "Немає книги, що читається"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Жодна книга не відповідає фільтру"
 
@@ -1590,7 +1590,7 @@ msgstr "Немає поточної книги"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Немає даних: увімкніть модуль «Статистика» й трохи почитайте"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1603,7 +1603,7 @@ msgstr "Немає наступної непрочитаної книги"
 msgid "No previous book"
 msgstr "Немає попередньої книги"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "За цей період читання не було"
 
@@ -2353,7 +2353,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Поточна книга не належить до серії"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "Ця добірка порожня"
 
@@ -2437,7 +2437,7 @@ msgstr "Сьогодні й дні поспіль"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "Улюблений автор"
 
@@ -2492,7 +2492,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Повторення слів"
 
@@ -2557,7 +2557,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "У вас уже остання версія (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "Цього дня ви не читали"
 
@@ -2565,7 +2565,7 @@ msgstr "Цього дня ви не читали"
 msgid "You don't have any highlights yet"
 msgstr "У вас ще немає виділень"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Ви ще не відкрили жодної книги"
 
@@ -2631,7 +2631,7 @@ msgstr ""
 msgid "files"
 msgstr "файлів"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "прочитана книга"
@@ -2689,7 +2689,7 @@ msgstr "с. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "с. %1 з %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "прочитано сторінок"
 
@@ -2697,7 +2697,7 @@ msgstr "прочитано сторінок"
 msgid "port %1"
 msgstr "порт %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "час читання"
 

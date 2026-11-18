@@ -49,6 +49,20 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
     local DotPager = package.loaded.aire_screen.Pager
     Menu._aire_dot_pager_cls = DotPager
 
+    -- Pie de los puntos (common/screen.lua): las pantallas completas sin dock
+    -- (en el lector…) dejan debajo el mismo hueco que hay hasta el dock
+    local AireScreen = package.loaded.aire_screen
+    local function wantsBottomGap(w)
+        if w._aire_has_dock or w.is_popout or w.name == "filemanager" then return false end
+        return w.covers_fullscreen or (w.dimen and w.dimen.h and w.dimen.h >= Screen:getHeight()) or false
+    end
+    local function dotsFooter(w)
+        if not w._dot_footer then w._dot_footer = AireScreen.pagerFooter(w._dot_pager, not wantsBottomGap(w)) end
+        -- El ancho de los puntos cambia con el nº de páginas: volver a medir
+        if w._dot_footer ~= w._dot_pager and w._dot_footer.resetLayout then w._dot_footer:resetLayout() end
+        return w._dot_footer
+    end
+
     local function replaceGroupWithDots(group, pager)
         if not group then return end
         for i = #group, 1, -1 do
@@ -71,8 +85,9 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
                 end,
             }
         end
-        if menu.page_info[1] ~= menu._dot_pager or #menu.page_info > 1 then
-            replaceGroupWithDots(menu.page_info, menu._dot_pager)
+        local footer = dotsFooter(menu)
+        if menu.page_info[1] ~= footer or #menu.page_info > 1 then
+            replaceGroupWithDots(menu.page_info, footer)
         else
             menu.page_info:resetLayout()
         end
@@ -230,17 +245,18 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
     local function installKeyValueDots(kvp)
         if not kvp or not kvp.page_info then return end
         if not kvp._dot_pager then
-            local h = kvp.page_info:getSize().h
-            if h <= 0 then h = Screen:scaleBySize(BAR_HEIGHT) end
+            -- Mismo alto que en el resto (antes, el del pie de KOReader, más
+            -- alto: los puntos quedaban más arriba)
             kvp._dot_pager = DotPager:new{
-                height = h,
+                height = Screen:scaleBySize(BAR_HEIGHT),
                 get_state = function()
                     return kvp.show_page or 1, kvp.pages or 1
                 end,
             }
         end
-        if kvp.page_info[1] ~= kvp._dot_pager or #kvp.page_info > 1 then
-            replaceGroupWithDots(kvp.page_info, kvp._dot_pager)
+        local footer = dotsFooter(kvp)
+        if kvp.page_info[1] ~= footer or #kvp.page_info > 1 then
+            replaceGroupWithDots(kvp.page_info, footer)
         else
             kvp.page_info:resetLayout()
         end

@@ -56,7 +56,7 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 日前"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "読書 %1 日"
@@ -86,11 +86,11 @@ msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 ページ読了"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 ページ"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 ページ/時"
 
@@ -138,7 +138,7 @@ msgstr "(現在)"
 msgid "+ Brightness"
 msgstr "輝度 +"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "他 %1 冊"
 
@@ -249,7 +249,7 @@ msgstr "すべて読了"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "年間"
 
@@ -327,11 +327,11 @@ msgstr ""
 msgid "Battery"
 msgstr "バッテリー"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "最高の日"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "最高の月"
 
@@ -452,7 +452,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -626,11 +626,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "読書中の本"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "日別の推移"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "1日の平均"
 
@@ -646,7 +646,7 @@ msgstr "日付"
 msgid "Date finished"
 msgstr "読了日"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "%1日"
 
@@ -664,16 +664,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "12月"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "この本の統計をすべて削除"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "すべての統計を削除しますか？"
 
@@ -682,11 +682,11 @@ msgstr "すべての統計を削除しますか？"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "この日の読書時間を削除しますか？"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "この日の読書時間を削除"
 
@@ -798,7 +798,7 @@ msgstr "ウィジェットなし"
 msgid "Empty collection"
 msgstr "空のコレクション"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "空のフォルダー"
 
@@ -1024,11 +1024,11 @@ msgstr "グリッド: %1 列"
 msgid "HIGHLIGHT"
 msgstr "ハイライト"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "ハイライト"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "まだ来ていない日です"
 
@@ -1280,11 +1280,11 @@ msgstr "一致"
 msgid "MATCH %d"
 msgstr "一致 %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "月別の推移"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "よく読んだ本"
 
@@ -1364,7 +1364,7 @@ msgstr "フォルダーを混在"
 msgid "Mix series"
 msgstr "シリーズを混在"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "月間"
 
@@ -1494,7 +1494,7 @@ msgstr "CoverBrowser のデータがありません"
 msgid "No book in progress"
 msgstr "読書中の本はありません"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "条件に一致する本はありません"
 
@@ -1534,7 +1534,7 @@ msgstr "現在の本はありません"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "データなし: 統計プラグインを有効にして少し読んでください"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1547,7 +1547,7 @@ msgstr "次の未読了の本はありません"
 msgid "No previous book"
 msgstr "前の本はありません"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "この期間の読書記録はありません"
 
@@ -2295,7 +2295,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "現在の本はシリーズに含まれていません"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "このコレクションは空です"
 
@@ -2379,7 +2379,7 @@ msgstr "今日と連続記録"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "よく読んだ作者"
 
@@ -2434,7 +2434,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "単語の復習"
 
@@ -2496,7 +2496,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "すでに最新バージョンです (%1)。"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "この日は読書していません"
 
@@ -2504,7 +2504,7 @@ msgstr "この日は読書していません"
 msgid "You don't have any highlights yet"
 msgstr "まだハイライトがありません"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "まだ本を開いていません"
 
@@ -2567,7 +2567,7 @@ msgstr ""
 msgid "files"
 msgstr "ファイル"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "読了した本"
@@ -2621,7 +2621,7 @@ msgstr "%1 / %2 ページ"
 msgid "p. %1 of %2"
 msgstr "%1 / %2 ページ"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "読んだページ"
 
@@ -2629,7 +2629,7 @@ msgstr "読んだページ"
 msgid "port %1"
 msgstr "ポート %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "読書時間"
 

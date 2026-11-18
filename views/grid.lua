@@ -1374,7 +1374,7 @@ return function(Aire, ctx)
 
         local dock = self:buildNavBar(w)
         local dock_area = package.loaded.aire_screen.dockReserve(dock)
-        local dots_gap = S(ctx.DOCK_GAP_ABOVE)
+        local dots_gap = S(package.loaded.aire_screen.METRICS.DOTS_GAP)
         local dots_h = S(package.loaded.aire_screen.METRICS.DOTS_H)
         local grid_h = math.max(S(60), sh - used_h - dots_gap - dots_h - dock_area)
 

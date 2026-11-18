@@ -9,6 +9,7 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 - **One header for every full screen.** Main sections show their title with a text button on the right: in Library, Collections and History the current filter and sort ("All · Recent ▾") moved up next to the title, and the counts are now the subtitle; in the file browser the current sort ("Name ▾") moved up too and the path is the subtitle. Subpages (a series or collection, Finished) show "‹ Title" and, when they have a filter or sort, a ≡ button that opens it (the current filter and sort are shown in the subtitle).
 - **Aire's ≡ icon** in every screen menu (Book map, Page browser, KOReader's collections list…) instead of KOReader's.
 - **Folder shortcuts**: the + on the right is now ≡. Tapping it opens the list options with "Add to folder shortcuts" at the top, as a bottom sheet; long-press adds a shortcut directly.
+- **Same spacing in every full screen**: the page dots sit at the same distance from the dock as in a collection, in every screen that has the dock (statistics screens, Gestures, Aire updates, Book information and other KOReader lists); screens without the dock (in the reader: Table of contents, Bookmarks…) leave that same gap down to the bottom of the screen. The Calendar subtitle uses the common subtitle row; Recap leaves the common gap below its title.
 
 ### Internal
 

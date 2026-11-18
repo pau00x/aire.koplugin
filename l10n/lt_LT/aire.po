@@ -74,7 +74,7 @@ msgstr[1] "prieš %1 dienas"
 msgstr[2] "prieš %1 dienos"
 msgstr[3] "prieš %1 dienų"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 skaitymo diena"
@@ -122,11 +122,11 @@ msgstr[1] "perskaityta %1 psl."
 msgstr[2] "perskaityta %1 psl."
 msgstr[3] "perskaityta %1 psl."
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 psl."
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 psl./val."
 
@@ -186,7 +186,7 @@ msgstr "(dabartinis)"
 msgid "+ Brightness"
 msgstr "+ Ryškumas"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+dar %1"
 
@@ -300,7 +300,7 @@ msgstr "Visos baigtos"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "Metai"
 
@@ -378,11 +378,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Baterija"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "Geriausia diena"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "Geriausias mėnuo"
 
@@ -503,7 +503,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -678,11 +678,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Dabar skaitoma"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "DIENŲ RITMAS"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "Dienos vidurkis"
 
@@ -698,7 +698,7 @@ msgstr "Data"
 msgid "Date finished"
 msgstr "Baigimo data"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "%1 diena"
 
@@ -716,16 +716,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "gruodžio"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Ištrinti visą knygos statistiką"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Ištrinti visą statistiką?"
 
@@ -734,11 +734,11 @@ msgstr "Ištrinti visą statistiką?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Ištrinti šios dienos minutes?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Ištrinti šios dienos minutes"
 
@@ -850,7 +850,7 @@ msgstr "Be valdiklių"
 msgid "Empty collection"
 msgstr "Tuščia kolekcija"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Tuščias aplankas"
 
@@ -1076,11 +1076,11 @@ msgstr "Tinklelis: %1 stulpeliai"
 msgid "HIGHLIGHT"
 msgstr "PARYŠKINIMAS"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "SVARBIAUSIA"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Dar neatėjo"
 
@@ -1333,11 +1333,11 @@ msgstr "ATITIKMUO"
 msgid "MATCH %d"
 msgstr "ATITIKMUO %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "MĖNESIŲ RITMAS"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "DAUGIAUSIA SKAITYTA"
 
@@ -1418,7 +1418,7 @@ msgstr "Maišyti aplankus"
 msgid "Mix series"
 msgstr "Maišyti serijas"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "Mėnuo"
 
@@ -1550,7 +1550,7 @@ msgstr "Nėra CoverBrowser duomenų"
 msgid "No book in progress"
 msgstr "Nėra skaitomos knygos"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Jokia knyga neatitinka filtro"
 
@@ -1590,7 +1590,7 @@ msgstr "Nėra dabartinės knygos"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Nėra duomenų: įjunkite Statistikos įskiepį ir šiek tiek paskaitykite"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1603,7 +1603,7 @@ msgstr "Nėra kitos nebaigtos knygos"
 msgid "No previous book"
 msgstr "Nėra ankstesnės knygos"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "Šiuo laikotarpiu skaitymo nėra"
 
@@ -2353,7 +2353,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Dabartinė knyga nepriklauso serijai"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "Ši kolekcija tuščia"
 
@@ -2437,7 +2437,7 @@ msgstr "Šiandien ir serija"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "Mėgstamiausias autorius"
 
@@ -2492,7 +2492,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Žodyno kartojimas"
 
@@ -2557,7 +2557,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Jau turite naujausią versiją (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "Tą dieną neskaitėte"
 
@@ -2565,7 +2565,7 @@ msgstr "Tą dieną neskaitėte"
 msgid "You don't have any highlights yet"
 msgstr "Dar neturite paryškinimų"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Dar neatvėrėte jokios knygos"
 
@@ -2631,7 +2631,7 @@ msgstr ""
 msgid "files"
 msgstr "failai"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "baigta knyga"
@@ -2689,7 +2689,7 @@ msgstr "psl. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "psl. %1 iš %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "perskaityta puslapių"
 
@@ -2697,7 +2697,7 @@ msgstr "perskaityta puslapių"
 msgid "port %1"
 msgstr "prievadas %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "skaitymo laikas"
 

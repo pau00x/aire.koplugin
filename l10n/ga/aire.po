@@ -80,7 +80,7 @@ msgstr[2] "%1 lá ó shin"
 msgstr[3] "%1 lá ó shin"
 msgstr[4] "%1 lá ó shin"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 lá ag léamh"
@@ -134,11 +134,11 @@ msgstr[2] "%1 lch. léite"
 msgstr[3] "%1 lch. léite"
 msgstr[4] "%1 lch. léite"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 lch."
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 lch./u"
 
@@ -202,7 +202,7 @@ msgstr "(reatha)"
 msgid "+ Brightness"
 msgstr "+ Gile"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+%1 eile"
 
@@ -316,7 +316,7 @@ msgstr "Gach ceann críochnaithe"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "Bliantúil"
 
@@ -394,11 +394,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Ceallra"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "An lá is fearr"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "An mhí is fearr"
 
@@ -519,7 +519,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -694,11 +694,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Á léamh anois"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "RITHIM LAETHÚIL"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "Meán laethúil"
 
@@ -714,7 +714,7 @@ msgstr "Dáta"
 msgid "Date finished"
 msgstr "Dáta críochnaithe"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "Lá %1"
 
@@ -732,16 +732,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "Nollaig"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Scrios staitisticí uile an leabhair"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Scrios na staitisticí uile?"
 
@@ -750,11 +750,11 @@ msgstr "Scrios na staitisticí uile?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Scrios nóiméid an lae seo?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Scrios nóiméid ón lá seo"
 
@@ -866,7 +866,7 @@ msgstr "Gan ghiuirléidí"
 msgid "Empty collection"
 msgstr "Bailiúchán folamh"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Fillteán folamh"
 
@@ -1092,11 +1092,11 @@ msgstr "Greille: %1 cholún"
 msgid "HIGHLIGHT"
 msgstr "BUAICPHOINTE"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "BUAICPHOINTÍ"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Níor tháinig sé fós"
 
@@ -1349,11 +1349,11 @@ msgstr "TORADH"
 msgid "MATCH %d"
 msgstr "TORADH %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "RITHIM MHÍOSÚIL"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "IS MÓ A LÉADH"
 
@@ -1434,7 +1434,7 @@ msgstr "Measc fillteáin"
 msgid "Mix series"
 msgstr "Measc sraitheanna"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "Míosúil"
 
@@ -1566,7 +1566,7 @@ msgstr "Gan sonraí CoverBrowser"
 msgid "No book in progress"
 msgstr "Níl aon leabhar ar siúl"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Níl aon leabhar ag teacht leis an scagaire"
 
@@ -1606,7 +1606,7 @@ msgstr "Níl aon leabhar reatha"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Gan sonraí: cumasaigh an breiseán Staitisticí agus léigh beagán"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1619,7 +1619,7 @@ msgstr "Níl aon chéad leabhar eile neamhchríochnaithe"
 msgid "No previous book"
 msgstr "Níl aon leabhar roimhe seo"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "Níl aon ghníomhaíocht léitheoireachta sa tréimhse seo"
 
@@ -2369,7 +2369,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Níl an leabhar reatha mar chuid de shraith"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "Tá an bailiúchán seo folamh"
 
@@ -2453,7 +2453,7 @@ msgstr "Inniu agus sraith laethanta"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "An t-údar is mó a léadh"
 
@@ -2508,7 +2508,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Athbhreithniú stór focal"
 
@@ -2574,7 +2574,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Tá an leagan is déanaí agat cheana (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "Níor léigh tú an lá sin"
 
@@ -2582,7 +2582,7 @@ msgstr "Níor léigh tú an lá sin"
 msgid "You don't have any highlights yet"
 msgstr "Níl aon bhuaicphointe agat fós"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Níor oscail tú aon leabhar fós"
 
@@ -2649,7 +2649,7 @@ msgstr ""
 msgid "files"
 msgstr "comhaid"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "leabhar críochnaithe"
@@ -2708,7 +2708,7 @@ msgstr "lch. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "lch. %1 as %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "leathanaigh léite"
 
@@ -2716,7 +2716,7 @@ msgstr "leathanaigh léite"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "am léitheoireachta"
 

@@ -62,7 +62,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "antaŭ %1 tago"
 msgstr[1] "antaŭ %1 tagoj"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 tago de legado"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 p. legita"
 msgstr[1] "%1 p. legitaj"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 p."
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 p./h"
 
@@ -154,7 +154,7 @@ msgstr "(nuna)"
 msgid "+ Brightness"
 msgstr "+ Heleco"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+%1 pli"
 
@@ -268,7 +268,7 @@ msgstr "Ĉiuj finitaj"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "Jara"
 
@@ -346,11 +346,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Baterio"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "Plej bona tago"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "Plej bona monato"
 
@@ -471,7 +471,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -646,11 +646,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Nun legata"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "ĈIUTAGA RITMO"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "Ĉiutaga mezumo"
 
@@ -666,7 +666,7 @@ msgstr "Dato"
 msgid "Date finished"
 msgstr "Dato de fino"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "Tago %1"
 
@@ -684,16 +684,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembro"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Forigi ĉiujn statistikojn de la libro"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Ĉu forigi ĉiujn statistikojn?"
 
@@ -702,11 +702,11 @@ msgstr "Ĉu forigi ĉiujn statistikojn?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Ĉu forigi la minutojn de ĉi tiu tago?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Forigi la minutojn de ĉi tiu tago"
 
@@ -818,7 +818,7 @@ msgstr "Sen fenestraĵoj"
 msgid "Empty collection"
 msgstr "Malplena kolekto"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Malplena dosierujo"
 
@@ -1044,11 +1044,11 @@ msgstr "Krado: %1 kolumnoj"
 msgid "HIGHLIGHT"
 msgstr "EMFAZO"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "ELSTARAĴOJ"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Ankoraŭ ne alvenis"
 
@@ -1301,11 +1301,11 @@ msgstr "TRAFO"
 msgid "MATCH %d"
 msgstr "TRAFO %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "MONATA RITMO"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "PLEJ LEGITAJ"
 
@@ -1386,7 +1386,7 @@ msgstr "Miksi dosierujojn"
 msgid "Mix series"
 msgstr "Miksi seriojn"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "Monata"
 
@@ -1518,7 +1518,7 @@ msgstr "Neniuj datumoj de CoverBrowser"
 msgid "No book in progress"
 msgstr "Neniu libro legata"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Neniu libro kongruas kun la filtrilo"
 
@@ -1558,7 +1558,7 @@ msgstr "Neniu nuna libro"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Neniuj datumoj: ŝaltu la kromaĵon Statistiko kaj legu iomete"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1571,7 +1571,7 @@ msgstr "Neniu sekva nefinita libro"
 msgid "No previous book"
 msgstr "Neniu antaŭa libro"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "Neniu legado en ĉi tiu periodo"
 
@@ -2321,7 +2321,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "La nuna libro ne apartenas al serio"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "Ĉi tiu kolekto estas malplena"
 
@@ -2405,7 +2405,7 @@ msgstr "Hodiaŭ kaj sinsekvo"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "Plej legita aŭtoro"
 
@@ -2460,7 +2460,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Ripeto de vortprovizo"
 
@@ -2523,7 +2523,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Vi jam havas la plej novan version (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "Vi ne legis tiun tagon"
 
@@ -2531,7 +2531,7 @@ msgstr "Vi ne legis tiun tagon"
 msgid "You don't have any highlights yet"
 msgstr "Vi ankoraŭ ne havas emfazojn"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Vi ankoraŭ ne malfermis libron"
 
@@ -2595,7 +2595,7 @@ msgstr ""
 msgid "files"
 msgstr "dosierojn"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "finita libro"
@@ -2651,7 +2651,7 @@ msgstr "p. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "p. %1 el %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "legitaj paĝoj"
 
@@ -2659,7 +2659,7 @@ msgstr "legitaj paĝoj"
 msgid "port %1"
 msgstr "pordo %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "legotempo"
 

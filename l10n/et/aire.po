@@ -62,7 +62,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "%1 päev tagasi"
 msgstr[1] "%1 päeva tagasi"
 
-#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 lugemispäev"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 lk loetud"
 msgstr[1] "%1 lk loetud"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 lk"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "%1 pp./h"
 msgstr "%1 lk/h"
 
@@ -154,7 +154,7 @@ msgstr "(praegune)"
 msgid "+ Brightness"
 msgstr "+ Eredus"
 
-#: views/stats.lua:489
+#: views/stats.lua:488
 msgid "+%1 more"
 msgstr "+%1 veel"
 
@@ -267,7 +267,7 @@ msgstr "Kõik lõpetatud"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:593
 msgid "Annual"
 msgstr "Aasta"
 
@@ -345,11 +345,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Aku"
 
-#: views/stats.lua:681
+#: views/stats.lua:682
 msgid "Best day"
 msgstr "Parim päev"
 
-#: views/stats.lua:684
+#: views/stats.lua:685
 msgid "Best month"
 msgstr "Parim kuu"
 
@@ -470,7 +470,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -644,11 +644,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Praegu loen"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "DAILY RHYTHM"
 msgstr "PÄEVARÜTM"
 
-#: views/stats.lua:676
+#: views/stats.lua:677
 msgid "Daily average"
 msgstr "Päeva keskmine"
 
@@ -664,7 +664,7 @@ msgstr "Kuupäev"
 msgid "Date finished"
 msgstr "Lõpetamise kuupäev"
 
-#: views/stats.lua:679
+#: views/stats.lua:680
 msgid "Day %1"
 msgstr "%1. päev"
 
@@ -682,16 +682,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "detsember"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:449
+#: views/stats.lua:448
 msgid "Delete all book stats"
 msgstr "Kustuta kogu raamatu statistika"
 
-#: views/stats.lua:453
+#: views/stats.lua:452
 msgid "Delete all stats?"
 msgstr "Kustutada kogu statistika?"
 
@@ -700,11 +700,11 @@ msgstr "Kustutada kogu statistika?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:436
+#: views/stats.lua:435
 msgid "Delete minutes for this day?"
 msgstr "Kustutada selle päeva minutid?"
 
-#: views/stats.lua:432
+#: views/stats.lua:431
 msgid "Delete minutes from this day"
 msgstr "Kustuta selle päeva minutid"
 
@@ -816,7 +816,7 @@ msgstr "Vidinateta"
 msgid "Empty collection"
 msgstr "Tühi kogu"
 
-#: styles/ui/pagination.lua:94
+#: styles/ui/pagination.lua:109
 msgid "Empty folder"
 msgstr "Tühi kaust"
 
@@ -1041,11 +1041,11 @@ msgstr "Ruudustik: %1 veergu"
 msgid "HIGHLIGHT"
 msgstr "ESILETÕST"
 
-#: views/stats.lua:663
+#: views/stats.lua:664
 msgid "HIGHLIGHTS"
 msgstr "TIPPHETKED"
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Pole veel saabunud"
 
@@ -1298,11 +1298,11 @@ msgstr "VASTE"
 msgid "MATCH %d"
 msgstr "VASTE %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:656
 msgid "MONTHLY RHYTHM"
 msgstr "KUURÜTM"
 
-#: views/stats.lua:693
+#: views/stats.lua:694
 msgid "MOST READ"
 msgstr "ENIM LOETUD"
 
@@ -1382,7 +1382,7 @@ msgstr "Sega kaustad"
 msgid "Mix series"
 msgstr "Sega sarjad"
 
-#: views/stats.lua:590
+#: views/stats.lua:591
 msgid "Monthly"
 msgstr "Kuu"
 
@@ -1513,7 +1513,7 @@ msgstr "CoverBrowseri andmed puuduvad"
 msgid "No book in progress"
 msgstr "Pooleliolevat raamatut pole"
 
-#: styles/ui/pagination.lua:88
+#: styles/ui/pagination.lua:103
 msgid "No book matches the filter"
 msgstr "Ükski raamat ei vasta filtrile"
 
@@ -1553,7 +1553,7 @@ msgstr "Praegust raamatut pole"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Andmed puuduvad: luba Statistika plugin ja loe veidi"
 
-#: styles/ui/pagination.lua:96
+#: styles/ui/pagination.lua:111
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1566,7 +1566,7 @@ msgstr "Järgmist lõpetamata raamatut pole"
 msgid "No previous book"
 msgstr "Eelmist raamatut pole"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:627
 msgid "No reading activity in this period"
 msgstr "Selles perioodis pole lugemistegevust"
 
@@ -2314,7 +2314,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Praegune raamat ei kuulu sarja"
 
-#: styles/ui/pagination.lua:92
+#: styles/ui/pagination.lua:107
 msgid "This collection is empty"
 msgstr "See kogu on tühi"
 
@@ -2398,7 +2398,7 @@ msgstr "Täna ja seeria"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:688
 msgid "Top author"
 msgstr "Enim loetud autor"
 
@@ -2453,7 +2453,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:462
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Sõnavara kordamine"
 
@@ -2516,7 +2516,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Sul on juba uusim versioon (%1)."
 
-#: views/stats.lua:380
+#: views/stats.lua:379
 msgid "You didn't read that day"
 msgstr "Sel päeval sa ei lugenud"
 
@@ -2524,7 +2524,7 @@ msgstr "Sel päeval sa ei lugenud"
 msgid "You don't have any highlights yet"
 msgstr "Sul pole veel esiletõstusid"
 
-#: styles/ui/pagination.lua:90
+#: styles/ui/pagination.lua:105
 msgid "You have not opened any book yet"
 msgstr "Sa pole veel ühtegi raamatut avanud"
 
@@ -2588,7 +2588,7 @@ msgstr ""
 msgid "files"
 msgstr "failid"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:644 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "lõpetatud raamat"
@@ -2643,7 +2643,7 @@ msgstr "lk %1 / %2"
 msgid "p. %1 of %2"
 msgstr "lk %1 / %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:636
 msgid "pages read"
 msgstr "loetud lehekülge"
 
@@ -2651,7 +2651,7 @@ msgstr "loetud lehekülge"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:640
 msgid "reading time"
 msgstr "lugemisaeg"
 

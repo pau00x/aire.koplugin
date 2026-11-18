@@ -297,12 +297,11 @@ return function(Aire, ctx)
         local data = loadMonth(C.year, C.month)
 
         local content = self:buildScreenTop(w, { title = _("Calendar"), on_back = function() self:showStatsView() end })
-        table.insert(content, TextWidget:new{
-            text = fmtDuration(data.secs) .. " · " .. T(_("%1 pp."), data.pages) .. " · "
-                .. T(N_("%1 day reading", "%1 days reading", data.read_days), data.read_days),
-            face = face(false, 13), fgcolor = GRAY_TEXT, max_width = w, padding = 0,
-        })
-        table.insert(content, VerticalSpan:new{ width = S(12) })
+        -- Subtítulo en la fila común (common/screen.lua)
+        table.insert(content, (package.loaded.aire_screen.subtitle(w, fmtDuration(data.secs) .. " · "
+            .. T(_("%1 pp."), data.pages) .. " · "
+            .. T(N_("%1 day reading", "%1 days reading", data.read_days), data.read_days))))
+        table.insert(content, VerticalSpan:new{ width = S(package.loaded.aire_screen.METRICS.CONTENT_GAP) })
 
         -- Mes con flechas (no se puede pasar del mes actual)
         local is_current = C.year == now.year and C.month == now.month
@@ -551,7 +550,9 @@ return function(Aire, ctx)
         local recap = loadRecap(self, mode, R.year, R.month)
 
         local content = self:buildScreenTop(w, {
-            title = _("Recap"), on_back = function() self:showStatsView() end, gap_after = 8,
+            -- Sin subtítulo: el hueco común entre la cabecera y el contenido
+            title = _("Recap"), on_back = function() self:showStatsView() end,
+            gap_after = package.loaded.aire_screen.METRICS.CONTENT_GAP,
         })
 
         -- Selector Mensual / Anual

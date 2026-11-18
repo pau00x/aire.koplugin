@@ -279,6 +279,7 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
             if dock then
                 self.covers_fullscreen = true
                 self.height = (self.height or sh) - reserve
+                self._aire_has_dock = true -- (pagination.lua: sin hueco extra bajo los puntos)
             end
             orig(self, ...)
             if dock and self[1] then
