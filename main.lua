@@ -32,7 +32,7 @@
     Aire (init, apply, cambiar de vista, ciclo de vida). El resto son "mixins"
     que añaden métodos a Aire (ver la lista al cargarlos más abajo):
       views/power.lua · topbar.lua · dock.lua · explorer.lua · home.lua
-      views/grid.lua · stats.lua · widgets.lua · menu.lua
+      views/grid.lua · stats.lua · widgets.lua · update.lua · menu.lua
     Ajustes por defecto y lectura: common/config.lua.
 --]]
 
@@ -248,6 +248,8 @@ function Aire:init()
     fm:registerPostInitCallback(function()
         UIManager:nextTick(function()
             if config.enabled then UIManager:setDirty(fm, "full") end
+            -- Restos de una actualización (aire.koplugin.old / .new)
+            if plugin.cleanupUpdateLeftovers then pcall(plugin.cleanupUpdateLeftovers, plugin) end
             -- Parches / plugins nuevos o incompatibles (common/compat.lua), una vez por sesión
             local ok, compat = pcall(dofile, PLUGIN_DIR .. "/common/compat.lua")
             if ok and type(compat) == "table" then
@@ -328,7 +330,8 @@ do
     -- El orden importa: cada uno puede usar lo que los anteriores dejan en el contexto
     for _i, file in ipairs({
         "views/power.lua", "views/topbar.lua", "views/dock.lua", "views/explorer.lua",
-        "views/home.lua", "views/grid.lua", "views/stats.lua", "views/widgets.lua", "menu.lua",
+        "views/home.lua", "views/grid.lua", "views/stats.lua", "views/widgets.lua", "views/update.lua",
+        "menu.lua",
     }) do
         local ok, mixin = pcall(dofile, PLUGIN_DIR .. "/" .. file)
         if ok and type(mixin) == "function" then

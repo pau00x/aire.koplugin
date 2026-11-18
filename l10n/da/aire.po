@@ -16,7 +16,7 @@ msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "“%1” · %2 resultat"
 msgstr[1] "“%1” · %2 resultater"
 
-#: menu.lua:271
+#: menu.lua:301
 msgid "\"Reading now\" card with light background"
 msgstr "»Læser nu«-kort med lys baggrund"
 
@@ -32,7 +32,7 @@ msgstr "%1 % (på pause)"
 msgid "%1 % read"
 msgstr "%1 % læst"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:294 views/grid.lua:326 views/grid.lua:331
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:326 views/grid.lua:331
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 bog"
@@ -44,7 +44,7 @@ msgid_plural "%1 bookmarks"
 msgstr[0] "%1 bogmærke"
 msgstr[1] "%1 bogmærker"
 
-#: views/grid.lua:494 views/grid.lua:495
+#: views/grid.lua:496 views/grid.lua:497
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 samling"
@@ -62,19 +62,19 @@ msgid_plural "%1 days ago"
 msgstr[0] "for %1 dag siden"
 msgstr[1] "for %1 dage siden"
 
-#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:708
+#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:710
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 læsedag"
 msgstr[1] "%1 læsedage"
 
-#: views/booksheet.lua:353 views/grid/books.lua:294 views/grid.lua:328
+#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:328
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 færdig"
 msgstr[1] "%1 færdige"
 
-#: views/grid.lua:577
+#: views/grid.lua:579
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 færdig bog"
@@ -92,7 +92,7 @@ msgid_plural "%1 pages left"
 msgstr[0] "%1 side tilbage"
 msgstr[1] "%1 sider tilbage"
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 side læst"
@@ -102,7 +102,7 @@ msgstr[1] "%1 sider læst"
 msgid "%1 pp."
 msgstr "%1 s."
 
-#: views/stats.lua:686
+#: views/stats.lua:688
 msgid "%1 pp./h"
 msgstr "%1 s./t"
 
@@ -154,7 +154,7 @@ msgstr "(nuværende)"
 msgid "+ Brightness"
 msgstr "+ Lysstyrke"
 
-#: views/stats.lua:528
+#: views/stats.lua:530
 msgid "+%1 more"
 msgstr "+%1 mere"
 
@@ -162,23 +162,27 @@ msgstr "+%1 mere"
 msgid "1 of 5 stars"
 msgstr "1 af 5 stjerner"
 
-#: dev/devtools.lua:553
+#: dev/devtools.lua:563
 msgid "12 of 30"
 msgstr ""
 
-#: menu.lua:337 menu.lua:463
+#: menu.lua:367 menu.lua:493
 msgid "3 columns (large covers)"
 msgstr "3 kolonner (store omslag)"
 
-#: dev/devtools.lua:721
+#: dev/devtools.lua:731
 msgid "3-button confirmation"
 msgstr ""
 
-#: menu.lua:337 menu.lua:463
+#: menu.lua:367 menu.lua:493
 msgid "4 columns"
 msgstr "4 kolonner"
 
-#: dev/devtools.lua:954
+#: views/update.lua:340
+msgid "A new version is available"
+msgstr "Der er en ny version"
+
+#: dev/devtools.lua:964
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
@@ -203,15 +207,15 @@ msgstr "Aktivitetsoversigt"
 msgid "Add note"
 msgstr ""
 
-#: dev/devtools.lua:594
+#: dev/devtools.lua:604
 msgid "Add to collection…"
 msgstr ""
 
-#: dev/devtools.lua:630 views/widgets.lua:1116
+#: dev/devtools.lua:640 views/widgets.lua:1116
 msgid "Add widget"
 msgstr "Tilføj widget"
 
-#: menu.lua:645
+#: menu.lua:695
 msgid "Advanced"
 msgstr "Avanceret"
 
@@ -219,15 +223,27 @@ msgstr "Avanceret"
 msgid "Aire"
 msgstr "Aire"
 
-#: menu.lua:619 menu.lua:635
+#: views/update.lua:276 views/update.lua:333
+msgid "Aire %1"
+msgstr "Aire %1"
+
+#: views/power.lua:159 views/update.lua:537
+msgid "Aire %1 available"
+msgstr "Aire %1 tilgængelig"
+
+#: views/update.lua:190
+msgid "Aire %1 installed"
+msgstr "Aire %1 installeret"
+
+#: menu.lua:669 menu.lua:685
 msgid "Aire warnings (crash.log)"
 msgstr "Aire-advarsler (crash.log)"
 
-#: dev/devtools.lua:706
+#: dev/devtools.lua:716
 msgid "Alarm"
 msgstr ""
 
-#: dev/devtools.lua:652 views/grid.lua:47 views/grid.lua:53
+#: dev/devtools.lua:662 views/grid.lua:47 views/grid.lua:53
 msgid "All"
 msgstr "Alle"
 
@@ -240,12 +256,12 @@ msgstr ""
 msgid "All finished"
 msgstr "Alle færdige"
 
-#: views/grid.lua:579 views/widgets.lua:441
+#: views/grid.lua:581 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:643
+#: views/stats.lua:645
 msgid "Annual"
 msgstr "Årlig"
 
@@ -253,11 +269,11 @@ msgstr "Årlig"
 msgid "Annual recap"
 msgstr "Årsoversigt"
 
-#: dev/devtools.lua:806
+#: dev/devtools.lua:816
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:685 menu.lua:301 styles/sortwidget.lua:119
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:119
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -272,27 +288,27 @@ msgctxt "aire"
 msgid "August"
 msgstr "august"
 
-#: dev/devtools.lua:516 dev/devtools.lua:606 dev/devtools.lua:656 dev/devtools.lua:822 views/grid.lua:61
+#: dev/devtools.lua:526 dev/devtools.lua:616 dev/devtools.lua:666 dev/devtools.lua:832 views/grid.lua:61
 msgid "Author"
 msgstr "Forfatter"
 
-#: menu.lua:407
+#: menu.lua:437
 msgid "Automatic collections by author"
 msgstr "Automatiske samlinger efter forfatter"
 
-#: menu.lua:415
+#: menu.lua:445
 msgid "Automatic collections by genre (keyword)"
 msgstr "Automatiske samlinger efter genre (nøgleord)"
 
-#: menu.lua:550
+#: menu.lua:580
 msgid "Automatic tests"
 msgstr "Automatiske test"
 
-#: views/grid.lua:1010
+#: views/grid.lua:1012
 msgid "Automatic: books by this author"
 msgstr "Automatisk: bøger af denne forfatter"
 
-#: dev/devtools.lua:825
+#: dev/devtools.lua:835
 msgid "Average speed"
 msgstr ""
 
@@ -318,15 +334,15 @@ msgstr "BOGMÆRKE"
 msgid "Basque"
 msgstr "Baskisk"
 
-#: dev/devtools.lua:635 views/topbar.lua:53 views/widgets.lua:502
+#: dev/devtools.lua:645 views/topbar.lua:53 views/widgets.lua:502
 msgid "Battery"
 msgstr "Batteri"
 
-#: views/stats.lua:732
+#: views/stats.lua:734
 msgid "Best day"
 msgstr "Bedste dag"
 
-#: views/stats.lua:735
+#: views/stats.lua:737
 msgid "Best month"
 msgstr "Bedste måned"
 
@@ -334,12 +350,12 @@ msgstr "Bedste måned"
 msgid "Book"
 msgstr "Bog"
 
-#: dev/devtools.lua:596 dev/devtools.lua:831
+#: dev/devtools.lua:606 dev/devtools.lua:841
 #, koreader
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:963 styles/bookmap.lua:268
+#: dev/devtools.lua:973 styles/bookmap.lua:268
 msgid "Book map"
 msgstr "Bogkort"
 
@@ -348,7 +364,7 @@ msgstr "Bogkort"
 msgid "Book marked as finished"
 msgstr ""
 
-#: dev/devtools.lua:611
+#: dev/devtools.lua:621
 msgid "Book sheet"
 msgstr ""
 
@@ -357,7 +373,7 @@ msgstr ""
 msgid "Book start date"
 msgstr ""
 
-#: dev/devtools.lua:820
+#: dev/devtools.lua:830
 msgid "Book stats"
 msgstr ""
 
@@ -365,11 +381,11 @@ msgstr ""
 msgid "Book status"
 msgstr "Bogstatus"
 
-#: dev/devtools.lua:956
+#: dev/devtools.lua:966
 msgid "Book status (empty)"
 msgstr ""
 
-#: dev/devtools.lua:949
+#: dev/devtools.lua:959
 msgid "Book status (with data)"
 msgstr ""
 
@@ -378,11 +394,11 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: dev/devtools.lua:996
+#: dev/devtools.lua:1006
 msgid "Bookmarks (empty)"
 msgstr ""
 
-#: dev/devtools.lua:979
+#: dev/devtools.lua:989
 msgid "Bookmarks (with data)"
 msgstr ""
 
@@ -390,11 +406,11 @@ msgstr ""
 msgid "Bookmarks and highlights"
 msgstr "Bogmærker og markeringer"
 
-#: dev/devtools.lua:861
+#: dev/devtools.lua:871
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:971
+#: views/grid.lua:973
 msgid "Books are not deleted, only the collection."
 msgstr "Bøgerne slettes ikke, kun samlingen."
 
@@ -420,7 +436,7 @@ msgstr "AKTUELT KAPITEL"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "AKTUELT KAPITEL · SIDE %d"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "AKTUEL SESSION"
 
@@ -432,19 +448,19 @@ msgstr "LÆSER NU"
 msgid "Calendar"
 msgstr "Kalender"
 
-#: dev/devtools.lua:896
+#: dev/devtools.lua:906
 msgid "Calendar (empty)"
 msgstr ""
 
-#: dev/devtools.lua:807
+#: dev/devtools.lua:817
 msgid "Calendar (test data)"
 msgstr ""
 
-#: dev/devtools.lua:877
+#: dev/devtools.lua:887
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:486 dev/devtools.lua:637 dev/devtools.lua:737 styles/sortwidget.lua:113 views/stats.lua:457
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:113 views/stats.lua:459
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -465,15 +481,15 @@ msgstr "Skift"
 msgid "Chapter %1 of %2"
 msgstr "Kapitel %1 af %2"
 
-#: dev/devtools.lua:985
+#: dev/devtools.lua:995
 msgid "Chapter 1"
 msgstr ""
 
-#: dev/devtools.lua:987
+#: dev/devtools.lua:997
 msgid "Chapter 7"
 msgstr ""
 
-#: dev/devtools.lua:989
+#: dev/devtools.lua:999
 msgid "Chapter 8"
 msgstr ""
 
@@ -485,7 +501,15 @@ msgstr "Opladet"
 msgid "Charging"
 msgstr "Oplader"
 
-#: menu.lua:522
+#: views/update.lua:486
+msgid "Check every week"
+msgstr "Tjek hver uge"
+
+#: views/update.lua:479
+msgid "Check for updates"
+msgstr "Søg efter opdateringer"
+
+#: menu.lua:552
 msgid "Check patches and plugins on startup"
 msgstr "Tjek patches og plugins ved opstart"
 
@@ -493,15 +517,15 @@ msgstr "Tjek patches og plugins ved opstart"
 msgid "Chinese"
 msgstr "Kinesisk"
 
-#: dev/devtools.lua:811
+#: dev/devtools.lua:821
 msgid "Classics"
 msgstr ""
 
-#: menu.lua:530
+#: menu.lua:560
 msgid "Clear cover thumbnails"
 msgstr "Ryd miniaturer af omslag"
 
-#: dev/devtools.lua:597 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
 #, koreader
 msgid "Close"
 msgstr ""
@@ -510,7 +534,7 @@ msgstr ""
 msgid "Collection"
 msgstr "Samling"
 
-#: dev/devtools.lua:510
+#: dev/devtools.lua:520
 msgid "Collection name"
 msgstr ""
 
@@ -518,12 +542,12 @@ msgstr ""
 msgid "Collection order"
 msgstr "Samlingens rækkefølge"
 
-#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1426
+#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1410
 #, koreader
 msgid "Collections"
 msgstr ""
 
-#: dev/devtools.lua:802
+#: dev/devtools.lua:812
 msgid "Collections (test data)"
 msgstr ""
 
@@ -535,7 +559,7 @@ msgstr "Samlingernes rækkefølge"
 msgid "Compatibility"
 msgstr "Kompatibilitet"
 
-#: dev/devtools.lua:643
+#: dev/devtools.lua:653
 msgid "Confirmation"
 msgstr ""
 
@@ -547,7 +571,7 @@ msgstr "Forbundet"
 msgid "Continue"
 msgstr "Fortsæt"
 
-#: dev/devtools.lua:593
+#: dev/devtools.lua:603
 msgid "Continue reading"
 msgstr ""
 
@@ -555,17 +579,25 @@ msgstr ""
 msgid "Contrast"
 msgstr "Kontrast"
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Copy"
 msgstr ""
 
-#: dev/devtools.lua:503
+#: views/update.lua:398
+msgid "Could not check for updates. Try again later."
+msgstr "Kunne ikke tjekke for opdateringer. Prøv igen senere."
+
+#: dev/devtools.lua:513
 msgid ""
 "Could not connect to the network.\n"
 "\n"
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
+
+#: views/update.lua:259
+msgid "Could not install the update. Aire %1 is still installed."
+msgstr "Kunne ikke installere opdateringen. Aire %1 er stadig installeret."
 
 #: views/widgets.lua:203
 msgid "Could not read database"
@@ -575,7 +607,7 @@ msgstr "Kunne ikke læse databasen"
 msgid "Count: %1"
 msgstr "Tæl: %1"
 
-#: menu.lua:539
+#: menu.lua:569
 msgid "Cover thumbnails cleared"
 msgstr "Miniaturer af omslag ryddet"
 
@@ -598,31 +630,31 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Læser nu"
 
-#: views/stats.lua:706
+#: views/stats.lua:708
 msgid "DAILY RHYTHM"
 msgstr "DAGLIG RYTME"
 
-#: views/stats.lua:727
+#: views/stats.lua:729
 msgid "Daily average"
 msgstr "Dagligt gennemsnit"
 
-#: dev/devtools.lua:818
+#: dev/devtools.lua:828
 msgid "Data page"
 msgstr ""
 
-#: dev/devtools.lua:696 views/grid.lua:81
+#: dev/devtools.lua:706 views/grid.lua:81
 msgid "Date"
 msgstr "Dato"
 
-#: dev/devtools.lua:699 views/grid.lua:81
+#: dev/devtools.lua:709 views/grid.lua:81
 msgid "Date finished"
 msgstr "Dato for færdiggørelse"
 
-#: views/stats.lua:730
+#: views/stats.lua:732
 msgid "Day %1"
 msgstr "Dag %1"
 
-#: dev/devtools.lua:825
+#: dev/devtools.lua:835
 msgid "Days reading"
 msgstr ""
 
@@ -636,16 +668,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "december"
 
-#: dev/devtools.lua:646 dev/devtools.lua:725 views/booksheet.lua:251 views/grid.lua:972 views/stats.lua:477
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:974 views/stats.lua:479
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:488
+#: views/stats.lua:490
 msgid "Delete all book stats"
 msgstr "Slet al statistik for bogen"
 
-#: views/stats.lua:492
+#: views/stats.lua:494
 msgid "Delete all stats?"
 msgstr "Slet al statistik?"
 
@@ -654,23 +686,23 @@ msgstr "Slet al statistik?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:475
+#: views/stats.lua:477
 msgid "Delete minutes for this day?"
 msgstr "Slet minutter for denne dag?"
 
-#: views/stats.lua:471
+#: views/stats.lua:473
 msgid "Delete minutes from this day"
 msgstr "Slet minutter fra denne dag"
 
-#: views/grid.lua:970
+#: views/grid.lua:972
 msgid "Delete the collection?"
 msgstr "Slet samlingen?"
 
-#: dev/devtools.lua:645
+#: dev/devtools.lua:655
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1021
+#: views/grid.lua:1023
 msgid "Delete…"
 msgstr "Slet…"
 
@@ -679,7 +711,7 @@ msgstr "Slet…"
 msgid "Description"
 msgstr ""
 
-#: dev/devtools.lua:530 dev/devtools.lua:536 views/widgets.lua:535 views/widgets.lua:536
+#: dev/devtools.lua:540 dev/devtools.lua:546 views/widgets.lua:535 views/widgets.lua:536
 #, koreader
 msgid "Dictionary"
 msgstr ""
@@ -692,25 +724,34 @@ msgstr "Deaktiveret"
 msgid "Disabled due to incompatibility with the Home screen:"
 msgstr "Deaktiveret pga. uforenelighed med startskærmen:"
 
-#: dev/devtools.lua:623
+#: dev/devtools.lua:633
 msgid "Disabled option"
 msgstr ""
 
-#: menu.lua:508
+#: menu.lua:538
 msgid "Dock"
 msgstr "Dock"
 
-#: dev/devtools.lua:864
+#: dev/devtools.lua:874
 msgid "Documents"
 msgstr ""
 
-#: dev/devtools.lua:627 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
+#: dev/devtools.lua:637 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
 msgid "Done"
 msgstr "Færdig"
 
-#: dev/devtools.lua:553
+#: dev/devtools.lua:563
 msgid "Downloading covers"
 msgstr ""
+
+#: views/update.lua:210
+#, koreader
+msgid "Downloading…"
+msgstr ""
+
+#: views/update.lua:234
+msgid "Downloading… %1 of %2"
+msgstr "Henter… %1 af %2"
 
 #: styles/bookinfo.lua:198
 msgid "Dutch"
@@ -720,15 +761,15 @@ msgstr "Hollandsk"
 msgid "EDITING WIDGETS"
 msgstr "REDIGERER WIDGETS"
 
-#: dev/devtools.lua:515 dev/devtools.lua:762
+#: dev/devtools.lua:525 dev/devtools.lua:772
 msgid "Edgedancer"
 msgstr ""
 
-#: menu.lua:283
+#: menu.lua:313
 msgid "Edit Home widgets"
 msgstr "Rediger Hjem-widgets"
 
-#: dev/devtools.lua:513
+#: dev/devtools.lua:523
 msgid "Edit metadata"
 msgstr ""
 
@@ -755,7 +796,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Ingen widgets"
 
-#: views/grid.lua:471
+#: views/grid.lua:473
 msgid "Empty collection"
 msgstr "Tom samling"
 
@@ -775,7 +816,7 @@ msgstr "Aktiveret"
 msgid "English"
 msgstr "Engelsk"
 
-#: dev/devtools.lua:510
+#: dev/devtools.lua:520
 msgid "Epic fantasy"
 msgstr ""
 
@@ -793,7 +834,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Alt, hvad pluginnet tegner, med opdigtede data. Stryg ← → for at bladre; tryk udenfor eller på siden for at afslutte."
 
-#: views/power.lua:177
+#: views/power.lua:222
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -802,11 +843,11 @@ msgstr ""
 msgid "FILE"
 msgstr "FIL"
 
-#: views/grid.lua:796
+#: views/grid.lua:798
 msgid "FILTER"
 msgstr "FILTRER"
 
-#: dev/devtools.lua:811 dev/devtools.lua:862
+#: dev/devtools.lua:821 dev/devtools.lua:872
 #, koreader
 msgid "Fantasy"
 msgstr ""
@@ -815,7 +856,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Foretrukne mapper"
 
-#: dev/devtools.lua:811 views/grid.lua:350 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:350 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -825,7 +866,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "februar"
 
-#: menu.lua:487 views/dock.lua:275
+#: menu.lua:517 views/dock.lua:275
 msgid "File browser"
 msgstr "Filbrowser"
 
@@ -839,15 +880,15 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:740
+#: views/grid.lua:742
 msgid "Filter"
 msgstr "Filtrer"
 
-#: dev/devtools.lua:649 views/grid.lua:739
+#: dev/devtools.lua:659 views/grid.lua:741
 msgid "Filter and sort"
 msgstr "Filtrer og sortér"
 
-#: dev/devtools.lua:653
+#: dev/devtools.lua:663
 msgid "Finished"
 msgstr ""
 
@@ -856,11 +897,11 @@ msgctxt "aire"
 msgid "Finished"
 msgstr "Færdig"
 
-#: dev/devtools.lua:808
+#: dev/devtools.lua:818
 msgid "Finished (test data)"
 msgstr ""
 
-#: menu.lua:401
+#: menu.lua:431
 msgid "Finished books in gray"
 msgstr "Færdige bøger i gråt"
 
@@ -872,15 +913,15 @@ msgstr "Tilpas"
 msgid "Floating windows"
 msgstr "Flydende vinduer"
 
-#: menu.lua:395
+#: menu.lua:425
 msgid "Folded corner on started books"
 msgstr "Bøjet hjørne på påbegyndte bøger"
 
-#: dev/devtools.lua:869
+#: dev/devtools.lua:879
 msgid "Folder shortcuts (empty)"
 msgstr ""
 
-#: dev/devtools.lua:856
+#: dev/devtools.lua:866
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
@@ -893,11 +934,11 @@ msgstr ""
 msgid "Folders"
 msgstr "Mapper"
 
-#: dev/devtools.lua:669
+#: dev/devtools.lua:679
 msgid "Font (status bar)"
 msgstr ""
 
-#: dev/devtools.lua:683
+#: dev/devtools.lua:693
 msgid "Font size"
 msgstr ""
 
@@ -965,7 +1006,7 @@ msgstr "Op"
 msgid "Got it"
 msgstr "Forstået"
 
-#: menu.lua:354 menu.lua:498
+#: menu.lua:384 menu.lua:528
 msgid "Grid: %1 columns"
 msgstr "Gitter: %1 kolonner"
 
@@ -973,29 +1014,29 @@ msgstr "Gitter: %1 kolonner"
 msgid "HIGHLIGHT"
 msgstr "MARKERING"
 
-#: views/stats.lua:714
+#: views/stats.lua:716
 msgid "HIGHLIGHTS"
 msgstr "HØJDEPUNKTER"
 
-#: views/stats.lua:419
+#: views/stats.lua:421
 msgid "Hasn't arrived yet"
 msgstr "Er ikke kommet endnu"
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:47 views/grid.lua:1427
+#: views/dock.lua:47 views/grid.lua:1411
 #, koreader
 msgid "History"
 msgstr ""
 
-#: dev/devtools.lua:803
+#: dev/devtools.lua:813
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:615
+#: views/grid.lua:617
 msgid "History is empty"
 msgstr "Historikken er tom"
 
@@ -1007,16 +1048,16 @@ msgstr "Langt tryk gør det samme som tryk"
 msgid "Hold to configure"
 msgstr "Langt tryk for at indstille"
 
-#: dev/devtools.lua:662 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
+#: dev/devtools.lua:672 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
 #, koreader
 msgid "Home"
 msgstr ""
 
-#: dev/devtools.lua:800
+#: dev/devtools.lua:810
 msgid "Home (test data)"
 msgstr ""
 
-#: menu.lua:262
+#: menu.lua:292
 msgid "Home and widgets"
 msgstr "Hjem og widgets"
 
@@ -1028,37 +1069,53 @@ msgstr "Startskærm med den aktuelle bog, widgets, bibliotek, samlinger, histori
 msgid "Home widgets"
 msgstr "Hjem-widgets"
 
-#: dev/devtools.lua:714
+#: dev/devtools.lua:724
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:852 styles/imageviewer.lua:43
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "Billede"
 
-#: dev/devtools.lua:835
+#: dev/devtools.lua:845
 msgid "Image / cover viewer"
 msgstr ""
 
-#: menu.lua:408
+#: menu.lua:438
 msgid "In Collections, a collection appears for each author with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "I Samlinger vises en samling for hver forfatter med 2 eller flere bøger. De opdateres automatisk og gemmes ikke i KOReaders samlinger."
 
-#: menu.lua:416
+#: menu.lua:446
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "I Samlinger vises en samling for hvert nøgleord med 2 eller flere bøger. De opdateres automatisk og gemmes ikke i KOReaders samlinger."
 
-#: dev/devtools.lua:621 views/home.lua:213 views/widgets.lua:1154
+#: views/update.lua:495
+msgid "Include beta versions"
+msgstr "Medtag betaversioner"
+
+#: views/update.lua:514
+msgid "Installed version: %1"
+msgstr "Installeret version: %1"
+
+#: views/update.lua:246
+msgid "Installing…"
+msgstr "Installerer…"
+
+#: dev/devtools.lua:631 views/home.lua:213 views/widgets.lua:1154
 msgid "Inverted colors"
 msgstr "Inverterede farver"
 
-#: dev/devtools.lua:716
+#: dev/devtools.lua:726
 msgid "Inverted horizontal"
 msgstr ""
 
-#: dev/devtools.lua:715
+#: dev/devtools.lua:725
 msgid "Inverted portrait"
 msgstr ""
+
+#: views/update.lua:193
+msgid "It will be used after restarting KOReader. Your settings are kept."
+msgstr "Den bruges, når KOReader genstartes. Dine indstillinger bevares."
 
 #: styles/bookinfo.lua:198
 msgid "Italian"
@@ -1083,12 +1140,12 @@ msgctxt "aire"
 msgid "June"
 msgstr "juni"
 
-#: views/power.lua:176
+#: views/power.lua:221
 #, koreader
 msgid "KOReader"
 msgstr ""
 
-#: dev/devtools.lua:734
+#: dev/devtools.lua:744
 msgid "KOReader engine (crengine)"
 msgstr ""
 
@@ -1096,7 +1153,7 @@ msgstr ""
 msgid "Korean"
 msgstr "Koreansk"
 
-#: dev/devtools.lua:583
+#: dev/devtools.lua:593
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
@@ -1104,7 +1161,7 @@ msgstr ""
 msgid "LAST 7 DAYS"
 msgstr "SIDSTE 7 DAGE"
 
-#: menu.lua:512
+#: menu.lua:542
 msgid "Labels under icons"
 msgstr "Navne under ikoner"
 
@@ -1112,7 +1169,7 @@ msgstr "Navne under ikoner"
 msgid "Large (also occupies the right cell)"
 msgstr "Stor (optager også cellen til højre)"
 
-#: menu.lua:266
+#: menu.lua:296
 msgid "Large clock and date"
 msgstr "Stort ur og dato"
 
@@ -1124,15 +1181,19 @@ msgstr "Stor · lille · lille inverteret — stryg ← →, tryk for at afslutt
 msgid "Last"
 msgstr "Sidst"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:121
 msgid "Last 7 days summary"
 msgstr "Oversigt over de sidste 7 dage"
 
-#: dev/devtools.lua:827 views/grid.lua:87
+#: views/update.lua:507
+msgid "Last check: %1"
+msgstr "Sidste tjek: %1"
+
+#: dev/devtools.lua:837 views/grid.lua:87
 msgid "Last read"
 msgstr "Senest læst"
 
-#: common/compat.lua:171
+#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
 msgid "Later"
 msgstr "Senere"
 
@@ -1144,20 +1205,20 @@ msgstr "Latin"
 msgid "Layout"
 msgstr "Layout"
 
-#: dev/devtools.lua:691
+#: dev/devtools.lua:701
 #, koreader
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:663 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1425
+#: dev/devtools.lua:673 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1409
 msgid "Library"
 msgstr "Bibliotek"
 
-#: dev/devtools.lua:801
+#: dev/devtools.lua:811
 msgid "Library (test data)"
 msgstr ""
 
-#: menu.lua:349
+#: menu.lua:379
 msgid "Library and covers"
 msgstr "Bibliotek og omslag"
 
@@ -1165,11 +1226,11 @@ msgstr "Bibliotek og omslag"
 msgid "Library is empty"
 msgstr "Biblioteket er tomt"
 
-#: menu.lua:531
+#: menu.lua:561
 msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
 msgstr "Bibliotek, Samlinger og Historik gemmer små kopier af omslagene for at åbne hurtigere. Ryd dem, hvis et omslag ikke opdateres."
 
-#: dev/devtools.lua:634 dev/devtools.lua:678 views/widgets.lua:451
+#: dev/devtools.lua:644 dev/devtools.lua:688 views/widgets.lua:451
 msgid "Light"
 msgstr "Lys"
 
@@ -1177,15 +1238,15 @@ msgstr "Lys"
 msgid "Light level"
 msgstr "Lysniveau"
 
-#: menu.lua:433
+#: menu.lua:463
 msgid "List with covers"
 msgstr "Liste med omslag"
 
-#: menu.lua:435
+#: menu.lua:465
 msgid "List with filenames"
 msgstr "Liste med filnavne"
 
-#: menu.lua:434
+#: menu.lua:464
 msgid "List without covers"
 msgstr "Liste uden omslag"
 
@@ -1193,7 +1254,7 @@ msgstr "Liste uden omslag"
 msgid "Loading month…"
 msgstr "Indlæser måned…"
 
-#: dev/devtools.lua:501
+#: dev/devtools.lua:511
 msgid "Long message"
 msgstr ""
 
@@ -1205,11 +1266,11 @@ msgstr "MATCH"
 msgid "MATCH %d"
 msgstr "MATCH %d"
 
-#: views/stats.lua:706
+#: views/stats.lua:708
 msgid "MONTHLY RHYTHM"
 msgstr "MÅNEDLIG RYTME"
 
-#: views/stats.lua:744
+#: views/stats.lua:746
 msgid "MOST READ"
 msgstr "MEST LÆSTE"
 
@@ -1222,7 +1283,7 @@ msgctxt "aire"
 msgid "March"
 msgstr "marts"
 
-#: dev/devtools.lua:690 styles/ui/readermenu.lua:53
+#: dev/devtools.lua:700 styles/ui/readermenu.lua:53
 msgid "Margins"
 msgstr "Margener"
 
@@ -1234,19 +1295,19 @@ msgstr "Markér"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Markér alle bøger i »%1« som læses?"
 
-#: views/grid.lua:1058
+#: views/grid.lua:1060
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Markér alle bøger i samlingen »%1« som læses?"
 
-#: dev/devtools.lua:594
+#: dev/devtools.lua:604
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1056
+#: views/grid.lua:1058
 msgid "Mark entire collection as finished"
 msgstr "Markér hele samlingen som færdig"
 
-#: views/grid.lua:1057
+#: views/grid.lua:1059
 msgid "Mark entire collection as reading"
 msgstr "Markér hele samlingen som læses"
 
@@ -1267,7 +1328,7 @@ msgstr "maj"
 msgid "Memory used"
 msgstr "Brugt hukommelse"
 
-#: dev/devtools.lua:520
+#: dev/devtools.lua:530
 msgid "Menu next to text"
 msgstr ""
 
@@ -1285,11 +1346,11 @@ msgstr "Minimal"
 msgid "Mix folders"
 msgstr "Bland mapper"
 
-#: views/grid.lua:817
+#: views/grid.lua:819
 msgid "Mix series"
 msgstr "Bland serier"
 
-#: views/stats.lua:641
+#: views/stats.lua:643
 msgid "Monthly"
 msgstr "Månedlig"
 
@@ -1297,7 +1358,7 @@ msgstr "Månedlig"
 msgid "Monthly recap"
 msgstr "Månedsoversigt"
 
-#: dev/devtools.lua:805
+#: dev/devtools.lua:815
 msgid "Monthly recap (test data)"
 msgstr ""
 
@@ -1313,20 +1374,20 @@ msgstr "Flere muligheder…"
 msgid "More settings"
 msgstr "Flere indstillinger"
 
-#: dev/devtools.lua:531
+#: dev/devtools.lua:541
 msgid "More…"
 msgstr ""
 
-#: menu.lua:432
+#: menu.lua:462
 msgid "Mosaic with covers"
 msgstr "Mosaik med omslag"
 
-#: dev/devtools.lua:726
+#: dev/devtools.lua:736
 #, koreader
 msgid "Move"
 msgstr ""
 
-#: dev/devtools.lua:512
+#: dev/devtools.lua:522
 msgid "Multiple fields"
 msgstr ""
 
@@ -1359,11 +1420,11 @@ msgstr "Navn"
 msgid "Name:"
 msgstr "Navn:"
 
-#: dev/devtools.lua:665
+#: dev/devtools.lua:675
 msgid "Neighbor"
 msgstr ""
 
-#: dev/devtools.lua:653 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
+#: dev/devtools.lua:663 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
 msgid "New"
 msgstr "Ny"
 
@@ -1372,12 +1433,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Ny"
 
-#: views/grid.lua:490
+#: views/grid.lua:492
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:1014 views/grid.lua:1027
 msgid "New collection…"
 msgstr "Ny samling…"
 
@@ -1393,7 +1454,7 @@ msgstr "Næste"
 msgid "Next %1"
 msgstr "Næste %1"
 
-#: menu.lua:585
+#: menu.lua:615
 msgid "Next batch of test widgets"
 msgstr "Næste sæt testwidgets"
 
@@ -1402,7 +1463,7 @@ msgstr "Næste sæt testwidgets"
 msgid "Next chapter"
 msgstr ""
 
-#: dev/devtools.lua:632 views/widgets.lua:284
+#: dev/devtools.lua:642 views/widgets.lua:284
 msgid "Next in series"
 msgstr "Næste i serien"
 
@@ -1422,11 +1483,11 @@ msgstr "Ingen bog i gang"
 msgid "No book matches the filter"
 msgstr "Ingen bøger matcher filteret"
 
-#: views/grid.lua:583
+#: views/grid.lua:585
 msgid "No books finished this month"
 msgstr "Ingen bøger færdige denne måned"
 
-#: views/grid.lua:583
+#: views/grid.lua:585
 msgid "No books finished this year"
 msgstr "Ingen bøger færdige i år"
 
@@ -1434,7 +1495,7 @@ msgstr "Ingen bøger færdige i år"
 msgid "No books in home folder"
 msgstr "Ingen bøger i hjemmemappen"
 
-#: views/grid.lua:338 views/grid.lua:471 views/grid.lua:615
+#: views/grid.lua:338 views/grid.lua:473 views/grid.lua:617
 msgid "No books with this filter"
 msgstr "Ingen bøger med dette filter"
 
@@ -1442,11 +1503,11 @@ msgstr "Ingen bøger med dette filter"
 msgid "No chapter"
 msgstr "Intet kapitel"
 
-#: views/grid.lua:498
+#: views/grid.lua:500
 msgid "No collections"
 msgstr "Ingen samlinger"
 
-#: views/grid.lua:498
+#: views/grid.lua:500
 msgid "No collections with this filter"
 msgstr "Ingen samlinger med dette filter"
 
@@ -1470,7 +1531,7 @@ msgstr "Ingen næste ufærdige bog"
 msgid "No previous book"
 msgstr "Ingen forrige bog"
 
-#: styles/statspages.lua:365 views/stats.lua:677
+#: styles/statspages.lua:365 views/stats.lua:679
 msgid "No reading activity in this period"
 msgstr "Ingen læseaktivitet i denne periode"
 
@@ -1506,7 +1567,7 @@ msgstr "Ikke bedømt"
 msgid "Not started"
 msgstr "Ikke påbegyndt"
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Note"
 msgstr ""
@@ -1526,7 +1587,7 @@ msgctxt "aire"
 msgid "November"
 msgstr "november"
 
-#: dev/devtools.lua:681
+#: dev/devtools.lua:691
 msgid "Number"
 msgstr ""
 
@@ -1534,7 +1595,7 @@ msgstr ""
 msgid "Number in series"
 msgstr "Nummer i serien"
 
-#: dev/devtools.lua:487 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
+#: dev/devtools.lua:497 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
 #, koreader
 msgid "OK"
 msgstr ""
@@ -1549,7 +1610,7 @@ msgstr "oktober"
 msgid "Off"
 msgstr ""
 
-#: dev/devtools.lua:639 views/widgets.lua:457 views/widgets.lua:470
+#: dev/devtools.lua:649 views/widgets.lua:457 views/widgets.lua:470
 msgid "On"
 msgstr "Til"
 
@@ -1558,20 +1619,24 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "På pause"
 
-#: dev/devtools.lua:738
+#: views/update.lua:487
+msgid "Only when Wi-Fi is already on: Aire never turns it on."
+msgstr "Kun når wi-fi allerede er tændt: Aire tænder det aldrig."
+
+#: dev/devtools.lua:748
 #, koreader
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:1057
 msgid "Open collection"
 msgstr "Åbn samling"
 
-#: dev/devtools.lua:624
+#: dev/devtools.lua:634
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:1057
 msgid "Open series"
 msgstr "Åbn serie"
 
@@ -1579,7 +1644,7 @@ msgstr "Åbn serie"
 msgid "Open series folder"
 msgstr "Åbn seriens mappe"
 
-#: dev/devtools.lua:730 dev/devtools.lua:732
+#: dev/devtools.lua:740 dev/devtools.lua:742
 #, koreader
 msgid "Open with…"
 msgstr ""
@@ -1588,15 +1653,15 @@ msgstr ""
 msgid "Opening \"%1\"…"
 msgstr "Åbner »%1«…"
 
-#: dev/devtools.lua:709
+#: dev/devtools.lua:719
 msgid "Options list"
 msgstr ""
 
-#: dev/devtools.lua:589
+#: dev/devtools.lua:599
 msgid "Options menu"
 msgstr ""
 
-#: dev/devtools.lua:711 styles/ui/readermenu.lua:52
+#: dev/devtools.lua:721 styles/ui/readermenu.lua:52
 msgid "Orientation"
 msgstr "Orientering"
 
@@ -1604,11 +1669,11 @@ msgstr "Orientering"
 msgid "Original size"
 msgstr "Original størrelse"
 
-#: menu.lua:272
+#: menu.lua:302
 msgid "Otherwise, the current book card is black with white text."
 msgstr "Ellers er kortet for den aktuelle bog sort med hvid tekst."
 
-#: dev/devtools.lua:735
+#: dev/devtools.lua:745
 msgid "PDF engine (MuPDF)"
 msgstr ""
 
@@ -1621,7 +1686,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "Side %1 / %2"
 
-#: dev/devtools.lua:966 styles/pagebrowser.lua:285
+#: dev/devtools.lua:976 styles/pagebrowser.lua:285
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1630,7 +1695,7 @@ msgstr ""
 msgid "Page fit"
 msgstr "Sidetilpasning"
 
-#: dev/devtools.lua:824 styles/statspages.lua:83
+#: dev/devtools.lua:834 styles/statspages.lua:83
 #, koreader
 msgid "Pages read"
 msgstr ""
@@ -1645,15 +1710,15 @@ msgstr ""
 msgid "Pages read today"
 msgstr ""
 
-#: dev/devtools.lua:629
+#: dev/devtools.lua:639
 msgid "Plugin sheet (2 columns)"
 msgstr ""
 
-#: dev/devtools.lua:617
+#: dev/devtools.lua:627
 msgid "Plugin sheet (options)"
 msgstr ""
 
-#: dev/devtools.lua:713
+#: dev/devtools.lua:723
 #, koreader
 msgid "Portrait"
 msgstr ""
@@ -1662,7 +1727,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr "Portugisisk"
 
-#: views/power.lua:134
+#: views/power.lua:179
 msgid "Power off"
 msgstr "Sluk"
 
@@ -1679,11 +1744,11 @@ msgstr "Forrige bog"
 msgid "Previous chapter"
 msgstr ""
 
-#: dev/devtools.lua:551 dev/devtools.lua:607 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
+#: dev/devtools.lua:561 dev/devtools.lua:617 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
 msgid "Progress"
 msgstr "Fremskridt"
 
-#: dev/devtools.lua:546
+#: dev/devtools.lua:556
 msgid "QR code"
 msgstr ""
 
@@ -1696,7 +1761,7 @@ msgctxt "aire"
 msgid "Quick actions"
 msgstr "Hurtige handlinger"
 
-#: dev/devtools.lua:633
+#: dev/devtools.lua:643
 msgid "Quote"
 msgstr ""
 
@@ -1732,7 +1797,7 @@ msgstr "ANMELDELSE / NOTER"
 msgid "Random"
 msgstr "Tilfældig"
 
-#: dev/devtools.lua:633 views/widgets.lua:320
+#: dev/devtools.lua:643 views/widgets.lua:320
 msgid "Random book"
 msgstr "Tilfældig bog"
 
@@ -1754,11 +1819,11 @@ msgstr "Læsenedtælling"
 msgid "Reader"
 msgstr ""
 
-#: dev/devtools.lua:674
+#: dev/devtools.lua:684
 msgid "Reader bottom menu"
 msgstr ""
 
-#: dev/devtools.lua:652
+#: dev/devtools.lua:662
 msgid "Reading"
 msgstr ""
 
@@ -1767,35 +1832,35 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "Læser"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 msgid "Reading progress"
 msgstr "Læsefremskridt"
 
-#: dev/devtools.lua:906
+#: dev/devtools.lua:916
 msgid "Reading progress (empty)"
 msgstr ""
 
-#: dev/devtools.lua:903
+#: dev/devtools.lua:913
 msgid "Reading progress (with data)"
 msgstr ""
 
-#: dev/devtools.lua:824
+#: dev/devtools.lua:834
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:605
+#: views/stats.lua:607
 msgid "Recap"
 msgstr "Oversigt"
 
-#: dev/devtools.lua:656 views/grid.lua:64
+#: dev/devtools.lua:666 views/grid.lua:64
 msgid "Recent"
 msgstr "Seneste"
 
-#: dev/devtools.lua:607 views/grid.lua:64 views/widgets.lua:341
+#: dev/devtools.lua:617 views/grid.lua:64 views/widgets.lua:341
 msgid "Recently added"
 msgstr "Senest tilføjet"
 
-#: dev/devtools.lua:606
+#: dev/devtools.lua:616
 msgid "Recently read"
 msgstr ""
 
@@ -1803,7 +1868,7 @@ msgstr ""
 msgid "Refresh"
 msgstr "Opdater"
 
-#: dev/devtools.lua:626 styles/bookmark.lua:405
+#: dev/devtools.lua:636 styles/bookmark.lua:405
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1818,12 +1883,12 @@ msgstr "Fjern"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:504
+#: views/booksheet.lua:592 views/grid.lua:506
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Fjern fra samling"
 
-#: views/booksheet.lua:556 views/grid.lua:620
+#: views/booksheet.lua:556 views/grid.lua:622
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1838,25 +1903,25 @@ msgstr ""
 msgid "Remove this bookmark?"
 msgstr ""
 
-#: dev/devtools.lua:509
+#: dev/devtools.lua:519
 #, koreader
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1019
+#: views/grid.lua:1021
 msgid "Rename…"
 msgstr "Omdøb…"
 
-#: menu.lua:300
+#: menu.lua:330
 msgid "Replace the Home widgets with the \"%1\" preset?"
 msgstr "Erstat widgets på startskærmen med forudindstillingen \"%1\"?"
 
-#: dev/devtools.lua:596
+#: dev/devtools.lua:606
 #, koreader
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:175
+#: views/power.lua:220
 #, koreader
 msgid "Restart"
 msgstr ""
@@ -1869,7 +1934,15 @@ msgstr "Genstart KOReader"
 msgid "Restart KOReader for the change to take effect."
 msgstr "Genstart KOReader, for at ændringen træder i kraft."
 
-#: views/explorer.lua:126 views/grid.lua:811
+#: views/update.lua:194
+msgid "Restart KOReader to use it. Your settings are kept."
+msgstr "Genstart KOReader for at bruge den. Dine indstillinger bevares."
+
+#: views/update.lua:183
+msgid "Restart now"
+msgstr "Genstart nu"
+
+#: views/explorer.lua:126 views/grid.lua:813
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -1879,7 +1952,7 @@ msgstr ""
 msgid "Review:"
 msgstr ""
 
-#: dev/devtools.lua:692
+#: dev/devtools.lua:702
 #, koreader
 msgid "Right"
 msgstr ""
@@ -1892,7 +1965,7 @@ msgstr "Rotér"
 msgid "Russian"
 msgstr "Russisk"
 
-#: views/grid.lua:806
+#: views/grid.lua:808
 msgid "SORT BY"
 msgstr "SORTÉR EFTER"
 
@@ -1904,16 +1977,16 @@ msgstr "SSH"
 msgid "SSH server"
 msgstr "SSH-server"
 
-#: dev/devtools.lua:510 dev/devtools.lua:513 dev/devtools.lua:700
+#: dev/devtools.lua:520 dev/devtools.lua:523 dev/devtools.lua:710
 #, koreader
 msgid "Save"
 msgstr ""
 
-#: dev/devtools.lua:499
+#: dev/devtools.lua:509
 msgid "Saved"
 msgstr ""
 
-#: dev/devtools.lua:811 dev/devtools.lua:863
+#: dev/devtools.lua:821 dev/devtools.lua:873
 msgid "Science Fiction"
 msgstr ""
 
@@ -1921,29 +1994,33 @@ msgstr ""
 msgid "Screenshot"
 msgstr "Skærmbillede"
 
-#: dev/devtools.lua:506 dev/devtools.lua:507 dev/devtools.lua:530 views/dock.lua:56 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:56 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
 
-#: dev/devtools.lua:507
+#: dev/devtools.lua:517
 msgid "Search library"
 msgstr ""
 
-#: dev/devtools.lua:1022
+#: dev/devtools.lua:1032
 msgid "Search results (empty)"
 msgstr ""
 
-#: dev/devtools.lua:1005
+#: dev/devtools.lua:1015
 msgid "Search results (with data)"
 msgstr ""
+
+#: views/update.lua:354
+msgid "See all changes"
+msgstr "Se alle ændringer"
 
 #: views/topbar.lua:103
 msgctxt "aire"
 msgid "September"
 msgstr "september"
 
-#: dev/devtools.lua:517 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 msgid "Series"
 msgstr "Serie"
 
@@ -1951,11 +2028,11 @@ msgstr "Serie"
 msgid "Series name"
 msgstr "Seriens navn"
 
-#: menu.lua:374
+#: menu.lua:404
 msgid "Series number on covers"
 msgstr "Serienummer på omslag"
 
-#: dev/devtools.lua:706
+#: dev/devtools.lua:716
 msgid "Set alarm"
 msgstr ""
 
@@ -1963,11 +2040,16 @@ msgstr ""
 msgid "Set font"
 msgstr "Brug skrifttype"
 
-#: dev/devtools.lua:531
+#: views/update.lua:483
+#, koreader
+msgid "Settings"
+msgstr ""
+
+#: dev/devtools.lua:541
 msgid "Share"
 msgstr ""
 
-#: dev/devtools.lua:498
+#: dev/devtools.lua:508
 msgid "Short message"
 msgstr ""
 
@@ -1976,12 +2058,12 @@ msgstr ""
 msgid "Show all files from subfolders"
 msgstr ""
 
-#: menu.lua:53 menu.lua:381
+#: menu.lua:53 menu.lua:411
 #, koreader
 msgid "Show collection mark"
 msgstr ""
 
-#: menu.lua:607
+#: menu.lua:637
 msgid "Show dimensions of each book / series"
 msgstr "Vis mål for hver bog / serie"
 
@@ -2000,7 +2082,7 @@ msgstr ""
 msgid "Show progress in mosaic mode"
 msgstr ""
 
-#: dev/devtools.lua:622 views/home.lua:215
+#: dev/devtools.lua:632 views/home.lua:215
 msgid "Show synopsis"
 msgstr "Vis resumé"
 
@@ -2009,16 +2091,20 @@ msgstr "Vis resumé"
 msgid "Size:"
 msgstr ""
 
-#: views/power.lua:133
+#: views/update.lua:371
+msgid "Skip"
+msgstr "Spring over"
+
+#: views/power.lua:178
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Dvale"
 
-#: dev/devtools.lua:655 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
+#: dev/devtools.lua:665 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
 msgid "Smart"
 msgstr "Smart"
 
-#: dev/devtools.lua:605
+#: dev/devtools.lua:615
 msgid "Smart  (current)"
 msgstr ""
 
@@ -2026,24 +2112,24 @@ msgstr ""
 msgid "Sort"
 msgstr "Sortér"
 
-#: dev/devtools.lua:601
+#: dev/devtools.lua:611
 msgid "Sort (2 columns)"
 msgstr ""
 
-#: dev/devtools.lua:809
+#: dev/devtools.lua:819
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:603 views/grid.lua:740
+#: dev/devtools.lua:613 views/grid.lua:742
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:815 views/grid.lua:990
+#: dev/devtools.lua:825 views/grid.lua:992
 msgid "Sort collections"
 msgstr "Sortér samlinger"
 
-#: views/grid.lua:1013 views/grid.lua:1026
+#: views/grid.lua:1015 views/grid.lua:1028
 msgid "Sort collections…"
 msgstr "Sortér samlinger…"
 
@@ -2055,7 +2141,7 @@ msgstr "Sortér filer"
 msgid "Spanish"
 msgstr "Spansk"
 
-#: menu.lua:360
+#: menu.lua:390
 msgid "Square covers and series"
 msgstr "Kvadratiske omslag og serier"
 
@@ -2063,7 +2149,7 @@ msgstr "Kvadratiske omslag og serier"
 msgid "Start"
 msgstr "Start"
 
-#: dev/devtools.lua:827
+#: dev/devtools.lua:837
 msgid "Started"
 msgstr ""
 
@@ -2071,15 +2157,15 @@ msgstr ""
 msgid "Stats"
 msgstr "Statistik"
 
-#: dev/devtools.lua:804
+#: dev/devtools.lua:814
 msgid "Stats (test data)"
 msgstr ""
 
-#: dev/devtools.lua:671
+#: dev/devtools.lua:681
 msgid "Status bar font"
 msgstr ""
 
-#: dev/devtools.lua:635 views/widgets.lua:514
+#: dev/devtools.lua:645 views/widgets.lua:514
 msgid "Storage"
 msgstr "Lager"
 
@@ -2091,19 +2177,19 @@ msgstr "Byt om på tryk og langt tryk"
 msgid "Synopsis"
 msgstr "Resumé"
 
-#: menu.lua:277
+#: menu.lua:307
 msgid "Synopsis on card"
 msgstr "Resumé på kortet"
 
-#: dev/devtools.lua:972
+#: dev/devtools.lua:982
 msgid "Table of contents (empty)"
 msgstr ""
 
-#: dev/devtools.lua:969
+#: dev/devtools.lua:979
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:961 styles/bookinfo.lua:987 styles/bookstatus.lua:394
+#: dev/devtools.lua:971 styles/bookinfo.lua:987 styles/bookstatus.lua:394
 msgid "Tap to add or edit your review of this book…"
 msgstr "Tryk for at tilføje eller redigere din anmeldelse af denne bog…"
 
@@ -2119,15 +2205,15 @@ msgstr "Tryk for at stoppe"
 msgid "Tap to view definition"
 msgstr "Tryk for at se definitionen"
 
-#: views/grid.lua:1329
+#: views/grid.lua:1307
 msgid "Test book"
 msgstr "Testbog"
 
-#: menu.lua:563
+#: menu.lua:593
 msgid "Test data (pagination)"
 msgstr "Testdata (sideinddeling)"
 
-#: dev/devtools.lua:541
+#: dev/devtools.lua:551
 msgid "Test dictionary"
 msgstr ""
 
@@ -2135,19 +2221,19 @@ msgstr ""
 msgid "Test galleries"
 msgstr "Testgallerier"
 
-#: menu.lua:596
+#: menu.lua:626
 msgid "Test stats"
 msgstr "Teststatistik"
 
-#: dev/devtools.lua:770
+#: dev/devtools.lua:780
 msgid "Test synopsis for the full-screen text viewer."
 msgstr ""
 
-#: menu.lua:575
+#: menu.lua:605
 msgid "Test widgets (all with data)"
 msgstr "Testwidgets (alle med data)"
 
-#: menu.lua:547
+#: menu.lua:577
 msgid "Tests"
 msgstr "Test"
 
@@ -2155,15 +2241,15 @@ msgstr "Test"
 msgid "Text"
 msgstr "Tekst"
 
-#: dev/devtools.lua:741
+#: dev/devtools.lua:751
 msgid "Text viewer (synopsis)"
 msgstr ""
 
-#: dev/devtools.lua:573
+#: dev/devtools.lua:583
 msgid "The Name of the Wind"
 msgstr ""
 
-#: dev/devtools.lua:517
+#: dev/devtools.lua:527
 msgid "The Stormlight Archive"
 msgstr ""
 
@@ -2174,6 +2260,10 @@ msgstr "Den aktuelle bog er ikke en del af en serie"
 #: styles/ui/pagination.lua:182
 msgid "This collection is empty"
 msgstr "Denne samling er tom"
+
+#: views/update.lua:366
+msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
+msgstr "Denne kopi har mappen dev/ (test). Den nye version indeholder den ikke, så den bliver fjernet."
 
 #: views/widgets.lua:441
 msgid "This month"
@@ -2195,7 +2285,7 @@ msgstr "Denne uge: %1"
 msgid "This year"
 msgstr "I år"
 
-#: dev/devtools.lua:703
+#: dev/devtools.lua:713
 msgid "Time"
 msgstr ""
 
@@ -2223,20 +2313,20 @@ msgstr ""
 msgid "Time spent reading today"
 msgstr ""
 
-#: dev/devtools.lua:515 dev/devtools.lua:605 dev/devtools.lua:655 dev/devtools.lua:822 views/grid.lua:60
+#: dev/devtools.lua:525 dev/devtools.lua:615 dev/devtools.lua:665 dev/devtools.lua:832 views/grid.lua:60
 #, koreader
 msgid "Title"
 msgstr ""
 
-#: dev/devtools.lua:507
+#: dev/devtools.lua:517
 msgid "Title, author or series"
 msgstr ""
 
-#: dev/devtools.lua:811
+#: dev/devtools.lua:821
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:632
+#: dev/devtools.lua:642
 msgid "Today"
 msgstr ""
 
@@ -2249,11 +2339,11 @@ msgstr "I dag og stime"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:738
+#: views/stats.lua:740
 msgid "Top author"
 msgstr "Mest læste forfatter"
 
-#: menu.lua:329
+#: menu.lua:359
 msgid "Top bar"
 msgstr "Topbjælke"
 
@@ -2262,28 +2352,44 @@ msgstr "Topbjælke"
 msgid "Total time spent on this book"
 msgstr ""
 
-#: dev/devtools.lua:531
+#: dev/devtools.lua:541
 #, koreader
 msgid "Translate"
 msgstr ""
 
-#: dev/devtools.lua:688
+#: dev/devtools.lua:698
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:124
+#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
 msgid "Update"
 msgstr "Opdater"
 
-#: menu.lua:491
+#: views/update.lua:474
+msgid "Update Aire"
+msgstr "Opdater Aire"
+
+#: views/update.lua:474
+msgid "Update Aire (%1 available)"
+msgstr "Opdater Aire (%1 tilgængelig)"
+
+#: menu.lua:189
+msgid "Update KOReader"
+msgstr "Opdater KOReader"
+
+#: views/update.lua:214
+msgid "Updating Aire"
+msgstr "Opdaterer Aire"
+
+#: menu.lua:521
 msgid "View mode"
 msgstr "Visning"
 
-#: dev/devtools.lua:934
+#: dev/devtools.lua:944
 msgid "Vocabulary builder (empty)"
 msgstr ""
 
-#: dev/devtools.lua:913
+#: dev/devtools.lua:923
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
@@ -2297,35 +2403,35 @@ msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Ordforrådsgennemgang · %1 ord"
 msgstr[1] "Ordforrådsgennemgang · %1 ord"
 
-#: dev/devtools.lua:930
+#: dev/devtools.lua:940
 msgid "Vocabulary review · %d words"
 msgstr ""
 
-#: dev/devtools.lua:945
+#: dev/devtools.lua:955
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "UGENTLIG AKTIVITET"
 
-#: dev/devtools.lua:723
+#: dev/devtools.lua:733
 msgid "What do you want to do with this book?"
 msgstr ""
 
-#: menu.lua:523
+#: menu.lua:553
 msgid "When opening KOReader, warns about new patches and plugins and disables those incompatible with Aire."
 msgstr "Advarer om nye patches og plugins, når KOReader åbnes, og deaktiverer dem, der er uforenelige med Aire."
 
-#: menu.lua:396
+#: menu.lua:426
 msgid "White corner: reading. Gray corner: on hold."
 msgstr "Hvidt hjørne: læses. Gråt hjørne: på pause."
 
-#: dev/devtools.lua:634 views/widgets.lua:465
+#: dev/devtools.lua:644 views/widgets.lua:465
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: dev/devtools.lua:659
+#: dev/devtools.lua:669
 msgid "Wi-Fi networks"
 msgstr ""
 
@@ -2333,7 +2439,7 @@ msgstr ""
 msgid "Widget gallery · %1 / %2"
 msgstr "Widgetgalleri · %1 / %2"
 
-#: menu.lua:289
+#: menu.lua:319
 msgid "Widget presets"
 msgstr "Widget-forudindstillinger"
 
@@ -2341,12 +2447,16 @@ msgstr "Widget-forudindstillinger"
 msgid "Widgets %1–%2"
 msgstr "Widgets %1–%2"
 
-#: dev/devtools.lua:530 views/widgets.lua:542 views/widgets.lua:543
+#: dev/devtools.lua:540 views/widgets.lua:542 views/widgets.lua:543
 #, koreader
 msgid "Wikipedia"
 msgstr ""
 
-#: views/stats.lua:419
+#: views/update.lua:417
+msgid "You already have the latest version (%1)."
+msgstr "Du har allerede den nyeste version (%1)."
+
+#: views/stats.lua:421
 msgid "You didn't read that day"
 msgstr "Du læste ikke den dag"
 
@@ -2358,11 +2468,15 @@ msgstr "Du har endnu ingen markeringer"
 msgid "You have not opened any book yet"
 msgstr "Du har ikke åbnet nogen bog endnu"
 
-#: views/grid.lua:582
+#: views/power.lua:162 views/update.lua:342
+msgid "You have version %1"
+msgstr "Du har version %1"
+
+#: views/grid.lua:584
 msgid "You haven't finished any books yet"
 msgstr "Du har ikke læst nogen bøger færdig endnu"
 
-#: dev/devtools.lua:542
+#: dev/devtools.lua:552
 msgid ""
 "adj. Lasting for a short time.\n"
 "\n"
@@ -2379,13 +2493,17 @@ msgstr "og markeringer"
 msgid "at %1 %"
 msgstr "ved %1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "gns. / dag"
 
 #: views/widgets.lua:506
 msgid "battery"
 msgstr "batteri"
+
+#: views/update.lua:334
+msgid "beta"
+msgstr "beta"
 
 #: views/widgets.lua:403
 msgid "book"
@@ -2397,7 +2515,7 @@ msgstr[1] "bøger"
 msgid "conflicts with plugin covers"
 msgstr "konflikter med pluginnets omslag"
 
-#: dev/devtools.lua:539 dev/devtools.lua:541
+#: dev/devtools.lua:549 dev/devtools.lua:551
 msgid "ephemeral"
 msgstr ""
 
@@ -2410,7 +2528,7 @@ msgstr ""
 msgid "files"
 msgstr "filer"
 
-#: views/stats.lua:694 views/widgets.lua:423
+#: views/stats.lua:696 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "færdig bog"
@@ -2432,13 +2550,17 @@ msgstr "i alt"
 msgid "included in Aire"
 msgstr "inkluderet i Aire"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "sidste 7 dage"
 
 #: views/widgets.lua:456
 msgid "light"
 msgstr "lys"
+
+#: views/update.lua:506
+msgid "never"
+msgstr "aldrig"
 
 #: views/widgets.lua:481
 msgid "night mode"
@@ -2460,7 +2582,7 @@ msgstr "s. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "s. %1 af %2"
 
-#: views/stats.lua:686
+#: views/stats.lua:688
 msgid "pages read"
 msgstr "læste sider"
 
@@ -2468,7 +2590,7 @@ msgstr "læste sider"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:690
+#: views/stats.lua:692
 msgid "reading time"
 msgstr "læsetid"
 
@@ -2539,7 +2661,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "i dag"
 
-#: styles/readerprogress.lua:158 views/stats.lua:225
+#: styles/readerprogress.lua:157 views/stats.lua:225
 msgid "today · %1 pp."
 msgstr "i dag · %1 s."
 
