@@ -32,7 +32,7 @@ msgstr "%1 % (en pausa)"
 msgid "%1 % read"
 msgstr "%1 % leído"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:327 views/grid.lua:332
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 libro"
@@ -44,7 +44,7 @@ msgid_plural "%1 bookmarks"
 msgstr[0] "%1 marcador"
 msgstr[1] "%1 marcadores"
 
-#: views/grid.lua:497 views/grid.lua:498
+#: views/grid.lua:493 views/grid.lua:494
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 colección"
@@ -68,13 +68,13 @@ msgid_plural "%1 days reading"
 msgstr[0] "%1 día leyendo"
 msgstr[1] "%1 días leyendo"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:329
+#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 terminado"
 msgstr[1] "%1 terminados"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 libro terminado"
@@ -106,13 +106,13 @@ msgstr "%1 págs."
 msgid "%1 pp./h"
 msgstr "%1 págs./h"
 
-#: styles/shortcuts.lua:128
+#: styles/shortcuts.lua:156
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 atajo guardado"
 msgstr[1] "%1 atajos guardados"
 
-#: views/grid.lua:328
+#: views/grid.lua:324
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 serie"
@@ -211,6 +211,11 @@ msgstr ""
 msgid "Add to collection…"
 msgstr "Añadir a una colección…"
 
+#: styles/shortcuts.lua:114
+#, koreader
+msgid "Add to folder shortcuts"
+msgstr ""
+
 #: dev/devtools.lua:640 views/widgets.lua:1116
 msgid "Add widget"
 msgstr "Añadir widget"
@@ -258,7 +263,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Todos terminados"
 
-#: views/grid.lua:582 views/widgets.lua:441
+#: views/grid.lua:578 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
@@ -306,7 +311,7 @@ msgstr "Colecciones automáticas por género (palabra clave)"
 msgid "Automatic tests"
 msgstr "Tests automáticos"
 
-#: views/grid.lua:1013
+#: views/grid.lua:1009
 msgid "Automatic: books by this author"
 msgstr "Automática: libros de este autor"
 
@@ -416,7 +421,7 @@ msgstr "Marcadores y subrayados"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:974
+#: views/grid.lua:970
 msgid "Books are not deleted, only the collection."
 msgstr "Los libros no se borran, solo la colección."
 
@@ -551,7 +556,7 @@ msgstr "Nombre de la colección"
 msgid "Collection order"
 msgstr "Orden de la colección"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1388
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -682,7 +687,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "diciembre"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:975 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -708,7 +713,7 @@ msgstr "¿Eliminar minutos de este día?"
 msgid "Delete minutes from this day"
 msgstr "Eliminar minutos de este día"
 
-#: views/grid.lua:973
+#: views/grid.lua:969
 msgid "Delete the collection?"
 msgstr "¿Eliminar la colección?"
 
@@ -716,7 +721,7 @@ msgstr "¿Eliminar la colección?"
 msgid "Delete this book? This cannot be undone."
 msgstr "¿Borrar este libro? No se puede deshacer."
 
-#: views/grid.lua:1024
+#: views/grid.lua:1020
 msgid "Delete…"
 msgstr "Eliminar…"
 
@@ -812,7 +817,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Sin widgets"
 
-#: views/grid.lua:474
+#: views/grid.lua:470
 msgid "Empty collection"
 msgstr "Colección vacía"
 
@@ -820,7 +825,7 @@ msgstr "Colección vacía"
 msgid "Empty folder"
 msgstr "Carpeta vacía"
 
-#: views/grid.lua:307
+#: views/grid.lua:303
 msgid "Empty series"
 msgstr "Serie vacía"
 
@@ -861,7 +866,7 @@ msgstr ""
 msgid "FILE"
 msgstr "ARCHIVO"
 
-#: views/grid.lua:799
+#: views/grid.lua:795
 msgid "FILTER"
 msgstr "FILTRAR"
 
@@ -874,7 +879,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Carpetas favoritas"
 
-#: dev/devtools.lua:821 views/grid.lua:351 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -899,11 +904,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:743
+#: views/grid.lua:739
 msgid "Filter"
 msgstr "Filtrar"
 
-#: dev/devtools.lua:659 views/grid.lua:742
+#: dev/devtools.lua:659 views/grid.lua:738
 msgid "Filter and sort"
 msgstr "Filtrar y ordenar"
 
@@ -1055,7 +1060,7 @@ msgstr "Aún no ha llegado"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1389
+#: views/dock.lua:42 views/grid.lua:1351
 #, koreader
 msgid "History"
 msgstr ""
@@ -1064,7 +1069,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr "Historial (datos de prueba)"
 
-#: views/grid.lua:618
+#: views/grid.lua:614
 msgid "History is empty"
 msgstr "El historial está vacío"
 
@@ -1076,7 +1081,7 @@ msgstr "Mantener hace lo mismo que tocar"
 msgid "Hold to configure"
 msgstr "Mantén para configurar"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:155
+#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1243,7 +1248,7 @@ msgstr "Diseño"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1387
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
 msgid "Library"
 msgstr "Librería"
 
@@ -1329,7 +1334,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "¿Marcar todos los libros de «%1» como leyendo?"
 
-#: views/grid.lua:1061
+#: views/grid.lua:1057
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "¿Marcar todos los libros de la colección «%1» como leyendo?"
 
@@ -1337,11 +1342,11 @@ msgstr "¿Marcar todos los libros de la colección «%1» como leyendo?"
 msgid "Mark as read"
 msgstr "Marcar como leído"
 
-#: views/grid.lua:1059
+#: views/grid.lua:1055
 msgid "Mark entire collection as finished"
 msgstr "Marcar toda la colección como terminada"
 
-#: views/grid.lua:1060
+#: views/grid.lua:1056
 msgid "Mark entire collection as reading"
 msgstr "Marcar toda la colección como leyendo"
 
@@ -1376,11 +1381,11 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Mínimo"
 
-#: views/explorer.lua:133
+#: views/explorer.lua:116
 msgid "Mix folders"
 msgstr "Mezclar carpetas"
 
-#: views/grid.lua:820
+#: views/grid.lua:816
 msgid "Mix series"
 msgstr "Mezclar series"
 
@@ -1469,12 +1474,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nuevo"
 
-#: views/grid.lua:493
+#: views/grid.lua:489
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1015 views/grid.lua:1028
+#: views/grid.lua:1011 views/grid.lua:1024
 msgid "New collection…"
 msgstr "Nueva colección…"
 
@@ -1520,19 +1525,19 @@ msgstr "Ningún libro en curso"
 msgid "No book matches the filter"
 msgstr "Ningún libro coincide con el filtro"
 
-#: views/grid.lua:586
+#: views/grid.lua:582
 msgid "No books finished this month"
 msgstr "Ningún libro terminado este mes"
 
-#: views/grid.lua:586
+#: views/grid.lua:582
 msgid "No books finished this year"
 msgstr "Ningún libro terminado este año"
 
-#: views/grid.lua:339
+#: views/grid.lua:335
 msgid "No books in home folder"
 msgstr "No hay libros en la carpeta de inicio"
 
-#: views/grid.lua:339 views/grid.lua:474 views/grid.lua:618
+#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
 msgid "No books with this filter"
 msgstr "Ningún libro con este filtro"
 
@@ -1540,11 +1545,11 @@ msgstr "Ningún libro con este filtro"
 msgid "No chapter"
 msgstr "Sin capítulo"
 
-#: views/grid.lua:501
+#: views/grid.lua:497
 msgid "No collections"
 msgstr "No hay colecciones"
 
-#: views/grid.lua:501
+#: views/grid.lua:497
 msgid "No collections with this filter"
 msgstr "Ninguna colección con este filtro"
 
@@ -1582,7 +1587,7 @@ msgstr "Sin sesiones de lectura este mes"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:127
+#: styles/shortcuts.lua:155
 msgid "No saved shortcuts"
 msgstr "Sin atajos guardados"
 
@@ -1668,7 +1673,7 @@ msgstr "Solo con el Wi-Fi ya encendido: Aire nunca lo enciende."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1058
+#: views/grid.lua:1054
 msgid "Open collection"
 msgstr "Abrir colección"
 
@@ -1676,7 +1681,7 @@ msgstr "Abrir colección"
 msgid "Open library"
 msgstr "Abrir la librería"
 
-#: views/grid.lua:1058
+#: views/grid.lua:1054
 msgid "Open series"
 msgstr "Abrir serie"
 
@@ -1931,12 +1936,12 @@ msgstr "Quitar"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:507
+#: views/booksheet.lua:592 views/grid.lua:503
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Quitar de la colección"
 
-#: views/booksheet.lua:556 views/grid.lua:623
+#: views/booksheet.lua:556 views/grid.lua:619
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1956,7 +1961,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1022
+#: views/grid.lua:1018
 msgid "Rename…"
 msgstr "Renombrar…"
 
@@ -1992,7 +1997,7 @@ msgstr "Reinicia KOReader para usarla. Tus ajustes se conservan."
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:120 views/grid.lua:814
+#: views/explorer.lua:103 views/grid.lua:810
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2017,7 +2022,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:809
+#: views/grid.lua:805
 msgid "SORT BY"
 msgstr "ORDENAR POR"
 
@@ -2168,7 +2173,7 @@ msgstr "Inteligente"
 msgid "Smart  (current)"
 msgstr "Inteligente  (actual)"
 
-#: views/explorer.lua:75
+#: views/explorer.lua:65
 msgid "Sort"
 msgstr "Ordenar"
 
@@ -2180,20 +2185,20 @@ msgstr "Ordenar (2 columnas)"
 msgid "Sort a list"
 msgstr "Ordenar una lista"
 
-#: dev/devtools.lua:613 views/grid.lua:743
+#: dev/devtools.lua:613 views/grid.lua:739
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:993
+#: dev/devtools.lua:825 views/grid.lua:989
 msgid "Sort collections"
 msgstr "Ordenar colecciones"
 
-#: views/grid.lua:1016 views/grid.lua:1029
+#: views/grid.lua:1012 views/grid.lua:1025
 msgid "Sort collections…"
 msgstr "Ordenar colecciones…"
 
-#: views/explorer.lua:146
+#: views/explorer.lua:129
 msgid "Sort files"
 msgstr "Ordenar archivos"
 
@@ -2266,7 +2271,7 @@ msgstr "Toca para pararlo"
 msgid "Tap to view definition"
 msgstr "Toca para ver la definición"
 
-#: views/grid.lua:1290
+#: views/grid.lua:1252
 msgid "Test book"
 msgstr "Libro de prueba"
 
@@ -2537,7 +2542,7 @@ msgstr "Aún no has abierto ningún libro"
 msgid "You have version %1"
 msgstr "Tienes la %1"
 
-#: views/grid.lua:585
+#: views/grid.lua:581
 msgid "You haven't finished any books yet"
 msgstr "Aún no has terminado ningún libro"
 

@@ -250,21 +250,76 @@ function M.statusBar(w, opts)
 end
 
 --===========================================================================
--- Cabecera: fila del título, de ancho w (sin márgenes laterales).
---   title
---   on_back      con él, "‹ Título" (subpágina); toda la fila vuelve atrás
---   menu_icon    icono a la derecha (menú de la pantalla), con on_menu / on_menu_hold
+-- Cabecera: fila del título, de ancho w (sin márgenes laterales). Dos
+-- variantes:
+--   subpágina  on_back: "‹ Título" (toda la fila vuelve atrás) y, si la
+--              pantalla tiene acciones, menu_icon (≡) a la derecha
+--   sección    sin on_back: "Título" y, si hay, menu_text a la derecha
+--              (botón con texto y ▾, p. ej. el filtro y el orden actuales)
+-- opts:
+--   title, on_back
+--   menu_icon | menu_text, con on_menu / on_menu_hold
 --   tap_left     px que la zona de volver se extiende a la izquierda (margen)
 --   tap_v        px que se extiende arriba y abajo (por defecto S(8))
 --   -> widget, parts  (parts.title, parts.menu_icon, parts.setTitle(text),
 --                      parts.setMenuIcon(icon))
 --===========================================================================
+-- El ≡ de KOReader se cambia por el de Aire en todas las cabeceras
+local ICON_ALIASES = { ["appbar.menu"] = "aire.menu" }
+function M.menuIcon(icon) return ICON_ALIASES[icon] or icon end
+
+-- Zona pulsable con margen extra alrededor (iconos y botones de la derecha)
+local function rightTappable(widget, on_tap, on_hold, eh, ev)
+    local ic = InputContainer:new{ widget }
+    local range = function()
+        local d = ic.dimen
+        if not d then return emptyGeom() end
+        return Geom:new{ x = d.x - eh, y = d.y - ev, w = d.w + 2 * eh, h = d.h + 2 * ev }
+    end
+    ic.ges_events = { AireRightTap = { GestureRange:new{ ges = "tap", range = range } } }
+    ic.onAireRightTap = function()
+        if on_tap then on_tap() end
+        return true
+    end
+    if on_hold then
+        ic.ges_events.AireRightHold = { GestureRange:new{ ges = "hold", range = range } }
+        ic.onAireRightHold = function()
+            on_hold()
+            return true
+        end
+    end
+    return ic
+end
+
 function M.header(w, opts)
     opts = opts or {}
     local S, face = AireUI.S, AireUI.face
     local MT = M.METRICS
     local icon_sz = S(MT.ICON)
-    local menu_reserve = opts.menu_icon and (icon_sz + S(10)) or 0
+    local parts = {}
+
+    -- Derecha: icono (subpágina) o botón con texto (sección)
+    local right, menu_reserve = nil, 0
+    if opts.menu_icon then
+        local icon_w = IconWidget:new{ icon = M.menuIcon(opts.menu_icon), width = icon_sz, height = icon_sz, alpha = true }
+        parts.menu_icon = icon_w
+        right = rightTappable(icon_w, opts.on_menu, opts.on_menu_hold, S(8), S(8))
+        menu_reserve = icon_sz + S(10)
+    elseif opts.menu_text then
+        local btn = FrameContainer:new{
+            bordersize = 0, padding = 0, padding_left = S(8), padding_top = S(4), padding_bottom = S(4),
+            HorizontalGroup:new{
+                align = "center",
+                TextWidget:new{ text = opts.menu_text, face = face(false, 13), fgcolor = Blitbuffer.COLOR_BLACK,
+                    max_width = math.floor(w * 0.5), padding = 0 },
+                HorizontalSpan:new{ width = S(2) },
+                IconWidget:new{ icon = "aire.chevron.down", width = S(16), height = S(16), alpha = true },
+            },
+        }
+        right = rightTappable(btn, opts.on_menu, opts.on_menu_hold, S(8), S(10))
+        menu_reserve = btn:getSize().w + S(10)
+    end
+
     local lead = opts.on_back and (icon_sz + S(6)) or 0
     local title_w = TextWidget:new{
         text = opts.title or "",
@@ -273,6 +328,7 @@ function M.header(w, opts)
         max_width = math.max(S(80), w - lead - menu_reserve),
         padding = 0,
     }
+    parts.title = title_w
     local row = HorizontalGroup:new{ align = "center" }
     if opts.on_back then
         table.insert(row, IconWidget:new{ icon = "chevron.left", width = icon_sz, height = icon_sz, alpha = true })
@@ -284,31 +340,8 @@ function M.header(w, opts)
         dimen = Geom:new{ w = w, h = row_h },
         LeftContainer:new{ dimen = Geom:new{ w = w, h = row_h }, row },
     }
-    local parts = { title = title_w }
-
-    if opts.menu_icon then
-        local icon_w = IconWidget:new{ icon = opts.menu_icon, width = icon_sz, height = icon_sz, alpha = true }
-        parts.menu_icon = icon_w
-        local r_ic = InputContainer:new{ icon_w }
-        local range = function()
-            local d = r_ic.dimen
-            if not d then return emptyGeom() end
-            local p = S(8)
-            return Geom:new{ x = d.x - p, y = d.y - p, w = d.w + 2 * p, h = d.h + 2 * p }
-        end
-        r_ic.ges_events = { AireRightTap = { GestureRange:new{ ges = "tap", range = range } } }
-        r_ic.onAireRightTap = function()
-            if opts.on_menu then opts.on_menu() end
-            return true
-        end
-        if opts.on_menu_hold then
-            r_ic.ges_events.AireRightHold = { GestureRange:new{ ges = "hold", range = range } }
-            r_ic.onAireRightHold = function()
-                opts.on_menu_hold()
-                return true
-            end
-        end
-        table.insert(og, RightContainer:new{ dimen = Geom:new{ w = w, h = row_h }, r_ic })
+    if right then
+        table.insert(og, RightContainer:new{ dimen = Geom:new{ w = w, h = row_h }, right })
     end
 
     local pad_v = S(MT.TITLE_PAD_V)
@@ -344,7 +377,7 @@ function M.header(w, opts)
     function parts.setMenuIcon(icon)
         if not parts.menu_icon then return end
         parts.menu_icon:free()
-        parts.menu_icon.icon = icon
+        parts.menu_icon.icon = M.menuIcon(icon)
         parts.menu_icon:init()
     end
     return widget, parts
@@ -352,15 +385,18 @@ end
 
 --===========================================================================
 -- Subtítulo: texto gris de una línea en una fila de alto mínimo común.
---   subtitle(w, text) -> widget, text_widget
+--   subtitle(w, text, opts) -> widget, text_widget
+--   opts.truncate_left  si no cabe, se corta por la izquierda (rutas)
 --===========================================================================
-function M.subtitle(w, text)
+function M.subtitle(w, text, opts)
+    opts = opts or {}
     local S, face = AireUI.S, AireUI.face
     local sub_w = TextWidget:new{
         text = text or "",
         face = face(false, 13),
         fgcolor = Blitbuffer.COLOR_DARK_GRAY,
         max_width = math.max(S(80), w),
+        truncate_left = opts.truncate_left,
         padding = 0,
     }
     return LeftContainer:new{

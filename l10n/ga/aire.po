@@ -35,7 +35,7 @@ msgstr "%1 % (ar feitheamh)"
 msgid "%1 % read"
 msgstr "%1 % léite"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:327 views/grid.lua:332
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 leabhar"
@@ -53,7 +53,7 @@ msgstr[2] "%1 leabharmharc"
 msgstr[3] "%1 leabharmharc"
 msgstr[4] "%1 leabharmharc"
 
-#: views/grid.lua:497 views/grid.lua:498
+#: views/grid.lua:493 views/grid.lua:494
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 bailiúchán"
@@ -89,7 +89,7 @@ msgstr[2] "%1 lá ag léamh"
 msgstr[3] "%1 lá ag léamh"
 msgstr[4] "%1 lá ag léamh"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:329
+#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 críochnaithe"
@@ -98,7 +98,7 @@ msgstr[2] "%1 críochnaithe"
 msgstr[3] "%1 críochnaithe"
 msgstr[4] "%1 críochnaithe"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 leabhar críochnaithe"
@@ -142,7 +142,7 @@ msgstr "%1 lch."
 msgid "%1 pp./h"
 msgstr "%1 lch./u"
 
-#: styles/shortcuts.lua:128
+#: styles/shortcuts.lua:156
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 aicearra sábháilte"
@@ -151,7 +151,7 @@ msgstr[2] "%1 aicearra sábháilte"
 msgstr[3] "%1 n-aicearra sábháilte"
 msgstr[4] "%1 aicearra sábháilte"
 
-#: views/grid.lua:328
+#: views/grid.lua:324
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 sraith"
@@ -259,6 +259,11 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
+#: styles/shortcuts.lua:114
+#, koreader
+msgid "Add to folder shortcuts"
+msgstr ""
+
 #: dev/devtools.lua:640 views/widgets.lua:1116
 msgid "Add widget"
 msgstr "Cuir giuirléid leis"
@@ -306,7 +311,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Gach ceann críochnaithe"
 
-#: views/grid.lua:582 views/widgets.lua:441
+#: views/grid.lua:578 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
@@ -354,7 +359,7 @@ msgstr "Bailiúcháin uathoibríocha de réir seánra (eochairfhocal)"
 msgid "Automatic tests"
 msgstr "Tástálacha uathoibríocha"
 
-#: views/grid.lua:1013
+#: views/grid.lua:1009
 msgid "Automatic: books by this author"
 msgstr "Uathoibríoch: leabhair leis an údar seo"
 
@@ -464,7 +469,7 @@ msgstr "Leabharmharcanna agus buaicphointí"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:974
+#: views/grid.lua:970
 msgid "Books are not deleted, only the collection."
 msgstr "Ní scriostar na leabhair, an bailiúchán amháin."
 
@@ -599,7 +604,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Ord an bhailiúcháin"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1388
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -727,7 +732,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "Nollaig"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:975 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -753,7 +758,7 @@ msgstr "Scrios nóiméid an lae seo?"
 msgid "Delete minutes from this day"
 msgstr "Scrios nóiméid ón lá seo"
 
-#: views/grid.lua:973
+#: views/grid.lua:969
 msgid "Delete the collection?"
 msgstr "Scrios an bailiúchán?"
 
@@ -761,7 +766,7 @@ msgstr "Scrios an bailiúchán?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1024
+#: views/grid.lua:1020
 msgid "Delete…"
 msgstr "Scrios…"
 
@@ -857,7 +862,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Gan ghiuirléidí"
 
-#: views/grid.lua:474
+#: views/grid.lua:470
 msgid "Empty collection"
 msgstr "Bailiúchán folamh"
 
@@ -865,7 +870,7 @@ msgstr "Bailiúchán folamh"
 msgid "Empty folder"
 msgstr "Fillteán folamh"
 
-#: views/grid.lua:307
+#: views/grid.lua:303
 msgid "Empty series"
 msgstr "Sraith fholamh"
 
@@ -906,7 +911,7 @@ msgstr ""
 msgid "FILE"
 msgstr "COMHAD"
 
-#: views/grid.lua:799
+#: views/grid.lua:795
 msgid "FILTER"
 msgstr "SCAGAIRE"
 
@@ -919,7 +924,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Fillteáin is fearr leat"
 
-#: dev/devtools.lua:821 views/grid.lua:351 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -944,11 +949,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:743
+#: views/grid.lua:739
 msgid "Filter"
 msgstr "Scagaire"
 
-#: dev/devtools.lua:659 views/grid.lua:742
+#: dev/devtools.lua:659 views/grid.lua:738
 msgid "Filter and sort"
 msgstr "Scag agus sórtáil"
 
@@ -1100,7 +1105,7 @@ msgstr "Níor tháinig sé fós"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1389
+#: views/dock.lua:42 views/grid.lua:1351
 #, koreader
 msgid "History"
 msgstr ""
@@ -1109,7 +1114,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:618
+#: views/grid.lua:614
 msgid "History is empty"
 msgstr "Tá an stair folamh"
 
@@ -1121,7 +1126,7 @@ msgstr "Déanann coinneáil an rud céanna le tapáil"
 msgid "Hold to configure"
 msgstr "Coinnigh chun cumrú"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:155
+#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1288,7 +1293,7 @@ msgstr "Leagan amach"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1387
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
 msgid "Library"
 msgstr "Leabharlann"
 
@@ -1374,7 +1379,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Marcáil gach leabhar in \"%1\" mar á léamh?"
 
-#: views/grid.lua:1061
+#: views/grid.lua:1057
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Marcáil gach leabhar sa bhailiúchán \"%1\" mar á léamh?"
 
@@ -1382,11 +1387,11 @@ msgstr "Marcáil gach leabhar sa bhailiúchán \"%1\" mar á léamh?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1059
+#: views/grid.lua:1055
 msgid "Mark entire collection as finished"
 msgstr "Marcáil an bailiúchán ar fad mar chríochnaithe"
 
-#: views/grid.lua:1060
+#: views/grid.lua:1056
 msgid "Mark entire collection as reading"
 msgstr "Marcáil an bailiúchán ar fad mar á léamh"
 
@@ -1421,11 +1426,11 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Íosta"
 
-#: views/explorer.lua:133
+#: views/explorer.lua:116
 msgid "Mix folders"
 msgstr "Measc fillteáin"
 
-#: views/grid.lua:820
+#: views/grid.lua:816
 msgid "Mix series"
 msgstr "Measc sraitheanna"
 
@@ -1514,12 +1519,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nua"
 
-#: views/grid.lua:493
+#: views/grid.lua:489
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1015 views/grid.lua:1028
+#: views/grid.lua:1011 views/grid.lua:1024
 msgid "New collection…"
 msgstr "Bailiúchán nua…"
 
@@ -1565,19 +1570,19 @@ msgstr "Níl aon leabhar ar siúl"
 msgid "No book matches the filter"
 msgstr "Níl aon leabhar ag teacht leis an scagaire"
 
-#: views/grid.lua:586
+#: views/grid.lua:582
 msgid "No books finished this month"
 msgstr "Níor críochnaíodh aon leabhar an mhí seo"
 
-#: views/grid.lua:586
+#: views/grid.lua:582
 msgid "No books finished this year"
 msgstr "Níor críochnaíodh aon leabhar i mbliana"
 
-#: views/grid.lua:339
+#: views/grid.lua:335
 msgid "No books in home folder"
 msgstr "Níl aon leabhar san fhillteán baile"
 
-#: views/grid.lua:339 views/grid.lua:474 views/grid.lua:618
+#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
 msgid "No books with this filter"
 msgstr "Níl aon leabhar leis an scagaire seo"
 
@@ -1585,11 +1590,11 @@ msgstr "Níl aon leabhar leis an scagaire seo"
 msgid "No chapter"
 msgstr "Gan chaibidil"
 
-#: views/grid.lua:501
+#: views/grid.lua:497
 msgid "No collections"
 msgstr "Níl aon bhailiúchán"
 
-#: views/grid.lua:501
+#: views/grid.lua:497
 msgid "No collections with this filter"
 msgstr "Níl aon bhailiúchán leis an scagaire seo"
 
@@ -1627,7 +1632,7 @@ msgstr "Níl aon seisiún léitheoireachta an mhí seo"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:127
+#: styles/shortcuts.lua:155
 msgid "No saved shortcuts"
 msgstr "Níl aon aicearra sábháilte"
 
@@ -1713,7 +1718,7 @@ msgstr "Ach amháin nuair atá Wi-Fi ar siúl cheana: ní chuireann Aire ar siú
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1058
+#: views/grid.lua:1054
 msgid "Open collection"
 msgstr "Oscail an bailiúchán"
 
@@ -1721,7 +1726,7 @@ msgstr "Oscail an bailiúchán"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1058
+#: views/grid.lua:1054
 msgid "Open series"
 msgstr "Oscail an tsraith"
 
@@ -1976,12 +1981,12 @@ msgstr "Bain"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:507
+#: views/booksheet.lua:592 views/grid.lua:503
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Bain den bhailiúchán"
 
-#: views/booksheet.lua:556 views/grid.lua:623
+#: views/booksheet.lua:556 views/grid.lua:619
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -2001,7 +2006,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1022
+#: views/grid.lua:1018
 msgid "Rename…"
 msgstr "Athainmnigh…"
 
@@ -2037,7 +2042,7 @@ msgstr "Atosaigh KOReader chun é a úsáid. Coinneofar do shocruithe."
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:120 views/grid.lua:814
+#: views/explorer.lua:103 views/grid.lua:810
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2062,7 +2067,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:809
+#: views/grid.lua:805
 msgid "SORT BY"
 msgstr "SÓRTÁIL DE RÉIR"
 
@@ -2213,7 +2218,7 @@ msgstr "Cliste"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:75
+#: views/explorer.lua:65
 msgid "Sort"
 msgstr "Sórtáil"
 
@@ -2225,20 +2230,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:743
+#: dev/devtools.lua:613 views/grid.lua:739
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:993
+#: dev/devtools.lua:825 views/grid.lua:989
 msgid "Sort collections"
 msgstr "Sórtáil bailiúcháin"
 
-#: views/grid.lua:1016 views/grid.lua:1029
+#: views/grid.lua:1012 views/grid.lua:1025
 msgid "Sort collections…"
 msgstr "Sórtáil bailiúcháin…"
 
-#: views/explorer.lua:146
+#: views/explorer.lua:129
 msgid "Sort files"
 msgstr "Sórtáil comhaid"
 
@@ -2311,7 +2316,7 @@ msgstr "Tapáil chun stopadh"
 msgid "Tap to view definition"
 msgstr "Tapáil chun an sainmhíniú a fheiceáil"
 
-#: views/grid.lua:1290
+#: views/grid.lua:1252
 msgid "Test book"
 msgstr "Leabhar tástála"
 
@@ -2585,7 +2590,7 @@ msgstr "Níor oscail tú aon leabhar fós"
 msgid "You have version %1"
 msgstr "Tá leagan %1 agat"
 
-#: views/grid.lua:585
+#: views/grid.lua:581
 msgid "You haven't finished any books yet"
 msgstr "Níor chríochnaigh tú aon leabhar fós"
 

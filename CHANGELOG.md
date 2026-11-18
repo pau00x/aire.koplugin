@@ -4,6 +4,12 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+### Changed
+
+- **One header for every full screen.** Main sections show their title with a text button on the right: in Library, Collections and History the current filter and sort ("All · Recent ▾") moved up next to the title, and the counts are now the subtitle; in the file browser the current sort ("Name ▾") moved up too and the path is the subtitle. Subpages (a series or collection, Finished) show "‹ Title" and, when they have a filter or sort, a ≡ button that opens it (the current filter and sort are shown in the subtitle).
+- **Aire's ≡ icon** in every screen menu (Book map, Page browser, KOReader's collections list…) instead of KOReader's.
+- **Folder shortcuts**: the + on the right is now ≡. Tapping it opens the list options with "Add to folder shortcuts" at the top, as a bottom sheet; long-press adds a shortcut directly.
+
 ### Internal
 
 - Full-screen layout, step 1: new `common/screen.lua` (`package.loaded.aire_screen`) with the shared margins and spacing (`METRICS`) and the only page-dots widget (`Pager`). The Library grid no longer has its own copy (`PageDots` removed), Menu/KeyValuePage/Page lists use the same one, and the side margin hard-coded in `styles/` and `common/pages.lua` comes from `METRICS.SIDE`. No visible changes.

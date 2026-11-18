@@ -12,15 +12,9 @@ return function(Aire, ctx)
     local BD = require("ui/bidi")
     local ButtonDialog = require("ui/widget/buttondialog")
     local Device = require("device")
-    local FrameContainer = require("ui/widget/container/framecontainer")
     local Geom = require("ui/geometry")
     local HorizontalGroup = require("ui/widget/horizontalgroup")
     local HorizontalSpan = require("ui/widget/horizontalspan")
-    local IconWidget = require("ui/widget/iconwidget")
-    local LeftContainer = require("ui/widget/container/leftcontainer")
-    local OverlapGroup = require("ui/widget/overlapgroup")
-    local RightContainer = require("ui/widget/container/rightcontainer")
-    local TextWidget = require("ui/widget/textwidget")
     local UIManager = require("ui/uimanager")
     local VerticalGroup = require("ui/widget/verticalgroup")
     local VerticalSpan = require("ui/widget/verticalspan")
@@ -28,11 +22,7 @@ return function(Aire, ctx)
     local _ = require("gettext")
     local Screen = Device.screen
     local S = ctx.S
-    local face = ctx.face
-    local tappable = ctx.tappable
     local config = ctx.config
-    local BLACK = ctx.BLACK
-    local GRAY_TEXT = ctx.GRAY_TEXT
     local TOP_GAP_BELOW = ctx.TOP_GAP_BELOW
     local SIDE_PAD = ctx.SIDE_PAD
 
@@ -79,15 +69,8 @@ return function(Aire, ctx)
                 sort_label = capFirst(col.text)
             end
         end
-        local sort_btn = tappable(FrameContainer:new{
-            bordersize = 0, padding = 0, padding_left = S(8), padding_top = S(4), padding_bottom = S(4),
-            HorizontalGroup:new{
-                align = "center",
-                TextWidget:new{ text = sort_label, face = face(false, 13), fgcolor = BLACK, padding = 0 },
-                HorizontalSpan:new{ width = S(2) },
-                IconWidget:new{ icon = "aire.chevron.down", width = S(16), height = S(16), alpha = true },
-            },
-        }, function()
+        -- Diálogo de ordenar (el botón con el orden actual va en la cabecera)
+        local function openSort()
             if not (fc and fc.collates) then return end
             local _cur_col, cur_id = fc:getCollate()
             local list = {}
@@ -148,16 +131,18 @@ return function(Aire, ctx)
                 buttons = buttons,
             }
             UIManager:show(dialog)
-        end, nil, { h = S(8), v = S(10) })
-        local sort_w = sort_btn:getSize().w
-
+        end
 
         local folder_name = at_home and _("Home")
             or (cur_path == "/" and "/")
             or BD.directory((cur_path and cur_path:match("([^/]+)/*$")) or self:pathText(cur_path))
-        -- Cabecera común (common/screen.lua): en subcarpetas, "‹ Carpeta" sube un nivel
-        local title_w = package.loaded.aire_screen.header(w, {
+        -- Cabecera común (common/screen.lua): en subcarpetas, "‹ Carpeta" sube un
+        -- nivel; a la derecha, el orden actual ▾
+        local AireScreen = package.loaded.aire_screen
+        local title_w = AireScreen.header(w, {
             title = folder_name,
+            menu_text = sort_label,
+            on_menu = openSort,
             on_back = can_up and function()
                 if fm and fm.file_chooser and fm.file_chooser.onFolderUp then
                     fm.file_chooser:onFolderUp()
@@ -166,37 +151,13 @@ return function(Aire, ctx)
         })
         local vg = self:buildScreenTop(w)
         table.insert(vg, title_w)
-        table.insert(vg, VerticalSpan:new{ width = S(package.loaded.aire_screen.METRICS.SUB_GAP) })
+        table.insert(vg, VerticalSpan:new{ width = S(AireScreen.METRICS.SUB_GAP) })
 
-        -- Fila de la ruta y Ordenar
-        local show_path = true
-        local show_sort = true
-        self._path_w = nil
-        if show_path or show_sort then
-            local og = OverlapGroup:new{ dimen = Geom:new{ w = w, h = S(28) } }
-            local rh = S(28)
-            if show_path then
-                local path_str = at_home and BD.directory(cur_path) or self:pathText(cur_path)
-                self._path_w = TextWidget:new{
-                    text = path_str,
-                    face = face(false, 13),
-                    fgcolor = GRAY_TEXT,
-                    max_width = math.max(S(80), w - (show_sort and (sort_w + S(10)) or 0)),
-                    truncate_left = true,
-                    padding = 0,
-                }
-                rh = math.max(rh, self._path_w:getSize().h)
-            end
-            if show_sort then rh = math.max(rh, sort_btn:getSize().h) end
-            og.dimen.h = rh
-            if self._path_w then
-                table.insert(og, LeftContainer:new{ dimen = Geom:new{ w = w, h = rh }, self._path_w })
-            end
-            if show_sort then
-                table.insert(og, RightContainer:new{ dimen = Geom:new{ w = w, h = rh }, sort_btn })
-            end
-            table.insert(vg, og)
-        end
+        -- Ruta como subtítulo (cortada por la izquierda si no cabe)
+        local path_str = at_home and BD.directory(cur_path) or self:pathText(cur_path)
+        local path_row
+        path_row, self._path_w = AireScreen.subtitle(w, path_str, { truncate_left = true })
+        table.insert(vg, path_row)
         table.insert(vg, VerticalSpan:new{ width = S(TOP_GAP_BELOW) })
 
         return HorizontalGroup:new{

@@ -154,13 +154,10 @@ return function(Aire, ctx)
         return bar
     end
 
-    function Aire:buildViewTitle(w, title)
-        return (AireScreen.header(w, { title = title }))
-    end
-
     -- Parte de arriba común de las vistas propias (Librería, Estadísticas,
     -- Explorador…): margen, barra de estado, hueco y cabecera (si hay title).
     --   opts.title, opts.on_back   cabecera "Título" o "‹ Título"
+    --   opts.menu_icon / menu_text, on_menu, on_menu_hold   botón de la derecha
     --   opts.gap_after             hueco debajo del título (por defecto SUB_GAP)
     -- Devuelve el VerticalGroup para seguir añadiendo contenido. Apunta el alto
     -- de la barra de estado (_header_h) para refrescar solo esa franja.
@@ -175,7 +172,11 @@ return function(Aire, ctx)
         self._header_h = content:getSize().h + S(4)
         table.insert(content, VerticalSpan:new{ width = S(MT.HEADER_GAP) })
         if opts.title then
-            table.insert(content, (AireScreen.header(w, { title = opts.title, on_back = opts.on_back })))
+            table.insert(content, (AireScreen.header(w, {
+                title = opts.title, on_back = opts.on_back,
+                menu_icon = opts.menu_icon, menu_text = opts.menu_text,
+                on_menu = opts.on_menu, on_menu_hold = opts.on_menu_hold,
+            })))
             table.insert(content, VerticalSpan:new{ width = S(opts.gap_after or MT.SUB_GAP) })
         end
         -- getSize() de arriba dejó medida la disposición con solo la barra de

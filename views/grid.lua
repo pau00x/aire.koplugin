@@ -144,11 +144,7 @@ return function(Aire, ctx)
     local GestureRange = require("ui/gesturerange")
     local HorizontalGroup = require("ui/widget/horizontalgroup")
     local HorizontalSpan = require("ui/widget/horizontalspan")
-    local IconWidget = require("ui/widget/iconwidget")
     local InputContainer = require("ui/widget/container/inputcontainer")
-    local LeftContainer = require("ui/widget/container/leftcontainer")
-    local OverlapGroup = require("ui/widget/overlapgroup")
-    local RightContainer = require("ui/widget/container/rightcontainer")
     local Size = require("ui/size")
     local TextWidget = require("ui/widget/textwidget")
     local UIManager = require("ui/uimanager")
@@ -1180,54 +1176,20 @@ return function(Aire, ctx)
         end)
     end
 
-    -- Fila única: recuentos (izquierda) + filtro·orden (derecha)
-    function Aire:buildGridInfoRow(w, counts, filters, sorts)
-        local right
-        local right_w = 0
-        if filters or sorts then
-            local parts = {}
-            if filters then
-                local fopt = findOption(filters.list, config[filters.key] or filters.default or "all")
-                table.insert(parts, fopt.short or fopt.label)
-            end
-            if sorts then
-                local sopt = findOption(sorts.list, config[sorts.key] or sorts.default)
-                table.insert(parts, sopt.short or sopt.label)
-            end
-            local sort_row = HorizontalGroup:new{
-                align = "center",
-                TextWidget:new{ text = table.concat(parts, " · "), face = face(false, 13), fgcolor = BLACK, padding = 0 },
-                HorizontalSpan:new{ width = S(2) },
-                IconWidget:new{ icon = "aire.chevron.down", width = S(16), height = S(16), alpha = true },
-            }
-            right = tappable(FrameContainer:new{
-                bordersize = 0, padding = 0, padding_left = S(8), padding_top = S(4), padding_bottom = S(4),
-                sort_row,
-            }, function() self:showGridFilterSortMenu(filters, sorts) end, nil, { h = S(8), v = S(10) })
-            right_w = right:getSize().w
+    -- Texto del filtro y el orden actuales ("Todos · Recientes"); nil si la
+    -- vista no tiene ninguno de los dos
+    function Aire:gridFilterSortLabel(filters, sorts)
+        if not (filters or sorts) then return nil end
+        local parts = {}
+        if filters then
+            local fopt = findOption(filters.list, config[filters.key] or filters.default or "all")
+            table.insert(parts, fopt.short or fopt.label)
         end
-        local left_max = right_w > 0 and math.max(S(60), w - right_w - S(10)) or w
-        local counts_w = TextWidget:new{
-            text = counts or "", face = face(false, 13), fgcolor = GRAY_TEXT, max_width = left_max, padding = 0,
-        }
-        local h = math.max(counts_w:getSize().h, right and right:getSize().h or 0, S(28))
-        local row = OverlapGroup:new{
-            dimen = Geom:new{ w = w, h = h },
-            LeftContainer:new{ dimen = Geom:new{ w = w, h = h }, counts_w },
-        }
-        if right then
-            table.insert(row, RightContainer:new{ dimen = Geom:new{ w = w, h = h }, right })
+        if sorts then
+            local sopt = findOption(sorts.list, config[sorts.key] or sorts.default)
+            table.insert(parts, sopt.short or sopt.label)
         end
-        return row
-    end
-
-    function Aire:buildGridGroupHeader(w, group)
-        return self:buildBackHeader(w, group.title, function() self:closeGridGroup() end)
-    end
-
-    -- "‹ Título" a todo lo ancho; al tocar, on_back (cabecera común, common/screen.lua)
-    function Aire:buildBackHeader(w, title, on_back)
-        return (package.loaded.aire_screen.header(w, { title = title, on_back = on_back }))
+        return table.concat(parts, " · ")
     end
 
     function Aire:buildGrid(w, h, entries, empty_text, swipe_extra_h)
@@ -1388,21 +1350,24 @@ return function(Aire, ctx)
             collections = _("Collections"),
             history = _("History"),
         }
-        -- Barra de estado y cabecera comunes: "‹ Atrás" (Terminados…) o el
-        -- título de la pestaña; dentro de un grupo, su cabecera va después
-        local head = {}
-        if lvl.back then
-            head = { title = lvl.back.title, on_back = lvl.back.action }
-        elseif not lvl.group and VIEW_TITLES[kind] then
-            head = { title = VIEW_TITLES[kind] }
+        -- Cabecera común (common/screen.lua):
+        --   pestaña (Librería…): "Título" y a la derecha el filtro·orden ▾
+        --   subpágina (Terminados, una colección o serie): "‹ Título" y ≡ si
+        --   tiene filtro u orden (el filtro·orden actual va en el subtítulo)
+        local fs_label = self:gridFilterSortLabel(lvl.filters, lvl.sorts)
+        local fs_open = fs_label and function() self:showGridFilterSortMenu(lvl.filters, lvl.sorts) end or nil
+        local head, sub_txt = {}, lvl.counts or ""
+        local back = lvl.back
+            or (lvl.group and { title = lvl.group.title, action = function() self:closeGridGroup() end })
+        if back then
+            head = { title = back.title, on_back = back.action, menu_icon = fs_open and "aire.menu", on_menu = fs_open }
+            if fs_label then sub_txt = sub_txt ~= "" and (sub_txt .. " · " .. fs_label) or fs_label end
+        elseif VIEW_TITLES[kind] then
+            head = { title = VIEW_TITLES[kind], menu_text = fs_label, on_menu = fs_open }
         end
         local content = self:buildScreenTop(w, head)
-        if lvl.group then
-            table.insert(content, self:buildGridGroupHeader(w, lvl.group))
-            table.insert(content, VerticalSpan:new{ width = S(2) })
-        end
-        -- Recuentos a la izquierda + filtros/orden a la derecha
-        table.insert(content, self:buildGridInfoRow(w, lvl.counts, lvl.filters, lvl.sorts))
+        -- Recuentos (y en subpáginas el filtro·orden) como subtítulo
+        table.insert(content, (package.loaded.aire_screen.subtitle(w, sub_txt)))
         table.insert(content, VerticalSpan:new{ width = S(12) })
         content:resetLayout()
         local used_h = content:getSize().h

@@ -33,7 +33,7 @@ msgstr "%1 % (uz pauzes)"
 msgid "%1 % read"
 msgstr "%1 % izlasīts"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:327 views/grid.lua:332
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 grāmatu"
@@ -47,7 +47,7 @@ msgstr[0] "%1 grāmatzīmju"
 msgstr[1] "%1 grāmatzīme"
 msgstr[2] "%1 grāmatzīmes"
 
-#: views/grid.lua:497 views/grid.lua:498
+#: views/grid.lua:493 views/grid.lua:494
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 kolekciju"
@@ -75,14 +75,14 @@ msgstr[0] "%1 lasīšanas dienu"
 msgstr[1] "%1 lasīšanas diena"
 msgstr[2] "%1 lasīšanas dienas"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:329
+#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "pabeigtas: %1"
 msgstr[1] "pabeigtas: %1"
 msgstr[2] "pabeigtas: %1"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 pabeigtu grāmatu"
@@ -118,14 +118,14 @@ msgstr "%1 lpp."
 msgid "%1 pp./h"
 msgstr "%1 lpp./h"
 
-#: styles/shortcuts.lua:128
+#: styles/shortcuts.lua:156
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 saglabātu īsceļu"
 msgstr[1] "%1 saglabāts īsceļš"
 msgstr[2] "%1 saglabāti īsceļi"
 
-#: views/grid.lua:328
+#: views/grid.lua:324
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 sēriju"
@@ -227,6 +227,10 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
+#: styles/shortcuts.lua:114
+msgid "Add to folder shortcuts"
+msgstr "Pievienot mapju īsceļiem"
+
 #: dev/devtools.lua:640 views/widgets.lua:1116
 msgid "Add widget"
 msgstr "Pievienot logrīku"
@@ -272,7 +276,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Visas pabeigtas"
 
-#: views/grid.lua:582 views/widgets.lua:441
+#: views/grid.lua:578 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
@@ -320,7 +324,7 @@ msgstr "Automātiskās kolekcijas pēc žanra (atslēgvārda)"
 msgid "Automatic tests"
 msgstr "Automātiskie testi"
 
-#: views/grid.lua:1013
+#: views/grid.lua:1009
 msgid "Automatic: books by this author"
 msgstr "Automātiska: šī autora grāmatas"
 
@@ -429,7 +433,7 @@ msgstr "Grāmatzīmes un iezīmējumi"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:974
+#: views/grid.lua:970
 msgid "Books are not deleted, only the collection."
 msgstr "Grāmatas netiek dzēstas, tikai kolekcija."
 
@@ -563,7 +567,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Kolekcijas secība"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1388
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
 msgid "Collections"
 msgstr "Kolekcijas"
 
@@ -690,7 +694,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembris"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:975 views/stats.lua:438
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:438
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -716,7 +720,7 @@ msgstr "Dzēst šīs dienas minūtes?"
 msgid "Delete minutes from this day"
 msgstr "Dzēst šīs dienas minūtes"
 
-#: views/grid.lua:973
+#: views/grid.lua:969
 msgid "Delete the collection?"
 msgstr "Dzēst kolekciju?"
 
@@ -724,7 +728,7 @@ msgstr "Dzēst kolekciju?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1024
+#: views/grid.lua:1020
 msgid "Delete…"
 msgstr "Dzēst…"
 
@@ -819,7 +823,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Bez logrīkiem"
 
-#: views/grid.lua:474
+#: views/grid.lua:470
 msgid "Empty collection"
 msgstr "Tukša kolekcija"
 
@@ -827,7 +831,7 @@ msgstr "Tukša kolekcija"
 msgid "Empty folder"
 msgstr "Tukša mape"
 
-#: views/grid.lua:307
+#: views/grid.lua:303
 msgid "Empty series"
 msgstr "Tukša sērija"
 
@@ -868,7 +872,7 @@ msgstr ""
 msgid "FILE"
 msgstr "FAILS"
 
-#: views/grid.lua:799
+#: views/grid.lua:795
 msgid "FILTER"
 msgstr "FILTRS"
 
@@ -881,7 +885,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Izlases mapes"
 
-#: dev/devtools.lua:821 views/grid.lua:351 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -906,11 +910,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:743
+#: views/grid.lua:739
 msgid "Filter"
 msgstr "Filtrēt"
 
-#: dev/devtools.lua:659 views/grid.lua:742
+#: dev/devtools.lua:659 views/grid.lua:738
 msgid "Filter and sort"
 msgstr "Filtrēt un kārtot"
 
@@ -1060,7 +1064,7 @@ msgstr "Vēl nav pienākusi"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1389
+#: views/dock.lua:42 views/grid.lua:1351
 #, koreader
 msgid "History"
 msgstr ""
@@ -1069,7 +1073,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:618
+#: views/grid.lua:614
 msgid "History is empty"
 msgstr "Vēsture ir tukša"
 
@@ -1081,7 +1085,7 @@ msgstr "Turēšana darbojas kā pieskāriens"
 msgid "Hold to configure"
 msgstr "Turi, lai konfigurētu"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:155
+#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1247,7 +1251,7 @@ msgstr "Izkārtojums"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1387
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
 msgid "Library"
 msgstr "Bibliotēka"
 
@@ -1332,7 +1336,7 @@ msgstr "Atzīmēt"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Atzīmēt visas “%1” grāmatas kā lasāmas?"
 
-#: views/grid.lua:1061
+#: views/grid.lua:1057
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Atzīmēt visas kolekcijas “%1” grāmatas kā lasāmas?"
 
@@ -1340,11 +1344,11 @@ msgstr "Atzīmēt visas kolekcijas “%1” grāmatas kā lasāmas?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1059
+#: views/grid.lua:1055
 msgid "Mark entire collection as finished"
 msgstr "Atzīmēt visu kolekciju kā pabeigtu"
 
-#: views/grid.lua:1060
+#: views/grid.lua:1056
 msgid "Mark entire collection as reading"
 msgstr "Atzīmēt visu kolekciju kā lasāmu"
 
@@ -1379,11 +1383,11 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Minimāls"
 
-#: views/explorer.lua:133
+#: views/explorer.lua:116
 msgid "Mix folders"
 msgstr "Jaukt mapes"
 
-#: views/grid.lua:820
+#: views/grid.lua:816
 msgid "Mix series"
 msgstr "Jaukt sērijas"
 
@@ -1472,11 +1476,11 @@ msgctxt "aire"
 msgid "New"
 msgstr "Jauns"
 
-#: views/grid.lua:493
+#: views/grid.lua:489
 msgid "New collection"
 msgstr "Jauna kolekcija"
 
-#: views/grid.lua:1015 views/grid.lua:1028
+#: views/grid.lua:1011 views/grid.lua:1024
 msgid "New collection…"
 msgstr "Jauna kolekcija…"
 
@@ -1522,19 +1526,19 @@ msgstr "Nav iesāktu grāmatu"
 msgid "No book matches the filter"
 msgstr "Neviena grāmata neatbilst filtram"
 
-#: views/grid.lua:586
+#: views/grid.lua:582
 msgid "No books finished this month"
 msgstr "Šomēnes nav pabeigtu grāmatu"
 
-#: views/grid.lua:586
+#: views/grid.lua:582
 msgid "No books finished this year"
 msgstr "Šogad nav pabeigtu grāmatu"
 
-#: views/grid.lua:339
+#: views/grid.lua:335
 msgid "No books in home folder"
 msgstr "Sākuma mapē nav grāmatu"
 
-#: views/grid.lua:339 views/grid.lua:474 views/grid.lua:618
+#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
 msgid "No books with this filter"
 msgstr "Ar šo filtru nav grāmatu"
 
@@ -1542,11 +1546,11 @@ msgstr "Ar šo filtru nav grāmatu"
 msgid "No chapter"
 msgstr "Nav nodaļas"
 
-#: views/grid.lua:501
+#: views/grid.lua:497
 msgid "No collections"
 msgstr "Nav kolekciju"
 
-#: views/grid.lua:501
+#: views/grid.lua:497
 msgid "No collections with this filter"
 msgstr "Ar šo filtru nav kolekciju"
 
@@ -1583,7 +1587,7 @@ msgstr "Šomēnes nav lasīšanas sesiju"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:127
+#: styles/shortcuts.lua:155
 msgid "No saved shortcuts"
 msgstr "Nav saglabātu īsceļu"
 
@@ -1668,7 +1672,7 @@ msgstr "Tikai tad, ja Wi-Fi jau ir ieslēgts: Aire to nekad neieslēdz."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1058
+#: views/grid.lua:1054
 msgid "Open collection"
 msgstr "Atvērt kolekciju"
 
@@ -1676,7 +1680,7 @@ msgstr "Atvērt kolekciju"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1058
+#: views/grid.lua:1054
 msgid "Open series"
 msgstr "Atvērt sēriju"
 
@@ -1928,12 +1932,12 @@ msgstr "Noņemt"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:507
+#: views/booksheet.lua:592 views/grid.lua:503
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Izņemt no kolekcijas"
 
-#: views/booksheet.lua:556 views/grid.lua:623
+#: views/booksheet.lua:556 views/grid.lua:619
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1953,7 +1957,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1022
+#: views/grid.lua:1018
 msgid "Rename…"
 msgstr "Pārsaukt…"
 
@@ -1988,7 +1992,7 @@ msgstr "Restartē KOReader, lai to izmantotu. Tavi iestatījumi tiek saglabāti.
 msgid "Restart now"
 msgstr "Restartēt tagad"
 
-#: views/explorer.lua:120 views/grid.lua:814
+#: views/explorer.lua:103 views/grid.lua:810
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2013,7 +2017,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:809
+#: views/grid.lua:805
 msgid "SORT BY"
 msgstr "KĀRTOT PĒC"
 
@@ -2162,7 +2166,7 @@ msgstr "Gudrā"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:75
+#: views/explorer.lua:65
 msgid "Sort"
 msgstr "Kārtot"
 
@@ -2174,19 +2178,19 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:743
+#: dev/devtools.lua:613 views/grid.lua:739
 msgid "Sort by"
 msgstr "Kārtot pēc"
 
-#: dev/devtools.lua:825 views/grid.lua:993
+#: dev/devtools.lua:825 views/grid.lua:989
 msgid "Sort collections"
 msgstr "Kārtot kolekcijas"
 
-#: views/grid.lua:1016 views/grid.lua:1029
+#: views/grid.lua:1012 views/grid.lua:1025
 msgid "Sort collections…"
 msgstr "Kārtot kolekcijas…"
 
-#: views/explorer.lua:146
+#: views/explorer.lua:129
 msgid "Sort files"
 msgstr "Kārtot failus"
 
@@ -2259,7 +2263,7 @@ msgstr "Pieskaries, lai apturētu"
 msgid "Tap to view definition"
 msgstr "Pieskaries, lai skatītu definīciju"
 
-#: views/grid.lua:1290
+#: views/grid.lua:1252
 msgid "Test book"
 msgstr "Testa grāmata"
 
@@ -2531,7 +2535,7 @@ msgstr "Tu vēl neesi atvēris nevienu grāmatu"
 msgid "You have version %1"
 msgstr "Tev ir versija %1"
 
-#: views/grid.lua:585
+#: views/grid.lua:581
 msgid "You haven't finished any books yet"
 msgstr "Tu vēl neesi pabeidzis nevienu grāmatu"
 
