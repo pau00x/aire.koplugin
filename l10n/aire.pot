@@ -202,7 +202,7 @@ msgstr ""
 msgid "Activity summary"
 msgstr ""
 
-#: styles/bookmark.lua:390
+#: styles/bookmark.lua:378
 msgid "Add note"
 msgstr ""
 
@@ -274,7 +274,7 @@ msgstr ""
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:120
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
 msgid "Apply"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
 msgid "Cancel"
 msgstr ""
 
@@ -516,7 +516,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr ""
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:114 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
 msgid "Close"
 msgstr ""
 
@@ -752,7 +752,7 @@ msgstr ""
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:390
+#: styles/bookmark.lua:378
 msgid "Edit note"
 msgstr ""
 
@@ -760,7 +760,7 @@ msgstr ""
 msgid "Edit series"
 msgstr ""
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:382
 msgid "Edit text"
 msgstr ""
 
@@ -915,7 +915,7 @@ msgstr ""
 msgid "Fonts"
 msgstr ""
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 msgid "Forgot"
 msgstr ""
 
@@ -959,7 +959,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr ""
 
-#: styles/bookmark.lua:419
+#: styles/bookmark.lua:407
 msgid "Go to bookmark"
 msgstr ""
 
@@ -967,7 +967,7 @@ msgstr ""
 msgid "Go up"
 msgstr ""
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:155
+#: common/compat.lua:179 styles/vocabbuilder.lua:156
 msgid "Got it"
 msgstr ""
 
@@ -1361,7 +1361,7 @@ msgstr ""
 msgid "NEXT"
 msgstr ""
 
-#: styles/vocabbuilder.lua:122
+#: styles/vocabbuilder.lua:123
 msgid "NEXT REVIEW"
 msgstr ""
 
@@ -1510,7 +1510,7 @@ msgstr ""
 msgid "No unstarted books"
 msgstr ""
 
-#: styles/vocabbuilder.lua:91
+#: styles/vocabbuilder.lua:92
 msgid "No vocabulary words"
 msgstr ""
 
@@ -1809,7 +1809,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:407
+#: dev/devtools.lua:636 styles/bookmark.lua:395
 msgid "Remove"
 msgstr ""
 
@@ -1818,7 +1818,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr ""
 
-#: styles/bookmark.lua:404
+#: styles/bookmark.lua:392
 msgid "Remove bookmark"
 msgstr ""
 
@@ -1835,7 +1835,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:406
+#: styles/bookmark.lua:394
 msgid "Remove this bookmark?"
 msgstr ""
 
@@ -2121,7 +2121,7 @@ msgstr ""
 msgid "Tap to stop"
 msgstr ""
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr ""
 
@@ -2309,7 +2309,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr ""
 
-#: styles/vocabbuilder.lua:304
+#: styles/vocabbuilder.lua:306
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] ""

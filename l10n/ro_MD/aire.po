@@ -218,7 +218,7 @@ msgstr "Activ"
 msgid "Activity summary"
 msgstr "Rezumat activitate"
 
-#: styles/bookmark.lua:390
+#: styles/bookmark.lua:378
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -296,7 +296,7 @@ msgstr "Rezumat anual"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:120
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -555,7 +555,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Șterge miniaturile copertelor"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:114 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
 #, koreader
 msgid "Close"
 msgstr ""
@@ -807,7 +807,7 @@ msgstr "Editează widgeturile Acasă"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:390
+#: styles/bookmark.lua:378
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -816,7 +816,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Editează seria"
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:382
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -986,7 +986,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Fonturi"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -1038,7 +1038,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Gesturi setate: %1"
 
-#: styles/bookmark.lua:419
+#: styles/bookmark.lua:407
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1047,7 +1047,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Sus"
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:155
+#: common/compat.lua:179 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1456,7 +1456,7 @@ msgstr "NOU"
 msgid "NEXT"
 msgstr "URMĂTOR"
 
-#: styles/vocabbuilder.lua:122
+#: styles/vocabbuilder.lua:123
 msgid "NEXT REVIEW"
 msgstr "URMĂTOAREA RECAPITULARE"
 
@@ -1612,7 +1612,7 @@ msgstr "Nicio statistică pentru această carte"
 msgid "No unstarted books"
 msgstr "Nicio carte neîncepută"
 
-#: styles/vocabbuilder.lua:91
+#: styles/vocabbuilder.lua:92
 msgid "No vocabulary words"
 msgstr "Niciun cuvânt"
 
@@ -1934,7 +1934,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:407
+#: dev/devtools.lua:636 styles/bookmark.lua:395
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1944,7 +1944,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Elimină"
 
-#: styles/bookmark.lua:404
+#: styles/bookmark.lua:392
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1964,7 +1964,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:406
+#: styles/bookmark.lua:394
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2280,7 +2280,7 @@ msgstr "Atinge pentru a deschide biblioteca"
 msgid "Tap to stop"
 msgstr "Atinge pentru a opri"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Atinge pentru a vedea definiția"
 
@@ -2480,7 +2480,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Recapitulare vocabular"
 
-#: styles/vocabbuilder.lua:304
+#: styles/vocabbuilder.lua:306
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Recapitulare vocabular · %1 cuvânt"

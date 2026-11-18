@@ -9,7 +9,14 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 - **One header for every full screen.** Main sections show their title with a text button on the right: in Library, Collections and History the current filter and sort ("All · Recent ▾") moved up next to the title, and the counts are now the subtitle; in the file browser the current sort ("Name ▾") moved up too and the path is the subtitle. Subpages (a series or collection, Finished) show "‹ Title" and, when they have a filter or sort, a ≡ button that opens it (the current filter and sort are shown in the subtitle).
 - **Aire's ≡ icon** in every screen menu (Book map, Page browser, KOReader's collections list…) instead of KOReader's.
 - **Folder shortcuts**: the + on the right is now ≡. Tapping it opens the list options with "Add to folder shortcuts" at the top, as a bottom sheet; long-press adds a shortcut directly.
-- **Same spacing in every full screen**: the page dots sit at the same distance from the dock as in a collection, in every screen that has the dock (statistics screens, Gestures, Aire updates, Book information and other KOReader lists); screens without the dock (in the reader: Table of contents, Bookmarks…) leave that same gap down to the bottom of the screen. The Calendar subtitle uses the common subtitle row; Recap leaves the common gap below its title.
+- **Same spacing in every full screen**: the page dots sit at the same distance from the dock as in a collection, in every screen that has the dock (statistics screens, Gestures, Aire updates, Book information and other KOReader lists); screens without the dock (in the reader: Table of contents, Bookmarks…) leave that same gap down to the bottom of the screen. Sort leaves it between the dots and its buttons, as above the dock, and always starts its list at the common gap below the title (with several pages KOReader centred it for its own footer, so in the Vocabulary builder's "Move to book" the list and the dots were out of place); the Vocabulary builder and the statistics day view leave it below their dots row.
+- **Sort** uses Aire's margins: its cards keep the common side margin and the same spacing between cards as the other lists (they had KOReader's), the first one starts at the common gap below the title and the last one leaves the common gap above the dots.
+- **Lists to pick from** (Vocabulary builder's "Move to book" and "Filter words from books"): only Close and Apply at the bottom; the first / last page buttons are gone (the dots and swiping change page).
+- **Bookmark details** no longer show page dots, and swiping left or right no longer moves to another bookmark (swiping down still closes). The Calendar subtitle uses the common subtitle row; Recap leaves the common gap below its title.
+
+### Fixed
+
+- **Vocabulary builder**: the first time it was opened after starting KOReader it kept KOReader's margins until it was opened again.
 
 ### Internal
 

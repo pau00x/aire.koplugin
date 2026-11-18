@@ -301,14 +301,16 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
             orig_populateBooks(self, ...)
             if not self.page_info then return end
             if not self._dot_pager then
+                -- Mismo alto que en el resto y el hueco común hasta el borde
+                -- (common/screen.lua); el pie de KOReader, más alto, queda encima
                 self._dot_pager = DotPager:new{
-                    height = self.footer_height or Screen:scaleBySize(BAR_HEIGHT),
+                    height = Screen:scaleBySize(BAR_HEIGHT),
                     get_state = function()
                         return self.show_page or 1, self.pages or 1
                     end,
                 }
             end
-            replaceGroupWithDots(self.page_info, self._dot_pager)
+            replaceGroupWithDots(self.page_info, dotsFooter(self))
         end, TAG)
     end)
 
@@ -344,10 +346,14 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
             for i = #self.page_info, 1, -1 do
                 self.page_info[i] = nil
             end
+            -- Debajo, el mismo hueco hasta el borde que en las demás pantallas
+            -- sin dock (common/screen.lua); los botones de los lados, arriba
+            local bottom = Screen:scaleBySize(AireScreen.METRICS.DOTS_BOTTOM)
+            self.page_info.align = "top"
             self.page_info[1] = first_item
             self.page_info[2] = CenterContainer:new{
-                dimen = Geom:new{ w = center_w, h = h },
-                self._dot_pager,
+                dimen = Geom:new{ w = center_w, h = h + bottom },
+                AireScreen.pagerFooter(self._dot_pager, false),
             }
             self.page_info[3] = last_item
             self.page_info:resetLayout()

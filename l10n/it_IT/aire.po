@@ -202,7 +202,7 @@ msgstr "Attivo"
 msgid "Activity summary"
 msgstr "Riepilogo attività"
 
-#: styles/bookmark.lua:390
+#: styles/bookmark.lua:378
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -280,7 +280,7 @@ msgstr "Riepilogo annuale"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:120
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -471,7 +471,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -539,7 +539,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Cancella le miniature delle copertine"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:114 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
 #, koreader
 msgid "Close"
 msgstr ""
@@ -791,7 +791,7 @@ msgstr "Modifica widget della Home"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:390
+#: styles/bookmark.lua:378
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -800,7 +800,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Modifica serie"
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:382
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -970,7 +970,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Caratteri"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -1022,7 +1022,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Gesti impostati: %1"
 
-#: styles/bookmark.lua:419
+#: styles/bookmark.lua:407
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1031,7 +1031,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Su"
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:155
+#: common/compat.lua:179 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1440,7 +1440,7 @@ msgstr "NUOVO"
 msgid "NEXT"
 msgstr "SUCCESSIVO"
 
-#: styles/vocabbuilder.lua:122
+#: styles/vocabbuilder.lua:123
 msgid "NEXT REVIEW"
 msgstr "PROSSIMO RIPASSO"
 
@@ -1596,7 +1596,7 @@ msgstr "Nessuna statistica per questo libro"
 msgid "No unstarted books"
 msgstr "Nessun libro non iniziato"
 
-#: styles/vocabbuilder.lua:91
+#: styles/vocabbuilder.lua:92
 msgid "No vocabulary words"
 msgstr "Nessuna parola"
 
@@ -1918,7 +1918,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:407
+#: dev/devtools.lua:636 styles/bookmark.lua:395
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1928,7 +1928,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: styles/bookmark.lua:404
+#: styles/bookmark.lua:392
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1948,7 +1948,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:406
+#: styles/bookmark.lua:394
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2264,7 +2264,7 @@ msgstr "Tocca per aprire la libreria"
 msgid "Tap to stop"
 msgstr "Tocca per fermare"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Tocca per vedere la definizione"
 
@@ -2464,7 +2464,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Ripasso vocaboli"
 
-#: styles/vocabbuilder.lua:304
+#: styles/vocabbuilder.lua:306
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Ripasso vocaboli · %1 parola"
