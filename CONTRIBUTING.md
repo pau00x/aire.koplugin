@@ -80,7 +80,7 @@ When translating, keep labels short (they appear under icons and on small button
 
 ## Versioning
 
-The version lives only in `_meta.lua` (`version = "0.1.0"`); `main.lua` reads it and writes `Aire version …` to `crash.log`. Aire follows [Semantic Versioning](https://semver.org/): while it is `0.x`, minor versions may change settings or behaviour. Every release gets an entry in `CHANGELOG.md`.
+The version lives only in `_meta.lua` (`version = "0.2.0"`); `main.lua` reads it and writes `Aire version …` to `crash.log`. Aire follows [Semantic Versioning](https://semver.org/): while it is `0.x`, minor versions may change settings or behaviour. Every release gets an entry in `CHANGELOG.md`.
 
 ## Pull requests
 

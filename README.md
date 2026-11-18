@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version 0.1.0" src="https://img.shields.io/badge/version-0.1.0-informational">
+  <img alt="Version 0.2.0" src="https://img.shields.io/badge/version-0.2.0-informational">
   <img alt="Status: beta" src="https://img.shields.io/badge/status-beta-orange">
   <img alt="KOReader 2026.07+" src="https://img.shields.io/badge/KOReader-2026.07%2B-blue">
   <img alt="License: AGPL-3.0" src="https://img.shields.io/badge/license-AGPL--3.0-green">
@@ -148,7 +148,7 @@ Aire tells you what it disabled and offers to restart. Patches that do not overl
 
 Please open an issue with the **Bug report** template. A good report includes:
 
-1. **Aire version** and **KOReader version**. Aire writes its version to `crash.log` at startup (`Aire version 0.1.0`); KOReader's is in Help → About.
+1. **Aire version** and **KOReader version**. Aire writes its version to `crash.log` at startup (`Aire version 0.2.0`); KOReader's is in Help → About.
 2. **Device**, model and **orientation**.
 3. **KOReader language**.
 4. **Steps to reproduce**: what you tapped, ideally starting from a fresh start.
