@@ -17,6 +17,7 @@ local Size = require("ui/size")
 local logger = require("logger")
 local userpatch = require("userpatch")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Covers"
 
@@ -264,7 +265,7 @@ local function patchCoverBrowser(plugin)
         MosaicMenu._aire_grid_dims = true
         local function patched_recalc(self, ...)
             local portrait = self.name == "filemanager" and self.inner_dimen and Screen:getWidth() <= Screen:getHeight()
-            local side = Screen:scaleBySize(16)
+            local side = Screen:scaleBySize(SIDE)
             local gap = Screen:scaleBySize(10)
             local oh = 0
             local cols = 4
@@ -315,8 +316,8 @@ local function patchCoverBrowser(plugin)
                     if #self.item_group > 0 and self.item_group[1].width and not self.item_group[1][1] then
                         table.remove(self.item_group, 1)
                     end
-                    -- Margen izquierdo S(16) en cada fila (en vez de S(10))
-                    local side = Screen:scaleBySize(16)
+                    -- Margen izquierdo S(SIDE) en cada fila (en vez de S(10))
+                    local side = Screen:scaleBySize(SIDE)
                     for _i, child in ipairs(self.item_group) do
                         local hg = child[1]
                         if type(hg) == "table" and type(hg[1]) == "table" and hg[1].width and not hg[1][1] then
@@ -351,7 +352,7 @@ local function patchCoverBrowser(plugin)
                 end
                 local orig_w = self.width
                 local orig_h = self.height
-                local pad_h = Screen:scaleBySize(16)
+                local pad_h = Screen:scaleBySize(SIDE)
                 local gap_b = orig_h >= Screen:scaleBySize(60) and Screen:scaleBySize(8) or Screen:scaleBySize(6)
                 local pad_in = Screen:scaleBySize(4)
                 local border = Size.border.thin

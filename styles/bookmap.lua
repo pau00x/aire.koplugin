@@ -27,6 +27,7 @@ local _ = require("gettext")
 local N_ = _.ngettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/BookMap"
 local AireUI = package.loaded.aire_ui
@@ -78,7 +79,7 @@ end
 
 local function buildCurrentChapterCard(bm)
     local sw = Screen:getWidth()
-    local side = S(16)
+    local side = S(SIDE)
     local dock_w = sw - 2 * side
     local pad = S(10)
     local in_w = math.max(10, dock_w - 2 * (pad + Size.border.thin))
@@ -182,7 +183,7 @@ safeWrap(BookMapWidget, "init", function(orig_init, self)
     local ok_c, card = pcall(buildCurrentChapterCard, self)
     if ok_c and card and self[1] and self[1][1] and self.cropping_widget then
         local sw = Screen:getWidth()
-        local side = S(16)
+        local side = S(SIDE)
         local dock_w = sw - 2 * side
         local gap = S(10)
         local extra_h = card:getSize().h + gap

@@ -24,21 +24,17 @@ local Size = require("ui/size")
 local TextBoxWidget = require("ui/widget/textboxwidget")
 local TextWidget = require("ui/widget/textwidget")
 local TouchMenu = require("ui/widget/touchmenu")
-local WidgetContainer = require("ui/widget/container/widgetcontainer")
 local logger = require("logger")
 local _ = require("gettext")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/UI"
 
 -- stylua: ignore start
 local DOT_PAGINATION            = uiOpt("dots")   -- activar paginación por puntos global
-local MAX_DOTS                  = 9      -- a partir de más páginas se muestra "3 / 12"
 local TOUCHMENU_DOTS            = 6      -- máximo de puntos en el pie del menú desplegable
-local BAR_HEIGHT                = 26     -- altura base del indicador (igual que views/grid.lua)
-local DOT_SIZE                  = 7      -- diámetro de los puntos / alto de la raya
-local ACTIVE_PILL_W             = 28     -- largo de la raya de la página actual
-local DOT_GAP                   = 9      -- separación entre puntos
+local BAR_HEIGHT                = package.loaded.aire_screen.METRICS.DOTS_H -- alto del indicador
 local EMPTY_LIST_MESSAGE        = true   -- aviso gris centrado en listas vacías (Historial, colecciones…)
 -- stylua: ignore end
 
@@ -48,96 +44,10 @@ local EMPTY_LIST_MESSAGE        = true   -- aviso gris centrado en listas vacía
 if DOT_PAGINATION and not Menu._dot_pagination_patched then
     Menu._dot_pagination_patched = true
 
-    local TEXT_COLOR = Blitbuffer.COLOR_DARK_GRAY
-
-    local DotPager = WidgetContainer:extend{
-        get_state = nil, -- function() -> cur, total
-        height = nil,
-        max_dots = nil,
-    }
+    -- Puntos de página: la pieza común (common/screen.lua), la misma que usan
+    -- la cuadrícula de la Librería y common/pages.lua
+    local DotPager = package.loaded.aire_screen.Pager
     Menu._aire_dot_pager_cls = DotPager
-
-    function DotPager:init()
-        self.height = self.height or Screen:scaleBySize(BAR_HEIGHT)
-        self.max_dots = self.max_dots or MAX_DOTS
-        self.dimen = Geom:new{ x = 0, y = 0, w = 0, h = self.height }
-    end
-
-    function DotPager:_measure()
-        local cur, total = 1, 1
-        if self.get_state then
-            cur, total = self.get_state()
-        end
-        total = tonumber(total) or 1
-        cur = math.max(1, math.min(total, tonumber(cur) or 1))
-        if total <= 1 then
-            self.dimen.w = 0
-            self.dimen.h = self.height
-            return cur, total
-        end
-        if total > self.max_dots then
-            local tw = TextWidget:new{
-                text = tostring(cur) .. " / " .. tostring(total),
-                face = Font:getFace("cfont", 13),
-            }
-            self.dimen.w = tw:getSize().w
-            self.dimen.h = self.height
-            tw:free()
-            return cur, total
-        end
-        local d = Screen:scaleBySize(DOT_SIZE)
-        local pill_w = math.max(d, Screen:scaleBySize(ACTIVE_PILL_W))
-        local gap = Screen:scaleBySize(DOT_GAP)
-        self.dimen.w = (total - 1) * d + pill_w + (total - 1) * gap
-        self.dimen.h = self.height
-        return cur, total
-    end
-
-    function DotPager:getSize()
-        self:_measure()
-        return self.dimen
-    end
-
-    function DotPager:paintTo(bb, x, y)
-        local cur, total = self:_measure()
-        self.dimen.x = x
-        self.dimen.y = y
-        if total <= 1 then return end
-
-        local w, h = self.dimen.w, self.dimen.h
-        local cy = y + math.floor(h / 2)
-
-        if total > self.max_dots then
-            local tw = TextWidget:new{
-                text = tostring(cur) .. " / " .. tostring(total),
-                face = Font:getFace("cfont", 13),
-                fgcolor = TEXT_COLOR,
-            }
-            local ts = tw:getSize()
-            tw:paintTo(bb, x + math.floor((w - ts.w) / 2), y + math.floor((h - ts.h) / 2))
-            tw:free()
-            return
-        end
-
-        local d = Screen:scaleBySize(DOT_SIZE)
-        local r = math.floor(d / 2)
-        local t = Size.border.thin
-        local pill_w = math.max(d, Screen:scaleBySize(ACTIVE_PILL_W))
-        local gap = Screen:scaleBySize(DOT_GAP)
-
-        local px = x
-        local iy = cy - r
-        for i = 1, total do
-            if i == cur then
-                bb:paintRoundedRect(px, iy, pill_w, d, Blitbuffer.COLOR_BLACK, r)
-                px = px + pill_w + gap
-            else
-                bb:paintRoundedRect(px, iy, d, d, Blitbuffer.COLOR_BLACK, r)
-                bb:paintRoundedRect(px + t, iy + t, d - 2 * t, d - 2 * t, Blitbuffer.COLOR_WHITE, math.max(0, r - t))
-                px = px + d + gap
-            end
-        end
-    end
 
     local function replaceGroupWithDots(group, pager)
         if not group then return end
@@ -222,7 +132,7 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
 
     local function stylePlainExplorerItems(menu)
         if menu.name ~= "filemanager" or not menu.item_group or #menu.item_group == 0 then return end
-        local pad_h = Screen:scaleBySize(16)
+        local pad_h = Screen:scaleBySize(SIDE)
         local inner_pad = Screen:scaleBySize(14)
         local changed = false
         for _i, child in ipairs(menu.item_group) do

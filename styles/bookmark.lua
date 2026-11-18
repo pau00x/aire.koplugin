@@ -25,6 +25,8 @@ local VerticalSpan = require("ui/widget/verticalspan")
 local logger = require("logger")
 local _ = require("gettext")
 local Screen = Device.screen
+local METRICS = package.loaded.aire_screen.METRICS -- medidas comunes (common/screen.lua)
+local SIDE = METRICS.SIDE
 local AireUI = package.loaded.aire_ui
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Bookmark"
@@ -222,7 +224,7 @@ safeWrap(ReaderBookmark, "onShowBookmark", function(orig_onShowBookmark, self, .
                 or (self.inner_dimen and self.inner_dimen.w)
                 or w
             local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(16) - outer_pad)
+            local pad_h = math.max(0, S(SIDE) - outer_pad)
             for _, child in ipairs(self.item_group) do
                 if child and child.entry then
                     local ih = (child.dimen and child.dimen.h) or S(84)
@@ -427,8 +429,8 @@ local function showDetailsSheet(bookmark, item_or_index)
     if DotPager and items_nb > 1 then
         table.insert(content, VerticalSpan:new{ width = S(8) })
         table.insert(content, CenterContainer:new{
-            dimen = Geom:new{ w = in_w, h = S(26) },
-            DotPager:new{ height = S(26), get_state = function() return item_idx, items_nb end },
+            dimen = Geom:new{ w = in_w, h = S(METRICS.DOTS_H) },
+            DotPager:new{ height = S(METRICS.DOTS_H), get_state = function() return item_idx, items_nb end },
         })
     end
 

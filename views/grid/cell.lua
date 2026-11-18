@@ -1,7 +1,8 @@
 --[[
     aire.koplugin/views/grid/cell.lua
     Widgets de las vistas de cuadrícula (views/grid.lua): la celda de una
-    portada o de un grupo (GridCell) y los puntos de página (PageDots).
+    portada o de un grupo (GridCell). Los puntos de página son los comunes
+    (common/screen.lua).
     GridCell.state = { TEST, CONFIG }: lo rellena el mixin de grid.lua
     (herramientas de prueba de devtools.lua, opcionales).
 --]]
@@ -17,13 +18,11 @@ local RenderImage = require("ui/renderimage")
 local Size = require("ui/size")
 local TextBoxWidget = require("ui/widget/textboxwidget")
 local TextWidget = require("ui/widget/textwidget")
-local Widget = require("ui/widget/widget")
 local Screen = require("device").screen
 
 local BLACK = Blitbuffer.COLOR_BLACK
 local WHITE = Blitbuffer.COLOR_WHITE
 local GRAY_TEXT = Blitbuffer.COLOR_DARK_GRAY
-local MAX_DOTS = 9           -- con más páginas se muestra "3 / 12"
 
 -- Herramientas de prueba (devtools.lua, opcional): datos falsos y medidas.
 -- Las fija el mixin si el archivo existe.
@@ -489,50 +488,6 @@ function GridCell:free()
     for _i, tw in ipairs(self.name_lines or {}) do tw:free() end
 end
 
--- Indicador de páginas: puntos (● activo alargado) o "3 / 12"
-local PageDots = Widget:extend{ width = nil, height = nil, page = 1, pages = 1 }
-
-function PageDots:getSize() return Geom:new{ w = self.width, h = self.height } end
-
-function PageDots:paintTo(bb, x, y)
-    if self.pages <= 1 then return end
-    if self.pages > MAX_DOTS then
-        if not self._text then
-            self._text = TextWidget:new{
-                text = ("%d / %d"):format(self.page, self.pages),
-                face = Font:getFace("cfont", 13), fgcolor = GRAY_TEXT, padding = 0,
-            }
-        end
-        local s = self._text:getSize()
-        self._text:paintTo(bb, x + math.floor((self.width - s.w) / 2), y + math.floor((self.height - s.h) / 2))
-        return
-    end
-    -- Página actual: raya negra; las demás: puntos con borde fino (como las
-    -- portadas y el dock), en blanco
-    local d = Screen:scaleBySize(7)          -- diámetro de los puntos / alto de la raya
-    local active_w = Screen:scaleBySize(28)  -- largo de la raya
-    local gap = Screen:scaleBySize(9)
-    local t = Size.border.thin
-    local total = (self.pages - 1) * d + active_w + (self.pages - 1) * gap
-    local cx = x + math.floor((self.width - total) / 2)
-    local cy = y + math.floor((self.height - d) / 2)
-    local r = math.floor(d / 2)
-    for i = 1, self.pages do
-        if i == self.page then
-            bb:paintRoundedRect(cx, cy, active_w, d, BLACK, r)
-            cx = cx + active_w + gap
-        else
-            bb:paintRoundedRect(cx, cy, d, d, BLACK, r)
-            bb:paintRoundedRect(cx + t, cy + t, d - 2 * t, d - 2 * t, WHITE, math.max(0, r - t))
-            cx = cx + d + gap
-        end
-    end
-end
-
-function PageDots:free()
-    if self._text then self._text:free() end
-end
-
 GridCell.state = state
 
-return { GridCell = GridCell, PageDots = PageDots }
+return { GridCell = GridCell }

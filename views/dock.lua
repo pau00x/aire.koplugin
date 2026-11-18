@@ -11,7 +11,6 @@ return function(Aire, ctx)
     -- como upvalues de esta función (LuaJIT admite 60).
     local Blitbuffer = require("ffi/blitbuffer")
     local ButtonDialog = require("ui/widget/buttondialog")
-    local CenterContainer = require("ui/widget/container/centercontainer")
     local Device = require("device")
     local FileManager = require("apps/filemanager/filemanager")
     local FrameContainer = require("ui/widget/container/framecontainer")
@@ -23,8 +22,6 @@ return function(Aire, ctx)
     local Size = require("ui/size")
     local TextWidget = require("ui/widget/textwidget")
     local UIManager = require("ui/uimanager")
-    local VerticalGroup = require("ui/widget/verticalgroup")
-    local VerticalSpan = require("ui/widget/verticalspan")
     local _ = require("gettext")
     local Screen = Device.screen
     local S = ctx.S
@@ -35,8 +32,6 @@ return function(Aire, ctx)
     local selStyle = ctx.selStyle
     local SEL_GRAY_LIGHTEN = ctx.SEL_GRAY_LIGHTEN
     local SIDE_PAD = ctx.SIDE_PAD
-    local DOCK_GAP_ABOVE = ctx.DOCK_GAP_ABOVE
-    local DOCK_MARGIN_BOTTOM = ctx.DOCK_MARGIN_BOTTOM
 
     -- Barra de navegación inferior
     local NAV_ORDER = { "library", "collections", "home", "history", "stats" }
@@ -219,22 +214,19 @@ return function(Aire, ctx)
         }
     end
 
-    do
-        local tb = require("ui/widget/titlebar")
-        -- Solo con la Pantalla de inicio activada (si no, el dock de las pantallas
-        -- completas llevaría a pestañas que no existen)
-        tb._aire_dock_active = function()
+    -- Dock de las pantallas completas (common/screen.lua decide cuándo sale y
+    -- dónde va): las pestañas de Inicio, sin ninguna marcada; al tocar una se
+    -- cierra la pantalla. Solo con la Pantalla de inicio activada (si no,
+    -- llevaría a pestañas que no existen).
+    package.loaded.aire_screen.setDockSource{
+        active = function()
             local inst = Aire._active_instance
             return config.enabled and inst ~= nil and not inst._aire_closed
-        end
-        tb._aire_dock_reserve = function()
-            return S(64) + 2 * (Size.border.thin + S(4)) + S(DOCK_GAP_ABOVE) + S(DOCK_MARGIN_BOTTOM)
-        end
-        tb._aire_build_dock = function(owner_widget)
+        end,
+        build = function(owner_widget)
             local inst = Aire._active_instance
             if not inst then return nil end
-            local sw = Screen:getWidth()
-            local dock = inst:buildNavBar(sw - 2 * S(SIDE_PAD), {
+            return inst:buildNavBar(Screen:getWidth() - 2 * S(SIDE_PAD), {
                 home_items = true,
                 no_active = true,
                 on_tap = function(tapped)
@@ -242,14 +234,8 @@ return function(Aire, ctx)
                     inst:onNavTap(tapped)
                 end,
             })
-            return VerticalGroup:new{
-                align = "center",
-                VerticalSpan:new{ width = S(DOCK_GAP_ABOVE) },
-                CenterContainer:new{ dimen = Geom:new{ w = sw, h = dock:getSize().h }, dock },
-                VerticalSpan:new{ width = S(DOCK_MARGIN_BOTTOM) },
-            }
-        end
-    end
+        end,
+    }
 
     ---------------------------------------------------------------------------
     -- Acciones

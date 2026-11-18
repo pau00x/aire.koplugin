@@ -10,9 +10,7 @@ return function(Aire, ctx)
     -- Módulos y valores compartidos declarados aquí dentro: así no cuentan
     -- como upvalues de esta función (LuaJIT admite 60).
     local BD = require("ui/bidi")
-    local BottomContainer = require("ui/widget/container/bottomcontainer")
     local ButtonDialog = require("ui/widget/buttondialog")
-    local CenterContainer = require("ui/widget/container/centercontainer")
     local Device = require("device")
     local FrameContainer = require("ui/widget/container/framecontainer")
     local Geom = require("ui/geometry")
@@ -34,13 +32,9 @@ return function(Aire, ctx)
     local tappable = ctx.tappable
     local config = ctx.config
     local BLACK = ctx.BLACK
-    local WHITE = ctx.WHITE
     local GRAY_TEXT = ctx.GRAY_TEXT
-    local TOP_PAD = ctx.TOP_PAD
     local TOP_GAP_BELOW = ctx.TOP_GAP_BELOW
     local SIDE_PAD = ctx.SIDE_PAD
-    local DOCK_GAP_ABOVE = ctx.DOCK_GAP_ABOVE
-    local DOCK_MARGIN_BOTTOM = ctx.DOCK_MARGIN_BOTTOM
 
     -- Ruta de la carpeta actual (como la mostraba la barra de KOReader)
     function Aire:pathText(path)
@@ -157,45 +151,22 @@ return function(Aire, ctx)
         end, nil, { h = S(8), v = S(10) })
         local sort_w = sort_btn:getSize().w
 
-        local vg = VerticalGroup:new{
-            align = "left",
-            VerticalSpan:new{ width = S(TOP_PAD) },
-            self:buildTopBar(w),
-        }
 
         local folder_name = at_home and _("Home")
             or (cur_path == "/" and "/")
             or BD.directory((cur_path and cur_path:match("([^/]+)/*$")) or self:pathText(cur_path))
-        local title_row = HorizontalGroup:new{ align = "center" }
-        local lead_w = 0
-        if can_up then
-            local icon_sz = S(24)
-            table.insert(title_row, IconWidget:new{ icon = "chevron.left", width = icon_sz, height = icon_sz, alpha = true })
-            table.insert(title_row, HorizontalSpan:new{ width = S(6) })
-            lead_w = icon_sz + S(6)
-        end
-        table.insert(title_row, TextWidget:new{
-            text = folder_name,
-            face = face(true, 17),
-            fgcolor = BLACK,
-            max_width = math.max(S(80), w - lead_w),
-            padding = 0,
+        -- Cabecera común (common/screen.lua): en subcarpetas, "‹ Carpeta" sube un nivel
+        local title_w = package.loaded.aire_screen.header(w, {
+            title = folder_name,
+            on_back = can_up and function()
+                if fm and fm.file_chooser and fm.file_chooser.onFolderUp then
+                    fm.file_chooser:onFolderUp()
+                end
+            end or nil,
         })
-        local title_box = FrameContainer:new{
-            bordersize = 0, padding = 0, padding_top = S(3), padding_bottom = S(3), width = w,
-            LeftContainer:new{
-                dimen = Geom:new{ w = w, h = math.max(title_row:getSize().h, S(24)) },
-                title_row,
-            },
-        }
-        local title_w = can_up and tappable(title_box, function()
-            if fm and fm.file_chooser and fm.file_chooser.onFolderUp then
-                fm.file_chooser:onFolderUp()
-            end
-        end, nil, { h = 0, v = S(8) }) or title_box
-        table.insert(vg, VerticalSpan:new{ width = S(12) })
+        local vg = self:buildScreenTop(w)
         table.insert(vg, title_w)
-        table.insert(vg, VerticalSpan:new{ width = S(2) })
+        table.insert(vg, VerticalSpan:new{ width = S(package.loaded.aire_screen.METRICS.SUB_GAP) })
 
         -- Fila de la ruta y Ordenar
         local show_path = true
@@ -234,17 +205,6 @@ return function(Aire, ctx)
         }
     end
 
-    -- Franja inferior: dock centrado con margen abajo
-    function Aire:buildBottomArea(sw)
-        local dock = self:buildNavBar(sw - 2 * S(SIDE_PAD))
-        return VerticalGroup:new{
-            align = "center",
-            VerticalSpan:new{ width = S(DOCK_GAP_ABOVE) },
-            CenterContainer:new{ dimen = Geom:new{ w = sw, h = dock:getSize().h }, dock },
-            VerticalSpan:new{ width = S(DOCK_MARGIN_BOTTOM) },
-        }
-    end
-
     -- Alto que ocupan nuestras franjas en el explorador (se mide construyéndolas)
     function Aire:chromeHeight()
         local sw = Screen:getWidth()
@@ -253,42 +213,27 @@ return function(Aire, ctx)
         local saved = {}
         local KEYS = { "_explorer_can_up", "_path_w", "_status_group", "_status_w", "_top_clock_hidden", "_top_clock_w" }
         for _i, k in ipairs(KEYS) do saved[k] = self[k] end
-        local top, bottom = self:buildTopArea(sw), self:buildBottomArea(sw)
-        local h = top:getSize().h + bottom:getSize().h
+        local top, dock = self:buildTopArea(sw), self:buildNavBar(sw - 2 * S(SIDE_PAD))
+        local h = top:getSize().h + package.loaded.aire_screen.dockReserve(dock)
         top:free()
-        bottom:free()
+        dock:free()
         for _i, k in ipairs(KEYS) do self[k] = saved[k] end
         return h
     end
 
     function Aire:buildFilesView()
         local fm = self.ui
-        local sw, sh = Screen:getWidth(), Screen:getHeight()
+        local sw = Screen:getWidth()
         self._dock_at_home = self:isAtHomeFolder()
         local top = self:buildTopArea(sw)
         self._clock_w, self._date_w = nil, nil
         self._header_h = top:getSize().h
         local dock = self:buildNavBar(sw - 2 * S(SIDE_PAD))
-        return FrameContainer:new{
-            bordersize = 0,
-            padding = 0,
-            margin = 0,
-            background = WHITE,
-            width = sw,
-            height = sh,
-            OverlapGroup:new{
-                dimen = Geom:new{ w = sw, h = sh },
-                VerticalGroup:new{
-                    align = "left",
-                    top,
-                    fm._aire_orig_ui,
-                },
-                BottomContainer:new{
-                    dimen = Geom:new{ w = sw, h = sh - S(DOCK_MARGIN_BOTTOM) },
-                    dock,
-                },
-            },
-        }
+        return package.loaded.aire_screen.root(VerticalGroup:new{
+            align = "left",
+            top,
+            fm._aire_orig_ui,
+        }, dock)
     end
 
     -- ¿Está el explorador en la carpeta de inicio?

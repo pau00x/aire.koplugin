@@ -41,6 +41,7 @@ local TAG = "Aire/BookStatus"
 local C_ = _.pgettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local AireUI = package.loaded.aire_ui
 local S, face, BLACK, WHITE, GRAY_DARK, GRAY_CARD, GRAY_BORDER = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_CARD, AireUI.GRAY_BORDER
 
@@ -354,7 +355,7 @@ safeWrap(BookStatusWidget, "getStatusContent", function(_orig, self, width)
         show_parent = self,
     }
 
-    local side = S(16)
+    local side = S(SIDE)
     local inner_w = width - 2 * side
     local hero = self:_aireBuildHero(inner_w)
     local status_card = self:_aireBuildStatusCard(inner_w)

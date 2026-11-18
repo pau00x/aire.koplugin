@@ -80,6 +80,7 @@ local N_ = _.ngettext
 local C_ = _.pgettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/BookInfo"
 
@@ -744,7 +745,7 @@ local function buildMetricBar(bar_w, pct)
 end
 
 local function buildHeaderWidget(kvp, h)
-    local dock_w = Screen:getWidth() - 2 * Screen:scaleBySize(16)
+    local dock_w = Screen:getWidth() - 2 * Screen:scaleBySize(SIDE)
     local width = math.min(kvp.item_width, dock_w)
     local gap = Size.padding.large
     local small_gap = Size.span.vertical_default

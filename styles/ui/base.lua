@@ -10,6 +10,7 @@ local TouchMenu = require("ui/widget/touchmenu")
 local logger = require("logger")
 local userpatch = require("userpatch")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 
 -- (Las opciones de Interfaz del menú se quitaron: todo activado siempre)
 local function uiOpt(_key) return true end
@@ -30,10 +31,10 @@ local function liveRect(w)
     return Geom:new{ x = d.x, y = d.y, w = size.w, h = size.h }
 end
 
--- Ancho del dock de la Pantalla de inicio (pantalla - 2 × 16): el máximo de
+-- Ancho del dock de la Pantalla de inicio (pantalla - 2 × SIDE): el máximo de
 -- las ventanas que siguen flotando
 local function dockWidth()
-    return Screen:getWidth() - 2 * Screen:scaleBySize(16)
+    return Screen:getWidth() - 2 * Screen:scaleBySize(SIDE)
 end
 
 local getUpValue = package.loaded.aire_ui.getUpValue

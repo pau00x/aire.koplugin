@@ -100,7 +100,8 @@ local metaIn, makeBook, isAutoKey, groupRank = Books.metaIn, Books.makeBook, Boo
 local lowerKey, byTitle, sortEntries, filterBooks = Books.lowerKey, Books.byTitle, Books.sortEntries, Books.filterBooks
 local countDone, booksAndDone, RANK, AUTO = Books.countDone, Books.booksAndDone, Books.RANK, Books.AUTO
 local Cell = dofile(GRID_DIR .. "/grid/cell.lua")
-local GridCell, PageDots = Cell.GridCell, Cell.PageDots
+local GridCell = Cell.GridCell
+local Pager = package.loaded.aire_screen.Pager
 -- Miniaturas de portadas en disco (ya escaladas a la celda)
 local Thumbs = dofile(GRID_DIR .. "/grid/thumbs.lua")
 -- Herramientas de prueba (devtools.lua, opcional): las fija el mixin
@@ -1224,27 +1225,9 @@ return function(Aire, ctx)
         return self:buildBackHeader(w, group.title, function() self:closeGridGroup() end)
     end
 
-    -- "‹ Título" a todo lo ancho; al tocar, on_back
+    -- "‹ Título" a todo lo ancho; al tocar, on_back (cabecera común, common/screen.lua)
     function Aire:buildBackHeader(w, title, on_back)
-        local group = { title = title }
-        local icon_size = S(24)
-        local row = HorizontalGroup:new{
-            align = "center",
-            IconWidget:new{ icon = "chevron.left", width = icon_size, height = icon_size, alpha = true },
-            HorizontalSpan:new{ width = S(6) },
-            TextWidget:new{
-                text = group.title,
-                face = face(true, 17),
-                fgcolor = BLACK,
-                max_width = w - icon_size - S(6),
-                padding = 0,
-            },
-        }
-        return tappable(FrameContainer:new{
-            bordersize = 0, padding = 0, padding_top = S(3), padding_bottom = S(3),
-            width = w, -- toda la fila responde, no solo el texto
-            LeftContainer:new{ dimen = Geom:new{ w = w, h = row:getSize().h }, row },
-        }, on_back, nil, { h = 0, v = S(8) })
+        return (package.loaded.aire_screen.header(w, { title = title, on_back = on_back }))
     end
 
     function Aire:buildGrid(w, h, entries, empty_text, swipe_extra_h)
@@ -1400,24 +1383,20 @@ return function(Aire, ctx)
         local side = S(ctx.SIDE_PAD)
         local w = sw - 2 * side
 
-        local content = VerticalGroup:new{ align = "left" }
-        table.insert(content, VerticalSpan:new{ width = S(ctx.TOP_PAD) })
-        table.insert(content, self:buildTopBar(w))
-        self._clock_w, self._date_w = nil, nil
-        self._header_h = content:getSize().h + S(4)
         local VIEW_TITLES = {
             library = _("Library"),
             collections = _("Collections"),
             history = _("History"),
         }
-        table.insert(content, VerticalSpan:new{ width = S(12) })
+        -- Barra de estado y cabecera comunes: "‹ Atrás" (Terminados…) o el
+        -- título de la pestaña; dentro de un grupo, su cabecera va después
+        local head = {}
         if lvl.back then
-            table.insert(content, self:buildBackHeader(w, lvl.back.title, lvl.back.action))
-            table.insert(content, VerticalSpan:new{ width = S(2) })
+            head = { title = lvl.back.title, on_back = lvl.back.action }
         elseif not lvl.group and VIEW_TITLES[kind] then
-            table.insert(content, self:buildViewTitle(w, VIEW_TITLES[kind]))
-            table.insert(content, VerticalSpan:new{ width = S(2) })
+            head = { title = VIEW_TITLES[kind] }
         end
+        local content = self:buildScreenTop(w, head)
         if lvl.group then
             table.insert(content, self:buildGridGroupHeader(w, lvl.group))
             table.insert(content, VerticalSpan:new{ width = S(2) })
@@ -1429,36 +1408,21 @@ return function(Aire, ctx)
         local used_h = content:getSize().h
 
         local dock = self:buildNavBar(w)
-        local dock_area = dock:getSize().h + S(ctx.DOCK_MARGIN_BOTTOM) + S(ctx.DOCK_GAP_ABOVE)
+        local dock_area = package.loaded.aire_screen.dockReserve(dock)
         local dots_gap = S(ctx.DOCK_GAP_ABOVE)
-        local dots_h = S(26)
+        local dots_h = S(package.loaded.aire_screen.METRICS.DOTS_H)
         local grid_h = math.max(S(60), sh - used_h - dots_gap - dots_h - dock_area)
 
         table.insert(content, self:buildGrid(w, grid_h, lvl.entries, lvl.empty, dots_gap + dots_h))
         table.insert(content, VerticalSpan:new{ width = dots_gap })
-        table.insert(content, PageDots:new{ width = w, height = dots_h, page = L.page, pages = L.pages or 1 })
+        table.insert(content, Pager:new{ width = w, height = dots_h, page = L.page, pages = L.pages or 1 })
         content:resetLayout()
         logger.dbg("Aire/Grid:", kind, "construido en", time.to_ms(time.since(t0)), "ms")
 
-        local view = FrameContainer:new{
-            bordersize = 0,
-            padding = 0,
-            margin = 0,
-            background = WHITE,
-            width = sw,
-            height = sh,
-            OverlapGroup:new{
-                dimen = Geom:new{ w = sw, h = sh },
-                HorizontalGroup:new{
-                    HorizontalSpan:new{ width = side },
-                    content,
-                },
-                BottomContainer:new{
-                    dimen = Geom:new{ w = sw, h = sh - S(ctx.DOCK_MARGIN_BOTTOM) },
-                    dock,
-                },
-            },
-        }
+        local view = package.loaded.aire_screen.root(HorizontalGroup:new{
+            HorizontalSpan:new{ width = side },
+            content,
+        }, dock)
         -- Tiempo del primer pintado (escalar portadas, etc.) en el log
         local orig_paint = view.paintTo
         view.paintTo = function(v, bb, x, y)

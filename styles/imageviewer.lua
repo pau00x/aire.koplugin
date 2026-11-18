@@ -24,6 +24,7 @@ local VerticalSpan = require("ui/widget/verticalspan")
 local logger = require("logger")
 local _ = require("gettext")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local AireUI = package.loaded.aire_ui
 local S = AireUI.S
 local safeWrap, withTemporaryNew = AireUI.safeWrap, AireUI.withTemporaryNew
@@ -71,7 +72,7 @@ safeWrap(ImageViewer, "init", function(orig_init, self)
 
     if self.button_table and self.button_container then
         local sw = Screen:getWidth()
-        local total_w = sw - 2 * S(16)
+        local total_w = sw - 2 * S(SIDE)
         local gap = S(10)
         local btn_w = math.floor((total_w - gap) / 2)
         local btn_h = S(44)

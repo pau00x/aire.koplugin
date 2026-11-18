@@ -21,7 +21,6 @@
 --]]
 
 local Blitbuffer = require("ffi/blitbuffer")
-local BottomContainer = require("ui/widget/container/bottomcontainer")
 local CenterContainer = require("ui/widget/container/centercontainer")
 local Device = require("device")
 local Font = require("ui/font")
@@ -49,7 +48,8 @@ P.GRAY_DARK = Blitbuffer.COLOR_DARK_GRAY
 P.GRAY_CARD = Blitbuffer.COLOR_GRAY_E
 P.GRAY_BORDER = Blitbuffer.COLOR_GRAY
 P.GRAY_LINE = Blitbuffer.COLOR_LIGHT_GRAY
-P.SIDE = 16 -- margen lateral (como el resto de Aire)
+local METRICS = package.loaded.aire_screen.METRICS
+P.SIDE = METRICS.SIDE -- margen lateral (como el resto de Aire: common/screen.lua)
 P.GAP = 8   -- hueco entre tarjetas
 
 -- Medidas y letra: las comunes (common/ui.lua)
@@ -242,15 +242,10 @@ function Page:init()
     self:refresh(true)
 end
 
+-- Dock (common/screen.lua decide si sale); nunca en el lector
 function Page:_dock()
-    local TitleBar = require("ui/widget/titlebar")
-    local RUI = package.loaded["apps/reader/readerui"]
-    if self.in_reader or (RUI and RUI.instance) then return nil, 0 end
-    if not (TitleBar._aire_build_dock and TitleBar._aire_dock_reserve) then return nil, 0 end
-    if TitleBar._aire_dock_active and not TitleBar._aire_dock_active() then return nil, 0 end
-    local ok, dock = pcall(TitleBar._aire_build_dock, self)
-    if not ok or not dock then return nil, 0 end
-    return dock, TitleBar._aire_dock_reserve()
+    if self.in_reader then return nil, 0 end
+    return package.loaded.aire_screen.fullscreenDock(self)
 end
 
 function Page:refresh(first)
@@ -267,7 +262,7 @@ function Page:refresh(first)
     local dock, dock_h = self:_dock()
     local side = S(P.SIDE)
     local w = sw - 2 * side
-    local dots_h = S(26)
+    local dots_h = S(METRICS.DOTS_H)
     -- Sin subtítulo, la primera tarjeta quedaba pegada al título
     local top_gap = self.subtitle and 0 or S(12)
     local content_h = sh - self.title_bar:getHeight() - dock_h - dots_h - S(12) - top_gap
@@ -299,15 +294,7 @@ function Page:refresh(first)
         VerticalSpan:new{ width = fill },
         CenterContainer:new{ dimen = Geom:new{ w = sw, h = dots_h }, dots or VerticalSpan:new{ width = 0 } },
     }
-    local root = OverlapGroup:new{ dimen = Geom:new{ w = sw, h = sh }, body }
-    if dock then
-        table.insert(root, BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh }, dock })
-    end
-    self[1] = FrameContainer:new{
-        width = sw, height = sh, padding = 0, margin = 0, bordersize = 0,
-        background = P.WHITE,
-        root,
-    }
+    self[1] = package.loaded.aire_screen.root(body, dock)
     if not first then UIManager:setDirty(self, "ui") end
 end
 

@@ -25,6 +25,7 @@ local _ = require("gettext")
 local N_ = _.ngettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Search"
 local AireUI = package.loaded.aire_ui
@@ -185,7 +186,7 @@ safeWrap(ReaderSearch, "onShowFindAllResults", function(orig_show, self, not_cac
 
         local sw = rm.dimen and rm.dimen.w or Screen:getWidth()
         local probe_w = (rm.inner_dimen and rm.inner_dimen.w) or sw
-        local probe_pad = math.max(0, S(16) - math.floor((sw - probe_w) / 2))
+        local probe_pad = math.max(0, S(SIDE) - math.floor((sw - probe_w) / 2))
         local hero_h = buildSummaryCard(self, probe_w, probe_pad):getSize().h
         rm.items_per_page = 7
         rm.items_max_lines = nil
@@ -222,7 +223,7 @@ safeWrap(ReaderSearch, "onShowFindAllResults", function(orig_show, self, not_cac
                 or (self.inner_dimen and self.inner_dimen.w)
                 or w
             local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(16) - outer_pad)
+            local pad_h = math.max(0, S(SIDE) - outer_pad)
             for _, child in ipairs(self.item_group) do
                 if child and child.entry then
                     local ih = (child.dimen and child.dimen.h) or S(84)

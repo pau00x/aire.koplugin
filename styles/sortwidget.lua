@@ -29,6 +29,7 @@ local logger = require("logger")
 local _ = require("gettext")
 local AireUI = package.loaded.aire_ui
 local S, face, BLACK, WHITE, GRAY_DARK, GRAY_LINE = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_LINE
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = AireUI.safeWrap
 local TAG = "Aire/SortWidget"
 
@@ -102,7 +103,7 @@ end
 local function buildFooter(sw)
     local DotPager = require("ui/widget/menu")._aire_dot_pager_cls
     local w = sw.dimen.w
-    local side = S(16)
+    local side = S(SIDE)
     local gap = S(GAP)
     local bw = math.floor((w - 2 * side - 3 * gap) / 4)
     local marked = (sw.marked or 0) > 0

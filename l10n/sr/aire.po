@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: styles/search.lua:63
+#: styles/search.lua:64
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "„%1“ · %2 резултат"
@@ -29,125 +29,125 @@ msgstr "%1 % (%2 / %3 стр.)"
 msgid "%1 % (on hold)"
 msgstr "%1 % (на чекању)"
 
-#: views/home.lua:303
+#: views/home.lua:302
 msgid "%1 % read"
 msgstr "%1 % прочитано"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:326 views/grid.lua:331
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:327 views/grid.lua:332
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 књига"
 msgstr[1] "%1 књиге"
 msgstr[2] "%1 књига"
 
-#: styles/bookmap.lua:100
+#: styles/bookmap.lua:101
 msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 маркер"
 msgstr[1] "%1 маркера"
 msgstr[2] "%1 маркера"
 
-#: views/grid.lua:496 views/grid.lua:497
+#: views/grid.lua:497 views/grid.lua:498
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 збирка"
 msgstr[1] "%1 збирке"
 msgstr[2] "%1 збирки"
 
-#: views/stats.lua:230
+#: views/stats.lua:214
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 дан"
 msgstr[1] "%1 дана"
 msgstr[2] "%1 дана"
 
-#: styles/bookinfo.lua:221
+#: styles/bookinfo.lua:222
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "пре %1 дан"
 msgstr[1] "пре %1 дана"
 msgstr[2] "пре %1 дана"
 
-#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:710
+#: styles/calendar.lua:244 views/stats.lua:302 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 дан читања"
 msgstr[1] "%1 дана читања"
 msgstr[2] "%1 дана читања"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:328
+#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:329
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "прочитано: %1"
 msgstr[1] "прочитано: %1"
 msgstr[2] "прочитано: %1"
 
-#: views/grid.lua:579
+#: views/grid.lua:580
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 прочитана књига"
 msgstr[1] "%1 прочитане књиге"
 msgstr[2] "%1 прочитаних књига"
 
-#: styles/bookinfo.lua:228
+#: styles/bookinfo.lua:229
 msgid "%1 month ago"
 msgid_plural "%1 months ago"
 msgstr[0] "пре %1 месец"
 msgstr[1] "пре %1 месеца"
 msgstr[2] "пре %1 месеци"
 
-#: styles/bookmap.lua:98
+#: styles/bookmap.lua:99
 msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "Још %1 стр."
 msgstr[1] "Још %1 стр."
 msgstr[2] "Још %1 стр."
 
-#: styles/readerprogress.lua:175
+#: styles/readerprogress.lua:176
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "прочитано %1 стр."
 msgstr[1] "прочитано %1 стр."
 msgstr[2] "прочитано %1 стр."
 
-#: styles/bookinfo.lua:572 styles/bookinfo.lua:576 styles/calendar.lua:242 views/booksheet.lua:200 views/stats.lua:342
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:243 views/booksheet.lua:200 views/stats.lua:301
 msgid "%1 pp."
 msgstr "%1 стр."
 
-#: views/stats.lua:688
+#: views/stats.lua:635
 msgid "%1 pp./h"
 msgstr "%1 стр./ч"
 
-#: styles/shortcuts.lua:127
+#: styles/shortcuts.lua:128
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 сачувана пречица"
 msgstr[1] "%1 сачуване пречице"
 msgstr[2] "%1 сачуваних пречица"
 
-#: views/grid.lua:327
+#: views/grid.lua:328
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 серија"
 msgstr[1] "%1 серије"
 msgstr[2] "%1 серија"
 
-#: styles/bookinfo.lua:224
+#: styles/bookinfo.lua:225
 msgid "%1 week ago"
 msgid_plural "%1 weeks ago"
 msgstr[0] "пре %1 недељу"
 msgstr[1] "пре %1 недеље"
 msgstr[2] "пре %1 недеља"
 
-#: views/topbar.lua:112
+#: views/topbar.lua:101
 msgid "%1, %2 %3"
 msgstr "%1, %3. %2"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:49
 msgid "%d %% of book"
 msgstr "%d %% књиге"
 
-#: styles/toc.lua:47
+#: styles/toc.lua:48
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% књиге · %d стр. до краја поглавља"
 
@@ -158,11 +158,11 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: styles/bookinfo.lua:940 styles/bookstatus.lua:62
+#: styles/bookinfo.lua:941 styles/bookstatus.lua:63
 msgid "%d of 5 stars"
 msgstr "%d од 5 звездица"
 
-#: views/dock.lua:268
+#: views/dock.lua:254
 msgid "(current)"
 msgstr "(тренутно)"
 
@@ -170,11 +170,11 @@ msgstr "(тренутно)"
 msgid "+ Brightness"
 msgstr "+ Осветљај"
 
-#: views/stats.lua:530
+#: views/stats.lua:489
 msgid "+%1 more"
 msgstr "+још %1"
 
-#: styles/bookinfo.lua:939 styles/bookstatus.lua:61
+#: styles/bookinfo.lua:940 styles/bookstatus.lua:62
 msgid "1 of 5 stars"
 msgstr "1 од 5 звездица"
 
@@ -202,7 +202,7 @@ msgstr "Доступна је нова верзија"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:55
+#: styles/search.lua:56
 msgid "ACTIVE SEARCH"
 msgstr "АКТИВНА ПРЕТРАГА"
 
@@ -214,11 +214,11 @@ msgstr "ДОДАТО"
 msgid "Active"
 msgstr "Активно"
 
-#: views/stats.lua:200
+#: views/stats.lua:192
 msgid "Activity summary"
 msgstr "Резиме активности"
 
-#: styles/bookmark.lua:388
+#: styles/bookmark.lua:390
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -274,16 +274,16 @@ msgstr ""
 msgid "All finished"
 msgstr "Све прочитано"
 
-#: views/grid.lua:581 views/widgets.lua:441
+#: views/grid.lua:582 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:645
+#: views/stats.lua:592
 msgid "Annual"
 msgstr "Годишње"
 
-#: views/stats.lua:294
+#: views/stats.lua:278
 msgid "Annual recap"
 msgstr "Годишњи преглед"
 
@@ -291,17 +291,17 @@ msgstr "Годишњи преглед"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:119
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:120
 #, koreader
 msgid "Apply"
 msgstr ""
 
-#: views/topbar.lua:102
+#: views/topbar.lua:91
 msgctxt "aire"
 msgid "April"
 msgstr "април"
 
-#: views/topbar.lua:103
+#: views/topbar.lua:92
 msgctxt "aire"
 msgid "August"
 msgstr "август"
@@ -322,7 +322,7 @@ msgstr "Аутоматске збирке по жанру (кључној реч
 msgid "Automatic tests"
 msgstr "Аутоматски тестови"
 
-#: views/grid.lua:1012
+#: views/grid.lua:1013
 msgid "Automatic: books by this author"
 msgstr "Аутоматска: књиге овог аутора"
 
@@ -340,32 +340,32 @@ msgstr ""
 msgid "Average time per page"
 msgstr ""
 
-#: styles/bookinfo.lua:338
+#: styles/bookinfo.lua:339
 msgid "BOOK"
 msgstr "КЊИГА"
 
-#: styles/bookmark.lua:41
+#: styles/bookmark.lua:43
 msgid "BOOKMARK"
 msgstr "МАРКЕР"
 
-#: styles/bookinfo.lua:197
+#: styles/bookinfo.lua:198
 #, koreader
 msgid "Basque"
 msgstr ""
 
-#: dev/devtools.lua:645 views/topbar.lua:53 views/widgets.lua:502
+#: dev/devtools.lua:645 views/topbar.lua:42 views/widgets.lua:502
 msgid "Battery"
 msgstr "Батерија"
 
-#: views/stats.lua:734
+#: views/stats.lua:681
 msgid "Best day"
 msgstr "Најбољи дан"
 
-#: views/stats.lua:737
+#: views/stats.lua:684
 msgid "Best month"
 msgstr "Најбољи месец"
 
-#: styles/bookstatus.lua:181
+#: styles/bookstatus.lua:182
 msgid "Book"
 msgstr "Књига"
 
@@ -374,7 +374,7 @@ msgstr "Књига"
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:973 styles/bookmap.lua:268
+#: dev/devtools.lua:973 styles/bookmap.lua:269
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -397,7 +397,7 @@ msgstr ""
 msgid "Book stats"
 msgstr ""
 
-#: styles/bookstatus.lua:351
+#: styles/bookstatus.lua:352
 #, koreader
 msgid "Book status"
 msgstr ""
@@ -432,7 +432,7 @@ msgstr "Маркери и истицања"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:973
+#: views/grid.lua:974
 msgid "Books are not deleted, only the collection."
 msgstr "Књиге се не бришу, само збирка."
 
@@ -450,23 +450,23 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "Доњи менији (листови)"
 
-#: styles/bookmap.lua:105
+#: styles/bookmap.lua:106
 msgid "CURRENT CHAPTER"
 msgstr "ТРЕНУТНО ПОГЛАВЉЕ"
 
-#: styles/toc.lua:64
+#: styles/toc.lua:65
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "ТРЕНУТНО ПОГЛАВЉЕ · СТР. %d"
 
-#: styles/readerprogress.lua:172
+#: styles/readerprogress.lua:173
 msgid "CURRENT SESSION"
 msgstr "ТРЕНУТНА СЕСИЈА"
 
-#: views/home.lua:383 views/stats.lua:247
+#: views/home.lua:382 views/stats.lua:231
 msgid "CURRENTLY READING"
 msgstr "ТРЕНУТНО ЧИТАМ"
 
-#: styles/calendar.lua:109 styles/calendar.lua:236 views/stats.lua:339
+#: styles/calendar.lua:110 styles/calendar.lua:237 views/stats.lua:299
 msgid "Calendar"
 msgstr "Календар"
 
@@ -482,7 +482,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:113 views/stats.lua:459
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:114 views/stats.lua:418
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -491,7 +491,7 @@ msgstr ""
 msgid "Capture"
 msgstr "Снимак"
 
-#: styles/bookinfo.lua:197
+#: styles/bookinfo.lua:198
 #, koreader
 msgid "Catalan"
 msgstr ""
@@ -537,7 +537,7 @@ msgstr ""
 msgid "Check patches and plugins on startup"
 msgstr "Провери закрпе и додатке при покретању"
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:200
 #, koreader
 msgid "Chinese"
 msgstr ""
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Обриши сличице корица"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:114 styles/ui/sheets.lua:771 views/widgets.lua:650
 #, koreader
 msgid "Close"
 msgstr ""
@@ -567,7 +567,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Редослед у збирци"
 
-#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1410
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1388
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -643,7 +643,7 @@ msgstr "Сличице корица обрисане"
 msgid "Current page/Total pages"
 msgstr ""
 
-#: styles/bookinfo.lua:318
+#: styles/bookinfo.lua:319
 #, koreader
 msgid "Current page:"
 msgstr ""
@@ -653,15 +653,15 @@ msgstr ""
 msgid "Current statistics"
 msgstr ""
 
-#: views/home.lua:210
+#: views/home.lua:209
 msgid "Currently reading"
 msgstr "Тренутно читам"
 
-#: views/stats.lua:708
+#: views/stats.lua:655
 msgid "DAILY RHYTHM"
 msgstr "ДНЕВНИ РИТАМ"
 
-#: views/stats.lua:729
+#: views/stats.lua:676
 msgid "Daily average"
 msgstr "Дневни просек"
 
@@ -677,7 +677,7 @@ msgstr "Датум"
 msgid "Date finished"
 msgstr "Датум завршетка"
 
-#: views/stats.lua:732
+#: views/stats.lua:679
 msgid "Day %1"
 msgstr "%1. дан"
 
@@ -690,21 +690,21 @@ msgstr ""
 msgid "Days reading this book"
 msgstr ""
 
-#: views/topbar.lua:104
+#: views/topbar.lua:93
 msgctxt "aire"
 msgid "December"
 msgstr "децембар"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:974 views/stats.lua:479
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:975 views/stats.lua:438
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:490
+#: views/stats.lua:449
 msgid "Delete all book stats"
 msgstr "Обриши сву статистику књиге"
 
-#: views/stats.lua:494
+#: views/stats.lua:453
 msgid "Delete all stats?"
 msgstr "Обрисати сву статистику?"
 
@@ -713,15 +713,15 @@ msgstr "Обрисати сву статистику?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:477
+#: views/stats.lua:436
 msgid "Delete minutes for this day?"
 msgstr "Обрисати минуте за овај дан?"
 
-#: views/stats.lua:473
+#: views/stats.lua:432
 msgid "Delete minutes from this day"
 msgstr "Обриши минуте за овај дан"
 
-#: views/grid.lua:972
+#: views/grid.lua:973
 msgid "Delete the collection?"
 msgstr "Обрисати збирку?"
 
@@ -729,7 +729,7 @@ msgstr "Обрисати збирку?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1023
+#: views/grid.lua:1024
 msgid "Delete…"
 msgstr "Обриши…"
 
@@ -763,7 +763,7 @@ msgstr "Док"
 msgid "Documents"
 msgstr ""
 
-#: dev/devtools.lua:637 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
+#: dev/devtools.lua:637 views/home.lua:217 views/widgets.lua:1002 views/widgets.lua:1184
 #, koreader
 msgid "Done"
 msgstr ""
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Downloading… %1 of %2"
 msgstr "Преузимање… %1 од %2"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:199
 #, koreader
 msgid "Dutch"
 msgstr ""
@@ -802,16 +802,16 @@ msgstr "Уреди виџете почетног екрана"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:388
+#: styles/bookmark.lua:390
 #, koreader
 msgid "Edit note"
 msgstr ""
 
-#: styles/bookinfo.lua:354
+#: styles/bookinfo.lua:355
 msgid "Edit series"
 msgstr "Уреди серију"
 
-#: styles/bookmark.lua:392
+#: styles/bookmark.lua:394
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -825,15 +825,15 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Без виџета"
 
-#: views/grid.lua:473
+#: views/grid.lua:474
 msgid "Empty collection"
 msgstr "Празна збирка"
 
-#: styles/ui/pagination.lua:184
+#: styles/ui/pagination.lua:94
 msgid "Empty folder"
 msgstr "Празан директоријум"
 
-#: views/grid.lua:306
+#: views/grid.lua:307
 msgid "Empty series"
 msgstr "Празна серија"
 
@@ -842,7 +842,7 @@ msgstr "Празна серија"
 msgid "Enabled"
 msgstr ""
 
-#: styles/bookinfo.lua:197
+#: styles/bookinfo.lua:198
 #, koreader
 msgid "English"
 msgstr ""
@@ -870,11 +870,11 @@ msgstr "Све што додатак црта, са пробним подаци�
 msgid "Exit"
 msgstr ""
 
-#: styles/bookinfo.lua:340 styles/bookinfo.lua:1015
+#: styles/bookinfo.lua:341 styles/bookinfo.lua:1016
 msgid "FILE"
 msgstr "ФАЈЛ"
 
-#: views/grid.lua:798
+#: views/grid.lua:799
 msgid "FILTER"
 msgstr "ФИЛТЕР"
 
@@ -887,36 +887,36 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Омиљени директоријуми"
 
-#: dev/devtools.lua:821 views/grid.lua:350 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:351 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
 
-#: views/topbar.lua:101
+#: views/topbar.lua:90
 msgctxt "aire"
 msgid "February"
 msgstr "фебруар"
 
-#: menu.lua:517 views/dock.lua:275
+#: menu.lua:517 views/dock.lua:261
 #, koreader
 msgid "File browser"
 msgstr ""
 
-#: styles/bookinfo.lua:315
+#: styles/bookinfo.lua:316
 #, koreader
 msgid "File date:"
 msgstr ""
 
-#: styles/bookinfo.lua:312
+#: styles/bookinfo.lua:313
 #, koreader
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:742
+#: views/grid.lua:743
 msgid "Filter"
 msgstr "Филтер"
 
-#: dev/devtools.lua:659 views/grid.lua:741
+#: dev/devtools.lua:659 views/grid.lua:742
 msgid "Filter and sort"
 msgstr "Филтер и сортирање"
 
@@ -925,7 +925,7 @@ msgstr "Филтер и сортирање"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookinfo.lua:572 styles/bookstatus.lua:55 views/booksheet.lua:181 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:181 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Прочитано"
@@ -938,7 +938,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "Прочитане књиге у сивом"
 
-#: styles/imageviewer.lua:105
+#: styles/imageviewer.lua:106
 #, koreader
 msgid "Fit"
 msgstr ""
@@ -959,12 +959,12 @@ msgstr ""
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
-#: styles/bookinfo.lua:316
+#: styles/bookinfo.lua:317
 #, koreader
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:54 views/widgets.lua:557
+#: views/dock.lua:49 views/widgets.lua:557
 msgid "Folders"
 msgstr "Фасцикле"
 
@@ -986,12 +986,12 @@ msgstr "Фонтови"
 msgid "Forgot"
 msgstr ""
 
-#: styles/bookinfo.lua:313 styles/bookinfo.lua:501
+#: styles/bookinfo.lua:314 styles/bookinfo.lua:502
 #, koreader
 msgid "Format:"
 msgstr ""
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:199
 #, koreader
 msgid "French"
 msgstr ""
@@ -1009,12 +1009,12 @@ msgstr "Потпуно освежавање"
 msgid "Full screens"
 msgstr "Цели екрани"
 
-#: styles/bookinfo.lua:197
+#: styles/bookinfo.lua:198
 #, koreader
 msgid "Galician"
 msgstr ""
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:199
 #, koreader
 msgid "German"
 msgstr ""
@@ -1033,12 +1033,12 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Подешени покрети: %1"
 
-#: styles/bookmark.lua:417
+#: styles/bookmark.lua:419
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:53
+#: views/dock.lua:48
 msgid "Go up"
 msgstr "Горе"
 
@@ -1051,15 +1051,15 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Мрежа: %1 колоне"
 
-#: styles/bookmark.lua:40
+#: styles/bookmark.lua:42
 msgid "HIGHLIGHT"
 msgstr "ИСТИЦАЊЕ"
 
-#: views/stats.lua:716
+#: views/stats.lua:663
 msgid "HIGHLIGHTS"
 msgstr "ИСТАКНУТО"
 
-#: views/stats.lua:421
+#: views/stats.lua:380
 msgid "Hasn't arrived yet"
 msgstr "Још није стигао"
 
@@ -1068,7 +1068,7 @@ msgstr "Још није стигао"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:47 views/grid.lua:1411
+#: views/dock.lua:42 views/grid.lua:1389
 #, koreader
 msgid "History"
 msgstr ""
@@ -1077,7 +1077,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:617
+#: views/grid.lua:618
 msgid "History is empty"
 msgstr "Историја је празна"
 
@@ -1089,7 +1089,7 @@ msgstr "Задржавање ради исто што и додир"
 msgid "Hold to configure"
 msgstr "Задржите за подешавање"
 
-#: dev/devtools.lua:672 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
+#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:155
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1114,7 +1114,7 @@ msgstr "Виџети почетног екрана"
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:862 styles/imageviewer.lua:43
+#: dev/devtools.lua:862 styles/imageviewer.lua:44
 msgid "Image"
 msgstr "Слика"
 
@@ -1142,7 +1142,7 @@ msgstr "Инсталирана верзија: %1"
 msgid "Installing…"
 msgstr "Инсталирање…"
 
-#: dev/devtools.lua:631 views/home.lua:213 views/widgets.lua:1154
+#: dev/devtools.lua:631 views/home.lua:212 views/widgets.lua:1154
 msgid "Inverted colors"
 msgstr "Обрнуте боје"
 
@@ -1158,27 +1158,27 @@ msgstr ""
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Користиће се након поновног покретања KOReader-а. Твоја подешавања се чувају."
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:199
 #, koreader
 msgid "Italian"
 msgstr ""
 
-#: views/topbar.lua:101
+#: views/topbar.lua:90
 msgctxt "aire"
 msgid "January"
 msgstr "јануар"
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:200
 #, koreader
 msgid "Japanese"
 msgstr ""
 
-#: views/topbar.lua:103
+#: views/topbar.lua:92
 msgctxt "aire"
 msgid "July"
 msgstr "јул"
 
-#: views/topbar.lua:102
+#: views/topbar.lua:91
 msgctxt "aire"
 msgid "June"
 msgstr "јун"
@@ -1192,7 +1192,7 @@ msgstr ""
 msgid "KOReader engine (crengine)"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:200
 #, koreader
 msgid "Korean"
 msgstr ""
@@ -1201,7 +1201,7 @@ msgstr ""
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats.lua:239
+#: views/stats.lua:223
 msgid "LAST 7 DAYS"
 msgstr "ПОСЛЕДЊИХ 7 ДАНА"
 
@@ -1221,11 +1221,11 @@ msgstr "Велики сат и датум"
 msgid "Large · small · small inverted — swipe ← →, tap to exit"
 msgstr "Велики · мали · мали обрнути — превуците ← →, додирните за излаз"
 
-#: styles/bookinfo.lua:896
+#: styles/bookinfo.lua:897
 msgid "Last"
 msgstr "Последње"
 
-#: styles/readerprogress.lua:121
+#: styles/readerprogress.lua:122
 msgid "Last 7 days summary"
 msgstr "Резиме последњих 7 дана"
 
@@ -1242,7 +1242,7 @@ msgstr "Последње читање"
 msgid "Later"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:200
 #, koreader
 msgid "Latin"
 msgstr ""
@@ -1256,7 +1256,7 @@ msgstr "Распоред"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1409
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1387
 msgid "Library"
 msgstr "Библиотека"
 
@@ -1280,7 +1280,7 @@ msgstr "Библиотека, Колекције и Историја чувај�
 msgid "Light"
 msgstr "Светло"
 
-#: views/topbar.lua:52
+#: views/topbar.lua:41
 msgid "Light level"
 msgstr "Ниво светла"
 
@@ -1296,7 +1296,7 @@ msgstr "Листа са називима фајлова"
 msgid "List without covers"
 msgstr "Листа без корица"
 
-#: styles/calendar.lua:111
+#: styles/calendar.lua:112
 msgid "Loading month…"
 msgstr "Учитавање месеца…"
 
@@ -1304,27 +1304,27 @@ msgstr "Учитавање месеца…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:108
+#: styles/search.lua:109
 msgid "MATCH"
 msgstr "ПОДУДАРАЊЕ"
 
-#: styles/search.lua:108
+#: styles/search.lua:109
 msgid "MATCH %d"
 msgstr "ПОДУДАРАЊЕ %d"
 
-#: views/stats.lua:708
+#: views/stats.lua:655
 msgid "MONTHLY RHYTHM"
 msgstr "МЕСЕЧНИ РИТАМ"
 
-#: views/stats.lua:746
+#: views/stats.lua:693
 msgid "MOST READ"
 msgstr "НАЈЧИТАНИЈЕ"
 
-#: views/dock.lua:271
+#: views/dock.lua:257
 msgid "Main view"
 msgstr "Главни приказ"
 
-#: views/topbar.lua:101
+#: views/topbar.lua:90
 msgctxt "aire"
 msgid "March"
 msgstr "март"
@@ -1342,7 +1342,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Означити све књиге у „%1“ као „Чита се“?"
 
-#: views/grid.lua:1060
+#: views/grid.lua:1061
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Означити све књиге у збирци „%1“ као „Чита се“?"
 
@@ -1350,11 +1350,11 @@ msgstr "Означити све књиге у збирци „%1“ као „Ч
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1058
+#: views/grid.lua:1059
 msgid "Mark entire collection as finished"
 msgstr "Означи целу збирку као прочитану"
 
-#: views/grid.lua:1059
+#: views/grid.lua:1060
 msgid "Mark entire collection as reading"
 msgstr "Означи целу збирку као „Чита се“"
 
@@ -1366,12 +1366,12 @@ msgstr "Означи целу серију као прочитану"
 msgid "Mark entire series as reading"
 msgstr "Означи целу серију као „Чита се“"
 
-#: views/topbar.lua:102
+#: views/topbar.lua:91
 msgctxt "aire"
 msgid "May"
 msgstr "мај"
 
-#: views/topbar.lua:51
+#: views/topbar.lua:40
 msgid "Memory used"
 msgstr "Искоришћена меморија"
 
@@ -1379,7 +1379,7 @@ msgstr "Искоришћена меморија"
 msgid "Menu next to text"
 msgstr ""
 
-#: styles/bookinfo.lua:317
+#: styles/bookinfo.lua:318
 #, koreader
 msgid "Metadata:"
 msgstr ""
@@ -1389,19 +1389,19 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Минимално"
 
-#: views/explorer.lua:139
+#: views/explorer.lua:133
 msgid "Mix folders"
 msgstr "Мешај директоријуме"
 
-#: views/grid.lua:819
+#: views/grid.lua:820
 msgid "Mix series"
 msgstr "Мешај серије"
 
-#: views/stats.lua:643
+#: views/stats.lua:590
 msgid "Monthly"
 msgstr "Месечно"
 
-#: views/stats.lua:292
+#: views/stats.lua:276
 msgid "Monthly recap"
 msgstr "Месечни преглед"
 
@@ -1409,7 +1409,7 @@ msgstr "Месечни преглед"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:57
+#: views/dock.lua:52
 msgid "More"
 msgstr "Више"
 
@@ -1438,7 +1438,7 @@ msgstr ""
 msgid "Multiple fields"
 msgstr ""
 
-#: styles/bookinfo.lua:366
+#: styles/bookinfo.lua:367
 #, koreader
 msgid "N/A"
 msgstr ""
@@ -1455,7 +1455,7 @@ msgstr "СЛЕДЕЋА"
 msgid "NEXT REVIEW"
 msgstr "СЛЕДЕЋЕ ПОНАВЉАЊЕ"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:41
 msgid "NOTE"
 msgstr "БЕЛЕШКА"
 
@@ -1464,7 +1464,7 @@ msgstr "БЕЛЕШКА"
 msgid "Name"
 msgstr ""
 
-#: styles/bookinfo.lua:500
+#: styles/bookinfo.lua:501
 msgid "Name:"
 msgstr "Назив:"
 
@@ -1477,17 +1477,17 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: styles/bookinfo.lua:570
+#: styles/bookinfo.lua:571
 msgctxt "aire"
 msgid "New"
 msgstr "Нови"
 
-#: views/grid.lua:492
+#: views/grid.lua:493
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1014 views/grid.lua:1027
+#: views/grid.lua:1015 views/grid.lua:1028
 msgid "New collection…"
 msgstr "Нова збирка…"
 
@@ -1525,39 +1525,39 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "Нема података из CoverBrowser-а"
 
-#: views/home.lua:252 views/stats.lua:109
+#: views/home.lua:251 views/stats.lua:108
 msgid "No book in progress"
 msgstr "Нема књиге која се чита"
 
-#: styles/ui/pagination.lua:178
+#: styles/ui/pagination.lua:88
 msgid "No book matches the filter"
 msgstr "Ниједна књига не одговара филтеру"
 
-#: views/grid.lua:585
+#: views/grid.lua:586
 msgid "No books finished this month"
 msgstr "Ниједна књига није прочитана овог месеца"
 
-#: views/grid.lua:585
+#: views/grid.lua:586
 msgid "No books finished this year"
 msgstr "Ниједна књига није прочитана ове године"
 
-#: views/grid.lua:338
+#: views/grid.lua:339
 msgid "No books in home folder"
 msgstr "Нема књига у почетном директоријуму"
 
-#: views/grid.lua:338 views/grid.lua:473 views/grid.lua:617
+#: views/grid.lua:339 views/grid.lua:474 views/grid.lua:618
 msgid "No books with this filter"
 msgstr "Нема књига са овим филтером"
 
-#: styles/bookmap.lua:89 styles/toc.lua:44
+#: styles/bookmap.lua:90 styles/toc.lua:45
 msgid "No chapter"
 msgstr "Без поглавља"
 
-#: views/grid.lua:500
+#: views/grid.lua:501
 msgid "No collections"
 msgstr "Нема збирки"
 
-#: views/grid.lua:500
+#: views/grid.lua:501
 msgid "No collections with this filter"
 msgstr "Нема збирки са овим филтером"
 
@@ -1565,11 +1565,11 @@ msgstr "Нема збирки са овим филтером"
 msgid "No current book"
 msgstr "Нема тренутне књиге"
 
-#: views/stats.lua:216
+#: views/stats.lua:200
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Нема података: укључите додатак Статистика и прочитајте мало"
 
-#: styles/ui/pagination.lua:186
+#: styles/ui/pagination.lua:96
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1582,24 +1582,24 @@ msgstr "Нема следеће непрочитане књиге"
 msgid "No previous book"
 msgstr "Нема претходне књиге"
 
-#: styles/statspages.lua:365 views/stats.lua:679
+#: styles/statspages.lua:365 views/stats.lua:626
 msgid "No reading activity in this period"
 msgstr "Нема читања у овом периоду"
 
-#: styles/calendar.lua:239
+#: styles/calendar.lua:240
 msgid "No reading sessions this month"
 msgstr "Нема сесија читања овог месеца"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:107
 #, koreader
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:126
+#: styles/shortcuts.lua:127
 msgid "No saved shortcuts"
 msgstr "Нема сачуваних пречица"
 
-#: views/stats.lua:123
+#: views/stats.lua:122
 msgid "No stats for this book"
 msgstr "Нема статистике за ову књигу"
 
@@ -1611,11 +1611,11 @@ msgstr "Нема незапочетих књига"
 msgid "No vocabulary words"
 msgstr "Нема речи"
 
-#: styles/bookinfo.lua:938 styles/bookstatus.lua:60
+#: styles/bookinfo.lua:939 styles/bookstatus.lua:61
 msgid "Not rated"
 msgstr "Није оцењено"
 
-#: styles/bookinfo.lua:259 views/booksheet.lua:197 views/booksheet.lua:355
+#: styles/bookinfo.lua:260 views/booksheet.lua:197 views/booksheet.lua:355
 msgid "Not started"
 msgstr "Није започето"
 
@@ -1624,17 +1624,17 @@ msgstr "Није започето"
 msgid "Note"
 msgstr ""
 
-#: styles/bookinfo.lua:321
+#: styles/bookinfo.lua:322
 #, koreader
 msgid "Notebook file:"
 msgstr ""
 
-#: styles/bookinfo.lua:895
+#: styles/bookinfo.lua:896
 msgctxt "aire"
 msgid "Notes"
 msgstr "Белешке"
 
-#: views/topbar.lua:104
+#: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
 msgstr "новембар"
@@ -1643,7 +1643,7 @@ msgstr "новембар"
 msgid "Number"
 msgstr ""
 
-#: styles/bookinfo.lua:358
+#: styles/bookinfo.lua:359
 msgid "Number in series"
 msgstr "Број у серији"
 
@@ -1652,7 +1652,7 @@ msgstr "Број у серији"
 msgid "OK"
 msgstr ""
 
-#: views/topbar.lua:104
+#: views/topbar.lua:93
 msgctxt "aire"
 msgid "October"
 msgstr "октобар"
@@ -1667,7 +1667,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:257 styles/bookstatus.lua:54 views/booksheet.lua:186 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:186 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "На чекању"
@@ -1681,7 +1681,7 @@ msgstr "Само када је Wi-Fi већ укључен: Aire га никад
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1057
+#: views/grid.lua:1058
 msgid "Open collection"
 msgstr "Отвори збирку"
 
@@ -1689,7 +1689,7 @@ msgstr "Отвори збирку"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1057
+#: views/grid.lua:1058
 msgid "Open series"
 msgstr "Отвори серију"
 
@@ -1718,7 +1718,7 @@ msgstr ""
 msgid "Orientation"
 msgstr "Оријентација"
 
-#: styles/imageviewer.lua:105
+#: styles/imageviewer.lua:106
 #, koreader
 msgid "Original size"
 msgstr ""
@@ -1735,12 +1735,12 @@ msgstr ""
 msgid "PREVIOUS"
 msgstr "ПРЕТХОДНА"
 
-#: views/home.lua:314
+#: views/home.lua:313
 msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "Стр. %1 / %2"
 
-#: dev/devtools.lua:976 styles/pagebrowser.lua:285
+#: dev/devtools.lua:976 styles/pagebrowser.lua:286
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1777,7 +1777,7 @@ msgstr ""
 msgid "Portrait"
 msgstr ""
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:199
 #, koreader
 msgid "Portuguese"
 msgstr ""
@@ -1830,23 +1830,23 @@ msgstr "Цитат дана"
 msgid "RANDOM"
 msgstr "НАСУМИЧНА"
 
-#: styles/bookinfo.lua:943 styles/bookstatus.lua:312
+#: styles/bookinfo.lua:944 styles/bookstatus.lua:313
 msgid "RATING"
 msgstr "ОЦЕНА"
 
-#: styles/bookinfo.lua:339
+#: styles/bookinfo.lua:340
 msgid "READING"
 msgstr "ЧИТАЊЕ"
 
-#: styles/bookstatus.lua:292
+#: styles/bookstatus.lua:293
 msgid "READING STATUS"
 msgstr "СТАТУС ЧИТАЊА"
 
-#: views/stats.lua:258
+#: views/stats.lua:242
 msgid "RECAP"
 msgstr "ПРЕГЛЕД"
 
-#: styles/bookinfo.lua:983 styles/bookstatus.lua:389
+#: styles/bookinfo.lua:984 styles/bookstatus.lua:390
 msgid "REVIEW / NOTES"
 msgstr "АНАЛИЗА / БЕЛЕШКЕ"
 
@@ -1858,11 +1858,11 @@ msgstr "Насумична"
 msgid "Random book"
 msgstr "Насумична књига"
 
-#: styles/bookstatus.lua:345
+#: styles/bookstatus.lua:346
 msgid "Rating and review"
 msgstr "Оцена и анализа"
 
-#: styles/bookinfo.lua:319
+#: styles/bookinfo.lua:320
 #, koreader
 msgid "Rating:"
 msgstr ""
@@ -1886,12 +1886,12 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:202 styles/bookinfo.lua:256 styles/bookstatus.lua:53 views/grid.lua:48 views/grid.lua:54
+#: dev/tests/regressions.lua:202 styles/bookinfo.lua:257 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "Чита се"
 
-#: styles/readerprogress.lua:126
+#: styles/readerprogress.lua:127
 #, koreader
 msgid "Reading progress"
 msgstr ""
@@ -1908,7 +1908,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:607
+#: views/stats.lua:554
 msgid "Recap"
 msgstr "Преглед"
 
@@ -1929,7 +1929,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:405
+#: dev/devtools.lua:636 styles/bookmark.lua:407
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1939,17 +1939,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Уклони"
 
-#: styles/bookmark.lua:402
+#: styles/bookmark.lua:404
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:506
+#: views/booksheet.lua:592 views/grid.lua:507
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Уклони из збирке"
 
-#: views/booksheet.lua:556 views/grid.lua:622
+#: views/booksheet.lua:556 views/grid.lua:623
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1959,7 +1959,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:404
+#: styles/bookmark.lua:406
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1969,7 +1969,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1021
+#: views/grid.lua:1022
 msgid "Rename…"
 msgstr "Преименуј…"
 
@@ -2005,12 +2005,12 @@ msgstr "Поново покрени KOReader да би је користио. Т
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:126 views/grid.lua:813
+#: views/explorer.lua:120 views/grid.lua:814
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
 
-#: styles/bookinfo.lua:320
+#: styles/bookinfo.lua:321
 #, koreader
 msgid "Review:"
 msgstr ""
@@ -2020,17 +2020,17 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:107
 #, koreader
 msgid "Rotate"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:200
 #, koreader
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:808
+#: views/grid.lua:809
 msgid "SORT BY"
 msgstr "СОРТИРАЈ ПО"
 
@@ -2063,7 +2063,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:56 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2084,7 +2084,7 @@ msgstr ""
 msgid "See all changes"
 msgstr "Прикажи све измене"
 
-#: views/topbar.lua:103
+#: views/topbar.lua:92
 msgctxt "aire"
 msgid "September"
 msgstr "септембар"
@@ -2094,7 +2094,7 @@ msgstr "септембар"
 msgid "Series"
 msgstr ""
 
-#: styles/bookinfo.lua:357
+#: styles/bookinfo.lua:358
 msgid "Series name"
 msgstr "Назив серије"
 
@@ -2155,11 +2155,11 @@ msgstr ""
 msgid "Show progress in mosaic mode"
 msgstr ""
 
-#: dev/devtools.lua:632 views/home.lua:215
+#: dev/devtools.lua:632 views/home.lua:214
 msgid "Show synopsis"
 msgstr "Прикажи сажетак"
 
-#: styles/bookinfo.lua:314
+#: styles/bookinfo.lua:315
 #, koreader
 msgid "Size:"
 msgstr ""
@@ -2181,7 +2181,7 @@ msgstr "Паметно"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:81
+#: views/explorer.lua:75
 msgid "Sort"
 msgstr "Сортирај"
 
@@ -2193,24 +2193,24 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:742
+#: dev/devtools.lua:613 views/grid.lua:743
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:992
+#: dev/devtools.lua:825 views/grid.lua:993
 msgid "Sort collections"
 msgstr "Сортирај збирке"
 
-#: views/grid.lua:1015 views/grid.lua:1028
+#: views/grid.lua:1016 views/grid.lua:1029
 msgid "Sort collections…"
 msgstr "Сортирај збирке…"
 
-#: views/explorer.lua:152
+#: views/explorer.lua:146
 msgid "Sort files"
 msgstr "Сортирај фајлове"
 
-#: styles/bookinfo.lua:197
+#: styles/bookinfo.lua:198
 #, koreader
 msgid "Spanish"
 msgstr ""
@@ -2227,7 +2227,7 @@ msgstr "Почни"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:48 views/stats.lua:196
+#: views/dock.lua:43 views/stats.lua:189
 msgid "Stats"
 msgstr "Статистика"
 
@@ -2263,11 +2263,11 @@ msgstr ""
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:971 styles/bookinfo.lua:987 styles/bookstatus.lua:394
+#: dev/devtools.lua:971 styles/bookinfo.lua:988 styles/bookstatus.lua:395
 msgid "Tap to add or edit your review of this book…"
 msgstr "Додирните да додате или уредите своју анализу ове књиге…"
 
-#: views/home.lua:254
+#: views/home.lua:253
 msgid "Tap to open the library"
 msgstr "Додирните да отворите библиотеку"
 
@@ -2279,7 +2279,7 @@ msgstr "Додирните да зауставите"
 msgid "Tap to view definition"
 msgstr "Додирните да видите дефиницију"
 
-#: views/grid.lua:1307
+#: views/grid.lua:1290
 msgid "Test book"
 msgstr "Пробна књига"
 
@@ -2332,7 +2332,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Тренутна књига није део серије"
 
-#: styles/ui/pagination.lua:182
+#: styles/ui/pagination.lua:92
 msgid "This collection is empty"
 msgstr "Ова збирка је празна"
 
@@ -2344,7 +2344,7 @@ msgstr "Ова копија има фасциклу dev/ (тестови). Но�
 msgid "This month"
 msgstr "Овај месец"
 
-#: views/stats.lua:199
+#: views/stats.lua:191
 msgid "This month · %1 · %2 pp."
 msgstr "Овај месец · %1 · %2 стр."
 
@@ -2370,7 +2370,7 @@ msgstr ""
 msgid "Time range statistics"
 msgstr ""
 
-#: styles/bookinfo.lua:894
+#: styles/bookinfo.lua:895
 msgid "Time read"
 msgstr "Време читања"
 
@@ -2416,7 +2416,7 @@ msgstr "Данас и низ"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:740
+#: views/stats.lua:687
 msgid "Top author"
 msgstr "Најчитанији аутор"
 
@@ -2471,7 +2471,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:571
+#: styles/ui/titlebar.lua:479
 msgid "Vocabulary review"
 msgstr "Понављање речника"
 
@@ -2490,7 +2490,7 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:195
+#: styles/readerprogress.lua:196
 msgid "WEEKLY ACTIVITY"
 msgstr "НЕДЕЉНА АКТИВНОСТ"
 
@@ -2535,7 +2535,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Већ имаш најновију верзију (%1)."
 
-#: views/stats.lua:421
+#: views/stats.lua:380
 msgid "You didn't read that day"
 msgstr "Тог дана нисте читали"
 
@@ -2543,7 +2543,7 @@ msgstr "Тог дана нисте читали"
 msgid "You don't have any highlights yet"
 msgstr "Још немате истицања"
 
-#: styles/ui/pagination.lua:180
+#: styles/ui/pagination.lua:90
 msgid "You have not opened any book yet"
 msgstr "Још нисте отворили ниједну књигу"
 
@@ -2551,7 +2551,7 @@ msgstr "Још нисте отворили ниједну књигу"
 msgid "You have version %1"
 msgstr "Имаш верзију %1"
 
-#: views/grid.lua:584
+#: views/grid.lua:585
 msgid "You haven't finished any books yet"
 msgstr "Још нисте прочитали ниједну књигу"
 
@@ -2572,7 +2572,7 @@ msgstr "и истицања"
 msgid "at %1 %"
 msgstr "на %1 %"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:160
 msgid "avg. / day"
 msgstr "просек / дан"
 
@@ -2608,14 +2608,14 @@ msgstr ""
 msgid "files"
 msgstr "фајлова"
 
-#: views/stats.lua:696 views/widgets.lua:423
+#: views/stats.lua:643 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "прочитана књига"
 msgstr[1] "прочитане књиге"
 msgstr[2] "прочитаних књига"
 
-#: views/stats.lua:233
+#: views/stats.lua:217
 msgid "finished in %1"
 msgstr "прочитано %1."
 
@@ -2631,7 +2631,7 @@ msgstr "укупно"
 msgid "included in Aire"
 msgstr "укључено у Aire"
 
-#: styles/readerprogress.lua:158
+#: styles/readerprogress.lua:159
 msgid "last 7 days"
 msgstr "последњих 7 дана"
 
@@ -2649,7 +2649,7 @@ msgstr ""
 msgid "night mode"
 msgstr ""
 
-#: styles/bookinfo.lua:263
+#: styles/bookinfo.lua:264
 msgid "now"
 msgstr "сада"
 
@@ -2657,15 +2657,15 @@ msgstr "сада"
 msgid "of %1"
 msgstr "од %1"
 
-#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
+#: styles/pagebrowser.lua:98 styles/pagebrowser.lua:99
 msgid "p. %1 / %2"
 msgstr "стр. %1 / %2"
 
-#: styles/bookstatus.lua:215
+#: styles/bookstatus.lua:216
 msgid "p. %1 of %2"
 msgstr "стр. %1 од %2"
 
-#: views/stats.lua:688
+#: views/stats.lua:635
 msgid "pages read"
 msgstr "прочитане странице"
 
@@ -2673,7 +2673,7 @@ msgstr "прочитане странице"
 msgid "port %1"
 msgstr "порт %1"
 
-#: views/stats.lua:692
+#: views/stats.lua:639
 msgid "reading time"
 msgstr "време читања"
 
@@ -2705,7 +2705,7 @@ msgstr "претрага речи"
 msgid "shortcuts"
 msgstr "пречице"
 
-#: views/stats.lua:230
+#: views/stats.lua:214
 msgid "streak"
 msgstr "низ"
 
@@ -2740,12 +2740,12 @@ msgstr "тајмер"
 msgid "today"
 msgstr "данас"
 
-#: styles/bookinfo.lua:218
+#: styles/bookinfo.lua:219
 msgctxt "aire"
 msgid "today"
 msgstr "данас"
 
-#: styles/readerprogress.lua:157 views/stats.lua:225
+#: styles/readerprogress.lua:158 views/stats.lua:209
 msgid "today · %1 pp."
 msgstr "данас · %1 стр."
 
@@ -2753,12 +2753,12 @@ msgstr "данас · %1 стр."
 msgid "wi-fi"
 msgstr "wi-fi"
 
-#: styles/bookinfo.lua:219
+#: styles/bookinfo.lua:220
 msgctxt "aire"
 msgid "yesterday"
 msgstr "јуче"
 
-#: views/stats.lua:128
+#: views/stats.lua:127
 msgid "~%1 left"
 msgstr "још ~%1"
 

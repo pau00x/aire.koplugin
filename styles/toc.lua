@@ -23,6 +23,7 @@ local VerticalSpan = require("ui/widget/verticalspan")
 local logger = require("logger")
 local _ = require("gettext")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Toc"
 local AireUI = package.loaded.aire_ui
@@ -216,7 +217,7 @@ safeWrap(ReaderToc, "onShowToc", function(orig_onShowToc, self)
         -- sin invadir el espacio del paginado inferior (DotPager)
         local sw = tm.dimen and tm.dimen.w or Screen:getWidth()
         local probe_w = (tm.inner_dimen and tm.inner_dimen.w) or sw
-        local probe_pad = math.max(0, S(16) - math.floor((sw - probe_w) / 2))
+        local probe_pad = math.max(0, S(SIDE) - math.floor((sw - probe_w) / 2))
         local hero_h = buildHeroCard(self, probe_w, probe_pad):getSize().h
         local base_perpage = tm.items_per_page or tm.perpage or 10
         tm.items_per_page = math.max(4, base_perpage - 2)
@@ -258,9 +259,9 @@ safeWrap(ReaderToc, "onShowToc", function(orig_onShowToc, self)
             local avail_w = (first_item and first_item.dimen and first_item.dimen.w)
                 or (self.inner_dimen and self.inner_dimen.w)
                 or w
-            -- Menu ya aplica items_padding a los lados de item_group: completamos hasta S(16)
+            -- Menu ya aplica items_padding a los lados de item_group: completamos hasta S(SIDE)
             local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(16) - outer_pad)
+            local pad_h = math.max(0, S(SIDE) - outer_pad)
             local owner = self._toc_owner
             local cp = owner and (owner.pageno or (owner.ui and owner.ui.getCurrentPage and owner.ui:getCurrentPage()))
             local cur_ch = owner and owner.getTocTitleByPage and cp and owner:getTocTitleByPage(cp)

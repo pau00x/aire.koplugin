@@ -28,6 +28,7 @@ local _ = require("gettext")
 local N_ = _.ngettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Calendar"
 local AireUI = package.loaded.aire_ui
@@ -99,7 +100,7 @@ local function patchCalendar(_ReaderStatistics)
     end
 
     safeWrap(CalendarView, "init", function(orig_init, self)
-        self.outer_padding = S(16)
+        self.outer_padding = S(SIDE)
         self.inner_padding = S(5)
 
         local own_tb_new, orig_tb_new = rawget(TitleBar, "new"), TitleBar.new
@@ -137,7 +138,7 @@ local function patchCalendar(_ReaderStatistics)
 
         -- Fila de mes con flechas ‹ Mes Año › (igual que stats.lua)
         local sw = self.dimen and self.dimen.w or Screen:getWidth()
-        local w = sw - 2 * S(16)
+        local w = sw - 2 * S(SIDE)
         local nav_h = S(36)
         local prev_ic, set_prev = makeArrow("chevron.left", nav_h, function() self:prevMonth() end)
         local next_ic, set_next = makeArrow("chevron.right", nav_h, function() self:nextMonth() end)
@@ -145,8 +146,8 @@ local function patchCalendar(_ReaderStatistics)
         local month_bar = FrameContainer:new{
             bordersize = 0,
             padding = 0,
-            padding_left = S(16),
-            padding_right = S(16),
+            padding_left = S(SIDE),
+            padding_right = S(SIDE),
             padding_bottom = S(8),
             OverlapGroup:new{
                 dimen = Geom:new{ w = w, h = nav_h },

@@ -14,16 +14,7 @@ return function(Aire, ctx)
     local Device = require("device")
     local FrameContainer = require("ui/widget/container/framecontainer")
     local Geom = require("ui/geometry")
-    local GestureRange = require("ui/gesturerange")
-    local HorizontalGroup = require("ui/widget/horizontalgroup")
-    local HorizontalSpan = require("ui/widget/horizontalspan")
-    local IconWidget = require("ui/widget/iconwidget")
-    local InputContainer = require("ui/widget/container/inputcontainer")
-    local LeftContainer = require("ui/widget/container/leftcontainer")
     local NetworkMgr = require("ui/network/manager")
-    local OverlapGroup = require("ui/widget/overlapgroup")
-    local RightContainer = require("ui/widget/container/rightcontainer")
-    local Size = require("ui/size")
     local TextWidget = require("ui/widget/textwidget")
     local UIManager = require("ui/uimanager")
     local VerticalGroup = require("ui/widget/verticalgroup")
@@ -34,13 +25,11 @@ return function(Aire, ctx)
     local Screen = Device.screen
     local S = ctx.S
     local face = ctx.face
-    local tappable = ctx.tappable
     local config = ctx.config
     local BLACK = ctx.BLACK
     local WHITE = ctx.WHITE
     local GRAY_TEXT = ctx.GRAY_TEXT
     local SEPARATOR = ctx.SEPARATOR
-    local emptyGeom = ctx.emptyGeom
     local TOP_PAD = ctx.TOP_PAD
     local SIDE_PAD = ctx.SIDE_PAD
     local showPowerDialog = ctx.showPowerDialog
@@ -125,85 +114,23 @@ return function(Aire, ctx)
         end
     end
 
+    -- Datos de la barra de estado común (common/screen.lua)
+    local AireScreen = package.loaded.aire_screen
+    AireScreen.setStatusSource{
+        clock = clockString,
+        status = buildStatusString,
+        power = showPowerDialog,
+        menu = showTopMenu,
+    }
+
     function Aire:buildTopBar(w)
         -- Izquierda: la hora (en Inicio con el reloj grande no se repite).
         local hide_clock = self:isHomeVisible() and config.big_clock
-        self._top_clock_w = TextWidget:new{
-            text = hide_clock and "" or clockString(),
-            face = face(true, 16),
-            fgcolor = BLACK,
-            padding = 0,
-        }
+        local bar, parts = AireScreen.statusBar(w, { hide_clock = hide_clock })
+        self._top_clock_w = parts.clock
         self._top_clock_hidden = hide_clock
-        local selector = FrameContainer:new{
-            bordersize = 0,
-            padding = 0,
-            padding_top = S(6),
-            padding_bottom = S(6),
-            background = WHITE,
-            self._top_clock_w,
-        }
-
-        -- Derecha: indicadores + botón de energía
-        self._status_w = TextWidget:new{
-            text = buildStatusString(),
-            face = face(false, 14),
-            fgcolor = BLACK,
-            padding = 0,
-        }
-        local power_size = S(38)
-        local power = tappable(FrameContainer:new{
-            bordersize = Size.border.thin,
-            color = BLACK,
-            radius = S(8),
-            padding = 0,
-            width = power_size,
-            height = power_size,
-            CenterContainer:new{
-                dimen = Geom:new{ w = power_size - 2 * Size.border.thin, h = power_size - 2 * Size.border.thin },
-                IconWidget:new{ icon = "aire.power", width = S(24), height = S(24), alpha = true },
-            },
-        }, showPowerDialog, nil, S(8))
-        self._status_group = HorizontalGroup:new{
-            align = "center",
-            self._status_w,
-            HorizontalSpan:new{ width = S(12) },
-            power,
-        }
-
-        local h = math.max(power_size, selector:getSize().h)
-        local bar = InputContainer:new{
-            OverlapGroup:new{
-                dimen = Geom:new{ w = w, h = h },
-                LeftContainer:new{ dimen = Geom:new{ w = w, h = h }, selector },
-                RightContainer:new{ dimen = Geom:new{ w = w, h = h }, self._status_group },
-            },
-        }
-        bar.ges_events = {
-            AireTopMenuTap = { GestureRange:new{
-                ges = "tap",
-                range = function()
-                    local d = bar.dimen
-                    if not d then return emptyGeom() end
-                    local pd = power.dimen
-                    local max_w = pd and math.max(0, pd.x - S(8) - d.x) or d.w
-                    return Geom:new{ x = 0, y = 0, w = d.x + max_w, h = d.y + d.h }
-                end,
-            } },
-            AireSwipeMenu = { GestureRange:new{
-                ges = "swipe",
-                range = function()
-                    local d = bar.dimen
-                    if not d then return emptyGeom() end
-                    return Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = d.y + d.h }
-                end,
-            } },
-        }
-        bar.onAireTopMenuTap = function() showTopMenu() return true end
-        bar.onAireSwipeMenu = function(_self, ges)
-            if ges and ges.direction == "south" then showTopMenu() return true end
-            return false
-        end
+        self._status_w = parts.status
+        self._status_group = parts.group
         return bar
     end
 
@@ -212,60 +139,7 @@ return function(Aire, ctx)
     require("ui/widget/titlebar")._aire_build_status_bar = function(tb, total_w)
         local pad = S(SIDE_PAD)
         local w = math.max(100, (total_w or Screen:getWidth()) - 2 * pad)
-        local clk = TextWidget:new{ text = clockString(), face = face(true, 16), fgcolor = BLACK, padding = 0 }
-        local clk_box = FrameContainer:new{
-            bordersize = 0, padding = 0, padding_top = S(6), padding_bottom = S(6),
-            background = WHITE,
-            clk,
-        }
-        local st = TextWidget:new{ text = buildStatusString(), face = face(false, 14), fgcolor = BLACK, padding = 0 }
-        local power_size = S(38)
-        local power = tappable(FrameContainer:new{
-            bordersize = Size.border.thin,
-            color = BLACK,
-            radius = S(8),
-            padding = 0,
-            width = power_size,
-            height = power_size,
-            CenterContainer:new{
-                dimen = Geom:new{ w = power_size - 2 * Size.border.thin, h = power_size - 2 * Size.border.thin },
-                IconWidget:new{ icon = "aire.power", width = S(24), height = S(24), alpha = true },
-            },
-        }, showPowerDialog, nil, S(8))
-        local st_grp = HorizontalGroup:new{ align = "center", st, HorizontalSpan:new{ width = S(12) }, power }
-        local row_h = math.max(power_size, clk_box:getSize().h)
-        local inner = InputContainer:new{
-            OverlapGroup:new{
-                dimen = Geom:new{ w = w, h = row_h },
-                LeftContainer:new{ dimen = Geom:new{ w = w, h = row_h }, clk_box },
-                RightContainer:new{ dimen = Geom:new{ w = w, h = row_h }, st_grp },
-            },
-        }
-        inner.ges_events = {
-            AireTopMenuTap = { GestureRange:new{
-                ges = "tap",
-                range = function()
-                    local d = inner.dimen
-                    if not d then return emptyGeom() end
-                    local pd = power.dimen
-                    local max_w = pd and math.max(0, pd.x - S(8) - d.x) or d.w
-                    return Geom:new{ x = 0, y = 0, w = d.x + max_w, h = d.y + d.h }
-                end,
-            } },
-            AireSwipeMenu = { GestureRange:new{
-                ges = "swipe",
-                range = function()
-                    local d = inner.dimen
-                    if not d then return emptyGeom() end
-                    return Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = d.y + d.h }
-                end,
-            } },
-        }
-        inner.onAireTopMenuTap = function() showTopMenu() return true end
-        inner.onAireSwipeMenu = function(_self, ges)
-            if ges and ges.direction == "south" then showTopMenu() return true end
-            return false
-        end
+        local inner, parts = AireScreen.statusBar(w)
         local bar = FrameContainer:new{
             bordersize = 0,
             background = WHITE,
@@ -275,30 +149,40 @@ return function(Aire, ctx)
             padding_bottom = 0,
             inner,
         }
-        tb._aire_update_status = function()
-            clk:setText(clockString())
-            st:setText(buildStatusString())
-            st_grp:resetLayout()
-        end
+        tb._aire_update_status = parts.update
         Aire._aire_fs_bars[tb] = true
         return bar
     end
 
     function Aire:buildViewTitle(w, title)
-        local tw = TextWidget:new{
-            text = title,
-            face = face(true, 17),
-            fgcolor = BLACK,
-            max_width = w,
-            padding = 0,
-        }
-        return FrameContainer:new{
-            bordersize = 0, padding = 0, padding_top = S(3), padding_bottom = S(3), width = w,
-            LeftContainer:new{
-                dimen = Geom:new{ w = w, h = math.max(tw:getSize().h, S(24)) },
-                tw,
-            },
-        }
+        return (AireScreen.header(w, { title = title }))
+    end
+
+    -- Parte de arriba común de las vistas propias (Librería, Estadísticas,
+    -- Explorador…): margen, barra de estado, hueco y cabecera (si hay title).
+    --   opts.title, opts.on_back   cabecera "Título" o "‹ Título"
+    --   opts.gap_after             hueco debajo del título (por defecto SUB_GAP)
+    -- Devuelve el VerticalGroup para seguir añadiendo contenido. Apunta el alto
+    -- de la barra de estado (_header_h) para refrescar solo esa franja.
+    function Aire:buildScreenTop(w, opts)
+        opts = opts or {}
+        local VerticalSpan = require("ui/widget/verticalspan")
+        local MT = AireScreen.METRICS
+        local content = VerticalGroup:new{ align = "left" }
+        table.insert(content, VerticalSpan:new{ width = S(TOP_PAD) })
+        table.insert(content, self:buildTopBar(w))
+        self._clock_w, self._date_w = nil, nil
+        self._header_h = content:getSize().h + S(4)
+        table.insert(content, VerticalSpan:new{ width = S(MT.HEADER_GAP) })
+        if opts.title then
+            table.insert(content, (AireScreen.header(w, { title = opts.title, on_back = opts.on_back })))
+            table.insert(content, VerticalSpan:new{ width = S(opts.gap_after or MT.SUB_GAP) })
+        end
+        -- getSize() de arriba dejó medida la disposición con solo la barra de
+        -- estado: sin esto, lo que se añada después no tiene posición y pintar
+        -- revienta (VerticalGroup:paintTo, _offsets[i] nil)
+        content:resetLayout()
+        return content
     end
 
     function Aire:buildClock(w)

@@ -4,6 +4,12 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+### Internal
+
+- Full-screen layout, step 1: new `common/screen.lua` (`package.loaded.aire_screen`) with the shared margins and spacing (`METRICS`) and the only page-dots widget (`Pager`). The Library grid no longer has its own copy (`PageDots` removed), Menu/KeyValuePage/Page lists use the same one, and the side margin hard-coded in `styles/` and `common/pages.lua` comes from `METRICS.SIDE`. No visible changes.
+- Full-screen layout, step 2: one status bar, one header and one subtitle row for every full screen (`statusBar`, `header`, `subtitle` in `common/screen.lua`). Aire's own views (`buildTopBar`, `buildViewTitle`, `buildBackHeader`, the file browser title) and KOReader's full screens (`styles/ui/titlebar.lua`) now build them the same way instead of keeping their own copies. No visible changes.
+- Full-screen layout, step 3: one screen skeleton and one dock rule. `common/screen.lua` decides when a full screen gets the dock (`fullscreenDock`), how much room it takes (`dockReserve`) and builds the white root with the dock at the bottom (`root`). KOReader's lists, the `Page` screens and Aire's own views (Home, Library, Stats, Calendar, Recap, file browser) use it; the own views share the top part (`Aire:buildScreenTop`). No visible changes.
+
 ## [0.2.0] - 2026-11-18
 
 ### Added

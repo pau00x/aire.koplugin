@@ -23,6 +23,7 @@ local VerticalSpan = require("ui/widget/verticalspan")
 local Widget = require("ui/widget/widget")
 local logger = require("logger")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local AireUI = package.loaded.aire_ui
 local safeWrap, withTemporaryNew = AireUI.safeWrap, AireUI.withTemporaryNew
 local TAG = "Aire/PageBrowser"
@@ -121,7 +122,7 @@ end, TAG)
 
 safeWrap(PageBrowserWidget, "updateLayout", function(orig_updateLayout, self)
     local sw, sh = Screen:getWidth(), Screen:getHeight()
-    local side = Screen:scaleBySize(16)
+    local side = Screen:scaleBySize(SIDE)
     local bottom_pad = Screen:scaleBySize(12)
     -- Si no hay preferencia guardada en vertical, usar 4×3 estilo Librería
     if sw <= sh and self.ui and self.ui.doc_settings then
@@ -136,7 +137,7 @@ safeWrap(PageBrowserWidget, "updateLayout", function(orig_updateLayout, self)
         if not has_rows then self.ui.doc_settings:saveSetting("page_browser_nb_rows", 3) end
         self._aire_tmp_cols, self._aire_tmp_rows = not has_cols, not has_rows
     end
-    -- Reservar margen inferior S(12) y márgenes laterales S(16) para la cinta inferior
+    -- Reservar margen inferior S(12) y márgenes laterales S(SIDE) para la cinta inferior
     self.dimen.h = sh - bottom_pad
     -- updateLayout termina llamando a update(): se aplaza hasta haber puesto
     -- nuestro ancho de cinta, para que la primera pintura ya salga con él
@@ -202,7 +203,7 @@ end, TAG)
 safeWrap(PageBrowserWidget, "onTap", function(orig_pb_onTap, self, arg, ges)
     if self.row and self.row.dimen and ges.pos and ges.pos.y >= self.row.dimen.y
             and ges.pos.y <= self.row.dimen.y + self.row.dimen.h and self.row[1] then
-        local rx = self.row[1].dimen and self.row[1].dimen.x or Screen:scaleBySize(16)
+        local rx = self.row[1].dimen and self.row[1].dimen.x or Screen:scaleBySize(SIDE)
         local page = self.row[1]:getPageAtX(ges.pos.x - rx)
         if page then
             page = page - math.floor(self.nb_grid_items / 2) + self.focus_page_shift
@@ -218,7 +219,7 @@ end, TAG)
 safeWrap(PageBrowserWidget, "onHold", function(orig_pb_onHold, self, arg, ges)
     if self.row and self.row.dimen and ges.pos and ges.pos.y >= self.row.dimen.y
             and ges.pos.y <= self.row.dimen.y + self.row.dimen.h and self.row[1] then
-        local rx = self.row[1].dimen and self.row[1].dimen.x or Screen:scaleBySize(16)
+        local rx = self.row[1].dimen and self.row[1].dimen.x or Screen:scaleBySize(SIDE)
         local page = self.row[1]:getPageAtX(ges.pos.x - rx)
         if page then
             self:openBookMap(page)

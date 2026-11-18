@@ -41,7 +41,6 @@ return function(Aire, ctx)
     -- mismo módulo que arriba.
     local Blitbuffer = require("ffi/blitbuffer")
     local BookList = require("ui/widget/booklist")
-    local BottomContainer = require("ui/widget/container/bottomcontainer")
     local CenterContainer = require("ui/widget/container/centercontainer")
     local Font = require("ui/font")
     local FrameContainer = require("ui/widget/container/framecontainer")
@@ -183,32 +182,17 @@ return function(Aire, ctx)
         StatsData.state.FAKE = (config.demo_stats and self.getTestTools and self:getTestTools()) or nil
         local st = loadStats()
         countFinishedYear(self, st)
-        local sw, sh = Screen:getWidth(), Screen:getHeight()
+        local sw = Screen:getWidth()
         local side = S(ctx.SIDE_PAD)
         local w = sw - 2 * side
 
-        local content = VerticalGroup:new{ align = "left" }
-        table.insert(content, VerticalSpan:new{ width = S(ctx.TOP_PAD) })
-        table.insert(content, self:buildTopBar(w))
-        self._clock_w, self._date_w = nil, nil
-        self._header_h = content:getSize().h + S(4)
-        table.insert(content, VerticalSpan:new{ width = S(12) })
-        table.insert(content, self:buildViewTitle(w, _("Stats")))
-        table.insert(content, VerticalSpan:new{ width = S(2) })
+        local content = self:buildScreenTop(w, { title = _("Stats") })
         local sub_txt = st.ok
             and T(_("This month · %1 · %2 pp."), fmtDuration(st.month_secs), st.month_pages)
             or _("Activity summary")
-        local sub_w = TextWidget:new{
-            text = sub_txt,
-            face = face(false, 13),
-            fgcolor = GRAY_TEXT,
-            max_width = w,
-            padding = 0,
-        }
-        table.insert(content, tappable(LeftContainer:new{
-            dimen = Geom:new{ w = w, h = math.max(sub_w:getSize().h, S(28)) },
-            sub_w,
-        }, function() self:showCalendarView() end, nil, { h = 0, v = S(6) }))
+        -- Subtítulo común (common/screen.lua); al tocarlo, el calendario
+        local sub_row = package.loaded.aire_screen.subtitle(w, sub_txt)
+        table.insert(content, tappable(sub_row, function() self:showCalendarView() end, nil, { h = 0, v = S(6) }))
         table.insert(content, VerticalSpan:new{ width = S(12) })
 
         if not st.ok then
@@ -296,25 +280,7 @@ return function(Aire, ctx)
         content:resetLayout()
 
         local dock = self:buildNavBar(w)
-        return FrameContainer:new{
-            bordersize = 0,
-            padding = 0,
-            margin = 0,
-            background = WHITE,
-            width = sw,
-            height = sh,
-            OverlapGroup:new{
-                dimen = Geom:new{ w = sw, h = sh },
-                HorizontalGroup:new{
-                    HorizontalSpan:new{ width = side },
-                    content,
-                },
-                BottomContainer:new{
-                    dimen = Geom:new{ w = sw, h = sh - S(ctx.DOCK_MARGIN_BOTTOM) },
-                    dock,
-                },
-            },
-        }
+        return package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
     end
 
     -------------------------------------------------------------------------
@@ -330,14 +296,7 @@ return function(Aire, ctx)
         local w = sw - 2 * side
         local data = loadMonth(C.year, C.month)
 
-        local content = VerticalGroup:new{ align = "left" }
-        table.insert(content, VerticalSpan:new{ width = S(ctx.TOP_PAD) })
-        table.insert(content, self:buildTopBar(w))
-        self._clock_w, self._date_w = nil, nil
-        self._header_h = content:getSize().h + S(4)
-        table.insert(content, VerticalSpan:new{ width = S(12) })
-        table.insert(content, self:buildBackHeader(w, _("Calendar"), function() self:showStatsView() end))
-        table.insert(content, VerticalSpan:new{ width = S(2) })
+        local content = self:buildScreenTop(w, { title = _("Calendar"), on_back = function() self:showStatsView() end })
         table.insert(content, TextWidget:new{
             text = fmtDuration(data.secs) .. " · " .. T(_("%1 pp."), data.pages) .. " · "
                 .. T(N_("%1 day reading", "%1 days reading", data.read_days), data.read_days),
@@ -387,7 +346,7 @@ return function(Aire, ctx)
         -- (cabecera + 3 libros como mínimo). Lo que sobra es para el calendario.
         content:resetLayout()
         local dock = self:buildNavBar(w)
-        local dock_area = dock:getSize().h + S(ctx.DOCK_MARGIN_BOTTOM) + S(ctx.DOCK_GAP_ABOVE)
+        local dock_area = package.loaded.aire_screen.dockReserve(dock)
         local row_h = S(30)
         local detail_min = S(16) + S(20) + S(8) + 3 * row_h
         local grid_max = sh - content:getSize().h - dock_area - detail_min
@@ -552,14 +511,7 @@ return function(Aire, ctx)
         end
         content:resetLayout()
 
-        return FrameContainer:new{
-            bordersize = 0, padding = 0, margin = 0, background = WHITE, width = sw, height = sh,
-            OverlapGroup:new{
-                dimen = Geom:new{ w = sw, h = sh },
-                HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content },
-                BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh - S(ctx.DOCK_MARGIN_BOTTOM) }, dock },
-            },
-        }
+        return package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
     end
 
     function Aire:calendarMonth(delta)
@@ -598,14 +550,9 @@ return function(Aire, ctx)
         local w = sw - 2 * side
         local recap = loadRecap(self, mode, R.year, R.month)
 
-        local content = VerticalGroup:new{ align = "left" }
-        table.insert(content, VerticalSpan:new{ width = S(ctx.TOP_PAD) })
-        table.insert(content, self:buildTopBar(w))
-        self._clock_w, self._date_w = nil, nil
-        self._header_h = content:getSize().h + S(4)
-        table.insert(content, VerticalSpan:new{ width = S(12) })
-        table.insert(content, self:buildBackHeader(w, _("Recap"), function() self:showStatsView() end))
-        table.insert(content, VerticalSpan:new{ width = S(8) })
+        local content = self:buildScreenTop(w, {
+            title = _("Recap"), on_back = function() self:showStatsView() end, gap_after = 8,
+        })
 
         -- Selector Mensual / Anual
         local tab_gap = S(8)
@@ -669,7 +616,7 @@ return function(Aire, ctx)
         table.insert(content, VerticalSpan:new{ width = S(10) })
 
         local dock = self:buildNavBar(w)
-        local dock_area = dock:getSize().h + S(ctx.DOCK_MARGIN_BOTTOM) + S(ctx.DOCK_GAP_ABOVE)
+        local dock_area = package.loaded.aire_screen.dockReserve(dock)
 
         if recap.total_secs == 0 and #recap.finished_books == 0 then
             table.insert(content, VerticalSpan:new{ width = S(24) })
@@ -767,14 +714,7 @@ return function(Aire, ctx)
         end
         content:resetLayout()
 
-        local body = FrameContainer:new{
-            bordersize = 0, padding = 0, margin = 0, background = WHITE, width = sw, height = sh,
-            OverlapGroup:new{
-                dimen = Geom:new{ w = sw, h = sh },
-                HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content },
-                BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh - S(ctx.DOCK_MARGIN_BOTTOM) }, dock },
-            },
-        }
+        local body = package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
         local ic = InputContainer:new{
             dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh },
             body,
