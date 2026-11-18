@@ -1,0 +1,17 @@
+# Test & development-only files (excluded from the public repository)
+dev/
+
+# Optional KOReader submodule for LSP
+koreader/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/

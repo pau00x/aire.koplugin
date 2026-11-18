@@ -1,0 +1,2622 @@
+# gl translations for aire.koplugin.
+# Entries marked '#, koreader' are translated by KOReader itself and are
+# NOT compiled into the plugin's .mo (it would override KOReader everywhere).
+msgid ""
+msgstr ""
+"Project-Id-Version: aire.koplugin\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: styles/search.lua:63
+msgid "\"%1\" · %2 match"
+msgid_plural "\"%1\" · %2 matches"
+msgstr[0] "«%1» · %2 coincidencia"
+msgstr[1] "«%1» · %2 coincidencias"
+
+#: menu.lua:271
+msgid "\"Reading now\" card with light background"
+msgstr "Tarxeta «Lendo agora» con fondo claro"
+
+#: views/booksheet.lua:192
+msgid "%1 % (%2 / %3 pp.)"
+msgstr "%1 % (%2 / %3 páx.)"
+
+#: views/booksheet.lua:184
+msgid "%1 % (on hold)"
+msgstr "%1 % (pendente)"
+
+#: views/home.lua:303
+msgid "%1 % read"
+msgstr "%1 % lido"
+
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:294 views/grid.lua:326 views/grid.lua:331
+msgid "%1 book"
+msgid_plural "%1 books"
+msgstr[0] "%1 libro"
+msgstr[1] "%1 libros"
+
+#: styles/bookmap.lua:100
+msgid "%1 bookmark"
+msgid_plural "%1 bookmarks"
+msgstr[0] "%1 marcador"
+msgstr[1] "%1 marcadores"
+
+#: views/grid.lua:494 views/grid.lua:495
+msgid "%1 collection"
+msgid_plural "%1 collections"
+msgstr[0] "%1 colección"
+msgstr[1] "%1 coleccións"
+
+#: views/stats.lua:230
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 día"
+msgstr[1] "%1 días"
+
+#: styles/bookinfo.lua:221
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "hai %1 día"
+msgstr[1] "hai %1 días"
+
+#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:708
+msgid "%1 day reading"
+msgid_plural "%1 days reading"
+msgstr[0] "%1 día lendo"
+msgstr[1] "%1 días lendo"
+
+#: views/booksheet.lua:353 views/grid/books.lua:294 views/grid.lua:328
+msgid "%1 finished"
+msgid_plural "%1 finished"
+msgstr[0] "%1 rematado"
+msgstr[1] "%1 rematados"
+
+#: views/grid.lua:577
+msgid "%1 finished book"
+msgid_plural "%1 finished books"
+msgstr[0] "%1 libro rematado"
+msgstr[1] "%1 libros rematados"
+
+#: styles/bookinfo.lua:228
+msgid "%1 month ago"
+msgid_plural "%1 months ago"
+msgstr[0] "hai %1 mes"
+msgstr[1] "hai %1 meses"
+
+#: styles/bookmap.lua:98
+msgid "%1 page left"
+msgid_plural "%1 pages left"
+msgstr[0] "queda %1 páx."
+msgstr[1] "quedan %1 páx."
+
+#: styles/readerprogress.lua:176
+msgid "%1 page read"
+msgid_plural "%1 pages read"
+msgstr[0] "%1 páx. lida"
+msgstr[1] "%1 páx. lidas"
+
+#: styles/bookinfo.lua:572 styles/bookinfo.lua:576 styles/calendar.lua:242 views/booksheet.lua:200 views/stats.lua:342
+msgid "%1 pp."
+msgstr "%1 páx."
+
+#: views/stats.lua:686
+msgid "%1 pp./h"
+msgstr "%1 páx./h"
+
+#: styles/shortcuts.lua:127
+msgid "%1 saved shortcut"
+msgid_plural "%1 saved shortcuts"
+msgstr[0] "%1 atallo gardado"
+msgstr[1] "%1 atallos gardados"
+
+#: views/grid.lua:327
+msgid "%1 series"
+msgid_plural "%1 series"
+msgstr[0] "%1 serie"
+msgstr[1] "%1 series"
+
+#: styles/bookinfo.lua:224
+msgid "%1 week ago"
+msgid_plural "%1 weeks ago"
+msgstr[0] "hai %1 semana"
+msgstr[1] "hai %1 semanas"
+
+#: views/topbar.lua:112
+msgid "%1, %2 %3"
+msgstr "%1, %3 de %2"
+
+#: styles/toc.lua:48
+msgid "%d %% of book"
+msgstr "%d %% do libro"
+
+#: styles/toc.lua:47
+msgid "%d %% of book · %d pp. left in chapter"
+msgstr "%d %% do libro · %d páx. restantes no capítulo"
+
+#: dev/tests/regressions.lua:199 dev/tests/regressions.lua:200
+msgid "%d book"
+msgid_plural "%d books"
+msgstr[0] ""
+msgstr[1] ""
+
+#: styles/bookinfo.lua:940 styles/bookstatus.lua:62
+msgid "%d of 5 stars"
+msgstr "%d de 5 estrelas"
+
+#: views/dock.lua:268
+msgid "(current)"
+msgstr "(actual)"
+
+#: styles/ui/lightsheet.lua:185
+msgid "+ Brightness"
+msgstr "+ Intensidade"
+
+#: views/stats.lua:528
+msgid "+%1 more"
+msgstr "+%1 máis"
+
+#: styles/bookinfo.lua:939 styles/bookstatus.lua:61
+msgid "1 of 5 stars"
+msgstr "1 de 5 estrelas"
+
+#: dev/devtools.lua:553
+msgid "12 of 30"
+msgstr ""
+
+#: menu.lua:337 menu.lua:463
+msgid "3 columns (large covers)"
+msgstr "3 columnas (portadas grandes)"
+
+#: dev/devtools.lua:721
+msgid "3-button confirmation"
+msgstr ""
+
+#: menu.lua:337 menu.lua:463
+msgid "4 columns"
+msgstr "4 columnas"
+
+#: dev/devtools.lua:954
+msgid "A very entertaining short story within the Archive."
+msgstr ""
+
+#: styles/search.lua:55
+msgid "ACTIVE SEARCH"
+msgstr "BUSCA ACTIVA"
+
+#: views/widgets.lua:349
+msgid "ADDED"
+msgstr "ENGADIDO"
+
+#: views/widgets.lua:597
+msgid "Active"
+msgstr "Activo"
+
+#: views/stats.lua:200
+msgid "Activity summary"
+msgstr "Resumo de actividade"
+
+#: styles/bookmark.lua:388
+#, koreader
+msgid "Add note"
+msgstr ""
+
+#: dev/devtools.lua:594
+msgid "Add to collection…"
+msgstr ""
+
+#: dev/devtools.lua:630 views/widgets.lua:1116
+msgid "Add widget"
+msgstr "Engadir widget"
+
+#: menu.lua:645
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: _meta.lua:9
+msgid "Aire"
+msgstr "Aire"
+
+#: menu.lua:619 menu.lua:635
+msgid "Aire warnings (crash.log)"
+msgstr "Avisos de Aire (crash.log)"
+
+#: dev/devtools.lua:706
+#, koreader
+msgid "Alarm"
+msgstr ""
+
+#: dev/devtools.lua:652 views/grid.lua:47 views/grid.lua:53
+#, koreader
+msgid "All"
+msgstr ""
+
+#: styles/statspages.lua:258 styles/statspages.lua:261
+#, koreader
+msgid "All books"
+msgstr ""
+
+#: views/booksheet.lua:351
+msgid "All finished"
+msgstr "Todos rematados"
+
+#: views/grid.lua:579 views/widgets.lua:441
+#, koreader
+msgid "Always"
+msgstr ""
+
+#: views/stats.lua:643
+msgid "Annual"
+msgstr "Anual"
+
+#: views/stats.lua:294
+msgid "Annual recap"
+msgstr "Resumo anual"
+
+#: dev/devtools.lua:806
+msgid "Annual recap (test data)"
+msgstr ""
+
+#: dev/devtools.lua:685 menu.lua:301 styles/sortwidget.lua:119
+#, koreader
+msgid "Apply"
+msgstr ""
+
+#: views/topbar.lua:102
+msgctxt "aire"
+msgid "April"
+msgstr "abril"
+
+#: views/topbar.lua:103
+msgctxt "aire"
+msgid "August"
+msgstr "agosto"
+
+#: dev/devtools.lua:516 dev/devtools.lua:606 dev/devtools.lua:656 dev/devtools.lua:822 views/grid.lua:61
+msgid "Author"
+msgstr "Autor"
+
+#: menu.lua:407
+msgid "Automatic collections by author"
+msgstr "Coleccións automáticas por autor"
+
+#: menu.lua:415
+msgid "Automatic collections by genre (keyword)"
+msgstr "Coleccións automáticas por xénero (clave)"
+
+#: menu.lua:550
+msgid "Automatic tests"
+msgstr "Probas automáticas"
+
+#: views/grid.lua:1010
+msgid "Automatic: books by this author"
+msgstr "Automática: libros deste autor"
+
+#: dev/devtools.lua:825
+msgid "Average speed"
+msgstr ""
+
+#: styles/statspages.lua:81
+#, koreader
+msgid "Average time per day"
+msgstr ""
+
+#: styles/statspages.lua:84
+#, koreader
+msgid "Average time per page"
+msgstr ""
+
+#: styles/bookinfo.lua:338
+msgid "BOOK"
+msgstr "LIBRO"
+
+#: styles/bookmark.lua:41
+msgid "BOOKMARK"
+msgstr "MARCADOR"
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "Basque"
+msgstr ""
+
+#: dev/devtools.lua:635 views/topbar.lua:53 views/widgets.lua:502
+msgid "Battery"
+msgstr "Batería"
+
+#: views/stats.lua:732
+msgid "Best day"
+msgstr "Mellor día"
+
+#: views/stats.lua:735
+msgid "Best month"
+msgstr "Mellor mes"
+
+#: styles/bookstatus.lua:181
+msgid "Book"
+msgstr "Libro"
+
+#: dev/devtools.lua:596 dev/devtools.lua:831
+#, koreader
+msgid "Book information"
+msgstr ""
+
+#: dev/devtools.lua:963 styles/bookmap.lua:268
+#, koreader
+msgid "Book map"
+msgstr ""
+
+#: styles/statspages.lua:82
+#, koreader
+msgid "Book marked as finished"
+msgstr ""
+
+#: dev/devtools.lua:611
+msgid "Book sheet"
+msgstr ""
+
+#: styles/statspages.lua:81
+#, koreader
+msgid "Book start date"
+msgstr ""
+
+#: dev/devtools.lua:820
+msgid "Book stats"
+msgstr ""
+
+#: styles/bookstatus.lua:351
+#, koreader
+msgid "Book status"
+msgstr ""
+
+#: dev/devtools.lua:956
+msgid "Book status (empty)"
+msgstr ""
+
+#: dev/devtools.lua:949
+msgid "Book status (with data)"
+msgstr ""
+
+#: views/widgets.lua:550
+#, koreader
+msgid "Bookmarks"
+msgstr ""
+
+#: dev/devtools.lua:996
+msgid "Bookmarks (empty)"
+msgstr ""
+
+#: dev/devtools.lua:979
+msgid "Bookmarks (with data)"
+msgstr ""
+
+#: views/widgets.lua:549
+msgid "Bookmarks and highlights"
+msgstr "Marcadores e textos destacados"
+
+#: dev/devtools.lua:861
+#, koreader
+msgid "Books"
+msgstr ""
+
+#: views/grid.lua:971
+msgid "Books are not deleted, only the collection."
+msgstr "Os libros non se borran, só a colección."
+
+#: styles/statspages.lua:266 styles/statspages.lua:267
+#, koreader
+msgid "Books by month"
+msgstr ""
+
+#: styles/statspages.lua:263 styles/statspages.lua:264
+#, koreader
+msgid "Books by week"
+msgstr ""
+
+#: menu.lua:94
+msgid "Bottom menus (sheets)"
+msgstr "Menús inferiores (follas)"
+
+#: styles/bookmap.lua:105
+msgid "CURRENT CHAPTER"
+msgstr "CAPÍTULO ACTUAL"
+
+#: styles/toc.lua:64
+msgid "CURRENT CHAPTER · PAGE %d"
+msgstr "CAPÍTULO ACTUAL · PÁX. %d"
+
+#: styles/readerprogress.lua:173
+msgid "CURRENT SESSION"
+msgstr "SESIÓN ACTUAL"
+
+#: views/home.lua:383 views/stats.lua:247
+msgid "CURRENTLY READING"
+msgstr "LENDO AGORA"
+
+#: styles/calendar.lua:109 styles/calendar.lua:236 views/stats.lua:339
+msgid "Calendar"
+msgstr "Calendario"
+
+#: dev/devtools.lua:896
+msgid "Calendar (empty)"
+msgstr ""
+
+#: dev/devtools.lua:807
+msgid "Calendar (test data)"
+msgstr ""
+
+#: dev/devtools.lua:877
+msgid "Calendar (with data)"
+msgstr ""
+
+#: dev/devtools.lua:486 dev/devtools.lua:637 dev/devtools.lua:737 styles/sortwidget.lua:113 views/stats.lua:457
+#, koreader
+msgid "Cancel"
+msgstr ""
+
+#: views/widgets.lua:496
+msgid "Capture"
+msgstr "Capturar"
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "Catalan"
+msgstr ""
+
+#: views/widgets.lua:1178
+msgid "Change"
+msgstr "Cambiar"
+
+#: styles/skim.lua:90
+msgid "Chapter %1 of %2"
+msgstr "Capítulo %1 de %2"
+
+#: dev/devtools.lua:985
+msgid "Chapter 1"
+msgstr ""
+
+#: dev/devtools.lua:987
+msgid "Chapter 7"
+msgstr ""
+
+#: dev/devtools.lua:989
+msgid "Chapter 8"
+msgstr ""
+
+#: views/widgets.lua:507
+msgid "Charged"
+msgstr "Cargada"
+
+#: views/widgets.lua:507
+msgid "Charging"
+msgstr "Cargando"
+
+#: menu.lua:522
+msgid "Check patches and plugins on startup"
+msgstr "Comprobar parches e engadidos ao iniciar"
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Chinese"
+msgstr ""
+
+#: dev/devtools.lua:811
+msgid "Classics"
+msgstr ""
+
+#: menu.lua:530
+msgid "Clear cover thumbnails"
+msgstr "Borrar as miniaturas das portadas"
+
+#: dev/devtools.lua:597 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
+#, koreader
+msgid "Close"
+msgstr ""
+
+#: views/grid.lua:67
+msgid "Collection"
+msgstr "Colección"
+
+#: dev/devtools.lua:510
+msgid "Collection name"
+msgstr ""
+
+#: views/grid.lua:67
+msgid "Collection order"
+msgstr "Orde da colección"
+
+#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1426
+#, koreader
+msgid "Collections"
+msgstr ""
+
+#: dev/devtools.lua:802
+msgid "Collections (test data)"
+msgstr ""
+
+#: views/grid.lua:76
+msgid "Collections order"
+msgstr "Orde das coleccións"
+
+#: common/compat.lua:183
+msgid "Compatibility"
+msgstr "Compatibilidade"
+
+#: dev/devtools.lua:643
+msgid "Confirmation"
+msgstr ""
+
+#: views/widgets.lua:470
+msgid "Connected"
+msgstr "Conectada"
+
+#: views/booksheet.lua:375
+#, koreader
+msgid "Continue"
+msgstr ""
+
+#: dev/devtools.lua:593
+msgid "Continue reading"
+msgstr ""
+
+#: styles/ui/readermenu.lua:57
+#, koreader
+msgid "Contrast"
+msgstr ""
+
+#: dev/devtools.lua:529
+#, koreader
+msgid "Copy"
+msgstr ""
+
+#: dev/devtools.lua:503
+msgid ""
+"Could not connect to the network.\n"
+"\n"
+"Check that Wi-Fi is on and the password is correct, and try again."
+msgstr ""
+
+#: views/widgets.lua:203
+msgid "Could not read database"
+msgstr "Non se puido ler a base de datos"
+
+#: views/widgets.lua:442
+msgid "Count: %1"
+msgstr "Contar: %1"
+
+#: menu.lua:539
+msgid "Cover thumbnails cleared"
+msgstr "Borráronse as miniaturas das portadas"
+
+#: styles/statspages.lua:83
+#, koreader
+msgid "Current page/Total pages"
+msgstr ""
+
+#: styles/bookinfo.lua:318
+#, koreader
+msgid "Current page:"
+msgstr ""
+
+#: styles/statspages.lua:106 styles/statspages.lua:442
+#, koreader
+msgid "Current statistics"
+msgstr ""
+
+#: views/home.lua:210
+msgid "Currently reading"
+msgstr "Lendo agora"
+
+#: views/stats.lua:706
+msgid "DAILY RHYTHM"
+msgstr "RITMO DIARIO"
+
+#: views/stats.lua:727
+msgid "Daily average"
+msgstr "Media diaria"
+
+#: dev/devtools.lua:818
+msgid "Data page"
+msgstr ""
+
+#: dev/devtools.lua:696 views/grid.lua:81
+msgid "Date"
+msgstr "Data"
+
+#: dev/devtools.lua:699 views/grid.lua:81
+msgid "Date finished"
+msgstr "Data de remate"
+
+#: views/stats.lua:730
+msgid "Day %1"
+msgstr "Día %1"
+
+#: dev/devtools.lua:825
+msgid "Days reading"
+msgstr ""
+
+#: styles/statspages.lua:80
+#, koreader
+msgid "Days reading this book"
+msgstr ""
+
+#: views/topbar.lua:104
+msgctxt "aire"
+msgid "December"
+msgstr "decembro"
+
+#: dev/devtools.lua:646 dev/devtools.lua:725 views/booksheet.lua:251 views/grid.lua:972 views/stats.lua:477
+#, koreader
+msgid "Delete"
+msgstr ""
+
+#: views/stats.lua:488
+msgid "Delete all book stats"
+msgstr "Borrar todas as estatísticas do libro"
+
+#: views/stats.lua:492
+msgid "Delete all stats?"
+msgstr "Borrar todas as estatísticas?"
+
+#: styles/highlight.lua:61
+#, koreader
+msgid "Delete highlight"
+msgstr ""
+
+#: views/stats.lua:475
+msgid "Delete minutes for this day?"
+msgstr "Borrar os minutos deste día?"
+
+#: views/stats.lua:471
+msgid "Delete minutes from this day"
+msgstr "Borrar os minutos deste día"
+
+#: views/grid.lua:970
+msgid "Delete the collection?"
+msgstr "Borrar a colección?"
+
+#: dev/devtools.lua:645
+msgid "Delete this book? This cannot be undone."
+msgstr ""
+
+#: views/grid.lua:1021
+msgid "Delete…"
+msgstr "Borrar…"
+
+#: styles/ui/sheets.lua:501
+#, koreader
+msgid "Description"
+msgstr ""
+
+#: dev/devtools.lua:530 dev/devtools.lua:536 views/widgets.lua:535 views/widgets.lua:536
+#, koreader
+msgid "Dictionary"
+msgstr ""
+
+#: views/widgets.lua:481
+msgid "Disabled"
+msgstr "Desactivado"
+
+#: common/compat.lua:157
+msgid "Disabled due to incompatibility with the Home screen:"
+msgstr "Desactivados por incompatibilidade coa pantalla de inicio:"
+
+#: dev/devtools.lua:623
+msgid "Disabled option"
+msgstr ""
+
+#: menu.lua:508
+msgid "Dock"
+msgstr "Dock"
+
+#: dev/devtools.lua:864
+msgid "Documents"
+msgstr ""
+
+#: dev/devtools.lua:627 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
+#, koreader
+msgid "Done"
+msgstr ""
+
+#: dev/devtools.lua:553
+msgid "Downloading covers"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "Dutch"
+msgstr ""
+
+#: views/widgets.lua:1006
+msgid "EDITING WIDGETS"
+msgstr "EDITANDO WIDGETS"
+
+#: dev/devtools.lua:515 dev/devtools.lua:762
+msgid "Edgedancer"
+msgstr ""
+
+#: menu.lua:283
+msgid "Edit Home widgets"
+msgstr "Editar widgets de Inicio"
+
+#: dev/devtools.lua:513
+msgid "Edit metadata"
+msgstr ""
+
+#: styles/bookmark.lua:388
+#, koreader
+msgid "Edit note"
+msgstr ""
+
+#: styles/bookinfo.lua:354
+msgid "Edit series"
+msgstr "Editar serie"
+
+#: styles/bookmark.lua:392
+#, koreader
+msgid "Edit text"
+msgstr ""
+
+#: views/booksheet.lua:347
+msgid "Empty"
+msgstr "Baleira"
+
+#: views/widgets.lua:841
+msgctxt "aire"
+msgid "Empty"
+msgstr "Sen widgets"
+
+#: views/grid.lua:471
+msgid "Empty collection"
+msgstr "Colección baleira"
+
+#: styles/ui/pagination.lua:184
+msgid "Empty folder"
+msgstr "Cartafol baleiro"
+
+#: views/grid.lua:306
+msgid "Empty series"
+msgstr "Serie baleira"
+
+#: views/widgets.lua:481
+#, koreader
+msgid "Enabled"
+msgstr ""
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "English"
+msgstr ""
+
+#: dev/devtools.lua:510
+msgid "Epic fantasy"
+msgstr ""
+
+#: styles/statspages.lua:82
+#, koreader
+msgid "Estimated finish date"
+msgstr ""
+
+#: styles/statspages.lua:80
+#, koreader
+msgid "Estimated reading time left"
+msgstr ""
+
+#: menu.lua:90
+msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
+msgstr "Todo o que debuxa o engadido, con datos inventados. Esvara ← → para pasar páxina; toca fóra ou na páxina para saír."
+
+#: views/power.lua:177
+#, koreader
+msgid "Exit"
+msgstr ""
+
+#: styles/bookinfo.lua:340 styles/bookinfo.lua:1015
+msgid "FILE"
+msgstr "FICHEIRO"
+
+#: views/grid.lua:796
+msgid "FILTER"
+msgstr "FILTRO"
+
+#: dev/devtools.lua:811 dev/devtools.lua:862
+#, koreader
+msgid "Fantasy"
+msgstr ""
+
+#: views/widgets.lua:556
+msgid "Favorite folders"
+msgstr "Cartafoles favoritos"
+
+#: dev/devtools.lua:811 views/grid.lua:350 views/widgets.lua:393
+#, koreader
+msgid "Favorites"
+msgstr ""
+
+#: views/topbar.lua:101
+msgctxt "aire"
+msgid "February"
+msgstr "febreiro"
+
+#: menu.lua:487 views/dock.lua:275
+#, koreader
+msgid "File browser"
+msgstr ""
+
+#: styles/bookinfo.lua:315
+#, koreader
+msgid "File date:"
+msgstr ""
+
+#: styles/bookinfo.lua:312
+#, koreader
+msgid "Filename:"
+msgstr ""
+
+#: views/grid.lua:740
+msgid "Filter"
+msgstr "Filtrar"
+
+#: dev/devtools.lua:649 views/grid.lua:739
+msgid "Filter and sort"
+msgstr "Filtrar e ordenar"
+
+#: dev/devtools.lua:653
+#, koreader
+msgid "Finished"
+msgstr ""
+
+#: styles/bookinfo.lua:258 styles/bookinfo.lua:572 styles/bookstatus.lua:55 views/booksheet.lua:181 views/grid.lua:50
+msgctxt "aire"
+msgid "Finished"
+msgstr "Rematado"
+
+#: dev/devtools.lua:808
+msgid "Finished (test data)"
+msgstr ""
+
+#: menu.lua:401
+msgid "Finished books in gray"
+msgstr "Libros rematados en gris"
+
+#: styles/imageviewer.lua:105
+#, koreader
+msgid "Fit"
+msgstr ""
+
+#: menu.lua:93
+msgid "Floating windows"
+msgstr "Xanelas flotantes"
+
+#: menu.lua:395
+msgid "Folded corner on started books"
+msgstr "Esquina dobrada nos libros comezados"
+
+#: dev/devtools.lua:869
+msgid "Folder shortcuts (empty)"
+msgstr ""
+
+#: dev/devtools.lua:856
+msgid "Folder shortcuts (with data)"
+msgstr ""
+
+#: styles/bookinfo.lua:316
+#, koreader
+msgid "Folder:"
+msgstr ""
+
+#: views/dock.lua:54 views/widgets.lua:557
+msgid "Folders"
+msgstr "Cartafoles"
+
+#: dev/devtools.lua:669
+msgid "Font (status bar)"
+msgstr ""
+
+#: dev/devtools.lua:683
+#, koreader
+msgid "Font size"
+msgstr ""
+
+#: styles/ui/sheets.lua:724
+msgid "Fonts"
+msgstr "Tipos de letra"
+
+#: styles/vocabbuilder.lua:153
+#, koreader
+msgid "Forgot"
+msgstr ""
+
+#: styles/bookinfo.lua:313 styles/bookinfo.lua:501
+#, koreader
+msgid "Format:"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "French"
+msgstr ""
+
+#: styles/ui/lightsheet.lua:101
+#, koreader
+msgid "Frontlight"
+msgstr ""
+
+#: views/widgets.lua:488
+msgid "Full refresh"
+msgstr "Refresco completo"
+
+#: menu.lua:95
+msgid "Full screens"
+msgstr "Pantallas completas"
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "Galician"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "German"
+msgstr ""
+
+#: styles/gestures.lua:120
+#, koreader
+msgid "Gestures in file browser"
+msgstr ""
+
+#: styles/gestures.lua:120
+#, koreader
+msgid "Gestures in reader"
+msgstr ""
+
+#: styles/gestures.lua:62
+msgid "Gestures set: %1"
+msgstr "Xestos configurados: %1"
+
+#: styles/bookmark.lua:417
+#, koreader
+msgid "Go to bookmark"
+msgstr ""
+
+#: views/dock.lua:53
+msgid "Go up"
+msgstr "Subir"
+
+#: common/compat.lua:179 styles/vocabbuilder.lua:155
+#, koreader
+msgid "Got it"
+msgstr ""
+
+#: menu.lua:354 menu.lua:498
+msgid "Grid: %1 columns"
+msgstr "Grella: %1 columnas"
+
+#: styles/bookmark.lua:40
+msgid "HIGHLIGHT"
+msgstr "DESTACADO"
+
+#: views/stats.lua:714
+msgid "HIGHLIGHTS"
+msgstr "FITOS"
+
+#: views/stats.lua:419
+msgid "Hasn't arrived yet"
+msgstr "Aínda non chegou"
+
+#: dev/devtools.lua:529
+#, koreader
+msgid "Highlight"
+msgstr ""
+
+#: views/dock.lua:47 views/grid.lua:1427
+#, koreader
+msgid "History"
+msgstr ""
+
+#: dev/devtools.lua:803
+msgid "History (test data)"
+msgstr ""
+
+#: views/grid.lua:615
+msgid "History is empty"
+msgstr "O historial está baleiro"
+
+#: views/widgets.lua:1159
+msgid "Hold does the same as tap"
+msgstr "Manter premido fai o mesmo que tocar"
+
+#: views/widgets.lua:570
+msgid "Hold to configure"
+msgstr "Mantén premido para configurar"
+
+#: dev/devtools.lua:662 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
+#, koreader
+msgid "Home"
+msgstr ""
+
+#: dev/devtools.lua:800
+msgid "Home (test data)"
+msgstr ""
+
+#: menu.lua:262
+msgid "Home and widgets"
+msgstr "Inicio e widgets"
+
+#: _meta.lua:12
+msgid "Home screen with the current book, widgets, library, collections, history and stats, and a bottom navigation bar."
+msgstr "Pantalla de inicio co libro actual, widgets, biblioteca, coleccións, historial e estatísticas, e unha barra de navegación inferior."
+
+#: menu.lua:92
+msgid "Home widgets"
+msgstr "Widgets de Inicio"
+
+#: dev/devtools.lua:714
+msgid "Horizontal"
+msgstr ""
+
+#: dev/devtools.lua:852 styles/imageviewer.lua:43
+msgid "Image"
+msgstr "Imaxe"
+
+#: dev/devtools.lua:835
+msgid "Image / cover viewer"
+msgstr ""
+
+#: menu.lua:408
+msgid "In Collections, a collection appears for each author with 2 or more books. They update automatically and are not saved in KOReader collections."
+msgstr "En Coleccións aparece unha colección por cada autor con 2 ou máis libros. Actualízanse automaticamente e non se gardan nas coleccións de KOReader."
+
+#: menu.lua:416
+msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
+msgstr "En Coleccións aparece unha colección por cada clave con 2 ou máis libros. Actualízanse automaticamente e non se gardan nas coleccións de KOReader."
+
+#: dev/devtools.lua:621 views/home.lua:213 views/widgets.lua:1154
+msgid "Inverted colors"
+msgstr "Cores invertidas"
+
+#: dev/devtools.lua:716
+msgid "Inverted horizontal"
+msgstr ""
+
+#: dev/devtools.lua:715
+msgid "Inverted portrait"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "Italian"
+msgstr ""
+
+#: views/topbar.lua:101
+msgctxt "aire"
+msgid "January"
+msgstr "xaneiro"
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Japanese"
+msgstr ""
+
+#: views/topbar.lua:103
+msgctxt "aire"
+msgid "July"
+msgstr "xullo"
+
+#: views/topbar.lua:102
+msgctxt "aire"
+msgid "June"
+msgstr "xuño"
+
+#: views/power.lua:176
+#, koreader
+msgid "KOReader"
+msgstr ""
+
+#: dev/devtools.lua:734
+msgid "KOReader engine (crengine)"
+msgstr ""
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Korean"
+msgstr ""
+
+#: dev/devtools.lua:583
+msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
+msgstr ""
+
+#: views/stats.lua:239
+msgid "LAST 7 DAYS"
+msgstr "ÚLTIMOS 7 DÍAS"
+
+#: menu.lua:512
+msgid "Labels under icons"
+msgstr "Etiquetas baixo as iconas"
+
+#: views/widgets.lua:1148
+msgid "Large (also occupies the right cell)"
+msgstr "Grande (ocupa tamén a cela da dereita)"
+
+#: menu.lua:266
+msgid "Large clock and date"
+msgstr "Reloxo grande e data"
+
+#: views/widgets.lua:957
+msgid "Large · small · small inverted — swipe ← →, tap to exit"
+msgstr "Grande · pequeno · pequeno invertido — esvara ← →, toca para saír"
+
+#: styles/bookinfo.lua:896
+msgid "Last"
+msgstr "Última"
+
+#: styles/readerprogress.lua:122
+msgid "Last 7 days summary"
+msgstr "Resumo dos últimos 7 días"
+
+#: dev/devtools.lua:827 views/grid.lua:87
+msgid "Last read"
+msgstr "Última lectura"
+
+#: common/compat.lua:171
+#, koreader
+msgid "Later"
+msgstr ""
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Latin"
+msgstr ""
+
+#: styles/ui/readermenu.lua:55
+msgid "Layout"
+msgstr "Deseño"
+
+#: dev/devtools.lua:691
+#, koreader
+msgid "Left"
+msgstr ""
+
+#: dev/devtools.lua:663 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1425
+msgid "Library"
+msgstr "Biblioteca"
+
+#: dev/devtools.lua:801
+msgid "Library (test data)"
+msgstr ""
+
+#: menu.lua:349
+msgid "Library and covers"
+msgstr "Biblioteca e portadas"
+
+#: views/widgets.lua:348
+msgid "Library is empty"
+msgstr "A biblioteca está baleira"
+
+#: menu.lua:531
+msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
+msgstr "A biblioteca, as coleccións e o historial gardan copias pequenas das portadas para abrirse máis rápido. Bórraas se unha portada non se actualiza."
+
+#: dev/devtools.lua:634 dev/devtools.lua:678 views/widgets.lua:451
+msgid "Light"
+msgstr "Luz"
+
+#: views/topbar.lua:52
+msgid "Light level"
+msgstr "Nivel de luz"
+
+#: menu.lua:433
+msgid "List with covers"
+msgstr "Lista con portadas"
+
+#: menu.lua:435
+msgid "List with filenames"
+msgstr "Lista con nomes de ficheiro"
+
+#: menu.lua:434
+msgid "List without covers"
+msgstr "Lista sen portadas"
+
+#: styles/calendar.lua:111
+msgid "Loading month…"
+msgstr "Cargando o mes…"
+
+#: dev/devtools.lua:501
+msgid "Long message"
+msgstr ""
+
+#: styles/search.lua:108
+msgid "MATCH"
+msgstr "COINCIDENCIA"
+
+#: styles/search.lua:108
+msgid "MATCH %d"
+msgstr "COINCIDENCIA %d"
+
+#: views/stats.lua:706
+msgid "MONTHLY RHYTHM"
+msgstr "RITMO MENSUAL"
+
+#: views/stats.lua:744
+msgid "MOST READ"
+msgstr "MÁIS LIDOS"
+
+#: views/dock.lua:271
+msgid "Main view"
+msgstr "Vista principal"
+
+#: views/topbar.lua:101
+msgctxt "aire"
+msgid "March"
+msgstr "marzo"
+
+#: dev/devtools.lua:690 styles/ui/readermenu.lua:53
+msgid "Margins"
+msgstr "Marxes"
+
+#: views/booksheet.lua:430
+#, koreader
+msgid "Mark"
+msgstr ""
+
+#: views/booksheet.lua:429
+msgid "Mark all books in \"%1\" as reading?"
+msgstr "Marcar todos os libros de «%1» como a ler?"
+
+#: views/grid.lua:1058
+msgid "Mark all books in collection \"%1\" as reading?"
+msgstr "Marcar todos os libros da colección «%1» como a ler?"
+
+#: dev/devtools.lua:594
+msgid "Mark as read"
+msgstr ""
+
+#: views/grid.lua:1056
+msgid "Mark entire collection as finished"
+msgstr "Marcar toda a colección como rematada"
+
+#: views/grid.lua:1057
+msgid "Mark entire collection as reading"
+msgstr "Marcar toda a colección como a ler"
+
+#: views/booksheet.lua:403
+msgid "Mark entire series as finished"
+msgstr "Marcar toda a serie como rematada"
+
+#: views/booksheet.lua:424
+msgid "Mark entire series as reading"
+msgstr "Marcar toda a serie como a ler"
+
+#: views/topbar.lua:102
+msgctxt "aire"
+msgid "May"
+msgstr "maio"
+
+#: views/topbar.lua:51
+msgid "Memory used"
+msgstr "Memoria usada"
+
+#: dev/devtools.lua:520
+msgid "Menu next to text"
+msgstr ""
+
+#: styles/bookinfo.lua:317
+#, koreader
+msgid "Metadata:"
+msgstr ""
+
+#: views/widgets.lua:838
+msgctxt "aire"
+msgid "Minimal"
+msgstr "Mínimo"
+
+#: views/explorer.lua:139
+msgid "Mix folders"
+msgstr "Mesturar cartafoles"
+
+#: views/grid.lua:817
+msgid "Mix series"
+msgstr "Mesturar series"
+
+#: views/stats.lua:641
+msgid "Monthly"
+msgstr "Mensual"
+
+#: views/stats.lua:292
+msgid "Monthly recap"
+msgstr "Resumo mensual"
+
+#: dev/devtools.lua:805
+msgid "Monthly recap (test data)"
+msgstr ""
+
+#: views/dock.lua:57
+msgid "More"
+msgstr "Máis"
+
+#: views/booksheet.lua:258
+msgid "More options…"
+msgstr "Máis opcións…"
+
+#: styles/ui/readermenu.lua:58
+msgid "More settings"
+msgstr "Máis configuración"
+
+#: dev/devtools.lua:531
+msgid "More…"
+msgstr ""
+
+#: menu.lua:432
+msgid "Mosaic with covers"
+msgstr "Mosaico con portadas"
+
+#: dev/devtools.lua:726
+#, koreader
+msgid "Move"
+msgstr ""
+
+#: dev/devtools.lua:512
+msgid "Multiple fields"
+msgstr ""
+
+#: styles/bookinfo.lua:366
+#, koreader
+msgid "N/A"
+msgstr ""
+
+#: views/widgets.lua:348
+msgid "NEW"
+msgstr "NOVO"
+
+#: views/widgets.lua:288 views/widgets.lua:292
+msgid "NEXT"
+msgstr "SEGUINTE"
+
+#: styles/vocabbuilder.lua:122
+msgid "NEXT REVIEW"
+msgstr "SEGUINTE REPASO"
+
+#: styles/bookmark.lua:39
+msgid "NOTE"
+msgstr "NOTA"
+
+#: views/grid.lua:78
+#, koreader
+msgid "Name"
+msgstr ""
+
+#: styles/bookinfo.lua:500
+msgid "Name:"
+msgstr "Nome:"
+
+#: dev/devtools.lua:665
+msgid "Neighbor"
+msgstr ""
+
+#: dev/devtools.lua:653 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
+#, koreader
+msgid "New"
+msgstr ""
+
+#: styles/bookinfo.lua:570
+msgctxt "aire"
+msgid "New"
+msgstr "Novo"
+
+#: views/grid.lua:490
+#, koreader
+msgid "New collection"
+msgstr ""
+
+#: views/grid.lua:1012 views/grid.lua:1025
+msgid "New collection…"
+msgstr "Nova colección…"
+
+#: common/compat.lua:152
+msgid "New since last time:"
+msgstr "Novos desde a última vez:"
+
+#: views/widgets.lua:288 views/widgets.lua:294
+msgid "Next"
+msgstr "Seguinte"
+
+#: views/widgets.lua:294
+msgid "Next %1"
+msgstr "Seguinte %1"
+
+#: menu.lua:585
+msgid "Next batch of test widgets"
+msgstr "Seguinte lote de widgets de proba"
+
+#: styles/skim.lua:113
+#, koreader
+msgid "Next chapter"
+msgstr ""
+
+#: dev/devtools.lua:632 views/widgets.lua:284
+msgid "Next in series"
+msgstr "Seguinte da serie"
+
+#: views/widgets.lua:478
+#, koreader
+msgid "Night mode"
+msgstr ""
+
+#: views/widgets.lua:185
+msgid "No CoverBrowser data"
+msgstr "Sen datos de CoverBrowser"
+
+#: views/home.lua:252 views/stats.lua:109
+msgid "No book in progress"
+msgstr "Ningún libro en curso"
+
+#: styles/ui/pagination.lua:178
+msgid "No book matches the filter"
+msgstr "Ningún libro coincide co filtro"
+
+#: views/grid.lua:583
+msgid "No books finished this month"
+msgstr "Ningún libro rematado este mes"
+
+#: views/grid.lua:583
+msgid "No books finished this year"
+msgstr "Ningún libro rematado este ano"
+
+#: views/grid.lua:338
+msgid "No books in home folder"
+msgstr "Non hai libros no cartafol de inicio"
+
+#: views/grid.lua:338 views/grid.lua:471 views/grid.lua:615
+msgid "No books with this filter"
+msgstr "Ningún libro con este filtro"
+
+#: styles/bookmap.lua:89 styles/toc.lua:44
+msgid "No chapter"
+msgstr "Sen capítulo"
+
+#: views/grid.lua:498
+msgid "No collections"
+msgstr "Non hai coleccións"
+
+#: views/grid.lua:498
+msgid "No collections with this filter"
+msgstr "Ningunha colección con este filtro"
+
+#: views/widgets.lua:180
+msgid "No current book"
+msgstr "Non hai libro actual"
+
+#: views/stats.lua:216
+msgid "No data: enable the Statistics plugin and read a bit"
+msgstr "Sen datos: activa o engadido Estatísticas e le un pouco"
+
+#: styles/ui/pagination.lua:186
+#, koreader
+msgid "No items"
+msgstr ""
+
+#: views/widgets.lua:233
+msgid "No next unfinished book"
+msgstr "Non hai seguinte libro sen rematar"
+
+#: views/widgets.lua:309
+msgid "No previous book"
+msgstr "Non hai libro anterior"
+
+#: styles/statspages.lua:365 views/stats.lua:677
+msgid "No reading activity in this period"
+msgstr "Sen actividade de lectura neste período"
+
+#: styles/calendar.lua:239
+msgid "No reading sessions this month"
+msgstr "Ningunha sesión de lectura este mes"
+
+#: styles/imageviewer.lua:106
+#, koreader
+msgid "No rotation"
+msgstr ""
+
+#: styles/shortcuts.lua:126
+msgid "No saved shortcuts"
+msgstr "Ningún atallo gardado"
+
+#: views/stats.lua:123
+msgid "No stats for this book"
+msgstr "Sen estatísticas deste libro"
+
+#: views/widgets.lua:327
+msgid "No unstarted books"
+msgstr "Non hai libros sen comezar"
+
+#: styles/vocabbuilder.lua:91
+msgid "No vocabulary words"
+msgstr "Non hai palabras"
+
+#: styles/bookinfo.lua:938 styles/bookstatus.lua:60
+msgid "Not rated"
+msgstr "Sen valorar"
+
+#: styles/bookinfo.lua:259 views/booksheet.lua:197 views/booksheet.lua:355
+msgid "Not started"
+msgstr "Sen comezar"
+
+#: dev/devtools.lua:529
+#, koreader
+msgid "Note"
+msgstr ""
+
+#: styles/bookinfo.lua:321
+#, koreader
+msgid "Notebook file:"
+msgstr ""
+
+#: styles/bookinfo.lua:895
+msgctxt "aire"
+msgid "Notes"
+msgstr "Notas"
+
+#: views/topbar.lua:104
+msgctxt "aire"
+msgid "November"
+msgstr "novembro"
+
+#: dev/devtools.lua:681
+msgid "Number"
+msgstr ""
+
+#: styles/bookinfo.lua:358
+msgid "Number in series"
+msgstr "Número na serie"
+
+#: dev/devtools.lua:487 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
+#, koreader
+msgid "OK"
+msgstr ""
+
+#: views/topbar.lua:104
+msgctxt "aire"
+msgid "October"
+msgstr "outubro"
+
+#: views/widgets.lua:456 views/widgets.lua:457 views/widgets.lua:470 views/widgets.lua:597
+#, koreader
+msgid "Off"
+msgstr ""
+
+#: dev/devtools.lua:639 views/widgets.lua:457 views/widgets.lua:470
+#, koreader
+msgid "On"
+msgstr ""
+
+#: styles/bookinfo.lua:257 styles/bookstatus.lua:54 views/booksheet.lua:186 views/grid.lua:55
+msgctxt "aire"
+msgid "On hold"
+msgstr "Pendente"
+
+#: dev/devtools.lua:738
+#, koreader
+msgid "Open"
+msgstr ""
+
+#: views/grid.lua:1055
+msgid "Open collection"
+msgstr "Abrir colección"
+
+#: dev/devtools.lua:624
+msgid "Open library"
+msgstr ""
+
+#: views/grid.lua:1055
+msgid "Open series"
+msgstr "Abrir serie"
+
+#: views/booksheet.lua:391
+msgid "Open series folder"
+msgstr "Abrir o cartafol da serie"
+
+#: dev/devtools.lua:730 dev/devtools.lua:732
+#, koreader
+msgid "Open with…"
+msgstr ""
+
+#: styles/ui/dialogs.lua:389
+msgid "Opening \"%1\"…"
+msgstr "Abrindo «%1»…"
+
+#: dev/devtools.lua:709
+msgid "Options list"
+msgstr ""
+
+#: dev/devtools.lua:589
+msgid "Options menu"
+msgstr ""
+
+#: dev/devtools.lua:711 styles/ui/readermenu.lua:52
+msgid "Orientation"
+msgstr "Orientación"
+
+#: styles/imageviewer.lua:105
+#, koreader
+msgid "Original size"
+msgstr ""
+
+#: menu.lua:272
+msgid "Otherwise, the current book card is black with white text."
+msgstr "Se non, a tarxeta do libro actual é negra con texto branco."
+
+#: dev/devtools.lua:735
+msgid "PDF engine (MuPDF)"
+msgstr ""
+
+#: views/widgets.lua:309 views/widgets.lua:312
+msgid "PREVIOUS"
+msgstr "ANTERIOR"
+
+#: views/home.lua:314
+msgctxt "aire"
+msgid "Page %1 / %2"
+msgstr "Páx. %1 / %2"
+
+#: dev/devtools.lua:966 styles/pagebrowser.lua:285
+#, koreader
+msgid "Page browser"
+msgstr ""
+
+#: styles/ui/readermenu.lua:54
+msgid "Page fit"
+msgstr "Axuste de páxina"
+
+#: dev/devtools.lua:824 styles/statspages.lua:83
+#, koreader
+msgid "Pages read"
+msgstr ""
+
+#: styles/statspages.lua:77
+#, koreader
+msgid "Pages read this session"
+msgstr ""
+
+#: styles/statspages.lua:78
+#, koreader
+msgid "Pages read today"
+msgstr ""
+
+#: dev/devtools.lua:629
+msgid "Plugin sheet (2 columns)"
+msgstr ""
+
+#: dev/devtools.lua:617
+msgid "Plugin sheet (options)"
+msgstr ""
+
+#: dev/devtools.lua:713
+#, koreader
+msgid "Portrait"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "Portuguese"
+msgstr ""
+
+#: views/power.lua:134
+#, koreader
+msgid "Power off"
+msgstr ""
+
+#: views/widgets.lua:309 views/widgets.lua:313
+msgid "Previous"
+msgstr "Anterior"
+
+#: views/widgets.lua:301
+msgid "Previous book"
+msgstr "Libro anterior"
+
+#: styles/skim.lua:110
+#, koreader
+msgid "Previous chapter"
+msgstr ""
+
+#: dev/devtools.lua:551 dev/devtools.lua:607 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
+#, koreader
+msgid "Progress"
+msgstr ""
+
+#: dev/devtools.lua:546
+msgid "QR code"
+msgstr ""
+
+#: views/widgets.lua:384
+msgid "QUOTE"
+msgstr "CITA"
+
+#: views/widgets.lua:833
+msgctxt "aire"
+msgid "Quick actions"
+msgstr "Accións rápidas"
+
+#: dev/devtools.lua:633
+msgid "Quote"
+msgstr ""
+
+#: views/widgets.lua:380
+msgid "Quote of the day"
+msgstr "Cita do día"
+
+#: views/widgets.lua:327 views/widgets.lua:334
+msgid "RANDOM"
+msgstr "AO CHOU"
+
+#: styles/bookinfo.lua:943 styles/bookstatus.lua:312
+msgid "RATING"
+msgstr "VALORACIÓN"
+
+#: styles/bookinfo.lua:339
+msgid "READING"
+msgstr "LECTURA"
+
+#: styles/bookstatus.lua:292
+msgid "READING STATUS"
+msgstr "ESTADO DE LECTURA"
+
+#: views/stats.lua:258
+msgid "RECAP"
+msgstr "RESUMO"
+
+#: styles/bookinfo.lua:983 styles/bookstatus.lua:389
+msgid "REVIEW / NOTES"
+msgstr "RECENSIÓN / NOTAS"
+
+#: views/widgets.lua:327 views/widgets.lua:334
+msgid "Random"
+msgstr "Ao chou"
+
+#: dev/devtools.lua:633 views/widgets.lua:320
+msgid "Random book"
+msgstr "Libro ao chou"
+
+#: styles/bookstatus.lua:345
+msgid "Rating and review"
+msgstr "Valoración e recensión"
+
+#: styles/bookinfo.lua:319
+#, koreader
+msgid "Rating:"
+msgstr ""
+
+#: views/widgets.lua:563
+#, koreader
+msgid "Read timer"
+msgstr ""
+
+#: views/widgets.lua:824
+#, koreader
+msgid "Reader"
+msgstr ""
+
+#: dev/devtools.lua:674
+msgid "Reader bottom menu"
+msgstr ""
+
+#: dev/devtools.lua:652
+#, koreader
+msgid "Reading"
+msgstr ""
+
+#: dev/tests/regressions.lua:202 styles/bookinfo.lua:256 styles/bookstatus.lua:53 views/grid.lua:48 views/grid.lua:54
+msgctxt "aire"
+msgid "Reading"
+msgstr "A ler"
+
+#: styles/readerprogress.lua:127
+#, koreader
+msgid "Reading progress"
+msgstr ""
+
+#: dev/devtools.lua:906
+msgid "Reading progress (empty)"
+msgstr ""
+
+#: dev/devtools.lua:903
+msgid "Reading progress (with data)"
+msgstr ""
+
+#: dev/devtools.lua:824
+msgid "Reading time"
+msgstr ""
+
+#: views/stats.lua:605
+msgid "Recap"
+msgstr "Resumo"
+
+#: dev/devtools.lua:656 views/grid.lua:64
+msgid "Recent"
+msgstr "Recentes"
+
+#: dev/devtools.lua:607 views/grid.lua:64 views/widgets.lua:341
+msgid "Recently added"
+msgstr "Engadidos recentemente"
+
+#: dev/devtools.lua:606
+msgid "Recently read"
+msgstr ""
+
+#: views/widgets.lua:489
+#, koreader
+msgid "Refresh"
+msgstr ""
+
+#: dev/devtools.lua:626 styles/bookmark.lua:405
+#, koreader
+msgid "Remove"
+msgstr ""
+
+#: views/widgets.lua:1179
+msgctxt "aire"
+msgid "Remove"
+msgstr "Quitar"
+
+#: styles/bookmark.lua:402
+#, koreader
+msgid "Remove bookmark"
+msgstr ""
+
+#: views/booksheet.lua:592 views/grid.lua:504
+msgctxt "aire"
+msgid "Remove from collection"
+msgstr "Quitar da colección"
+
+#: views/booksheet.lua:556 views/grid.lua:620
+#, koreader
+msgid "Remove from history"
+msgstr ""
+
+#: styles/highlight.lua:84
+#, koreader
+msgid "Remove from vocabulary builder"
+msgstr ""
+
+#: styles/bookmark.lua:404
+#, koreader
+msgid "Remove this bookmark?"
+msgstr ""
+
+#: dev/devtools.lua:509
+#, koreader
+msgid "Rename"
+msgstr ""
+
+#: views/grid.lua:1019
+msgid "Rename…"
+msgstr "Renomear…"
+
+#: menu.lua:300
+msgid "Replace the Home widgets with the \"%1\" preset?"
+msgstr "Substituír os widgets de Inicio polo conxunto «%1»?"
+
+#: dev/devtools.lua:596
+#, koreader
+msgid "Reset"
+msgstr ""
+
+#: views/power.lua:175
+#, koreader
+msgid "Restart"
+msgstr ""
+
+#: common/compat.lua:172
+#, koreader
+msgid "Restart KOReader"
+msgstr ""
+
+#: common/compat.lua:160
+msgid "Restart KOReader for the change to take effect."
+msgstr "Reinicia KOReader para que o cambio teña efecto."
+
+#: views/explorer.lua:126 views/grid.lua:811
+#, koreader
+msgid "Reverse sorting"
+msgstr ""
+
+#: styles/bookinfo.lua:320
+#, koreader
+msgid "Review:"
+msgstr ""
+
+#: dev/devtools.lua:692
+#, koreader
+msgid "Right"
+msgstr ""
+
+#: styles/imageviewer.lua:106
+#, koreader
+msgid "Rotate"
+msgstr ""
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Russian"
+msgstr ""
+
+#: views/grid.lua:806
+msgid "SORT BY"
+msgstr "ORDENAR POR"
+
+#: views/widgets.lua:597
+#, koreader
+msgid "SSH"
+msgstr ""
+
+#: views/widgets.lua:592 views/widgets.lua:618
+#, koreader
+msgid "SSH server"
+msgstr ""
+
+#: dev/devtools.lua:510 dev/devtools.lua:513 dev/devtools.lua:700
+#, koreader
+msgid "Save"
+msgstr ""
+
+#: dev/devtools.lua:499
+#, koreader
+msgid "Saved"
+msgstr ""
+
+#: dev/devtools.lua:811 dev/devtools.lua:863
+msgid "Science Fiction"
+msgstr ""
+
+#: views/widgets.lua:495
+#, koreader
+msgid "Screenshot"
+msgstr ""
+
+#: dev/devtools.lua:506 dev/devtools.lua:507 dev/devtools.lua:530 views/dock.lua:56 views/widgets.lua:527
+#, koreader
+msgid "Search"
+msgstr ""
+
+#: dev/devtools.lua:507
+msgid "Search library"
+msgstr ""
+
+#: dev/devtools.lua:1022
+msgid "Search results (empty)"
+msgstr ""
+
+#: dev/devtools.lua:1005
+msgid "Search results (with data)"
+msgstr ""
+
+#: views/topbar.lua:103
+msgctxt "aire"
+msgid "September"
+msgstr "setembro"
+
+#: dev/devtools.lua:517 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#, koreader
+msgid "Series"
+msgstr ""
+
+#: styles/bookinfo.lua:357
+msgid "Series name"
+msgstr "Nome da serie"
+
+#: menu.lua:374
+msgid "Series number on covers"
+msgstr "Número da serie nas portadas"
+
+#: dev/devtools.lua:706
+#, koreader
+msgid "Set alarm"
+msgstr ""
+
+#: styles/ui/sheets.lua:776
+#, koreader
+msgid "Set font"
+msgstr ""
+
+#: dev/devtools.lua:531
+#, koreader
+msgid "Share"
+msgstr ""
+
+#: dev/devtools.lua:498
+msgid "Short message"
+msgstr ""
+
+#: menu.lua:51
+#, koreader
+msgid "Show all files from subfolders"
+msgstr ""
+
+#: menu.lua:53 menu.lua:381
+#, koreader
+msgid "Show collection mark"
+msgstr ""
+
+#: menu.lua:607
+msgid "Show dimensions of each book / series"
+msgstr "Mostrar as dimensións de cada libro / serie"
+
+#: menu.lua:52
+#, koreader
+msgid "Show filename in Open last/previous menu items"
+msgstr ""
+
+#: menu.lua:50
+#, koreader
+msgid "Show parent folder"
+msgstr ""
+
+#: menu.lua:49
+#, koreader
+msgid "Show progress in mosaic mode"
+msgstr ""
+
+#: dev/devtools.lua:622 views/home.lua:215
+msgid "Show synopsis"
+msgstr "Mostrar sinopse"
+
+#: styles/bookinfo.lua:314
+#, koreader
+msgid "Size:"
+msgstr ""
+
+#: views/power.lua:133
+msgctxt "aire"
+msgid "Sleep"
+msgstr "Suspender"
+
+#: dev/devtools.lua:655 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
+msgid "Smart"
+msgstr "Intelixente"
+
+#: dev/devtools.lua:605
+msgid "Smart  (current)"
+msgstr ""
+
+#: views/explorer.lua:81
+msgid "Sort"
+msgstr "Ordenar"
+
+#: dev/devtools.lua:601
+msgid "Sort (2 columns)"
+msgstr ""
+
+#: dev/devtools.lua:809
+msgid "Sort a list"
+msgstr ""
+
+#: dev/devtools.lua:603 views/grid.lua:740
+#, koreader
+msgid "Sort by"
+msgstr ""
+
+#: dev/devtools.lua:815 views/grid.lua:990
+msgid "Sort collections"
+msgstr "Ordenar coleccións"
+
+#: views/grid.lua:1013 views/grid.lua:1026
+msgid "Sort collections…"
+msgstr "Ordenar coleccións…"
+
+#: views/explorer.lua:152
+msgid "Sort files"
+msgstr "Ordenar ficheiros"
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "Spanish"
+msgstr ""
+
+#: menu.lua:360
+msgid "Square covers and series"
+msgstr "Portadas e series cadradas"
+
+#: views/booksheet.lua:375 views/widgets.lua:570
+msgid "Start"
+msgstr "Comezar"
+
+#: dev/devtools.lua:827
+msgid "Started"
+msgstr ""
+
+#: views/dock.lua:48 views/stats.lua:196
+msgid "Stats"
+msgstr "Estatísticas"
+
+#: dev/devtools.lua:804
+msgid "Stats (test data)"
+msgstr ""
+
+#: dev/devtools.lua:671
+msgid "Status bar font"
+msgstr ""
+
+#: dev/devtools.lua:635 views/widgets.lua:514
+msgid "Storage"
+msgstr "Almacenamento"
+
+#: views/widgets.lua:1168
+msgid "Swap tap and hold"
+msgstr "Intercambiar tocar e manter premido"
+
+#: views/booksheet.lua:223
+msgid "Synopsis"
+msgstr "Sinopse"
+
+#: menu.lua:277
+msgid "Synopsis on card"
+msgstr "Sinopse na tarxeta"
+
+#: dev/devtools.lua:972
+msgid "Table of contents (empty)"
+msgstr ""
+
+#: dev/devtools.lua:969
+msgid "Table of contents (with data)"
+msgstr ""
+
+#: dev/devtools.lua:961 styles/bookinfo.lua:987 styles/bookstatus.lua:394
+msgid "Tap to add or edit your review of this book…"
+msgstr "Toca para engadir ou editar a túa recensión deste libro…"
+
+#: views/home.lua:254
+msgid "Tap to open the library"
+msgstr "Toca para abrir a biblioteca"
+
+#: views/widgets.lua:568
+msgid "Tap to stop"
+msgstr "Toca para deter"
+
+#: styles/vocabbuilder.lua:131
+msgid "Tap to view definition"
+msgstr "Toca para ver a definición"
+
+#: views/grid.lua:1329
+msgid "Test book"
+msgstr "Libro de proba"
+
+#: menu.lua:563
+msgid "Test data (pagination)"
+msgstr "Datos de proba (paxinación)"
+
+#: dev/devtools.lua:541
+msgid "Test dictionary"
+msgstr ""
+
+#: menu.lua:89
+msgid "Test galleries"
+msgstr "Galerías de proba"
+
+#: menu.lua:596
+msgid "Test stats"
+msgstr "Estatísticas de proba"
+
+#: dev/devtools.lua:770
+msgid "Test synopsis for the full-screen text viewer."
+msgstr ""
+
+#: menu.lua:575
+msgid "Test widgets (all with data)"
+msgstr "Widgets de proba (todos con datos)"
+
+#: menu.lua:547
+msgid "Tests"
+msgstr "Probas"
+
+#: styles/ui/readermenu.lua:56
+#, koreader
+msgid "Text"
+msgstr ""
+
+#: dev/devtools.lua:741
+msgid "Text viewer (synopsis)"
+msgstr ""
+
+#: dev/devtools.lua:573
+msgid "The Name of the Wind"
+msgstr ""
+
+#: dev/devtools.lua:517
+msgid "The Stormlight Archive"
+msgstr ""
+
+#: views/widgets.lua:183
+msgid "The current book is not part of a series"
+msgstr "O libro actual non forma parte dunha serie"
+
+#: styles/ui/pagination.lua:182
+msgid "This collection is empty"
+msgstr "Esta colección está baleira"
+
+#: views/widgets.lua:441
+msgid "This month"
+msgstr "Este mes"
+
+#: views/stats.lua:199
+msgid "This month · %1 · %2 pp."
+msgstr "Este mes · %1 · %2 páx."
+
+#: styles/statspages.lua:266
+msgid "This month: %1"
+msgstr "Este mes: %1"
+
+#: styles/statspages.lua:263
+msgid "This week: %1"
+msgstr "Esta semana: %1"
+
+#: views/widgets.lua:441
+msgid "This year"
+msgstr "Este ano"
+
+#: dev/devtools.lua:703
+#, koreader
+msgid "Time"
+msgstr ""
+
+#: styles/statspages.lua:240
+#, koreader
+msgid "Time range statistics"
+msgstr ""
+
+#: styles/bookinfo.lua:894
+msgid "Time read"
+msgstr "Tempo"
+
+#: styles/statspages.lua:79
+#, koreader
+msgid "Time spent reading"
+msgstr ""
+
+#: styles/statspages.lua:77
+#, koreader
+msgid "Time spent reading this session"
+msgstr ""
+
+#: styles/statspages.lua:78
+#, koreader
+msgid "Time spent reading today"
+msgstr ""
+
+#: dev/devtools.lua:515 dev/devtools.lua:605 dev/devtools.lua:655 dev/devtools.lua:822 views/grid.lua:60
+#, koreader
+msgid "Title"
+msgstr ""
+
+#: dev/devtools.lua:507
+msgid "Title, author or series"
+msgstr ""
+
+#: dev/devtools.lua:811
+msgid "To read"
+msgstr ""
+
+#: dev/devtools.lua:632
+#, koreader
+msgid "Today"
+msgstr ""
+
+#: views/widgets.lua:268
+msgid "Today and streak"
+msgstr "Hoxe e racha"
+
+#: styles/statspages.lua:319
+#, koreader
+msgid "Today's timeline"
+msgstr ""
+
+#: views/stats.lua:738
+msgid "Top author"
+msgstr "Autor máis lido"
+
+#: menu.lua:329
+msgid "Top bar"
+msgstr "Barra superior"
+
+#: styles/statspages.lua:79
+#, koreader
+msgid "Total time spent on this book"
+msgstr ""
+
+#: dev/devtools.lua:531
+#, koreader
+msgid "Translate"
+msgstr ""
+
+#: dev/devtools.lua:688
+msgid "Two numbers (margins)"
+msgstr ""
+
+#: views/power.lua:124
+#, koreader
+msgid "Update"
+msgstr ""
+
+#: menu.lua:491
+msgid "View mode"
+msgstr "Modo de vista"
+
+#: dev/devtools.lua:934
+msgid "Vocabulary builder (empty)"
+msgstr ""
+
+#: dev/devtools.lua:913
+msgid "Vocabulary builder (with data)"
+msgstr ""
+
+#: styles/ui/titlebar.lua:571
+msgid "Vocabulary review"
+msgstr "Repaso de vocabulario"
+
+#: styles/vocabbuilder.lua:304
+msgid "Vocabulary review · %1 word"
+msgid_plural "Vocabulary review · %1 words"
+msgstr[0] "Repaso de vocabulario · %1 palabra"
+msgstr[1] "Repaso de vocabulario · %1 palabras"
+
+#: dev/devtools.lua:930
+msgid "Vocabulary review · %d words"
+msgstr ""
+
+#: dev/devtools.lua:945
+msgid "Vocabulary review · 0 words"
+msgstr ""
+
+#: styles/readerprogress.lua:196
+msgid "WEEKLY ACTIVITY"
+msgstr "ACTIVIDADE SEMANAL"
+
+#: dev/devtools.lua:723
+msgid "What do you want to do with this book?"
+msgstr ""
+
+#: menu.lua:523
+msgid "When opening KOReader, warns about new patches and plugins and disables those incompatible with Aire."
+msgstr "Ao abrir KOReader avisa de parches e engadidos novos e desactiva os que son incompatibles con Aire."
+
+#: menu.lua:396
+msgid "White corner: reading. Gray corner: on hold."
+msgstr "Esquina branca: a ler. Esquina gris: pendente."
+
+#: dev/devtools.lua:634 views/widgets.lua:465
+msgid "Wi-Fi"
+msgstr "Wifi"
+
+#: dev/devtools.lua:659
+msgid "Wi-Fi networks"
+msgstr ""
+
+#: views/widgets.lua:954
+msgid "Widget gallery · %1 / %2"
+msgstr "Galería de widgets · %1 / %2"
+
+#: menu.lua:289
+msgid "Widget presets"
+msgstr "Conxuntos de widgets"
+
+#: views/widgets.lua:939
+msgid "Widgets %1–%2"
+msgstr "Widgets %1–%2"
+
+#: dev/devtools.lua:530 views/widgets.lua:542 views/widgets.lua:543
+#, koreader
+msgid "Wikipedia"
+msgstr ""
+
+#: views/stats.lua:419
+msgid "You didn't read that day"
+msgstr "Ese día non liches"
+
+#: views/widgets.lua:384
+msgid "You don't have any highlights yet"
+msgstr "Aínda non tes textos destacados"
+
+#: styles/ui/pagination.lua:180
+msgid "You have not opened any book yet"
+msgstr "Aínda non abriches ningún libro"
+
+#: views/grid.lua:582
+msgid "You haven't finished any books yet"
+msgstr "Aínda non remataches ningún libro"
+
+#: dev/devtools.lua:542
+msgid ""
+"adj. Lasting for a short time.\n"
+"\n"
+"\"An ephemeral joy\".\n"
+"\n"
+"Synonyms: brief, fleeting, passing, transitory."
+msgstr ""
+
+#: views/widgets.lua:550 views/widgets.lua:550
+msgid "and highlights"
+msgstr "e destacados"
+
+#: views/booksheet.lua:359
+msgid "at %1 %"
+msgstr "ao %1 %"
+
+#: styles/readerprogress.lua:160
+msgid "avg. / day"
+msgstr "media / día"
+
+#: views/widgets.lua:506
+msgid "battery"
+msgstr "batería"
+
+#: views/widgets.lua:403
+msgid "book"
+msgid_plural "books"
+msgstr[0] "libro"
+msgstr[1] "libros"
+
+#: common/compat.lua:32 common/compat.lua:34 common/compat.lua:35 common/compat.lua:36 common/compat.lua:37
+msgid "conflicts with plugin covers"
+msgstr "entra en conflito coas portadas do engadido"
+
+#: dev/devtools.lua:539 dev/devtools.lua:541
+msgid "ephemeral"
+msgstr ""
+
+#: views/widgets.lua:403
+#, koreader
+msgid "favorites"
+msgstr ""
+
+#: views/widgets.lua:528
+msgid "files"
+msgstr "ficheiros"
+
+#: views/stats.lua:694 views/widgets.lua:423
+msgid "finished book"
+msgid_plural "finished books"
+msgstr[0] "libro rematado"
+msgstr[1] "libros rematados"
+
+#: views/stats.lua:233
+msgid "finished in %1"
+msgstr "rematados en %1"
+
+#: views/widgets.lua:518 views/widgets.lua:520
+msgid "free"
+msgstr "libres"
+
+#: views/widgets.lua:252
+msgid "in total"
+msgstr "en total"
+
+#: common/compat.lua:27 common/compat.lua:28 common/compat.lua:29 common/compat.lua:30 common/compat.lua:31
+msgid "included in Aire"
+msgstr "incluído en Aire"
+
+#: styles/readerprogress.lua:159
+msgid "last 7 days"
+msgstr "últimos 7 días"
+
+#: views/widgets.lua:456
+msgid "light"
+msgstr "luz"
+
+#: views/widgets.lua:481
+#, koreader
+msgid "night mode"
+msgstr ""
+
+#: styles/bookinfo.lua:263
+msgid "now"
+msgstr "agora"
+
+#: views/widgets.lua:521
+msgid "of %1"
+msgstr "de %1"
+
+#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
+msgid "p. %1 / %2"
+msgstr "páx. %1 / %2"
+
+#: styles/bookstatus.lua:215
+msgid "p. %1 of %2"
+msgstr "páx. %1 de %2"
+
+#: views/stats.lua:686
+msgid "pages read"
+msgstr "páxinas lidas"
+
+#: views/widgets.lua:598
+msgid "port %1"
+msgstr "porto %1"
+
+#: views/stats.lua:690
+msgid "reading time"
+msgstr "tempo lendo"
+
+#: common/compat.lua:43
+msgid "replaces the file browser and covers"
+msgstr "substitúe o explorador de ficheiros e as portadas"
+
+#: common/compat.lua:45
+msgid "replaces the file browser covers"
+msgstr "substitúe as portadas do explorador de ficheiros"
+
+#: common/compat.lua:44
+msgid "replaces the home screen"
+msgstr "substitúe a pantalla de inicio"
+
+#: views/widgets.lua:489 views/widgets.lua:496
+msgid "screen"
+msgstr "pantalla"
+
+#: views/widgets.lua:543
+msgid "search"
+msgstr "procurar"
+
+#: views/widgets.lua:536
+msgid "search word"
+msgstr "procurar palabra"
+
+#: views/widgets.lua:557 views/widgets.lua:557
+msgid "shortcuts"
+msgstr "atallos"
+
+#: views/stats.lua:230
+msgid "streak"
+msgstr "racha"
+
+#: views/widgets.lua:276
+msgid "streak %1"
+msgstr "racha %1"
+
+#: views/widgets.lua:275
+msgid "streak %1 day"
+msgid_plural "streak %1 days"
+msgstr[0] "racha de %1 día"
+msgstr[1] "racha de %1 días"
+
+#: common/compat.lua:26
+msgid "the plugin has its own status bar"
+msgstr "o engadido ten a súa propia barra de estado"
+
+#: views/widgets.lua:252
+msgid "this month"
+msgstr "este mes"
+
+#: views/widgets.lua:252
+msgid "this year"
+msgstr "este ano"
+
+#: views/widgets.lua:568 views/widgets.lua:570
+msgid "timer"
+msgstr "temporizador"
+
+#: views/widgets.lua:272 views/widgets.lua:274
+msgid "today"
+msgstr "hoxe"
+
+#: styles/bookinfo.lua:218
+msgctxt "aire"
+msgid "today"
+msgstr "hoxe"
+
+#: styles/readerprogress.lua:158 views/stats.lua:225
+msgid "today · %1 pp."
+msgstr "hoxe · %1 páx."
+
+#: views/widgets.lua:470
+msgid "wi-fi"
+msgstr "wifi"
+
+#: styles/bookinfo.lua:219
+msgctxt "aire"
+msgid "yesterday"
+msgstr "onte"
+
+#: views/stats.lua:128
+msgid "~%1 left"
+msgstr "quedan ~%1"
+
+#: styles/ui/lightsheet.lua:183
+msgid "− Brightness"
+msgstr "− Intensidade"

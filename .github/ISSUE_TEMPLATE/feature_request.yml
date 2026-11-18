@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest an idea or an improvement
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would it solve?
+      description: Describe what you are trying to do and what gets in the way.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How would it work? Mock-ups, sketches or screenshots of similar apps help a lot.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part of Aire?
+      options:
+        - Home screen / widgets
+        - Library / Collections / History
+        - Stats / Recap
+        - Dock / top bar
+        - A KOReader screen Aire restyles
+        - A KOReader screen Aire does not restyle yet
+        - Dialogs, menus or bottom sheets
+        - Translations
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+  - type: input
+    id: device
+    attributes:
+      label: Device and orientation
+      description: Useful for layout ideas.
+      placeholder: "Kindle Paperwhite 6, portrait"

@@ -1,0 +1,107 @@
+name: Bug report
+description: Something does not work or looks wrong
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. The `crash.log` lines are the most useful part of a report.
+        `crash.log` is in KOReader's folder (`koreader/crash.log`; on Kindle `/mnt/us/koreader/crash.log`).
+  - type: input
+    id: aire_version
+    attributes:
+      label: Aire version
+      description: Written to crash.log at startup ("Aire version 0.1.0").
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: koreader_version
+    attributes:
+      label: KOReader version
+      description: Help → About.
+      placeholder: "v2026.07.2"
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and model
+      placeholder: "Kindle Paperwhite 6"
+    validations:
+      required: true
+  - type: dropdown
+    id: orientation
+    attributes:
+      label: Orientation
+      options:
+        - Portrait
+        - Landscape
+        - Both
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: KOReader language
+      placeholder: "Spanish"
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does it happen?
+      options:
+        - Home screen / widgets
+        - Library
+        - Collections
+        - History
+        - Stats / Recap
+        - Dock / top bar
+        - Long-press sheet (book or series)
+        - A restyled KOReader screen (book info, TOC, bookmarks, search…)
+        - Dialogs, menus or bottom sheets
+        - Reader bottom menu
+        - Translations
+        - Startup / compatibility check
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you tap? Start from a fresh KOReader start if possible.
+      placeholder: |
+        1. Open the Library tab
+        2. Long-press a series
+        3. Tap "Continue"
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: crash.log (relevant lines)
+      description: Lines around the problem; search for `Aire` and `ERROR`. Remove personal paths or titles if you prefer.
+      render: text
+  - type: textarea
+    id: others
+    attributes:
+      label: Other user patches and plugins enabled
+      placeholder: "patches/2-ssh-fix.lua, plugins/…"
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag and drop images here if it is a visual problem.

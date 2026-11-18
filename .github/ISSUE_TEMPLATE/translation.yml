@@ -1,0 +1,33 @@
+name: Translation
+description: A wrong, unnatural or too long translation
+title: "[Translation] "
+labels: ["translation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most languages other than Spanish were machine-generated, so corrections from native speakers are very welcome.
+        You can also edit `l10n/<language>/aire.po` directly and open a pull request.
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: "German (de)"
+    validations:
+      required: true
+  - type: textarea
+    id: strings
+    attributes:
+      label: Strings to fix
+      description: Where you saw it, the current text, and your suggestion.
+      placeholder: |
+        Screen: Stats → Recap
+        Current: "…"
+        Suggested: "…"
+        Why: too long under the icon / wrong meaning / KOReader uses another word
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots

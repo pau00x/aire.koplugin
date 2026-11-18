@@ -1,0 +1,2620 @@
+# nl_NL translations for aire.koplugin.
+# Entries marked '#, koreader' are translated by KOReader itself and are
+# NOT compiled into the plugin's .mo (it would override KOReader everywhere).
+msgid ""
+msgstr ""
+"Project-Id-Version: aire.koplugin\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: styles/search.lua:63
+msgid "\"%1\" · %2 match"
+msgid_plural "\"%1\" · %2 matches"
+msgstr[0] "“%1” · %2 resultaat"
+msgstr[1] "“%1” · %2 resultaten"
+
+#: menu.lua:271
+msgid "\"Reading now\" card with light background"
+msgstr "Kaart “Nu aan het lezen” met lichte achtergrond"
+
+#: views/booksheet.lua:192
+msgid "%1 % (%2 / %3 pp.)"
+msgstr "%1 % (%2 / %3 blz.)"
+
+#: views/booksheet.lua:184
+msgid "%1 % (on hold)"
+msgstr "%1 % (in de wacht)"
+
+#: views/home.lua:303
+msgid "%1 % read"
+msgstr "%1 % gelezen"
+
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:294 views/grid.lua:326 views/grid.lua:331
+msgid "%1 book"
+msgid_plural "%1 books"
+msgstr[0] "%1 boek"
+msgstr[1] "%1 boeken"
+
+#: styles/bookmap.lua:100
+msgid "%1 bookmark"
+msgid_plural "%1 bookmarks"
+msgstr[0] "%1 bladwijzer"
+msgstr[1] "%1 bladwijzers"
+
+#: views/grid.lua:494 views/grid.lua:495
+msgid "%1 collection"
+msgid_plural "%1 collections"
+msgstr[0] "%1 collectie"
+msgstr[1] "%1 collecties"
+
+#: views/stats.lua:230
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 dag"
+msgstr[1] "%1 dagen"
+
+#: styles/bookinfo.lua:221
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 dag geleden"
+msgstr[1] "%1 dagen geleden"
+
+#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:708
+msgid "%1 day reading"
+msgid_plural "%1 days reading"
+msgstr[0] "%1 dag gelezen"
+msgstr[1] "%1 dagen gelezen"
+
+#: views/booksheet.lua:353 views/grid/books.lua:294 views/grid.lua:328
+msgid "%1 finished"
+msgid_plural "%1 finished"
+msgstr[0] "%1 gelezen"
+msgstr[1] "%1 gelezen"
+
+#: views/grid.lua:577
+msgid "%1 finished book"
+msgid_plural "%1 finished books"
+msgstr[0] "%1 gelezen boek"
+msgstr[1] "%1 gelezen boeken"
+
+#: styles/bookinfo.lua:228
+msgid "%1 month ago"
+msgid_plural "%1 months ago"
+msgstr[0] "%1 maand geleden"
+msgstr[1] "%1 maanden geleden"
+
+#: styles/bookmap.lua:98
+msgid "%1 page left"
+msgid_plural "%1 pages left"
+msgstr[0] "nog %1 pagina"
+msgstr[1] "nog %1 pagina's"
+
+#: styles/readerprogress.lua:176
+msgid "%1 page read"
+msgid_plural "%1 pages read"
+msgstr[0] "%1 pagina gelezen"
+msgstr[1] "%1 pagina's gelezen"
+
+#: styles/bookinfo.lua:572 styles/bookinfo.lua:576 styles/calendar.lua:242 views/booksheet.lua:200 views/stats.lua:342
+msgid "%1 pp."
+msgstr "%1 blz."
+
+#: views/stats.lua:686
+msgid "%1 pp./h"
+msgstr "%1 blz./u"
+
+#: styles/shortcuts.lua:127
+msgid "%1 saved shortcut"
+msgid_plural "%1 saved shortcuts"
+msgstr[0] "%1 opgeslagen snelkoppeling"
+msgstr[1] "%1 opgeslagen snelkoppelingen"
+
+#: views/grid.lua:327
+msgid "%1 series"
+msgid_plural "%1 series"
+msgstr[0] "%1 serie"
+msgstr[1] "%1 series"
+
+#: styles/bookinfo.lua:224
+msgid "%1 week ago"
+msgid_plural "%1 weeks ago"
+msgstr[0] "%1 week geleden"
+msgstr[1] "%1 weken geleden"
+
+#: views/topbar.lua:112
+msgid "%1, %2 %3"
+msgstr "%1 %3 %2"
+
+#: styles/toc.lua:48
+msgid "%d %% of book"
+msgstr "%d %% van het boek"
+
+#: styles/toc.lua:47
+msgid "%d %% of book · %d pp. left in chapter"
+msgstr "%d %% van het boek · nog %d blz. in hoofdstuk"
+
+#: dev/tests/regressions.lua:199 dev/tests/regressions.lua:200
+msgid "%d book"
+msgid_plural "%d books"
+msgstr[0] ""
+msgstr[1] ""
+
+#: styles/bookinfo.lua:940 styles/bookstatus.lua:62
+msgid "%d of 5 stars"
+msgstr "%d van 5 sterren"
+
+#: views/dock.lua:268
+msgid "(current)"
+msgstr "(huidig)"
+
+#: styles/ui/lightsheet.lua:185
+msgid "+ Brightness"
+msgstr "+ Helderheid"
+
+#: views/stats.lua:528
+msgid "+%1 more"
+msgstr "+%1 meer"
+
+#: styles/bookinfo.lua:939 styles/bookstatus.lua:61
+msgid "1 of 5 stars"
+msgstr "1 van 5 sterren"
+
+#: dev/devtools.lua:553
+msgid "12 of 30"
+msgstr ""
+
+#: menu.lua:337 menu.lua:463
+msgid "3 columns (large covers)"
+msgstr "3 kolommen (grote omslagen)"
+
+#: dev/devtools.lua:721
+msgid "3-button confirmation"
+msgstr ""
+
+#: menu.lua:337 menu.lua:463
+msgid "4 columns"
+msgstr "4 kolommen"
+
+#: dev/devtools.lua:954
+msgid "A very entertaining short story within the Archive."
+msgstr ""
+
+#: styles/search.lua:55
+msgid "ACTIVE SEARCH"
+msgstr "ACTIEVE ZOEKOPDRACHT"
+
+#: views/widgets.lua:349
+msgid "ADDED"
+msgstr "TOEGEVOEGD"
+
+#: views/widgets.lua:597
+msgid "Active"
+msgstr "Actief"
+
+#: views/stats.lua:200
+msgid "Activity summary"
+msgstr "Activiteitenoverzicht"
+
+#: styles/bookmark.lua:388
+#, koreader
+msgid "Add note"
+msgstr ""
+
+#: dev/devtools.lua:594
+msgid "Add to collection…"
+msgstr ""
+
+#: dev/devtools.lua:630 views/widgets.lua:1116
+msgid "Add widget"
+msgstr "Widget toevoegen"
+
+#: menu.lua:645
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: _meta.lua:9
+msgid "Aire"
+msgstr "Aire"
+
+#: menu.lua:619 menu.lua:635
+msgid "Aire warnings (crash.log)"
+msgstr "Aire-waarschuwingen (crash.log)"
+
+#: dev/devtools.lua:706
+#, koreader
+msgid "Alarm"
+msgstr ""
+
+#: dev/devtools.lua:652 views/grid.lua:47 views/grid.lua:53
+msgid "All"
+msgstr "Alle"
+
+#: styles/statspages.lua:258 styles/statspages.lua:261
+#, koreader
+msgid "All books"
+msgstr ""
+
+#: views/booksheet.lua:351
+msgid "All finished"
+msgstr "Alles gelezen"
+
+#: views/grid.lua:579 views/widgets.lua:441
+#, koreader
+msgid "Always"
+msgstr ""
+
+#: views/stats.lua:643
+msgid "Annual"
+msgstr "Jaarlijks"
+
+#: views/stats.lua:294
+msgid "Annual recap"
+msgstr "Jaaroverzicht"
+
+#: dev/devtools.lua:806
+msgid "Annual recap (test data)"
+msgstr ""
+
+#: dev/devtools.lua:685 menu.lua:301 styles/sortwidget.lua:119
+#, koreader
+msgid "Apply"
+msgstr ""
+
+#: views/topbar.lua:102
+msgctxt "aire"
+msgid "April"
+msgstr "april"
+
+#: views/topbar.lua:103
+msgctxt "aire"
+msgid "August"
+msgstr "augustus"
+
+#: dev/devtools.lua:516 dev/devtools.lua:606 dev/devtools.lua:656 dev/devtools.lua:822 views/grid.lua:61
+msgid "Author"
+msgstr "Auteur"
+
+#: menu.lua:407
+msgid "Automatic collections by author"
+msgstr "Automatische collecties per auteur"
+
+#: menu.lua:415
+msgid "Automatic collections by genre (keyword)"
+msgstr "Automatische collecties per genre (trefwoord)"
+
+#: menu.lua:550
+msgid "Automatic tests"
+msgstr "Automatische tests"
+
+#: views/grid.lua:1010
+msgid "Automatic: books by this author"
+msgstr "Automatisch: boeken van deze auteur"
+
+#: dev/devtools.lua:825
+msgid "Average speed"
+msgstr ""
+
+#: styles/statspages.lua:81
+#, koreader
+msgid "Average time per day"
+msgstr ""
+
+#: styles/statspages.lua:84
+#, koreader
+msgid "Average time per page"
+msgstr ""
+
+#: styles/bookinfo.lua:338
+msgid "BOOK"
+msgstr "BOEK"
+
+#: styles/bookmark.lua:41
+msgid "BOOKMARK"
+msgstr "BLADWIJZER"
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "Basque"
+msgstr ""
+
+#: dev/devtools.lua:635 views/topbar.lua:53 views/widgets.lua:502
+msgid "Battery"
+msgstr "Batterij"
+
+#: views/stats.lua:732
+msgid "Best day"
+msgstr "Beste dag"
+
+#: views/stats.lua:735
+msgid "Best month"
+msgstr "Beste maand"
+
+#: styles/bookstatus.lua:181
+msgid "Book"
+msgstr "Boek"
+
+#: dev/devtools.lua:596 dev/devtools.lua:831
+#, koreader
+msgid "Book information"
+msgstr ""
+
+#: dev/devtools.lua:963 styles/bookmap.lua:268
+#, koreader
+msgid "Book map"
+msgstr ""
+
+#: styles/statspages.lua:82
+#, koreader
+msgid "Book marked as finished"
+msgstr ""
+
+#: dev/devtools.lua:611
+msgid "Book sheet"
+msgstr ""
+
+#: styles/statspages.lua:81
+#, koreader
+msgid "Book start date"
+msgstr ""
+
+#: dev/devtools.lua:820
+msgid "Book stats"
+msgstr ""
+
+#: styles/bookstatus.lua:351
+#, koreader
+msgid "Book status"
+msgstr ""
+
+#: dev/devtools.lua:956
+msgid "Book status (empty)"
+msgstr ""
+
+#: dev/devtools.lua:949
+msgid "Book status (with data)"
+msgstr ""
+
+#: views/widgets.lua:550
+#, koreader
+msgid "Bookmarks"
+msgstr ""
+
+#: dev/devtools.lua:996
+msgid "Bookmarks (empty)"
+msgstr ""
+
+#: dev/devtools.lua:979
+msgid "Bookmarks (with data)"
+msgstr ""
+
+#: views/widgets.lua:549
+msgid "Bookmarks and highlights"
+msgstr "Bladwijzers en markeringen"
+
+#: dev/devtools.lua:861
+#, koreader
+msgid "Books"
+msgstr ""
+
+#: views/grid.lua:971
+msgid "Books are not deleted, only the collection."
+msgstr "De boeken worden niet verwijderd, alleen de collectie."
+
+#: styles/statspages.lua:266 styles/statspages.lua:267
+#, koreader
+msgid "Books by month"
+msgstr ""
+
+#: styles/statspages.lua:263 styles/statspages.lua:264
+#, koreader
+msgid "Books by week"
+msgstr ""
+
+#: menu.lua:94
+msgid "Bottom menus (sheets)"
+msgstr "Onderste menu's (panelen)"
+
+#: styles/bookmap.lua:105
+msgid "CURRENT CHAPTER"
+msgstr "HUIDIG HOOFDSTUK"
+
+#: styles/toc.lua:64
+msgid "CURRENT CHAPTER · PAGE %d"
+msgstr "HUIDIG HOOFDSTUK · PAGINA %d"
+
+#: styles/readerprogress.lua:173
+msgid "CURRENT SESSION"
+msgstr "HUIDIGE SESSIE"
+
+#: views/home.lua:383 views/stats.lua:247
+msgid "CURRENTLY READING"
+msgstr "NU AAN HET LEZEN"
+
+#: styles/calendar.lua:109 styles/calendar.lua:236 views/stats.lua:339
+msgid "Calendar"
+msgstr "Kalender"
+
+#: dev/devtools.lua:896
+msgid "Calendar (empty)"
+msgstr ""
+
+#: dev/devtools.lua:807
+msgid "Calendar (test data)"
+msgstr ""
+
+#: dev/devtools.lua:877
+msgid "Calendar (with data)"
+msgstr ""
+
+#: dev/devtools.lua:486 dev/devtools.lua:637 dev/devtools.lua:737 styles/sortwidget.lua:113 views/stats.lua:457
+#, koreader
+msgid "Cancel"
+msgstr ""
+
+#: views/widgets.lua:496
+msgid "Capture"
+msgstr "Vastleggen"
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "Catalan"
+msgstr ""
+
+#: views/widgets.lua:1178
+msgid "Change"
+msgstr "Wijzigen"
+
+#: styles/skim.lua:90
+msgid "Chapter %1 of %2"
+msgstr "Hoofdstuk %1 van %2"
+
+#: dev/devtools.lua:985
+msgid "Chapter 1"
+msgstr ""
+
+#: dev/devtools.lua:987
+msgid "Chapter 7"
+msgstr ""
+
+#: dev/devtools.lua:989
+msgid "Chapter 8"
+msgstr ""
+
+#: views/widgets.lua:507
+msgid "Charged"
+msgstr "Opgeladen"
+
+#: views/widgets.lua:507
+msgid "Charging"
+msgstr "Opladen"
+
+#: menu.lua:522
+msgid "Check patches and plugins on startup"
+msgstr "Patches en plugins controleren bij opstarten"
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Chinese"
+msgstr ""
+
+#: dev/devtools.lua:811
+msgid "Classics"
+msgstr ""
+
+#: menu.lua:530
+msgid "Clear cover thumbnails"
+msgstr "Omslagminiaturen wissen"
+
+#: dev/devtools.lua:597 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
+#, koreader
+msgid "Close"
+msgstr ""
+
+#: views/grid.lua:67
+msgid "Collection"
+msgstr "Collectie"
+
+#: dev/devtools.lua:510
+msgid "Collection name"
+msgstr ""
+
+#: views/grid.lua:67
+msgid "Collection order"
+msgstr "Collectievolgorde"
+
+#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1426
+#, koreader
+msgid "Collections"
+msgstr ""
+
+#: dev/devtools.lua:802
+msgid "Collections (test data)"
+msgstr ""
+
+#: views/grid.lua:76
+msgid "Collections order"
+msgstr "Volgorde van collecties"
+
+#: common/compat.lua:183
+msgid "Compatibility"
+msgstr "Compatibiliteit"
+
+#: dev/devtools.lua:643
+msgid "Confirmation"
+msgstr ""
+
+#: views/widgets.lua:470
+msgid "Connected"
+msgstr "Verbonden"
+
+#: views/booksheet.lua:375
+#, koreader
+msgid "Continue"
+msgstr ""
+
+#: dev/devtools.lua:593
+msgid "Continue reading"
+msgstr ""
+
+#: styles/ui/readermenu.lua:57
+#, koreader
+msgid "Contrast"
+msgstr ""
+
+#: dev/devtools.lua:529
+#, koreader
+msgid "Copy"
+msgstr ""
+
+#: dev/devtools.lua:503
+msgid ""
+"Could not connect to the network.\n"
+"\n"
+"Check that Wi-Fi is on and the password is correct, and try again."
+msgstr ""
+
+#: views/widgets.lua:203
+msgid "Could not read database"
+msgstr "Kan database niet lezen"
+
+#: views/widgets.lua:442
+msgid "Count: %1"
+msgstr "Tellen: %1"
+
+#: menu.lua:539
+msgid "Cover thumbnails cleared"
+msgstr "Omslagminiaturen gewist"
+
+#: styles/statspages.lua:83
+#, koreader
+msgid "Current page/Total pages"
+msgstr ""
+
+#: styles/bookinfo.lua:318
+#, koreader
+msgid "Current page:"
+msgstr ""
+
+#: styles/statspages.lua:106 styles/statspages.lua:442
+#, koreader
+msgid "Current statistics"
+msgstr ""
+
+#: views/home.lua:210
+msgid "Currently reading"
+msgstr "Nu aan het lezen"
+
+#: views/stats.lua:706
+msgid "DAILY RHYTHM"
+msgstr "DAGRITME"
+
+#: views/stats.lua:727
+msgid "Daily average"
+msgstr "Daggemiddelde"
+
+#: dev/devtools.lua:818
+msgid "Data page"
+msgstr ""
+
+#: dev/devtools.lua:696 views/grid.lua:81
+msgid "Date"
+msgstr "Datum"
+
+#: dev/devtools.lua:699 views/grid.lua:81
+msgid "Date finished"
+msgstr "Datum uitgelezen"
+
+#: views/stats.lua:730
+msgid "Day %1"
+msgstr "Dag %1"
+
+#: dev/devtools.lua:825
+msgid "Days reading"
+msgstr ""
+
+#: styles/statspages.lua:80
+#, koreader
+msgid "Days reading this book"
+msgstr ""
+
+#: views/topbar.lua:104
+msgctxt "aire"
+msgid "December"
+msgstr "december"
+
+#: dev/devtools.lua:646 dev/devtools.lua:725 views/booksheet.lua:251 views/grid.lua:972 views/stats.lua:477
+#, koreader
+msgid "Delete"
+msgstr ""
+
+#: views/stats.lua:488
+msgid "Delete all book stats"
+msgstr "Alle boekstatistieken verwijderen"
+
+#: views/stats.lua:492
+msgid "Delete all stats?"
+msgstr "Alle statistieken verwijderen?"
+
+#: styles/highlight.lua:61
+#, koreader
+msgid "Delete highlight"
+msgstr ""
+
+#: views/stats.lua:475
+msgid "Delete minutes for this day?"
+msgstr "Minuten van deze dag verwijderen?"
+
+#: views/stats.lua:471
+msgid "Delete minutes from this day"
+msgstr "Minuten van deze dag verwijderen"
+
+#: views/grid.lua:970
+msgid "Delete the collection?"
+msgstr "Collectie verwijderen?"
+
+#: dev/devtools.lua:645
+msgid "Delete this book? This cannot be undone."
+msgstr ""
+
+#: views/grid.lua:1021
+msgid "Delete…"
+msgstr "Verwijderen…"
+
+#: styles/ui/sheets.lua:501
+#, koreader
+msgid "Description"
+msgstr ""
+
+#: dev/devtools.lua:530 dev/devtools.lua:536 views/widgets.lua:535 views/widgets.lua:536
+#, koreader
+msgid "Dictionary"
+msgstr ""
+
+#: views/widgets.lua:481
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: common/compat.lua:157
+msgid "Disabled due to incompatibility with the Home screen:"
+msgstr "Uitgeschakeld wegens incompatibiliteit met het startscherm:"
+
+#: dev/devtools.lua:623
+msgid "Disabled option"
+msgstr ""
+
+#: menu.lua:508
+msgid "Dock"
+msgstr "Dock"
+
+#: dev/devtools.lua:864
+msgid "Documents"
+msgstr ""
+
+#: dev/devtools.lua:627 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
+#, koreader
+msgid "Done"
+msgstr ""
+
+#: dev/devtools.lua:553
+msgid "Downloading covers"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "Dutch"
+msgstr ""
+
+#: views/widgets.lua:1006
+msgid "EDITING WIDGETS"
+msgstr "WIDGETS BEWERKEN"
+
+#: dev/devtools.lua:515 dev/devtools.lua:762
+msgid "Edgedancer"
+msgstr ""
+
+#: menu.lua:283
+msgid "Edit Home widgets"
+msgstr "Widgets van startscherm bewerken"
+
+#: dev/devtools.lua:513
+msgid "Edit metadata"
+msgstr ""
+
+#: styles/bookmark.lua:388
+#, koreader
+msgid "Edit note"
+msgstr ""
+
+#: styles/bookinfo.lua:354
+msgid "Edit series"
+msgstr "Serie bewerken"
+
+#: styles/bookmark.lua:392
+#, koreader
+msgid "Edit text"
+msgstr ""
+
+#: views/booksheet.lua:347
+msgid "Empty"
+msgstr "Leeg"
+
+#: views/widgets.lua:841
+msgctxt "aire"
+msgid "Empty"
+msgstr "Geen widgets"
+
+#: views/grid.lua:471
+msgid "Empty collection"
+msgstr "Lege collectie"
+
+#: styles/ui/pagination.lua:184
+msgid "Empty folder"
+msgstr "Lege map"
+
+#: views/grid.lua:306
+msgid "Empty series"
+msgstr "Lege serie"
+
+#: views/widgets.lua:481
+#, koreader
+msgid "Enabled"
+msgstr ""
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "English"
+msgstr ""
+
+#: dev/devtools.lua:510
+msgid "Epic fantasy"
+msgstr ""
+
+#: styles/statspages.lua:82
+#, koreader
+msgid "Estimated finish date"
+msgstr ""
+
+#: styles/statspages.lua:80
+#, koreader
+msgid "Estimated reading time left"
+msgstr ""
+
+#: menu.lua:90
+msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
+msgstr "Alles wat de plugin tekent, met voorbeeldgegevens. Veeg ← → om te bladeren; tik buiten of op de pagina om af te sluiten."
+
+#: views/power.lua:177
+#, koreader
+msgid "Exit"
+msgstr ""
+
+#: styles/bookinfo.lua:340 styles/bookinfo.lua:1015
+msgid "FILE"
+msgstr "BESTAND"
+
+#: views/grid.lua:796
+msgid "FILTER"
+msgstr "FILTER"
+
+#: dev/devtools.lua:811 dev/devtools.lua:862
+#, koreader
+msgid "Fantasy"
+msgstr ""
+
+#: views/widgets.lua:556
+msgid "Favorite folders"
+msgstr "Favoriete mappen"
+
+#: dev/devtools.lua:811 views/grid.lua:350 views/widgets.lua:393
+#, koreader
+msgid "Favorites"
+msgstr ""
+
+#: views/topbar.lua:101
+msgctxt "aire"
+msgid "February"
+msgstr "februari"
+
+#: menu.lua:487 views/dock.lua:275
+#, koreader
+msgid "File browser"
+msgstr ""
+
+#: styles/bookinfo.lua:315
+#, koreader
+msgid "File date:"
+msgstr ""
+
+#: styles/bookinfo.lua:312
+#, koreader
+msgid "Filename:"
+msgstr ""
+
+#: views/grid.lua:740
+msgid "Filter"
+msgstr "Filter"
+
+#: dev/devtools.lua:649 views/grid.lua:739
+msgid "Filter and sort"
+msgstr "Filteren en sorteren"
+
+#: dev/devtools.lua:653
+#, koreader
+msgid "Finished"
+msgstr ""
+
+#: styles/bookinfo.lua:258 styles/bookinfo.lua:572 styles/bookstatus.lua:55 views/booksheet.lua:181 views/grid.lua:50
+msgctxt "aire"
+msgid "Finished"
+msgstr "Gelezen"
+
+#: dev/devtools.lua:808
+msgid "Finished (test data)"
+msgstr ""
+
+#: menu.lua:401
+msgid "Finished books in gray"
+msgstr "Gelezen boeken in grijs"
+
+#: styles/imageviewer.lua:105
+#, koreader
+msgid "Fit"
+msgstr ""
+
+#: menu.lua:93
+msgid "Floating windows"
+msgstr "Zwevende vensters"
+
+#: menu.lua:395
+msgid "Folded corner on started books"
+msgstr "Ezelsoor bij begonnen boeken"
+
+#: dev/devtools.lua:869
+msgid "Folder shortcuts (empty)"
+msgstr ""
+
+#: dev/devtools.lua:856
+msgid "Folder shortcuts (with data)"
+msgstr ""
+
+#: styles/bookinfo.lua:316
+#, koreader
+msgid "Folder:"
+msgstr ""
+
+#: views/dock.lua:54 views/widgets.lua:557
+msgid "Folders"
+msgstr "Mappen"
+
+#: dev/devtools.lua:669
+msgid "Font (status bar)"
+msgstr ""
+
+#: dev/devtools.lua:683
+#, koreader
+msgid "Font size"
+msgstr ""
+
+#: styles/ui/sheets.lua:724
+msgid "Fonts"
+msgstr "Lettertypen"
+
+#: styles/vocabbuilder.lua:153
+#, koreader
+msgid "Forgot"
+msgstr ""
+
+#: styles/bookinfo.lua:313 styles/bookinfo.lua:501
+#, koreader
+msgid "Format:"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "French"
+msgstr ""
+
+#: styles/ui/lightsheet.lua:101
+#, koreader
+msgid "Frontlight"
+msgstr ""
+
+#: views/widgets.lua:488
+msgid "Full refresh"
+msgstr "Volledige verversing"
+
+#: menu.lua:95
+msgid "Full screens"
+msgstr "Volledige schermen"
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "Galician"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "German"
+msgstr ""
+
+#: styles/gestures.lua:120
+#, koreader
+msgid "Gestures in file browser"
+msgstr ""
+
+#: styles/gestures.lua:120
+#, koreader
+msgid "Gestures in reader"
+msgstr ""
+
+#: styles/gestures.lua:62
+msgid "Gestures set: %1"
+msgstr "Ingestelde gebaren: %1"
+
+#: styles/bookmark.lua:417
+#, koreader
+msgid "Go to bookmark"
+msgstr ""
+
+#: views/dock.lua:53
+msgid "Go up"
+msgstr "Omhoog"
+
+#: common/compat.lua:179 styles/vocabbuilder.lua:155
+#, koreader
+msgid "Got it"
+msgstr ""
+
+#: menu.lua:354 menu.lua:498
+msgid "Grid: %1 columns"
+msgstr "Raster: %1 kolommen"
+
+#: styles/bookmark.lua:40
+msgid "HIGHLIGHT"
+msgstr "MARKERING"
+
+#: views/stats.lua:714
+msgid "HIGHLIGHTS"
+msgstr "HOOGTEPUNTEN"
+
+#: views/stats.lua:419
+msgid "Hasn't arrived yet"
+msgstr "Nog niet aangebroken"
+
+#: dev/devtools.lua:529
+#, koreader
+msgid "Highlight"
+msgstr ""
+
+#: views/dock.lua:47 views/grid.lua:1427
+#, koreader
+msgid "History"
+msgstr ""
+
+#: dev/devtools.lua:803
+msgid "History (test data)"
+msgstr ""
+
+#: views/grid.lua:615
+msgid "History is empty"
+msgstr "Geschiedenis is leeg"
+
+#: views/widgets.lua:1159
+msgid "Hold does the same as tap"
+msgstr "Vasthouden doet hetzelfde als tikken"
+
+#: views/widgets.lua:570
+msgid "Hold to configure"
+msgstr "Houd vast om in te stellen"
+
+#: dev/devtools.lua:662 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
+#, koreader
+msgid "Home"
+msgstr ""
+
+#: dev/devtools.lua:800
+msgid "Home (test data)"
+msgstr ""
+
+#: menu.lua:262
+msgid "Home and widgets"
+msgstr "Startscherm en widgets"
+
+#: _meta.lua:12
+msgid "Home screen with the current book, widgets, library, collections, history and stats, and a bottom navigation bar."
+msgstr "Startscherm met het huidige boek, widgets, bibliotheek, collecties, geschiedenis en statistieken, en een navigatiebalk onderaan."
+
+#: menu.lua:92
+msgid "Home widgets"
+msgstr "Startschermwidgets"
+
+#: dev/devtools.lua:714
+msgid "Horizontal"
+msgstr ""
+
+#: dev/devtools.lua:852 styles/imageviewer.lua:43
+msgid "Image"
+msgstr "Afbeelding"
+
+#: dev/devtools.lua:835
+msgid "Image / cover viewer"
+msgstr ""
+
+#: menu.lua:408
+msgid "In Collections, a collection appears for each author with 2 or more books. They update automatically and are not saved in KOReader collections."
+msgstr "In Collecties verschijnt een collectie voor elke auteur met 2 of meer boeken. Ze worden automatisch bijgewerkt en niet opgeslagen in de KOReader-collecties."
+
+#: menu.lua:416
+msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
+msgstr "In Collecties verschijnt een collectie voor elk trefwoord met 2 of meer boeken. Ze worden automatisch bijgewerkt en niet opgeslagen in de KOReader-collecties."
+
+#: dev/devtools.lua:621 views/home.lua:213 views/widgets.lua:1154
+msgid "Inverted colors"
+msgstr "Omgekeerde kleuren"
+
+#: dev/devtools.lua:716
+msgid "Inverted horizontal"
+msgstr ""
+
+#: dev/devtools.lua:715
+msgid "Inverted portrait"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "Italian"
+msgstr ""
+
+#: views/topbar.lua:101
+msgctxt "aire"
+msgid "January"
+msgstr "januari"
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Japanese"
+msgstr ""
+
+#: views/topbar.lua:103
+msgctxt "aire"
+msgid "July"
+msgstr "juli"
+
+#: views/topbar.lua:102
+msgctxt "aire"
+msgid "June"
+msgstr "juni"
+
+#: views/power.lua:176
+#, koreader
+msgid "KOReader"
+msgstr ""
+
+#: dev/devtools.lua:734
+msgid "KOReader engine (crengine)"
+msgstr ""
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Korean"
+msgstr ""
+
+#: dev/devtools.lua:583
+msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
+msgstr ""
+
+#: views/stats.lua:239
+msgid "LAST 7 DAYS"
+msgstr "LAATSTE 7 DAGEN"
+
+#: menu.lua:512
+msgid "Labels under icons"
+msgstr "Labels onder pictogrammen"
+
+#: views/widgets.lua:1148
+msgid "Large (also occupies the right cell)"
+msgstr "Groot (beslaat ook de rechtercel)"
+
+#: menu.lua:266
+msgid "Large clock and date"
+msgstr "Grote klok en datum"
+
+#: views/widgets.lua:957
+msgid "Large · small · small inverted — swipe ← →, tap to exit"
+msgstr "Groot · klein · klein omgekeerd — veeg ← →, tik om af te sluiten"
+
+#: styles/bookinfo.lua:896
+msgid "Last"
+msgstr "Laatst"
+
+#: styles/readerprogress.lua:122
+msgid "Last 7 days summary"
+msgstr "Overzicht laatste 7 dagen"
+
+#: dev/devtools.lua:827 views/grid.lua:87
+msgid "Last read"
+msgstr "Laatst gelezen"
+
+#: common/compat.lua:171
+#, koreader
+msgid "Later"
+msgstr ""
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Latin"
+msgstr ""
+
+#: styles/ui/readermenu.lua:55
+msgid "Layout"
+msgstr "Indeling"
+
+#: dev/devtools.lua:691
+#, koreader
+msgid "Left"
+msgstr ""
+
+#: dev/devtools.lua:663 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1425
+msgid "Library"
+msgstr "Bibliotheek"
+
+#: dev/devtools.lua:801
+msgid "Library (test data)"
+msgstr ""
+
+#: menu.lua:349
+msgid "Library and covers"
+msgstr "Bibliotheek en omslagen"
+
+#: views/widgets.lua:348
+msgid "Library is empty"
+msgstr "Bibliotheek is leeg"
+
+#: menu.lua:531
+msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
+msgstr "Bibliotheek, Collecties en Geschiedenis bewaren kleine kopieën van de omslagen om sneller te openen. Wis ze als een omslag niet wordt bijgewerkt."
+
+#: dev/devtools.lua:634 dev/devtools.lua:678 views/widgets.lua:451
+msgid "Light"
+msgstr "Licht"
+
+#: views/topbar.lua:52
+msgid "Light level"
+msgstr "Lichtniveau"
+
+#: menu.lua:433
+msgid "List with covers"
+msgstr "Lijst met omslagen"
+
+#: menu.lua:435
+msgid "List with filenames"
+msgstr "Lijst met bestandsnamen"
+
+#: menu.lua:434
+msgid "List without covers"
+msgstr "Lijst zonder omslagen"
+
+#: styles/calendar.lua:111
+msgid "Loading month…"
+msgstr "Maand laden…"
+
+#: dev/devtools.lua:501
+msgid "Long message"
+msgstr ""
+
+#: styles/search.lua:108
+msgid "MATCH"
+msgstr "RESULTAAT"
+
+#: styles/search.lua:108
+msgid "MATCH %d"
+msgstr "RESULTAAT %d"
+
+#: views/stats.lua:706
+msgid "MONTHLY RHYTHM"
+msgstr "MAANDRITME"
+
+#: views/stats.lua:744
+msgid "MOST READ"
+msgstr "MEEST GELEZEN"
+
+#: views/dock.lua:271
+msgid "Main view"
+msgstr "Hoofdweergave"
+
+#: views/topbar.lua:101
+msgctxt "aire"
+msgid "March"
+msgstr "maart"
+
+#: dev/devtools.lua:690 styles/ui/readermenu.lua:53
+msgid "Margins"
+msgstr "Marges"
+
+#: views/booksheet.lua:430
+msgid "Mark"
+msgstr "Markeren"
+
+#: views/booksheet.lua:429
+msgid "Mark all books in \"%1\" as reading?"
+msgstr "Alle boeken in “%1” markeren als aan het lezen?"
+
+#: views/grid.lua:1058
+msgid "Mark all books in collection \"%1\" as reading?"
+msgstr "Alle boeken in collectie “%1” markeren als aan het lezen?"
+
+#: dev/devtools.lua:594
+msgid "Mark as read"
+msgstr ""
+
+#: views/grid.lua:1056
+msgid "Mark entire collection as finished"
+msgstr "Hele collectie markeren als gelezen"
+
+#: views/grid.lua:1057
+msgid "Mark entire collection as reading"
+msgstr "Hele collectie markeren als aan het lezen"
+
+#: views/booksheet.lua:403
+msgid "Mark entire series as finished"
+msgstr "Hele serie markeren als gelezen"
+
+#: views/booksheet.lua:424
+msgid "Mark entire series as reading"
+msgstr "Hele serie markeren als aan het lezen"
+
+#: views/topbar.lua:102
+msgctxt "aire"
+msgid "May"
+msgstr "mei"
+
+#: views/topbar.lua:51
+msgid "Memory used"
+msgstr "Geheugen gebruikt"
+
+#: dev/devtools.lua:520
+msgid "Menu next to text"
+msgstr ""
+
+#: styles/bookinfo.lua:317
+#, koreader
+msgid "Metadata:"
+msgstr ""
+
+#: views/widgets.lua:838
+msgctxt "aire"
+msgid "Minimal"
+msgstr "Minimaal"
+
+#: views/explorer.lua:139
+msgid "Mix folders"
+msgstr "Mappen mengen"
+
+#: views/grid.lua:817
+msgid "Mix series"
+msgstr "Series mengen"
+
+#: views/stats.lua:641
+msgid "Monthly"
+msgstr "Maandelijks"
+
+#: views/stats.lua:292
+msgid "Monthly recap"
+msgstr "Maandoverzicht"
+
+#: dev/devtools.lua:805
+msgid "Monthly recap (test data)"
+msgstr ""
+
+#: views/dock.lua:57
+msgid "More"
+msgstr "Meer"
+
+#: views/booksheet.lua:258
+msgid "More options…"
+msgstr "Meer opties…"
+
+#: styles/ui/readermenu.lua:58
+msgid "More settings"
+msgstr "Meer instellingen"
+
+#: dev/devtools.lua:531
+msgid "More…"
+msgstr ""
+
+#: menu.lua:432
+msgid "Mosaic with covers"
+msgstr "Mozaïek met omslagen"
+
+#: dev/devtools.lua:726
+#, koreader
+msgid "Move"
+msgstr ""
+
+#: dev/devtools.lua:512
+msgid "Multiple fields"
+msgstr ""
+
+#: styles/bookinfo.lua:366
+#, koreader
+msgid "N/A"
+msgstr ""
+
+#: views/widgets.lua:348
+msgid "NEW"
+msgstr "NIEUW"
+
+#: views/widgets.lua:288 views/widgets.lua:292
+msgid "NEXT"
+msgstr "VOLGENDE"
+
+#: styles/vocabbuilder.lua:122
+msgid "NEXT REVIEW"
+msgstr "VOLGENDE HERHALING"
+
+#: styles/bookmark.lua:39
+msgid "NOTE"
+msgstr "AANTEKENING"
+
+#: views/grid.lua:78
+#, koreader
+msgid "Name"
+msgstr ""
+
+#: styles/bookinfo.lua:500
+msgid "Name:"
+msgstr "Naam:"
+
+#: dev/devtools.lua:665
+msgid "Neighbor"
+msgstr ""
+
+#: dev/devtools.lua:653 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
+#, koreader
+msgid "New"
+msgstr ""
+
+#: styles/bookinfo.lua:570
+msgctxt "aire"
+msgid "New"
+msgstr "Nieuw"
+
+#: views/grid.lua:490
+#, koreader
+msgid "New collection"
+msgstr ""
+
+#: views/grid.lua:1012 views/grid.lua:1025
+msgid "New collection…"
+msgstr "Nieuwe collectie…"
+
+#: common/compat.lua:152
+msgid "New since last time:"
+msgstr "Nieuw sinds de vorige keer:"
+
+#: views/widgets.lua:288 views/widgets.lua:294
+msgid "Next"
+msgstr "Volgende"
+
+#: views/widgets.lua:294
+msgid "Next %1"
+msgstr "Volgende %1"
+
+#: menu.lua:585
+msgid "Next batch of test widgets"
+msgstr "Volgende reeks testwidgets"
+
+#: styles/skim.lua:113
+#, koreader
+msgid "Next chapter"
+msgstr ""
+
+#: dev/devtools.lua:632 views/widgets.lua:284
+msgid "Next in series"
+msgstr "Volgende in serie"
+
+#: views/widgets.lua:478
+#, koreader
+msgid "Night mode"
+msgstr ""
+
+#: views/widgets.lua:185
+msgid "No CoverBrowser data"
+msgstr "Geen CoverBrowser-gegevens"
+
+#: views/home.lua:252 views/stats.lua:109
+msgid "No book in progress"
+msgstr "Geen boek aan het lezen"
+
+#: styles/ui/pagination.lua:178
+msgid "No book matches the filter"
+msgstr "Geen boek voldoet aan het filter"
+
+#: views/grid.lua:583
+msgid "No books finished this month"
+msgstr "Deze maand geen boeken gelezen"
+
+#: views/grid.lua:583
+msgid "No books finished this year"
+msgstr "Dit jaar geen boeken gelezen"
+
+#: views/grid.lua:338
+msgid "No books in home folder"
+msgstr "Geen boeken in de thuismap"
+
+#: views/grid.lua:338 views/grid.lua:471 views/grid.lua:615
+msgid "No books with this filter"
+msgstr "Geen boeken met dit filter"
+
+#: styles/bookmap.lua:89 styles/toc.lua:44
+msgid "No chapter"
+msgstr "Geen hoofdstuk"
+
+#: views/grid.lua:498
+msgid "No collections"
+msgstr "Geen collecties"
+
+#: views/grid.lua:498
+msgid "No collections with this filter"
+msgstr "Geen collecties met dit filter"
+
+#: views/widgets.lua:180
+msgid "No current book"
+msgstr "Geen huidig boek"
+
+#: views/stats.lua:216
+msgid "No data: enable the Statistics plugin and read a bit"
+msgstr "Geen gegevens: schakel de plugin Statistieken in en lees wat"
+
+#: styles/ui/pagination.lua:186
+#, koreader
+msgid "No items"
+msgstr ""
+
+#: views/widgets.lua:233
+msgid "No next unfinished book"
+msgstr "Geen volgend ongelezen boek"
+
+#: views/widgets.lua:309
+msgid "No previous book"
+msgstr "Geen vorig boek"
+
+#: styles/statspages.lua:365 views/stats.lua:677
+msgid "No reading activity in this period"
+msgstr "Geen leesactiviteit in deze periode"
+
+#: styles/calendar.lua:239
+msgid "No reading sessions this month"
+msgstr "Geen leessessies deze maand"
+
+#: styles/imageviewer.lua:106
+#, koreader
+msgid "No rotation"
+msgstr ""
+
+#: styles/shortcuts.lua:126
+msgid "No saved shortcuts"
+msgstr "Geen opgeslagen snelkoppelingen"
+
+#: views/stats.lua:123
+msgid "No stats for this book"
+msgstr "Geen statistieken voor dit boek"
+
+#: views/widgets.lua:327
+msgid "No unstarted books"
+msgstr "Geen niet-begonnen boeken"
+
+#: styles/vocabbuilder.lua:91
+msgid "No vocabulary words"
+msgstr "Geen woorden"
+
+#: styles/bookinfo.lua:938 styles/bookstatus.lua:60
+msgid "Not rated"
+msgstr "Niet beoordeeld"
+
+#: styles/bookinfo.lua:259 views/booksheet.lua:197 views/booksheet.lua:355
+msgid "Not started"
+msgstr "Niet begonnen"
+
+#: dev/devtools.lua:529
+#, koreader
+msgid "Note"
+msgstr ""
+
+#: styles/bookinfo.lua:321
+#, koreader
+msgid "Notebook file:"
+msgstr ""
+
+#: styles/bookinfo.lua:895
+msgctxt "aire"
+msgid "Notes"
+msgstr "Aantekeningen"
+
+#: views/topbar.lua:104
+msgctxt "aire"
+msgid "November"
+msgstr "november"
+
+#: dev/devtools.lua:681
+msgid "Number"
+msgstr ""
+
+#: styles/bookinfo.lua:358
+msgid "Number in series"
+msgstr "Nummer in serie"
+
+#: dev/devtools.lua:487 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
+#, koreader
+msgid "OK"
+msgstr ""
+
+#: views/topbar.lua:104
+msgctxt "aire"
+msgid "October"
+msgstr "oktober"
+
+#: views/widgets.lua:456 views/widgets.lua:457 views/widgets.lua:470 views/widgets.lua:597
+#, koreader
+msgid "Off"
+msgstr ""
+
+#: dev/devtools.lua:639 views/widgets.lua:457 views/widgets.lua:470
+#, koreader
+msgid "On"
+msgstr ""
+
+#: styles/bookinfo.lua:257 styles/bookstatus.lua:54 views/booksheet.lua:186 views/grid.lua:55
+msgctxt "aire"
+msgid "On hold"
+msgstr "In de wacht"
+
+#: dev/devtools.lua:738
+#, koreader
+msgid "Open"
+msgstr ""
+
+#: views/grid.lua:1055
+msgid "Open collection"
+msgstr "Collectie openen"
+
+#: dev/devtools.lua:624
+msgid "Open library"
+msgstr ""
+
+#: views/grid.lua:1055
+msgid "Open series"
+msgstr "Serie openen"
+
+#: views/booksheet.lua:391
+msgid "Open series folder"
+msgstr "Seriemap openen"
+
+#: dev/devtools.lua:730 dev/devtools.lua:732
+#, koreader
+msgid "Open with…"
+msgstr ""
+
+#: styles/ui/dialogs.lua:389
+msgid "Opening \"%1\"…"
+msgstr "“%1” openen…"
+
+#: dev/devtools.lua:709
+msgid "Options list"
+msgstr ""
+
+#: dev/devtools.lua:589
+msgid "Options menu"
+msgstr ""
+
+#: dev/devtools.lua:711 styles/ui/readermenu.lua:52
+msgid "Orientation"
+msgstr "Oriëntatie"
+
+#: styles/imageviewer.lua:105
+#, koreader
+msgid "Original size"
+msgstr ""
+
+#: menu.lua:272
+msgid "Otherwise, the current book card is black with white text."
+msgstr "Anders is de kaart van het huidige boek zwart met witte tekst."
+
+#: dev/devtools.lua:735
+msgid "PDF engine (MuPDF)"
+msgstr ""
+
+#: views/widgets.lua:309 views/widgets.lua:312
+msgid "PREVIOUS"
+msgstr "VORIGE"
+
+#: views/home.lua:314
+msgctxt "aire"
+msgid "Page %1 / %2"
+msgstr "Pagina %1 / %2"
+
+#: dev/devtools.lua:966 styles/pagebrowser.lua:285
+#, koreader
+msgid "Page browser"
+msgstr ""
+
+#: styles/ui/readermenu.lua:54
+msgid "Page fit"
+msgstr "Pagina-aanpassing"
+
+#: dev/devtools.lua:824 styles/statspages.lua:83
+#, koreader
+msgid "Pages read"
+msgstr ""
+
+#: styles/statspages.lua:77
+#, koreader
+msgid "Pages read this session"
+msgstr ""
+
+#: styles/statspages.lua:78
+#, koreader
+msgid "Pages read today"
+msgstr ""
+
+#: dev/devtools.lua:629
+msgid "Plugin sheet (2 columns)"
+msgstr ""
+
+#: dev/devtools.lua:617
+msgid "Plugin sheet (options)"
+msgstr ""
+
+#: dev/devtools.lua:713
+#, koreader
+msgid "Portrait"
+msgstr ""
+
+#: styles/bookinfo.lua:198
+#, koreader
+msgid "Portuguese"
+msgstr ""
+
+#: views/power.lua:134
+#, koreader
+msgid "Power off"
+msgstr ""
+
+#: views/widgets.lua:309 views/widgets.lua:313
+msgid "Previous"
+msgstr "Vorige"
+
+#: views/widgets.lua:301
+msgid "Previous book"
+msgstr "Vorig boek"
+
+#: styles/skim.lua:110
+#, koreader
+msgid "Previous chapter"
+msgstr ""
+
+#: dev/devtools.lua:551 dev/devtools.lua:607 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
+#, koreader
+msgid "Progress"
+msgstr ""
+
+#: dev/devtools.lua:546
+msgid "QR code"
+msgstr ""
+
+#: views/widgets.lua:384
+msgid "QUOTE"
+msgstr "CITAAT"
+
+#: views/widgets.lua:833
+msgctxt "aire"
+msgid "Quick actions"
+msgstr "Snelle acties"
+
+#: dev/devtools.lua:633
+msgid "Quote"
+msgstr ""
+
+#: views/widgets.lua:380
+msgid "Quote of the day"
+msgstr "Citaat van de dag"
+
+#: views/widgets.lua:327 views/widgets.lua:334
+msgid "RANDOM"
+msgstr "WILLEKEURIG"
+
+#: styles/bookinfo.lua:943 styles/bookstatus.lua:312
+msgid "RATING"
+msgstr "BEOORDELING"
+
+#: styles/bookinfo.lua:339
+msgid "READING"
+msgstr "LEZEN"
+
+#: styles/bookstatus.lua:292
+msgid "READING STATUS"
+msgstr "LEESSTATUS"
+
+#: views/stats.lua:258
+msgid "RECAP"
+msgstr "OVERZICHT"
+
+#: styles/bookinfo.lua:983 styles/bookstatus.lua:389
+msgid "REVIEW / NOTES"
+msgstr "BESPREKING / AANTEKENINGEN"
+
+#: views/widgets.lua:327 views/widgets.lua:334
+msgid "Random"
+msgstr "Willekeurig"
+
+#: dev/devtools.lua:633 views/widgets.lua:320
+msgid "Random book"
+msgstr "Willekeurig boek"
+
+#: styles/bookstatus.lua:345
+msgid "Rating and review"
+msgstr "Beoordeling en bespreking"
+
+#: styles/bookinfo.lua:319
+#, koreader
+msgid "Rating:"
+msgstr ""
+
+#: views/widgets.lua:563
+#, koreader
+msgid "Read timer"
+msgstr ""
+
+#: views/widgets.lua:824
+#, koreader
+msgid "Reader"
+msgstr ""
+
+#: dev/devtools.lua:674
+msgid "Reader bottom menu"
+msgstr ""
+
+#: dev/devtools.lua:652
+#, koreader
+msgid "Reading"
+msgstr ""
+
+#: dev/tests/regressions.lua:202 styles/bookinfo.lua:256 styles/bookstatus.lua:53 views/grid.lua:48 views/grid.lua:54
+msgctxt "aire"
+msgid "Reading"
+msgstr "Aan het lezen"
+
+#: styles/readerprogress.lua:127
+#, koreader
+msgid "Reading progress"
+msgstr ""
+
+#: dev/devtools.lua:906
+msgid "Reading progress (empty)"
+msgstr ""
+
+#: dev/devtools.lua:903
+msgid "Reading progress (with data)"
+msgstr ""
+
+#: dev/devtools.lua:824
+msgid "Reading time"
+msgstr ""
+
+#: views/stats.lua:605
+msgid "Recap"
+msgstr "Overzicht"
+
+#: dev/devtools.lua:656 views/grid.lua:64
+msgid "Recent"
+msgstr "Recent"
+
+#: dev/devtools.lua:607 views/grid.lua:64 views/widgets.lua:341
+msgid "Recently added"
+msgstr "Recent toegevoegd"
+
+#: dev/devtools.lua:606
+msgid "Recently read"
+msgstr ""
+
+#: views/widgets.lua:489
+#, koreader
+msgid "Refresh"
+msgstr ""
+
+#: dev/devtools.lua:626 styles/bookmark.lua:405
+#, koreader
+msgid "Remove"
+msgstr ""
+
+#: views/widgets.lua:1179
+msgctxt "aire"
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: styles/bookmark.lua:402
+#, koreader
+msgid "Remove bookmark"
+msgstr ""
+
+#: views/booksheet.lua:592 views/grid.lua:504
+msgctxt "aire"
+msgid "Remove from collection"
+msgstr "Uit collectie verwijderen"
+
+#: views/booksheet.lua:556 views/grid.lua:620
+#, koreader
+msgid "Remove from history"
+msgstr ""
+
+#: styles/highlight.lua:84
+#, koreader
+msgid "Remove from vocabulary builder"
+msgstr ""
+
+#: styles/bookmark.lua:404
+#, koreader
+msgid "Remove this bookmark?"
+msgstr ""
+
+#: dev/devtools.lua:509
+#, koreader
+msgid "Rename"
+msgstr ""
+
+#: views/grid.lua:1019
+msgid "Rename…"
+msgstr "Naam wijzigen…"
+
+#: menu.lua:300
+msgid "Replace the Home widgets with the \"%1\" preset?"
+msgstr "De widgets op het startscherm vervangen door de voorinstelling '%1'?"
+
+#: dev/devtools.lua:596
+#, koreader
+msgid "Reset"
+msgstr ""
+
+#: views/power.lua:175
+#, koreader
+msgid "Restart"
+msgstr ""
+
+#: common/compat.lua:172
+#, koreader
+msgid "Restart KOReader"
+msgstr ""
+
+#: common/compat.lua:160
+msgid "Restart KOReader for the change to take effect."
+msgstr "Herstart KOReader om de wijziging toe te passen."
+
+#: views/explorer.lua:126 views/grid.lua:811
+#, koreader
+msgid "Reverse sorting"
+msgstr ""
+
+#: styles/bookinfo.lua:320
+#, koreader
+msgid "Review:"
+msgstr ""
+
+#: dev/devtools.lua:692
+#, koreader
+msgid "Right"
+msgstr ""
+
+#: styles/imageviewer.lua:106
+#, koreader
+msgid "Rotate"
+msgstr ""
+
+#: styles/bookinfo.lua:199
+#, koreader
+msgid "Russian"
+msgstr ""
+
+#: views/grid.lua:806
+msgid "SORT BY"
+msgstr "SORTEREN OP"
+
+#: views/widgets.lua:597
+#, koreader
+msgid "SSH"
+msgstr ""
+
+#: views/widgets.lua:592 views/widgets.lua:618
+#, koreader
+msgid "SSH server"
+msgstr ""
+
+#: dev/devtools.lua:510 dev/devtools.lua:513 dev/devtools.lua:700
+#, koreader
+msgid "Save"
+msgstr ""
+
+#: dev/devtools.lua:499
+#, koreader
+msgid "Saved"
+msgstr ""
+
+#: dev/devtools.lua:811 dev/devtools.lua:863
+msgid "Science Fiction"
+msgstr ""
+
+#: views/widgets.lua:495
+#, koreader
+msgid "Screenshot"
+msgstr ""
+
+#: dev/devtools.lua:506 dev/devtools.lua:507 dev/devtools.lua:530 views/dock.lua:56 views/widgets.lua:527
+#, koreader
+msgid "Search"
+msgstr ""
+
+#: dev/devtools.lua:507
+msgid "Search library"
+msgstr ""
+
+#: dev/devtools.lua:1022
+msgid "Search results (empty)"
+msgstr ""
+
+#: dev/devtools.lua:1005
+msgid "Search results (with data)"
+msgstr ""
+
+#: views/topbar.lua:103
+msgctxt "aire"
+msgid "September"
+msgstr "september"
+
+#: dev/devtools.lua:517 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#, koreader
+msgid "Series"
+msgstr ""
+
+#: styles/bookinfo.lua:357
+msgid "Series name"
+msgstr "Serienaam"
+
+#: menu.lua:374
+msgid "Series number on covers"
+msgstr "Serienummer op omslagen"
+
+#: dev/devtools.lua:706
+#, koreader
+msgid "Set alarm"
+msgstr ""
+
+#: styles/ui/sheets.lua:776
+#, koreader
+msgid "Set font"
+msgstr ""
+
+#: dev/devtools.lua:531
+#, koreader
+msgid "Share"
+msgstr ""
+
+#: dev/devtools.lua:498
+msgid "Short message"
+msgstr ""
+
+#: menu.lua:51
+#, koreader
+msgid "Show all files from subfolders"
+msgstr ""
+
+#: menu.lua:53 menu.lua:381
+#, koreader
+msgid "Show collection mark"
+msgstr ""
+
+#: menu.lua:607
+msgid "Show dimensions of each book / series"
+msgstr "Afmetingen van elk boek / elke serie tonen"
+
+#: menu.lua:52
+#, koreader
+msgid "Show filename in Open last/previous menu items"
+msgstr ""
+
+#: menu.lua:50
+#, koreader
+msgid "Show parent folder"
+msgstr ""
+
+#: menu.lua:49
+#, koreader
+msgid "Show progress in mosaic mode"
+msgstr ""
+
+#: dev/devtools.lua:622 views/home.lua:215
+msgid "Show synopsis"
+msgstr "Samenvatting tonen"
+
+#: styles/bookinfo.lua:314
+#, koreader
+msgid "Size:"
+msgstr ""
+
+#: views/power.lua:133
+msgctxt "aire"
+msgid "Sleep"
+msgstr "Slapen"
+
+#: dev/devtools.lua:655 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
+msgid "Smart"
+msgstr "Slim"
+
+#: dev/devtools.lua:605
+msgid "Smart  (current)"
+msgstr ""
+
+#: views/explorer.lua:81
+msgid "Sort"
+msgstr "Sorteren"
+
+#: dev/devtools.lua:601
+msgid "Sort (2 columns)"
+msgstr ""
+
+#: dev/devtools.lua:809
+msgid "Sort a list"
+msgstr ""
+
+#: dev/devtools.lua:603 views/grid.lua:740
+#, koreader
+msgid "Sort by"
+msgstr ""
+
+#: dev/devtools.lua:815 views/grid.lua:990
+msgid "Sort collections"
+msgstr "Collecties sorteren"
+
+#: views/grid.lua:1013 views/grid.lua:1026
+msgid "Sort collections…"
+msgstr "Collecties sorteren…"
+
+#: views/explorer.lua:152
+msgid "Sort files"
+msgstr "Bestanden sorteren"
+
+#: styles/bookinfo.lua:197
+#, koreader
+msgid "Spanish"
+msgstr ""
+
+#: menu.lua:360
+msgid "Square covers and series"
+msgstr "Vierkante omslagen en series"
+
+#: views/booksheet.lua:375 views/widgets.lua:570
+msgid "Start"
+msgstr "Starten"
+
+#: dev/devtools.lua:827
+msgid "Started"
+msgstr ""
+
+#: views/dock.lua:48 views/stats.lua:196
+msgid "Stats"
+msgstr "Statistieken"
+
+#: dev/devtools.lua:804
+msgid "Stats (test data)"
+msgstr ""
+
+#: dev/devtools.lua:671
+msgid "Status bar font"
+msgstr ""
+
+#: dev/devtools.lua:635 views/widgets.lua:514
+msgid "Storage"
+msgstr "Opslag"
+
+#: views/widgets.lua:1168
+msgid "Swap tap and hold"
+msgstr "Tikken en vasthouden omwisselen"
+
+#: views/booksheet.lua:223
+msgid "Synopsis"
+msgstr "Samenvatting"
+
+#: menu.lua:277
+msgid "Synopsis on card"
+msgstr "Samenvatting op kaart"
+
+#: dev/devtools.lua:972
+msgid "Table of contents (empty)"
+msgstr ""
+
+#: dev/devtools.lua:969
+msgid "Table of contents (with data)"
+msgstr ""
+
+#: dev/devtools.lua:961 styles/bookinfo.lua:987 styles/bookstatus.lua:394
+msgid "Tap to add or edit your review of this book…"
+msgstr "Tik om je bespreking van dit boek toe te voegen of te bewerken…"
+
+#: views/home.lua:254
+msgid "Tap to open the library"
+msgstr "Tik om de bibliotheek te openen"
+
+#: views/widgets.lua:568
+msgid "Tap to stop"
+msgstr "Tik om te stoppen"
+
+#: styles/vocabbuilder.lua:131
+msgid "Tap to view definition"
+msgstr "Tik om definitie te bekijken"
+
+#: views/grid.lua:1329
+msgid "Test book"
+msgstr "Testboek"
+
+#: menu.lua:563
+msgid "Test data (pagination)"
+msgstr "Testgegevens (paginering)"
+
+#: dev/devtools.lua:541
+msgid "Test dictionary"
+msgstr ""
+
+#: menu.lua:89
+msgid "Test galleries"
+msgstr "Testgalerijen"
+
+#: menu.lua:596
+msgid "Test stats"
+msgstr "Teststatistieken"
+
+#: dev/devtools.lua:770
+msgid "Test synopsis for the full-screen text viewer."
+msgstr ""
+
+#: menu.lua:575
+msgid "Test widgets (all with data)"
+msgstr "Testwidgets (alle met gegevens)"
+
+#: menu.lua:547
+msgid "Tests"
+msgstr "Tests"
+
+#: styles/ui/readermenu.lua:56
+#, koreader
+msgid "Text"
+msgstr ""
+
+#: dev/devtools.lua:741
+msgid "Text viewer (synopsis)"
+msgstr ""
+
+#: dev/devtools.lua:573
+msgid "The Name of the Wind"
+msgstr ""
+
+#: dev/devtools.lua:517
+msgid "The Stormlight Archive"
+msgstr ""
+
+#: views/widgets.lua:183
+msgid "The current book is not part of a series"
+msgstr "Het huidige boek maakt geen deel uit van een serie"
+
+#: styles/ui/pagination.lua:182
+msgid "This collection is empty"
+msgstr "Deze collectie is leeg"
+
+#: views/widgets.lua:441
+msgid "This month"
+msgstr "Deze maand"
+
+#: views/stats.lua:199
+msgid "This month · %1 · %2 pp."
+msgstr "Deze maand · %1 · %2 blz."
+
+#: styles/statspages.lua:266
+msgid "This month: %1"
+msgstr "Deze maand: %1"
+
+#: styles/statspages.lua:263
+msgid "This week: %1"
+msgstr "Deze week: %1"
+
+#: views/widgets.lua:441
+msgid "This year"
+msgstr "Dit jaar"
+
+#: dev/devtools.lua:703
+#, koreader
+msgid "Time"
+msgstr ""
+
+#: styles/statspages.lua:240
+#, koreader
+msgid "Time range statistics"
+msgstr ""
+
+#: styles/bookinfo.lua:894
+msgid "Time read"
+msgstr "Leestijd"
+
+#: styles/statspages.lua:79
+#, koreader
+msgid "Time spent reading"
+msgstr ""
+
+#: styles/statspages.lua:77
+#, koreader
+msgid "Time spent reading this session"
+msgstr ""
+
+#: styles/statspages.lua:78
+#, koreader
+msgid "Time spent reading today"
+msgstr ""
+
+#: dev/devtools.lua:515 dev/devtools.lua:605 dev/devtools.lua:655 dev/devtools.lua:822 views/grid.lua:60
+#, koreader
+msgid "Title"
+msgstr ""
+
+#: dev/devtools.lua:507
+msgid "Title, author or series"
+msgstr ""
+
+#: dev/devtools.lua:811
+msgid "To read"
+msgstr ""
+
+#: dev/devtools.lua:632
+#, koreader
+msgid "Today"
+msgstr ""
+
+#: views/widgets.lua:268
+msgid "Today and streak"
+msgstr "Vandaag en reeks"
+
+#: styles/statspages.lua:319
+#, koreader
+msgid "Today's timeline"
+msgstr ""
+
+#: views/stats.lua:738
+msgid "Top author"
+msgstr "Meest gelezen auteur"
+
+#: menu.lua:329
+msgid "Top bar"
+msgstr "Bovenbalk"
+
+#: styles/statspages.lua:79
+#, koreader
+msgid "Total time spent on this book"
+msgstr ""
+
+#: dev/devtools.lua:531
+#, koreader
+msgid "Translate"
+msgstr ""
+
+#: dev/devtools.lua:688
+msgid "Two numbers (margins)"
+msgstr ""
+
+#: views/power.lua:124
+#, koreader
+msgid "Update"
+msgstr ""
+
+#: menu.lua:491
+msgid "View mode"
+msgstr "Weergavemodus"
+
+#: dev/devtools.lua:934
+msgid "Vocabulary builder (empty)"
+msgstr ""
+
+#: dev/devtools.lua:913
+msgid "Vocabulary builder (with data)"
+msgstr ""
+
+#: styles/ui/titlebar.lua:571
+msgid "Vocabulary review"
+msgstr "Woordenschat herhalen"
+
+#: styles/vocabbuilder.lua:304
+msgid "Vocabulary review · %1 word"
+msgid_plural "Vocabulary review · %1 words"
+msgstr[0] "Woordenschat herhalen · %1 woord"
+msgstr[1] "Woordenschat herhalen · %1 woorden"
+
+#: dev/devtools.lua:930
+msgid "Vocabulary review · %d words"
+msgstr ""
+
+#: dev/devtools.lua:945
+msgid "Vocabulary review · 0 words"
+msgstr ""
+
+#: styles/readerprogress.lua:196
+msgid "WEEKLY ACTIVITY"
+msgstr "WEKELIJKSE ACTIVITEIT"
+
+#: dev/devtools.lua:723
+msgid "What do you want to do with this book?"
+msgstr ""
+
+#: menu.lua:523
+msgid "When opening KOReader, warns about new patches and plugins and disables those incompatible with Aire."
+msgstr "Waarschuwt bij het openen van KOReader voor nieuwe patches en plugins en schakelt de met Aire incompatibele uit."
+
+#: menu.lua:396
+msgid "White corner: reading. Gray corner: on hold."
+msgstr "Witte hoek: aan het lezen. Grijze hoek: in de wacht."
+
+#: dev/devtools.lua:634 views/widgets.lua:465
+msgid "Wi-Fi"
+msgstr "Wifi"
+
+#: dev/devtools.lua:659
+msgid "Wi-Fi networks"
+msgstr ""
+
+#: views/widgets.lua:954
+msgid "Widget gallery · %1 / %2"
+msgstr "Widgetgalerij · %1 / %2"
+
+#: menu.lua:289
+msgid "Widget presets"
+msgstr "Widgetvoorinstellingen"
+
+#: views/widgets.lua:939
+msgid "Widgets %1–%2"
+msgstr "Widgets %1–%2"
+
+#: dev/devtools.lua:530 views/widgets.lua:542 views/widgets.lua:543
+#, koreader
+msgid "Wikipedia"
+msgstr ""
+
+#: views/stats.lua:419
+msgid "You didn't read that day"
+msgstr "Je hebt die dag niet gelezen"
+
+#: views/widgets.lua:384
+msgid "You don't have any highlights yet"
+msgstr "Je hebt nog geen markeringen"
+
+#: styles/ui/pagination.lua:180
+msgid "You have not opened any book yet"
+msgstr "Je hebt nog geen boek geopend"
+
+#: views/grid.lua:582
+msgid "You haven't finished any books yet"
+msgstr "Je hebt nog geen boeken uitgelezen"
+
+#: dev/devtools.lua:542
+msgid ""
+"adj. Lasting for a short time.\n"
+"\n"
+"\"An ephemeral joy\".\n"
+"\n"
+"Synonyms: brief, fleeting, passing, transitory."
+msgstr ""
+
+#: views/widgets.lua:550 views/widgets.lua:550
+msgid "and highlights"
+msgstr "en markeringen"
+
+#: views/booksheet.lua:359
+msgid "at %1 %"
+msgstr "op %1 %"
+
+#: styles/readerprogress.lua:160
+msgid "avg. / day"
+msgstr "gem. / dag"
+
+#: views/widgets.lua:506
+msgid "battery"
+msgstr "batterij"
+
+#: views/widgets.lua:403
+msgid "book"
+msgid_plural "books"
+msgstr[0] "boek"
+msgstr[1] "boeken"
+
+#: common/compat.lua:32 common/compat.lua:34 common/compat.lua:35 common/compat.lua:36 common/compat.lua:37
+msgid "conflicts with plugin covers"
+msgstr "conflicteert met de omslagen van de plugin"
+
+#: dev/devtools.lua:539 dev/devtools.lua:541
+msgid "ephemeral"
+msgstr ""
+
+#: views/widgets.lua:403
+#, koreader
+msgid "favorites"
+msgstr ""
+
+#: views/widgets.lua:528
+msgid "files"
+msgstr "bestanden"
+
+#: views/stats.lua:694 views/widgets.lua:423
+msgid "finished book"
+msgid_plural "finished books"
+msgstr[0] "gelezen boek"
+msgstr[1] "gelezen boeken"
+
+#: views/stats.lua:233
+msgid "finished in %1"
+msgstr "gelezen in %1"
+
+#: views/widgets.lua:518 views/widgets.lua:520
+msgid "free"
+msgstr "vrij"
+
+#: views/widgets.lua:252
+msgid "in total"
+msgstr "in totaal"
+
+#: common/compat.lua:27 common/compat.lua:28 common/compat.lua:29 common/compat.lua:30 common/compat.lua:31
+msgid "included in Aire"
+msgstr "opgenomen in Aire"
+
+#: styles/readerprogress.lua:159
+msgid "last 7 days"
+msgstr "laatste 7 dagen"
+
+#: views/widgets.lua:456
+msgid "light"
+msgstr "licht"
+
+#: views/widgets.lua:481
+#, koreader
+msgid "night mode"
+msgstr ""
+
+#: styles/bookinfo.lua:263
+msgid "now"
+msgstr "nu"
+
+#: views/widgets.lua:521
+msgid "of %1"
+msgstr "van %1"
+
+#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
+msgid "p. %1 / %2"
+msgstr "blz. %1 / %2"
+
+#: styles/bookstatus.lua:215
+msgid "p. %1 of %2"
+msgstr "blz. %1 van %2"
+
+#: views/stats.lua:686
+msgid "pages read"
+msgstr "gelezen pagina’s"
+
+#: views/widgets.lua:598
+msgid "port %1"
+msgstr "poort %1"
+
+#: views/stats.lua:690
+msgid "reading time"
+msgstr "leestijd"
+
+#: common/compat.lua:43
+msgid "replaces the file browser and covers"
+msgstr "vervangt de bestandsverkenner en de omslagen"
+
+#: common/compat.lua:45
+msgid "replaces the file browser covers"
+msgstr "vervangt de omslagen van de bestandsverkenner"
+
+#: common/compat.lua:44
+msgid "replaces the home screen"
+msgstr "vervangt het startscherm"
+
+#: views/widgets.lua:489 views/widgets.lua:496
+msgid "screen"
+msgstr "scherm"
+
+#: views/widgets.lua:543
+msgid "search"
+msgstr "zoeken"
+
+#: views/widgets.lua:536
+msgid "search word"
+msgstr "woord zoeken"
+
+#: views/widgets.lua:557 views/widgets.lua:557
+msgid "shortcuts"
+msgstr "snelkoppelingen"
+
+#: views/stats.lua:230
+msgid "streak"
+msgstr "reeks"
+
+#: views/widgets.lua:276
+msgid "streak %1"
+msgstr "reeks %1"
+
+#: views/widgets.lua:275
+msgid "streak %1 day"
+msgid_plural "streak %1 days"
+msgstr[0] "reeks van %1 dag"
+msgstr[1] "reeks van %1 dagen"
+
+#: common/compat.lua:26
+msgid "the plugin has its own status bar"
+msgstr "de plugin heeft een eigen statusbalk"
+
+#: views/widgets.lua:252
+msgid "this month"
+msgstr "deze maand"
+
+#: views/widgets.lua:252
+msgid "this year"
+msgstr "dit jaar"
+
+#: views/widgets.lua:568 views/widgets.lua:570
+msgid "timer"
+msgstr "timer"
+
+#: views/widgets.lua:272 views/widgets.lua:274
+msgid "today"
+msgstr "vandaag"
+
+#: styles/bookinfo.lua:218
+msgctxt "aire"
+msgid "today"
+msgstr "vandaag"
+
+#: styles/readerprogress.lua:158 views/stats.lua:225
+msgid "today · %1 pp."
+msgstr "vandaag · %1 blz."
+
+#: views/widgets.lua:470
+msgid "wi-fi"
+msgstr "wifi"
+
+#: styles/bookinfo.lua:219
+msgctxt "aire"
+msgid "yesterday"
+msgstr "gisteren"
+
+#: views/stats.lua:128
+msgid "~%1 left"
+msgstr "nog ~%1"
+
+#: styles/ui/lightsheet.lua:183
+msgid "− Brightness"
+msgstr "− Helderheid"
