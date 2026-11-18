@@ -11,7 +11,6 @@ return function(Aire, ctx)
     -- como upvalues de esta función (LuaJIT admite 60).
     local Blitbuffer = require("ffi/blitbuffer")
     local BookList = require("ui/widget/booklist")
-    local BottomContainer = require("ui/widget/container/bottomcontainer")
     local CenterContainer = require("ui/widget/container/centercontainer")
     local Device = require("device")
     local Font = require("ui/font")
@@ -408,24 +407,9 @@ return function(Aire, ctx)
             end
         end
 
-        return FrameContainer:new{
-            bordersize = 0,
-            padding = 0,
-            margin = 0,
-            background = WHITE,
-            width = sw,
-            height = sh,
-            OverlapGroup:new{
-                dimen = Geom:new{ w = sw, h = sh },
-                HorizontalGroup:new{
-                    HorizontalSpan:new{ width = side },
-                    content,
-                },
-                BottomContainer:new{
-                    dimen = Geom:new{ w = sw, h = sh - S(DOCK_MARGIN_BOTTOM) },
-                    dock,
-                },
-            },
-        }
+        return package.loaded.aire_screen.root(HorizontalGroup:new{
+            HorizontalSpan:new{ width = side },
+            content,
+        }, dock)
     end
 end

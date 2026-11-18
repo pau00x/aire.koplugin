@@ -22,6 +22,7 @@ local _ = require("gettext")
 local N_ = _.ngettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Shortcuts"
 local AireUI = package.loaded.aire_ui
@@ -101,12 +102,40 @@ end
 
 local ITEMS_PER_PAGE = 8 -- (con más, las tarjetas no caben y se tocan entre sí)
 
+-- Menú del ≡: el de KOReader (opciones de la lista) con "Añadir a los atajos
+-- de carpetas" arriba, como hoja inferior (KOReader lo anclaba a su botón,
+-- que con la cabecera de Aire no se ve)
+local function showShortcutsMenu(fms)
+    local ButtonDialog = require("ui/widget/buttondialog")
+    local dialog
+    AireUI.withTemporaryNew(ButtonDialog, function(base_new, cls, o)
+        if dialog or type(o) ~= "table" or type(o.buttons) ~= "table" then return base_new(cls, o) end
+        table.insert(o.buttons, 1, { {
+            text = _("Add to folder shortcuts"),
+            align = "left",
+            callback = function()
+                UIManager:close(dialog)
+                fms:addShortcut()
+            end,
+        } })
+        table.insert(o.buttons, 2, {}) -- separador
+        o.anchor = nil
+        dialog = base_new(cls, o)
+        return dialog
+    end, fms.showMenu, fms)
+end
+
 safeWrap(FileManagerShortcuts, "onShowFolderShortcutsDialog", function(orig_show, self, select_callback)
-    -- El + de Aire: se cambia al crear la lista (la barra de título de Aire ya
-    -- está montada cuando KOReader la enseña, y setLeftIcon no surtía efecto)
+    -- ≡ de Aire en vez del + (se cambia al crear la lista: la barra de título
+    -- de Aire ya está montada cuando KOReader la enseña). Tocar: el menú con
+    -- "Añadir…" arriba; mantener pulsado: añadir directamente.
     local Menu = require("ui/widget/menu")
     local res = AireUI.withTemporaryNew(Menu, function(base_new, cls, o)
-        if type(o) == "table" and o.title_bar_left_icon == "plus" then o.title_bar_left_icon = "aire.plus" end
+        if type(o) == "table" and o.title_bar_left_icon == "plus" then
+            o.title_bar_left_icon = "aire.menu"
+            o.onLeftButtonTap = function() showShortcutsMenu(self) end
+            o.onLeftButtonHold = function() self:addShortcut() end
+        end
         return base_new(cls, o)
     end, orig_show, self, select_callback)
     local sm = self.shortcuts_menu
@@ -136,7 +165,7 @@ safeWrap(FileManagerShortcuts, "onShowFolderShortcutsDialog", function(orig_show
                 or (self.inner_dimen and self.inner_dimen.w)
                 or w
             local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(16) - outer_pad)
+            local pad_h = math.max(0, S(SIDE) - outer_pad)
             for _, child in ipairs(self.item_group) do
                 if child and child.entry then
                     local ih = (child.dimen and child.dimen.h) or S(64)

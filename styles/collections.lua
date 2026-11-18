@@ -29,6 +29,7 @@ local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
 local logger = require("logger")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Collections"
 local AireUI = package.loaded.aire_ui
@@ -150,7 +151,7 @@ safeWrap(FileManagerCollection, "onShowCollList", function(orig_show, self, ...)
             local w = self.dimen and self.dimen.w or Screen:getWidth()
             local first = self.item_group[1]
             local avail_w = (first and first.dimen and first.dimen.w) or (self.inner_dimen and self.inner_dimen.w) or w
-            local pad_h = math.max(0, S(16) - math.floor((w - avail_w) / 2))
+            local pad_h = math.max(0, S(SIDE) - math.floor((w - avail_w) / 2))
             for _i, child in ipairs(self.item_group) do
                 if child and child.entry then
                     styleCollItem(child, avail_w, (child.dimen and child.dimen.h) or S(56), pad_h,

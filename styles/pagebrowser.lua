@@ -17,12 +17,12 @@ local T = require("ffi/util").template
 local ReaderDogear = require("apps/reader/modules/readerdogear")
 local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
-local TitleBar = require("ui/widget/titlebar")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local Widget = require("ui/widget/widget")
 local logger = require("logger")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local AireUI = package.loaded.aire_ui
 local safeWrap, withTemporaryNew = AireUI.safeWrap, AireUI.withTemporaryNew
 local TAG = "Aire/PageBrowser"
@@ -97,31 +97,25 @@ safeWrap(PageBrowserWidget, "init", function(orig_init, self)
         and (title_str .. " · " .. T(_("p. %1 / %2"), cur, total))
         or T(_("p. %1 / %2"), cur, total)
 
-    return withTemporaryNew(TitleBar, function(base_new, cls, o)
-        if type(o) == "table" and o.fullscreen then
-            o.left_icon = "chevron.left"
-            o.left_icon_tap_callback = function() self:onClose() end
-            o.left_icon_hold_callback = function() self:onClose(true) end
-            o.right_icon = "appbar.menu"
-            o.right_icon_tap_callback = function() self:onShowMenu() end
-            o.right_icon_hold_callback = function()
-                if self:updateNbTocSpans(-1, true, true) then
-                    self:updateLayout()
-                end
+    -- Cabecera de Aire (common/screen.lua): ‹, ≡ (su menú) y subtítulo
+    return package.loaded.aire_screen.withTitleBar({
+        only_fullscreen = true,
+        back = function() self:onClose() end,
+        back_hold = function() self:onClose(true) end,
+        menu_icon = "appbar.menu",
+        on_menu = function() self:onShowMenu() end,
+        on_menu_hold = function()
+            if self:updateNbTocSpans(-1, true, true) then
+                self:updateLayout()
             end
-            o.close_callback = nil
-            o.close_hold_callback = nil
-            TitleBar._aire_pending_subtitle = sub
-        end
-        local res = base_new(cls, o)
-        TitleBar._aire_pending_subtitle = nil
-        return res
-    end, orig_init, self)
+        end,
+        subtitle = sub,
+    }, orig_init, self)
 end, TAG)
 
 safeWrap(PageBrowserWidget, "updateLayout", function(orig_updateLayout, self)
     local sw, sh = Screen:getWidth(), Screen:getHeight()
-    local side = Screen:scaleBySize(16)
+    local side = Screen:scaleBySize(SIDE)
     local bottom_pad = Screen:scaleBySize(12)
     -- Si no hay preferencia guardada en vertical, usar 4×3 estilo Librería
     if sw <= sh and self.ui and self.ui.doc_settings then
@@ -136,7 +130,7 @@ safeWrap(PageBrowserWidget, "updateLayout", function(orig_updateLayout, self)
         if not has_rows then self.ui.doc_settings:saveSetting("page_browser_nb_rows", 3) end
         self._aire_tmp_cols, self._aire_tmp_rows = not has_cols, not has_rows
     end
-    -- Reservar margen inferior S(12) y márgenes laterales S(16) para la cinta inferior
+    -- Reservar margen inferior S(12) y márgenes laterales S(SIDE) para la cinta inferior
     self.dimen.h = sh - bottom_pad
     -- updateLayout termina llamando a update(): se aplaza hasta haber puesto
     -- nuestro ancho de cinta, para que la primera pintura ya salga con él
@@ -202,7 +196,7 @@ end, TAG)
 safeWrap(PageBrowserWidget, "onTap", function(orig_pb_onTap, self, arg, ges)
     if self.row and self.row.dimen and ges.pos and ges.pos.y >= self.row.dimen.y
             and ges.pos.y <= self.row.dimen.y + self.row.dimen.h and self.row[1] then
-        local rx = self.row[1].dimen and self.row[1].dimen.x or Screen:scaleBySize(16)
+        local rx = self.row[1].dimen and self.row[1].dimen.x or Screen:scaleBySize(SIDE)
         local page = self.row[1]:getPageAtX(ges.pos.x - rx)
         if page then
             page = page - math.floor(self.nb_grid_items / 2) + self.focus_page_shift
@@ -218,7 +212,7 @@ end, TAG)
 safeWrap(PageBrowserWidget, "onHold", function(orig_pb_onHold, self, arg, ges)
     if self.row and self.row.dimen and ges.pos and ges.pos.y >= self.row.dimen.y
             and ges.pos.y <= self.row.dimen.y + self.row.dimen.h and self.row[1] then
-        local rx = self.row[1].dimen and self.row[1].dimen.x or Screen:scaleBySize(16)
+        local rx = self.row[1].dimen and self.row[1].dimen.x or Screen:scaleBySize(SIDE)
         local page = self.row[1]:getPageAtX(ges.pos.x - rx)
         if page then
             self:openBookMap(page)

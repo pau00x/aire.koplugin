@@ -18,15 +18,15 @@ local HorizontalSpan = require("ui/widget/horizontalspan")
 local ImageViewer = require("ui/widget/imageviewer")
 local Size = require("ui/size")
 local TextWidget = require("ui/widget/textwidget")
-local TitleBar = require("ui/widget/titlebar")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local logger = require("logger")
 local _ = require("gettext")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local AireUI = package.loaded.aire_ui
 local S = AireUI.S
-local safeWrap, withTemporaryNew = AireUI.safeWrap, AireUI.withTemporaryNew
+local safeWrap = AireUI.safeWrap
 local TAG = "Aire/ImageViewer"
 
 if ImageViewer._aire_styled then return end
@@ -55,23 +55,17 @@ safeWrap(ImageViewer, "init", function(orig_init, self)
         sub = string.format("%d × %d px", img:getWidth(), img:getHeight())
     end
 
-    withTemporaryNew(TitleBar, function(base_new, cls, o)
-        if type(o) == "table" then
-            o.fullscreen = true
-            o.left_icon = "chevron.left"
-            o.left_icon_tap_callback = function() self:onClose() end
-            o.close_callback = nil
-            o.subtitle = nil
-            TitleBar._aire_pending_subtitle = sub
-        end
-        local res = base_new(cls, o)
-        TitleBar._aire_pending_subtitle = nil
-        return res
-    end, orig_init, self)
+    -- Cabecera de Aire (common/screen.lua): ‹ y, de subtítulo, el pie o el tamaño
+    package.loaded.aire_screen.withTitleBar({
+        fullscreen = true,
+        back = function() self:onClose() end,
+        clear = { "subtitle" },
+        subtitle = sub,
+    }, orig_init, self)
 
     if self.button_table and self.button_container then
         local sw = Screen:getWidth()
-        local total_w = sw - 2 * S(16)
+        local total_w = sw - 2 * S(SIDE)
         local gap = S(10)
         local btn_w = math.floor((total_w - gap) / 2)
         local btn_h = S(44)

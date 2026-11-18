@@ -58,10 +58,13 @@ if plugin_dir then
     end
     pcall(function() dofile(plugin_dir .. "/common/icons.lua").register(plugin_dir) end)
     -- Piezas comunes (medidas, letra, colores, zonas pulsables, envoltorios
-    -- seguros): todos los módulos las toman de package.loaded.aire_ui y las
-    -- pantallas de common/pages.lua de package.loaded.aire_pages
+    -- seguros): todos los módulos las toman de package.loaded.aire_ui, la
+    -- estructura de las pantallas completas (medidas, puntos de página) de
+    -- package.loaded.aire_screen y las pantallas de common/pages.lua de
+    -- package.loaded.aire_pages
     UI = dofile(plugin_dir .. "/common/ui.lua")
     package.loaded.aire_ui = UI
+    package.loaded.aire_screen = dofile(plugin_dir .. "/common/screen.lua")
     package.loaded.aire_pages = dofile(plugin_dir .. "/common/pages.lua")
     -- Cabecera en crash.log (como la de KOReader) con la versión de _meta.lua,
     -- para que cada log diga cuál era. Es lo único que Aire escribe siempre al
@@ -305,9 +308,10 @@ function Aire:isHomeVisible()
     return self:isOwnView() and self.view == "home"
 end
 
--- Márgenes (iguales en Inicio, vistas y explorador)
-local TOP_PAD, TOP_GAP_BELOW, SIDE_PAD = 10, 12, 16
-local DOCK_GAP_ABOVE, DOCK_MARGIN_BOTTOM = 6, 12
+-- Márgenes (iguales en Inicio, vistas y explorador): common/screen.lua
+local METRICS = package.loaded.aire_screen.METRICS
+local TOP_PAD, TOP_GAP_BELOW, SIDE_PAD = METRICS.TOP_PAD, METRICS.TOP_GAP_BELOW, METRICS.SIDE
+local DOCK_GAP_ABOVE, DOCK_MARGIN_BOTTOM = METRICS.DOCK_GAP_ABOVE, METRICS.DOCK_MARGIN_BOTTOM
 local WIDGET_GAP = 14 -- separación de los widgets de Inicio (con la tarjeta, entre sí y con el dock)
 
 -- Vistas propias (añaden métodos a Aire):

@@ -80,6 +80,7 @@ local N_ = _.ngettext
 local C_ = _.pgettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/BookInfo"
 
@@ -665,10 +666,10 @@ safeWrap(BookInfo, "show", function(orig_BookInfo_show, self, doc_settings_or_fi
                     return math.max(landscape or 0, ITEMS_PER_PAGE), math.max(portrait or 0, ITEMS_PER_PAGE)
                 end
             end
-            local TitleBar = require("ui/widget/titlebar")
-            TitleBar._aire_pending_subtitle = o._bi_header and o._bi_header.subtitle or nil
-            local ok_new, res_new = pcall(base_new, cls, o)
-            TitleBar._aire_pending_subtitle = nil
+            -- Subtítulo de la cabecera de Aire (common/screen.lua)
+            local ok_new, res_new = pcall(package.loaded.aire_screen.withTitleBar, {
+                subtitle = o._bi_header and o._bi_header.subtitle or nil,
+            }, base_new, cls, o)
             KeyValuePage.getCurrentItemsPerPage = orig_items
             if not ok_new then error(res_new) end
             return res_new
@@ -744,7 +745,7 @@ local function buildMetricBar(bar_w, pct)
 end
 
 local function buildHeaderWidget(kvp, h)
-    local dock_w = Screen:getWidth() - 2 * Screen:scaleBySize(16)
+    local dock_w = Screen:getWidth() - 2 * Screen:scaleBySize(SIDE)
     local width = math.min(kvp.item_width, dock_w)
     local gap = Size.padding.large
     local small_gap = Size.span.vertical_default

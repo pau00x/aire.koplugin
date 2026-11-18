@@ -31,6 +31,7 @@ local TAG = "Aire/ReaderProgress"
 local N_ = _.ngettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local AireUI = package.loaded.aire_ui
 local S = AireUI.S
 
@@ -115,20 +116,19 @@ local function patchStatistics()
 
     safeWrap(ReaderProgress, "getStatusContent", function(_orig, self, width)
         local sw = width or Screen:getWidth()
-        local side = S(16)
+        local side = S(SIDE)
         local dock_w = sw - 2 * side
 
-        TitleBar._aire_pending_subtitle = _("Last 7 days summary")
         local tb = TitleBar:new{
             width = sw,
             fullscreen = true,
             align = "left",
             title = _("Reading progress"),
+            _aire_subtitle = _("Last 7 days summary"),
             left_icon = "chevron.left",
             left_icon_tap_callback = function() self:onClose() end,
             show_parent = self,
         }
-        TitleBar._aire_pending_subtitle = nil
 
         local days, week_total = buildDays(self.dates)
         local avg_secs = math.floor(week_total / 7 + 0.5)

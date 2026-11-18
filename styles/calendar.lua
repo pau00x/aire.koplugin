@@ -20,7 +20,6 @@ local OverlapGroup = require("ui/widget/overlapgroup")
 local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
 local TextWidget = require("ui/widget/textwidget")
-local TitleBar = require("ui/widget/titlebar")
 local datetime = require("datetime")
 local logger = require("logger")
 local userpatch = require("userpatch")
@@ -28,6 +27,7 @@ local _ = require("gettext")
 local N_ = _.ngettext
 local T = require("ffi/util").template
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Calendar"
 local AireUI = package.loaded.aire_ui
@@ -99,30 +99,24 @@ local function patchCalendar(_ReaderStatistics)
     end
 
     safeWrap(CalendarView, "init", function(orig_init, self)
-        self.outer_padding = S(16)
+        self.outer_padding = S(SIDE)
         self.inner_padding = S(5)
 
-        local own_tb_new, orig_tb_new = rawget(TitleBar, "new"), TitleBar.new
-        TitleBar.new = function(cls, o)
-            if type(o) == "table" then
-                o.fullscreen = true
-                o.title = _("Calendar")
-                o.subtitle = ""
-                TitleBar._aire_pending_subtitle = _("Loading month…")
-            end
-            local res = orig_tb_new(cls, o)
-            TitleBar._aire_pending_subtitle = nil
-            return res
-        end
         -- KOReader rellena los días (consultas a la base de datos) dentro de
         -- init; se aplaza al _populateItems del final, cuando ya está la fila
         -- del mes, para hacerlo una sola vez. La pantalla solo guarda una
         -- referencia a main_content, que se llena después.
         local had_own_populate = rawget(self, "_populateItems")
         self._populateItems = function() end
-        local ok_init, err = pcall(orig_init, self)
+        -- Cabecera de Aire (common/screen.lua): "Calendario" y un subtítulo
+        -- provisional que se cambia al rellenar el mes
+        local ok_init, err = pcall(package.loaded.aire_screen.withTitleBar, {
+            fullscreen = true,
+            title = _("Calendar"),
+            set = { subtitle = "" },
+            subtitle = _("Loading month…"),
+        }, orig_init, self)
         self._populateItems = had_own_populate
-        rawset(TitleBar, "new", own_tb_new)
         if not ok_init then error(err) end
 
         -- Celdas cuadradas (mismo tamaño que el calendario de Estadísticas)
@@ -137,7 +131,7 @@ local function patchCalendar(_ReaderStatistics)
 
         -- Fila de mes con flechas ‹ Mes Año › (igual que stats.lua)
         local sw = self.dimen and self.dimen.w or Screen:getWidth()
-        local w = sw - 2 * S(16)
+        local w = sw - 2 * S(SIDE)
         local nav_h = S(36)
         local prev_ic, set_prev = makeArrow("chevron.left", nav_h, function() self:prevMonth() end)
         local next_ic, set_next = makeArrow("chevron.right", nav_h, function() self:nextMonth() end)
@@ -145,8 +139,8 @@ local function patchCalendar(_ReaderStatistics)
         local month_bar = FrameContainer:new{
             bordersize = 0,
             padding = 0,
-            padding_left = S(16),
-            padding_right = S(16),
+            padding_left = S(SIDE),
+            padding_right = S(SIDE),
             padding_bottom = S(8),
             OverlapGroup:new{
                 dimen = Geom:new{ w = w, h = nav_h },

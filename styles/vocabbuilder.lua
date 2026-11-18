@@ -35,10 +35,11 @@ local AireUI = package.loaded.aire_ui
 local S, face, BLACK, WHITE, GRAY_DARK, GRAY_CARD, GRAY_BORDER, GRAY_LINE = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_CARD, AireUI.GRAY_BORDER, AireUI.GRAY_LINE
 
 
--- Mismos espacios que las listas de Aire: S(16) a los lados, S(8) entre
--- tarjetas, la primera pegada al título y lo que sobra, abajo (KOReader
--- repartía el sobrante entre las filas y dejaba medio margen arriba).
-local SIDE_PAD, GAP = 16, 8
+-- Mismos espacios que las listas de Aire: el margen lateral común
+-- (common/screen.lua), S(8) entre tarjetas, la primera pegada al título y lo
+-- que sobra, abajo (KOReader repartía el sobrante entre las filas y dejaba
+-- medio margen arriba).
+local SIDE_PAD, GAP = package.loaded.aire_screen.METRICS.SIDE, 8
 
 
 local function makePill(w, h, label, black, on_tap)
@@ -284,19 +285,23 @@ local function patchPlugin(VocabBuilder)
             local mt = getmetatable(w)
             local cls = mt and mt.__index
             if type(cls) == "table" and not cls._aire_vb_layout then
-                local ok, err = pcall(function()
-                    patchWidgetClass(cls)
-                    -- el pie ya se construyó con flechas: rehacerlo y medirlo de nuevo
-                    w.footer_left = nil -- fuerza a refreshFooter a reconstruirlo
-                    w:refreshFooter()
-                    if w.page_info then
-                        w.footer_height = w.page_info:getSize().h + Size.line.thick
-                    end
-                    pcall(fixFooter, w)
-                    w:setupItemHeight()
-                    w:_populateItems()
-                end)
-                if not ok then logger.warn("Aire/VocabBuilder:", err) end
+                local ok, err = pcall(patchWidgetClass, cls)
+                if ok then
+                    -- Con la clase ya parcheada, se vuelve a abrir entera: rehacer
+                    -- solo la lista dejaba el resto con las medidas de KOReader
+                    -- (márgenes mal la primera vez, bien a partir de la segunda).
+                    -- Es antes de que se pinte nada, así que no se ve el cambio.
+                    -- Se reabre por self:onShowVocabBuilder (no _orig) para pasar
+                    -- también por lo que envuelve a esta función por fuera (la
+                    -- cabecera de Aire, styles/ui/titlebar.lua, que solo ajusta
+                    -- la primera barra de título que se crea).
+                    local UIManager = require("ui/uimanager")
+                    UIManager:close(w)
+                    self.widget = nil
+                    return self:onShowVocabBuilder(...)
+                else
+                    logger.warn("Aire/VocabBuilder:", err)
+                end
             end
         end
         if w and w.title_bar and w.title_bar.setSubTitle then

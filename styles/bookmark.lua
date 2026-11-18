@@ -25,6 +25,8 @@ local VerticalSpan = require("ui/widget/verticalspan")
 local logger = require("logger")
 local _ = require("gettext")
 local Screen = Device.screen
+local METRICS = package.loaded.aire_screen.METRICS -- medidas comunes (common/screen.lua)
+local SIDE = METRICS.SIDE
 local AireUI = package.loaded.aire_ui
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Bookmark"
@@ -222,7 +224,7 @@ safeWrap(ReaderBookmark, "onShowBookmark", function(orig_onShowBookmark, self, .
                 or (self.inner_dimen and self.inner_dimen.w)
                 or w
             local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(16) - outer_pad)
+            local pad_h = math.max(0, S(SIDE) - outer_pad)
             for _, child in ipairs(self.item_group) do
                 if child and child.entry then
                     local ih = (child.dimen and child.dimen.h) or S(84)
@@ -246,7 +248,6 @@ end, TAG)
 --===========================================================================
 local BottomContainer = require("ui/widget/container/bottomcontainer")
 local ButtonDialog = require("ui/widget/buttondialog")
-local CenterContainer = require("ui/widget/container/centercontainer")
 local ConfirmBox = require("ui/widget/confirmbox")
 local GestureRange = require("ui/gesturerange")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
@@ -273,11 +274,9 @@ function DetailsSheet:onAireTapOut(_arg, ges)
     end
     return true
 end
+-- Deslizar hacia abajo cierra; a los lados no hace nada (no se cambia de marcador)
 function DetailsSheet:onAireSwipe(_arg, ges)
-    local dir = ges and ges.direction
-    if dir == "west" and self.on_next then self.on_next() return true end
-    if dir == "east" and self.on_prev then self.on_prev() return true end
-    if dir == "south" then self:onClose() return true end
+    if ges and ges.direction == "south" then self:onClose() return true end
     return true
 end
 -- Al mostrarse, pedir refresco de pantalla: UIManager:show sin tipo solo la
@@ -312,15 +311,6 @@ local function showDetailsSheet(bookmark, item_or_index)
     local not_select_mode = not (bm_menu and bm_menu.select_count) and not bookmark.ui.highlight.select_mode
 
     local sheet
-    local function reopen(idx)
-        UIManager:close(sheet)
-        if bm_menu then
-            bookmark:updateBookmarkList(nil, idx)
-            bookmark:showBookmarkDetails(item_table[idx])
-        else
-            bookmark:showBookmarkDetails(idx)
-        end
-    end
     local function edit_details_callback()
         bookmark.details_updated = true
         UIManager:close(sheet)
@@ -422,21 +412,8 @@ local function showDetailsSheet(bookmark, item_or_index)
             if bm_menu then bm_menu.close_callback() end
         end, { primary = true, disabled = bm_menu and bm_menu.select_count ~= nil }),
     })
-    -- Puntos de página (deslizar para cambiar de marcador)
-    local DotPager = require("ui/widget/menu")._aire_dot_pager_cls
-    if DotPager and items_nb > 1 then
-        table.insert(content, VerticalSpan:new{ width = S(8) })
-        table.insert(content, CenterContainer:new{
-            dimen = Geom:new{ w = in_w, h = S(26) },
-            DotPager:new{ height = S(26), get_state = function() return item_idx, items_nb end },
-        })
-    end
-
-    sheet = DetailsSheet:new{
-        close_callback = close_callback,
-        on_prev = item_idx > 1 and function() reopen(item_idx - 1) end or nil,
-        on_next = item_idx < items_nb and function() reopen(item_idx + 1) end or nil,
-    }
+    -- Un solo marcador: sin puntos de página ni deslizar a los lados
+    sheet = DetailsSheet:new{ close_callback = close_callback }
     sheet.frame = FrameContainer:new{
         width = sheet_w, bordersize = Size.border.thin, color = BLACK, background = WHITE,
         radius = S(style.radius or 14), padding = pad, content,

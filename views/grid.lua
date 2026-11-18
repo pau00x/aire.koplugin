@@ -100,7 +100,8 @@ local metaIn, makeBook, isAutoKey, groupRank = Books.metaIn, Books.makeBook, Boo
 local lowerKey, byTitle, sortEntries, filterBooks = Books.lowerKey, Books.byTitle, Books.sortEntries, Books.filterBooks
 local countDone, booksAndDone, RANK, AUTO = Books.countDone, Books.booksAndDone, Books.RANK, Books.AUTO
 local Cell = dofile(GRID_DIR .. "/grid/cell.lua")
-local GridCell, PageDots = Cell.GridCell, Cell.PageDots
+local GridCell = Cell.GridCell
+local Pager = package.loaded.aire_screen.Pager
 -- Miniaturas de portadas en disco (ya escaladas a la celda)
 local Thumbs = dofile(GRID_DIR .. "/grid/thumbs.lua")
 -- Herramientas de prueba (devtools.lua, opcional): las fija el mixin
@@ -143,11 +144,7 @@ return function(Aire, ctx)
     local GestureRange = require("ui/gesturerange")
     local HorizontalGroup = require("ui/widget/horizontalgroup")
     local HorizontalSpan = require("ui/widget/horizontalspan")
-    local IconWidget = require("ui/widget/iconwidget")
     local InputContainer = require("ui/widget/container/inputcontainer")
-    local LeftContainer = require("ui/widget/container/leftcontainer")
-    local OverlapGroup = require("ui/widget/overlapgroup")
-    local RightContainer = require("ui/widget/container/rightcontainer")
     local Size = require("ui/size")
     local TextWidget = require("ui/widget/textwidget")
     local UIManager = require("ui/uimanager")
@@ -1179,72 +1176,20 @@ return function(Aire, ctx)
         end)
     end
 
-    -- Fila única: recuentos (izquierda) + filtro·orden (derecha)
-    function Aire:buildGridInfoRow(w, counts, filters, sorts)
-        local right
-        local right_w = 0
-        if filters or sorts then
-            local parts = {}
-            if filters then
-                local fopt = findOption(filters.list, config[filters.key] or filters.default or "all")
-                table.insert(parts, fopt.short or fopt.label)
-            end
-            if sorts then
-                local sopt = findOption(sorts.list, config[sorts.key] or sorts.default)
-                table.insert(parts, sopt.short or sopt.label)
-            end
-            local sort_row = HorizontalGroup:new{
-                align = "center",
-                TextWidget:new{ text = table.concat(parts, " · "), face = face(false, 13), fgcolor = BLACK, padding = 0 },
-                HorizontalSpan:new{ width = S(2) },
-                IconWidget:new{ icon = "aire.chevron.down", width = S(16), height = S(16), alpha = true },
-            }
-            right = tappable(FrameContainer:new{
-                bordersize = 0, padding = 0, padding_left = S(8), padding_top = S(4), padding_bottom = S(4),
-                sort_row,
-            }, function() self:showGridFilterSortMenu(filters, sorts) end, nil, { h = S(8), v = S(10) })
-            right_w = right:getSize().w
+    -- Texto del filtro y el orden actuales ("Todos · Recientes"); nil si la
+    -- vista no tiene ninguno de los dos
+    function Aire:gridFilterSortLabel(filters, sorts)
+        if not (filters or sorts) then return nil end
+        local parts = {}
+        if filters then
+            local fopt = findOption(filters.list, config[filters.key] or filters.default or "all")
+            table.insert(parts, fopt.short or fopt.label)
         end
-        local left_max = right_w > 0 and math.max(S(60), w - right_w - S(10)) or w
-        local counts_w = TextWidget:new{
-            text = counts or "", face = face(false, 13), fgcolor = GRAY_TEXT, max_width = left_max, padding = 0,
-        }
-        local h = math.max(counts_w:getSize().h, right and right:getSize().h or 0, S(28))
-        local row = OverlapGroup:new{
-            dimen = Geom:new{ w = w, h = h },
-            LeftContainer:new{ dimen = Geom:new{ w = w, h = h }, counts_w },
-        }
-        if right then
-            table.insert(row, RightContainer:new{ dimen = Geom:new{ w = w, h = h }, right })
+        if sorts then
+            local sopt = findOption(sorts.list, config[sorts.key] or sorts.default)
+            table.insert(parts, sopt.short or sopt.label)
         end
-        return row
-    end
-
-    function Aire:buildGridGroupHeader(w, group)
-        return self:buildBackHeader(w, group.title, function() self:closeGridGroup() end)
-    end
-
-    -- "‹ Título" a todo lo ancho; al tocar, on_back
-    function Aire:buildBackHeader(w, title, on_back)
-        local group = { title = title }
-        local icon_size = S(24)
-        local row = HorizontalGroup:new{
-            align = "center",
-            IconWidget:new{ icon = "chevron.left", width = icon_size, height = icon_size, alpha = true },
-            HorizontalSpan:new{ width = S(6) },
-            TextWidget:new{
-                text = group.title,
-                face = face(true, 17),
-                fgcolor = BLACK,
-                max_width = w - icon_size - S(6),
-                padding = 0,
-            },
-        }
-        return tappable(FrameContainer:new{
-            bordersize = 0, padding = 0, padding_top = S(3), padding_bottom = S(3),
-            width = w, -- toda la fila responde, no solo el texto
-            LeftContainer:new{ dimen = Geom:new{ w = w, h = row:getSize().h }, row },
-        }, on_back, nil, { h = 0, v = S(8) })
+        return table.concat(parts, " · ")
     end
 
     function Aire:buildGrid(w, h, entries, empty_text, swipe_extra_h)
@@ -1400,65 +1345,49 @@ return function(Aire, ctx)
         local side = S(ctx.SIDE_PAD)
         local w = sw - 2 * side
 
-        local content = VerticalGroup:new{ align = "left" }
-        table.insert(content, VerticalSpan:new{ width = S(ctx.TOP_PAD) })
-        table.insert(content, self:buildTopBar(w))
-        self._clock_w, self._date_w = nil, nil
-        self._header_h = content:getSize().h + S(4)
         local VIEW_TITLES = {
             library = _("Library"),
             collections = _("Collections"),
             history = _("History"),
         }
-        table.insert(content, VerticalSpan:new{ width = S(12) })
-        if lvl.back then
-            table.insert(content, self:buildBackHeader(w, lvl.back.title, lvl.back.action))
-            table.insert(content, VerticalSpan:new{ width = S(2) })
-        elseif not lvl.group and VIEW_TITLES[kind] then
-            table.insert(content, self:buildViewTitle(w, VIEW_TITLES[kind]))
-            table.insert(content, VerticalSpan:new{ width = S(2) })
+        -- Cabecera común (common/screen.lua):
+        --   pestaña (Librería…): "Título" y a la derecha el filtro·orden ▾
+        --   subpágina (Terminados, una colección o serie): "‹ Título" y ≡ si
+        --   tiene filtro u orden (el filtro·orden actual va en el subtítulo)
+        local fs_label = self:gridFilterSortLabel(lvl.filters, lvl.sorts)
+        local fs_open = fs_label and function() self:showGridFilterSortMenu(lvl.filters, lvl.sorts) end or nil
+        local head, sub_txt = {}, lvl.counts or ""
+        local back = lvl.back
+            or (lvl.group and { title = lvl.group.title, action = function() self:closeGridGroup() end })
+        if back then
+            head = { title = back.title, on_back = back.action, menu_icon = fs_open and "aire.menu", on_menu = fs_open }
+            if fs_label then sub_txt = sub_txt ~= "" and (sub_txt .. " · " .. fs_label) or fs_label end
+        elseif VIEW_TITLES[kind] then
+            head = { title = VIEW_TITLES[kind], menu_text = fs_label, on_menu = fs_open }
         end
-        if lvl.group then
-            table.insert(content, self:buildGridGroupHeader(w, lvl.group))
-            table.insert(content, VerticalSpan:new{ width = S(2) })
-        end
-        -- Recuentos a la izquierda + filtros/orden a la derecha
-        table.insert(content, self:buildGridInfoRow(w, lvl.counts, lvl.filters, lvl.sorts))
+        local content = self:buildScreenTop(w, head)
+        -- Recuentos (y en subpáginas el filtro·orden) como subtítulo
+        table.insert(content, (package.loaded.aire_screen.subtitle(w, sub_txt)))
         table.insert(content, VerticalSpan:new{ width = S(12) })
         content:resetLayout()
         local used_h = content:getSize().h
 
         local dock = self:buildNavBar(w)
-        local dock_area = dock:getSize().h + S(ctx.DOCK_MARGIN_BOTTOM) + S(ctx.DOCK_GAP_ABOVE)
-        local dots_gap = S(ctx.DOCK_GAP_ABOVE)
-        local dots_h = S(26)
+        local dock_area = package.loaded.aire_screen.dockReserve(dock)
+        local dots_gap = S(package.loaded.aire_screen.METRICS.DOTS_GAP)
+        local dots_h = S(package.loaded.aire_screen.METRICS.DOTS_H)
         local grid_h = math.max(S(60), sh - used_h - dots_gap - dots_h - dock_area)
 
         table.insert(content, self:buildGrid(w, grid_h, lvl.entries, lvl.empty, dots_gap + dots_h))
         table.insert(content, VerticalSpan:new{ width = dots_gap })
-        table.insert(content, PageDots:new{ width = w, height = dots_h, page = L.page, pages = L.pages or 1 })
+        table.insert(content, Pager:new{ width = w, height = dots_h, page = L.page, pages = L.pages or 1 })
         content:resetLayout()
         logger.dbg("Aire/Grid:", kind, "construido en", time.to_ms(time.since(t0)), "ms")
 
-        local view = FrameContainer:new{
-            bordersize = 0,
-            padding = 0,
-            margin = 0,
-            background = WHITE,
-            width = sw,
-            height = sh,
-            OverlapGroup:new{
-                dimen = Geom:new{ w = sw, h = sh },
-                HorizontalGroup:new{
-                    HorizontalSpan:new{ width = side },
-                    content,
-                },
-                BottomContainer:new{
-                    dimen = Geom:new{ w = sw, h = sh - S(ctx.DOCK_MARGIN_BOTTOM) },
-                    dock,
-                },
-            },
-        }
+        local view = package.loaded.aire_screen.root(HorizontalGroup:new{
+            HorizontalSpan:new{ width = side },
+            content,
+        }, dock)
         -- Tiempo del primer pintado (escalar portadas, etc.) en el log
         local orig_paint = view.paintTo
         view.paintTo = function(v, bb, x, y)

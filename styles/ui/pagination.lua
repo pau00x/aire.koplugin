@@ -24,21 +24,17 @@ local Size = require("ui/size")
 local TextBoxWidget = require("ui/widget/textboxwidget")
 local TextWidget = require("ui/widget/textwidget")
 local TouchMenu = require("ui/widget/touchmenu")
-local WidgetContainer = require("ui/widget/container/widgetcontainer")
 local logger = require("logger")
 local _ = require("gettext")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/UI"
 
 -- stylua: ignore start
 local DOT_PAGINATION            = uiOpt("dots")   -- activar paginación por puntos global
-local MAX_DOTS                  = 9      -- a partir de más páginas se muestra "3 / 12"
 local TOUCHMENU_DOTS            = 6      -- máximo de puntos en el pie del menú desplegable
-local BAR_HEIGHT                = 26     -- altura base del indicador (igual que views/grid.lua)
-local DOT_SIZE                  = 7      -- diámetro de los puntos / alto de la raya
-local ACTIVE_PILL_W             = 28     -- largo de la raya de la página actual
-local DOT_GAP                   = 9      -- separación entre puntos
+local BAR_HEIGHT                = package.loaded.aire_screen.METRICS.DOTS_H -- alto del indicador
 local EMPTY_LIST_MESSAGE        = true   -- aviso gris centrado en listas vacías (Historial, colecciones…)
 -- stylua: ignore end
 
@@ -48,95 +44,23 @@ local EMPTY_LIST_MESSAGE        = true   -- aviso gris centrado en listas vacía
 if DOT_PAGINATION and not Menu._dot_pagination_patched then
     Menu._dot_pagination_patched = true
 
-    local TEXT_COLOR = Blitbuffer.COLOR_DARK_GRAY
-
-    local DotPager = WidgetContainer:extend{
-        get_state = nil, -- function() -> cur, total
-        height = nil,
-        max_dots = nil,
-    }
+    -- Puntos de página: la pieza común (common/screen.lua), la misma que usan
+    -- la cuadrícula de la Librería y common/pages.lua
+    local DotPager = package.loaded.aire_screen.Pager
     Menu._aire_dot_pager_cls = DotPager
 
-    function DotPager:init()
-        self.height = self.height or Screen:scaleBySize(BAR_HEIGHT)
-        self.max_dots = self.max_dots or MAX_DOTS
-        self.dimen = Geom:new{ x = 0, y = 0, w = 0, h = self.height }
+    -- Pie de los puntos (common/screen.lua): las pantallas completas sin dock
+    -- (en el lector…) dejan debajo el mismo hueco que hay hasta el dock
+    local AireScreen = package.loaded.aire_screen
+    local function wantsBottomGap(w)
+        if w._aire_has_dock or w.is_popout or w.name == "filemanager" then return false end
+        return w.covers_fullscreen or (w.dimen and w.dimen.h and w.dimen.h >= Screen:getHeight()) or false
     end
-
-    function DotPager:_measure()
-        local cur, total = 1, 1
-        if self.get_state then
-            cur, total = self.get_state()
-        end
-        total = tonumber(total) or 1
-        cur = math.max(1, math.min(total, tonumber(cur) or 1))
-        if total <= 1 then
-            self.dimen.w = 0
-            self.dimen.h = self.height
-            return cur, total
-        end
-        if total > self.max_dots then
-            local tw = TextWidget:new{
-                text = tostring(cur) .. " / " .. tostring(total),
-                face = Font:getFace("cfont", 13),
-            }
-            self.dimen.w = tw:getSize().w
-            self.dimen.h = self.height
-            tw:free()
-            return cur, total
-        end
-        local d = Screen:scaleBySize(DOT_SIZE)
-        local pill_w = math.max(d, Screen:scaleBySize(ACTIVE_PILL_W))
-        local gap = Screen:scaleBySize(DOT_GAP)
-        self.dimen.w = (total - 1) * d + pill_w + (total - 1) * gap
-        self.dimen.h = self.height
-        return cur, total
-    end
-
-    function DotPager:getSize()
-        self:_measure()
-        return self.dimen
-    end
-
-    function DotPager:paintTo(bb, x, y)
-        local cur, total = self:_measure()
-        self.dimen.x = x
-        self.dimen.y = y
-        if total <= 1 then return end
-
-        local w, h = self.dimen.w, self.dimen.h
-        local cy = y + math.floor(h / 2)
-
-        if total > self.max_dots then
-            local tw = TextWidget:new{
-                text = tostring(cur) .. " / " .. tostring(total),
-                face = Font:getFace("cfont", 13),
-                fgcolor = TEXT_COLOR,
-            }
-            local ts = tw:getSize()
-            tw:paintTo(bb, x + math.floor((w - ts.w) / 2), y + math.floor((h - ts.h) / 2))
-            tw:free()
-            return
-        end
-
-        local d = Screen:scaleBySize(DOT_SIZE)
-        local r = math.floor(d / 2)
-        local t = Size.border.thin
-        local pill_w = math.max(d, Screen:scaleBySize(ACTIVE_PILL_W))
-        local gap = Screen:scaleBySize(DOT_GAP)
-
-        local px = x
-        local iy = cy - r
-        for i = 1, total do
-            if i == cur then
-                bb:paintRoundedRect(px, iy, pill_w, d, Blitbuffer.COLOR_BLACK, r)
-                px = px + pill_w + gap
-            else
-                bb:paintRoundedRect(px, iy, d, d, Blitbuffer.COLOR_BLACK, r)
-                bb:paintRoundedRect(px + t, iy + t, d - 2 * t, d - 2 * t, Blitbuffer.COLOR_WHITE, math.max(0, r - t))
-                px = px + d + gap
-            end
-        end
+    local function dotsFooter(w)
+        if not w._dot_footer then w._dot_footer = AireScreen.pagerFooter(w._dot_pager, not wantsBottomGap(w)) end
+        -- El ancho de los puntos cambia con el nº de páginas: volver a medir
+        if w._dot_footer ~= w._dot_pager and w._dot_footer.resetLayout then w._dot_footer:resetLayout() end
+        return w._dot_footer
     end
 
     local function replaceGroupWithDots(group, pager)
@@ -161,8 +85,9 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
                 end,
             }
         end
-        if menu.page_info[1] ~= menu._dot_pager or #menu.page_info > 1 then
-            replaceGroupWithDots(menu.page_info, menu._dot_pager)
+        local footer = dotsFooter(menu)
+        if menu.page_info[1] ~= footer or #menu.page_info > 1 then
+            replaceGroupWithDots(menu.page_info, footer)
         else
             menu.page_info:resetLayout()
         end
@@ -222,7 +147,7 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
 
     local function stylePlainExplorerItems(menu)
         if menu.name ~= "filemanager" or not menu.item_group or #menu.item_group == 0 then return end
-        local pad_h = Screen:scaleBySize(16)
+        local pad_h = Screen:scaleBySize(SIDE)
         local inner_pad = Screen:scaleBySize(14)
         local changed = false
         for _i, child in ipairs(menu.item_group) do
@@ -320,17 +245,18 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
     local function installKeyValueDots(kvp)
         if not kvp or not kvp.page_info then return end
         if not kvp._dot_pager then
-            local h = kvp.page_info:getSize().h
-            if h <= 0 then h = Screen:scaleBySize(BAR_HEIGHT) end
+            -- Mismo alto que en el resto (antes, el del pie de KOReader, más
+            -- alto: los puntos quedaban más arriba)
             kvp._dot_pager = DotPager:new{
-                height = h,
+                height = Screen:scaleBySize(BAR_HEIGHT),
                 get_state = function()
                     return kvp.show_page or 1, kvp.pages or 1
                 end,
             }
         end
-        if kvp.page_info[1] ~= kvp._dot_pager or #kvp.page_info > 1 then
-            replaceGroupWithDots(kvp.page_info, kvp._dot_pager)
+        local footer = dotsFooter(kvp)
+        if kvp.page_info[1] ~= footer or #kvp.page_info > 1 then
+            replaceGroupWithDots(kvp.page_info, footer)
         else
             kvp.page_info:resetLayout()
         end
@@ -375,14 +301,16 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
             orig_populateBooks(self, ...)
             if not self.page_info then return end
             if not self._dot_pager then
+                -- Mismo alto que en el resto y el hueco común hasta el borde
+                -- (common/screen.lua); el pie de KOReader, más alto, queda encima
                 self._dot_pager = DotPager:new{
-                    height = self.footer_height or Screen:scaleBySize(BAR_HEIGHT),
+                    height = Screen:scaleBySize(BAR_HEIGHT),
                     get_state = function()
                         return self.show_page or 1, self.pages or 1
                     end,
                 }
             end
-            replaceGroupWithDots(self.page_info, self._dot_pager)
+            replaceGroupWithDots(self.page_info, dotsFooter(self))
         end, TAG)
     end)
 
@@ -418,10 +346,14 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
             for i = #self.page_info, 1, -1 do
                 self.page_info[i] = nil
             end
+            -- Debajo, el mismo hueco hasta el borde que en las demás pantallas
+            -- sin dock (common/screen.lua); los botones de los lados, arriba
+            local bottom = Screen:scaleBySize(AireScreen.METRICS.DOTS_BOTTOM)
+            self.page_info.align = "top"
             self.page_info[1] = first_item
             self.page_info[2] = CenterContainer:new{
-                dimen = Geom:new{ w = center_w, h = h },
-                self._dot_pager,
+                dimen = Geom:new{ w = center_w, h = h + bottom },
+                AireScreen.pagerFooter(self._dot_pager, false),
             }
             self.page_info[3] = last_item
             self.page_info:resetLayout()

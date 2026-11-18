@@ -21,7 +21,6 @@
 --]]
 
 local Blitbuffer = require("ffi/blitbuffer")
-local BottomContainer = require("ui/widget/container/bottomcontainer")
 local CenterContainer = require("ui/widget/container/centercontainer")
 local Device = require("device")
 local Font = require("ui/font")
@@ -49,7 +48,8 @@ P.GRAY_DARK = Blitbuffer.COLOR_DARK_GRAY
 P.GRAY_CARD = Blitbuffer.COLOR_GRAY_E
 P.GRAY_BORDER = Blitbuffer.COLOR_GRAY
 P.GRAY_LINE = Blitbuffer.COLOR_LIGHT_GRAY
-P.SIDE = 16 -- margen lateral (como el resto de Aire)
+local METRICS = package.loaded.aire_screen.METRICS
+P.SIDE = METRICS.SIDE -- margen lateral (como el resto de Aire: common/screen.lua)
 P.GAP = 8   -- hueco entre tarjetas
 
 -- Medidas y letra: las comunes (common/ui.lua)
@@ -242,15 +242,10 @@ function Page:init()
     self:refresh(true)
 end
 
+-- Dock (common/screen.lua decide si sale); nunca en el lector
 function Page:_dock()
-    local TitleBar = require("ui/widget/titlebar")
-    local RUI = package.loaded["apps/reader/readerui"]
-    if self.in_reader or (RUI and RUI.instance) then return nil, 0 end
-    if not (TitleBar._aire_build_dock and TitleBar._aire_dock_reserve) then return nil, 0 end
-    if TitleBar._aire_dock_active and not TitleBar._aire_dock_active() then return nil, 0 end
-    local ok, dock = pcall(TitleBar._aire_build_dock, self)
-    if not ok or not dock then return nil, 0 end
-    return dock, TitleBar._aire_dock_reserve()
+    if self.in_reader then return nil, 0 end
+    return package.loaded.aire_screen.fullscreenDock(self)
 end
 
 function Page:refresh(first)
@@ -267,10 +262,13 @@ function Page:refresh(first)
     local dock, dock_h = self:_dock()
     local side = S(P.SIDE)
     local w = sw - 2 * side
-    local dots_h = S(26)
-    -- Sin subtítulo, la primera tarjeta quedaba pegada al título
-    local top_gap = self.subtitle and 0 or S(12)
-    local content_h = sh - self.title_bar:getHeight() - dock_h - dots_h - S(12) - top_gap
+    local dots_h, dots_gap = S(METRICS.DOTS_H), S(METRICS.DOTS_GAP)
+    -- Sin subtítulo, el mismo hueco que deja el subtítulo (si no, la primera
+    -- tarjeta quedaba pegada al título)
+    local top_gap = self.subtitle and 0 or S(METRICS.CONTENT_GAP)
+    -- Abajo, como en la Librería: hueco, puntos y el dock (o el margen inferior)
+    local bottom = dock and dock_h or S(METRICS.DOTS_BOTTOM)
+    local content_h = sh - self.title_bar:getHeight() - top_gap - dots_gap - dots_h - bottom
     self.content_w, self.content_h = w, content_h
     local ok, pages = pcall(self.build, self, w, content_h)
     if not ok then
@@ -296,18 +294,10 @@ function Page:refresh(first)
             bordersize = 0, padding = 0, padding_left = side, padding_right = side,
             cur_page,
         },
-        VerticalSpan:new{ width = fill },
+        VerticalSpan:new{ width = fill + dots_gap },
         CenterContainer:new{ dimen = Geom:new{ w = sw, h = dots_h }, dots or VerticalSpan:new{ width = 0 } },
     }
-    local root = OverlapGroup:new{ dimen = Geom:new{ w = sw, h = sh }, body }
-    if dock then
-        table.insert(root, BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh }, dock })
-    end
-    self[1] = FrameContainer:new{
-        width = sw, height = sh, padding = 0, margin = 0, bordersize = 0,
-        background = P.WHITE,
-        root,
-    }
+    self[1] = package.loaded.aire_screen.root(body, dock)
     if not first then UIManager:setDirty(self, "ui") end
 end
 

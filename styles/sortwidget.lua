@@ -29,6 +29,7 @@ local logger = require("logger")
 local _ = require("gettext")
 local AireUI = package.loaded.aire_ui
 local S, face, BLACK, WHITE, GRAY_DARK, GRAY_LINE = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_LINE
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = AireUI.safeWrap
 local TAG = "Aire/SortWidget"
 
@@ -102,28 +103,45 @@ end
 local function buildFooter(sw)
     local DotPager = require("ui/widget/menu")._aire_dot_pager_cls
     local w = sw.dimen.w
-    local side = S(16)
+    local side = S(SIDE)
     local gap = S(GAP)
     local bw = math.floor((w - 2 * side - 3 * gap) / 4)
     local marked = (sw.marked or 0) > 0
     local fu, ld = sw.footer_first_up, sw.footer_last_down
     local function tapBtn(btn) return function() if btn and btn.callback then btn.callback() end end end
-    local row = HorizontalGroup:new{
-        align = "center",
-        pill(sw, bw, marked and _("Cancel") or _("Close"), nil, false, true, tapBtn(sw.footer_cancel)),
-        HorizontalSpan:new{ width = gap },
-        pill(sw, bw, nil, marked and "move.up" or "chevron.first", false, fu and fu.enabled ~= false, tapBtn(fu)),
-        HorizontalSpan:new{ width = gap },
-        pill(sw, bw, nil, marked and "move.down" or "chevron.last", false, ld and ld.enabled ~= false, tapBtn(ld)),
-        HorizontalSpan:new{ width = gap },
-        pill(sw, bw, _("Apply"), nil, true, true, tapBtn(sw.footer_ok)),
-    }
+    local row
+    if sw.sort_disabled then
+        -- Lista solo para elegir ("Mover a libro"…): nada que subir o bajar, y
+        -- de página se cambia con los puntos o deslizando. Solo Cerrar y Aplicar.
+        local hw = math.floor((w - 2 * side - gap) / 2)
+        row = HorizontalGroup:new{
+            align = "center",
+            pill(sw, hw, _("Close"), nil, false, true, tapBtn(sw.footer_cancel)),
+            HorizontalSpan:new{ width = gap },
+            pill(sw, hw, _("Apply"), nil, true, true, tapBtn(sw.footer_ok)),
+        }
+    else
+        row = HorizontalGroup:new{
+            align = "center",
+            pill(sw, bw, marked and _("Cancel") or _("Close"), nil, false, true, tapBtn(sw.footer_cancel)),
+            HorizontalSpan:new{ width = gap },
+            pill(sw, bw, nil, marked and "move.up" or "chevron.first", false, fu and fu.enabled ~= false, tapBtn(fu)),
+            HorizontalSpan:new{ width = gap },
+            pill(sw, bw, nil, marked and "move.down" or "chevron.last", false, ld and ld.enabled ~= false, tapBtn(ld)),
+            HorizontalSpan:new{ width = gap },
+            pill(sw, bw, _("Apply"), nil, true, true, tapBtn(sw.footer_ok)),
+        }
+    end
+    -- Como los puntos sobre el dock (common/screen.lua): puntos, el mismo
+    -- hueco, los botones y el margen inferior del dock
+    local MT = package.loaded.aire_screen.METRICS
     local vg = VerticalGroup:new{ align = "center" }
     if DotPager then
         table.insert(vg, DotPager:new{ get_state = function() return sw.show_page or 1, sw.pages or 1 end })
+        table.insert(vg, VerticalSpan:new{ width = S(MT.DOTS_BOTTOM) })
     end
     table.insert(vg, row)
-    table.insert(vg, VerticalSpan:new{ width = S(12) })
+    table.insert(vg, VerticalSpan:new{ width = S(MT.DOCK_MARGIN_BOTTOM) })
     return BottomContainer:new{ dimen = sw.dimen:copy(), vg }
 end
 
@@ -137,24 +155,32 @@ end
 
 safeWrap(SortWidget, "init", function(orig, self, ...)
     local res = { orig(self, ...) }
-    -- Hueco bajo la barra de título (la primera tarjeta quedaba pegada)
+    local MT = package.loaded.aire_screen.METRICS
+    -- Márgenes de Aire (common/screen.lua): tarjetas a SIDE de los lados (KOReader
+    -- dejaba su padding.large) y separadas como las demás listas (GAP)
+    self.item_width = self.dimen.w - 2 * S(SIDE)
+    self.item_margin = S(GAP)
+    -- Hueco bajo la barra de título: el común, contando el margen que KOReader
+    -- pone encima de cada tarjeta. Con varias páginas KOReader centraba la lista
+    -- con un hueco calculado para su pie (no el de Aire): la lista y los puntos
+    -- quedaban descolocados (p. ej. "Mover a libro" del vocabulario)
+    local top_gap = math.max(0, S(MT.CONTENT_GAP) - self.item_margin)
     local frame_content = self[1] and self[1][1] and self[1][1][1]
     local vg = frame_content and frame_content[1]
     if type(vg) == "table" and vg[2] and vg[2].width ~= nil and vg.resetLayout then
-        vg[2].width = math.max(vg[2].width or 0, S(12))
+        vg[2].width = top_gap
         vg:resetLayout()
     end
-    -- Filas por página con el alto de este pie (KOReader las calculó con el suyo)
+    -- Filas por página con este pie (KOReader las calculó con el suyo) y el
+    -- hueco común entre la última tarjeta y los puntos
     local footer_h = buildFooter(self)[1]:getSize().h
     local th = self.title_bar and self.title_bar:getHeight() or 0
-    local line_h = (self.item_height or S(48)) + (self.item_margin or 0)
-    local per = math.max(1, math.floor((self.dimen.h - th - S(12) - footer_h - Size.padding.large) / line_h))
-    if per ~= self.items_per_page then
-        self.items_per_page = per
-        self.pages = math.max(1, math.ceil(#self.item_table / per))
-        self.show_page = math.min(self.show_page or 1, self.pages)
-        self:_populateItems()
-    end
+    local line_h = (self.item_height or S(48)) + self.item_margin
+    local per = math.max(1, math.floor((self.dimen.h - th - top_gap - footer_h - S(MT.DOTS_GAP)) / line_h))
+    self.items_per_page = per
+    self.pages = math.max(1, math.ceil(#self.item_table / per))
+    self.show_page = math.min(self.show_page or 1, self.pages)
+    self:_populateItems()
     placeFooter(self)
     return unpack(res)
 end, TAG)

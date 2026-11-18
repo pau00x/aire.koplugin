@@ -13,21 +13,18 @@ local Font = require("ui/font")
 local FrameContainer = require("ui/widget/container/framecontainer")
 local Geom = require("ui/geometry")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
-local HorizontalSpan = require("ui/widget/horizontalspan")
-local IconWidget = require("ui/widget/iconwidget")
 local KeyValuePage = require("ui/widget/keyvaluepage")
-local LeftContainer = require("ui/widget/container/leftcontainer")
 local LineWidget = require("ui/widget/linewidget")
 local Menu = require("ui/widget/menu")
 local OverlapGroup = require("ui/widget/overlapgroup")
 local ReaderUI = require("apps/reader/readerui")
 local Size = require("ui/size")
-local TextWidget = require("ui/widget/textwidget")
 local TitleBar = require("ui/widget/titlebar")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local _ = require("gettext")
 local Screen = Device.screen
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/UI"
 
@@ -46,7 +43,7 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
             self.with_bottom_line = false
             self.title_top_padding = Screen:scaleBySize(3)
             self.bottom_v_padding = Screen:scaleBySize(3)
-            self.title_h_padding = Screen:scaleBySize(16)
+            self.title_h_padding = Screen:scaleBySize(SIDE)
             if rawget(self, "title_face") == nil then self.title_face = Font:getFace("tfont", 17) end
             -- Si trae icono de menú/acción a la izquierda (p. ej. "appbar.menu") y botón de cerrar,
             -- movemos ese icono a la derecha y dejamos volver (‹) a la izquierda.
@@ -105,92 +102,31 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
             local bar = TitleBar._aire_build_status_bar(self, self.width)
             local og
             local back_cb = (self.left_icon == "chevron.left") and self.left_icon_tap_callback
+            local AireScreen = package.loaded.aire_screen
+            local side = Screen:scaleBySize(SIDE)
+            local in_w = self.width - 2 * side
             if back_cb then
-                -- Mismo aspecto exacto que buildBackHeader (Explorer / Series):
-                -- margen izq. S(16), icono S(24), espacio S(6), título tfont 17, pad_v S(3)
-                local side = Screen:scaleBySize(16)
-                local icon_sz = Screen:scaleBySize(24)
-                local pad_v = Screen:scaleBySize(3)
-                local right_reserve = self.right_icon and (icon_sz + Screen:scaleBySize(10)) or 0
-                local title_w = TextWidget:new{
-                    text = self.title or "",
-                    face = Font:getFace("tfont", 17),
-                    fgcolor = Blitbuffer.COLOR_BLACK,
-                    max_width = math.max(Screen:scaleBySize(80), self.width - 2 * side - icon_sz - Screen:scaleBySize(6) - right_reserve),
-                    padding = 0,
-                }
-                self._aire_title_w = title_w
-                local row = HorizontalGroup:new{
-                    align = "center",
-                    IconWidget:new{ icon = "chevron.left", width = icon_sz, height = icon_sz, alpha = true },
-                    HorizontalSpan:new{ width = Screen:scaleBySize(6) },
-                    title_w,
-                }
-                local row_h = math.max(row:getSize().h, icon_sz)
-                local in_w = self.width - 2 * side
-                local inner_og = OverlapGroup:new{
-                    dimen = Geom:new{ w = in_w, h = row_h },
-                    LeftContainer:new{ dimen = Geom:new{ w = in_w, h = row_h }, row },
-                }
-                local InputContainer = require("ui/widget/container/inputcontainer")
-                local GestureRange = require("ui/gesturerange")
-                local back_ic = InputContainer:new{
-                    dimen = Geom:new{ w = self.width - right_reserve, h = row_h + 2 * pad_v },
-                    FrameContainer:new{
-                        bordersize = 0, padding = 0,
-                        padding_left = side, padding_right = side,
-                        padding_top = pad_v, padding_bottom = pad_v,
-                        width = self.width,
-                        inner_og,
-                    },
-                }
-                back_ic.ges_events = {
-                    AireBackTap = { GestureRange:new{
-                        ges = "tap",
-                        range = function()
-                            local d = back_ic.dimen
-                            return Geom:new{ x = d.x, y = d.y, w = self.width - right_reserve - side, h = d.h }
-                        end,
-                    } },
-                }
-                back_ic.onAireBackTap = function()
-                    back_cb()
-                    return true
-                end
-                if self.right_icon then
-                    local RightContainer = require("ui/widget/container/rightcontainer")
-                    local right_icon_w = IconWidget:new{ icon = self.right_icon, width = icon_sz, height = icon_sz, alpha = true }
-                    self._aire_right_icon_w = right_icon_w
-                    local r_ic = InputContainer:new{ right_icon_w }
-                    r_ic.ges_events = {
-                        AireRightTap = { GestureRange:new{
-                            ges = "tap",
-                            range = function()
-                                local d = r_ic.dimen
-                                if not d then return Geom:new{ x = 0, y = 0, w = 0, h = 0 } end
-                                local p = Screen:scaleBySize(8)
-                                return Geom:new{ x = d.x - p, y = d.y - p, w = d.w + 2 * p, h = d.h + 2 * p }
-                            end,
-                        } },
-                    }
-                    r_ic.onAireRightTap = function()
+                -- Cabecera común (common/screen.lua): la misma que Librería, Explorador…
+                local header, parts = AireScreen.header(in_w, {
+                    title = self.title,
+                    on_back = back_cb,
+                    menu_icon = self.right_icon,
+                    on_menu = function()
                         if self.right_icon_tap_callback then self.right_icon_tap_callback() end
-                        return true
-                    end
-                    if self.right_icon_hold_callback then
-                        r_ic.ges_events.AireRightHold = { GestureRange:new{
-                            ges = "hold",
-                            range = r_ic.ges_events.AireRightTap[1].range,
-                        } }
-                        r_ic.onAireRightHold = function()
-                            self.right_icon_hold_callback()
-                            return true
-                        end
-                    end
-                    table.insert(inner_og, RightContainer:new{ dimen = Geom:new{ w = in_w, h = row_h }, r_ic })
-                end
+                    end,
+                    on_menu_hold = self.right_icon_hold_callback and function()
+                        self.right_icon_hold_callback()
+                    end or nil,
+                    tap_left = side, -- el margen izquierdo también vuelve atrás
+                    tap_v = 0,
+                })
+                self._aire_title_w = parts.title
+                self._aire_right_icon_w = parts.menu_icon
                 for i = #self, 1, -1 do self[i] = nil end
-                og = back_ic
+                og = FrameContainer:new{
+                    bordersize = 0, padding = 0, padding_left = side, padding_right = side,
+                    header,
+                }
                 self._aire_custom_bar = true
             else
                 og = OverlapGroup:new{ dimen = Geom:new{ w = self.width, h = self.dimen.h } }
@@ -199,44 +135,32 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
                     self[i] = nil
                 end
             end
-            local gap_top = Screen:scaleBySize(12)
-            local sub_txt = self._aire_subtitle or TitleBar._aire_pending_subtitle
+            local gap_top = Screen:scaleBySize(AireScreen.METRICS.HEADER_GAP)
+            -- Subtítulo: el que pasa Aire (_aire_subtitle, ver withTitleBar en
+            -- common/screen.lua), el de KOReader o, en el lector, el título del libro
+            local doc_props = ReaderUI and ReaderUI.instance and ReaderUI.instance.doc_props
+            local book_title = doc_props and (doc_props.display_title or doc_props.title)
+            local sub_txt = self._aire_subtitle
             if not sub_txt or sub_txt == "" then
                 if self.subtitle and self.subtitle ~= "" then
                     sub_txt = self.subtitle
                 elseif self.info_text and self.info_text ~= "" then
                     sub_txt = self.info_text
-                elseif TitleBar._aire_pending_default_subtitle and TitleBar._aire_pending_default_subtitle ~= "" then
-                    sub_txt = TitleBar._aire_pending_default_subtitle
-                elseif ReaderUI and ReaderUI.instance and ReaderUI.instance.doc_props then
-                    sub_txt = ReaderUI.instance.doc_props.display_title or ReaderUI.instance.doc_props.title
+                else
+                    sub_txt = book_title
                 end
             end
-            self._aire_default_subtitle = TitleBar._aire_pending_default_subtitle
-                or (ReaderUI and ReaderUI.instance and ReaderUI.instance.doc_props
-                    and (ReaderUI.instance.doc_props.display_title or ReaderUI.instance.doc_props.title))
-            TitleBar._aire_pending_subtitle = nil
-            TitleBar._aire_pending_default_subtitle = nil
+            self._aire_default_subtitle = book_title
             local vg_tb = VerticalGroup:new{ align = "left", bar, VerticalSpan:new{ width = gap_top }, og }
             if (sub_txt and sub_txt ~= "") or self.subtitle ~= nil then
-                local side = Screen:scaleBySize(16)
-                local sub_w = TextWidget:new{
-                    text = sub_txt or "",
-                    face = Font:getFace("cfont", 13),
-                    fgcolor = Blitbuffer.COLOR_DARK_GRAY,
-                    max_width = math.max(Screen:scaleBySize(80), self.width - 2 * side),
-                    padding = 0,
-                }
+                local sub_row, sub_w = AireScreen.subtitle(in_w, sub_txt)
                 self._aire_subtitle_w = sub_w
-                table.insert(vg_tb, VerticalSpan:new{ width = Screen:scaleBySize(2) })
+                table.insert(vg_tb, VerticalSpan:new{ width = Screen:scaleBySize(AireScreen.METRICS.SUB_GAP) })
                 table.insert(vg_tb, FrameContainer:new{
                     bordersize = 0, padding = 0, padding_left = side, padding_right = side,
-                    LeftContainer:new{
-                        dimen = Geom:new{ w = self.width - 2 * side, h = math.max(sub_w:getSize().h, Screen:scaleBySize(28)) },
-                        sub_w,
-                    },
+                    sub_row,
                 })
-                table.insert(vg_tb, VerticalSpan:new{ width = Screen:scaleBySize(12) })
+                table.insert(vg_tb, VerticalSpan:new{ width = Screen:scaleBySize(AireScreen.METRICS.CONTENT_GAP) })
             end
             self[1] = vg_tb
             self.titlebar_height = vg_tb:getSize().h
@@ -274,7 +198,7 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
     safeWrap(TitleBar, "setLeftIcon", function(orig_TitleBar_setLeftIcon, self, icon)
         if self._aire_custom_bar and self._aire_moved_left_to_right and self._aire_right_icon_w and icon then
             self._aire_right_icon_w:free()
-            self._aire_right_icon_w.icon = icon
+            self._aire_right_icon_w.icon = package.loaded.aire_screen.menuIcon(icon)
             self._aire_right_icon_w:init()
             if self.show_parent then
                 UIManager:setDirty(self.show_parent, "ui", self.dimen)
@@ -341,44 +265,27 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
         local orig = cls.init
         if not orig or cls._aire_dock_patched then return end
         cls._aire_dock_patched = true
-        local BottomContainer = require("ui/widget/container/bottomcontainer")
+        local AireScreen = package.loaded.aire_screen
         function cls:init(...)
             local sw, sh = Screen:getWidth(), Screen:getHeight()
             local is_fs = self.covers_fullscreen
                 or ((self.width == nil or self.width == sw) and (self.height == nil or self.height == sh))
-            local want = is_fs
-                and not self.is_popout
-                and self.name ~= "filemanager"
-                and not self._aire_no_dock
-                and not (ReaderUI and ReaderUI.instance)
-                and TitleBar._aire_dock_reserve
-                and TitleBar._aire_build_dock
-                -- Pantalla de inicio desactivada: sin dock (llevaría a sus pestañas)
-                and not (TitleBar._aire_dock_active and not TitleBar._aire_dock_active())
-            if want then
+            -- Cuándo hay dock lo decide common/screen.lua (no en el lector, no
+            -- con la pantalla de inicio desactivada…); aquí, solo pantallas completas
+            local dock, reserve
+            if is_fs and not self.is_popout and self.name ~= "filemanager" then
+                dock, reserve = AireScreen.fullscreenDock(self)
+            end
+            if dock then
                 self.covers_fullscreen = true
-                self.height = (self.height or sh) - TitleBar._aire_dock_reserve()
+                self.height = (self.height or sh) - reserve
+                self._aire_has_dock = true -- (pagination.lua: sin hueco extra bajo los puntos)
             end
             orig(self, ...)
-            if want and self[1] then
+            if dock and self[1] then
                 self.covers_fullscreen = true
-                local dock = TitleBar._aire_build_dock(self)
-                if dock then
-                    self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
-                    self[1] = FrameContainer:new{
-                        width = sw,
-                        height = sh,
-                        padding = 0,
-                        margin = 0,
-                        bordersize = 0,
-                        background = Blitbuffer.COLOR_WHITE,
-                        OverlapGroup:new{
-                            dimen = Geom:new{ w = sw, h = sh },
-                            self[1],
-                            BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh }, dock },
-                        },
-                    }
-                end
+                self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
+                self[1] = AireScreen.root(self[1], dock)
             end
         end
     end
@@ -503,31 +410,16 @@ end
 -- 16) RESTO DE VISTAS A PANTALLA COMPLETA CON TÍTULO + SUBTÍTULO + STATUS BAR
 --===========================================================================
 do
+    -- Interceptor común de las barras de título (common/screen.lua): solo la
+    -- primera que se cree, siempre a pantalla completa
     local function withFullscreenTitleBar(fn, opts)
-        local own_tb_new, orig_tb_new = rawget(TitleBar, "new"), TitleBar.new
-        TitleBar.new = function(cls, tb_opts)
-            rawset(TitleBar, "new", own_tb_new)
-            if type(tb_opts) == "table" then
-                tb_opts.fullscreen = true
-                if opts.title and (not tb_opts.title or tb_opts.title == "") then
-                    tb_opts.title = opts.title
-                end
-                if opts.subtitle and opts.subtitle ~= "" and not tb_opts._aire_subtitle then
-                    tb_opts._aire_subtitle = opts.subtitle
-                end
-                if opts.clear_info_text then
-                    tb_opts.info_text = nil
-                end
-                if opts.close_callback and not tb_opts.close_callback and not tb_opts.left_icon then
-                    tb_opts.close_callback = opts.close_callback
-                end
-            end
-            return orig_tb_new(cls, tb_opts)
-        end
-        local ok, res = pcall(fn)
-        rawset(TitleBar, "new", own_tb_new)
-        if not ok then error(res) end
-        return res
+        return package.loaded.aire_screen.withTitleBar({
+            once = true,
+            fullscreen = true,
+            subtitle = opts.subtitle,
+            clear = opts.clear_info_text and { "info_text" } or nil,
+            close_fallback = opts.close_callback,
+        }, fn)
     end
 
     local ok_id, InputDialog = pcall(require, "ui/widget/inputdialog")
