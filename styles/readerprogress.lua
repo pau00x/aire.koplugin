@@ -119,17 +119,16 @@ local function patchStatistics()
         local side = S(SIDE)
         local dock_w = sw - 2 * side
 
-        TitleBar._aire_pending_subtitle = _("Last 7 days summary")
         local tb = TitleBar:new{
             width = sw,
             fullscreen = true,
             align = "left",
             title = _("Reading progress"),
+            _aire_subtitle = _("Last 7 days summary"),
             left_icon = "chevron.left",
             left_icon_tap_callback = function() self:onClose() end,
             show_parent = self,
         }
-        TitleBar._aire_pending_subtitle = nil
 
         local days, week_total = buildDays(self.dates)
         local avg_secs = math.floor(week_total / 7 + 0.5)

@@ -36,7 +36,7 @@ msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 冊"
 
-#: styles/bookmap.lua:101
+#: styles/bookmap.lua:100
 msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "ブックマーク %1 件"
@@ -56,7 +56,7 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 日前"
 
-#: styles/calendar.lua:244 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "読書 %1 日"
@@ -76,17 +76,17 @@ msgid "%1 month ago"
 msgid_plural "%1 months ago"
 msgstr[0] "%1 か月前"
 
-#: styles/bookmap.lua:99
+#: styles/bookmap.lua:98
 msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "残り %1 ページ"
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 ページ読了"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:243 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
 msgid "%1 pp."
 msgstr "%1 ページ"
 
@@ -340,7 +340,7 @@ msgstr "本"
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:973 styles/bookmap.lua:269
+#: dev/devtools.lua:973 styles/bookmap.lua:259
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -416,7 +416,7 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "下部メニュー（シート）"
 
-#: styles/bookmap.lua:106
+#: styles/bookmap.lua:105
 msgid "CURRENT CHAPTER"
 msgstr "現在の章"
 
@@ -424,7 +424,7 @@ msgstr "現在の章"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "現在の章 · %d ページ"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "現在のセッション"
 
@@ -432,7 +432,7 @@ msgstr "現在のセッション"
 msgid "CURRENTLY READING"
 msgstr "読書中の本"
 
-#: styles/calendar.lua:110 styles/calendar.lua:237 views/stats.lua:299
+#: styles/calendar.lua:115 styles/calendar.lua:230 views/stats.lua:299
 msgid "Calendar"
 msgstr "カレンダー"
 
@@ -903,7 +903,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "読了した本をグレー表示"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Fit"
 msgstr ""
@@ -1079,7 +1079,7 @@ msgstr "ホームのウィジェット"
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:862 styles/imageviewer.lua:44
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "画像"
 
@@ -1190,7 +1190,7 @@ msgstr "大 · 小 · 小（反転） — ← → にスワイプ、タップで
 msgid "Last"
 msgstr "最終"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:127
 msgid "Last 7 days summary"
 msgstr "過去 7 日間の概要"
 
@@ -1260,7 +1260,7 @@ msgstr "ファイル名付きリスト"
 msgid "List without covers"
 msgstr "表紙なしリスト"
 
-#: styles/calendar.lua:112
+#: styles/calendar.lua:117
 msgid "Loading month…"
 msgstr "月を読み込み中…"
 
@@ -1510,7 +1510,7 @@ msgstr "ホームフォルダーに本がありません"
 msgid "No books with this filter"
 msgstr "この条件の本はありません"
 
-#: styles/bookmap.lua:90 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:45
 msgid "No chapter"
 msgstr "章なし"
 
@@ -1547,11 +1547,11 @@ msgstr "前の本はありません"
 msgid "No reading activity in this period"
 msgstr "この期間の読書記録はありません"
 
-#: styles/calendar.lua:240
+#: styles/calendar.lua:233
 msgid "No reading sessions this month"
 msgstr "今月の読書セッションはありません"
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "No rotation"
 msgstr ""
@@ -1679,7 +1679,7 @@ msgstr ""
 msgid "Orientation"
 msgstr "画面の向き"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Original size"
 msgstr ""
@@ -1701,7 +1701,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "%1 / %2 ページ"
 
-#: dev/devtools.lua:976 styles/pagebrowser.lua:286
+#: dev/devtools.lua:976 styles/pagebrowser.lua:279
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1850,7 +1850,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "読書中"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 #, koreader
 msgid "Reading progress"
 msgstr ""
@@ -1979,7 +1979,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "Rotate"
 msgstr ""
@@ -2430,7 +2430,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:479
+#: styles/ui/titlebar.lua:462
 msgid "Vocabulary review"
 msgstr "単語の復習"
 
@@ -2447,7 +2447,7 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "週間アクティビティ"
 
@@ -2529,7 +2529,7 @@ msgstr "とハイライト"
 msgid "at %1 %"
 msgstr "読了 %1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "1 日平均"
 
@@ -2584,7 +2584,7 @@ msgstr "合計"
 msgid "included in Aire"
 msgstr "Aire に含まれています"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "過去 7 日間"
 
@@ -2609,7 +2609,7 @@ msgstr "現在"
 msgid "of %1"
 msgstr "全 %1 中"
 
-#: styles/pagebrowser.lua:98 styles/pagebrowser.lua:99
+#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
 msgid "p. %1 / %2"
 msgstr "%1 / %2 ページ"
 
@@ -2695,7 +2695,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "今日"
 
-#: styles/readerprogress.lua:158 views/stats.lua:209
+#: styles/readerprogress.lua:157 views/stats.lua:209
 msgid "today · %1 pp."
 msgstr "今日 · %1 ページ"
 

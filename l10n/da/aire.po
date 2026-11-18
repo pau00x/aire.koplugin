@@ -38,7 +38,7 @@ msgid_plural "%1 books"
 msgstr[0] "%1 bog"
 msgstr[1] "%1 bøger"
 
-#: styles/bookmap.lua:101
+#: styles/bookmap.lua:100
 msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 bogmærke"
@@ -62,7 +62,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "for %1 dag siden"
 msgstr[1] "for %1 dage siden"
 
-#: styles/calendar.lua:244 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 læsedag"
@@ -86,19 +86,19 @@ msgid_plural "%1 months ago"
 msgstr[0] "for %1 måned siden"
 msgstr[1] "for %1 måneder siden"
 
-#: styles/bookmap.lua:99
+#: styles/bookmap.lua:98
 msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "%1 side tilbage"
 msgstr[1] "%1 sider tilbage"
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 side læst"
 msgstr[1] "%1 sider læst"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:243 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
 msgid "%1 pp."
 msgstr "%1 s."
 
@@ -355,7 +355,7 @@ msgstr "Bog"
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:973 styles/bookmap.lua:269
+#: dev/devtools.lua:973 styles/bookmap.lua:259
 msgid "Book map"
 msgstr "Bogkort"
 
@@ -428,7 +428,7 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "Bundmenuer (ark)"
 
-#: styles/bookmap.lua:106
+#: styles/bookmap.lua:105
 msgid "CURRENT CHAPTER"
 msgstr "AKTUELT KAPITEL"
 
@@ -436,7 +436,7 @@ msgstr "AKTUELT KAPITEL"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "AKTUELT KAPITEL · SIDE %d"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "AKTUEL SESSION"
 
@@ -444,7 +444,7 @@ msgstr "AKTUEL SESSION"
 msgid "CURRENTLY READING"
 msgstr "LÆSER NU"
 
-#: styles/calendar.lua:110 styles/calendar.lua:237 views/stats.lua:299
+#: styles/calendar.lua:115 styles/calendar.lua:230 views/stats.lua:299
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -905,7 +905,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "Færdige bøger i gråt"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 msgid "Fit"
 msgstr "Tilpas"
 
@@ -1073,7 +1073,7 @@ msgstr "Hjem-widgets"
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:862 styles/imageviewer.lua:44
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "Billede"
 
@@ -1181,7 +1181,7 @@ msgstr "Stor · lille · lille inverteret — stryg ← →, tryk for at afslutt
 msgid "Last"
 msgstr "Sidst"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:127
 msgid "Last 7 days summary"
 msgstr "Oversigt over de sidste 7 dage"
 
@@ -1250,7 +1250,7 @@ msgstr "Liste med filnavne"
 msgid "List without covers"
 msgstr "Liste uden omslag"
 
-#: styles/calendar.lua:112
+#: styles/calendar.lua:117
 msgid "Loading month…"
 msgstr "Indlæser måned…"
 
@@ -1499,7 +1499,7 @@ msgstr "Ingen bøger i hjemmemappen"
 msgid "No books with this filter"
 msgstr "Ingen bøger med dette filter"
 
-#: styles/bookmap.lua:90 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:45
 msgid "No chapter"
 msgstr "Intet kapitel"
 
@@ -1535,11 +1535,11 @@ msgstr "Ingen forrige bog"
 msgid "No reading activity in this period"
 msgstr "Ingen læseaktivitet i denne periode"
 
-#: styles/calendar.lua:240
+#: styles/calendar.lua:233
 msgid "No reading sessions this month"
 msgstr "Ingen læsesessioner denne måned"
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 msgid "No rotation"
 msgstr "Ingen rotation"
 
@@ -1665,7 +1665,7 @@ msgstr ""
 msgid "Orientation"
 msgstr "Orientering"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 msgid "Original size"
 msgstr "Original størrelse"
 
@@ -1686,7 +1686,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "Side %1 / %2"
 
-#: dev/devtools.lua:976 styles/pagebrowser.lua:286
+#: dev/devtools.lua:976 styles/pagebrowser.lua:279
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1832,7 +1832,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "Læser"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 msgid "Reading progress"
 msgstr "Læsefremskridt"
 
@@ -1957,7 +1957,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 msgid "Rotate"
 msgstr "Rotér"
 
@@ -2393,7 +2393,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:479
+#: styles/ui/titlebar.lua:462
 msgid "Vocabulary review"
 msgstr "Ordforrådsgennemgang"
 
@@ -2411,7 +2411,7 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "UGENTLIG AKTIVITET"
 
@@ -2493,7 +2493,7 @@ msgstr "og markeringer"
 msgid "at %1 %"
 msgstr "ved %1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "gns. / dag"
 
@@ -2550,7 +2550,7 @@ msgstr "i alt"
 msgid "included in Aire"
 msgstr "inkluderet i Aire"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "sidste 7 dage"
 
@@ -2574,7 +2574,7 @@ msgstr "nu"
 msgid "of %1"
 msgstr "af %1"
 
-#: styles/pagebrowser.lua:98 styles/pagebrowser.lua:99
+#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
 msgid "p. %1 / %2"
 msgstr "s. %1 / %2"
 
@@ -2661,7 +2661,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "i dag"
 
-#: styles/readerprogress.lua:158 views/stats.lua:209
+#: styles/readerprogress.lua:157 views/stats.lua:209
 msgid "today · %1 pp."
 msgstr "i dag · %1 s."
 

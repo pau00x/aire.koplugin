@@ -42,7 +42,7 @@ msgstr[1] "%1 knihy"
 msgstr[2] "%1 knihy"
 msgstr[3] "%1 kníh"
 
-#: styles/bookmap.lua:101
+#: styles/bookmap.lua:100
 msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 záložka"
@@ -74,7 +74,7 @@ msgstr[1] "pred %1 dňami"
 msgstr[2] "pred %1 dňa"
 msgstr[3] "pred %1 dňami"
 
-#: styles/calendar.lua:244 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 deň čítania"
@@ -106,7 +106,7 @@ msgstr[1] "pred %1 mesiacmi"
 msgstr[2] "pred %1 mesiaca"
 msgstr[3] "pred %1 mesiacmi"
 
-#: styles/bookmap.lua:99
+#: styles/bookmap.lua:98
 msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "Zostáva %1 str."
@@ -114,7 +114,7 @@ msgstr[1] "Zostávajú %1 str."
 msgstr[2] "Zostáva %1 str."
 msgstr[3] "Zostáva %1 str."
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "prečítané %1 str."
@@ -122,7 +122,7 @@ msgstr[1] "prečítané %1 str."
 msgstr[2] "prečítané %1 str."
 msgstr[3] "prečítané %1 str."
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:243 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
 msgid "%1 pp."
 msgstr "%1 str."
 
@@ -390,7 +390,7 @@ msgstr "Kniha"
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:973 styles/bookmap.lua:269
+#: dev/devtools.lua:973 styles/bookmap.lua:259
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -466,7 +466,7 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "Spodné ponuky (panely)"
 
-#: styles/bookmap.lua:106
+#: styles/bookmap.lua:105
 msgid "CURRENT CHAPTER"
 msgstr "AKTUÁLNA KAPITOLA"
 
@@ -474,7 +474,7 @@ msgstr "AKTUÁLNA KAPITOLA"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "AKTUÁLNA KAPITOLA · STRANA %d"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "AKTUÁLNA RELÁCIA"
 
@@ -482,7 +482,7 @@ msgstr "AKTUÁLNA RELÁCIA"
 msgid "CURRENTLY READING"
 msgstr "PRÁVE ČÍTAM"
 
-#: styles/calendar.lua:110 styles/calendar.lua:237 views/stats.lua:299
+#: styles/calendar.lua:115 styles/calendar.lua:230 views/stats.lua:299
 msgid "Calendar"
 msgstr "Kalendár"
 
@@ -954,7 +954,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "Dokončené knihy sivou"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Fit"
 msgstr ""
@@ -1130,7 +1130,7 @@ msgstr "Widgety domovskej obrazovky"
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:862 styles/imageviewer.lua:44
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "Obrázok"
 
@@ -1241,7 +1241,7 @@ msgstr "Veľký · malý · malý invertovaný — potiahnite ← →, ťuknutí
 msgid "Last"
 msgstr "Posledné"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:127
 msgid "Last 7 days summary"
 msgstr "Prehľad posledných 7 dní"
 
@@ -1312,7 +1312,7 @@ msgstr "Zoznam s názvami súborov"
 msgid "List without covers"
 msgstr "Zoznam bez obálok"
 
-#: styles/calendar.lua:112
+#: styles/calendar.lua:117
 msgid "Loading month…"
 msgstr "Načítava sa mesiac…"
 
@@ -1565,7 +1565,7 @@ msgstr "V domovskom priečinku nie sú žiadne knihy"
 msgid "No books with this filter"
 msgstr "S týmto filtrom žiadne knihy"
 
-#: styles/bookmap.lua:90 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:45
 msgid "No chapter"
 msgstr "Bez kapitoly"
 
@@ -1602,11 +1602,11 @@ msgstr "Žiadna predchádzajúca kniha"
 msgid "No reading activity in this period"
 msgstr "V tomto období žiadne čítanie"
 
-#: styles/calendar.lua:240
+#: styles/calendar.lua:233
 msgid "No reading sessions this month"
 msgstr "Tento mesiac žiadne čítanie"
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "No rotation"
 msgstr ""
@@ -1734,7 +1734,7 @@ msgstr ""
 msgid "Orientation"
 msgstr "Orientácia"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Original size"
 msgstr ""
@@ -1756,7 +1756,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "Strana %1 / %2"
 
-#: dev/devtools.lua:976 styles/pagebrowser.lua:286
+#: dev/devtools.lua:976 styles/pagebrowser.lua:279
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1907,7 +1907,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "Čítanie"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 #, koreader
 msgid "Reading progress"
 msgstr ""
@@ -2036,7 +2036,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "Rotate"
 msgstr ""
@@ -2487,7 +2487,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:479
+#: styles/ui/titlebar.lua:462
 msgid "Vocabulary review"
 msgstr "Opakovanie slovíčok"
 
@@ -2507,7 +2507,7 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "TÝŽDENNÁ AKTIVITA"
 
@@ -2589,7 +2589,7 @@ msgstr "a zvýraznenia"
 msgid "at %1 %"
 msgstr "na %1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "priemer / deň"
 
@@ -2650,7 +2650,7 @@ msgstr "celkom"
 msgid "included in Aire"
 msgstr "súčasť Aire"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "posledných 7 dní"
 
@@ -2676,7 +2676,7 @@ msgstr "teraz"
 msgid "of %1"
 msgstr "z %1"
 
-#: styles/pagebrowser.lua:98 styles/pagebrowser.lua:99
+#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
 msgid "p. %1 / %2"
 msgstr "str. %1 / %2"
 
@@ -2765,7 +2765,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "dnes"
 
-#: styles/readerprogress.lua:158 views/stats.lua:209
+#: styles/readerprogress.lua:157 views/stats.lua:209
 msgid "today · %1 pp."
 msgstr "dnes · %1 str."
 

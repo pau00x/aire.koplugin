@@ -407,6 +407,55 @@ function M.fullscreenDock(owner)
 end
 
 --===========================================================================
+-- withTitleBar(opts, fn, ...): ejecuta fn(...) ajustando las barras de título
+-- (TitleBar) que KOReader cree dentro, y deja TitleBar.new como estaba pase lo
+-- que pase. Es la forma de dar la cabecera de Aire a una pantalla de KOReader
+-- sin tocar su código. opts:
+--   once             solo la primera barra que se cree
+--   only_fullscreen  solo las que ya vienen con fullscreen = true
+--   fullscreen       la pone a pantalla completa
+--   title            título (siempre) / default_title (solo si viene vacío)
+--   subtitle         subtítulo de Aire (si la pantalla no trae uno propio)
+--   back, back_hold  "‹" a la izquierda (sustituye a la X de cerrar)
+--   menu_icon, on_menu, on_menu_hold   icono de menú a la derecha
+--   close_fallback   cierre si la pantalla no trae ni cerrar ni icono izquierdo
+--   set              campos que se ponen tal cual ({ subtitle = "" }…)
+--   clear            lista de campos que se quitan ({ "info_text" }…)
+--===========================================================================
+function M.withTitleBar(opts, fn, ...)
+    local TitleBar = require("ui/widget/titlebar")
+    local used = false
+    return AireUI.withTemporaryNew(TitleBar, function(base_new, cls, o)
+        if type(o) ~= "table" or (opts.once and used) or (opts.only_fullscreen and not o.fullscreen) then
+            return base_new(cls, o)
+        end
+        used = true
+        if opts.fullscreen then o.fullscreen = true end
+        if opts.title then o.title = opts.title end
+        if opts.default_title and (not o.title or o.title == "") then o.title = opts.default_title end
+        if opts.subtitle and opts.subtitle ~= "" and not o._aire_subtitle then o._aire_subtitle = opts.subtitle end
+        if opts.back then
+            o.left_icon = "chevron.left"
+            o.left_icon_tap_callback = opts.back
+            o.left_icon_hold_callback = opts.back_hold
+            o.close_callback = nil
+            o.close_hold_callback = nil
+        end
+        if opts.menu_icon then
+            o.right_icon = opts.menu_icon
+            o.right_icon_tap_callback = opts.on_menu
+            o.right_icon_hold_callback = opts.on_menu_hold
+        end
+        if opts.close_fallback and not o.close_callback and not o.left_icon then
+            o.close_callback = opts.close_fallback
+        end
+        for k, v in pairs(opts.set or {}) do o[k] = v end
+        for _i, k in ipairs(opts.clear or {}) do o[k] = nil end
+        return base_new(cls, o)
+    end, fn, ...)
+end
+
+--===========================================================================
 -- root(body, dock): raíz blanca a pantalla completa. body arriba a la
 -- izquierda; el dock (si hay) centrado abajo, con su margen inferior.
 --===========================================================================

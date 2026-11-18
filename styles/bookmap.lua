@@ -19,7 +19,6 @@ local LeftContainer = require("ui/widget/container/leftcontainer")
 local Size = require("ui/size")
 local TextBoxWidget = require("ui/widget/textboxwidget")
 local TextWidget = require("ui/widget/textwidget")
-local TitleBar = require("ui/widget/titlebar")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local logger = require("logger")
@@ -154,30 +153,21 @@ safeWrap(BookMapWidget, "init", function(orig_init, self)
         and string.format("%s · %d %% (%d / %d)", title_str, pct, cur, total)
         or string.format("%d %% (%d / %d)", pct, cur, total)
 
-    local own_tb_new, orig_tb_new = rawget(TitleBar, "new"), TitleBar.new
-    TitleBar.new = function(cls, o)
-        if type(o) == "table" and o.fullscreen then
-            o.left_icon = "chevron.left"
-            o.left_icon_tap_callback = function() self:onClose() end
-            o.left_icon_hold_callback = function() self:onClose(true) end
-            o.right_icon = "appbar.menu"
-            o.right_icon_tap_callback = function() self:onShowBookMapMenu() end
-            o.right_icon_hold_callback = not self.overview_mode and function() self:toggleDefaultSettings() end or nil
-            o.close_callback = nil
-            o.close_hold_callback = nil
-            TitleBar._aire_pending_subtitle = sub
-        end
-        local res = orig_tb_new(cls, o)
-        TitleBar._aire_pending_subtitle = nil
-        return res
-    end
     -- KOReader termina init() construyendo todo el mapa (update). Se aplaza
     -- hasta tener el alto y el ancho de Aire, para construirlo una sola vez.
+    -- Cabecera de Aire (common/screen.lua): ‹, ≡ (su menú) y subtítulo
     local had_own_update = rawget(self, "update")
     self.update = function() end
-    local ok, err = pcall(orig_init, self)
+    local ok, err = pcall(package.loaded.aire_screen.withTitleBar, {
+        only_fullscreen = true,
+        back = function() self:onClose() end,
+        back_hold = function() self:onClose(true) end,
+        menu_icon = "appbar.menu",
+        on_menu = function() self:onShowBookMapMenu() end,
+        on_menu_hold = not self.overview_mode and function() self:toggleDefaultSettings() end or nil,
+        subtitle = sub,
+    }, orig_init, self)
     self.update = had_own_update
-    rawset(TitleBar, "new", own_tb_new)
     if not ok then error(err) end
 
     local ok_c, card = pcall(buildCurrentChapterCard, self)

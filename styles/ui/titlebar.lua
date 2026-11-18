@@ -136,23 +136,21 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
                 end
             end
             local gap_top = Screen:scaleBySize(AireScreen.METRICS.HEADER_GAP)
-            local sub_txt = self._aire_subtitle or TitleBar._aire_pending_subtitle
+            -- Subtítulo: el que pasa Aire (_aire_subtitle, ver withTitleBar en
+            -- common/screen.lua), el de KOReader o, en el lector, el título del libro
+            local doc_props = ReaderUI and ReaderUI.instance and ReaderUI.instance.doc_props
+            local book_title = doc_props and (doc_props.display_title or doc_props.title)
+            local sub_txt = self._aire_subtitle
             if not sub_txt or sub_txt == "" then
                 if self.subtitle and self.subtitle ~= "" then
                     sub_txt = self.subtitle
                 elseif self.info_text and self.info_text ~= "" then
                     sub_txt = self.info_text
-                elseif TitleBar._aire_pending_default_subtitle and TitleBar._aire_pending_default_subtitle ~= "" then
-                    sub_txt = TitleBar._aire_pending_default_subtitle
-                elseif ReaderUI and ReaderUI.instance and ReaderUI.instance.doc_props then
-                    sub_txt = ReaderUI.instance.doc_props.display_title or ReaderUI.instance.doc_props.title
+                else
+                    sub_txt = book_title
                 end
             end
-            self._aire_default_subtitle = TitleBar._aire_pending_default_subtitle
-                or (ReaderUI and ReaderUI.instance and ReaderUI.instance.doc_props
-                    and (ReaderUI.instance.doc_props.display_title or ReaderUI.instance.doc_props.title))
-            TitleBar._aire_pending_subtitle = nil
-            TitleBar._aire_pending_default_subtitle = nil
+            self._aire_default_subtitle = book_title
             local vg_tb = VerticalGroup:new{ align = "left", bar, VerticalSpan:new{ width = gap_top }, og }
             if (sub_txt and sub_txt ~= "") or self.subtitle ~= nil then
                 local sub_row, sub_w = AireScreen.subtitle(in_w, sub_txt)
@@ -411,31 +409,16 @@ end
 -- 16) RESTO DE VISTAS A PANTALLA COMPLETA CON TÍTULO + SUBTÍTULO + STATUS BAR
 --===========================================================================
 do
+    -- Interceptor común de las barras de título (common/screen.lua): solo la
+    -- primera que se cree, siempre a pantalla completa
     local function withFullscreenTitleBar(fn, opts)
-        local own_tb_new, orig_tb_new = rawget(TitleBar, "new"), TitleBar.new
-        TitleBar.new = function(cls, tb_opts)
-            rawset(TitleBar, "new", own_tb_new)
-            if type(tb_opts) == "table" then
-                tb_opts.fullscreen = true
-                if opts.title and (not tb_opts.title or tb_opts.title == "") then
-                    tb_opts.title = opts.title
-                end
-                if opts.subtitle and opts.subtitle ~= "" and not tb_opts._aire_subtitle then
-                    tb_opts._aire_subtitle = opts.subtitle
-                end
-                if opts.clear_info_text then
-                    tb_opts.info_text = nil
-                end
-                if opts.close_callback and not tb_opts.close_callback and not tb_opts.left_icon then
-                    tb_opts.close_callback = opts.close_callback
-                end
-            end
-            return orig_tb_new(cls, tb_opts)
-        end
-        local ok, res = pcall(fn)
-        rawset(TitleBar, "new", own_tb_new)
-        if not ok then error(res) end
-        return res
+        return package.loaded.aire_screen.withTitleBar({
+            once = true,
+            fullscreen = true,
+            subtitle = opts.subtitle,
+            clear = opts.clear_info_text and { "info_text" } or nil,
+            close_fallback = opts.close_callback,
+        }, fn)
     end
 
     local ok_id, InputDialog = pcall(require, "ui/widget/inputdialog")

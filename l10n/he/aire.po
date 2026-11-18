@@ -42,7 +42,7 @@ msgstr[1] "%1 ספרים"
 msgstr[2] "%1 ספרים"
 msgstr[3] "%1 ספרים"
 
-#: styles/bookmap.lua:101
+#: styles/bookmap.lua:100
 msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 סימנייה"
@@ -74,7 +74,7 @@ msgstr[1] "לפני %1 ימים"
 msgstr[2] "לפני %1 ימים"
 msgstr[3] "לפני %1 ימים"
 
-#: styles/calendar.lua:244 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 יום קריאה"
@@ -106,7 +106,7 @@ msgstr[1] "לפני %1 חודשים"
 msgstr[2] "לפני %1 חודשים"
 msgstr[3] "לפני %1 חודשים"
 
-#: styles/bookmap.lua:99
+#: styles/bookmap.lua:98
 msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "נותר %1 עמ'"
@@ -114,7 +114,7 @@ msgstr[1] "נותרו %1 עמ'"
 msgstr[2] "נותרו %1 עמ'"
 msgstr[3] "נותרו %1 עמ'"
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 עמ' נקרא"
@@ -122,7 +122,7 @@ msgstr[1] "%1 עמ' נקראו"
 msgstr[2] "%1 עמ' נקראו"
 msgstr[3] "%1 עמ' נקראו"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:243 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
 msgid "%1 pp."
 msgstr "%1 עמ'"
 
@@ -390,7 +390,7 @@ msgstr "ספר"
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:973 styles/bookmap.lua:269
+#: dev/devtools.lua:973 styles/bookmap.lua:259
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -466,7 +466,7 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "תפריטים תחתונים (גיליונות)"
 
-#: styles/bookmap.lua:106
+#: styles/bookmap.lua:105
 msgid "CURRENT CHAPTER"
 msgstr "הפרק הנוכחי"
 
@@ -474,7 +474,7 @@ msgstr "הפרק הנוכחי"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "הפרק הנוכחי · עמוד %d"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "הפעלה נוכחית"
 
@@ -482,7 +482,7 @@ msgstr "הפעלה נוכחית"
 msgid "CURRENTLY READING"
 msgstr "קורא כעת"
 
-#: styles/calendar.lua:110 styles/calendar.lua:237 views/stats.lua:299
+#: styles/calendar.lua:115 styles/calendar.lua:230 views/stats.lua:299
 msgid "Calendar"
 msgstr "לוח שנה"
 
@@ -954,7 +954,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "ספרים שהושלמו באפור"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Fit"
 msgstr ""
@@ -1130,7 +1130,7 @@ msgstr "וידג'טים של מסך הבית"
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:862 styles/imageviewer.lua:44
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "תמונה"
 
@@ -1241,7 +1241,7 @@ msgstr "גדול · קטן · קטן הפוך — החליקו ← →, הקיש
 msgid "Last"
 msgstr "אחרון"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:127
 msgid "Last 7 days summary"
 msgstr "סיכום 7 הימים האחרונים"
 
@@ -1312,7 +1312,7 @@ msgstr "רשימה עם שמות קבצים"
 msgid "List without covers"
 msgstr "רשימה בלי כריכות"
 
-#: styles/calendar.lua:112
+#: styles/calendar.lua:117
 msgid "Loading month…"
 msgstr "טוען חודש…"
 
@@ -1565,7 +1565,7 @@ msgstr "אין ספרים בתיקיית הבית"
 msgid "No books with this filter"
 msgstr "אין ספרים עם סינון זה"
 
-#: styles/bookmap.lua:90 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:45
 msgid "No chapter"
 msgstr "אין פרק"
 
@@ -1602,11 +1602,11 @@ msgstr "אין ספר קודם"
 msgid "No reading activity in this period"
 msgstr "אין פעילות קריאה בתקופה זו"
 
-#: styles/calendar.lua:240
+#: styles/calendar.lua:233
 msgid "No reading sessions this month"
 msgstr "אין הפעלות קריאה החודש"
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "No rotation"
 msgstr ""
@@ -1734,7 +1734,7 @@ msgstr ""
 msgid "Orientation"
 msgstr "כיוון"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Original size"
 msgstr ""
@@ -1756,7 +1756,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "עמוד %1 / %2"
 
-#: dev/devtools.lua:976 styles/pagebrowser.lua:286
+#: dev/devtools.lua:976 styles/pagebrowser.lua:279
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1907,7 +1907,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "בקריאה"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 #, koreader
 msgid "Reading progress"
 msgstr ""
@@ -2036,7 +2036,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "Rotate"
 msgstr ""
@@ -2487,7 +2487,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:479
+#: styles/ui/titlebar.lua:462
 msgid "Vocabulary review"
 msgstr "חזרה על אוצר מילים"
 
@@ -2507,7 +2507,7 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "פעילות שבועית"
 
@@ -2589,7 +2589,7 @@ msgstr "והבלטות"
 msgid "at %1 %"
 msgstr "ב־%1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "ממוצע / יום"
 
@@ -2650,7 +2650,7 @@ msgstr "בסך הכול"
 msgid "included in Aire"
 msgstr "כלול ב-Aire"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "7 ימים אחרונים"
 
@@ -2676,7 +2676,7 @@ msgstr "עכשיו"
 msgid "of %1"
 msgstr "מתוך %1"
 
-#: styles/pagebrowser.lua:98 styles/pagebrowser.lua:99
+#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
 msgid "p. %1 / %2"
 msgstr "עמ' %1 / %2"
 
@@ -2765,7 +2765,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "היום"
 
-#: styles/readerprogress.lua:158 views/stats.lua:209
+#: styles/readerprogress.lua:157 views/stats.lua:209
 msgid "today · %1 pp."
 msgstr "היום · %1 עמ'"
 

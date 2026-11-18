@@ -36,7 +36,7 @@ msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 本"
 
-#: styles/bookmap.lua:101
+#: styles/bookmap.lua:100
 msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 个书签"
@@ -56,7 +56,7 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 天前"
 
-#: styles/calendar.lua:244 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "阅读 %1 天"
@@ -76,17 +76,17 @@ msgid "%1 month ago"
 msgid_plural "%1 months ago"
 msgstr[0] "%1 个月前"
 
-#: styles/bookmap.lua:99
+#: styles/bookmap.lua:98
 msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "剩余 %1 页"
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "已读 %1 页"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:243 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
 msgid "%1 pp."
 msgstr "%1 页"
 
@@ -342,7 +342,7 @@ msgstr "书籍"
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:973 styles/bookmap.lua:269
+#: dev/devtools.lua:973 styles/bookmap.lua:259
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -418,7 +418,7 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "底部菜单（面板）"
 
-#: styles/bookmap.lua:106
+#: styles/bookmap.lua:105
 msgid "CURRENT CHAPTER"
 msgstr "当前章节"
 
@@ -426,7 +426,7 @@ msgstr "当前章节"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "当前章节 · 第 %d 页"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "本次阅读"
 
@@ -434,7 +434,7 @@ msgstr "本次阅读"
 msgid "CURRENTLY READING"
 msgstr "正在阅读"
 
-#: styles/calendar.lua:110 styles/calendar.lua:237 views/stats.lua:299
+#: styles/calendar.lua:115 styles/calendar.lua:230 views/stats.lua:299
 msgid "Calendar"
 msgstr "日历"
 
@@ -906,7 +906,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "读完的书显示为灰色"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Fit"
 msgstr ""
@@ -1082,7 +1082,7 @@ msgstr "主屏幕小组件"
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:862 styles/imageviewer.lua:44
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "图片"
 
@@ -1193,7 +1193,7 @@ msgstr "大 · 小 · 小（反色）— 左右滑动 ← →，点击退出"
 msgid "Last"
 msgstr "最近"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:127
 msgid "Last 7 days summary"
 msgstr "最近 7 天概览"
 
@@ -1264,7 +1264,7 @@ msgstr "带文件名的列表"
 msgid "List without covers"
 msgstr "无封面的列表"
 
-#: styles/calendar.lua:112
+#: styles/calendar.lua:117
 msgid "Loading month…"
 msgstr "正在加载月份…"
 
@@ -1517,7 +1517,7 @@ msgstr "主文件夹中没有书籍"
 msgid "No books with this filter"
 msgstr "没有符合此筛选的书"
 
-#: styles/bookmap.lua:90 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:45
 msgid "No chapter"
 msgstr "无章节"
 
@@ -1554,11 +1554,11 @@ msgstr "没有上一本书"
 msgid "No reading activity in this period"
 msgstr "此期间没有阅读记录"
 
-#: styles/calendar.lua:240
+#: styles/calendar.lua:233
 msgid "No reading sessions this month"
 msgstr "本月没有阅读记录"
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "No rotation"
 msgstr ""
@@ -1686,7 +1686,7 @@ msgstr ""
 msgid "Orientation"
 msgstr "屏幕方向"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Original size"
 msgstr ""
@@ -1708,7 +1708,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "第 %1 / %2 页"
 
-#: dev/devtools.lua:976 styles/pagebrowser.lua:286
+#: dev/devtools.lua:976 styles/pagebrowser.lua:279
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1859,7 +1859,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "在读"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 #, koreader
 msgid "Reading progress"
 msgstr ""
@@ -1988,7 +1988,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "Rotate"
 msgstr ""
@@ -2439,7 +2439,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:479
+#: styles/ui/titlebar.lua:462
 msgid "Vocabulary review"
 msgstr "词汇复习"
 
@@ -2456,7 +2456,7 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "每周活动"
 
@@ -2538,7 +2538,7 @@ msgstr "和高亮"
 msgid "at %1 %"
 msgstr "已读 %1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "日均"
 
@@ -2593,7 +2593,7 @@ msgstr "总计"
 msgid "included in Aire"
 msgstr "已包含在 Aire 中"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "最近 7 天"
 
@@ -2619,7 +2619,7 @@ msgstr "现在"
 msgid "of %1"
 msgstr "共 %1"
 
-#: styles/pagebrowser.lua:98 styles/pagebrowser.lua:99
+#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
 msgid "p. %1 / %2"
 msgstr "第 %1 / %2 页"
 
@@ -2705,7 +2705,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "今天"
 
-#: styles/readerprogress.lua:158 views/stats.lua:209
+#: styles/readerprogress.lua:157 views/stats.lua:209
 msgid "today · %1 pp."
 msgstr "今天 · %1 页"
 

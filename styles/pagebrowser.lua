@@ -17,7 +17,6 @@ local T = require("ffi/util").template
 local ReaderDogear = require("apps/reader/modules/readerdogear")
 local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
-local TitleBar = require("ui/widget/titlebar")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local Widget = require("ui/widget/widget")
@@ -98,26 +97,20 @@ safeWrap(PageBrowserWidget, "init", function(orig_init, self)
         and (title_str .. " · " .. T(_("p. %1 / %2"), cur, total))
         or T(_("p. %1 / %2"), cur, total)
 
-    return withTemporaryNew(TitleBar, function(base_new, cls, o)
-        if type(o) == "table" and o.fullscreen then
-            o.left_icon = "chevron.left"
-            o.left_icon_tap_callback = function() self:onClose() end
-            o.left_icon_hold_callback = function() self:onClose(true) end
-            o.right_icon = "appbar.menu"
-            o.right_icon_tap_callback = function() self:onShowMenu() end
-            o.right_icon_hold_callback = function()
-                if self:updateNbTocSpans(-1, true, true) then
-                    self:updateLayout()
-                end
+    -- Cabecera de Aire (common/screen.lua): ‹, ≡ (su menú) y subtítulo
+    return package.loaded.aire_screen.withTitleBar({
+        only_fullscreen = true,
+        back = function() self:onClose() end,
+        back_hold = function() self:onClose(true) end,
+        menu_icon = "appbar.menu",
+        on_menu = function() self:onShowMenu() end,
+        on_menu_hold = function()
+            if self:updateNbTocSpans(-1, true, true) then
+                self:updateLayout()
             end
-            o.close_callback = nil
-            o.close_hold_callback = nil
-            TitleBar._aire_pending_subtitle = sub
-        end
-        local res = base_new(cls, o)
-        TitleBar._aire_pending_subtitle = nil
-        return res
-    end, orig_init, self)
+        end,
+        subtitle = sub,
+    }, orig_init, self)
 end, TAG)
 
 safeWrap(PageBrowserWidget, "updateLayout", function(orig_updateLayout, self)

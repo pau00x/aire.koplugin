@@ -666,10 +666,10 @@ safeWrap(BookInfo, "show", function(orig_BookInfo_show, self, doc_settings_or_fi
                     return math.max(landscape or 0, ITEMS_PER_PAGE), math.max(portrait or 0, ITEMS_PER_PAGE)
                 end
             end
-            local TitleBar = require("ui/widget/titlebar")
-            TitleBar._aire_pending_subtitle = o._bi_header and o._bi_header.subtitle or nil
-            local ok_new, res_new = pcall(base_new, cls, o)
-            TitleBar._aire_pending_subtitle = nil
+            -- Subtítulo de la cabecera de Aire (common/screen.lua)
+            local ok_new, res_new = pcall(package.loaded.aire_screen.withTitleBar, {
+                subtitle = o._bi_header and o._bi_header.subtitle or nil,
+            }, base_new, cls, o)
             KeyValuePage.getCurrentItemsPerPage = orig_items
             if not ok_new then error(res_new) end
             return res_new

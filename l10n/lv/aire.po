@@ -40,7 +40,7 @@ msgstr[0] "%1 grāmatu"
 msgstr[1] "%1 grāmata"
 msgstr[2] "%1 grāmatas"
 
-#: styles/bookmap.lua:101
+#: styles/bookmap.lua:100
 msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 grāmatzīmju"
@@ -68,7 +68,7 @@ msgstr[0] "pirms %1 dienām"
 msgstr[1] "pirms %1 dienas"
 msgstr[2] "pirms %1 dienām"
 
-#: styles/calendar.lua:244 views/stats.lua:302 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:302 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 lasīšanas dienu"
@@ -96,21 +96,21 @@ msgstr[0] "pirms %1 mēnešiem"
 msgstr[1] "pirms %1 mēneša"
 msgstr[2] "pirms %1 mēnešiem"
 
-#: styles/bookmap.lua:99
+#: styles/bookmap.lua:98
 msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "Atlikušas %1 lpp."
 msgstr[1] "Atlikusi %1 lpp."
 msgstr[2] "Atlikušas %1 lpp."
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "izlasītas %1 lpp."
 msgstr[1] "izlasīta %1 lpp."
 msgstr[2] "izlasītas %1 lpp."
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:243 views/booksheet.lua:200 views/stats.lua:301
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:301
 msgid "%1 pp."
 msgstr "%1 lpp."
 
@@ -372,7 +372,7 @@ msgstr "Grāmata"
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:973 styles/bookmap.lua:269
+#: dev/devtools.lua:973 styles/bookmap.lua:259
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -447,7 +447,7 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "Apakšējās izvēlnes (lapas)"
 
-#: styles/bookmap.lua:106
+#: styles/bookmap.lua:105
 msgid "CURRENT CHAPTER"
 msgstr "PAŠREIZĒJĀ NODAĻA"
 
@@ -455,7 +455,7 @@ msgstr "PAŠREIZĒJĀ NODAĻA"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "PAŠREIZĒJĀ NODAĻA · LAPPUSE %d"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "PAŠREIZĒJĀ SESIJA"
 
@@ -463,7 +463,7 @@ msgstr "PAŠREIZĒJĀ SESIJA"
 msgid "CURRENTLY READING"
 msgstr "PAŠLAIK LASU"
 
-#: styles/calendar.lua:110 styles/calendar.lua:237 views/stats.lua:299
+#: styles/calendar.lua:115 styles/calendar.lua:230 views/stats.lua:299
 msgid "Calendar"
 msgstr "Kalendārs"
 
@@ -932,7 +932,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "Pabeigtās grāmatas pelēkas"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Fit"
 msgstr ""
@@ -1106,7 +1106,7 @@ msgstr "Sākuma logrīki"
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:862 styles/imageviewer.lua:44
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "Attēls"
 
@@ -1217,7 +1217,7 @@ msgstr "Liels · mazs · mazs invertēts — velc ← →, pieskaries, lai iziet
 msgid "Last"
 msgstr "Pēdējā"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:127
 msgid "Last 7 days summary"
 msgstr "Pēdējo 7 dienu kopsavilkums"
 
@@ -1287,7 +1287,7 @@ msgstr "Saraksts ar failu nosaukumiem"
 msgid "List without covers"
 msgstr "Saraksts bez vākiem"
 
-#: styles/calendar.lua:112
+#: styles/calendar.lua:117
 msgid "Loading month…"
 msgstr "Ielādē mēnesi…"
 
@@ -1538,7 +1538,7 @@ msgstr "Sākuma mapē nav grāmatu"
 msgid "No books with this filter"
 msgstr "Ar šo filtru nav grāmatu"
 
-#: styles/bookmap.lua:90 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:45
 msgid "No chapter"
 msgstr "Nav nodaļas"
 
@@ -1574,11 +1574,11 @@ msgstr "Nav iepriekšējās grāmatas"
 msgid "No reading activity in this period"
 msgstr "Šajā periodā nav lasīšanas"
 
-#: styles/calendar.lua:240
+#: styles/calendar.lua:233
 msgid "No reading sessions this month"
 msgstr "Šomēnes nav lasīšanas sesiju"
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "No rotation"
 msgstr ""
@@ -1705,7 +1705,7 @@ msgstr ""
 msgid "Orientation"
 msgstr "Orientācija"
 
-#: styles/imageviewer.lua:106
+#: styles/imageviewer.lua:99
 #, koreader
 msgid "Original size"
 msgstr ""
@@ -1727,7 +1727,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "Lpp. %1 / %2"
 
-#: dev/devtools.lua:976 styles/pagebrowser.lua:286
+#: dev/devtools.lua:976 styles/pagebrowser.lua:279
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1875,7 +1875,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "Lasīšana"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 #, koreader
 msgid "Reading progress"
 msgstr ""
@@ -2003,7 +2003,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: styles/imageviewer.lua:107
+#: styles/imageviewer.lua:100
 #, koreader
 msgid "Rotate"
 msgstr ""
@@ -2451,7 +2451,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:479
+#: styles/ui/titlebar.lua:462
 msgid "Vocabulary review"
 msgstr "Vārdu krājuma atkārtošana"
 
@@ -2470,7 +2470,7 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "IKNEDĒĻAS AKTIVITĀTE"
 
@@ -2552,7 +2552,7 @@ msgstr "un iezīmējumi"
 msgid "at %1 %"
 msgstr "pie %1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "vid. / dienā"
 
@@ -2611,7 +2611,7 @@ msgstr "kopā"
 msgid "included in Aire"
 msgstr "iekļauts spraudnī Aire"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "pēdējās 7 dienas"
 
@@ -2635,7 +2635,7 @@ msgstr "tagad"
 msgid "of %1"
 msgstr "no %1"
 
-#: styles/pagebrowser.lua:98 styles/pagebrowser.lua:99
+#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
 msgid "p. %1 / %2"
 msgstr "lpp. %1 / %2"
 
@@ -2723,7 +2723,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "šodien"
 
-#: styles/readerprogress.lua:158 views/stats.lua:209
+#: styles/readerprogress.lua:157 views/stats.lua:209
 msgid "today · %1 pp."
 msgstr "šodien · %1 lpp."
 

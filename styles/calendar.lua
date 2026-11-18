@@ -20,7 +20,6 @@ local OverlapGroup = require("ui/widget/overlapgroup")
 local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
 local TextWidget = require("ui/widget/textwidget")
-local TitleBar = require("ui/widget/titlebar")
 local datetime = require("datetime")
 local logger = require("logger")
 local userpatch = require("userpatch")
@@ -103,27 +102,21 @@ local function patchCalendar(_ReaderStatistics)
         self.outer_padding = S(SIDE)
         self.inner_padding = S(5)
 
-        local own_tb_new, orig_tb_new = rawget(TitleBar, "new"), TitleBar.new
-        TitleBar.new = function(cls, o)
-            if type(o) == "table" then
-                o.fullscreen = true
-                o.title = _("Calendar")
-                o.subtitle = ""
-                TitleBar._aire_pending_subtitle = _("Loading month…")
-            end
-            local res = orig_tb_new(cls, o)
-            TitleBar._aire_pending_subtitle = nil
-            return res
-        end
         -- KOReader rellena los días (consultas a la base de datos) dentro de
         -- init; se aplaza al _populateItems del final, cuando ya está la fila
         -- del mes, para hacerlo una sola vez. La pantalla solo guarda una
         -- referencia a main_content, que se llena después.
         local had_own_populate = rawget(self, "_populateItems")
         self._populateItems = function() end
-        local ok_init, err = pcall(orig_init, self)
+        -- Cabecera de Aire (common/screen.lua): "Calendario" y un subtítulo
+        -- provisional que se cambia al rellenar el mes
+        local ok_init, err = pcall(package.loaded.aire_screen.withTitleBar, {
+            fullscreen = true,
+            title = _("Calendar"),
+            set = { subtitle = "" },
+            subtitle = _("Loading month…"),
+        }, orig_init, self)
         self._populateItems = had_own_populate
-        rawset(TitleBar, "new", own_tb_new)
         if not ok_init then error(err) end
 
         -- Celdas cuadradas (mismo tamaño que el calendario de Estadísticas)
