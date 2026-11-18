@@ -4,6 +4,16 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+### Added
+
+- **Aire updates from the device**: "Update Aire" in the top menu, right below KOReader's update entry (now called "Update KOReader"), in the file browser and in the reader. Check for updates (long-press checks directly) and Settings: weekly check (only when Wi-Fi is already on; Aire never turns it on) and beta versions (off by default: only stable releases are offered). A bottom sheet shows the new version with its main changes (Skip / Later / Update), and all the changes open in a full Aire screen, formatted; the download shows its progress and, once installed, KOReader can be restarted. If anything fails, the installed version is kept. The previous version is kept as `aire.koplugin.old` until the next start that reaches the file browser, then removed.
+- **Power sheet**: Aire's version under KOReader's; the Update button asks whether to update KOReader or Aire, and a card appears when a new Aire version is known.
+
+### Internal
+
+- `scripts/kindle_copy.py` writes the device copy to `../device-ready/aire.koplugin` by default.
+- `scripts/l10n.py` also finds KOReader's catalog in a reference copy next to the repository (`../koreader/l10n`).
+
 ## [0.1.0] - 2026-11-18
 
 First public version (beta).

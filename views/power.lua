@@ -36,6 +36,7 @@ return function(Aire, ctx)
     local logger = require("logger")
     local _ = require("gettext")
     local C_ = _.pgettext
+    local T = require("ffi/util").template
     local Screen = Device.screen
     local S = ctx.S
     local face = ctx.face
@@ -47,7 +48,9 @@ return function(Aire, ctx)
     ---------------------------------------------------------------------------
     -- Menú de energía: hoja inferior (diseño C)
     --
-    --   KOReader 2026.07.2                  Actualizar
+    --   KOReader 2026.07.2                  Actualizar   <- con KOReader y Aire, pregunta cuál
+    --   Aire 0.1.0 (gris)
+    --   [ Aire 0.2.0 disponible     (Actualizar) ]   <- solo si hay versión nueva
     --   [  Suspender (negro) ]  [  Apagar (borde)  ]     <- grandes
     --     (Reiniciar)      (KOReader)      (Salir)       <- círculos pequeños
     --
@@ -79,8 +82,11 @@ return function(Aire, ctx)
     end
 
     local PowerSheet = InputContainer:extend{
-        entries = nil,   -- { sleep, poweroff, reboot, restart, exit, update } -> función
+        entries = nil,   -- { sleep, poweroff, reboot, restart, exit, update, update_aire, start_aire_update, choose_update } -> función
         version = nil,
+        aire_version = nil,   -- "Aire 0.1.0"
+        aire_installed = nil, -- "0.1.0"
+        aire_latest = nil,    -- versión nueva ya conocida (tarjeta), o nil
     }
 
     function PowerSheet:init()
@@ -105,16 +111,29 @@ return function(Aire, ctx)
 
         local content = VerticalGroup:new{ align = "left" }
 
-        -- Cabecera: versión a la izquierda, "Actualizar" a la derecha
-        local head_h = S(30)
+        -- Cabecera: KOReader y debajo, en gris, Aire (versiones) a la izquierda;
+        -- un solo "Actualizar" a la derecha, que pregunta cuál si hay dos
+        local on_update = E.update
+        if E.update and E.update_aire and E.choose_update then
+            on_update = function() E.choose_update(E.update) end
+        elseif E.update_aire then
+            on_update = E.update_aire
+        end
+        local names = VerticalGroup:new{
+            align = "left",
+            TextWidget:new{ text = self.version or "KOReader", face = face(true, 15), fgcolor = BLACK_C, padding = 0 },
+        }
+        if self.aire_version then
+            table.insert(names, VerticalSpan:new{ width = S(2) })
+            table.insert(names, TextWidget:new{ text = self.aire_version, face = face(false, 12),
+                fgcolor = Blitbuffer.COLOR_DARK_GRAY, padding = 0 })
+        end
+        local head_h = math.max(S(30), names:getSize().h)
         local head = OverlapGroup:new{
             dimen = Geom:new{ w = inner_w, h = head_h },
-            LeftContainer:new{
-                dimen = Geom:new{ w = inner_w, h = head_h },
-                TextWidget:new{ text = self.version or "KOReader", face = face(true, 15), fgcolor = BLACK_C, padding = 0 },
-            },
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = head_h }, names },
         }
-        if E.update then
+        if on_update then
             table.insert(head, RightContainer:new{
                 dimen = Geom:new{ w = inner_w, h = head_h },
                 tappable(HorizontalGroup:new{
@@ -122,11 +141,37 @@ return function(Aire, ctx)
                     IconWidget:new{ icon = "aire.update", width = S(18), height = S(18), alpha = true },
                     HorizontalSpan:new{ width = S(6) },
                     TextWidget:new{ text = _("Update"), face = face(false, 13), fgcolor = BLACK_C, padding = 0 },
-                }, run(E.update), nil, { h = S(10), v = S(10) }),
+                }, run(on_update), nil, { h = S(10), v = S(10) }),
             })
         end
         table.insert(content, head)
         table.insert(content, VerticalSpan:new{ width = S(10) })
+
+        -- Tarjeta solo si ya se sabe que hay una versión nueva de Aire
+        local latest = self.aire_latest
+        if latest and E.start_aire_update then
+            local P = package.loaded.aire_pages
+            local card_in = P.cardInner(inner_w)
+            local pill_w = S(110)
+            local text_w = card_in - pill_w - S(8)
+            local txt = VerticalGroup:new{
+                align = "left",
+                TextWidget:new{ text = T(_("Aire %1 available"), latest.version), face = face(true, 14),
+                    fgcolor = BLACK_C, max_width = text_w, padding = 0 },
+                VerticalSpan:new{ width = S(2) },
+                TextWidget:new{ text = T(_("You have version %1"), self.aire_installed or "?"), face = face(false, 12),
+                    fgcolor = P.GRAY_DARK, max_width = text_w, padding = 0 },
+            }
+            local row_h = math.max(txt:getSize().h, S(36))
+            table.insert(content, P.card(OverlapGroup:new{
+                dimen = Geom:new{ w = card_in, h = row_h },
+                LeftContainer:new{ dimen = Geom:new{ w = card_in, h = row_h }, txt },
+                RightContainer:new{ dimen = Geom:new{ w = card_in, h = row_h },
+                    P.pill(_("Update"), pill_w, run(function() E.start_aire_update(latest) end),
+                        { primary = true, font = 13, height = S(36) }) },
+            }, inner_w))
+            table.insert(content, VerticalSpan:new{ width = S(10) })
+        end
 
         -- Botones grandes: Suspender (negro) y Apagar (borde)
         local big = {}
@@ -261,9 +306,24 @@ return function(Aire, ctx)
         end
         local ok_v, rev = pcall(function() return require("version"):getCurrentRevision() end)
         rev = ok_v and type(rev) == "string" and rev:gsub("^v", "") or nil
+        -- Aire (views/update.lua): su línea en la cabecera y, si ya se sabe que
+        -- hay una versión nueva, la tarjeta
+        local upd = ctx.update
+        local aire_version, aire_installed, aire_latest
+        if upd then
+            aire_installed = upd.installedVersion()
+            aire_version = "Aire " .. aire_installed
+            entries.update_aire = function() upd.check(true) end
+            entries.start_aire_update = upd.start
+            entries.choose_update = upd.showChooser
+            aire_latest = upd.available()
+        end
         local sheet = PowerSheet:new{
             entries = entries,
             version = rev and rev ~= "" and ("KOReader " .. rev) or "KOReader",
+            aire_version = aire_version,
+            aire_installed = aire_installed,
+            aire_latest = aire_latest,
         }
         UIManager:show(sheet, "ui")
     end

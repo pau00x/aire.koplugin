@@ -19,7 +19,7 @@ msgstr[2] "\"%1\" · %2 thoradh"
 msgstr[3] "\"%1\" · %2 dtoradh"
 msgstr[4] "\"%1\" · %2 toradh"
 
-#: menu.lua:271
+#: menu.lua:301
 msgid "\"Reading now\" card with light background"
 msgstr "Cárta \"Á léamh anois\" le cúlra éadrom"
 
@@ -35,7 +35,7 @@ msgstr "%1 % (ar feitheamh)"
 msgid "%1 % read"
 msgstr "%1 % léite"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:294 views/grid.lua:326 views/grid.lua:331
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:326 views/grid.lua:331
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 leabhar"
@@ -53,7 +53,7 @@ msgstr[2] "%1 leabharmharc"
 msgstr[3] "%1 leabharmharc"
 msgstr[4] "%1 leabharmharc"
 
-#: views/grid.lua:494 views/grid.lua:495
+#: views/grid.lua:496 views/grid.lua:497
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 bailiúchán"
@@ -80,7 +80,7 @@ msgstr[2] "%1 lá ó shin"
 msgstr[3] "%1 lá ó shin"
 msgstr[4] "%1 lá ó shin"
 
-#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:708
+#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:710
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 lá ag léamh"
@@ -89,7 +89,7 @@ msgstr[2] "%1 lá ag léamh"
 msgstr[3] "%1 lá ag léamh"
 msgstr[4] "%1 lá ag léamh"
 
-#: views/booksheet.lua:353 views/grid/books.lua:294 views/grid.lua:328
+#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:328
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 críochnaithe"
@@ -98,7 +98,7 @@ msgstr[2] "%1 críochnaithe"
 msgstr[3] "%1 críochnaithe"
 msgstr[4] "%1 críochnaithe"
 
-#: views/grid.lua:577
+#: views/grid.lua:579
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 leabhar críochnaithe"
@@ -125,7 +125,7 @@ msgstr[2] "%1 lch. fágtha"
 msgstr[3] "%1 lch. fágtha"
 msgstr[4] "%1 lch. fágtha"
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 lch. léite"
@@ -138,7 +138,7 @@ msgstr[4] "%1 lch. léite"
 msgid "%1 pp."
 msgstr "%1 lch."
 
-#: views/stats.lua:686
+#: views/stats.lua:688
 msgid "%1 pp./h"
 msgstr "%1 lch./u"
 
@@ -202,7 +202,7 @@ msgstr "(reatha)"
 msgid "+ Brightness"
 msgstr "+ Gile"
 
-#: views/stats.lua:528
+#: views/stats.lua:530
 msgid "+%1 more"
 msgstr "+%1 eile"
 
@@ -210,23 +210,27 @@ msgstr "+%1 eile"
 msgid "1 of 5 stars"
 msgstr "1 as 5 réalta"
 
-#: dev/devtools.lua:553
+#: dev/devtools.lua:563
 msgid "12 of 30"
 msgstr ""
 
-#: menu.lua:337 menu.lua:463
+#: menu.lua:367 menu.lua:493
 msgid "3 columns (large covers)"
 msgstr "3 cholún (clúdaigh mhóra)"
 
-#: dev/devtools.lua:721
+#: dev/devtools.lua:731
 msgid "3-button confirmation"
 msgstr ""
 
-#: menu.lua:337 menu.lua:463
+#: menu.lua:367 menu.lua:493
 msgid "4 columns"
 msgstr "4 cholún"
 
-#: dev/devtools.lua:954
+#: views/update.lua:340
+msgid "A new version is available"
+msgstr "Tá leagan nua ar fáil"
+
+#: dev/devtools.lua:964
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
@@ -251,15 +255,15 @@ msgstr "Achoimre gníomhaíochta"
 msgid "Add note"
 msgstr ""
 
-#: dev/devtools.lua:594
+#: dev/devtools.lua:604
 msgid "Add to collection…"
 msgstr ""
 
-#: dev/devtools.lua:630 views/widgets.lua:1116
+#: dev/devtools.lua:640 views/widgets.lua:1116
 msgid "Add widget"
 msgstr "Cuir giuirléid leis"
 
-#: menu.lua:645
+#: menu.lua:695
 msgid "Advanced"
 msgstr "Ardsocruithe"
 
@@ -267,16 +271,28 @@ msgstr "Ardsocruithe"
 msgid "Aire"
 msgstr "Aire"
 
-#: menu.lua:619 menu.lua:635
+#: views/update.lua:276 views/update.lua:333
+msgid "Aire %1"
+msgstr "Aire %1"
+
+#: views/power.lua:159 views/update.lua:537
+msgid "Aire %1 available"
+msgstr "Aire %1 ar fáil"
+
+#: views/update.lua:190
+msgid "Aire %1 installed"
+msgstr "Aire %1 suiteáilte"
+
+#: menu.lua:669 menu.lua:685
 msgid "Aire warnings (crash.log)"
 msgstr "Rabhaidh Aire (crash.log)"
 
-#: dev/devtools.lua:706
+#: dev/devtools.lua:716
 #, koreader
 msgid "Alarm"
 msgstr ""
 
-#: dev/devtools.lua:652 views/grid.lua:47 views/grid.lua:53
+#: dev/devtools.lua:662 views/grid.lua:47 views/grid.lua:53
 #, koreader
 msgid "All"
 msgstr ""
@@ -290,12 +306,12 @@ msgstr ""
 msgid "All finished"
 msgstr "Gach ceann críochnaithe"
 
-#: views/grid.lua:579 views/widgets.lua:441
+#: views/grid.lua:581 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:643
+#: views/stats.lua:645
 msgid "Annual"
 msgstr "Bliantúil"
 
@@ -303,11 +319,11 @@ msgstr "Bliantúil"
 msgid "Annual recap"
 msgstr "Achoimre bhliantúil"
 
-#: dev/devtools.lua:806
+#: dev/devtools.lua:816
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:685 menu.lua:301 styles/sortwidget.lua:119
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:119
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -322,27 +338,27 @@ msgctxt "aire"
 msgid "August"
 msgstr "Lúnasa"
 
-#: dev/devtools.lua:516 dev/devtools.lua:606 dev/devtools.lua:656 dev/devtools.lua:822 views/grid.lua:61
+#: dev/devtools.lua:526 dev/devtools.lua:616 dev/devtools.lua:666 dev/devtools.lua:832 views/grid.lua:61
 msgid "Author"
 msgstr "Údar"
 
-#: menu.lua:407
+#: menu.lua:437
 msgid "Automatic collections by author"
 msgstr "Bailiúcháin uathoibríocha de réir údair"
 
-#: menu.lua:415
+#: menu.lua:445
 msgid "Automatic collections by genre (keyword)"
 msgstr "Bailiúcháin uathoibríocha de réir seánra (eochairfhocal)"
 
-#: menu.lua:550
+#: menu.lua:580
 msgid "Automatic tests"
 msgstr "Tástálacha uathoibríocha"
 
-#: views/grid.lua:1010
+#: views/grid.lua:1012
 msgid "Automatic: books by this author"
 msgstr "Uathoibríoch: leabhair leis an údar seo"
 
-#: dev/devtools.lua:825
+#: dev/devtools.lua:835
 msgid "Average speed"
 msgstr ""
 
@@ -369,15 +385,15 @@ msgstr "LEABHARMHARC"
 msgid "Basque"
 msgstr ""
 
-#: dev/devtools.lua:635 views/topbar.lua:53 views/widgets.lua:502
+#: dev/devtools.lua:645 views/topbar.lua:53 views/widgets.lua:502
 msgid "Battery"
 msgstr "Ceallra"
 
-#: views/stats.lua:732
+#: views/stats.lua:734
 msgid "Best day"
 msgstr "An lá is fearr"
 
-#: views/stats.lua:735
+#: views/stats.lua:737
 msgid "Best month"
 msgstr "An mhí is fearr"
 
@@ -385,12 +401,12 @@ msgstr "An mhí is fearr"
 msgid "Book"
 msgstr "Leabhar"
 
-#: dev/devtools.lua:596 dev/devtools.lua:831
+#: dev/devtools.lua:606 dev/devtools.lua:841
 #, koreader
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:963 styles/bookmap.lua:268
+#: dev/devtools.lua:973 styles/bookmap.lua:268
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -400,7 +416,7 @@ msgstr ""
 msgid "Book marked as finished"
 msgstr ""
 
-#: dev/devtools.lua:611
+#: dev/devtools.lua:621
 msgid "Book sheet"
 msgstr ""
 
@@ -409,7 +425,7 @@ msgstr ""
 msgid "Book start date"
 msgstr ""
 
-#: dev/devtools.lua:820
+#: dev/devtools.lua:830
 msgid "Book stats"
 msgstr ""
 
@@ -418,11 +434,11 @@ msgstr ""
 msgid "Book status"
 msgstr ""
 
-#: dev/devtools.lua:956
+#: dev/devtools.lua:966
 msgid "Book status (empty)"
 msgstr ""
 
-#: dev/devtools.lua:949
+#: dev/devtools.lua:959
 msgid "Book status (with data)"
 msgstr ""
 
@@ -431,11 +447,11 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: dev/devtools.lua:996
+#: dev/devtools.lua:1006
 msgid "Bookmarks (empty)"
 msgstr ""
 
-#: dev/devtools.lua:979
+#: dev/devtools.lua:989
 msgid "Bookmarks (with data)"
 msgstr ""
 
@@ -443,12 +459,12 @@ msgstr ""
 msgid "Bookmarks and highlights"
 msgstr "Leabharmharcanna agus buaicphointí"
 
-#: dev/devtools.lua:861
+#: dev/devtools.lua:871
 #, koreader
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:971
+#: views/grid.lua:973
 msgid "Books are not deleted, only the collection."
 msgstr "Ní scriostar na leabhair, an bailiúchán amháin."
 
@@ -474,7 +490,7 @@ msgstr "CAIBIDIL REATHA"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "CAIBIDIL REATHA · LEATHANACH %d"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "SEISIÚN REATHA"
 
@@ -486,19 +502,19 @@ msgstr "Á LÉAMH ANOIS"
 msgid "Calendar"
 msgstr "Féilire"
 
-#: dev/devtools.lua:896
+#: dev/devtools.lua:906
 msgid "Calendar (empty)"
 msgstr ""
 
-#: dev/devtools.lua:807
+#: dev/devtools.lua:817
 msgid "Calendar (test data)"
 msgstr ""
 
-#: dev/devtools.lua:877
+#: dev/devtools.lua:887
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:486 dev/devtools.lua:637 dev/devtools.lua:737 styles/sortwidget.lua:113 views/stats.lua:457
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:113 views/stats.lua:459
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -520,15 +536,15 @@ msgstr "Athraigh"
 msgid "Chapter %1 of %2"
 msgstr "Caibidil %1 de %2"
 
-#: dev/devtools.lua:985
+#: dev/devtools.lua:995
 msgid "Chapter 1"
 msgstr ""
 
-#: dev/devtools.lua:987
+#: dev/devtools.lua:997
 msgid "Chapter 7"
 msgstr ""
 
-#: dev/devtools.lua:989
+#: dev/devtools.lua:999
 msgid "Chapter 8"
 msgstr ""
 
@@ -540,7 +556,16 @@ msgstr "Luchtaithe"
 msgid "Charging"
 msgstr "Á luchtú"
 
-#: menu.lua:522
+#: views/update.lua:486
+msgid "Check every week"
+msgstr "Seiceáil gach seachtain"
+
+#: views/update.lua:479
+#, koreader
+msgid "Check for updates"
+msgstr ""
+
+#: menu.lua:552
 msgid "Check patches and plugins on startup"
 msgstr "Seiceáil paistí agus breiseáin ag an tosú"
 
@@ -549,15 +574,15 @@ msgstr "Seiceáil paistí agus breiseáin ag an tosú"
 msgid "Chinese"
 msgstr ""
 
-#: dev/devtools.lua:811
+#: dev/devtools.lua:821
 msgid "Classics"
 msgstr ""
 
-#: menu.lua:530
+#: menu.lua:560
 msgid "Clear cover thumbnails"
 msgstr "Glan mionsamhlacha na gclúdach"
 
-#: dev/devtools.lua:597 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
 #, koreader
 msgid "Close"
 msgstr ""
@@ -566,7 +591,7 @@ msgstr ""
 msgid "Collection"
 msgstr "Bailiúchán"
 
-#: dev/devtools.lua:510
+#: dev/devtools.lua:520
 msgid "Collection name"
 msgstr ""
 
@@ -574,12 +599,12 @@ msgstr ""
 msgid "Collection order"
 msgstr "Ord an bhailiúcháin"
 
-#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1426
+#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1410
 #, koreader
 msgid "Collections"
 msgstr ""
 
-#: dev/devtools.lua:802
+#: dev/devtools.lua:812
 msgid "Collections (test data)"
 msgstr ""
 
@@ -591,7 +616,7 @@ msgstr "Ord na mbailiúchán"
 msgid "Compatibility"
 msgstr "Comhoiriúnacht"
 
-#: dev/devtools.lua:643
+#: dev/devtools.lua:653
 msgid "Confirmation"
 msgstr ""
 
@@ -604,7 +629,7 @@ msgstr "Ceangailte"
 msgid "Continue"
 msgstr ""
 
-#: dev/devtools.lua:593
+#: dev/devtools.lua:603
 msgid "Continue reading"
 msgstr ""
 
@@ -613,17 +638,25 @@ msgstr ""
 msgid "Contrast"
 msgstr ""
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Copy"
 msgstr ""
 
-#: dev/devtools.lua:503
+#: views/update.lua:398
+msgid "Could not check for updates. Try again later."
+msgstr "Níorbh fhéidir nuashonruithe a sheiceáil. Bain triail eile as ar ball."
+
+#: dev/devtools.lua:513
 msgid ""
 "Could not connect to the network.\n"
 "\n"
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
+
+#: views/update.lua:259
+msgid "Could not install the update. Aire %1 is still installed."
+msgstr "Níorbh fhéidir an nuashonrú a shuiteáil. Tá Aire %1 suiteáilte fós."
 
 #: views/widgets.lua:203
 msgid "Could not read database"
@@ -633,7 +666,7 @@ msgstr "Níorbh fhéidir an bunachar sonraí a léamh"
 msgid "Count: %1"
 msgstr "Comhaireamh: %1"
 
-#: menu.lua:539
+#: menu.lua:569
 msgid "Cover thumbnails cleared"
 msgstr "Glanadh mionsamhlacha na gclúdach"
 
@@ -656,31 +689,31 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Á léamh anois"
 
-#: views/stats.lua:706
+#: views/stats.lua:708
 msgid "DAILY RHYTHM"
 msgstr "RITHIM LAETHÚIL"
 
-#: views/stats.lua:727
+#: views/stats.lua:729
 msgid "Daily average"
 msgstr "Meán laethúil"
 
-#: dev/devtools.lua:818
+#: dev/devtools.lua:828
 msgid "Data page"
 msgstr ""
 
-#: dev/devtools.lua:696 views/grid.lua:81
+#: dev/devtools.lua:706 views/grid.lua:81
 msgid "Date"
 msgstr "Dáta"
 
-#: dev/devtools.lua:699 views/grid.lua:81
+#: dev/devtools.lua:709 views/grid.lua:81
 msgid "Date finished"
 msgstr "Dáta críochnaithe"
 
-#: views/stats.lua:730
+#: views/stats.lua:732
 msgid "Day %1"
 msgstr "Lá %1"
 
-#: dev/devtools.lua:825
+#: dev/devtools.lua:835
 msgid "Days reading"
 msgstr ""
 
@@ -694,16 +727,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "Nollaig"
 
-#: dev/devtools.lua:646 dev/devtools.lua:725 views/booksheet.lua:251 views/grid.lua:972 views/stats.lua:477
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:974 views/stats.lua:479
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:488
+#: views/stats.lua:490
 msgid "Delete all book stats"
 msgstr "Scrios staitisticí uile an leabhair"
 
-#: views/stats.lua:492
+#: views/stats.lua:494
 msgid "Delete all stats?"
 msgstr "Scrios na staitisticí uile?"
 
@@ -712,23 +745,23 @@ msgstr "Scrios na staitisticí uile?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:475
+#: views/stats.lua:477
 msgid "Delete minutes for this day?"
 msgstr "Scrios nóiméid an lae seo?"
 
-#: views/stats.lua:471
+#: views/stats.lua:473
 msgid "Delete minutes from this day"
 msgstr "Scrios nóiméid ón lá seo"
 
-#: views/grid.lua:970
+#: views/grid.lua:972
 msgid "Delete the collection?"
 msgstr "Scrios an bailiúchán?"
 
-#: dev/devtools.lua:645
+#: dev/devtools.lua:655
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1021
+#: views/grid.lua:1023
 msgid "Delete…"
 msgstr "Scrios…"
 
@@ -737,7 +770,7 @@ msgstr "Scrios…"
 msgid "Description"
 msgstr ""
 
-#: dev/devtools.lua:530 dev/devtools.lua:536 views/widgets.lua:535 views/widgets.lua:536
+#: dev/devtools.lua:540 dev/devtools.lua:546 views/widgets.lua:535 views/widgets.lua:536
 #, koreader
 msgid "Dictionary"
 msgstr ""
@@ -750,26 +783,35 @@ msgstr "Díchumasaithe"
 msgid "Disabled due to incompatibility with the Home screen:"
 msgstr "Díchumasaithe mar nach bhfuil siad comhoiriúnach leis an Scáileán Baile:"
 
-#: dev/devtools.lua:623
+#: dev/devtools.lua:633
 msgid "Disabled option"
 msgstr ""
 
-#: menu.lua:508
+#: menu.lua:538
 msgid "Dock"
 msgstr "Duga"
 
-#: dev/devtools.lua:864
+#: dev/devtools.lua:874
 msgid "Documents"
 msgstr ""
 
-#: dev/devtools.lua:627 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
+#: dev/devtools.lua:637 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
 #, koreader
 msgid "Done"
 msgstr ""
 
-#: dev/devtools.lua:553
+#: dev/devtools.lua:563
 msgid "Downloading covers"
 msgstr ""
+
+#: views/update.lua:210
+#, koreader
+msgid "Downloading…"
+msgstr ""
+
+#: views/update.lua:234
+msgid "Downloading… %1 of %2"
+msgstr "Á íoslódáil… %1 as %2"
 
 #: styles/bookinfo.lua:198
 #, koreader
@@ -780,15 +822,15 @@ msgstr ""
 msgid "EDITING WIDGETS"
 msgstr "GIUIRLÉIDÍ Á GCUR IN EAGAR"
 
-#: dev/devtools.lua:515 dev/devtools.lua:762
+#: dev/devtools.lua:525 dev/devtools.lua:772
 msgid "Edgedancer"
 msgstr ""
 
-#: menu.lua:283
+#: menu.lua:313
 msgid "Edit Home widgets"
 msgstr "Cuir giuirléidí Baile in eagar"
 
-#: dev/devtools.lua:513
+#: dev/devtools.lua:523
 msgid "Edit metadata"
 msgstr ""
 
@@ -815,7 +857,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Gan ghiuirléidí"
 
-#: views/grid.lua:471
+#: views/grid.lua:473
 msgid "Empty collection"
 msgstr "Bailiúchán folamh"
 
@@ -837,7 +879,7 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: dev/devtools.lua:510
+#: dev/devtools.lua:520
 msgid "Epic fantasy"
 msgstr ""
 
@@ -855,7 +897,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Gach rud a tharraingíonn an breiseán, le sonraí samplacha. Svaidhpeáil ← → chun leathanaigh a chasadh; tapáil lasmuigh nó ar an leathanach chun scoir."
 
-#: views/power.lua:177
+#: views/power.lua:222
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -864,11 +906,11 @@ msgstr ""
 msgid "FILE"
 msgstr "COMHAD"
 
-#: views/grid.lua:796
+#: views/grid.lua:798
 msgid "FILTER"
 msgstr "SCAGAIRE"
 
-#: dev/devtools.lua:811 dev/devtools.lua:862
+#: dev/devtools.lua:821 dev/devtools.lua:872
 #, koreader
 msgid "Fantasy"
 msgstr ""
@@ -877,7 +919,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Fillteáin is fearr leat"
 
-#: dev/devtools.lua:811 views/grid.lua:350 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:350 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -887,7 +929,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "Feabhra"
 
-#: menu.lua:487 views/dock.lua:275
+#: menu.lua:517 views/dock.lua:275
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -902,15 +944,15 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:740
+#: views/grid.lua:742
 msgid "Filter"
 msgstr "Scagaire"
 
-#: dev/devtools.lua:649 views/grid.lua:739
+#: dev/devtools.lua:659 views/grid.lua:741
 msgid "Filter and sort"
 msgstr "Scag agus sórtáil"
 
-#: dev/devtools.lua:653
+#: dev/devtools.lua:663
 #, koreader
 msgid "Finished"
 msgstr ""
@@ -920,11 +962,11 @@ msgctxt "aire"
 msgid "Finished"
 msgstr "Críochnaithe"
 
-#: dev/devtools.lua:808
+#: dev/devtools.lua:818
 msgid "Finished (test data)"
 msgstr ""
 
-#: menu.lua:401
+#: menu.lua:431
 msgid "Finished books in gray"
 msgstr "Leabhair chríochnaithe i liath"
 
@@ -937,15 +979,15 @@ msgstr ""
 msgid "Floating windows"
 msgstr "Fuinneoga snámha"
 
-#: menu.lua:395
+#: menu.lua:425
 msgid "Folded corner on started books"
 msgstr "Cúinne fillte ar leabhair tosaithe"
 
-#: dev/devtools.lua:869
+#: dev/devtools.lua:879
 msgid "Folder shortcuts (empty)"
 msgstr ""
 
-#: dev/devtools.lua:856
+#: dev/devtools.lua:866
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
@@ -958,11 +1000,11 @@ msgstr ""
 msgid "Folders"
 msgstr "Fillteáin"
 
-#: dev/devtools.lua:669
+#: dev/devtools.lua:679
 msgid "Font (status bar)"
 msgstr ""
 
-#: dev/devtools.lua:683
+#: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
 msgstr ""
@@ -1037,7 +1079,7 @@ msgstr "Suas"
 msgid "Got it"
 msgstr ""
 
-#: menu.lua:354 menu.lua:498
+#: menu.lua:384 menu.lua:528
 msgid "Grid: %1 columns"
 msgstr "Greille: %1 cholún"
 
@@ -1045,29 +1087,29 @@ msgstr "Greille: %1 cholún"
 msgid "HIGHLIGHT"
 msgstr "BUAICPHOINTE"
 
-#: views/stats.lua:714
+#: views/stats.lua:716
 msgid "HIGHLIGHTS"
 msgstr "BUAICPHOINTÍ"
 
-#: views/stats.lua:419
+#: views/stats.lua:421
 msgid "Hasn't arrived yet"
 msgstr "Níor tháinig sé fós"
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:47 views/grid.lua:1427
+#: views/dock.lua:47 views/grid.lua:1411
 #, koreader
 msgid "History"
 msgstr ""
 
-#: dev/devtools.lua:803
+#: dev/devtools.lua:813
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:615
+#: views/grid.lua:617
 msgid "History is empty"
 msgstr "Tá an stair folamh"
 
@@ -1079,16 +1121,16 @@ msgstr "Déanann coinneáil an rud céanna le tapáil"
 msgid "Hold to configure"
 msgstr "Coinnigh chun cumrú"
 
-#: dev/devtools.lua:662 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
+#: dev/devtools.lua:672 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
 #, koreader
 msgid "Home"
 msgstr ""
 
-#: dev/devtools.lua:800
+#: dev/devtools.lua:810
 msgid "Home (test data)"
 msgstr ""
 
-#: menu.lua:262
+#: menu.lua:292
 msgid "Home and widgets"
 msgstr "Baile agus giuirléidí"
 
@@ -1100,37 +1142,53 @@ msgstr "Scáileán baile leis an leabhar reatha, giuirléidí, leabharlann, bail
 msgid "Home widgets"
 msgstr "Giuirléidí Baile"
 
-#: dev/devtools.lua:714
+#: dev/devtools.lua:724
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:852 styles/imageviewer.lua:43
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "Íomhá"
 
-#: dev/devtools.lua:835
+#: dev/devtools.lua:845
 msgid "Image / cover viewer"
 msgstr ""
 
-#: menu.lua:408
+#: menu.lua:438
 msgid "In Collections, a collection appears for each author with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "In Bailiúcháin, feictear bailiúchán do gach údar a bhfuil 2 leabhar nó níos mó aige. Nuashonraítear iad go huathoibríoch agus ní shábháiltear iad i mbailiúcháin KOReader."
 
-#: menu.lua:416
+#: menu.lua:446
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "In Bailiúcháin, feictear bailiúchán do gach eochairfhocal a bhfuil 2 leabhar nó níos mó aige. Nuashonraítear iad go huathoibríoch agus ní shábháiltear iad i mbailiúcháin KOReader."
 
-#: dev/devtools.lua:621 views/home.lua:213 views/widgets.lua:1154
+#: views/update.lua:495
+msgid "Include beta versions"
+msgstr "Cuir leaganacha béite san áireamh"
+
+#: views/update.lua:514
+msgid "Installed version: %1"
+msgstr "Leagan suiteáilte: %1"
+
+#: views/update.lua:246
+msgid "Installing…"
+msgstr "Á shuiteáil…"
+
+#: dev/devtools.lua:631 views/home.lua:213 views/widgets.lua:1154
 msgid "Inverted colors"
 msgstr "Dathanna inbhéartaithe"
 
-#: dev/devtools.lua:716
+#: dev/devtools.lua:726
 msgid "Inverted horizontal"
 msgstr ""
 
-#: dev/devtools.lua:715
+#: dev/devtools.lua:725
 msgid "Inverted portrait"
 msgstr ""
+
+#: views/update.lua:193
+msgid "It will be used after restarting KOReader. Your settings are kept."
+msgstr "Úsáidfear é tar éis KOReader a atosú. Coinneofar do shocruithe."
 
 #: styles/bookinfo.lua:198
 #, koreader
@@ -1157,12 +1215,12 @@ msgctxt "aire"
 msgid "June"
 msgstr "Meitheamh"
 
-#: views/power.lua:176
+#: views/power.lua:221
 #, koreader
 msgid "KOReader"
 msgstr ""
 
-#: dev/devtools.lua:734
+#: dev/devtools.lua:744
 msgid "KOReader engine (crengine)"
 msgstr ""
 
@@ -1171,7 +1229,7 @@ msgstr ""
 msgid "Korean"
 msgstr ""
 
-#: dev/devtools.lua:583
+#: dev/devtools.lua:593
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
@@ -1179,7 +1237,7 @@ msgstr ""
 msgid "LAST 7 DAYS"
 msgstr "NA 7 LÁ SEO CAITE"
 
-#: menu.lua:512
+#: menu.lua:542
 msgid "Labels under icons"
 msgstr "Lipéid faoi na deilbhíní"
 
@@ -1187,7 +1245,7 @@ msgstr "Lipéid faoi na deilbhíní"
 msgid "Large (also occupies the right cell)"
 msgstr "Mór (tógann sé an cillín ar dheis freisin)"
 
-#: menu.lua:266
+#: menu.lua:296
 msgid "Large clock and date"
 msgstr "Clog agus dáta móra"
 
@@ -1199,15 +1257,19 @@ msgstr "Mór · beag · beag inbhéartaithe — svaidhpeáil ← →, tapáil ch
 msgid "Last"
 msgstr "Deireanach"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:121
 msgid "Last 7 days summary"
 msgstr "Achoimre na 7 lá seo caite"
 
-#: dev/devtools.lua:827 views/grid.lua:87
+#: views/update.lua:507
+msgid "Last check: %1"
+msgstr "Seiceáil dheireanach: %1"
+
+#: dev/devtools.lua:837 views/grid.lua:87
 msgid "Last read"
 msgstr "Léite go deireanach"
 
-#: common/compat.lua:171
+#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1221,20 +1283,20 @@ msgstr ""
 msgid "Layout"
 msgstr "Leagan amach"
 
-#: dev/devtools.lua:691
+#: dev/devtools.lua:701
 #, koreader
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:663 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1425
+#: dev/devtools.lua:673 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1409
 msgid "Library"
 msgstr "Leabharlann"
 
-#: dev/devtools.lua:801
+#: dev/devtools.lua:811
 msgid "Library (test data)"
 msgstr ""
 
-#: menu.lua:349
+#: menu.lua:379
 msgid "Library and covers"
 msgstr "Leabharlann agus clúdaigh"
 
@@ -1242,11 +1304,11 @@ msgstr "Leabharlann agus clúdaigh"
 msgid "Library is empty"
 msgstr "Tá an leabharlann folamh"
 
-#: menu.lua:531
+#: menu.lua:561
 msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
 msgstr "Coinníonn an Leabharlann, na Bailiúcháin agus an Stair cóipeanna beaga de na clúdaigh chun oscailt níos tapúla. Glan iad mura nuashonraítear clúdach."
 
-#: dev/devtools.lua:634 dev/devtools.lua:678 views/widgets.lua:451
+#: dev/devtools.lua:644 dev/devtools.lua:688 views/widgets.lua:451
 msgid "Light"
 msgstr "Solas"
 
@@ -1254,15 +1316,15 @@ msgstr "Solas"
 msgid "Light level"
 msgstr "Leibhéal solais"
 
-#: menu.lua:433
+#: menu.lua:463
 msgid "List with covers"
 msgstr "Liosta le clúdaigh"
 
-#: menu.lua:435
+#: menu.lua:465
 msgid "List with filenames"
 msgstr "Liosta le hainmneacha comhad"
 
-#: menu.lua:434
+#: menu.lua:464
 msgid "List without covers"
 msgstr "Liosta gan chlúdaigh"
 
@@ -1270,7 +1332,7 @@ msgstr "Liosta gan chlúdaigh"
 msgid "Loading month…"
 msgstr "Mí á lódáil…"
 
-#: dev/devtools.lua:501
+#: dev/devtools.lua:511
 msgid "Long message"
 msgstr ""
 
@@ -1282,11 +1344,11 @@ msgstr "TORADH"
 msgid "MATCH %d"
 msgstr "TORADH %d"
 
-#: views/stats.lua:706
+#: views/stats.lua:708
 msgid "MONTHLY RHYTHM"
 msgstr "RITHIM MHÍOSÚIL"
 
-#: views/stats.lua:744
+#: views/stats.lua:746
 msgid "MOST READ"
 msgstr "IS MÓ A LÉADH"
 
@@ -1299,7 +1361,7 @@ msgctxt "aire"
 msgid "March"
 msgstr "Márta"
 
-#: dev/devtools.lua:690 styles/ui/readermenu.lua:53
+#: dev/devtools.lua:700 styles/ui/readermenu.lua:53
 msgid "Margins"
 msgstr "Imill"
 
@@ -1312,19 +1374,19 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Marcáil gach leabhar in \"%1\" mar á léamh?"
 
-#: views/grid.lua:1058
+#: views/grid.lua:1060
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Marcáil gach leabhar sa bhailiúchán \"%1\" mar á léamh?"
 
-#: dev/devtools.lua:594
+#: dev/devtools.lua:604
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1056
+#: views/grid.lua:1058
 msgid "Mark entire collection as finished"
 msgstr "Marcáil an bailiúchán ar fad mar chríochnaithe"
 
-#: views/grid.lua:1057
+#: views/grid.lua:1059
 msgid "Mark entire collection as reading"
 msgstr "Marcáil an bailiúchán ar fad mar á léamh"
 
@@ -1345,7 +1407,7 @@ msgstr "Bealtaine"
 msgid "Memory used"
 msgstr "Cuimhne in úsáid"
 
-#: dev/devtools.lua:520
+#: dev/devtools.lua:530
 msgid "Menu next to text"
 msgstr ""
 
@@ -1363,11 +1425,11 @@ msgstr "Íosta"
 msgid "Mix folders"
 msgstr "Measc fillteáin"
 
-#: views/grid.lua:817
+#: views/grid.lua:819
 msgid "Mix series"
 msgstr "Measc sraitheanna"
 
-#: views/stats.lua:641
+#: views/stats.lua:643
 msgid "Monthly"
 msgstr "Míosúil"
 
@@ -1375,7 +1437,7 @@ msgstr "Míosúil"
 msgid "Monthly recap"
 msgstr "Achoimre mhíosúil"
 
-#: dev/devtools.lua:805
+#: dev/devtools.lua:815
 msgid "Monthly recap (test data)"
 msgstr ""
 
@@ -1391,20 +1453,20 @@ msgstr "Tuilleadh roghanna…"
 msgid "More settings"
 msgstr "Tuilleadh socruithe"
 
-#: dev/devtools.lua:531
+#: dev/devtools.lua:541
 msgid "More…"
 msgstr ""
 
-#: menu.lua:432
+#: menu.lua:462
 msgid "Mosaic with covers"
 msgstr "Mósáic le clúdaigh"
 
-#: dev/devtools.lua:726
+#: dev/devtools.lua:736
 #, koreader
 msgid "Move"
 msgstr ""
 
-#: dev/devtools.lua:512
+#: dev/devtools.lua:522
 msgid "Multiple fields"
 msgstr ""
 
@@ -1438,11 +1500,11 @@ msgstr ""
 msgid "Name:"
 msgstr "Ainm:"
 
-#: dev/devtools.lua:665
+#: dev/devtools.lua:675
 msgid "Neighbor"
 msgstr ""
 
-#: dev/devtools.lua:653 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
+#: dev/devtools.lua:663 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
 #, koreader
 msgid "New"
 msgstr ""
@@ -1452,12 +1514,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nua"
 
-#: views/grid.lua:490
+#: views/grid.lua:492
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:1014 views/grid.lua:1027
 msgid "New collection…"
 msgstr "Bailiúchán nua…"
 
@@ -1473,7 +1535,7 @@ msgstr "Ar aghaidh"
 msgid "Next %1"
 msgstr "Ar aghaidh: %1"
 
-#: menu.lua:585
+#: menu.lua:615
 msgid "Next batch of test widgets"
 msgstr "An chéad bhaisc eile de ghiuirléidí tástála"
 
@@ -1482,7 +1544,7 @@ msgstr "An chéad bhaisc eile de ghiuirléidí tástála"
 msgid "Next chapter"
 msgstr ""
 
-#: dev/devtools.lua:632 views/widgets.lua:284
+#: dev/devtools.lua:642 views/widgets.lua:284
 msgid "Next in series"
 msgstr "An chéad cheann eile sa tsraith"
 
@@ -1503,11 +1565,11 @@ msgstr "Níl aon leabhar ar siúl"
 msgid "No book matches the filter"
 msgstr "Níl aon leabhar ag teacht leis an scagaire"
 
-#: views/grid.lua:583
+#: views/grid.lua:585
 msgid "No books finished this month"
 msgstr "Níor críochnaíodh aon leabhar an mhí seo"
 
-#: views/grid.lua:583
+#: views/grid.lua:585
 msgid "No books finished this year"
 msgstr "Níor críochnaíodh aon leabhar i mbliana"
 
@@ -1515,7 +1577,7 @@ msgstr "Níor críochnaíodh aon leabhar i mbliana"
 msgid "No books in home folder"
 msgstr "Níl aon leabhar san fhillteán baile"
 
-#: views/grid.lua:338 views/grid.lua:471 views/grid.lua:615
+#: views/grid.lua:338 views/grid.lua:473 views/grid.lua:617
 msgid "No books with this filter"
 msgstr "Níl aon leabhar leis an scagaire seo"
 
@@ -1523,11 +1585,11 @@ msgstr "Níl aon leabhar leis an scagaire seo"
 msgid "No chapter"
 msgstr "Gan chaibidil"
 
-#: views/grid.lua:498
+#: views/grid.lua:500
 msgid "No collections"
 msgstr "Níl aon bhailiúchán"
 
-#: views/grid.lua:498
+#: views/grid.lua:500
 msgid "No collections with this filter"
 msgstr "Níl aon bhailiúchán leis an scagaire seo"
 
@@ -1552,7 +1614,7 @@ msgstr "Níl aon chéad leabhar eile neamhchríochnaithe"
 msgid "No previous book"
 msgstr "Níl aon leabhar roimhe seo"
 
-#: styles/statspages.lua:365 views/stats.lua:677
+#: styles/statspages.lua:365 views/stats.lua:679
 msgid "No reading activity in this period"
 msgstr "Níl aon ghníomhaíocht léitheoireachta sa tréimhse seo"
 
@@ -1589,7 +1651,7 @@ msgstr "Gan rátáil"
 msgid "Not started"
 msgstr "Gan tosú"
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Note"
 msgstr ""
@@ -1609,7 +1671,7 @@ msgctxt "aire"
 msgid "November"
 msgstr "Samhain"
 
-#: dev/devtools.lua:681
+#: dev/devtools.lua:691
 msgid "Number"
 msgstr ""
 
@@ -1617,7 +1679,7 @@ msgstr ""
 msgid "Number in series"
 msgstr "Uimhir sa tsraith"
 
-#: dev/devtools.lua:487 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
+#: dev/devtools.lua:497 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
 #, koreader
 msgid "OK"
 msgstr ""
@@ -1632,7 +1694,7 @@ msgstr "Deireadh Fómhair"
 msgid "Off"
 msgstr ""
 
-#: dev/devtools.lua:639 views/widgets.lua:457 views/widgets.lua:470
+#: dev/devtools.lua:649 views/widgets.lua:457 views/widgets.lua:470
 #, koreader
 msgid "On"
 msgstr ""
@@ -1642,20 +1704,24 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Ar feitheamh"
 
-#: dev/devtools.lua:738
+#: views/update.lua:487
+msgid "Only when Wi-Fi is already on: Aire never turns it on."
+msgstr "Ach amháin nuair atá Wi-Fi ar siúl cheana: ní chuireann Aire ar siúl é choíche."
+
+#: dev/devtools.lua:748
 #, koreader
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:1057
 msgid "Open collection"
 msgstr "Oscail an bailiúchán"
 
-#: dev/devtools.lua:624
+#: dev/devtools.lua:634
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:1057
 msgid "Open series"
 msgstr "Oscail an tsraith"
 
@@ -1663,7 +1729,7 @@ msgstr "Oscail an tsraith"
 msgid "Open series folder"
 msgstr "Oscail fillteán na sraithe"
 
-#: dev/devtools.lua:730 dev/devtools.lua:732
+#: dev/devtools.lua:740 dev/devtools.lua:742
 #, koreader
 msgid "Open with…"
 msgstr ""
@@ -1672,15 +1738,15 @@ msgstr ""
 msgid "Opening \"%1\"…"
 msgstr "\"%1\" á oscailt…"
 
-#: dev/devtools.lua:709
+#: dev/devtools.lua:719
 msgid "Options list"
 msgstr ""
 
-#: dev/devtools.lua:589
+#: dev/devtools.lua:599
 msgid "Options menu"
 msgstr ""
 
-#: dev/devtools.lua:711 styles/ui/readermenu.lua:52
+#: dev/devtools.lua:721 styles/ui/readermenu.lua:52
 msgid "Orientation"
 msgstr "Treoshuíomh"
 
@@ -1689,11 +1755,11 @@ msgstr "Treoshuíomh"
 msgid "Original size"
 msgstr ""
 
-#: menu.lua:272
+#: menu.lua:302
 msgid "Otherwise, the current book card is black with white text."
 msgstr "Murach sin, bíonn cárta an leabhair reatha dubh le téacs bán."
 
-#: dev/devtools.lua:735
+#: dev/devtools.lua:745
 msgid "PDF engine (MuPDF)"
 msgstr ""
 
@@ -1706,7 +1772,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "Leathanach %1 / %2"
 
-#: dev/devtools.lua:966 styles/pagebrowser.lua:285
+#: dev/devtools.lua:976 styles/pagebrowser.lua:285
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1715,7 +1781,7 @@ msgstr ""
 msgid "Page fit"
 msgstr "Oiriúnaigh don leathanach"
 
-#: dev/devtools.lua:824 styles/statspages.lua:83
+#: dev/devtools.lua:834 styles/statspages.lua:83
 #, koreader
 msgid "Pages read"
 msgstr ""
@@ -1730,15 +1796,15 @@ msgstr ""
 msgid "Pages read today"
 msgstr ""
 
-#: dev/devtools.lua:629
+#: dev/devtools.lua:639
 msgid "Plugin sheet (2 columns)"
 msgstr ""
 
-#: dev/devtools.lua:617
+#: dev/devtools.lua:627
 msgid "Plugin sheet (options)"
 msgstr ""
 
-#: dev/devtools.lua:713
+#: dev/devtools.lua:723
 #, koreader
 msgid "Portrait"
 msgstr ""
@@ -1748,7 +1814,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:134
+#: views/power.lua:179
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1766,12 +1832,12 @@ msgstr "An leabhar roimhe seo"
 msgid "Previous chapter"
 msgstr ""
 
-#: dev/devtools.lua:551 dev/devtools.lua:607 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
+#: dev/devtools.lua:561 dev/devtools.lua:617 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
 #, koreader
 msgid "Progress"
 msgstr ""
 
-#: dev/devtools.lua:546
+#: dev/devtools.lua:556
 msgid "QR code"
 msgstr ""
 
@@ -1784,7 +1850,7 @@ msgctxt "aire"
 msgid "Quick actions"
 msgstr "Gníomhartha tapa"
 
-#: dev/devtools.lua:633
+#: dev/devtools.lua:643
 msgid "Quote"
 msgstr ""
 
@@ -1820,7 +1886,7 @@ msgstr "ATHBHREITHNIÚ / NÓTAÍ"
 msgid "Random"
 msgstr "Randamach"
 
-#: dev/devtools.lua:633 views/widgets.lua:320
+#: dev/devtools.lua:643 views/widgets.lua:320
 msgid "Random book"
 msgstr "Leabhar randamach"
 
@@ -1843,11 +1909,11 @@ msgstr ""
 msgid "Reader"
 msgstr ""
 
-#: dev/devtools.lua:674
+#: dev/devtools.lua:684
 msgid "Reader bottom menu"
 msgstr ""
 
-#: dev/devtools.lua:652
+#: dev/devtools.lua:662
 #, koreader
 msgid "Reading"
 msgstr ""
@@ -1857,36 +1923,36 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "Léitheoireacht"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 #, koreader
 msgid "Reading progress"
 msgstr ""
 
-#: dev/devtools.lua:906
+#: dev/devtools.lua:916
 msgid "Reading progress (empty)"
 msgstr ""
 
-#: dev/devtools.lua:903
+#: dev/devtools.lua:913
 msgid "Reading progress (with data)"
 msgstr ""
 
-#: dev/devtools.lua:824
+#: dev/devtools.lua:834
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:605
+#: views/stats.lua:607
 msgid "Recap"
 msgstr "Achoimre"
 
-#: dev/devtools.lua:656 views/grid.lua:64
+#: dev/devtools.lua:666 views/grid.lua:64
 msgid "Recent"
 msgstr "Le déanaí"
 
-#: dev/devtools.lua:607 views/grid.lua:64 views/widgets.lua:341
+#: dev/devtools.lua:617 views/grid.lua:64 views/widgets.lua:341
 msgid "Recently added"
 msgstr "Curtha leis le déanaí"
 
-#: dev/devtools.lua:606
+#: dev/devtools.lua:616
 msgid "Recently read"
 msgstr ""
 
@@ -1895,7 +1961,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:626 styles/bookmark.lua:405
+#: dev/devtools.lua:636 styles/bookmark.lua:405
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1910,12 +1976,12 @@ msgstr "Bain"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:504
+#: views/booksheet.lua:592 views/grid.lua:506
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Bain den bhailiúchán"
 
-#: views/booksheet.lua:556 views/grid.lua:620
+#: views/booksheet.lua:556 views/grid.lua:622
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1930,25 +1996,25 @@ msgstr ""
 msgid "Remove this bookmark?"
 msgstr ""
 
-#: dev/devtools.lua:509
+#: dev/devtools.lua:519
 #, koreader
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1019
+#: views/grid.lua:1021
 msgid "Rename…"
 msgstr "Athainmnigh…"
 
-#: menu.lua:300
+#: menu.lua:330
 msgid "Replace the Home widgets with the \"%1\" preset?"
 msgstr "Giuirléidí an Bhaile a athsholáthar leis an réamhshocrú \"%1\"?"
 
-#: dev/devtools.lua:596
+#: dev/devtools.lua:606
 #, koreader
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:175
+#: views/power.lua:220
 #, koreader
 msgid "Restart"
 msgstr ""
@@ -1962,7 +2028,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Atosaigh KOReader chun an t-athrú a chur i bhfeidhm."
 
-#: views/explorer.lua:126 views/grid.lua:811
+#: views/update.lua:194
+msgid "Restart KOReader to use it. Your settings are kept."
+msgstr "Atosaigh KOReader chun é a úsáid. Coinneofar do shocruithe."
+
+#: views/update.lua:183
+#, koreader
+msgid "Restart now"
+msgstr ""
+
+#: views/explorer.lua:126 views/grid.lua:813
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -1972,7 +2047,7 @@ msgstr ""
 msgid "Review:"
 msgstr ""
 
-#: dev/devtools.lua:692
+#: dev/devtools.lua:702
 #, koreader
 msgid "Right"
 msgstr ""
@@ -1987,7 +2062,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:806
+#: views/grid.lua:808
 msgid "SORT BY"
 msgstr "SÓRTÁIL DE RÉIR"
 
@@ -2001,17 +2076,17 @@ msgstr ""
 msgid "SSH server"
 msgstr ""
 
-#: dev/devtools.lua:510 dev/devtools.lua:513 dev/devtools.lua:700
+#: dev/devtools.lua:520 dev/devtools.lua:523 dev/devtools.lua:710
 #, koreader
 msgid "Save"
 msgstr ""
 
-#: dev/devtools.lua:499
+#: dev/devtools.lua:509
 #, koreader
 msgid "Saved"
 msgstr ""
 
-#: dev/devtools.lua:811 dev/devtools.lua:863
+#: dev/devtools.lua:821 dev/devtools.lua:873
 msgid "Science Fiction"
 msgstr ""
 
@@ -2020,29 +2095,33 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:506 dev/devtools.lua:507 dev/devtools.lua:530 views/dock.lua:56 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:56 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
 
-#: dev/devtools.lua:507
+#: dev/devtools.lua:517
 msgid "Search library"
 msgstr ""
 
-#: dev/devtools.lua:1022
+#: dev/devtools.lua:1032
 msgid "Search results (empty)"
 msgstr ""
 
-#: dev/devtools.lua:1005
+#: dev/devtools.lua:1015
 msgid "Search results (with data)"
 msgstr ""
+
+#: views/update.lua:354
+msgid "See all changes"
+msgstr "Féach ar gach athrú"
 
 #: views/topbar.lua:103
 msgctxt "aire"
 msgid "September"
 msgstr "Meán Fómhair"
 
-#: dev/devtools.lua:517 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2051,11 +2130,11 @@ msgstr ""
 msgid "Series name"
 msgstr "Ainm na sraithe"
 
-#: menu.lua:374
+#: menu.lua:404
 msgid "Series number on covers"
 msgstr "Uimhir sraithe ar chlúdaigh"
 
-#: dev/devtools.lua:706
+#: dev/devtools.lua:716
 #, koreader
 msgid "Set alarm"
 msgstr ""
@@ -2065,12 +2144,17 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: dev/devtools.lua:531
+#: views/update.lua:483
+#, koreader
+msgid "Settings"
+msgstr ""
+
+#: dev/devtools.lua:541
 #, koreader
 msgid "Share"
 msgstr ""
 
-#: dev/devtools.lua:498
+#: dev/devtools.lua:508
 msgid "Short message"
 msgstr ""
 
@@ -2079,12 +2163,12 @@ msgstr ""
 msgid "Show all files from subfolders"
 msgstr ""
 
-#: menu.lua:53 menu.lua:381
+#: menu.lua:53 menu.lua:411
 #, koreader
 msgid "Show collection mark"
 msgstr ""
 
-#: menu.lua:607
+#: menu.lua:637
 msgid "Show dimensions of each book / series"
 msgstr "Taispeáin toisí gach leabhair / sraithe"
 
@@ -2103,7 +2187,7 @@ msgstr ""
 msgid "Show progress in mosaic mode"
 msgstr ""
 
-#: dev/devtools.lua:622 views/home.lua:215
+#: dev/devtools.lua:632 views/home.lua:215
 msgid "Show synopsis"
 msgstr "Taispeáin achoimre"
 
@@ -2112,16 +2196,20 @@ msgstr "Taispeáin achoimre"
 msgid "Size:"
 msgstr ""
 
-#: views/power.lua:133
+#: views/update.lua:371
+msgid "Skip"
+msgstr "Scipeáil"
+
+#: views/power.lua:178
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Codladh"
 
-#: dev/devtools.lua:655 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
+#: dev/devtools.lua:665 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
 msgid "Smart"
 msgstr "Cliste"
 
-#: dev/devtools.lua:605
+#: dev/devtools.lua:615
 msgid "Smart  (current)"
 msgstr ""
 
@@ -2129,24 +2217,24 @@ msgstr ""
 msgid "Sort"
 msgstr "Sórtáil"
 
-#: dev/devtools.lua:601
+#: dev/devtools.lua:611
 msgid "Sort (2 columns)"
 msgstr ""
 
-#: dev/devtools.lua:809
+#: dev/devtools.lua:819
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:603 views/grid.lua:740
+#: dev/devtools.lua:613 views/grid.lua:742
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:815 views/grid.lua:990
+#: dev/devtools.lua:825 views/grid.lua:992
 msgid "Sort collections"
 msgstr "Sórtáil bailiúcháin"
 
-#: views/grid.lua:1013 views/grid.lua:1026
+#: views/grid.lua:1015 views/grid.lua:1028
 msgid "Sort collections…"
 msgstr "Sórtáil bailiúcháin…"
 
@@ -2159,7 +2247,7 @@ msgstr "Sórtáil comhaid"
 msgid "Spanish"
 msgstr ""
 
-#: menu.lua:360
+#: menu.lua:390
 msgid "Square covers and series"
 msgstr "Clúdaigh chearnacha agus sraitheanna"
 
@@ -2167,7 +2255,7 @@ msgstr "Clúdaigh chearnacha agus sraitheanna"
 msgid "Start"
 msgstr "Tosaigh"
 
-#: dev/devtools.lua:827
+#: dev/devtools.lua:837
 msgid "Started"
 msgstr ""
 
@@ -2175,15 +2263,15 @@ msgstr ""
 msgid "Stats"
 msgstr "Staitisticí"
 
-#: dev/devtools.lua:804
+#: dev/devtools.lua:814
 msgid "Stats (test data)"
 msgstr ""
 
-#: dev/devtools.lua:671
+#: dev/devtools.lua:681
 msgid "Status bar font"
 msgstr ""
 
-#: dev/devtools.lua:635 views/widgets.lua:514
+#: dev/devtools.lua:645 views/widgets.lua:514
 msgid "Storage"
 msgstr "Stóráil"
 
@@ -2195,19 +2283,19 @@ msgstr "Malartaigh tapáil agus coinneáil"
 msgid "Synopsis"
 msgstr "Achoimre"
 
-#: menu.lua:277
+#: menu.lua:307
 msgid "Synopsis on card"
 msgstr "Achoimre ar an gcárta"
 
-#: dev/devtools.lua:972
+#: dev/devtools.lua:982
 msgid "Table of contents (empty)"
 msgstr ""
 
-#: dev/devtools.lua:969
+#: dev/devtools.lua:979
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:961 styles/bookinfo.lua:987 styles/bookstatus.lua:394
+#: dev/devtools.lua:971 styles/bookinfo.lua:987 styles/bookstatus.lua:394
 msgid "Tap to add or edit your review of this book…"
 msgstr "Tapáil chun d'athbhreithniú ar an leabhar seo a chur leis nó a chur in eagar…"
 
@@ -2223,15 +2311,15 @@ msgstr "Tapáil chun stopadh"
 msgid "Tap to view definition"
 msgstr "Tapáil chun an sainmhíniú a fheiceáil"
 
-#: views/grid.lua:1329
+#: views/grid.lua:1307
 msgid "Test book"
 msgstr "Leabhar tástála"
 
-#: menu.lua:563
+#: menu.lua:593
 msgid "Test data (pagination)"
 msgstr "Sonraí tástála (uimhriú leathanach)"
 
-#: dev/devtools.lua:541
+#: dev/devtools.lua:551
 msgid "Test dictionary"
 msgstr ""
 
@@ -2239,19 +2327,19 @@ msgstr ""
 msgid "Test galleries"
 msgstr "Gailearaithe tástála"
 
-#: menu.lua:596
+#: menu.lua:626
 msgid "Test stats"
 msgstr "Staitisticí tástála"
 
-#: dev/devtools.lua:770
+#: dev/devtools.lua:780
 msgid "Test synopsis for the full-screen text viewer."
 msgstr ""
 
-#: menu.lua:575
+#: menu.lua:605
 msgid "Test widgets (all with data)"
 msgstr "Giuirléidí tástála (gach ceann le sonraí)"
 
-#: menu.lua:547
+#: menu.lua:577
 msgid "Tests"
 msgstr "Tástálacha"
 
@@ -2260,15 +2348,15 @@ msgstr "Tástálacha"
 msgid "Text"
 msgstr ""
 
-#: dev/devtools.lua:741
+#: dev/devtools.lua:751
 msgid "Text viewer (synopsis)"
 msgstr ""
 
-#: dev/devtools.lua:573
+#: dev/devtools.lua:583
 msgid "The Name of the Wind"
 msgstr ""
 
-#: dev/devtools.lua:517
+#: dev/devtools.lua:527
 msgid "The Stormlight Archive"
 msgstr ""
 
@@ -2279,6 +2367,10 @@ msgstr "Níl an leabhar reatha mar chuid de shraith"
 #: styles/ui/pagination.lua:182
 msgid "This collection is empty"
 msgstr "Tá an bailiúchán seo folamh"
+
+#: views/update.lua:366
+msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
+msgstr "Tá an fillteán dev/ (tástálacha) sa chóip seo. Níl sé sa leagan nua, mar sin bainfear é."
 
 #: views/widgets.lua:441
 msgid "This month"
@@ -2300,7 +2392,7 @@ msgstr "An tseachtain seo: %1"
 msgid "This year"
 msgstr "I mbliana"
 
-#: dev/devtools.lua:703
+#: dev/devtools.lua:713
 #, koreader
 msgid "Time"
 msgstr ""
@@ -2329,20 +2421,20 @@ msgstr ""
 msgid "Time spent reading today"
 msgstr ""
 
-#: dev/devtools.lua:515 dev/devtools.lua:605 dev/devtools.lua:655 dev/devtools.lua:822 views/grid.lua:60
+#: dev/devtools.lua:525 dev/devtools.lua:615 dev/devtools.lua:665 dev/devtools.lua:832 views/grid.lua:60
 #, koreader
 msgid "Title"
 msgstr ""
 
-#: dev/devtools.lua:507
+#: dev/devtools.lua:517
 msgid "Title, author or series"
 msgstr ""
 
-#: dev/devtools.lua:811
+#: dev/devtools.lua:821
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:632
+#: dev/devtools.lua:642
 #, koreader
 msgid "Today"
 msgstr ""
@@ -2356,11 +2448,11 @@ msgstr "Inniu agus sraith laethanta"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:738
+#: views/stats.lua:740
 msgid "Top author"
 msgstr "An t-údar is mó a léadh"
 
-#: menu.lua:329
+#: menu.lua:359
 msgid "Top bar"
 msgstr "Barra uachtair"
 
@@ -2369,29 +2461,45 @@ msgstr "Barra uachtair"
 msgid "Total time spent on this book"
 msgstr ""
 
-#: dev/devtools.lua:531
+#: dev/devtools.lua:541
 #, koreader
 msgid "Translate"
 msgstr ""
 
-#: dev/devtools.lua:688
+#: dev/devtools.lua:698
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:124
+#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: menu.lua:491
+#: views/update.lua:474
+msgid "Update Aire"
+msgstr "Nuashonraigh Aire"
+
+#: views/update.lua:474
+msgid "Update Aire (%1 available)"
+msgstr "Nuashonraigh Aire (%1 ar fáil)"
+
+#: menu.lua:189
+msgid "Update KOReader"
+msgstr "Nuashonraigh KOReader"
+
+#: views/update.lua:214
+msgid "Updating Aire"
+msgstr "Aire á nuashonrú"
+
+#: menu.lua:521
 msgid "View mode"
 msgstr "Mód amhairc"
 
-#: dev/devtools.lua:934
+#: dev/devtools.lua:944
 msgid "Vocabulary builder (empty)"
 msgstr ""
 
-#: dev/devtools.lua:913
+#: dev/devtools.lua:923
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
@@ -2408,35 +2516,35 @@ msgstr[2] "Athbhreithniú stór focal · %1 fhocal"
 msgstr[3] "Athbhreithniú stór focal · %1 bhfocal"
 msgstr[4] "Athbhreithniú stór focal · %1 focal"
 
-#: dev/devtools.lua:930
+#: dev/devtools.lua:940
 msgid "Vocabulary review · %d words"
 msgstr ""
 
-#: dev/devtools.lua:945
+#: dev/devtools.lua:955
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "GNÍOMHAÍOCHT SHEACHTAINIÚIL"
 
-#: dev/devtools.lua:723
+#: dev/devtools.lua:733
 msgid "What do you want to do with this book?"
 msgstr ""
 
-#: menu.lua:523
+#: menu.lua:553
 msgid "When opening KOReader, warns about new patches and plugins and disables those incompatible with Aire."
 msgstr "Nuair a osclaítear KOReader, tugann sé rabhadh faoi phaistí agus bhreiseáin nua agus díchumasaíonn sé iad siúd nach bhfuil comhoiriúnach le Aire."
 
-#: menu.lua:396
+#: menu.lua:426
 msgid "White corner: reading. Gray corner: on hold."
 msgstr "Cúinne bán: á léamh. Cúinne liath: ar feitheamh."
 
-#: dev/devtools.lua:634 views/widgets.lua:465
+#: dev/devtools.lua:644 views/widgets.lua:465
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: dev/devtools.lua:659
+#: dev/devtools.lua:669
 msgid "Wi-Fi networks"
 msgstr ""
 
@@ -2444,7 +2552,7 @@ msgstr ""
 msgid "Widget gallery · %1 / %2"
 msgstr "Gailearaí giuirléidí · %1 / %2"
 
-#: menu.lua:289
+#: menu.lua:319
 msgid "Widget presets"
 msgstr "Réamhshocruithe giuirléidí"
 
@@ -2452,12 +2560,16 @@ msgstr "Réamhshocruithe giuirléidí"
 msgid "Widgets %1–%2"
 msgstr "Giuirléidí %1–%2"
 
-#: dev/devtools.lua:530 views/widgets.lua:542 views/widgets.lua:543
+#: dev/devtools.lua:540 views/widgets.lua:542 views/widgets.lua:543
 #, koreader
 msgid "Wikipedia"
 msgstr ""
 
-#: views/stats.lua:419
+#: views/update.lua:417
+msgid "You already have the latest version (%1)."
+msgstr "Tá an leagan is déanaí agat cheana (%1)."
+
+#: views/stats.lua:421
 msgid "You didn't read that day"
 msgstr "Níor léigh tú an lá sin"
 
@@ -2469,11 +2581,15 @@ msgstr "Níl aon bhuaicphointe agat fós"
 msgid "You have not opened any book yet"
 msgstr "Níor oscail tú aon leabhar fós"
 
-#: views/grid.lua:582
+#: views/power.lua:162 views/update.lua:342
+msgid "You have version %1"
+msgstr "Tá leagan %1 agat"
+
+#: views/grid.lua:584
 msgid "You haven't finished any books yet"
 msgstr "Níor chríochnaigh tú aon leabhar fós"
 
-#: dev/devtools.lua:542
+#: dev/devtools.lua:552
 msgid ""
 "adj. Lasting for a short time.\n"
 "\n"
@@ -2490,13 +2606,17 @@ msgstr "agus buaicphointí"
 msgid "at %1 %"
 msgstr "ag %1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "meán / lá"
 
 #: views/widgets.lua:506
 msgid "battery"
 msgstr "ceallra"
+
+#: views/update.lua:334
+msgid "beta"
+msgstr "béite"
 
 #: views/widgets.lua:403
 msgid "book"
@@ -2511,7 +2631,7 @@ msgstr[4] "leabhar"
 msgid "conflicts with plugin covers"
 msgstr "ag teacht salach ar chlúdaigh an bhreiseáin"
 
-#: dev/devtools.lua:539 dev/devtools.lua:541
+#: dev/devtools.lua:549 dev/devtools.lua:551
 msgid "ephemeral"
 msgstr ""
 
@@ -2524,7 +2644,7 @@ msgstr ""
 msgid "files"
 msgstr "comhaid"
 
-#: views/stats.lua:694 views/widgets.lua:423
+#: views/stats.lua:696 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "leabhar críochnaithe"
@@ -2549,13 +2669,18 @@ msgstr "san iomlán"
 msgid "included in Aire"
 msgstr "san áireamh in Aire"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "na 7 lá seo caite"
 
 #: views/widgets.lua:456
 msgid "light"
 msgstr "solas"
+
+#: views/update.lua:506
+#, koreader
+msgid "never"
+msgstr ""
 
 #: views/widgets.lua:481
 #, koreader
@@ -2578,7 +2703,7 @@ msgstr "lch. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "lch. %1 as %2"
 
-#: views/stats.lua:686
+#: views/stats.lua:688
 msgid "pages read"
 msgstr "leathanaigh léite"
 
@@ -2586,7 +2711,7 @@ msgstr "leathanaigh léite"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:690
+#: views/stats.lua:692
 msgid "reading time"
 msgstr "am léitheoireachta"
 
@@ -2660,7 +2785,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "inniu"
 
-#: styles/readerprogress.lua:158 views/stats.lua:225
+#: styles/readerprogress.lua:157 views/stats.lua:225
 msgid "today · %1 pp."
 msgstr "inniu · %1 lch."
 

@@ -20,7 +20,8 @@ Therefore:
         C_("aire", "Remove")
     Context entries never collide with KOReader.
 The KOReader catalog is read from <koreader>/l10n/<lang>/koreader.mo (the
-plugin lives in <koreader>/plugins/aire.koplugin). If it is not there,
+plugin lives in <koreader>/plugins/aire.koplugin, or next to a reference copy
+in ../koreader). If it is not there,
 the "#, koreader" marks already stored in the .po are kept.
 """
 
@@ -32,7 +33,10 @@ from pathlib import Path
 PLUGIN_DIR = Path(__file__).resolve().parent.parent
 L10N_DIR = PLUGIN_DIR / "l10n"
 POT_PATH = L10N_DIR / "aire.pot"
-KOREADER_L10N = PLUGIN_DIR.parent.parent / "l10n"
+# Catálogo de KOReader: dentro de KOReader (<koreader>/plugins/aire.koplugin) o,
+# con el repositorio aparte, en la copia de referencia de al lado (../koreader)
+KOREADER_L10N = next((p for p in (PLUGIN_DIR.parent.parent / "l10n", PLUGIN_DIR.parent / "koreader" / "l10n")
+                      if p.is_dir()), PLUGIN_DIR.parent.parent / "l10n")
 CONTEXT = "aire"
 # Herramienta de pruebas (galerías con datos inventados): traducirla es opcional
 # (todo lo de dev/: devtools, test_runner y tests; no se publica)

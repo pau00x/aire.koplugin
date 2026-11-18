@@ -179,9 +179,39 @@ return function(Aire, ctx)
                     order.search = new_search
                 end
             end
+            -- "Actualizar Aire" justo debajo del "Actualizar" de KOReader (que pasa a
+            -- llamarse "Actualizar KOReader"); sin él, antes de Ayuda. En el
+            -- explorador y en el lector, con Aire activado o no.
+            local function addAireUpdate(item_table, order)
+                local upd = ctx.update
+                if not (upd and upd.menuItem) or type(order.main) ~= "table" then return end
+                item_table.aire_update = upd.menuItem()
+                if item_table.ota_update then item_table.ota_update.text = _("Update KOReader") end
+                for _i, id in ipairs(order.main) do
+                    if id == "aire_update" then return end
+                end
+                local new, inserted = {}, false
+                for _i, id in ipairs(order.main) do
+                    if not inserted and id == "help" and not item_table.ota_update then
+                        table.insert(new, "aire_update")
+                        inserted = true
+                    end
+                    table.insert(new, id)
+                    if not inserted and id == "ota_update" and item_table.ota_update then
+                        table.insert(new, "aire_update")
+                        inserted = true
+                    end
+                end
+                if not inserted then table.insert(new, "aire_update") end
+                order.main = new
+            end
             local orig_sort = MenuSorter.sort
             MenuSorter.sort = function(ms, item_table, order)
                 if type(item_table) == "table" and type(order) == "table" then
+                    if item_table.help or item_table.ota_update then
+                        local ok, err = pcall(addAireUpdate, item_table, order)
+                        if not ok then logger.warn("Aire/Menu: Actualizar Aire:", err) end
+                    end
                     if item_table.bookmark_browser then
                         moveBookmarkBrowserToSearch(order)
                     end
@@ -611,6 +641,16 @@ return function(Aire, ctx)
                             saveConfig()
                             self:apply()
                             UIManager:setDirty(self.ui, "ui")
+                        end,
+                    },
+                    {
+                        -- Actualizaciones (views/update.lua): con esto la versión publicada
+                        -- cuenta como nueva y se puede probar todo, también instalarla
+                        text = "Simular Aire 0.0.1 (actualizaciones)",
+                        checked_func = function() return ctx.update and ctx.update.fakeVersion() ~= nil end,
+                        callback = function()
+                            if not ctx.update then return end
+                            ctx.update.setFakeVersion(not ctx.update.fakeVersion() and "0.0.1" or nil)
                         end,
                     },
                     {

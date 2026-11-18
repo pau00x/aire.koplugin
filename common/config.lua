@@ -92,6 +92,15 @@ local function loadConfig()
     -- Comprobar parches y plugins incompatibles al arrancar
     cfg.compat_check = saved.compat_check ~= false
     cfg.compat_known = type(saved.compat_known) == "table" and saved.compat_known or nil
+    -- Actualizaciones de Aire (views/update.lua): comprobación semanal y versiones
+    -- beta (la semanal sí por defecto; las beta no), última comprobación, versión omitida y la
+    -- versión nueva ya conocida (para el menú y la hoja de energía sin red)
+    cfg.update_auto = saved.update_auto ~= false
+    cfg.update_beta = saved.update_beta == true
+    cfg.update_last_check = tonumber(saved.update_last_check) or nil
+    cfg.update_skipped = type(saved.update_skipped) == "string" and saved.update_skipped or nil
+    cfg.update_latest = type(saved.update_latest) == "table" and type(saved.update_latest.version) == "string"
+        and saved.update_latest or nil
     return cfg
 end
 

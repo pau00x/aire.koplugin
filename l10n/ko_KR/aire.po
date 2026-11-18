@@ -15,7 +15,7 @@ msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "\"%1\" · %2개 일치"
 
-#: menu.lua:271
+#: menu.lua:301
 msgid "\"Reading now\" card with light background"
 msgstr "밝은 배경의 \"지금 읽는 책\" 카드"
 
@@ -31,7 +31,7 @@ msgstr "%1 % (보류 중)"
 msgid "%1 % read"
 msgstr "%1 % 읽음"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:294 views/grid.lua:326 views/grid.lua:331
+#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:326 views/grid.lua:331
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1권"
@@ -41,7 +41,7 @@ msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "책갈피 %1개"
 
-#: views/grid.lua:494 views/grid.lua:495
+#: views/grid.lua:496 views/grid.lua:497
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "컬렉션 %1개"
@@ -56,17 +56,17 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1일 전"
 
-#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:708
+#: styles/calendar.lua:243 views/stats.lua:343 views/stats.lua:710
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1일 읽음"
 
-#: views/booksheet.lua:353 views/grid/books.lua:294 views/grid.lua:328
+#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:328
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1권 끝냄"
 
-#: views/grid.lua:577
+#: views/grid.lua:579
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "끝낸 책 %1권"
@@ -81,7 +81,7 @@ msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "%1쪽 남음"
 
-#: styles/readerprogress.lua:176
+#: styles/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1쪽 읽음"
@@ -90,7 +90,7 @@ msgstr[0] "%1쪽 읽음"
 msgid "%1 pp."
 msgstr "%1쪽"
 
-#: views/stats.lua:686
+#: views/stats.lua:688
 msgid "%1 pp./h"
 msgstr "%1쪽/시간"
 
@@ -138,7 +138,7 @@ msgstr "(현재)"
 msgid "+ Brightness"
 msgstr "+ 밝기"
 
-#: views/stats.lua:528
+#: views/stats.lua:530
 msgid "+%1 more"
 msgstr "+%1권 더"
 
@@ -146,23 +146,27 @@ msgstr "+%1권 더"
 msgid "1 of 5 stars"
 msgstr "별 5개 중 1개"
 
-#: dev/devtools.lua:553
+#: dev/devtools.lua:563
 msgid "12 of 30"
 msgstr ""
 
-#: menu.lua:337 menu.lua:463
+#: menu.lua:367 menu.lua:493
 msgid "3 columns (large covers)"
 msgstr "3열 (큰 표지)"
 
-#: dev/devtools.lua:721
+#: dev/devtools.lua:731
 msgid "3-button confirmation"
 msgstr ""
 
-#: menu.lua:337 menu.lua:463
+#: menu.lua:367 menu.lua:493
 msgid "4 columns"
 msgstr "4열"
 
-#: dev/devtools.lua:954
+#: views/update.lua:340
+msgid "A new version is available"
+msgstr "새 버전이 있습니다"
+
+#: dev/devtools.lua:964
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
@@ -187,15 +191,15 @@ msgstr "활동 요약"
 msgid "Add note"
 msgstr ""
 
-#: dev/devtools.lua:594
+#: dev/devtools.lua:604
 msgid "Add to collection…"
 msgstr ""
 
-#: dev/devtools.lua:630 views/widgets.lua:1116
+#: dev/devtools.lua:640 views/widgets.lua:1116
 msgid "Add widget"
 msgstr "위젯 추가"
 
-#: menu.lua:645
+#: menu.lua:695
 msgid "Advanced"
 msgstr "고급"
 
@@ -203,16 +207,28 @@ msgstr "고급"
 msgid "Aire"
 msgstr "Aire"
 
-#: menu.lua:619 menu.lua:635
+#: views/update.lua:276 views/update.lua:333
+msgid "Aire %1"
+msgstr "Aire %1"
+
+#: views/power.lua:159 views/update.lua:537
+msgid "Aire %1 available"
+msgstr "Aire %1 사용 가능"
+
+#: views/update.lua:190
+msgid "Aire %1 installed"
+msgstr "Aire %1 설치됨"
+
+#: menu.lua:669 menu.lua:685
 msgid "Aire warnings (crash.log)"
 msgstr "Aire 경고 (crash.log)"
 
-#: dev/devtools.lua:706
+#: dev/devtools.lua:716
 #, koreader
 msgid "Alarm"
 msgstr ""
 
-#: dev/devtools.lua:652 views/grid.lua:47 views/grid.lua:53
+#: dev/devtools.lua:662 views/grid.lua:47 views/grid.lua:53
 #, koreader
 msgid "All"
 msgstr ""
@@ -226,12 +242,12 @@ msgstr ""
 msgid "All finished"
 msgstr "모두 끝냄"
 
-#: views/grid.lua:579 views/widgets.lua:441
+#: views/grid.lua:581 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:643
+#: views/stats.lua:645
 msgid "Annual"
 msgstr "연간"
 
@@ -239,11 +255,11 @@ msgstr "연간"
 msgid "Annual recap"
 msgstr "연간 결산"
 
-#: dev/devtools.lua:806
+#: dev/devtools.lua:816
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:685 menu.lua:301 styles/sortwidget.lua:119
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:119
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -258,27 +274,27 @@ msgctxt "aire"
 msgid "August"
 msgstr "8월"
 
-#: dev/devtools.lua:516 dev/devtools.lua:606 dev/devtools.lua:656 dev/devtools.lua:822 views/grid.lua:61
+#: dev/devtools.lua:526 dev/devtools.lua:616 dev/devtools.lua:666 dev/devtools.lua:832 views/grid.lua:61
 msgid "Author"
 msgstr "저자"
 
-#: menu.lua:407
+#: menu.lua:437
 msgid "Automatic collections by author"
 msgstr "저자별 자동 컬렉션"
 
-#: menu.lua:415
+#: menu.lua:445
 msgid "Automatic collections by genre (keyword)"
 msgstr "장르(키워드)별 자동 컬렉션"
 
-#: menu.lua:550
+#: menu.lua:580
 msgid "Automatic tests"
 msgstr "자동 테스트"
 
-#: views/grid.lua:1010
+#: views/grid.lua:1012
 msgid "Automatic: books by this author"
 msgstr "자동: 이 저자의 책"
 
-#: dev/devtools.lua:825
+#: dev/devtools.lua:835
 msgid "Average speed"
 msgstr ""
 
@@ -305,15 +321,15 @@ msgstr "책갈피"
 msgid "Basque"
 msgstr ""
 
-#: dev/devtools.lua:635 views/topbar.lua:53 views/widgets.lua:502
+#: dev/devtools.lua:645 views/topbar.lua:53 views/widgets.lua:502
 msgid "Battery"
 msgstr "배터리"
 
-#: views/stats.lua:732
+#: views/stats.lua:734
 msgid "Best day"
 msgstr "최고의 날"
 
-#: views/stats.lua:735
+#: views/stats.lua:737
 msgid "Best month"
 msgstr "최고의 달"
 
@@ -321,12 +337,12 @@ msgstr "최고의 달"
 msgid "Book"
 msgstr "책"
 
-#: dev/devtools.lua:596 dev/devtools.lua:831
+#: dev/devtools.lua:606 dev/devtools.lua:841
 #, koreader
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:963 styles/bookmap.lua:268
+#: dev/devtools.lua:973 styles/bookmap.lua:268
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -336,7 +352,7 @@ msgstr ""
 msgid "Book marked as finished"
 msgstr ""
 
-#: dev/devtools.lua:611
+#: dev/devtools.lua:621
 msgid "Book sheet"
 msgstr ""
 
@@ -345,7 +361,7 @@ msgstr ""
 msgid "Book start date"
 msgstr ""
 
-#: dev/devtools.lua:820
+#: dev/devtools.lua:830
 msgid "Book stats"
 msgstr ""
 
@@ -354,11 +370,11 @@ msgstr ""
 msgid "Book status"
 msgstr ""
 
-#: dev/devtools.lua:956
+#: dev/devtools.lua:966
 msgid "Book status (empty)"
 msgstr ""
 
-#: dev/devtools.lua:949
+#: dev/devtools.lua:959
 msgid "Book status (with data)"
 msgstr ""
 
@@ -367,11 +383,11 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: dev/devtools.lua:996
+#: dev/devtools.lua:1006
 msgid "Bookmarks (empty)"
 msgstr ""
 
-#: dev/devtools.lua:979
+#: dev/devtools.lua:989
 msgid "Bookmarks (with data)"
 msgstr ""
 
@@ -379,12 +395,12 @@ msgstr ""
 msgid "Bookmarks and highlights"
 msgstr "책갈피 및 강조 표시"
 
-#: dev/devtools.lua:861
+#: dev/devtools.lua:871
 #, koreader
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:971
+#: views/grid.lua:973
 msgid "Books are not deleted, only the collection."
 msgstr "책은 삭제되지 않고 컬렉션만 삭제됩니다."
 
@@ -410,7 +426,7 @@ msgstr "현재 장"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "현재 장 · %d쪽"
 
-#: styles/readerprogress.lua:173
+#: styles/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "현재 세션"
 
@@ -422,19 +438,19 @@ msgstr "지금 읽는 책"
 msgid "Calendar"
 msgstr "달력"
 
-#: dev/devtools.lua:896
+#: dev/devtools.lua:906
 msgid "Calendar (empty)"
 msgstr ""
 
-#: dev/devtools.lua:807
+#: dev/devtools.lua:817
 msgid "Calendar (test data)"
 msgstr ""
 
-#: dev/devtools.lua:877
+#: dev/devtools.lua:887
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:486 dev/devtools.lua:637 dev/devtools.lua:737 styles/sortwidget.lua:113 views/stats.lua:457
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:113 views/stats.lua:459
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -456,15 +472,15 @@ msgstr "변경"
 msgid "Chapter %1 of %2"
 msgstr "%2장 중 %1장"
 
-#: dev/devtools.lua:985
+#: dev/devtools.lua:995
 msgid "Chapter 1"
 msgstr ""
 
-#: dev/devtools.lua:987
+#: dev/devtools.lua:997
 msgid "Chapter 7"
 msgstr ""
 
-#: dev/devtools.lua:989
+#: dev/devtools.lua:999
 msgid "Chapter 8"
 msgstr ""
 
@@ -476,7 +492,16 @@ msgstr "충전 완료"
 msgid "Charging"
 msgstr "충전 중"
 
-#: menu.lua:522
+#: views/update.lua:486
+msgid "Check every week"
+msgstr "매주 확인"
+
+#: views/update.lua:479
+#, koreader
+msgid "Check for updates"
+msgstr ""
+
+#: menu.lua:552
 msgid "Check patches and plugins on startup"
 msgstr "시작할 때 패치와 플러그인 확인"
 
@@ -485,15 +510,15 @@ msgstr "시작할 때 패치와 플러그인 확인"
 msgid "Chinese"
 msgstr ""
 
-#: dev/devtools.lua:811
+#: dev/devtools.lua:821
 msgid "Classics"
 msgstr ""
 
-#: menu.lua:530
+#: menu.lua:560
 msgid "Clear cover thumbnails"
 msgstr "표지 미리보기 지우기"
 
-#: dev/devtools.lua:597 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:113 styles/ui/sheets.lua:771 views/widgets.lua:650
 #, koreader
 msgid "Close"
 msgstr ""
@@ -502,7 +527,7 @@ msgstr ""
 msgid "Collection"
 msgstr "컬렉션"
 
-#: dev/devtools.lua:510
+#: dev/devtools.lua:520
 msgid "Collection name"
 msgstr ""
 
@@ -510,12 +535,12 @@ msgstr ""
 msgid "Collection order"
 msgstr "컬렉션 순서"
 
-#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1426
+#: views/dock.lua:45 views/grid.lua:76 views/grid.lua:1410
 #, koreader
 msgid "Collections"
 msgstr ""
 
-#: dev/devtools.lua:802
+#: dev/devtools.lua:812
 msgid "Collections (test data)"
 msgstr ""
 
@@ -527,7 +552,7 @@ msgstr "컬렉션 목록 순서"
 msgid "Compatibility"
 msgstr "호환성"
 
-#: dev/devtools.lua:643
+#: dev/devtools.lua:653
 msgid "Confirmation"
 msgstr ""
 
@@ -540,7 +565,7 @@ msgstr "연결됨"
 msgid "Continue"
 msgstr ""
 
-#: dev/devtools.lua:593
+#: dev/devtools.lua:603
 msgid "Continue reading"
 msgstr ""
 
@@ -549,17 +574,25 @@ msgstr ""
 msgid "Contrast"
 msgstr ""
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Copy"
 msgstr ""
 
-#: dev/devtools.lua:503
+#: views/update.lua:398
+msgid "Could not check for updates. Try again later."
+msgstr "업데이트를 확인할 수 없습니다. 나중에 다시 시도하세요."
+
+#: dev/devtools.lua:513
 msgid ""
 "Could not connect to the network.\n"
 "\n"
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
+
+#: views/update.lua:259
+msgid "Could not install the update. Aire %1 is still installed."
+msgstr "업데이트를 설치할 수 없습니다. Aire %1이(가) 계속 설치되어 있습니다."
 
 #: views/widgets.lua:203
 msgid "Could not read database"
@@ -569,7 +602,7 @@ msgstr "데이터베이스를 읽을 수 없음"
 msgid "Count: %1"
 msgstr "집계: %1"
 
-#: menu.lua:539
+#: menu.lua:569
 msgid "Cover thumbnails cleared"
 msgstr "표지 미리보기를 지웠습니다"
 
@@ -592,31 +625,31 @@ msgstr ""
 msgid "Currently reading"
 msgstr "지금 읽는 책"
 
-#: views/stats.lua:706
+#: views/stats.lua:708
 msgid "DAILY RHYTHM"
 msgstr "일별 리듬"
 
-#: views/stats.lua:727
+#: views/stats.lua:729
 msgid "Daily average"
 msgstr "일일 평균"
 
-#: dev/devtools.lua:818
+#: dev/devtools.lua:828
 msgid "Data page"
 msgstr ""
 
-#: dev/devtools.lua:696 views/grid.lua:81
+#: dev/devtools.lua:706 views/grid.lua:81
 msgid "Date"
 msgstr "날짜"
 
-#: dev/devtools.lua:699 views/grid.lua:81
+#: dev/devtools.lua:709 views/grid.lua:81
 msgid "Date finished"
 msgstr "끝낸 날짜"
 
-#: views/stats.lua:730
+#: views/stats.lua:732
 msgid "Day %1"
 msgstr "%1일"
 
-#: dev/devtools.lua:825
+#: dev/devtools.lua:835
 msgid "Days reading"
 msgstr ""
 
@@ -630,16 +663,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "12월"
 
-#: dev/devtools.lua:646 dev/devtools.lua:725 views/booksheet.lua:251 views/grid.lua:972 views/stats.lua:477
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:974 views/stats.lua:479
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:488
+#: views/stats.lua:490
 msgid "Delete all book stats"
 msgstr "이 책의 통계 모두 삭제"
 
-#: views/stats.lua:492
+#: views/stats.lua:494
 msgid "Delete all stats?"
 msgstr "모든 통계를 삭제할까요?"
 
@@ -648,23 +681,23 @@ msgstr "모든 통계를 삭제할까요?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:475
+#: views/stats.lua:477
 msgid "Delete minutes for this day?"
 msgstr "이 날의 독서 시간을 삭제할까요?"
 
-#: views/stats.lua:471
+#: views/stats.lua:473
 msgid "Delete minutes from this day"
 msgstr "이 날의 독서 시간 삭제"
 
-#: views/grid.lua:970
+#: views/grid.lua:972
 msgid "Delete the collection?"
 msgstr "컬렉션을 삭제할까요?"
 
-#: dev/devtools.lua:645
+#: dev/devtools.lua:655
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1021
+#: views/grid.lua:1023
 msgid "Delete…"
 msgstr "삭제…"
 
@@ -673,7 +706,7 @@ msgstr "삭제…"
 msgid "Description"
 msgstr ""
 
-#: dev/devtools.lua:530 dev/devtools.lua:536 views/widgets.lua:535 views/widgets.lua:536
+#: dev/devtools.lua:540 dev/devtools.lua:546 views/widgets.lua:535 views/widgets.lua:536
 #, koreader
 msgid "Dictionary"
 msgstr ""
@@ -686,26 +719,35 @@ msgstr "꺼짐"
 msgid "Disabled due to incompatibility with the Home screen:"
 msgstr "홈 화면과 호환되지 않아 비활성화됨:"
 
-#: dev/devtools.lua:623
+#: dev/devtools.lua:633
 msgid "Disabled option"
 msgstr ""
 
-#: menu.lua:508
+#: menu.lua:538
 msgid "Dock"
 msgstr "독"
 
-#: dev/devtools.lua:864
+#: dev/devtools.lua:874
 msgid "Documents"
 msgstr ""
 
-#: dev/devtools.lua:627 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
+#: dev/devtools.lua:637 views/home.lua:218 views/widgets.lua:1002 views/widgets.lua:1184
 #, koreader
 msgid "Done"
 msgstr ""
 
-#: dev/devtools.lua:553
+#: dev/devtools.lua:563
 msgid "Downloading covers"
 msgstr ""
+
+#: views/update.lua:210
+#, koreader
+msgid "Downloading…"
+msgstr ""
+
+#: views/update.lua:234
+msgid "Downloading… %1 of %2"
+msgstr "다운로드 중… %1 / %2"
 
 #: styles/bookinfo.lua:198
 #, koreader
@@ -716,15 +758,15 @@ msgstr ""
 msgid "EDITING WIDGETS"
 msgstr "위젯 편집 중"
 
-#: dev/devtools.lua:515 dev/devtools.lua:762
+#: dev/devtools.lua:525 dev/devtools.lua:772
 msgid "Edgedancer"
 msgstr ""
 
-#: menu.lua:283
+#: menu.lua:313
 msgid "Edit Home widgets"
 msgstr "홈 위젯 편집"
 
-#: dev/devtools.lua:513
+#: dev/devtools.lua:523
 msgid "Edit metadata"
 msgstr ""
 
@@ -751,7 +793,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "위젯 없음"
 
-#: views/grid.lua:471
+#: views/grid.lua:473
 msgid "Empty collection"
 msgstr "빈 컬렉션"
 
@@ -773,7 +815,7 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: dev/devtools.lua:510
+#: dev/devtools.lua:520
 msgid "Epic fantasy"
 msgstr ""
 
@@ -791,7 +833,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "플러그인이 그리는 모든 화면 (예시 데이터). ← → 로 넘기고, 바깥이나 페이지를 누르면 나갑니다."
 
-#: views/power.lua:177
+#: views/power.lua:222
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -800,11 +842,11 @@ msgstr ""
 msgid "FILE"
 msgstr "파일"
 
-#: views/grid.lua:796
+#: views/grid.lua:798
 msgid "FILTER"
 msgstr "필터"
 
-#: dev/devtools.lua:811 dev/devtools.lua:862
+#: dev/devtools.lua:821 dev/devtools.lua:872
 #, koreader
 msgid "Fantasy"
 msgstr ""
@@ -813,7 +855,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "즐겨찾는 폴더"
 
-#: dev/devtools.lua:811 views/grid.lua:350 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:350 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -823,7 +865,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "2월"
 
-#: menu.lua:487 views/dock.lua:275
+#: menu.lua:517 views/dock.lua:275
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -838,15 +880,15 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:740
+#: views/grid.lua:742
 msgid "Filter"
 msgstr "필터"
 
-#: dev/devtools.lua:649 views/grid.lua:739
+#: dev/devtools.lua:659 views/grid.lua:741
 msgid "Filter and sort"
 msgstr "필터 및 정렬"
 
-#: dev/devtools.lua:653
+#: dev/devtools.lua:663
 #, koreader
 msgid "Finished"
 msgstr ""
@@ -856,11 +898,11 @@ msgctxt "aire"
 msgid "Finished"
 msgstr "끝냄"
 
-#: dev/devtools.lua:808
+#: dev/devtools.lua:818
 msgid "Finished (test data)"
 msgstr ""
 
-#: menu.lua:401
+#: menu.lua:431
 msgid "Finished books in gray"
 msgstr "끝낸 책을 회색으로 표시"
 
@@ -873,15 +915,15 @@ msgstr ""
 msgid "Floating windows"
 msgstr "떠 있는 창"
 
-#: menu.lua:395
+#: menu.lua:425
 msgid "Folded corner on started books"
 msgstr "읽기 시작한 책에 접힌 모서리 표시"
 
-#: dev/devtools.lua:869
+#: dev/devtools.lua:879
 msgid "Folder shortcuts (empty)"
 msgstr ""
 
-#: dev/devtools.lua:856
+#: dev/devtools.lua:866
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
@@ -894,11 +936,11 @@ msgstr ""
 msgid "Folders"
 msgstr "폴더"
 
-#: dev/devtools.lua:669
+#: dev/devtools.lua:679
 msgid "Font (status bar)"
 msgstr ""
 
-#: dev/devtools.lua:683
+#: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
 msgstr ""
@@ -973,7 +1015,7 @@ msgstr "위로"
 msgid "Got it"
 msgstr ""
 
-#: menu.lua:354 menu.lua:498
+#: menu.lua:384 menu.lua:528
 msgid "Grid: %1 columns"
 msgstr "격자: %1열"
 
@@ -981,29 +1023,29 @@ msgstr "격자: %1열"
 msgid "HIGHLIGHT"
 msgstr "강조 표시"
 
-#: views/stats.lua:714
+#: views/stats.lua:716
 msgid "HIGHLIGHTS"
 msgstr "하이라이트"
 
-#: views/stats.lua:419
+#: views/stats.lua:421
 msgid "Hasn't arrived yet"
 msgstr "아직 오지 않은 날입니다"
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:47 views/grid.lua:1427
+#: views/dock.lua:47 views/grid.lua:1411
 #, koreader
 msgid "History"
 msgstr ""
 
-#: dev/devtools.lua:803
+#: dev/devtools.lua:813
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:615
+#: views/grid.lua:617
 msgid "History is empty"
 msgstr "내역이 비어 있음"
 
@@ -1015,16 +1057,16 @@ msgstr "길게 누르기도 누르기와 동일하게 동작"
 msgid "Hold to configure"
 msgstr "길게 눌러 설정"
 
-#: dev/devtools.lua:662 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
+#: dev/devtools.lua:672 views/dock.lua:46 views/dock.lua:55 views/explorer.lua:166
 #, koreader
 msgid "Home"
 msgstr ""
 
-#: dev/devtools.lua:800
+#: dev/devtools.lua:810
 msgid "Home (test data)"
 msgstr ""
 
-#: menu.lua:262
+#: menu.lua:292
 msgid "Home and widgets"
 msgstr "홈 및 위젯"
 
@@ -1036,37 +1078,53 @@ msgstr "현재 책, 위젯, 서재, 컬렉션, 내역, 통계와 하단 탐색 �
 msgid "Home widgets"
 msgstr "홈 위젯"
 
-#: dev/devtools.lua:714
+#: dev/devtools.lua:724
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:852 styles/imageviewer.lua:43
+#: dev/devtools.lua:862 styles/imageviewer.lua:43
 msgid "Image"
 msgstr "이미지"
 
-#: dev/devtools.lua:835
+#: dev/devtools.lua:845
 msgid "Image / cover viewer"
 msgstr ""
 
-#: menu.lua:408
+#: menu.lua:438
 msgid "In Collections, a collection appears for each author with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "컬렉션에 책이 2권 이상인 저자마다 컬렉션이 표시됩니다. 자동으로 업데이트되며 KOReader 컬렉션에는 저장되지 않습니다."
 
-#: menu.lua:416
+#: menu.lua:446
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "컬렉션에 책이 2권 이상인 키워드마다 컬렉션이 표시됩니다. 자동으로 업데이트되며 KOReader 컬렉션에는 저장되지 않습니다."
 
-#: dev/devtools.lua:621 views/home.lua:213 views/widgets.lua:1154
+#: views/update.lua:495
+msgid "Include beta versions"
+msgstr "베타 버전 포함"
+
+#: views/update.lua:514
+msgid "Installed version: %1"
+msgstr "설치된 버전: %1"
+
+#: views/update.lua:246
+msgid "Installing…"
+msgstr "설치 중…"
+
+#: dev/devtools.lua:631 views/home.lua:213 views/widgets.lua:1154
 msgid "Inverted colors"
 msgstr "색상 반전"
 
-#: dev/devtools.lua:716
+#: dev/devtools.lua:726
 msgid "Inverted horizontal"
 msgstr ""
 
-#: dev/devtools.lua:715
+#: dev/devtools.lua:725
 msgid "Inverted portrait"
 msgstr ""
+
+#: views/update.lua:193
+msgid "It will be used after restarting KOReader. Your settings are kept."
+msgstr "KOReader를 다시 시작하면 사용됩니다. 설정은 유지됩니다."
 
 #: styles/bookinfo.lua:198
 #, koreader
@@ -1093,12 +1151,12 @@ msgctxt "aire"
 msgid "June"
 msgstr "6월"
 
-#: views/power.lua:176
+#: views/power.lua:221
 #, koreader
 msgid "KOReader"
 msgstr ""
 
-#: dev/devtools.lua:734
+#: dev/devtools.lua:744
 msgid "KOReader engine (crengine)"
 msgstr ""
 
@@ -1107,7 +1165,7 @@ msgstr ""
 msgid "Korean"
 msgstr ""
 
-#: dev/devtools.lua:583
+#: dev/devtools.lua:593
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
@@ -1115,7 +1173,7 @@ msgstr ""
 msgid "LAST 7 DAYS"
 msgstr "최근 7일"
 
-#: menu.lua:512
+#: menu.lua:542
 msgid "Labels under icons"
 msgstr "아이콘 아래 이름 표시"
 
@@ -1123,7 +1181,7 @@ msgstr "아이콘 아래 이름 표시"
 msgid "Large (also occupies the right cell)"
 msgstr "크게 (오른쪽 칸도 차지)"
 
-#: menu.lua:266
+#: menu.lua:296
 msgid "Large clock and date"
 msgstr "큰 시계와 날짜"
 
@@ -1135,15 +1193,19 @@ msgstr "크게 · 작게 · 작게 반전 — ← → 로 넘기고, 누르면 �
 msgid "Last"
 msgstr "마지막"
 
-#: styles/readerprogress.lua:122
+#: styles/readerprogress.lua:121
 msgid "Last 7 days summary"
 msgstr "최근 7일 요약"
 
-#: dev/devtools.lua:827 views/grid.lua:87
+#: views/update.lua:507
+msgid "Last check: %1"
+msgstr "마지막 확인: %1"
+
+#: dev/devtools.lua:837 views/grid.lua:87
 msgid "Last read"
 msgstr "마지막으로 읽은 날짜"
 
-#: common/compat.lua:171
+#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1157,20 +1219,20 @@ msgstr ""
 msgid "Layout"
 msgstr "레이아웃"
 
-#: dev/devtools.lua:691
+#: dev/devtools.lua:701
 #, koreader
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:663 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1425
+#: dev/devtools.lua:673 views/dock.lua:44 views/dock.lua:274 views/grid.lua:1409
 msgid "Library"
 msgstr "서재"
 
-#: dev/devtools.lua:801
+#: dev/devtools.lua:811
 msgid "Library (test data)"
 msgstr ""
 
-#: menu.lua:349
+#: menu.lua:379
 msgid "Library and covers"
 msgstr "서재 및 표지"
 
@@ -1178,11 +1240,11 @@ msgstr "서재 및 표지"
 msgid "Library is empty"
 msgstr "서재가 비어 있음"
 
-#: menu.lua:531
+#: menu.lua:561
 msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
 msgstr "라이브러리, 컬렉션, 기록은 더 빨리 열리도록 표지의 작은 사본을 보관합니다. 표지가 업데이트되지 않으면 지우세요."
 
-#: dev/devtools.lua:634 dev/devtools.lua:678 views/widgets.lua:451
+#: dev/devtools.lua:644 dev/devtools.lua:688 views/widgets.lua:451
 msgid "Light"
 msgstr "조명"
 
@@ -1190,15 +1252,15 @@ msgstr "조명"
 msgid "Light level"
 msgstr "조명 밝기"
 
-#: menu.lua:433
+#: menu.lua:463
 msgid "List with covers"
 msgstr "표지가 있는 목록"
 
-#: menu.lua:435
+#: menu.lua:465
 msgid "List with filenames"
 msgstr "파일 이름 목록"
 
-#: menu.lua:434
+#: menu.lua:464
 msgid "List without covers"
 msgstr "표지 없는 목록"
 
@@ -1206,7 +1268,7 @@ msgstr "표지 없는 목록"
 msgid "Loading month…"
 msgstr "월 불러오는 중…"
 
-#: dev/devtools.lua:501
+#: dev/devtools.lua:511
 msgid "Long message"
 msgstr ""
 
@@ -1218,11 +1280,11 @@ msgstr "일치"
 msgid "MATCH %d"
 msgstr "일치 %d"
 
-#: views/stats.lua:706
+#: views/stats.lua:708
 msgid "MONTHLY RHYTHM"
 msgstr "월별 리듬"
 
-#: views/stats.lua:744
+#: views/stats.lua:746
 msgid "MOST READ"
 msgstr "가장 많이 읽은 책"
 
@@ -1235,7 +1297,7 @@ msgctxt "aire"
 msgid "March"
 msgstr "3월"
 
-#: dev/devtools.lua:690 styles/ui/readermenu.lua:53
+#: dev/devtools.lua:700 styles/ui/readermenu.lua:53
 msgid "Margins"
 msgstr "여백"
 
@@ -1248,19 +1310,19 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "\"%1\"의 모든 책을 읽는 중으로 표시할까요?"
 
-#: views/grid.lua:1058
+#: views/grid.lua:1060
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "컬렉션 \"%1\"의 모든 책을 읽는 중으로 표시할까요?"
 
-#: dev/devtools.lua:594
+#: dev/devtools.lua:604
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1056
+#: views/grid.lua:1058
 msgid "Mark entire collection as finished"
 msgstr "컬렉션 전체를 끝냄으로 표시"
 
-#: views/grid.lua:1057
+#: views/grid.lua:1059
 msgid "Mark entire collection as reading"
 msgstr "컬렉션 전체를 읽는 중으로 표시"
 
@@ -1281,7 +1343,7 @@ msgstr "5월"
 msgid "Memory used"
 msgstr "사용 중인 메모리"
 
-#: dev/devtools.lua:520
+#: dev/devtools.lua:530
 msgid "Menu next to text"
 msgstr ""
 
@@ -1299,11 +1361,11 @@ msgstr "최소"
 msgid "Mix folders"
 msgstr "폴더 섞기"
 
-#: views/grid.lua:817
+#: views/grid.lua:819
 msgid "Mix series"
 msgstr "연속물 섞기"
 
-#: views/stats.lua:641
+#: views/stats.lua:643
 msgid "Monthly"
 msgstr "월간"
 
@@ -1311,7 +1373,7 @@ msgstr "월간"
 msgid "Monthly recap"
 msgstr "월간 결산"
 
-#: dev/devtools.lua:805
+#: dev/devtools.lua:815
 msgid "Monthly recap (test data)"
 msgstr ""
 
@@ -1327,20 +1389,20 @@ msgstr "추가 옵션…"
 msgid "More settings"
 msgstr "추가 설정"
 
-#: dev/devtools.lua:531
+#: dev/devtools.lua:541
 msgid "More…"
 msgstr ""
 
-#: menu.lua:432
+#: menu.lua:462
 msgid "Mosaic with covers"
 msgstr "표지 모자이크"
 
-#: dev/devtools.lua:726
+#: dev/devtools.lua:736
 #, koreader
 msgid "Move"
 msgstr ""
 
-#: dev/devtools.lua:512
+#: dev/devtools.lua:522
 msgid "Multiple fields"
 msgstr ""
 
@@ -1374,11 +1436,11 @@ msgstr ""
 msgid "Name:"
 msgstr "이름:"
 
-#: dev/devtools.lua:665
+#: dev/devtools.lua:675
 msgid "Neighbor"
 msgstr ""
 
-#: dev/devtools.lua:653 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
+#: dev/devtools.lua:663 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
 #, koreader
 msgid "New"
 msgstr ""
@@ -1388,12 +1450,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "새 책"
 
-#: views/grid.lua:490
+#: views/grid.lua:492
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:1014 views/grid.lua:1027
 msgid "New collection…"
 msgstr "새 컬렉션…"
 
@@ -1409,7 +1471,7 @@ msgstr "다음"
 msgid "Next %1"
 msgstr "다음 %1"
 
-#: menu.lua:585
+#: menu.lua:615
 msgid "Next batch of test widgets"
 msgstr "다음 테스트 위젯 묶음"
 
@@ -1418,7 +1480,7 @@ msgstr "다음 테스트 위젯 묶음"
 msgid "Next chapter"
 msgstr ""
 
-#: dev/devtools.lua:632 views/widgets.lua:284
+#: dev/devtools.lua:642 views/widgets.lua:284
 msgid "Next in series"
 msgstr "연속물의 다음 책"
 
@@ -1439,11 +1501,11 @@ msgstr "읽는 중인 책 없음"
 msgid "No book matches the filter"
 msgstr "필터와 일치하는 책 없음"
 
-#: views/grid.lua:583
+#: views/grid.lua:585
 msgid "No books finished this month"
 msgstr "이번 달에 끝낸 책 없음"
 
-#: views/grid.lua:583
+#: views/grid.lua:585
 msgid "No books finished this year"
 msgstr "올해 끝낸 책 없음"
 
@@ -1451,7 +1513,7 @@ msgstr "올해 끝낸 책 없음"
 msgid "No books in home folder"
 msgstr "홈 폴더에 책 없음"
 
-#: views/grid.lua:338 views/grid.lua:471 views/grid.lua:615
+#: views/grid.lua:338 views/grid.lua:473 views/grid.lua:617
 msgid "No books with this filter"
 msgstr "이 필터에 해당하는 책 없음"
 
@@ -1459,11 +1521,11 @@ msgstr "이 필터에 해당하는 책 없음"
 msgid "No chapter"
 msgstr "장 없음"
 
-#: views/grid.lua:498
+#: views/grid.lua:500
 msgid "No collections"
 msgstr "컬렉션 없음"
 
-#: views/grid.lua:498
+#: views/grid.lua:500
 msgid "No collections with this filter"
 msgstr "이 필터에 해당하는 컬렉션 없음"
 
@@ -1488,7 +1550,7 @@ msgstr "다음으로 읽을 책 없음"
 msgid "No previous book"
 msgstr "이전 책 없음"
 
-#: styles/statspages.lua:365 views/stats.lua:677
+#: styles/statspages.lua:365 views/stats.lua:679
 msgid "No reading activity in this period"
 msgstr "이 기간에 독서 기록 없음"
 
@@ -1525,7 +1587,7 @@ msgstr "평가 안 함"
 msgid "Not started"
 msgstr "시작 안 함"
 
-#: dev/devtools.lua:529
+#: dev/devtools.lua:539
 #, koreader
 msgid "Note"
 msgstr ""
@@ -1545,7 +1607,7 @@ msgctxt "aire"
 msgid "November"
 msgstr "11월"
 
-#: dev/devtools.lua:681
+#: dev/devtools.lua:691
 msgid "Number"
 msgstr ""
 
@@ -1553,7 +1615,7 @@ msgstr ""
 msgid "Number in series"
 msgstr "연속물 번호"
 
-#: dev/devtools.lua:487 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
+#: dev/devtools.lua:497 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
 #, koreader
 msgid "OK"
 msgstr ""
@@ -1568,7 +1630,7 @@ msgstr "10월"
 msgid "Off"
 msgstr ""
 
-#: dev/devtools.lua:639 views/widgets.lua:457 views/widgets.lua:470
+#: dev/devtools.lua:649 views/widgets.lua:457 views/widgets.lua:470
 #, koreader
 msgid "On"
 msgstr ""
@@ -1578,20 +1640,24 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "보류 중"
 
-#: dev/devtools.lua:738
+#: views/update.lua:487
+msgid "Only when Wi-Fi is already on: Aire never turns it on."
+msgstr "Wi-Fi가 이미 켜져 있을 때만: Aire는 Wi-Fi를 켜지 않습니다."
+
+#: dev/devtools.lua:748
 #, koreader
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:1057
 msgid "Open collection"
 msgstr "컬렉션 열기"
 
-#: dev/devtools.lua:624
+#: dev/devtools.lua:634
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:1057
 msgid "Open series"
 msgstr "연속물 열기"
 
@@ -1599,7 +1665,7 @@ msgstr "연속물 열기"
 msgid "Open series folder"
 msgstr "연속물 폴더 열기"
 
-#: dev/devtools.lua:730 dev/devtools.lua:732
+#: dev/devtools.lua:740 dev/devtools.lua:742
 #, koreader
 msgid "Open with…"
 msgstr ""
@@ -1608,15 +1674,15 @@ msgstr ""
 msgid "Opening \"%1\"…"
 msgstr "\"%1\" 여는 중…"
 
-#: dev/devtools.lua:709
+#: dev/devtools.lua:719
 msgid "Options list"
 msgstr ""
 
-#: dev/devtools.lua:589
+#: dev/devtools.lua:599
 msgid "Options menu"
 msgstr ""
 
-#: dev/devtools.lua:711 styles/ui/readermenu.lua:52
+#: dev/devtools.lua:721 styles/ui/readermenu.lua:52
 msgid "Orientation"
 msgstr "화면 방향"
 
@@ -1625,11 +1691,11 @@ msgstr "화면 방향"
 msgid "Original size"
 msgstr ""
 
-#: menu.lua:272
+#: menu.lua:302
 msgid "Otherwise, the current book card is black with white text."
 msgstr "끄면 현재 책 카드가 검은 바탕에 흰 글자로 표시됩니다."
 
-#: dev/devtools.lua:735
+#: dev/devtools.lua:745
 msgid "PDF engine (MuPDF)"
 msgstr ""
 
@@ -1642,7 +1708,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "%1 / %2쪽"
 
-#: dev/devtools.lua:966 styles/pagebrowser.lua:285
+#: dev/devtools.lua:976 styles/pagebrowser.lua:285
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1651,7 +1717,7 @@ msgstr ""
 msgid "Page fit"
 msgstr "페이지 맞춤"
 
-#: dev/devtools.lua:824 styles/statspages.lua:83
+#: dev/devtools.lua:834 styles/statspages.lua:83
 #, koreader
 msgid "Pages read"
 msgstr ""
@@ -1666,15 +1732,15 @@ msgstr ""
 msgid "Pages read today"
 msgstr ""
 
-#: dev/devtools.lua:629
+#: dev/devtools.lua:639
 msgid "Plugin sheet (2 columns)"
 msgstr ""
 
-#: dev/devtools.lua:617
+#: dev/devtools.lua:627
 msgid "Plugin sheet (options)"
 msgstr ""
 
-#: dev/devtools.lua:713
+#: dev/devtools.lua:723
 #, koreader
 msgid "Portrait"
 msgstr ""
@@ -1684,7 +1750,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:134
+#: views/power.lua:179
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1702,12 +1768,12 @@ msgstr "이전 책"
 msgid "Previous chapter"
 msgstr ""
 
-#: dev/devtools.lua:551 dev/devtools.lua:607 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
+#: dev/devtools.lua:561 dev/devtools.lua:617 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
 #, koreader
 msgid "Progress"
 msgstr ""
 
-#: dev/devtools.lua:546
+#: dev/devtools.lua:556
 msgid "QR code"
 msgstr ""
 
@@ -1720,7 +1786,7 @@ msgctxt "aire"
 msgid "Quick actions"
 msgstr "빠른 실행"
 
-#: dev/devtools.lua:633
+#: dev/devtools.lua:643
 msgid "Quote"
 msgstr ""
 
@@ -1756,7 +1822,7 @@ msgstr "서평 / 메모"
 msgid "Random"
 msgstr "무작위"
 
-#: dev/devtools.lua:633 views/widgets.lua:320
+#: dev/devtools.lua:643 views/widgets.lua:320
 msgid "Random book"
 msgstr "무작위 책"
 
@@ -1779,11 +1845,11 @@ msgstr ""
 msgid "Reader"
 msgstr ""
 
-#: dev/devtools.lua:674
+#: dev/devtools.lua:684
 msgid "Reader bottom menu"
 msgstr ""
 
-#: dev/devtools.lua:652
+#: dev/devtools.lua:662
 #, koreader
 msgid "Reading"
 msgstr ""
@@ -1793,36 +1859,36 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "읽는 중"
 
-#: styles/readerprogress.lua:127
+#: styles/readerprogress.lua:126
 #, koreader
 msgid "Reading progress"
 msgstr ""
 
-#: dev/devtools.lua:906
+#: dev/devtools.lua:916
 msgid "Reading progress (empty)"
 msgstr ""
 
-#: dev/devtools.lua:903
+#: dev/devtools.lua:913
 msgid "Reading progress (with data)"
 msgstr ""
 
-#: dev/devtools.lua:824
+#: dev/devtools.lua:834
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:605
+#: views/stats.lua:607
 msgid "Recap"
 msgstr "결산"
 
-#: dev/devtools.lua:656 views/grid.lua:64
+#: dev/devtools.lua:666 views/grid.lua:64
 msgid "Recent"
 msgstr "최근"
 
-#: dev/devtools.lua:607 views/grid.lua:64 views/widgets.lua:341
+#: dev/devtools.lua:617 views/grid.lua:64 views/widgets.lua:341
 msgid "Recently added"
 msgstr "최근 추가됨"
 
-#: dev/devtools.lua:606
+#: dev/devtools.lua:616
 msgid "Recently read"
 msgstr ""
 
@@ -1831,7 +1897,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:626 styles/bookmark.lua:405
+#: dev/devtools.lua:636 styles/bookmark.lua:405
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1846,12 +1912,12 @@ msgstr "제거"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:504
+#: views/booksheet.lua:592 views/grid.lua:506
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "컬렉션에서 제거"
 
-#: views/booksheet.lua:556 views/grid.lua:620
+#: views/booksheet.lua:556 views/grid.lua:622
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1866,25 +1932,25 @@ msgstr ""
 msgid "Remove this bookmark?"
 msgstr ""
 
-#: dev/devtools.lua:509
+#: dev/devtools.lua:519
 #, koreader
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1019
+#: views/grid.lua:1021
 msgid "Rename…"
 msgstr "이름 바꾸기…"
 
-#: menu.lua:300
+#: menu.lua:330
 msgid "Replace the Home widgets with the \"%1\" preset?"
 msgstr "홈 위젯을 '%1' 프리셋으로 바꿀까요?"
 
-#: dev/devtools.lua:596
+#: dev/devtools.lua:606
 #, koreader
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:175
+#: views/power.lua:220
 #, koreader
 msgid "Restart"
 msgstr ""
@@ -1898,7 +1964,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "변경 사항을 적용하려면 KOReader를 다시 시작하세요."
 
-#: views/explorer.lua:126 views/grid.lua:811
+#: views/update.lua:194
+msgid "Restart KOReader to use it. Your settings are kept."
+msgstr "사용하려면 KOReader를 다시 시작하세요. 설정은 유지됩니다."
+
+#: views/update.lua:183
+#, koreader
+msgid "Restart now"
+msgstr ""
+
+#: views/explorer.lua:126 views/grid.lua:813
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -1908,7 +1983,7 @@ msgstr ""
 msgid "Review:"
 msgstr ""
 
-#: dev/devtools.lua:692
+#: dev/devtools.lua:702
 #, koreader
 msgid "Right"
 msgstr ""
@@ -1923,7 +1998,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:806
+#: views/grid.lua:808
 msgid "SORT BY"
 msgstr "정렬 기준"
 
@@ -1937,17 +2012,17 @@ msgstr ""
 msgid "SSH server"
 msgstr ""
 
-#: dev/devtools.lua:510 dev/devtools.lua:513 dev/devtools.lua:700
+#: dev/devtools.lua:520 dev/devtools.lua:523 dev/devtools.lua:710
 #, koreader
 msgid "Save"
 msgstr ""
 
-#: dev/devtools.lua:499
+#: dev/devtools.lua:509
 #, koreader
 msgid "Saved"
 msgstr ""
 
-#: dev/devtools.lua:811 dev/devtools.lua:863
+#: dev/devtools.lua:821 dev/devtools.lua:873
 msgid "Science Fiction"
 msgstr ""
 
@@ -1956,29 +2031,33 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:506 dev/devtools.lua:507 dev/devtools.lua:530 views/dock.lua:56 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:56 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
 
-#: dev/devtools.lua:507
+#: dev/devtools.lua:517
 msgid "Search library"
 msgstr ""
 
-#: dev/devtools.lua:1022
+#: dev/devtools.lua:1032
 msgid "Search results (empty)"
 msgstr ""
 
-#: dev/devtools.lua:1005
+#: dev/devtools.lua:1015
 msgid "Search results (with data)"
 msgstr ""
+
+#: views/update.lua:354
+msgid "See all changes"
+msgstr "모든 변경 사항 보기"
 
 #: views/topbar.lua:103
 msgctxt "aire"
 msgid "September"
 msgstr "9월"
 
-#: dev/devtools.lua:517 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -1987,11 +2066,11 @@ msgstr ""
 msgid "Series name"
 msgstr "연속물 이름"
 
-#: menu.lua:374
+#: menu.lua:404
 msgid "Series number on covers"
 msgstr "표지에 연속물 번호 표시"
 
-#: dev/devtools.lua:706
+#: dev/devtools.lua:716
 #, koreader
 msgid "Set alarm"
 msgstr ""
@@ -2001,12 +2080,17 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: dev/devtools.lua:531
+#: views/update.lua:483
+#, koreader
+msgid "Settings"
+msgstr ""
+
+#: dev/devtools.lua:541
 #, koreader
 msgid "Share"
 msgstr ""
 
-#: dev/devtools.lua:498
+#: dev/devtools.lua:508
 msgid "Short message"
 msgstr ""
 
@@ -2015,12 +2099,12 @@ msgstr ""
 msgid "Show all files from subfolders"
 msgstr ""
 
-#: menu.lua:53 menu.lua:381
+#: menu.lua:53 menu.lua:411
 #, koreader
 msgid "Show collection mark"
 msgstr ""
 
-#: menu.lua:607
+#: menu.lua:637
 msgid "Show dimensions of each book / series"
 msgstr "각 책 / 연속물의 크기 표시"
 
@@ -2039,7 +2123,7 @@ msgstr ""
 msgid "Show progress in mosaic mode"
 msgstr ""
 
-#: dev/devtools.lua:622 views/home.lua:215
+#: dev/devtools.lua:632 views/home.lua:215
 msgid "Show synopsis"
 msgstr "줄거리 표시"
 
@@ -2048,16 +2132,20 @@ msgstr "줄거리 표시"
 msgid "Size:"
 msgstr ""
 
-#: views/power.lua:133
+#: views/update.lua:371
+msgid "Skip"
+msgstr "건너뛰기"
+
+#: views/power.lua:178
 msgctxt "aire"
 msgid "Sleep"
 msgstr "잠자기"
 
-#: dev/devtools.lua:655 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
+#: dev/devtools.lua:665 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
 msgid "Smart"
 msgstr "스마트"
 
-#: dev/devtools.lua:605
+#: dev/devtools.lua:615
 msgid "Smart  (current)"
 msgstr ""
 
@@ -2065,24 +2153,24 @@ msgstr ""
 msgid "Sort"
 msgstr "정렬"
 
-#: dev/devtools.lua:601
+#: dev/devtools.lua:611
 msgid "Sort (2 columns)"
 msgstr ""
 
-#: dev/devtools.lua:809
+#: dev/devtools.lua:819
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:603 views/grid.lua:740
+#: dev/devtools.lua:613 views/grid.lua:742
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:815 views/grid.lua:990
+#: dev/devtools.lua:825 views/grid.lua:992
 msgid "Sort collections"
 msgstr "컬렉션 정렬"
 
-#: views/grid.lua:1013 views/grid.lua:1026
+#: views/grid.lua:1015 views/grid.lua:1028
 msgid "Sort collections…"
 msgstr "컬렉션 정렬…"
 
@@ -2095,7 +2183,7 @@ msgstr "파일 정렬"
 msgid "Spanish"
 msgstr ""
 
-#: menu.lua:360
+#: menu.lua:390
 msgid "Square covers and series"
 msgstr "정사각형 표지와 연속물"
 
@@ -2103,7 +2191,7 @@ msgstr "정사각형 표지와 연속물"
 msgid "Start"
 msgstr "시작"
 
-#: dev/devtools.lua:827
+#: dev/devtools.lua:837
 msgid "Started"
 msgstr ""
 
@@ -2111,15 +2199,15 @@ msgstr ""
 msgid "Stats"
 msgstr "통계"
 
-#: dev/devtools.lua:804
+#: dev/devtools.lua:814
 msgid "Stats (test data)"
 msgstr ""
 
-#: dev/devtools.lua:671
+#: dev/devtools.lua:681
 msgid "Status bar font"
 msgstr ""
 
-#: dev/devtools.lua:635 views/widgets.lua:514
+#: dev/devtools.lua:645 views/widgets.lua:514
 msgid "Storage"
 msgstr "저장 공간"
 
@@ -2131,19 +2219,19 @@ msgstr "누르기와 길게 누르기 바꾸기"
 msgid "Synopsis"
 msgstr "줄거리"
 
-#: menu.lua:277
+#: menu.lua:307
 msgid "Synopsis on card"
 msgstr "카드에 줄거리 표시"
 
-#: dev/devtools.lua:972
+#: dev/devtools.lua:982
 msgid "Table of contents (empty)"
 msgstr ""
 
-#: dev/devtools.lua:969
+#: dev/devtools.lua:979
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:961 styles/bookinfo.lua:987 styles/bookstatus.lua:394
+#: dev/devtools.lua:971 styles/bookinfo.lua:987 styles/bookstatus.lua:394
 msgid "Tap to add or edit your review of this book…"
 msgstr "눌러서 이 책의 서평을 추가하거나 편집하세요…"
 
@@ -2159,15 +2247,15 @@ msgstr "눌러서 중지"
 msgid "Tap to view definition"
 msgstr "눌러서 뜻 보기"
 
-#: views/grid.lua:1329
+#: views/grid.lua:1307
 msgid "Test book"
 msgstr "테스트 책"
 
-#: menu.lua:563
+#: menu.lua:593
 msgid "Test data (pagination)"
 msgstr "테스트 데이터 (페이지 나누기)"
 
-#: dev/devtools.lua:541
+#: dev/devtools.lua:551
 msgid "Test dictionary"
 msgstr ""
 
@@ -2175,19 +2263,19 @@ msgstr ""
 msgid "Test galleries"
 msgstr "테스트 갤러리"
 
-#: menu.lua:596
+#: menu.lua:626
 msgid "Test stats"
 msgstr "테스트 통계"
 
-#: dev/devtools.lua:770
+#: dev/devtools.lua:780
 msgid "Test synopsis for the full-screen text viewer."
 msgstr ""
 
-#: menu.lua:575
+#: menu.lua:605
 msgid "Test widgets (all with data)"
 msgstr "테스트 위젯 (모두 데이터 포함)"
 
-#: menu.lua:547
+#: menu.lua:577
 msgid "Tests"
 msgstr "테스트"
 
@@ -2196,15 +2284,15 @@ msgstr "테스트"
 msgid "Text"
 msgstr ""
 
-#: dev/devtools.lua:741
+#: dev/devtools.lua:751
 msgid "Text viewer (synopsis)"
 msgstr ""
 
-#: dev/devtools.lua:573
+#: dev/devtools.lua:583
 msgid "The Name of the Wind"
 msgstr ""
 
-#: dev/devtools.lua:517
+#: dev/devtools.lua:527
 msgid "The Stormlight Archive"
 msgstr ""
 
@@ -2215,6 +2303,10 @@ msgstr "현재 책은 연속물에 속하지 않습니다"
 #: styles/ui/pagination.lua:182
 msgid "This collection is empty"
 msgstr "이 컬렉션은 비어 있습니다"
+
+#: views/update.lua:366
+msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
+msgstr "이 사본에는 dev/ 폴더(테스트)가 있습니다. 새 버전에는 없으므로 삭제됩니다."
 
 #: views/widgets.lua:441
 msgid "This month"
@@ -2236,7 +2328,7 @@ msgstr "이번 주: %1"
 msgid "This year"
 msgstr "올해"
 
-#: dev/devtools.lua:703
+#: dev/devtools.lua:713
 #, koreader
 msgid "Time"
 msgstr ""
@@ -2265,20 +2357,20 @@ msgstr ""
 msgid "Time spent reading today"
 msgstr ""
 
-#: dev/devtools.lua:515 dev/devtools.lua:605 dev/devtools.lua:655 dev/devtools.lua:822 views/grid.lua:60
+#: dev/devtools.lua:525 dev/devtools.lua:615 dev/devtools.lua:665 dev/devtools.lua:832 views/grid.lua:60
 #, koreader
 msgid "Title"
 msgstr ""
 
-#: dev/devtools.lua:507
+#: dev/devtools.lua:517
 msgid "Title, author or series"
 msgstr ""
 
-#: dev/devtools.lua:811
+#: dev/devtools.lua:821
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:632
+#: dev/devtools.lua:642
 #, koreader
 msgid "Today"
 msgstr ""
@@ -2292,11 +2384,11 @@ msgstr "오늘 및 연속 기록"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:738
+#: views/stats.lua:740
 msgid "Top author"
 msgstr "가장 많이 읽은 저자"
 
-#: menu.lua:329
+#: menu.lua:359
 msgid "Top bar"
 msgstr "상단 막대"
 
@@ -2305,29 +2397,45 @@ msgstr "상단 막대"
 msgid "Total time spent on this book"
 msgstr ""
 
-#: dev/devtools.lua:531
+#: dev/devtools.lua:541
 #, koreader
 msgid "Translate"
 msgstr ""
 
-#: dev/devtools.lua:688
+#: dev/devtools.lua:698
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:124
+#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: menu.lua:491
+#: views/update.lua:474
+msgid "Update Aire"
+msgstr "Aire 업데이트"
+
+#: views/update.lua:474
+msgid "Update Aire (%1 available)"
+msgstr "Aire 업데이트 (%1 사용 가능)"
+
+#: menu.lua:189
+msgid "Update KOReader"
+msgstr "KOReader 업데이트"
+
+#: views/update.lua:214
+msgid "Updating Aire"
+msgstr "Aire 업데이트 중"
+
+#: menu.lua:521
 msgid "View mode"
 msgstr "보기 모드"
 
-#: dev/devtools.lua:934
+#: dev/devtools.lua:944
 msgid "Vocabulary builder (empty)"
 msgstr ""
 
-#: dev/devtools.lua:913
+#: dev/devtools.lua:923
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
@@ -2340,35 +2448,35 @@ msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "어휘 복습 · %1단어"
 
-#: dev/devtools.lua:930
+#: dev/devtools.lua:940
 msgid "Vocabulary review · %d words"
 msgstr ""
 
-#: dev/devtools.lua:945
+#: dev/devtools.lua:955
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:196
+#: styles/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "주간 활동"
 
-#: dev/devtools.lua:723
+#: dev/devtools.lua:733
 msgid "What do you want to do with this book?"
 msgstr ""
 
-#: menu.lua:523
+#: menu.lua:553
 msgid "When opening KOReader, warns about new patches and plugins and disables those incompatible with Aire."
 msgstr "KOReader를 열 때 새 패치와 플러그인을 알리고 Aire와 호환되지 않는 항목을 비활성화합니다."
 
-#: menu.lua:396
+#: menu.lua:426
 msgid "White corner: reading. Gray corner: on hold."
 msgstr "흰색 모서리: 읽는 중. 회색 모서리: 보류 중."
 
-#: dev/devtools.lua:634 views/widgets.lua:465
+#: dev/devtools.lua:644 views/widgets.lua:465
 msgid "Wi-Fi"
 msgstr "와이파이"
 
-#: dev/devtools.lua:659
+#: dev/devtools.lua:669
 msgid "Wi-Fi networks"
 msgstr ""
 
@@ -2376,7 +2484,7 @@ msgstr ""
 msgid "Widget gallery · %1 / %2"
 msgstr "위젯 갤러리 · %1 / %2"
 
-#: menu.lua:289
+#: menu.lua:319
 msgid "Widget presets"
 msgstr "위젯 프리셋"
 
@@ -2384,12 +2492,16 @@ msgstr "위젯 프리셋"
 msgid "Widgets %1–%2"
 msgstr "위젯 %1–%2"
 
-#: dev/devtools.lua:530 views/widgets.lua:542 views/widgets.lua:543
+#: dev/devtools.lua:540 views/widgets.lua:542 views/widgets.lua:543
 #, koreader
 msgid "Wikipedia"
 msgstr ""
 
-#: views/stats.lua:419
+#: views/update.lua:417
+msgid "You already have the latest version (%1)."
+msgstr "이미 최신 버전입니다 (%1)."
+
+#: views/stats.lua:421
 msgid "You didn't read that day"
 msgstr "그날은 읽지 않았습니다"
 
@@ -2401,11 +2513,15 @@ msgstr "아직 강조 표시가 없습니다"
 msgid "You have not opened any book yet"
 msgstr "아직 연 책이 없습니다"
 
-#: views/grid.lua:582
+#: views/power.lua:162 views/update.lua:342
+msgid "You have version %1"
+msgstr "현재 버전: %1"
+
+#: views/grid.lua:584
 msgid "You haven't finished any books yet"
 msgstr "아직 끝낸 책이 없습니다"
 
-#: dev/devtools.lua:542
+#: dev/devtools.lua:552
 msgid ""
 "adj. Lasting for a short time.\n"
 "\n"
@@ -2422,13 +2538,17 @@ msgstr "및 강조 표시"
 msgid "at %1 %"
 msgstr "진행률 %1 %"
 
-#: styles/readerprogress.lua:160
+#: styles/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "하루 평균"
 
 #: views/widgets.lua:506
 msgid "battery"
 msgstr "배터리"
+
+#: views/update.lua:334
+msgid "beta"
+msgstr "베타"
 
 #: views/widgets.lua:403
 msgid "book"
@@ -2439,7 +2559,7 @@ msgstr[0] "권"
 msgid "conflicts with plugin covers"
 msgstr "플러그인 표지와 충돌"
 
-#: dev/devtools.lua:539 dev/devtools.lua:541
+#: dev/devtools.lua:549 dev/devtools.lua:551
 msgid "ephemeral"
 msgstr ""
 
@@ -2452,7 +2572,7 @@ msgstr ""
 msgid "files"
 msgstr "파일"
 
-#: views/stats.lua:694 views/widgets.lua:423
+#: views/stats.lua:696 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "끝낸 책"
@@ -2473,13 +2593,18 @@ msgstr "전체"
 msgid "included in Aire"
 msgstr "Aire에 포함됨"
 
-#: styles/readerprogress.lua:159
+#: styles/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "최근 7일"
 
 #: views/widgets.lua:456
 msgid "light"
 msgstr "조명"
+
+#: views/update.lua:506
+#, koreader
+msgid "never"
+msgstr ""
 
 #: views/widgets.lua:481
 #, koreader
@@ -2502,7 +2627,7 @@ msgstr "%1 / %2쪽"
 msgid "p. %1 of %2"
 msgstr "%2쪽 중 %1쪽"
 
-#: views/stats.lua:686
+#: views/stats.lua:688
 msgid "pages read"
 msgstr "읽은 페이지"
 
@@ -2510,7 +2635,7 @@ msgstr "읽은 페이지"
 msgid "port %1"
 msgstr "포트 %1"
 
-#: views/stats.lua:690
+#: views/stats.lua:692
 msgid "reading time"
 msgstr "독서 시간"
 
@@ -2580,7 +2705,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "오늘"
 
-#: styles/readerprogress.lua:158 views/stats.lua:225
+#: styles/readerprogress.lua:157 views/stats.lua:225
 msgid "today · %1 pp."
 msgstr "오늘 · %1쪽"
 
