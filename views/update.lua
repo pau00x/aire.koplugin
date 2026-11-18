@@ -11,7 +11,6 @@
 return function(Aire, ctx)
     -- Módulos declarados aquí dentro: así no cuentan como upvalues (LuaJIT admite 60)
     local BottomContainer = require("ui/widget/container/bottomcontainer")
-    local ButtonDialog = require("ui/widget/buttondialog")
     local Device = require("device")
     local FrameContainer = require("ui/widget/container/framecontainer")
     local Geom = require("ui/geometry")
@@ -109,10 +108,9 @@ return function(Aire, ctx)
     end
 
     local function sheetGeometry()
-        local style = ButtonDialog.aire_sheet_style or { margin = 6, radius = 14, pad = 14 }
-        local sw = Screen:getWidth()
-        local sheet_w = ButtonDialog.aire_sheetWidth and ButtonDialog.aire_sheetWidth() or (sw - 2 * S(6))
-        local pad = S(style.pad or 14)
+        local style = package.loaded.aire_screen.SHEET
+        local sheet_w = package.loaded.aire_screen.sheetWidth()
+        local pad = S(style.PAD)
         return style, sheet_w, pad, sheet_w - 2 * pad - 2 * Size.border.thin
     end
 
@@ -122,10 +120,10 @@ return function(Aire, ctx)
         local sheet = UpdateSheet:new(opts or {})
         sheet.frame = FrameContainer:new{
             width = sheet_w, bordersize = Size.border.thin, color = P.BLACK, background = P.WHITE,
-            radius = S(style.radius or 14), padding = pad, content,
+            radius = S(style.RADIUS), padding = pad, content,
         }
         sheet[1] = BottomContainer:new{
-            dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - S(style.margin or 6) },
+            dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - S(style.MARGIN) },
             sheet.frame,
         }
         return sheet

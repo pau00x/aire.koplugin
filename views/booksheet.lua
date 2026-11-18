@@ -45,7 +45,6 @@ local DocumentRegistry = require("document/documentregistry")
 local FileManager = require("apps/filemanager/filemanager")
 local FileManagerBookInfo = require("apps/filemanager/filemanagerbookinfo")
 local Font = require("ui/font")
-local Screen = require("device").screen
 local Size = require("ui/size")
 local TextBoxWidget = require("ui/widget/textboxwidget")
 local UIManager = require("ui/uimanager")
@@ -108,17 +107,9 @@ local function getBookProps(file_manager, file)
     return props
 end
 
+-- Ancho útil de la hoja (common/screen.lua)
 local function getHeaderWidth()
-    -- Hoja con el estilo nuevo (styles/ui.lua): el ancho útil lo da ella
-    if ButtonDialog.aire_sheetInnerWidth then return ButtonDialog.aire_sheetInnerWidth() end
-    -- Mismo ancho que el menú: como hoja inferior (styles/ui.lua, sección 11) ocupa
-    -- todo el ancho menos el margen; si no, el 90 % del lado corto
-    local margin = (ButtonDialog.aire_sheet_style and ButtonDialog.aire_sheet_style.margin) or 6
-    local dlg_w = ButtonDialog._aire_sheet_patched
-        and (Screen:getWidth() - 2 * Screen:scaleBySize(margin))
-        or math.floor(math.min(Screen:getWidth(), Screen:getHeight()) * 0.9)
-    local bt_w = dlg_w - 2 * Size.border.window - 2 * Size.padding.button
-    return bt_w - 2 * (Size.padding.large + Size.margin.title)
+    return package.loaded.aire_screen.sheetInnerWidth()
 end
 
 local function makeHeaderSubwidget(lines, align)

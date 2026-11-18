@@ -399,8 +399,7 @@ return function(Aire, ctx)
                 end
                 local function confirmSheet(title, msg, ok_text, on_ok)
                     local cdlg
-                    local iw = ButtonDialog.aire_sheetInnerWidth and ButtonDialog.aire_sheetInnerWidth()
-                        or (sw - 2 * S(20))
+                    local iw = package.loaded.aire_screen.sheetInnerWidth()
                     cdlg = ButtonDialog:new{
                         title = title,
                         title_align = "left",

@@ -97,13 +97,13 @@ function OptionSheet:init()
     local S, face, tappable = self.S, self.face, self.tappable
     local sw, sh = Screen:getWidth(), Screen:getHeight()
     self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
-    local st = require("ui/widget/buttondialog").aire_sheet_style or {}
-    local margin, pad, border = S(st.margin or 6), S(st.pad or 14), Size.border.thin
-    local sheet_radius = S(st.radius or 14)
-    local btn_h = S(st.btn_h or 44)
-    local btn_radius = S(st.btn_radius or 10)
-    local btn_gap = S(st.btn_gap or 8)
-    local btn_font = st.btn_font or 16
+    local st = package.loaded.aire_screen.SHEET -- medidas de hoja (common/screen.lua)
+    local margin, pad, border = S(st.MARGIN), S(st.PAD), Size.border.thin
+    local sheet_radius = S(st.RADIUS)
+    local btn_h = S(st.BTN_H)
+    local btn_radius = S(st.BTN_RADIUS)
+    local btn_gap = S(st.BTN_GAP)
+    local btn_font = st.BTN_FONT
     local inner_w = sw - 2 * margin - 2 * (pad + border)
     local content = VerticalGroup:new{ align = "left" }
     if self.title then

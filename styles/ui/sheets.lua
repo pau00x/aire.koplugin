@@ -55,26 +55,19 @@ local Widget = require("ui/widget/widget")
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/UI"
 local S_ = function(n) return Screen:scaleBySize(n) end
-local SHEET_PAD = 14          -- relleno interior de la hoja
-local SHEET_BTN_H = 44        -- alto de los botones
-local SHEET_BTN_RADIUS = 10   -- esquinas de los botones
-local SHEET_BTN_GAP = 8       -- hueco entre botones
-local SHEET_BTN_FONT = 16     -- tamaño de letra de los botones (si no piden otro)
+-- Medidas de las hojas: common/screen.lua (SHEET), la única fuente
+local AireScreen = package.loaded.aire_screen
+local SHEET_PAD = AireScreen.SHEET.PAD
+local SHEET_BTN_H = AireScreen.SHEET.BTN_H
+local SHEET_BTN_RADIUS = AireScreen.SHEET.BTN_RADIUS
+local SHEET_BTN_GAP = AireScreen.SHEET.BTN_GAP
+local SHEET_BTN_FONT = AireScreen.SHEET.BTN_FONT
 
 -- Ancho exterior de cualquier hoja y ancho útil dentro de ella
-local function sheetWidth() return Screen:getWidth() - 2 * S_(SHEET_MARGIN) end
-local function sheetInnerWidth() return sheetWidth() - 2 * S_(SHEET_PAD) - 2 * Size.border.thin end
+local sheetWidth, sheetInnerWidth = AireScreen.sheetWidth, AireScreen.sheetInnerWidth
+-- (para parches de la comunidad que los leían de aquí; Aire usa common/screen.lua)
 ButtonDialog.aire_sheetWidth = sheetWidth
 ButtonDialog.aire_sheetInnerWidth = sheetInnerWidth
-ButtonDialog.aire_sheet_style = {
-    margin = SHEET_MARGIN,
-    radius = SHEET_RADIUS,
-    pad = SHEET_PAD,
-    btn_h = SHEET_BTN_H,
-    btn_radius = SHEET_BTN_RADIUS,
-    btn_gap = SHEET_BTN_GAP,
-    btn_font = SHEET_BTN_FONT,
-}
 
 -- > 0 mientras se monta una hoja: las tablas de botones que se creen entonces
 -- toman el estilo de hoja

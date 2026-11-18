@@ -247,7 +247,6 @@ end, TAG)
 -- marcador. Mismas acciones y mismas actualizaciones que el TextViewer de KOReader.
 --===========================================================================
 local BottomContainer = require("ui/widget/container/bottomcontainer")
-local ButtonDialog = require("ui/widget/buttondialog")
 local ConfirmBox = require("ui/widget/confirmbox")
 local GestureRange = require("ui/gesturerange")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
@@ -333,9 +332,9 @@ local function showDetailsSheet(bookmark, item_or_index)
     end
 
     local sw, sh = Screen:getWidth(), Screen:getHeight()
-    local style = ButtonDialog.aire_sheet_style or { margin = 6, radius = 14, pad = 14 }
-    local sheet_w = ButtonDialog.aire_sheetWidth and ButtonDialog.aire_sheetWidth() or (sw - 2 * S(6))
-    local pad = S(style.pad or 14)
+    local style = package.loaded.aire_screen.SHEET
+    local sheet_w = package.loaded.aire_screen.sheetWidth()
+    local pad = S(style.PAD)
     local in_w = sheet_w - 2 * pad - 2 * Size.border.thin
 
     -- Cabecera: TIPO · capítulo · fecha y la página a la derecha
@@ -416,10 +415,10 @@ local function showDetailsSheet(bookmark, item_or_index)
     sheet = DetailsSheet:new{ close_callback = close_callback }
     sheet.frame = FrameContainer:new{
         width = sheet_w, bordersize = Size.border.thin, color = BLACK, background = WHITE,
-        radius = S(style.radius or 14), padding = pad, content,
+        radius = S(style.RADIUS), padding = pad, content,
     }
     sheet[1] = BottomContainer:new{
-        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - S(style.margin or 6) },
+        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - S(style.MARGIN) },
         sheet.frame,
     }
     UIManager:show(sheet)

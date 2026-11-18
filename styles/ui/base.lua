@@ -54,9 +54,10 @@ end
 
 -- Medidas compartidas por varias piezas (hojas inferiores y menú superior)
 -- stylua: ignore start
-local SHEET_MARGIN              = 6      -- margen con los bordes de la pantalla
-local SHEET_RADIUS              = 14     -- radio de las esquinas (igual que la hoja del plugin)
-local MENU_SIDE_INSET           = 14     -- margen lateral del menú superior (= relleno de las hojas)
+local SHEET = package.loaded.aire_screen.SHEET -- medidas de las hojas (common/screen.lua)
+local SHEET_MARGIN              = SHEET.MARGIN
+local SHEET_RADIUS              = SHEET.RADIUS
+local MENU_SIDE_INSET           = SHEET.MENU_SIDE_INSET
 local CONFIRM_BOX_AS_SHEET      = uiOpt("confirm_sheet")   -- confirmaciones (tienen opciones) como hoja inferior, texto a la izquierda
 -- stylua: ignore end
 

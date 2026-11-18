@@ -21,11 +21,11 @@ msgstr[2] "“%1” · %2 atbilstības"
 msgid "\"Reading now\" card with light background"
 msgstr "Kartīte “Pašlaik lasu” ar gaišu fonu"
 
-#: views/booksheet.lua:192
+#: views/booksheet.lua:183
 msgid "%1 % (%2 / %3 pp.)"
 msgstr "%1 % (%2 / %3 lpp.)"
 
-#: views/booksheet.lua:184
+#: views/booksheet.lua:175
 msgid "%1 % (on hold)"
 msgstr "%1 % (uz pauzes)"
 
@@ -33,7 +33,7 @@ msgstr "%1 % (uz pauzes)"
 msgid "%1 % read"
 msgstr "%1 % izlasīts"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
+#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:322 views/grid.lua:327
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 grāmatu"
@@ -47,7 +47,7 @@ msgstr[0] "%1 grāmatzīmju"
 msgstr[1] "%1 grāmatzīme"
 msgstr[2] "%1 grāmatzīmes"
 
-#: views/grid.lua:493 views/grid.lua:494
+#: views/grid.lua:492 views/grid.lua:493
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 kolekciju"
@@ -68,21 +68,21 @@ msgstr[0] "pirms %1 dienām"
 msgstr[1] "pirms %1 dienas"
 msgstr[2] "pirms %1 dienām"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 lasīšanas dienu"
 msgstr[1] "%1 lasīšanas diena"
 msgstr[2] "%1 lasīšanas dienas"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
+#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:324
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "pabeigtas: %1"
 msgstr[1] "pabeigtas: %1"
 msgstr[2] "pabeigtas: %1"
 
-#: views/grid.lua:576
+#: views/grid.lua:575
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 pabeigtu grāmatu"
@@ -110,11 +110,11 @@ msgstr[0] "izlasītas %1 lpp."
 msgstr[1] "izlasīta %1 lpp."
 msgstr[2] "izlasītas %1 lpp."
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:191 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 lpp."
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "%1 pp./h"
 msgstr "%1 lpp./h"
 
@@ -125,7 +125,7 @@ msgstr[0] "%1 saglabātu īsceļu"
 msgstr[1] "%1 saglabāts īsceļš"
 msgstr[2] "%1 saglabāti īsceļi"
 
-#: views/grid.lua:324
+#: views/grid.lua:323
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 sēriju"
@@ -170,7 +170,7 @@ msgstr "(pašreizējais)"
 msgid "+ Brightness"
 msgstr "+ Spilgtums"
 
-#: views/stats.lua:488
+#: views/stats.lua:487
 msgid "+%1 more"
 msgstr "+vēl %1"
 
@@ -194,7 +194,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 kolonnas"
 
-#: views/update.lua:340
+#: views/update.lua:338
 msgid "A new version is available"
 msgstr "Ir pieejama jauna versija"
 
@@ -218,7 +218,7 @@ msgstr "Aktīvs"
 msgid "Activity summary"
 msgstr "Aktivitātes kopsavilkums"
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:377
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -243,15 +243,15 @@ msgstr "Papildu"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:276 views/update.lua:333
+#: views/update.lua:274 views/update.lua:331
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:159 views/update.lua:537
+#: views/power.lua:158 views/update.lua:535
 msgid "Aire %1 available"
 msgstr "Aire %1 pieejama"
 
-#: views/update.lua:190
+#: views/update.lua:188
 msgid "Aire %1 installed"
 msgstr "Aire %1 instalēta"
 
@@ -272,16 +272,16 @@ msgstr "Visas"
 msgid "All books"
 msgstr ""
 
-#: views/booksheet.lua:351
+#: views/booksheet.lua:342
 msgid "All finished"
 msgstr "Visas pabeigtas"
 
-#: views/grid.lua:578 views/widgets.lua:441
+#: views/grid.lua:577 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:593
+#: views/stats.lua:592
 msgid "Annual"
 msgstr "Gads"
 
@@ -324,7 +324,7 @@ msgstr "Automātiskās kolekcijas pēc žanra (atslēgvārda)"
 msgid "Automatic tests"
 msgstr "Automātiskie testi"
 
-#: views/grid.lua:1009
+#: views/grid.lua:1008
 msgid "Automatic: books by this author"
 msgstr "Automātiska: šī autora grāmatas"
 
@@ -359,11 +359,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Akumulators"
 
-#: views/stats.lua:682
+#: views/stats.lua:681
 msgid "Best day"
 msgstr "Labākā diena"
 
-#: views/stats.lua:685
+#: views/stats.lua:684
 msgid "Best month"
 msgstr "Labākais mēnesis"
 
@@ -433,7 +433,7 @@ msgstr "Grāmatzīmes un iezīmējumi"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:970
+#: views/grid.lua:969
 msgid "Books are not deleted, only the collection."
 msgstr "Grāmatas netiek dzēstas, tikai kolekcija."
 
@@ -483,7 +483,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -501,7 +501,7 @@ msgstr ""
 msgid "Change"
 msgstr "Mainīt"
 
-#: styles/skim.lua:90
+#: styles/skim.lua:89
 msgid "Chapter %1 of %2"
 msgstr "%1. nodaļa no %2"
 
@@ -525,11 +525,11 @@ msgstr "Uzlādēts"
 msgid "Charging"
 msgstr "Lādējas"
 
-#: views/update.lua:486
+#: views/update.lua:484
 msgid "Check every week"
 msgstr "Pārbaudīt katru nedēļu"
 
-#: views/update.lua:479
+#: views/update.lua:477
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Notīrīt vāku sīktēlus"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:764 views/widgets.lua:650
 #, koreader
 msgid "Close"
 msgstr ""
@@ -567,7 +567,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Kolekcijas secība"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1349
 msgid "Collections"
 msgstr "Kolekcijas"
 
@@ -579,7 +579,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "Kolekciju secība"
 
-#: common/compat.lua:183
+#: common/compat.lua:182
 msgid "Compatibility"
 msgstr "Saderība"
 
@@ -591,7 +591,7 @@ msgstr ""
 msgid "Connected"
 msgstr "Savienots"
 
-#: views/booksheet.lua:375
+#: views/booksheet.lua:366
 #, koreader
 msgid "Continue"
 msgstr ""
@@ -610,7 +610,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:398
+#: views/update.lua:396
 msgid "Could not check for updates. Try again later."
 msgstr "Neizdevās pārbaudīt atjauninājumus. Mēģini vēlāk vēlreiz."
 
@@ -621,7 +621,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:259
+#: views/update.lua:257
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Neizdevās instalēt atjauninājumu. Aire %1 joprojām ir instalēta."
 
@@ -656,11 +656,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Pašlaik lasu"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "DAILY RHYTHM"
 msgstr "DIENU RITMS"
 
-#: views/stats.lua:677
+#: views/stats.lua:676
 msgid "Daily average"
 msgstr "Vidēji dienā"
 
@@ -676,7 +676,7 @@ msgstr "Datums"
 msgid "Date finished"
 msgstr "Pabeigšanas datums"
 
-#: views/stats.lua:680
+#: views/stats.lua:679
 msgid "Day %1"
 msgstr "%1. diena"
 
@@ -694,16 +694,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembris"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:970 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:448
+#: views/stats.lua:447
 msgid "Delete all book stats"
 msgstr "Dzēst visu grāmatas statistiku"
 
-#: views/stats.lua:452
+#: views/stats.lua:451
 msgid "Delete all stats?"
 msgstr "Dzēst visu statistiku?"
 
@@ -712,15 +712,15 @@ msgstr "Dzēst visu statistiku?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:435
+#: views/stats.lua:434
 msgid "Delete minutes for this day?"
 msgstr "Dzēst šīs dienas minūtes?"
 
-#: views/stats.lua:431
+#: views/stats.lua:430
 msgid "Delete minutes from this day"
 msgstr "Dzēst šīs dienas minūtes"
 
-#: views/grid.lua:969
+#: views/grid.lua:968
 msgid "Delete the collection?"
 msgstr "Dzēst kolekciju?"
 
@@ -728,11 +728,11 @@ msgstr "Dzēst kolekciju?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1020
+#: views/grid.lua:1019
 msgid "Delete…"
 msgstr "Dzēst…"
 
-#: styles/ui/sheets.lua:501
+#: styles/ui/sheets.lua:494
 #, koreader
 msgid "Description"
 msgstr ""
@@ -770,12 +770,12 @@ msgstr "Gatavs"
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:210
+#: views/update.lua:208
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:234
+#: views/update.lua:232
 msgid "Downloading… %1 of %2"
 msgstr "Lejupielādē… %1 no %2"
 
@@ -800,7 +800,7 @@ msgstr "Rediģēt sākuma logrīkus"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:377
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -809,12 +809,12 @@ msgstr ""
 msgid "Edit series"
 msgstr "Rediģēt sēriju"
 
-#: styles/bookmark.lua:382
+#: styles/bookmark.lua:381
 #, koreader
 msgid "Edit text"
 msgstr ""
 
-#: views/booksheet.lua:347
+#: views/booksheet.lua:338
 msgid "Empty"
 msgstr "Tukša"
 
@@ -823,7 +823,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Bez logrīkiem"
 
-#: views/grid.lua:470
+#: views/grid.lua:469
 msgid "Empty collection"
 msgstr "Tukša kolekcija"
 
@@ -831,7 +831,7 @@ msgstr "Tukša kolekcija"
 msgid "Empty folder"
 msgstr "Tukša mape"
 
-#: views/grid.lua:303
+#: views/grid.lua:302
 msgid "Empty series"
 msgstr "Tukša sērija"
 
@@ -863,7 +863,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Viss, ko zīmē spraudnis, ar izdomātiem datiem. Velc ← →, lai pāršķirtu lapas; pieskaries ārpusē vai lapai, lai izietu."
 
-#: views/power.lua:222
+#: views/power.lua:221
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -872,7 +872,7 @@ msgstr ""
 msgid "FILE"
 msgstr "FAILS"
 
-#: views/grid.lua:795
+#: views/grid.lua:794
 msgid "FILTER"
 msgstr "FILTRS"
 
@@ -885,7 +885,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Izlases mapes"
 
-#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:346 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -910,11 +910,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:739
+#: views/grid.lua:738
 msgid "Filter"
 msgstr "Filtrēt"
 
-#: dev/devtools.lua:659 views/grid.lua:738
+#: dev/devtools.lua:659 views/grid.lua:737
 msgid "Filter and sort"
 msgstr "Filtrēt un kārtot"
 
@@ -923,7 +923,7 @@ msgstr "Filtrēt un kārtot"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:181 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:172 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Pabeigts"
@@ -975,11 +975,11 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: styles/ui/sheets.lua:724
+#: styles/ui/sheets.lua:717
 msgid "Fonts"
 msgstr "Fonti"
 
-#: styles/vocabbuilder.lua:154
+#: styles/vocabbuilder.lua:153
 msgid "Forgot"
 msgstr "Aizmirsu"
 
@@ -1030,7 +1030,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Iestatītie žesti: %1"
 
-#: styles/bookmark.lua:407
+#: styles/bookmark.lua:406
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1039,7 +1039,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Augšup"
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:156
+#: common/compat.lua:178 styles/vocabbuilder.lua:155
 msgid "Got it"
 msgstr "Skaidrs"
 
@@ -1051,7 +1051,7 @@ msgstr "Režģis: %1 kolonnas"
 msgid "HIGHLIGHT"
 msgstr "IEZĪMĒJUMS"
 
-#: views/stats.lua:664
+#: views/stats.lua:663
 msgid "HIGHLIGHTS"
 msgstr "SVARĪGĀKAIS"
 
@@ -1064,7 +1064,7 @@ msgstr "Vēl nav pienākusi"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1351
+#: views/dock.lua:42 views/grid.lua:1350
 #, koreader
 msgid "History"
 msgstr ""
@@ -1073,7 +1073,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:614
+#: views/grid.lua:613
 msgid "History is empty"
 msgstr "Vēsture ir tukša"
 
@@ -1126,15 +1126,15 @@ msgstr "Sadaļā Kolekcijas katram autoram ar 2 vai vairāk grāmatām tiek par�
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Sadaļā Kolekcijas katram atslēgvārdam ar 2 vai vairāk grāmatām tiek parādīta kolekcija. Tās atjaunojas automātiski un netiek saglabātas KOReader kolekcijās."
 
-#: views/update.lua:495
+#: views/update.lua:493
 msgid "Include beta versions"
 msgstr "Iekļaut beta versijas"
 
-#: views/update.lua:514
+#: views/update.lua:512
 msgid "Installed version: %1"
 msgstr "Instalētā versija: %1"
 
-#: views/update.lua:246
+#: views/update.lua:244
 msgid "Installing…"
 msgstr "Instalē…"
 
@@ -1150,7 +1150,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:193
+#: views/update.lua:191
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Tā tiks izmantota pēc KOReader restartēšanas. Tavi iestatījumi tiek saglabāti."
 
@@ -1179,7 +1179,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "jūnijs"
 
-#: views/power.lua:221
+#: views/power.lua:220
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1225,7 +1225,7 @@ msgstr "Pēdējā"
 msgid "Last 7 days summary"
 msgstr "Pēdējo 7 dienu kopsavilkums"
 
-#: views/update.lua:507
+#: views/update.lua:505
 msgid "Last check: %1"
 msgstr "Pēdējā pārbaude: %1"
 
@@ -1233,7 +1233,7 @@ msgstr "Pēdējā pārbaude: %1"
 msgid "Last read"
 msgstr "Pēdējoreiz lasīts"
 
-#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
+#: common/compat.lua:170 views/update.lua:178 views/update.lua:374
 msgid "Later"
 msgstr "Vēlāk"
 
@@ -1251,7 +1251,7 @@ msgstr "Izkārtojums"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1348
 msgid "Library"
 msgstr "Bibliotēka"
 
@@ -1307,11 +1307,11 @@ msgstr "ATBILSTĪBA"
 msgid "MATCH %d"
 msgstr "ATBILSTĪBA %d"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "MONTHLY RHYTHM"
 msgstr "MĒNEŠU RITMS"
 
-#: views/stats.lua:694
+#: views/stats.lua:693
 msgid "MOST READ"
 msgstr "VISVAIRĀK LASĪTĀS"
 
@@ -1328,15 +1328,15 @@ msgstr "marts"
 msgid "Margins"
 msgstr "Malas"
 
-#: views/booksheet.lua:430
+#: views/booksheet.lua:421
 msgid "Mark"
 msgstr "Atzīmēt"
 
-#: views/booksheet.lua:429
+#: views/booksheet.lua:420
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Atzīmēt visas “%1” grāmatas kā lasāmas?"
 
-#: views/grid.lua:1057
+#: views/grid.lua:1056
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Atzīmēt visas kolekcijas “%1” grāmatas kā lasāmas?"
 
@@ -1344,19 +1344,19 @@ msgstr "Atzīmēt visas kolekcijas “%1” grāmatas kā lasāmas?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:1054
 msgid "Mark entire collection as finished"
 msgstr "Atzīmēt visu kolekciju kā pabeigtu"
 
-#: views/grid.lua:1056
+#: views/grid.lua:1055
 msgid "Mark entire collection as reading"
 msgstr "Atzīmēt visu kolekciju kā lasāmu"
 
-#: views/booksheet.lua:403
+#: views/booksheet.lua:394
 msgid "Mark entire series as finished"
 msgstr "Atzīmēt visu sēriju kā pabeigtu"
 
-#: views/booksheet.lua:424
+#: views/booksheet.lua:415
 msgid "Mark entire series as reading"
 msgstr "Atzīmēt visu sēriju kā lasāmu"
 
@@ -1387,11 +1387,11 @@ msgstr "Minimāls"
 msgid "Mix folders"
 msgstr "Jaukt mapes"
 
-#: views/grid.lua:816
+#: views/grid.lua:815
 msgid "Mix series"
 msgstr "Jaukt sērijas"
 
-#: views/stats.lua:591
+#: views/stats.lua:590
 msgid "Monthly"
 msgstr "Mēnesis"
 
@@ -1407,7 +1407,7 @@ msgstr ""
 msgid "More"
 msgstr "Vairāk"
 
-#: views/booksheet.lua:258
+#: views/booksheet.lua:249
 msgid "More options…"
 msgstr "Vairāk iespēju…"
 
@@ -1445,7 +1445,7 @@ msgstr "JAUNA"
 msgid "NEXT"
 msgstr "NĀKAMĀ"
 
-#: styles/vocabbuilder.lua:123
+#: styles/vocabbuilder.lua:122
 msgid "NEXT REVIEW"
 msgstr "NĀKAMĀ ATKĀRTOŠANA"
 
@@ -1476,11 +1476,11 @@ msgctxt "aire"
 msgid "New"
 msgstr "Jauns"
 
-#: views/grid.lua:489
+#: views/grid.lua:488
 msgid "New collection"
 msgstr "Jauna kolekcija"
 
-#: views/grid.lua:1011 views/grid.lua:1024
+#: views/grid.lua:1010 views/grid.lua:1023
 msgid "New collection…"
 msgstr "Jauna kolekcija…"
 
@@ -1500,7 +1500,7 @@ msgstr "Nākamā %1"
 msgid "Next batch of test widgets"
 msgstr "Nākamā testa logrīku partija"
 
-#: styles/skim.lua:113
+#: styles/skim.lua:112
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1526,19 +1526,19 @@ msgstr "Nav iesāktu grāmatu"
 msgid "No book matches the filter"
 msgstr "Neviena grāmata neatbilst filtram"
 
-#: views/grid.lua:582
+#: views/grid.lua:581
 msgid "No books finished this month"
 msgstr "Šomēnes nav pabeigtu grāmatu"
 
-#: views/grid.lua:582
+#: views/grid.lua:581
 msgid "No books finished this year"
 msgstr "Šogad nav pabeigtu grāmatu"
 
-#: views/grid.lua:335
+#: views/grid.lua:334
 msgid "No books in home folder"
 msgstr "Sākuma mapē nav grāmatu"
 
-#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
+#: views/grid.lua:334 views/grid.lua:469 views/grid.lua:613
 msgid "No books with this filter"
 msgstr "Ar šo filtru nav grāmatu"
 
@@ -1546,11 +1546,11 @@ msgstr "Ar šo filtru nav grāmatu"
 msgid "No chapter"
 msgstr "Nav nodaļas"
 
-#: views/grid.lua:497
+#: views/grid.lua:496
 msgid "No collections"
 msgstr "Nav kolekciju"
 
-#: views/grid.lua:497
+#: views/grid.lua:496
 msgid "No collections with this filter"
 msgstr "Ar šo filtru nav kolekciju"
 
@@ -1574,7 +1574,7 @@ msgstr "Nav nākamās nepabeigtās grāmatas"
 msgid "No previous book"
 msgstr "Nav iepriekšējās grāmatas"
 
-#: styles/statspages.lua:365 views/stats.lua:627
+#: styles/statspages.lua:365 views/stats.lua:626
 msgid "No reading activity in this period"
 msgstr "Šajā periodā nav lasīšanas"
 
@@ -1599,7 +1599,7 @@ msgstr "Šai grāmatai nav statistikas"
 msgid "No unstarted books"
 msgstr "Nav neiesāktu grāmatu"
 
-#: styles/vocabbuilder.lua:92
+#: styles/vocabbuilder.lua:91
 msgid "No vocabulary words"
 msgstr "Nav vārdu"
 
@@ -1607,7 +1607,7 @@ msgstr "Nav vārdu"
 msgid "Not rated"
 msgstr "Nav novērtēts"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:197 views/booksheet.lua:355
+#: styles/bookinfo.lua:260 views/booksheet.lua:188 views/booksheet.lua:346
 msgid "Not started"
 msgstr "Nav iesākta"
 
@@ -1658,12 +1658,12 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:186 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:177 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "Uz pauzes"
 
-#: views/update.lua:487
+#: views/update.lua:485
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Tikai tad, ja Wi-Fi jau ir ieslēgts: Aire to nekad neieslēdz."
 
@@ -1672,7 +1672,7 @@ msgstr "Tikai tad, ja Wi-Fi jau ir ieslēgts: Aire to nekad neieslēdz."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:1053
 msgid "Open collection"
 msgstr "Atvērt kolekciju"
 
@@ -1680,11 +1680,11 @@ msgstr "Atvērt kolekciju"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:1053
 msgid "Open series"
 msgstr "Atvērt sēriju"
 
-#: views/booksheet.lua:391
+#: views/booksheet.lua:382
 msgid "Open series folder"
 msgstr "Atvērt sērijas mapi"
 
@@ -1772,7 +1772,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:179
+#: views/power.lua:178
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1785,7 +1785,7 @@ msgstr "Iepriekšējā"
 msgid "Previous book"
 msgstr "Iepriekšējā grāmata"
 
-#: styles/skim.lua:110
+#: styles/skim.lua:109
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1896,7 +1896,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:554
+#: views/stats.lua:553
 msgid "Recap"
 msgstr "Kopsavilkums"
 
@@ -1917,7 +1917,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:395
+#: dev/devtools.lua:636 styles/bookmark.lua:394
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1927,17 +1927,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Noņemt"
 
-#: styles/bookmark.lua:392
+#: styles/bookmark.lua:391
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:503
+#: views/booksheet.lua:583 views/grid.lua:502
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Izņemt no kolekcijas"
 
-#: views/booksheet.lua:556 views/grid.lua:619
+#: views/booksheet.lua:547 views/grid.lua:618
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1947,7 +1947,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:393
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1957,7 +1957,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1018
+#: views/grid.lua:1017
 msgid "Rename…"
 msgstr "Pārsaukt…"
 
@@ -1970,12 +1970,12 @@ msgstr "Aizstāt sākuma ekrāna logrīkus ar sagatavi “%1”?"
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:220
+#: views/power.lua:219
 #, koreader
 msgid "Restart"
 msgstr ""
 
-#: common/compat.lua:172
+#: common/compat.lua:171
 #, koreader
 msgid "Restart KOReader"
 msgstr ""
@@ -1984,15 +1984,15 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Restartē KOReader, lai izmaiņas stātos spēkā."
 
-#: views/update.lua:194
+#: views/update.lua:192
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Restartē KOReader, lai to izmantotu. Tavi iestatījumi tiek saglabāti."
 
-#: views/update.lua:183
+#: views/update.lua:181
 msgid "Restart now"
 msgstr "Restartēt tagad"
 
-#: views/explorer.lua:103 views/grid.lua:810
+#: views/explorer.lua:103 views/grid.lua:809
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2017,7 +2017,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:805
+#: views/grid.lua:804
 msgid "SORT BY"
 msgstr "KĀRTOT PĒC"
 
@@ -2067,7 +2067,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:354
+#: views/update.lua:352
 msgid "See all changes"
 msgstr "Skatīt visas izmaiņas"
 
@@ -2076,7 +2076,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "septembris"
 
-#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:306 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2093,11 +2093,11 @@ msgstr "Sērijas numurs uz vākiem"
 msgid "Set alarm"
 msgstr ""
 
-#: styles/ui/sheets.lua:776
+#: styles/ui/sheets.lua:769
 msgid "Set font"
 msgstr "Iestatīt fontu"
 
-#: views/update.lua:483
+#: views/update.lua:481
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2149,11 +2149,11 @@ msgstr "Rādīt anotāciju"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:371
+#: views/update.lua:369
 msgid "Skip"
 msgstr "Izlaist"
 
-#: views/power.lua:178
+#: views/power.lua:177
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Miegs"
@@ -2178,15 +2178,15 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:739
+#: dev/devtools.lua:613 views/grid.lua:738
 msgid "Sort by"
 msgstr "Kārtot pēc"
 
-#: dev/devtools.lua:825 views/grid.lua:989
+#: dev/devtools.lua:825 views/grid.lua:988
 msgid "Sort collections"
 msgstr "Kārtot kolekcijas"
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:1011 views/grid.lua:1024
 msgid "Sort collections…"
 msgstr "Kārtot kolekcijas…"
 
@@ -2203,7 +2203,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "Kvadrātveida vāki un sērijas"
 
-#: views/booksheet.lua:375 views/widgets.lua:570
+#: views/booksheet.lua:366 views/widgets.lua:570
 msgid "Start"
 msgstr "Sākt"
 
@@ -2231,7 +2231,7 @@ msgstr "Krātuve"
 msgid "Swap tap and hold"
 msgstr "Apmainīt pieskārienu un turēšanu"
 
-#: views/booksheet.lua:223
+#: views/booksheet.lua:214
 msgid "Synopsis"
 msgstr "Anotācija"
 
@@ -2259,11 +2259,11 @@ msgstr "Pieskaries, lai atvērtu bibliotēku"
 msgid "Tap to stop"
 msgstr "Pieskaries, lai apturētu"
 
-#: styles/vocabbuilder.lua:132
+#: styles/vocabbuilder.lua:131
 msgid "Tap to view definition"
 msgstr "Pieskaries, lai skatītu definīciju"
 
-#: views/grid.lua:1252
+#: views/grid.lua:1251
 msgid "Test book"
 msgstr "Testa grāmata"
 
@@ -2320,7 +2320,7 @@ msgstr "Pašreizējā grāmata nav sērijā"
 msgid "This collection is empty"
 msgstr "Šī kolekcija ir tukša"
 
-#: views/update.lua:366
+#: views/update.lua:364
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Šajā kopijā ir mape dev/ (testi). Jaunajā versijā tās nav, tāpēc tā tiks dzēsta."
 
@@ -2400,7 +2400,7 @@ msgstr "Šodiena un sērija"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:688
+#: views/stats.lua:687
 msgid "Top author"
 msgstr "Iecienītākais autors"
 
@@ -2422,16 +2422,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
+#: views/power.lua:142 views/power.lua:169 views/update.lua:375 views/update.lua:529
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:474
+#: views/update.lua:472
 msgid "Update Aire"
 msgstr "Atjaunināt Aire"
 
-#: views/update.lua:474
+#: views/update.lua:472
 msgid "Update Aire (%1 available)"
 msgstr "Atjaunināt Aire (pieejama %1)"
 
@@ -2439,7 +2439,7 @@ msgstr "Atjaunināt Aire (pieejama %1)"
 msgid "Update KOReader"
 msgstr "Atjaunināt KOReader"
 
-#: views/update.lua:214
+#: views/update.lua:212
 msgid "Updating Aire"
 msgstr "Atjaunina Aire"
 
@@ -2459,7 +2459,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Vārdu krājuma atkārtošana"
 
-#: styles/vocabbuilder.lua:306
+#: styles/vocabbuilder.lua:308
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Vārdu atkārtošana · %1 vārdu"
@@ -2515,7 +2515,7 @@ msgstr "Logrīki %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:417
+#: views/update.lua:415
 msgid "You already have the latest version (%1)."
 msgstr "Tev jau ir jaunākā versija (%1)."
 
@@ -2531,11 +2531,11 @@ msgstr "Tev vēl nav iezīmējumu"
 msgid "You have not opened any book yet"
 msgstr "Tu vēl neesi atvēris nevienu grāmatu"
 
-#: views/power.lua:162 views/update.lua:342
+#: views/power.lua:161 views/update.lua:340
 msgid "You have version %1"
 msgstr "Tev ir versija %1"
 
-#: views/grid.lua:581
+#: views/grid.lua:580
 msgid "You haven't finished any books yet"
 msgstr "Tu vēl neesi pabeidzis nevienu grāmatu"
 
@@ -2552,7 +2552,7 @@ msgstr ""
 msgid "and highlights"
 msgstr "un iezīmējumi"
 
-#: views/booksheet.lua:359
+#: views/booksheet.lua:350
 msgid "at %1 %"
 msgstr "pie %1 %"
 
@@ -2564,7 +2564,7 @@ msgstr "vid. / dienā"
 msgid "battery"
 msgstr "akumulators"
 
-#: views/update.lua:334
+#: views/update.lua:332
 msgid "beta"
 msgstr "beta"
 
@@ -2592,7 +2592,7 @@ msgstr ""
 msgid "files"
 msgstr "failus"
 
-#: views/stats.lua:644 views/widgets.lua:423
+#: views/stats.lua:643 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "pabeigtu grāmatu"
@@ -2623,7 +2623,7 @@ msgstr "pēdējās 7 dienas"
 msgid "light"
 msgstr "gaisma"
 
-#: views/update.lua:506
+#: views/update.lua:504
 msgid "never"
 msgstr "nekad"
 
@@ -2647,7 +2647,7 @@ msgstr "lpp. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "lpp. %1 no %2"
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "pages read"
 msgstr "izlasītās lappuses"
 
@@ -2655,7 +2655,7 @@ msgstr "izlasītās lappuses"
 msgid "port %1"
 msgstr "ports %1"
 
-#: views/stats.lua:640
+#: views/stats.lua:639
 msgid "reading time"
 msgstr "lasīšanas laiks"
 

@@ -11,7 +11,6 @@
 --]]
 
 local BottomContainer = require("ui/widget/container/bottomcontainer")
-local ButtonDialog = require("ui/widget/buttondialog")
 local Device = require("device")
 local FrameContainer = require("ui/widget/container/framecontainer")
 local Geom = require("ui/geometry")
@@ -72,9 +71,9 @@ local function build(self)
     local P = getP()
     local S = P.S
     local sw, sh = Screen:getWidth(), Screen:getHeight()
-    local style = ButtonDialog.aire_sheet_style or { margin = 6, radius = 14, pad = 14 }
-    local sheet_w = ButtonDialog.aire_sheetWidth and ButtonDialog.aire_sheetWidth() or (sw - 2 * S(6))
-    local pad = S(style.pad or 14)
+    local style = package.loaded.aire_screen.SHEET
+    local sheet_w = package.loaded.aire_screen.sheetWidth()
+    local pad = S(style.PAD)
     local in_w = sheet_w - 2 * pad - 2 * Size.border.thin
 
     local toc = self.ui.toc
@@ -127,12 +126,12 @@ local function build(self)
         bordersize = Size.border.thin,
         color = Blitbuffer.COLOR_BLACK,
         background = Blitbuffer.COLOR_WHITE,
-        radius = S(style.radius or 14),
+        radius = S(style.RADIUS),
         padding = pad,
         content,
     }
     self[1] = BottomContainer:new{
-        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - S(style.margin or 6) },
+        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - S(style.MARGIN) },
         self.skimto_frame,
     }
 end

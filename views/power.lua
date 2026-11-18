@@ -11,7 +11,6 @@ return function(Aire, ctx)
     -- como upvalues de esta función (LuaJIT admite 60).
     local Blitbuffer = require("ffi/blitbuffer")
     local BottomContainer = require("ui/widget/container/bottomcontainer")
-    local ButtonDialog = require("ui/widget/buttondialog")
     local CenterContainer = require("ui/widget/container/centercontainer")
     local Device = require("device")
     local FileManager = require("apps/filemanager/filemanager")
@@ -92,11 +91,11 @@ return function(Aire, ctx)
     function PowerSheet:init()
         local sw, sh = Screen:getWidth(), Screen:getHeight()
         self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
-        local st = ButtonDialog.aire_sheet_style or {}
-        local margin = S(st.margin or 6)
-        local pad = S(st.pad or 14)
-        local sheet_radius = S(st.radius or 14)
-        local btn_gap = S(st.btn_gap or 8)
+        local st = package.loaded.aire_screen.SHEET -- medidas de hoja (common/screen.lua)
+        local margin = S(st.MARGIN)
+        local pad = S(st.PAD)
+        local sheet_radius = S(st.RADIUS)
+        local btn_gap = S(st.BTN_GAP)
         local border = Size.border.thin
         local inner_w = sw - 2 * margin - 2 * (pad + border)
         local E = self.entries

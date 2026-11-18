@@ -4,6 +4,7 @@
     common/pages.lua y pantallas de KOReader restiladas):
 
       METRICS    márgenes y espacios base (en píxeles sin escalar; S() al usarlos)
+      SHEET      medidas de las hojas inferiores y submenús (sheetWidth, sheetInnerWidth)
       Pager      paginación por puntos (● activo alargado) o "3 / 12"
       statusBar  barra de estado (hora, indicadores, energía); los datos los
                  da views/topbar.lua con setStatusSource
@@ -56,6 +57,19 @@ M.METRICS = {
     SUB_GAP            = 2,  -- entre el título y el subtítulo
     SUB_MIN_H          = 28, -- alto mínimo de la fila del subtítulo
     CONTENT_GAP        = 12, -- entre la cabecera (o el subtítulo) y el contenido
+}
+
+-- Hojas inferiores y submenús (styles/ui/sheets.lua, hojas propias de Aire,
+-- menú superior y del lector): única fuente de sus medidas
+M.SHEET = {
+    MARGIN          = 6,  -- hueco con los bordes de la pantalla
+    RADIUS          = 14, -- esquinas de la hoja
+    PAD             = 14, -- relleno interior
+    BTN_H           = 44, -- alto de los botones
+    BTN_RADIUS      = 10, -- esquinas de los botones
+    BTN_GAP         = 8,  -- hueco entre botones
+    BTN_FONT        = 16, -- letra de los botones (si no piden otra)
+    MENU_SIDE_INSET = 14, -- margen lateral del menú superior (= PAD)
 }
 
 local PAGER = {
@@ -164,6 +178,15 @@ function Pager:paintTo(bb, x, y)
             px = px + d + gap
         end
     end
+end
+
+-- Ancho exterior de cualquier hoja (pantalla menos MARGIN a cada lado) y
+-- ancho útil dentro de ella (sin relleno ni borde)
+function M.sheetWidth()
+    return Screen:getWidth() - 2 * Screen:scaleBySize(M.SHEET.MARGIN)
+end
+function M.sheetInnerWidth()
+    return M.sheetWidth() - 2 * Screen:scaleBySize(M.SHEET.PAD) - 2 * Size.border.thin
 end
 
 -- Pie con los puntos: con dock, los puntos tal cual (el hueco hasta el dock
