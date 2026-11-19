@@ -12,6 +12,7 @@
       - cambia el mtime de la carpeta raíz,
       - caduca el TTL (5 min, cubre cambios en subcarpetas por SSH/Calibre),
       - se llama a Library.invalidate() (onResume, onNotCharging / USB,
+        onBookMetadataChanged, borrar / renombrar / pegar en FileManager,
         reloadGridView("library"), fin del análisis de CoverBrowser).
 
     Uso:

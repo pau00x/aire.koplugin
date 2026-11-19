@@ -4,12 +4,16 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+### Changed
+
+- **Library stays up to date**: Aire keeps the Library book list between screens instead of reading every folder each time you come back from a book. It is read again when you delete, rename, copy or move files, edit book information, wake the device, unplug USB, or after 5 minutes.
+
 ### Internal
 
 - Reorganized plugin layout without changing behavior: split `common/` into `core/` (`compat`, `config`, `icons`, `l10n`, `updater`) and `ui/` (`theme`, `screen`, `sheet`, `list`, `pages`), moved multi-file views to `views/{grid,stats,widgets}/init.lua`, renamed `views/update.lua` to `views/update_sheet.lua`, and grouped `styles/` into `reader/`, `filemanager/`, `plugins/` and `ui/init.lua`.
 - Audit quick fixes: throttled `Thumbs.trim()` to every 40 writes (using `lfs.attributes` field queries), guarded `refreshHeader()` against closed FileManager instances, derived `ui/pages.lua` palette from `ui/theme.lua`, lazily cached `datetime`/`utf8proc` in `dayLetter()`, explicitly cancelled pending grid prefetch timers, avoided redundant `saveConfig()` calls on unchanged mode, and loaded `core/compat.lua` once per session.
 - Extracted grid cover caching into `views/grid/covers.lua` with real LRU eviction (max 48 buffers per tab) and visible-page pinning, replacing the full cache flush on overflow.
-- Extracted library scanning and metadata loading into `views/grid/library.lua` with session-level caching (invalidated on root/mtime changes, 5-minute TTL, resume/USB disconnect, and explicit reloads).
+- Extracted library scanning and metadata loading into `views/grid/library.lua` with session-level caching (invalidated on root/mtime changes, 5-minute TTL, resume/USB disconnect, `BookMetadataChanged`, FileManager delete/rename/paste, and explicit reloads). Books CoverBrowser cannot analyze are retried once per session, not after every book. `Thumbs.maybeTrim()` trims on its first call in each session.
 - Split `views/widgets/init.lua` into `views/widgets/catalog.lua` (widget definitions) and `views/widgets/picker.lua` (presets, gallery, picker, options, edit mode).
 
 ## [0.3.0] - 2026-11-19
