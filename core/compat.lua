@@ -46,9 +46,7 @@ local CONFLICT_PLUGINS = {
 }
 
 local M = {}
--- main.lua hace dofile de este archivo cada vez que se crea el FileManager
--- (al volver de cada libro), así que la marca "ya se hizo" no puede ser una
--- variable local de aquí: se guarda en un módulo que sí persiste.
+-- Guarda de sesión en un módulo persistente (por si se llama a M.run más de una vez)
 local session = require("apps/filemanager/filemanager")
 
 local function listPatches()
