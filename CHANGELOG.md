@@ -4,6 +4,8 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-19
+
 ### Changed
 
 - **Notices have a title**: every message sheet without buttons shows the sheet title "Notice" above its text, like the other sheets. Aire's own messages use their own title: "Chapter" when long-pressing a chapter in the table of contents, "Font file" when long-pressing a font, "Update" in Aire updates.
