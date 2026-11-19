@@ -92,7 +92,18 @@ local OptionSheet = package.loaded.aire_sheet.Sheet:extend{
 function OptionSheet:init()
     package.loaded.aire_sheet.Sheet.init(self)
     self.close_callback = self.on_close
-    self:setContent(function(inner_w) return self:buildContent(inner_w) end)
+    -- Los botones van en el pie fijo: si hay muchas filas, se desplazan solo ellas
+    self:setContent(function(inner_w) return self:buildContent(inner_w) end, self:buildButtons())
+end
+
+function OptionSheet:buildButtons()
+    if not (self.buttons and #self.buttons > 0) then return nil end
+    local list = {}
+    for _i, b in ipairs(self.buttons) do
+        local cb = b.callback
+        table.insert(list, { text = b.text, primary = b.primary, callback = function() cb(self) end })
+    end
+    return package.loaded.aire_sheet.buttons(list, package.loaded.aire_screen.sheetInnerWidth())
 end
 
 function OptionSheet:buildContent(inner_w)
@@ -124,15 +135,6 @@ function OptionSheet:buildContent(inner_w)
             table.insert(content, row)
             if r.separator then table.insert(content, VerticalSpan:new{ width = S(4) }) end
         end
-    end
-    if self.buttons and #self.buttons > 0 then
-        table.insert(content, Sh.gap("group"))
-        local list = {}
-        for _i, b in ipairs(self.buttons) do
-            local cb = b.callback
-            table.insert(list, { text = b.text, primary = b.primary, callback = function() cb(self) end })
-        end
-        table.insert(content, Sh.buttons(list, inner_w))
     end
     return content
 end

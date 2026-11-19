@@ -844,11 +844,14 @@ if OTHER_DIALOGS_AS_SHEET then
             end
             local inner = sheetInnerWidth()
             local pad = S_(SHEET_PAD)
-            local text = VerticalGroup:new{ align = "left",
-                TextBoxWidget:new{ text = self.text or "", face = Font:getFace("tfont", 15), width = inner } }
-            if self.aire_bold_text then
-                table.insert(text, VerticalSpan:new{ width = S_(8) })
-                table.insert(text, TextBoxWidget:new{ text = self.aire_bold_text, face = Font:getFace("cfont", 15), width = inner })
+            local function buildText(w)
+                local vg = VerticalGroup:new{ align = "left",
+                    TextBoxWidget:new{ text = self.text or "", face = Font:getFace("tfont", 15), width = w } }
+                if self.aire_bold_text then
+                    table.insert(vg, VerticalSpan:new{ width = S_(8) })
+                    table.insert(vg, TextBoxWidget:new{ text = self.aire_bold_text, face = Font:getFace("cfont", 15), width = w })
+                end
+                return vg
             end
             local bt = withSheetStyle(function()
                 return ButtonTable:new{
@@ -857,6 +860,19 @@ if OTHER_DIALOGS_AS_SHEET then
                     buttons = button_row,
                 }
             end)
+            -- Texto muy largo: se desplaza solo el texto y los botones siguen a
+            -- la vista (common/sheet.lua: alto máximo de una hoja)
+            local text = buildText(inner)
+            local max_text_h = package.loaded.aire_sheet.maxContentHeight() - bt:getSize().h - S_(16)
+            if text:getSize().h > max_text_h then
+                text:free()
+                text = ScrollableContainer:new{
+                    dimen = Geom:new{ w = inner, h = math.max(S_(80), max_text_h) },
+                    show_parent = self,
+                    buildText(inner - ScrollableContainer:getScrollbarWidth()),
+                }
+                self.cropping_widget = text
+            end
             -- Marco y posición de hoja comunes (common/sheet.lua), dentro del
             -- MovableContainer que KOReader espera; la tabla ya deja un hueco
             -- bajo la última fila de botones

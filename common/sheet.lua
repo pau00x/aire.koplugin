@@ -58,16 +58,20 @@ end
 --                        deja un hueco bajo la última fila de botones)
 --   opts.wrap            function(frame) -> widget que va dentro de root (p. ej.
 --                        el MovableContainer que KOReader espera en ConfirmBox)
+--   opts.footer          widget (de ancho útil) siempre a la vista debajo del
+--                        contenido: si el contenido se desplaza, el pie no
 --===========================================================================
 function M.frame(content, owner, opts)
     opts = opts or {}
     local SH = AireScreen.SHEET
     local sw, sh = Screen:getWidth(), Screen:getHeight()
     local body = content
+    local footer_h = 0
+    if opts.footer then footer_h = opts.footer:getSize().h + S(SH.GROUP_GAP) end
     if type(content) == "function" then
         local inner = AireScreen.sheetInnerWidth()
         body = content(inner)
-        local max_h = M.maxContentHeight()
+        local max_h = M.maxContentHeight() - footer_h
         if body:getSize().h > max_h then
             local ScrollableContainer = require("ui/widget/container/scrollablecontainer")
             if body.free then body:free() end
@@ -79,6 +83,10 @@ function M.frame(content, owner, opts)
             }
             if owner then owner.cropping_widget = body end
         end
+    end
+    if opts.footer then
+        local VerticalGroup = require("ui/widget/verticalgroup")
+        body = VerticalGroup:new{ align = "left", body, M.gap("group"), opts.footer }
     end
     local frame = FrameContainer:new{
         width = AireScreen.sheetWidth(),
@@ -99,8 +107,9 @@ end
 
 --===========================================================================
 -- Sheet: hoja propia de Aire
---   Sheet:new{ content = widget | function(w), close_callback, dismissable,
---              full_refresh }
+--   Sheet:new{ content = widget | function(w), footer = widget, close_callback,
+--              dismissable, full_refresh }
+--   footer       botones siempre a la vista (no se desplazan con el contenido)
 --   o, en una subclase, llamar a Sheet.init(self) y después self:setContent(...)
 --   dismissable  false: ni tocar fuera ni Atrás la cierran (p. ej. descargando)
 --   full_refresh al cerrar, refrescar toda la pantalla (lo de debajo cambió)
@@ -128,8 +137,8 @@ function Sheet:init()
     if self.content then self:setContent(self.content) end
 end
 
-function Sheet:setContent(content)
-    self.frame, self[1] = M.frame(content, self)
+function Sheet:setContent(content, footer)
+    self.frame, self[1] = M.frame(content, self, { footer = footer or self.footer })
     self.sheet = self.frame -- (nombre que usaban algunas hojas)
 end
 
@@ -361,26 +370,29 @@ end
 --===========================================================================
 function M.showChoices(spec)
     local VerticalGroup = require("ui/widget/verticalgroup")
-    local inner = AireScreen.sheetInnerWidth()
     local sheet
-    local content = VerticalGroup:new{ align = "left" }
-    if spec.title then table.insert(content, M.title(spec.title, inner)) end
-    for gi, g in ipairs(spec.groups or {}) do
-        if gi > 1 then table.insert(content, M.separator(inner)) end
-        if g.heading then table.insert(content, M.section(g.heading, inner)) end
-        local list = {}
-        for _i, it in ipairs(g.items or {}) do
-            local cb = it.callback
-            table.insert(list, { text = it.text, active = it.active, callback = function()
-                UIManager:close(sheet, "ui")
-                if cb then cb() end
-            end })
+    -- Contenido como función del ancho: si no cabe, la hoja lo desplaza
+    local function build(inner)
+        local content = VerticalGroup:new{ align = "left" }
+        if spec.title then table.insert(content, M.title(spec.title, inner)) end
+        for gi, g in ipairs(spec.groups or {}) do
+            if gi > 1 then table.insert(content, M.separator(inner)) end
+            if g.heading then table.insert(content, M.section(g.heading, inner)) end
+            local list = {}
+            for _i, it in ipairs(g.items or {}) do
+                local cb = it.callback
+                table.insert(list, { text = it.text, active = it.active, callback = function()
+                    UIManager:close(sheet, "ui")
+                    if cb then cb() end
+                end })
+            end
+            table.insert(content, M.choices(list, inner, {
+                columns = g.columns or 2, style = spec.style, lighten = spec.lighten,
+            }))
         end
-        table.insert(content, M.choices(list, inner, {
-            columns = g.columns or 2, style = spec.style, lighten = spec.lighten,
-        }))
+        return content
     end
-    sheet = Sheet:new{ content = content }
+    sheet = Sheet:new{ content = build }
     UIManager:show(sheet, "ui")
     return sheet
 end
