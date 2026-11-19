@@ -33,7 +33,7 @@ msgstr "%1 % (amânat)"
 msgid "%1 % read"
 msgstr "%1 % citit"
 
-#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:321 views/grid.lua:326
+#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 carte"
@@ -47,7 +47,7 @@ msgstr[0] "%1 semn de carte"
 msgstr[1] "%1 semne de carte"
 msgstr[2] "%1 de semne de carte"
 
-#: views/grid.lua:491 views/grid.lua:492
+#: views/grid.lua:487 views/grid.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 colecție"
@@ -75,14 +75,14 @@ msgstr[0] "%1 zi de citit"
 msgstr[1] "%1 zile de citit"
 msgstr[2] "%1 de zile de citit"
 
-#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:323
+#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 finalizată"
 msgstr[1] "%1 finalizate"
 msgstr[2] "%1 finalizate"
 
-#: views/grid.lua:574
+#: views/grid.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 carte finalizată"
@@ -125,7 +125,7 @@ msgstr[0] "%1 scurtătură salvată"
 msgstr[1] "%1 scurtături salvate"
 msgstr[2] "%1 de scurtături salvate"
 
-#: views/grid.lua:322
+#: views/grid.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 serie"
@@ -166,7 +166,7 @@ msgstr "%d din 5 stele"
 msgid "(current)"
 msgstr "(curent)"
 
-#: styles/ui/lightsheet.lua:175
+#: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ Luminozitate"
 
@@ -194,7 +194,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 coloane"
 
-#: views/update.lua:298
+#: views/update.lua:292
 msgid "A new version is available"
 msgstr "Este disponibilă o versiune nouă"
 
@@ -244,15 +244,15 @@ msgstr "Avansat"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:234 views/update.lua:291
+#: views/update.lua:228 views/update.lua:285
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:151 views/update.lua:495
+#: views/power.lua:151 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 disponibilă"
 
-#: views/update.lua:148
+#: views/update.lua:142
 msgid "Aire %1 installed"
 msgstr "Aire %1 instalată"
 
@@ -279,7 +279,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Toate finalizate"
 
-#: views/grid.lua:576 views/widgets.lua:441
+#: views/grid.lua:572 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
@@ -327,7 +327,7 @@ msgstr "Colecții automate după gen (cuvânt cheie)"
 msgid "Automatic tests"
 msgstr "Teste automate"
 
-#: views/grid.lua:984
+#: views/grid.lua:903
 msgid "Automatic: books by this author"
 msgstr "Automată: cărți de acest autor"
 
@@ -437,7 +437,7 @@ msgstr "Semne de carte și evidențieri"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:945
+#: views/grid.lua:864
 msgid "Books are not deleted, only the collection."
 msgstr "Cărțile nu sunt șterse, doar colecția."
 
@@ -529,11 +529,11 @@ msgstr "Încărcată"
 msgid "Charging"
 msgstr "Se încarcă"
 
-#: views/update.lua:444
+#: views/update.lua:438
 msgid "Check every week"
 msgstr "Verifică săptămânal"
 
-#: views/update.lua:437
+#: views/update.lua:431
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -572,7 +572,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Ordinea colecției"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1325
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1244
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -616,7 +616,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:356
+#: views/update.lua:350
 msgid "Could not check for updates. Try again later."
 msgstr "Nu s-au putut verifica actualizările. Încearcă mai târziu."
 
@@ -627,7 +627,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:217
+#: views/update.lua:211
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Actualizarea nu a putut fi instalată. Aire %1 este încă instalată."
 
@@ -700,7 +700,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembrie"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:946 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:865 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -726,7 +726,7 @@ msgstr "Ștergi minutele din această zi?"
 msgid "Delete minutes from this day"
 msgstr "Șterge minutele din această zi"
 
-#: views/grid.lua:944
+#: views/grid.lua:863
 msgid "Delete the collection?"
 msgstr "Ștergi colecția?"
 
@@ -734,7 +734,7 @@ msgstr "Ștergi colecția?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:995
+#: views/grid.lua:914
 msgid "Delete…"
 msgstr "Șterge…"
 
@@ -777,12 +777,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:168
+#: views/update.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:192
+#: views/update.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "Se descarcă… %1 din %2"
 
@@ -830,7 +830,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Fără widgeturi"
 
-#: views/grid.lua:468
+#: views/grid.lua:464
 msgid "Empty collection"
 msgstr "Colecție goală"
 
@@ -838,7 +838,7 @@ msgstr "Colecție goală"
 msgid "Empty folder"
 msgstr "Dosar gol"
 
-#: views/grid.lua:301
+#: views/grid.lua:297
 msgid "Empty series"
 msgstr "Serie goală"
 
@@ -879,7 +879,7 @@ msgstr ""
 msgid "FILE"
 msgstr "FIȘIER"
 
-#: views/grid.lua:788
+#: views/grid.lua:746
 msgid "FILTER"
 msgstr "FILTRU"
 
@@ -892,7 +892,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Dosare favorite"
 
-#: dev/devtools.lua:821 views/grid.lua:345 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -917,11 +917,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:732
+#: views/grid.lua:731
 msgid "Filter"
 msgstr "Filtrează"
 
-#: dev/devtools.lua:659 views/grid.lua:731
+#: dev/devtools.lua:659 views/grid.lua:730
 msgid "Filter and sort"
 msgstr "Filtrează și ordonează"
 
@@ -1001,7 +1001,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:91
+#: styles/ui/lightsheet.lua:87
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1073,7 +1073,7 @@ msgstr "Încă nu a sosit"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1326
+#: views/dock.lua:42 views/grid.lua:1245
 #, koreader
 msgid "History"
 msgstr ""
@@ -1082,7 +1082,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:612
+#: views/grid.lua:608
 msgid "History is empty"
 msgstr "Istoricul este gol"
 
@@ -1135,15 +1135,15 @@ msgstr "În Colecții apare câte o colecție pentru fiecare autor cu 2 sau mai 
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "În Colecții apare câte o colecție pentru fiecare cuvânt cheie cu 2 sau mai multe cărți. Se actualizează automat și nu sunt salvate în colecțiile KOReader."
 
-#: views/update.lua:453
+#: views/update.lua:447
 msgid "Include beta versions"
 msgstr "Include versiunile beta"
 
-#: views/update.lua:472
+#: views/update.lua:466
 msgid "Installed version: %1"
 msgstr "Versiunea instalată: %1"
 
-#: views/update.lua:204
+#: views/update.lua:198
 msgid "Installing…"
 msgstr "Se instalează…"
 
@@ -1159,7 +1159,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:151
+#: views/update.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Va fi folosită după repornirea KOReader. Setările tale se păstrează."
 
@@ -1234,7 +1234,7 @@ msgstr "Ultima"
 msgid "Last 7 days summary"
 msgstr "Rezumatul ultimelor 7 zile"
 
-#: views/update.lua:465
+#: views/update.lua:459
 msgid "Last check: %1"
 msgstr "Ultima verificare: %1"
 
@@ -1242,7 +1242,7 @@ msgstr "Ultima verificare: %1"
 msgid "Last read"
 msgstr "Ultima citire"
 
-#: common/compat.lua:170 views/update.lua:138 views/update.lua:334
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1261,7 +1261,7 @@ msgstr "Aspect"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1324
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1243
 msgid "Library"
 msgstr "Bibliotecă"
 
@@ -1347,7 +1347,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Marchezi toate cărțile din „%1” ca în citire?"
 
-#: views/grid.lua:1032
+#: views/grid.lua:951
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Marchezi toate cărțile din colecția „%1” ca în citire?"
 
@@ -1355,11 +1355,11 @@ msgstr "Marchezi toate cărțile din colecția „%1” ca în citire?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1030
+#: views/grid.lua:949
 msgid "Mark entire collection as finished"
 msgstr "Marchează toată colecția ca finalizată"
 
-#: views/grid.lua:1031
+#: views/grid.lua:950
 msgid "Mark entire collection as reading"
 msgstr "Marchează toată colecția ca în citire"
 
@@ -1398,7 +1398,7 @@ msgstr "Minimal"
 msgid "Mix folders"
 msgstr "Amestecă dosarele"
 
-#: views/grid.lua:809
+#: views/grid.lua:759
 msgid "Mix series"
 msgstr "Amestecă seriile"
 
@@ -1487,12 +1487,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nou"
 
-#: views/grid.lua:487
+#: views/grid.lua:483
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:986 views/grid.lua:999
+#: views/grid.lua:905 views/grid.lua:918
 msgid "New collection…"
 msgstr "Colecție nouă…"
 
@@ -1538,19 +1538,19 @@ msgstr "Nicio carte în curs"
 msgid "No book matches the filter"
 msgstr "Nicio carte nu corespunde filtrului"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "No books finished this month"
 msgstr "Nicio carte finalizată luna aceasta"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "No books finished this year"
 msgstr "Nicio carte finalizată anul acesta"
 
-#: views/grid.lua:333
+#: views/grid.lua:329
 msgid "No books in home folder"
 msgstr "Nicio carte în dosarul principal"
 
-#: views/grid.lua:333 views/grid.lua:468 views/grid.lua:612
+#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
 msgid "No books with this filter"
 msgstr "Nicio carte cu acest filtru"
 
@@ -1558,11 +1558,11 @@ msgstr "Nicio carte cu acest filtru"
 msgid "No chapter"
 msgstr "Fără capitol"
 
-#: views/grid.lua:495
+#: views/grid.lua:491
 msgid "No collections"
 msgstr "Nicio colecție"
 
-#: views/grid.lua:495
+#: views/grid.lua:491
 msgid "No collections with this filter"
 msgstr "Nicio colecție cu acest filtru"
 
@@ -1677,7 +1677,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Amânat"
 
-#: views/update.lua:445
+#: views/update.lua:439
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Doar cu Wi-Fi-ul deja pornit: Aire nu îl pornește niciodată."
 
@@ -1686,7 +1686,7 @@ msgstr "Doar cu Wi-Fi-ul deja pornit: Aire nu îl pornește niciodată."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1029
+#: views/grid.lua:948
 msgid "Open collection"
 msgstr "Deschide colecția"
 
@@ -1694,7 +1694,7 @@ msgstr "Deschide colecția"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1029
+#: views/grid.lua:948
 msgid "Open series"
 msgstr "Deschide seria"
 
@@ -1949,12 +1949,12 @@ msgstr "Elimină"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:583 views/grid.lua:501
+#: views/booksheet.lua:583 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Elimină din colecție"
 
-#: views/booksheet.lua:547 views/grid.lua:617
+#: views/booksheet.lua:547 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1974,7 +1974,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:993
+#: views/grid.lua:912
 msgid "Rename…"
 msgstr "Redenumește…"
 
@@ -2001,16 +2001,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Repornește KOReader pentru ca modificarea să aibă efect."
 
-#: views/update.lua:152
+#: views/update.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Repornește KOReader pentru a o folosi. Setările tale se păstrează."
 
-#: views/update.lua:141
+#: views/update.lua:135
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:803
+#: views/explorer.lua:103 views/grid.lua:753
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2035,7 +2035,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:798
+#: views/grid.lua:749
 msgid "SORT BY"
 msgstr "ORDONEAZĂ DUPĂ"
 
@@ -2085,7 +2085,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:312
+#: views/update.lua:306
 msgid "See all changes"
 msgstr "Vezi toate noutățile"
 
@@ -2117,7 +2117,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:441
+#: views/update.lua:435
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2169,7 +2169,7 @@ msgstr "Arată rezumatul"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:329
+#: views/update.lua:323
 msgid "Skip"
 msgstr "Omite"
 
@@ -2198,16 +2198,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:732
+#: dev/devtools.lua:613 views/grid.lua:731
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:964
+#: dev/devtools.lua:825 views/grid.lua:883
 msgid "Sort collections"
 msgstr "Ordonează colecțiile"
 
-#: views/grid.lua:987 views/grid.lua:1000
+#: views/grid.lua:906 views/grid.lua:919
 msgid "Sort collections…"
 msgstr "Ordonează colecțiile…"
 
@@ -2284,7 +2284,7 @@ msgstr "Atinge pentru a opri"
 msgid "Tap to view definition"
 msgstr "Atinge pentru a vedea definiția"
 
-#: views/grid.lua:1227
+#: views/grid.lua:1146
 msgid "Test book"
 msgstr "Carte de test"
 
@@ -2341,7 +2341,7 @@ msgstr "Cartea curentă nu face parte dintr-o serie"
 msgid "This collection is empty"
 msgstr "Această colecție este goală"
 
-#: views/update.lua:324
+#: views/update.lua:318
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Această copie are dosarul dev/ (teste). Versiunea nouă nu îl include, așa că va fi șters."
 
@@ -2443,16 +2443,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:135 views/power.lua:162 views/update.lua:335 views/update.lua:489
+#: views/power.lua:135 views/power.lua:162 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:432
+#: views/update.lua:426
 msgid "Update Aire"
 msgstr "Actualizează Aire"
 
-#: views/update.lua:432
+#: views/update.lua:426
 msgid "Update Aire (%1 available)"
 msgstr "Actualizează Aire (%1 disponibilă)"
 
@@ -2460,7 +2460,7 @@ msgstr "Actualizează Aire (%1 disponibilă)"
 msgid "Update KOReader"
 msgstr "Actualizează KOReader"
 
-#: views/update.lua:172
+#: views/update.lua:166
 msgid "Updating Aire"
 msgstr "Se actualizează Aire"
 
@@ -2536,7 +2536,7 @@ msgstr "Widgeturi %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:375
+#: views/update.lua:369
 msgid "You already have the latest version (%1)."
 msgstr "Ai deja cea mai recentă versiune (%1)."
 
@@ -2552,11 +2552,11 @@ msgstr "Încă nu ai evidențieri"
 msgid "You have not opened any book yet"
 msgstr "Încă nu ai deschis nicio carte"
 
-#: views/power.lua:154 views/update.lua:300
+#: views/power.lua:154 views/update.lua:294
 msgid "You have version %1"
 msgstr "Ai versiunea %1"
 
-#: views/grid.lua:579
+#: views/grid.lua:575
 msgid "You haven't finished any books yet"
 msgstr "Încă nu ai finalizat nicio carte"
 
@@ -2585,7 +2585,7 @@ msgstr "medie / zi"
 msgid "battery"
 msgstr "baterie"
 
-#: views/update.lua:292
+#: views/update.lua:286
 msgid "beta"
 msgstr "beta"
 
@@ -2644,7 +2644,7 @@ msgstr "ultimele 7 zile"
 msgid "light"
 msgstr "lumină"
 
-#: views/update.lua:464
+#: views/update.lua:458
 #, koreader
 msgid "never"
 msgstr ""
@@ -2767,6 +2767,6 @@ msgstr "ieri"
 msgid "~%1 left"
 msgstr "mai sunt ~%1"
 
-#: styles/ui/lightsheet.lua:173
+#: styles/ui/lightsheet.lua:159
 msgid "− Brightness"
 msgstr "− Luminozitate"

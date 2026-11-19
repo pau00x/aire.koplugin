@@ -31,7 +31,7 @@ msgstr "%1 % (tunda)"
 msgid "%1 % read"
 msgstr "%1 % dibaca"
 
-#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:321 views/grid.lua:326
+#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 buku"
@@ -41,7 +41,7 @@ msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 markah"
 
-#: views/grid.lua:491 views/grid.lua:492
+#: views/grid.lua:487 views/grid.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 koleksi"
@@ -61,12 +61,12 @@ msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 hari membaca"
 
-#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:323
+#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 selesai"
 
-#: views/grid.lua:574
+#: views/grid.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 buku selesai"
@@ -99,7 +99,7 @@ msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 pintasan tersimpan"
 
-#: views/grid.lua:322
+#: views/grid.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 seri"
@@ -134,7 +134,7 @@ msgstr "%d dari 5 bintang"
 msgid "(current)"
 msgstr "(saat ini)"
 
-#: styles/ui/lightsheet.lua:175
+#: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ Kecerahan"
 
@@ -162,7 +162,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 kolom"
 
-#: views/update.lua:298
+#: views/update.lua:292
 msgid "A new version is available"
 msgstr "Ada versi baru"
 
@@ -212,15 +212,15 @@ msgstr "Lanjutan"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:234 views/update.lua:291
+#: views/update.lua:228 views/update.lua:285
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:151 views/update.lua:495
+#: views/power.lua:151 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 tersedia"
 
-#: views/update.lua:148
+#: views/update.lua:142
 msgid "Aire %1 installed"
 msgstr "Aire %1 terpasang"
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Semua selesai"
 
-#: views/grid.lua:576 views/widgets.lua:441
+#: views/grid.lua:572 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
@@ -295,7 +295,7 @@ msgstr "Koleksi otomatis per genre (kata kunci)"
 msgid "Automatic tests"
 msgstr "Uji otomatis"
 
-#: views/grid.lua:984
+#: views/grid.lua:903
 msgid "Automatic: books by this author"
 msgstr "Otomatis: buku oleh penulis ini"
 
@@ -405,7 +405,7 @@ msgstr "Markah dan sorotan"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:945
+#: views/grid.lua:864
 msgid "Books are not deleted, only the collection."
 msgstr "Buku tidak dihapus, hanya koleksinya."
 
@@ -497,11 +497,11 @@ msgstr "Terisi penuh"
 msgid "Charging"
 msgstr "Mengisi daya"
 
-#: views/update.lua:444
+#: views/update.lua:438
 msgid "Check every week"
 msgstr "Periksa setiap minggu"
 
-#: views/update.lua:437
+#: views/update.lua:431
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -539,7 +539,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Urutan dalam koleksi"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1325
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1244
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -583,7 +583,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:356
+#: views/update.lua:350
 msgid "Could not check for updates. Try again later."
 msgstr "Tidak dapat memeriksa pembaruan. Coba lagi nanti."
 
@@ -594,7 +594,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:217
+#: views/update.lua:211
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Tidak dapat memasang pembaruan. Aire %1 tetap terpasang."
 
@@ -667,7 +667,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "Desember"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:946 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:865 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -693,7 +693,7 @@ msgstr "Hapus menit untuk hari ini?"
 msgid "Delete minutes from this day"
 msgstr "Hapus menit dari hari ini"
 
-#: views/grid.lua:944
+#: views/grid.lua:863
 msgid "Delete the collection?"
 msgstr "Hapus koleksi?"
 
@@ -701,7 +701,7 @@ msgstr "Hapus koleksi?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:995
+#: views/grid.lua:914
 msgid "Delete…"
 msgstr "Hapus…"
 
@@ -744,12 +744,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:168
+#: views/update.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:192
+#: views/update.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "Mengunduh… %1 dari %2"
 
@@ -797,7 +797,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Tanpa widget"
 
-#: views/grid.lua:468
+#: views/grid.lua:464
 msgid "Empty collection"
 msgstr "Koleksi kosong"
 
@@ -805,7 +805,7 @@ msgstr "Koleksi kosong"
 msgid "Empty folder"
 msgstr "Folder kosong"
 
-#: views/grid.lua:301
+#: views/grid.lua:297
 msgid "Empty series"
 msgstr "Seri kosong"
 
@@ -846,7 +846,7 @@ msgstr ""
 msgid "FILE"
 msgstr "BERKAS"
 
-#: views/grid.lua:788
+#: views/grid.lua:746
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -859,7 +859,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Folder favorit"
 
-#: dev/devtools.lua:821 views/grid.lua:345 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -884,11 +884,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:732
+#: views/grid.lua:731
 msgid "Filter"
 msgstr "Filter"
 
-#: dev/devtools.lua:659 views/grid.lua:731
+#: dev/devtools.lua:659 views/grid.lua:730
 msgid "Filter and sort"
 msgstr "Filter dan urutkan"
 
@@ -968,7 +968,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:91
+#: styles/ui/lightsheet.lua:87
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1040,7 +1040,7 @@ msgstr "Belum tiba"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1326
+#: views/dock.lua:42 views/grid.lua:1245
 #, koreader
 msgid "History"
 msgstr ""
@@ -1049,7 +1049,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:612
+#: views/grid.lua:608
 msgid "History is empty"
 msgstr "Riwayat kosong"
 
@@ -1102,15 +1102,15 @@ msgstr "Di Koleksi, muncul satu koleksi untuk setiap penulis dengan 2 buku atau 
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Di Koleksi, muncul satu koleksi untuk setiap kata kunci dengan 2 buku atau lebih. Koleksi ini diperbarui otomatis dan tidak disimpan di koleksi KOReader."
 
-#: views/update.lua:453
+#: views/update.lua:447
 msgid "Include beta versions"
 msgstr "Sertakan versi beta"
 
-#: views/update.lua:472
+#: views/update.lua:466
 msgid "Installed version: %1"
 msgstr "Versi terpasang: %1"
 
-#: views/update.lua:204
+#: views/update.lua:198
 msgid "Installing…"
 msgstr "Memasang…"
 
@@ -1126,7 +1126,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:151
+#: views/update.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Akan digunakan setelah KOReader dimulai ulang. Pengaturan Anda tetap tersimpan."
 
@@ -1201,7 +1201,7 @@ msgstr "Terakhir"
 msgid "Last 7 days summary"
 msgstr "Ringkasan 7 hari terakhir"
 
-#: views/update.lua:465
+#: views/update.lua:459
 msgid "Last check: %1"
 msgstr "Pemeriksaan terakhir: %1"
 
@@ -1209,7 +1209,7 @@ msgstr "Pemeriksaan terakhir: %1"
 msgid "Last read"
 msgstr "Terakhir dibaca"
 
-#: common/compat.lua:170 views/update.lua:138 views/update.lua:334
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
 msgid "Later"
 msgstr "Nanti"
 
@@ -1227,7 +1227,7 @@ msgstr "Tata letak"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1324
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1243
 msgid "Library"
 msgstr "Pustaka"
 
@@ -1313,7 +1313,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Tandai semua buku di \"%1\" sebagai dibaca?"
 
-#: views/grid.lua:1032
+#: views/grid.lua:951
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Tandai semua buku di koleksi \"%1\" sebagai dibaca?"
 
@@ -1321,11 +1321,11 @@ msgstr "Tandai semua buku di koleksi \"%1\" sebagai dibaca?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1030
+#: views/grid.lua:949
 msgid "Mark entire collection as finished"
 msgstr "Tandai seluruh koleksi sebagai selesai"
 
-#: views/grid.lua:1031
+#: views/grid.lua:950
 msgid "Mark entire collection as reading"
 msgstr "Tandai seluruh koleksi sebagai dibaca"
 
@@ -1364,7 +1364,7 @@ msgstr "Minimal"
 msgid "Mix folders"
 msgstr "Campur folder"
 
-#: views/grid.lua:809
+#: views/grid.lua:759
 msgid "Mix series"
 msgstr "Campur seri"
 
@@ -1453,12 +1453,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Baru"
 
-#: views/grid.lua:487
+#: views/grid.lua:483
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:986 views/grid.lua:999
+#: views/grid.lua:905 views/grid.lua:918
 msgid "New collection…"
 msgstr "Koleksi baru…"
 
@@ -1504,19 +1504,19 @@ msgstr "Tidak ada buku yang sedang dibaca"
 msgid "No book matches the filter"
 msgstr "Tidak ada buku yang cocok dengan filter"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "No books finished this month"
 msgstr "Tidak ada buku selesai bulan ini"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "No books finished this year"
 msgstr "Tidak ada buku selesai tahun ini"
 
-#: views/grid.lua:333
+#: views/grid.lua:329
 msgid "No books in home folder"
 msgstr "Tidak ada buku di folder beranda"
 
-#: views/grid.lua:333 views/grid.lua:468 views/grid.lua:612
+#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
 msgid "No books with this filter"
 msgstr "Tidak ada buku dengan filter ini"
 
@@ -1524,11 +1524,11 @@ msgstr "Tidak ada buku dengan filter ini"
 msgid "No chapter"
 msgstr "Tanpa bab"
 
-#: views/grid.lua:495
+#: views/grid.lua:491
 msgid "No collections"
 msgstr "Tidak ada koleksi"
 
-#: views/grid.lua:495
+#: views/grid.lua:491
 msgid "No collections with this filter"
 msgstr "Tidak ada koleksi dengan filter ini"
 
@@ -1643,7 +1643,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Tunda"
 
-#: views/update.lua:445
+#: views/update.lua:439
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Hanya saat Wi-Fi sudah menyala: Aire tidak pernah menyalakannya."
 
@@ -1652,7 +1652,7 @@ msgstr "Hanya saat Wi-Fi sudah menyala: Aire tidak pernah menyalakannya."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1029
+#: views/grid.lua:948
 msgid "Open collection"
 msgstr "Buka koleksi"
 
@@ -1660,7 +1660,7 @@ msgstr "Buka koleksi"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1029
+#: views/grid.lua:948
 msgid "Open series"
 msgstr "Buka seri"
 
@@ -1915,12 +1915,12 @@ msgstr "Hapus"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:583 views/grid.lua:501
+#: views/booksheet.lua:583 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Hapus dari koleksi"
 
-#: views/booksheet.lua:547 views/grid.lua:617
+#: views/booksheet.lua:547 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1940,7 +1940,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:993
+#: views/grid.lua:912
 msgid "Rename…"
 msgstr "Ubah nama…"
 
@@ -1967,15 +1967,15 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Mulai ulang KOReader agar perubahan berlaku."
 
-#: views/update.lua:152
+#: views/update.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Mulai ulang KOReader untuk menggunakannya. Pengaturan Anda tetap tersimpan."
 
-#: views/update.lua:141
+#: views/update.lua:135
 msgid "Restart now"
 msgstr "Mulai ulang sekarang"
 
-#: views/explorer.lua:103 views/grid.lua:803
+#: views/explorer.lua:103 views/grid.lua:753
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2000,7 +2000,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:798
+#: views/grid.lua:749
 msgid "SORT BY"
 msgstr "URUTKAN BERDASARKAN"
 
@@ -2050,7 +2050,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:312
+#: views/update.lua:306
 msgid "See all changes"
 msgstr "Lihat semua perubahan"
 
@@ -2082,7 +2082,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:441
+#: views/update.lua:435
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2134,7 +2134,7 @@ msgstr "Tampilkan sinopsis"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:329
+#: views/update.lua:323
 msgid "Skip"
 msgstr "Lewati"
 
@@ -2163,16 +2163,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:732
+#: dev/devtools.lua:613 views/grid.lua:731
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:964
+#: dev/devtools.lua:825 views/grid.lua:883
 msgid "Sort collections"
 msgstr "Urutkan koleksi"
 
-#: views/grid.lua:987 views/grid.lua:1000
+#: views/grid.lua:906 views/grid.lua:919
 msgid "Sort collections…"
 msgstr "Urutkan koleksi…"
 
@@ -2249,7 +2249,7 @@ msgstr "Ketuk untuk berhenti"
 msgid "Tap to view definition"
 msgstr "Ketuk untuk melihat definisi"
 
-#: views/grid.lua:1227
+#: views/grid.lua:1146
 msgid "Test book"
 msgstr "Buku uji"
 
@@ -2306,7 +2306,7 @@ msgstr "Buku saat ini bukan bagian dari seri"
 msgid "This collection is empty"
 msgstr "Koleksi ini kosong"
 
-#: views/update.lua:324
+#: views/update.lua:318
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Salinan ini memiliki folder dev/ (pengujian). Versi baru tidak menyertakannya, jadi folder itu akan dihapus."
 
@@ -2407,16 +2407,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:135 views/power.lua:162 views/update.lua:335 views/update.lua:489
+#: views/power.lua:135 views/power.lua:162 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:432
+#: views/update.lua:426
 msgid "Update Aire"
 msgstr "Perbarui Aire"
 
-#: views/update.lua:432
+#: views/update.lua:426
 msgid "Update Aire (%1 available)"
 msgstr "Perbarui Aire (%1 tersedia)"
 
@@ -2424,7 +2424,7 @@ msgstr "Perbarui Aire (%1 tersedia)"
 msgid "Update KOReader"
 msgstr "Perbarui KOReader"
 
-#: views/update.lua:172
+#: views/update.lua:166
 msgid "Updating Aire"
 msgstr "Memperbarui Aire"
 
@@ -2498,7 +2498,7 @@ msgstr "Widget %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:375
+#: views/update.lua:369
 msgid "You already have the latest version (%1)."
 msgstr "Anda sudah memiliki versi terbaru (%1)."
 
@@ -2514,11 +2514,11 @@ msgstr "Anda belum punya sorotan"
 msgid "You have not opened any book yet"
 msgstr "Anda belum membuka buku apa pun"
 
-#: views/power.lua:154 views/update.lua:300
+#: views/power.lua:154 views/update.lua:294
 msgid "You have version %1"
 msgstr "Versi Anda %1"
 
-#: views/grid.lua:579
+#: views/grid.lua:575
 msgid "You haven't finished any books yet"
 msgstr "Anda belum menyelesaikan buku apa pun"
 
@@ -2547,7 +2547,7 @@ msgstr "rata-rata / hari"
 msgid "battery"
 msgstr "baterai"
 
-#: views/update.lua:292
+#: views/update.lua:286
 msgid "beta"
 msgstr "beta"
 
@@ -2602,7 +2602,7 @@ msgstr "7 hari terakhir"
 msgid "light"
 msgstr "lampu"
 
-#: views/update.lua:464
+#: views/update.lua:458
 #, koreader
 msgid "never"
 msgstr ""
@@ -2723,6 +2723,6 @@ msgstr "kemarin"
 msgid "~%1 left"
 msgstr "~%1 lagi"
 
-#: styles/ui/lightsheet.lua:173
+#: styles/ui/lightsheet.lua:159
 msgid "− Brightness"
 msgstr "− Kecerahan"

@@ -8,10 +8,6 @@
 local B = ...
 local uiOpt = B.uiOpt
 local S_ = B.S_
-local SHEET_BTN_H = B.SHEET_BTN_H
-local SHEET_BTN_RADIUS = B.SHEET_BTN_RADIUS
-local SHEET_BTN_GAP = B.SHEET_BTN_GAP
-local SHEET_BTN_FONT = B.SHEET_BTN_FONT
 local sheetInnerWidth = B.sheetInnerWidth
 local Tap = B.Tap
 local StepBar = B.StepBar
@@ -31,7 +27,7 @@ local _ = require("gettext")
 local UIManager = require("ui/uimanager")
 local Event = require("ui/event")
 local Blitbuffer = require("ffi/blitbuffer")
-local WHITE, BLACK = Blitbuffer.COLOR_WHITE, Blitbuffer.COLOR_BLACK
+local BLACK = Blitbuffer.COLOR_BLACK
 
 if not uiOpt("sheets") then return end
 
@@ -158,21 +154,11 @@ function LightSheet:build()
     table.insert(content, VerticalSpan:new{ width = S_(16) })
 
     -- Botones como la hoja
-    local function sheetButton(text, primary, w, cb)
-        local bh = S_(SHEET_BTN_H)
-        return Tap:new{ callback = cb, FrameContainer:new{
-            bordersize = border, color = BLACK, background = primary and BLACK or WHITE,
-            radius = S_(SHEET_BTN_RADIUS), padding = 0, width = w, height = bh,
-            CenterContainer:new{ dimen = Geom:new{ w = w - 2 * border, h = bh - 2 * border },
-                TextWidget:new{ text = text, face = Font:getFace("cfont", SHEET_BTN_FONT),
-                    fgcolor = primary and WHITE or BLACK, padding = 0 } } } }
-    end
-    local bgap = S_(SHEET_BTN_GAP)
-    local half = math.floor((inner - bgap) / 2)
-    table.insert(content, HorizontalGroup:new{ align = "center",
-        sheetButton(_("− Brightness"), false, half, function() self:setBrightness((on and cur or min) - stride) end),
-        HorizontalSpan:new{ width = bgap },
-        sheetButton(_("+ Brightness"), false, inner - half - bgap, function() self:setBrightness((on and cur or min) + stride) end) })
+    -- Botones comunes de las hojas (common/sheet.lua)
+    table.insert(content, package.loaded.aire_sheet.buttons({
+        { text = _("− Brightness"), callback = function() self:setBrightness((on and cur or min) - stride) end },
+        { text = _("+ Brightness"), callback = function() self:setBrightness((on and cur or min) + stride) end },
+    }, inner))
 
     self:setContent(content)
 end

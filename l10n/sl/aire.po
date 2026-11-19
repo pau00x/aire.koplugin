@@ -34,7 +34,7 @@ msgstr "%1 % (na čakanju)"
 msgid "%1 % read"
 msgstr "%1 % prebrano"
 
-#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:321 views/grid.lua:326
+#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 knjiga"
@@ -50,7 +50,7 @@ msgstr[1] "%1 zaznamka"
 msgstr[2] "%1 zaznamki"
 msgstr[3] "%1 zaznamkov"
 
-#: views/grid.lua:491 views/grid.lua:492
+#: views/grid.lua:487 views/grid.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 zbirka"
@@ -82,7 +82,7 @@ msgstr[1] "%1 dneva branja"
 msgstr[2] "%1 dnevi branja"
 msgstr[3] "%1 dni branja"
 
-#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:323
+#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "dokončano: %1"
@@ -90,7 +90,7 @@ msgstr[1] "dokončano: %1"
 msgstr[2] "dokončano: %1"
 msgstr[3] "dokončano: %1"
 
-#: views/grid.lua:574
+#: views/grid.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 dokončana knjiga"
@@ -138,7 +138,7 @@ msgstr[1] "%1 shranjeni bližnjici"
 msgstr[2] "%1 shranjene bližnjice"
 msgstr[3] "%1 shranjenih bližnjic"
 
-#: views/grid.lua:322
+#: views/grid.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 serija"
@@ -182,7 +182,7 @@ msgstr "%d od 5 zvezdic"
 msgid "(current)"
 msgstr "(trenutno)"
 
-#: styles/ui/lightsheet.lua:175
+#: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ Svetlost"
 
@@ -210,7 +210,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 stolpci"
 
-#: views/update.lua:298
+#: views/update.lua:292
 msgid "A new version is available"
 msgstr "Na voljo je nova različica"
 
@@ -260,15 +260,15 @@ msgstr "Napredno"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:234 views/update.lua:291
+#: views/update.lua:228 views/update.lua:285
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:151 views/update.lua:495
+#: views/power.lua:151 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 na voljo"
 
-#: views/update.lua:148
+#: views/update.lua:142
 msgid "Aire %1 installed"
 msgstr "Aire %1 nameščena"
 
@@ -294,7 +294,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Vse dokončano"
 
-#: views/grid.lua:576 views/widgets.lua:441
+#: views/grid.lua:572 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
@@ -342,7 +342,7 @@ msgstr "Samodejne zbirke po žanru (ključni besedi)"
 msgid "Automatic tests"
 msgstr "Samodejni preizkusi"
 
-#: views/grid.lua:984
+#: views/grid.lua:903
 msgid "Automatic: books by this author"
 msgstr "Samodejno: knjige tega avtorja"
 
@@ -452,7 +452,7 @@ msgstr "Zaznamki in poudarki"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:945
+#: views/grid.lua:864
 msgid "Books are not deleted, only the collection."
 msgstr "Knjige se ne izbrišejo, le zbirka."
 
@@ -544,11 +544,11 @@ msgstr "Napolnjena"
 msgid "Charging"
 msgstr "Polnjenje"
 
-#: views/update.lua:444
+#: views/update.lua:438
 msgid "Check every week"
 msgstr "Preveri vsak teden"
 
-#: views/update.lua:437
+#: views/update.lua:431
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -587,7 +587,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Vrstni red v zbirki"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1325
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1244
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -631,7 +631,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:356
+#: views/update.lua:350
 msgid "Could not check for updates. Try again later."
 msgstr "Posodobitev ni bilo mogoče preveriti. Poskusite znova pozneje."
 
@@ -642,7 +642,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:217
+#: views/update.lua:211
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Posodobitve ni bilo mogoče namestiti. Aire %1 ostaja nameščena."
 
@@ -715,7 +715,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembra"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:946 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:865 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -741,7 +741,7 @@ msgstr "Izbrišem minute za ta dan?"
 msgid "Delete minutes from this day"
 msgstr "Izbriši minute za ta dan"
 
-#: views/grid.lua:944
+#: views/grid.lua:863
 msgid "Delete the collection?"
 msgstr "Izbrišem zbirko?"
 
@@ -749,7 +749,7 @@ msgstr "Izbrišem zbirko?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:995
+#: views/grid.lua:914
 msgid "Delete…"
 msgstr "Izbriši…"
 
@@ -792,12 +792,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:168
+#: views/update.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:192
+#: views/update.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "Prenašanje… %1 od %2"
 
@@ -845,7 +845,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Brez gradnikov"
 
-#: views/grid.lua:468
+#: views/grid.lua:464
 msgid "Empty collection"
 msgstr "Prazna zbirka"
 
@@ -853,7 +853,7 @@ msgstr "Prazna zbirka"
 msgid "Empty folder"
 msgstr "Prazna mapa"
 
-#: views/grid.lua:301
+#: views/grid.lua:297
 msgid "Empty series"
 msgstr "Prazna serija"
 
@@ -894,7 +894,7 @@ msgstr ""
 msgid "FILE"
 msgstr "DATOTEKA"
 
-#: views/grid.lua:788
+#: views/grid.lua:746
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -907,7 +907,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Priljubljene mape"
 
-#: dev/devtools.lua:821 views/grid.lua:345 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -932,11 +932,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:732
+#: views/grid.lua:731
 msgid "Filter"
 msgstr "Filter"
 
-#: dev/devtools.lua:659 views/grid.lua:731
+#: dev/devtools.lua:659 views/grid.lua:730
 msgid "Filter and sort"
 msgstr "Filtriraj in razvrsti"
 
@@ -1016,7 +1016,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:91
+#: styles/ui/lightsheet.lua:87
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1088,7 +1088,7 @@ msgstr "Še ni nastopil"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1326
+#: views/dock.lua:42 views/grid.lua:1245
 #, koreader
 msgid "History"
 msgstr ""
@@ -1097,7 +1097,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:612
+#: views/grid.lua:608
 msgid "History is empty"
 msgstr "Zgodovina je prazna"
 
@@ -1150,15 +1150,15 @@ msgstr "V Zbirkah se pojavi zbirka za vsakega avtorja z 2 ali več knjigami. Pos
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "V Zbirkah se pojavi zbirka za vsako ključno besedo z 2 ali več knjigami. Posodabljajo se samodejno in se ne shranijo v zbirke KOReaderja."
 
-#: views/update.lua:453
+#: views/update.lua:447
 msgid "Include beta versions"
 msgstr "Vključi različice beta"
 
-#: views/update.lua:472
+#: views/update.lua:466
 msgid "Installed version: %1"
 msgstr "Nameščena različica: %1"
 
-#: views/update.lua:204
+#: views/update.lua:198
 msgid "Installing…"
 msgstr "Nameščanje…"
 
@@ -1174,7 +1174,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:151
+#: views/update.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Uporabljena bo po ponovnem zagonu KOReaderja. Vaše nastavitve se ohranijo."
 
@@ -1249,7 +1249,7 @@ msgstr "Zadnje"
 msgid "Last 7 days summary"
 msgstr "Povzetek zadnjih 7 dni"
 
-#: views/update.lua:465
+#: views/update.lua:459
 msgid "Last check: %1"
 msgstr "Zadnje preverjanje: %1"
 
@@ -1257,7 +1257,7 @@ msgstr "Zadnje preverjanje: %1"
 msgid "Last read"
 msgstr "Zadnje branje"
 
-#: common/compat.lua:170 views/update.lua:138 views/update.lua:334
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1276,7 +1276,7 @@ msgstr "Postavitev"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1324
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1243
 msgid "Library"
 msgstr "Knjižnica"
 
@@ -1361,7 +1361,7 @@ msgstr "Označi"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Označim vse knjige v »%1« kot v branju?"
 
-#: views/grid.lua:1032
+#: views/grid.lua:951
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Označim vse knjige v zbirki »%1« kot v branju?"
 
@@ -1369,11 +1369,11 @@ msgstr "Označim vse knjige v zbirki »%1« kot v branju?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1030
+#: views/grid.lua:949
 msgid "Mark entire collection as finished"
 msgstr "Označi celotno zbirko kot dokončano"
 
-#: views/grid.lua:1031
+#: views/grid.lua:950
 msgid "Mark entire collection as reading"
 msgstr "Označi celotno zbirko kot v branju"
 
@@ -1412,7 +1412,7 @@ msgstr "Minimalno"
 msgid "Mix folders"
 msgstr "Mešaj mape"
 
-#: views/grid.lua:809
+#: views/grid.lua:759
 msgid "Mix series"
 msgstr "Mešaj serije"
 
@@ -1500,12 +1500,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nova"
 
-#: views/grid.lua:487
+#: views/grid.lua:483
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:986 views/grid.lua:999
+#: views/grid.lua:905 views/grid.lua:918
 msgid "New collection…"
 msgstr "Nova zbirka…"
 
@@ -1551,19 +1551,19 @@ msgstr "Nobena knjiga ni v branju"
 msgid "No book matches the filter"
 msgstr "Nobena knjiga ne ustreza filtru"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "No books finished this month"
 msgstr "Ta mesec ni dokončanih knjig"
 
-#: views/grid.lua:580
+#: views/grid.lua:576
 msgid "No books finished this year"
 msgstr "Letos ni dokončanih knjig"
 
-#: views/grid.lua:333
+#: views/grid.lua:329
 msgid "No books in home folder"
 msgstr "V domači mapi ni knjig"
 
-#: views/grid.lua:333 views/grid.lua:468 views/grid.lua:612
+#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
 msgid "No books with this filter"
 msgstr "Ni knjig s tem filtrom"
 
@@ -1571,11 +1571,11 @@ msgstr "Ni knjig s tem filtrom"
 msgid "No chapter"
 msgstr "Brez poglavja"
 
-#: views/grid.lua:495
+#: views/grid.lua:491
 msgid "No collections"
 msgstr "Ni zbirk"
 
-#: views/grid.lua:495
+#: views/grid.lua:491
 msgid "No collections with this filter"
 msgstr "Ni zbirk s tem filtrom"
 
@@ -1690,7 +1690,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Na čakanju"
 
-#: views/update.lua:445
+#: views/update.lua:439
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Samo ko je Wi-Fi že vklopljen: Aire ga nikoli ne vklopi."
 
@@ -1699,7 +1699,7 @@ msgstr "Samo ko je Wi-Fi že vklopljen: Aire ga nikoli ne vklopi."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1029
+#: views/grid.lua:948
 msgid "Open collection"
 msgstr "Odpri zbirko"
 
@@ -1707,7 +1707,7 @@ msgstr "Odpri zbirko"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1029
+#: views/grid.lua:948
 msgid "Open series"
 msgstr "Odpri serijo"
 
@@ -1962,12 +1962,12 @@ msgstr "Odstrani"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:583 views/grid.lua:501
+#: views/booksheet.lua:583 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Odstrani iz zbirke"
 
-#: views/booksheet.lua:547 views/grid.lua:617
+#: views/booksheet.lua:547 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1987,7 +1987,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:993
+#: views/grid.lua:912
 msgid "Rename…"
 msgstr "Preimenuj…"
 
@@ -2014,16 +2014,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Za uveljavitev spremembe znova zaženite KOReader."
 
-#: views/update.lua:152
+#: views/update.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Znova zaženite KOReader, da jo uporabite. Vaše nastavitve se ohranijo."
 
-#: views/update.lua:141
+#: views/update.lua:135
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:803
+#: views/explorer.lua:103 views/grid.lua:753
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2048,7 +2048,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:798
+#: views/grid.lua:749
 msgid "SORT BY"
 msgstr "RAZVRSTI PO"
 
@@ -2098,7 +2098,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:312
+#: views/update.lua:306
 msgid "See all changes"
 msgstr "Prikaži vse spremembe"
 
@@ -2130,7 +2130,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:441
+#: views/update.lua:435
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2182,7 +2182,7 @@ msgstr "Pokaži opis"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:329
+#: views/update.lua:323
 msgid "Skip"
 msgstr "Preskoči"
 
@@ -2211,16 +2211,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:732
+#: dev/devtools.lua:613 views/grid.lua:731
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:964
+#: dev/devtools.lua:825 views/grid.lua:883
 msgid "Sort collections"
 msgstr "Razvrsti zbirke"
 
-#: views/grid.lua:987 views/grid.lua:1000
+#: views/grid.lua:906 views/grid.lua:919
 msgid "Sort collections…"
 msgstr "Razvrsti zbirke…"
 
@@ -2297,7 +2297,7 @@ msgstr "Tapnite za ustavitev"
 msgid "Tap to view definition"
 msgstr "Tapnite za ogled definicije"
 
-#: views/grid.lua:1227
+#: views/grid.lua:1146
 msgid "Test book"
 msgstr "Preizkusna knjiga"
 
@@ -2354,7 +2354,7 @@ msgstr "Trenutna knjiga ni del serije"
 msgid "This collection is empty"
 msgstr "Ta zbirka je prazna"
 
-#: views/update.lua:324
+#: views/update.lua:318
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Ta kopija ima mapo dev/ (preizkusi). Nova različica je nima, zato bo odstranjena."
 
@@ -2456,16 +2456,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:135 views/power.lua:162 views/update.lua:335 views/update.lua:489
+#: views/power.lua:135 views/power.lua:162 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:432
+#: views/update.lua:426
 msgid "Update Aire"
 msgstr "Posodobi Aire"
 
-#: views/update.lua:432
+#: views/update.lua:426
 msgid "Update Aire (%1 available)"
 msgstr "Posodobi Aire (na voljo %1)"
 
@@ -2473,7 +2473,7 @@ msgstr "Posodobi Aire (na voljo %1)"
 msgid "Update KOReader"
 msgstr "Posodobi KOReader"
 
-#: views/update.lua:172
+#: views/update.lua:166
 msgid "Updating Aire"
 msgstr "Posodabljanje Aire"
 
@@ -2550,7 +2550,7 @@ msgstr "Pripomočki %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:375
+#: views/update.lua:369
 msgid "You already have the latest version (%1)."
 msgstr "Že imate najnovejšo različico (%1)."
 
@@ -2566,11 +2566,11 @@ msgstr "Nimate še nobenih poudarkov"
 msgid "You have not opened any book yet"
 msgstr "Niste še odprli nobene knjige"
 
-#: views/power.lua:154 views/update.lua:300
+#: views/power.lua:154 views/update.lua:294
 msgid "You have version %1"
 msgstr "Imate različico %1"
 
-#: views/grid.lua:579
+#: views/grid.lua:575
 msgid "You haven't finished any books yet"
 msgstr "Niste še dokončali nobene knjige"
 
@@ -2599,7 +2599,7 @@ msgstr "povpr. / dan"
 msgid "battery"
 msgstr "baterija"
 
-#: views/update.lua:292
+#: views/update.lua:286
 msgid "beta"
 msgstr "beta"
 
@@ -2660,7 +2660,7 @@ msgstr "zadnjih 7 dni"
 msgid "light"
 msgstr "osvetlitev"
 
-#: views/update.lua:464
+#: views/update.lua:458
 #, koreader
 msgid "never"
 msgstr ""
@@ -2784,6 +2784,6 @@ msgstr "včeraj"
 msgid "~%1 left"
 msgstr "še ~%1"
 
-#: styles/ui/lightsheet.lua:173
+#: styles/ui/lightsheet.lua:159
 msgid "− Brightness"
 msgstr "− Svetlost"

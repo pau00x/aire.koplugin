@@ -334,11 +334,11 @@ local function showDetailsSheet(bookmark, item_or_index)
     table.insert(content, VerticalSpan:new{ width = S(14) })
     table.insert(content, HorizontalGroup:new{
         align = "center",
-        P.pill(note and _("Edit note") or _("Add note"), half, function()
+        package.loaded.aire_sheet.button(note and _("Edit note") or _("Add note"), half, function()
             bookmark:setBookmarkNote(item_or_index, nil, nil, edit_details_callback)
         end, { disabled = not not_select_mode }),
         HorizontalSpan:new{ width = gap },
-        P.pill(_("Edit text"), half, function()
+        package.loaded.aire_sheet.button(_("Edit text"), half, function()
             bookmark:editHighlightedText(item_or_index, edit_details_callback)
         end, { disabled = not (item.drawer and not_select_mode),
                on_hold = item.text_edited and not_select_mode and function()
@@ -348,7 +348,7 @@ local function showDetailsSheet(bookmark, item_or_index)
     table.insert(content, VerticalSpan:new{ width = gap })
     table.insert(content, HorizontalGroup:new{
         align = "center",
-        P.pill(_("Remove bookmark"), half, function()
+        package.loaded.aire_sheet.button(_("Remove bookmark"), half, function()
             UIManager:show(ConfirmBox:new{
                 text = _("Remove this bookmark?"),
                 ok_text = _("Remove"),
@@ -363,7 +363,7 @@ local function showDetailsSheet(bookmark, item_or_index)
             })
         end, { disabled = not not_select_mode }),
         HorizontalSpan:new{ width = gap },
-        P.pill(_("Go to bookmark"), half, function()
+        package.loaded.aire_sheet.button(_("Go to bookmark"), half, function()
             UIManager:close(sheet)
             close_callback()
             bookmark.ui.link:addCurrentLocationToStack()

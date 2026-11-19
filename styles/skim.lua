@@ -99,19 +99,19 @@ local function build(self)
         VerticalSpan:new{ width = S(12) },
         HorizontalGroup:new{
             align = "center",
-            P.pill("‹ " .. _("Previous chapter"), half, prev_ch and go(prev_ch) or nil,
+            package.loaded.aire_sheet.button("‹ " .. _("Previous chapter"), half, prev_ch and go(prev_ch) or nil,
                 { disabled = not prev_ch, on_hold = go(1) }),
             HorizontalSpan:new{ width = gap },
-            P.pill(_("Next chapter") .. " ›", half, next_ch and go(next_ch) or nil,
+            package.loaded.aire_sheet.button(_("Next chapter") .. " ›", half, next_ch and go(next_ch) or nil,
                 { disabled = not next_ch, on_hold = go(self.page_count) }),
         },
         VerticalSpan:new{ width = gap },
         HorizontalGroup:new{
             align = "center",
-            P.pill("−10", q, go(self.curr_page - 10)), HorizontalSpan:new{ width = gap },
-            P.pill("−1", q, go(self.curr_page - 1)), HorizontalSpan:new{ width = gap },
-            P.pill("+1", q, go(self.curr_page + 1)), HorizontalSpan:new{ width = gap },
-            P.pill("+10", q, go(self.curr_page + 10)),
+            package.loaded.aire_sheet.button("−10", q, go(self.curr_page - 10)), HorizontalSpan:new{ width = gap },
+            package.loaded.aire_sheet.button("−1", q, go(self.curr_page - 1)), HorizontalSpan:new{ width = gap },
+            package.loaded.aire_sheet.button("+1", q, go(self.curr_page + 1)), HorizontalSpan:new{ width = gap },
+            package.loaded.aire_sheet.button("+10", q, go(self.curr_page + 10)),
         },
     }
     -- Marco y posición de hoja comunes (common/sheet.lua); el cierre y los

@@ -90,20 +90,14 @@ return function(Aire, ctx)
     end
 
     -- Fila de píldoras del mismo ancho; la última puede ser la principal (negra)
+    -- Botones y título comunes de las hojas (common/sheet.lua, SHEET)
     local function pillRow(buttons, in_w)
-        local P = getP()
-        local gap = S(8)
-        local w = math.floor((in_w - (#buttons - 1) * gap) / #buttons)
-        local row = HorizontalGroup:new{ align = "center" }
-        for i, b in ipairs(buttons) do
-            if i > 1 then table.insert(row, HorizontalSpan:new{ width = gap }) end
-            table.insert(row, P.pill(b.text, w, b.callback, { primary = b.primary, font = 13 }))
-        end
-        return row
+        return package.loaded.aire_sheet.buttons(buttons, in_w)
     end
 
     local function title(text, in_w)
-        return TextWidget:new{ text = text, face = face(true, 16), fgcolor = getP().BLACK, max_width = in_w, padding = 0 }
+        return TextWidget:new{ text = text, face = face(true, package.loaded.aire_screen.SHEET.TITLE_FONT),
+            fgcolor = getP().BLACK, max_width = in_w, padding = 0 }
     end
 
     local function formatDate(iso)

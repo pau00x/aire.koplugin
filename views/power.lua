@@ -186,7 +186,7 @@ return function(Aire, ctx)
                     bordersize = bthick,
                     color = BLACK_C,
                     background = filled and BLACK_C or WHITE_C,
-                    radius = S(12),
+                    radius = S(st.BTN_RADIUS), -- (common/screen.lua, como los demás botones)
                     padding = 0,
                     width = bw,
                     height = bh,

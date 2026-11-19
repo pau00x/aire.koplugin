@@ -6,19 +6,15 @@
 --]]
 
 local Blitbuffer = require("ffi/blitbuffer")
-local CenterContainer = require("ui/widget/container/centercontainer")
 local Device = require("device")
 local Event = require("ui/event")
-local FrameContainer = require("ui/widget/container/framecontainer")
 local Geom = require("ui/geometry")
 local GestureRange = require("ui/gesturerange")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
 local HorizontalSpan = require("ui/widget/horizontalspan")
 local IconWidget = require("ui/widget/iconwidget")
 local InputContainer = require("ui/widget/container/inputcontainer")
-local LeftContainer = require("ui/widget/container/leftcontainer")
 local Size = require("ui/size")
-local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
@@ -26,7 +22,6 @@ local Widget = require("ui/widget/widget")
 local lfs = require("libs/libkoreader-lfs")
 local Screen = Device.screen
 
-local BLACK = Blitbuffer.COLOR_BLACK
 local WHITE = Blitbuffer.COLOR_WHITE
 
 ---------------------------------------------------------------------------
@@ -101,46 +96,21 @@ function OptionSheet:init()
 end
 
 function OptionSheet:buildContent(inner_w)
-    local S, face, tappable = self.S, self.face, self.tappable
-    local st = package.loaded.aire_screen.SHEET -- medidas de hoja (common/screen.lua)
-    local border = Size.border.thin
-    local btn_h = S(st.BTN_H)
-    local btn_radius = S(st.BTN_RADIUS)
-    local btn_gap = S(st.BTN_GAP)
-    local btn_font = st.BTN_FONT
+    -- Piezas comunes de las hojas (common/sheet.lua): título, filas y botones
+    local Sh = package.loaded.aire_sheet
+    local S = self.S
     local content = VerticalGroup:new{ align = "left" }
-    if self.title then
-        table.insert(content, TextWidget:new{ text = self.title, face = face(true, 15), fgcolor = BLACK, max_width = inner_w, padding = 0 })
-        table.insert(content, VerticalSpan:new{ width = S(10) })
-    end
-    local row_h = S(44)
+    if self.title then table.insert(content, Sh.title(self.title, inner_w)) end
     local cols = self.columns or 1
     local col_gap = S(10)
     local cell_w = cols > 1 and math.floor((inner_w - (cols - 1) * col_gap) / cols) or inner_w
     local pending -- fila de varias columnas a medio llenar
     for _i, r in ipairs(self.rows_fn() or {}) do
-        local enabled = r.enabled ~= false
-        local color = enabled and BLACK or Blitbuffer.COLOR_GRAY
-        local line = HorizontalGroup:new{ align = "center" }
-        local lead = 0
-        if r.checked ~= nil then
-            local icon = r.radio and (r.checked and "aire.radio.on" or "aire.radio.off")
-                or (r.checked and "aire.checkbox.on" or "aire.checkbox.off")
-            table.insert(line, IconWidget:new{ icon = icon, width = S(22), height = S(22), alpha = true, dim = not enabled })
-            table.insert(line, HorizontalSpan:new{ width = S(10) })
-            lead = S(32)
-        elseif r.icon then
-            table.insert(line, IconWidget:new{ icon = r.icon, width = S(22), height = S(22), alpha = true, dim = not enabled })
-            table.insert(line, HorizontalSpan:new{ width = S(10) })
-            lead = S(32)
-        end
-        table.insert(line, TextWidget:new{ text = r.text, face = face(false, 15), fgcolor = color,
-            max_width = cell_w - lead, padding = 0 })
-        local row = LeftContainer:new{ dimen = Geom:new{ w = cell_w, h = row_h }, line }
-        if enabled and r.callback then
-            local cb = r.callback
-            row = tappable(row, function() cb(self) end)
-        end
+        local cb = r.callback
+        local row = Sh.row({
+            text = r.text, icon = r.icon, checked = r.checked, radio = r.radio, enabled = r.enabled,
+            callback = cb and function() cb(self) end,
+        }, cell_w)
         if cols > 1 then
             if not pending then
                 pending = HorizontalGroup:new{ align = "center", row }
@@ -156,25 +126,13 @@ function OptionSheet:buildContent(inner_w)
         end
     end
     if self.buttons and #self.buttons > 0 then
-        table.insert(content, VerticalSpan:new{ width = S(10) })
-        local gap = btn_gap
-        local bw = math.floor((inner_w - (#self.buttons - 1) * gap) / #self.buttons)
-        local bh = btn_h
-        local brow = HorizontalGroup:new{ align = "center" }
-        for i, b in ipairs(self.buttons) do
-            if i > 1 then table.insert(brow, HorizontalSpan:new{ width = gap }) end
-            local box = FrameContainer:new{
-                bordersize = border, color = BLACK, background = b.primary and BLACK or WHITE,
-                radius = btn_radius, padding = 0, width = bw, height = bh,
-                CenterContainer:new{
-                    dimen = Geom:new{ w = bw - 2 * border, h = bh - 2 * border },
-                    TextWidget:new{ text = b.text, face = face(false, btn_font), fgcolor = b.primary and WHITE or BLACK, padding = 0 },
-                },
-            }
+        table.insert(content, Sh.gap("group"))
+        local list = {}
+        for _i, b in ipairs(self.buttons) do
             local cb = b.callback
-            table.insert(brow, tappable(box, function() cb(self) end))
+            table.insert(list, { text = b.text, primary = b.primary, callback = function() cb(self) end })
         end
-        table.insert(content, brow)
+        table.insert(content, Sh.buttons(list, inner_w))
     end
     return content
 end

@@ -70,6 +70,15 @@ M.SHEET = {
     BTN_GAP         = 8,  -- hueco entre botones
     BTN_FONT        = 16, -- letra de los botones (si no piden otra)
     MENU_SIDE_INSET = 14, -- margen lateral del menú superior (= PAD)
+    -- Contenido (common/sheet.lua: title, section, row, buttons, choices)
+    ROW_H           = 44, -- alto de las filas (= BTN_H: misma zona táctil)
+    TITLE_FONT      = 15, -- título de la hoja (negrita)
+    ROW_FONT        = 15, -- texto de las filas
+    LABEL_FONT      = 11, -- etiqueta de sección (negrita, mayúsculas, gris)
+    ICON            = 22, -- icono, casilla o círculo de una fila
+    TITLE_GAP       = 12, -- debajo del título
+    LABEL_GAP       = 8,  -- debajo de una etiqueta de sección
+    GROUP_GAP       = 12, -- entre grupos (y a cada lado de un separador)
 }
 
 local PAGER = {
