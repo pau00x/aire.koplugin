@@ -190,7 +190,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 kolonnas"
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr "Ir pieejama jauna versija"
 
@@ -239,11 +239,11 @@ msgstr "Papildu"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr "Aire %1 pieejama"
 
@@ -497,6 +497,10 @@ msgstr ""
 msgid "Change"
 msgstr "Mainīt"
 
+#: styles/toc.lua:144
+msgid "Chapter"
+msgstr "Nodaļa"
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "%1. nodaļa no %2"
@@ -521,11 +525,11 @@ msgstr "Uzlādēts"
 msgid "Charging"
 msgstr "Lādējas"
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr "Pārbaudīt katru nedēļu"
 
-#: views/update.lua:431
+#: views/update.lua:433
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -606,7 +610,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "Neizdevās pārbaudīt atjauninājumus. Mēģini vēlāk vēlreiz."
 
@@ -617,7 +621,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Neizdevās instalēt atjauninājumu. Aire %1 joprojām ir instalēta."
 
@@ -966,6 +970,10 @@ msgstr "Mapes"
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr "Fonta fails"
+
 #: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
@@ -1122,11 +1130,11 @@ msgstr "Sadaļā Kolekcijas katram autoram ar 2 vai vairāk grāmatām tiek par�
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Sadaļā Kolekcijas katram atslēgvārdam ar 2 vai vairāk grāmatām tiek parādīta kolekcija. Tās atjaunojas automātiski un netiek saglabātas KOReader kolekcijās."
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr "Iekļaut beta versijas"
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr "Instalētā versija: %1"
 
@@ -1221,7 +1229,7 @@ msgstr "Pēdējā"
 msgid "Last 7 days summary"
 msgstr "Pēdējo 7 dienu kopsavilkums"
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr "Pēdējā pārbaude: %1"
 
@@ -1229,7 +1237,7 @@ msgstr "Pēdējā pārbaude: %1"
 msgid "Last read"
 msgstr "Pēdējoreiz lasīts"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 msgid "Later"
 msgstr "Vēlāk"
 
@@ -1621,6 +1629,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Piezīmes"
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr "Paziņojums"
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1659,7 +1671,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Uz pauzes"
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Tikai tad, ja Wi-Fi jau ir ieslēgts: Aire to nekad neieslēdz."
 
@@ -2063,7 +2075,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr "Skatīt visas izmaiņas"
 
@@ -2093,7 +2105,7 @@ msgstr ""
 msgid "Set font"
 msgstr "Iestatīt fontu"
 
-#: views/update.lua:435
+#: views/update.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2145,7 +2157,7 @@ msgstr "Rādīt anotāciju"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr "Izlaist"
 
@@ -2316,7 +2328,7 @@ msgstr "Pašreizējā grāmata nav sērijā"
 msgid "This collection is empty"
 msgstr "Šī kolekcija ir tukša"
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Šajā kopijā ir mape dev/ (testi). Jaunajā versijā tās nav, tāpēc tā tiks dzēsta."
 
@@ -2418,16 +2430,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr "Atjaunināt Aire"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "Atjaunināt Aire (pieejama %1)"
 
@@ -2511,7 +2523,7 @@ msgstr "Logrīki %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "Tev jau ir jaunākā versija (%1)."
 
@@ -2527,7 +2539,7 @@ msgstr "Tev vēl nav iezīmējumu"
 msgid "You have not opened any book yet"
 msgstr "Tu vēl neesi atvēris nevienu grāmatu"
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr "Tev ir versija %1"
 
@@ -2560,7 +2572,7 @@ msgstr "vid. / dienā"
 msgid "battery"
 msgstr "akumulators"
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr "beta"
 
@@ -2619,7 +2631,7 @@ msgstr "pēdējās 7 dienas"
 msgid "light"
 msgstr "gaisma"
 
-#: views/update.lua:458
+#: views/update.lua:460
 msgid "never"
 msgstr "nekad"
 

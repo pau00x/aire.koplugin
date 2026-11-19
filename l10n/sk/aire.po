@@ -206,7 +206,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 stĺpce"
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr "K dispozícii je nová verzia"
 
@@ -256,11 +256,11 @@ msgstr "Pokročilé"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr "Aire %1 k dispozícii"
 
@@ -517,6 +517,11 @@ msgstr ""
 msgid "Change"
 msgstr "Zmeniť"
 
+#: styles/toc.lua:144
+#, koreader
+msgid "Chapter"
+msgstr ""
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Kapitola %1 z %2"
@@ -541,11 +546,11 @@ msgstr "Nabitá"
 msgid "Charging"
 msgstr "Nabíja sa"
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr "Kontrolovať každý týždeň"
 
-#: views/update.lua:431
+#: views/update.lua:433
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -628,7 +633,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "Aktualizácie sa nepodarilo skontrolovať. Skúste to neskôr."
 
@@ -639,7 +644,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Aktualizáciu sa nepodarilo nainštalovať. Aire %1 zostáva nainštalovaná."
 
@@ -989,6 +994,10 @@ msgstr "Priečinky"
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr "Súbor písma"
+
 #: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
@@ -1147,11 +1156,11 @@ msgstr "V Zbierkach sa zobrazí zbierka pre každého autora s 2 a viac knihami.
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "V Zbierkach sa zobrazí zbierka pre každé kľúčové slovo s 2 a viac knihami. Aktualizujú sa automaticky a neukladajú sa do zbierok KOReadera."
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr "Zahrnúť beta verzie"
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr "Nainštalovaná verzia: %1"
 
@@ -1246,7 +1255,7 @@ msgstr "Posledné"
 msgid "Last 7 days summary"
 msgstr "Prehľad posledných 7 dní"
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr "Posledná kontrola: %1"
 
@@ -1254,7 +1263,7 @@ msgstr "Posledná kontrola: %1"
 msgid "Last read"
 msgstr "Naposledy čítané"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1651,6 +1660,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Poznámky"
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr "Upozornenie"
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1689,7 +1702,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Pozastavené"
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Len keď je Wi-Fi už zapnutá: Aire ju nikdy nezapína."
 
@@ -2097,7 +2110,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr "Zobraziť všetky zmeny"
 
@@ -2129,7 +2142,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:435
+#: views/update.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2181,7 +2194,7 @@ msgstr "Zobraziť popis"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr "Preskočiť"
 
@@ -2353,7 +2366,7 @@ msgstr "Aktuálna kniha nie je súčasťou série"
 msgid "This collection is empty"
 msgstr "Táto zbierka je prázdna"
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Táto kópia obsahuje priečinok dev/ (testy). Nová verzia ho nemá, takže bude odstránený."
 
@@ -2455,16 +2468,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr "Aktualizovať Aire"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "Aktualizovať Aire (k dispozícii %1)"
 
@@ -2549,7 +2562,7 @@ msgstr "Widgety %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "Už máte najnovšiu verziu (%1)."
 
@@ -2565,7 +2578,7 @@ msgstr "Zatiaľ nemáte žiadne zvýraznenia"
 msgid "You have not opened any book yet"
 msgstr "Zatiaľ ste neotvorili žiadnu knihu"
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr "Máte verziu %1"
 
@@ -2598,7 +2611,7 @@ msgstr "priemer / deň"
 msgid "battery"
 msgstr "batéria"
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr "beta"
 
@@ -2659,7 +2672,7 @@ msgstr "posledných 7 dní"
 msgid "light"
 msgstr "podsvietenie"
 
-#: views/update.lua:458
+#: views/update.lua:460
 #, koreader
 msgid "never"
 msgstr ""

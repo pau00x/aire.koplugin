@@ -238,7 +238,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 أعمدة"
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr "يتوفر إصدار جديد"
 
@@ -287,11 +287,11 @@ msgstr "متقدم"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr "يتوفر Aire %1"
 
@@ -544,6 +544,10 @@ msgstr ""
 msgid "Change"
 msgstr "تغيير"
 
+#: styles/toc.lua:144
+msgid "Chapter"
+msgstr "الفصل"
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "الفصل %1 من %2"
@@ -568,11 +572,11 @@ msgstr "مشحونة"
 msgid "Charging"
 msgstr "قيد الشحن"
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr "التحقق كل أسبوع"
 
-#: views/update.lua:431
+#: views/update.lua:433
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -653,7 +657,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "تعذر التحقق من التحديثات. حاول مرة أخرى لاحقًا."
 
@@ -664,7 +668,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "تعذر تثبيت التحديث. لا يزال Aire %1 مثبتًا."
 
@@ -1012,6 +1016,10 @@ msgstr "المجلدات"
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr "ملف الخط"
+
 #: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
@@ -1168,11 +1176,11 @@ msgstr "في المجموعات، تظهر مجموعة لكل مؤلف له ك�
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "في المجموعات، تظهر مجموعة لكل كلمة مفتاحية لها كتابان أو أكثر. تتحدث تلقائيًا ولا تُحفظ في مجموعات KOReader."
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr "تضمين الإصدارات التجريبية"
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr "الإصدار المثبت: %1"
 
@@ -1267,7 +1275,7 @@ msgstr "الأخيرة"
 msgid "Last 7 days summary"
 msgstr "ملخص آخر 7 أيام"
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr "آخر تحقق: %1"
 
@@ -1275,7 +1283,7 @@ msgstr "آخر تحقق: %1"
 msgid "Last read"
 msgstr "آخر قراءة"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 msgid "Later"
 msgstr "لاحقًا"
 
@@ -1667,6 +1675,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "الملاحظات"
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr "تنبيه"
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1705,7 +1717,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "تمَّ تعليقُ قراءته"
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "فقط عندما تكون شبكة Wi-Fi قيد التشغيل: لا يشغّلها Aire أبدًا."
 
@@ -2110,7 +2122,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr "عرض كل التغييرات"
 
@@ -2142,7 +2154,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:435
+#: views/update.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2194,7 +2206,7 @@ msgstr "إظهار الملخص"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr "تخطٍّ"
 
@@ -2365,7 +2377,7 @@ msgstr "الكتاب الحالي ليس جزءًا من سلسلة"
 msgid "This collection is empty"
 msgstr "هذه المجموعة فارغة"
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "تحتوي هذه النسخة على مجلد dev/ (اختبارات). لا يتضمنه الإصدار الجديد، لذا سيُحذف."
 
@@ -2467,15 +2479,15 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 msgid "Update"
 msgstr "تحديث"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr "تحديث Aire"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "تحديث Aire (يتوفر %1)"
 
@@ -2562,7 +2574,7 @@ msgstr "الأدوات %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "لديك بالفعل أحدث إصدار (%1)."
 
@@ -2578,7 +2590,7 @@ msgstr "ليس لديك أي تظليلات بعد"
 msgid "You have not opened any book yet"
 msgstr "لم تفتح أي كتاب بعد"
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr "لديك الإصدار %1"
 
@@ -2611,7 +2623,7 @@ msgstr "المتوسط / يوم"
 msgid "battery"
 msgstr "البطارية"
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr "تجريبي"
 
@@ -2676,7 +2688,7 @@ msgstr "آخر 7 أيام"
 msgid "light"
 msgstr "الإضاءة"
 
-#: views/update.lua:458
+#: views/update.lua:460
 msgid "never"
 msgstr "أبدًا"
 

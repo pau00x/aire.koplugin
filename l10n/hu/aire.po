@@ -174,7 +174,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 oszlop"
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr "Új verzió érhető el"
 
@@ -224,11 +224,11 @@ msgstr "Speciális"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr "Elérhető: Aire %1"
 
@@ -485,6 +485,11 @@ msgstr ""
 msgid "Change"
 msgstr "Módosítás"
 
+#: styles/toc.lua:144
+#, koreader
+msgid "Chapter"
+msgstr ""
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "%1. fejezet / %2"
@@ -509,11 +514,11 @@ msgstr "Feltöltve"
 msgid "Charging"
 msgstr "Töltés"
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr "Ellenőrzés hetente"
 
-#: views/update.lua:431
+#: views/update.lua:433
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -596,7 +601,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "Nem sikerült frissítéseket keresni. Próbáld újra később."
 
@@ -607,7 +612,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Nem sikerült telepíteni a frissítést. Továbbra is az Aire %1 van telepítve."
 
@@ -957,6 +962,10 @@ msgstr "Mappák"
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr "Betűtípusfájl"
+
 #: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
@@ -1115,11 +1124,11 @@ msgstr "A Gyűjteményekben minden legalább 2 könyvvel rendelkező szerzőhöz
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "A Gyűjteményekben minden legalább 2 könyvhöz tartozó kulcsszóhoz megjelenik egy gyűjtemény. Automatikusan frissülnek, és nem kerülnek mentésre a KOReader gyűjteményei közé."
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr "Bétaverziókkal együtt"
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr "Telepített verzió: %1"
 
@@ -1214,7 +1223,7 @@ msgstr "Utolsó"
 msgid "Last 7 days summary"
 msgstr "Az elmúlt 7 nap összegzése"
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr "Utolsó ellenőrzés: %1"
 
@@ -1222,7 +1231,7 @@ msgstr "Utolsó ellenőrzés: %1"
 msgid "Last read"
 msgstr "Utoljára olvasott"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1619,6 +1628,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Jegyzetek"
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr "Értesítés"
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1657,7 +1670,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Félretéve"
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Csak ha a Wi-Fi már be van kapcsolva: az Aire sosem kapcsolja be."
 
@@ -2065,7 +2078,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr "Összes változás"
 
@@ -2097,7 +2110,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:435
+#: views/update.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2149,7 +2162,7 @@ msgstr "Leírás mutatása"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr "Kihagyás"
 
@@ -2321,7 +2334,7 @@ msgstr "Az aktuális könyv nem része sorozatnak"
 msgid "This collection is empty"
 msgstr "Ez a gyűjtemény üres"
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Ebben a példányban van dev/ mappa (tesztek). Az új verzióban nincs benne, ezért törlődik."
 
@@ -2423,16 +2436,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr "Aire frissítése"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "Aire frissítése (elérhető: %1)"
 
@@ -2515,7 +2528,7 @@ msgstr "Widgetek %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "Már a legújabb verzió van meg (%1)."
 
@@ -2531,7 +2544,7 @@ msgstr "Még nincsenek kiemelései"
 msgid "You have not opened any book yet"
 msgstr "Még nem nyitott meg könyvet"
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr "A te verziód: %1"
 
@@ -2564,7 +2577,7 @@ msgstr "átlag / nap"
 msgid "battery"
 msgstr "akku"
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr "béta"
 
@@ -2621,7 +2634,7 @@ msgstr "elmúlt 7 nap"
 msgid "light"
 msgstr "világítás"
 
-#: views/update.lua:458
+#: views/update.lua:460
 #, koreader
 msgid "never"
 msgstr ""

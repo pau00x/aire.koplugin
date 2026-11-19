@@ -375,11 +375,22 @@ if B.uiOpt("sheets") then
         }
     end
 
+    -- Título común de los avisos: "Aviso", o el que pase quien lo muestra
+    -- (aire_title; false = sin título)
+    local _ = require("gettext")
+    local VerticalGroup = require("ui/widget/verticalgroup")
+
     safeWrap(InfoMessage, "init", function(orig_init, self, ...)
         local res = { orig_init(self, ...) }
         local ok, err = pcall(function()
             local frame = self.movable and self.movable[1]
             if not frame then return end
+            local title = self.aire_title
+            if title == nil then title = _("Notice") end
+            if title and frame[1] then
+                frame[1] = VerticalGroup:new{ align = "left",
+                    package.loaded.aire_sheet.title(title, AireScreen.sheetInnerWidth()), frame[1] }
+            end
             sheetFrame(frame)
             atBottom(self, self.movable)
         end)

@@ -208,6 +208,7 @@ return function(Aire, ctx)
             else
                 Upd.warn("no se pudo instalar", info.version, err)
                 UIManager:show(InfoMessage:new{
+                    aire_title = _("Update"),
                     text = T(_("Could not install the update. Aire %1 is still installed."), installedVersion()),
                 })
             end
@@ -347,7 +348,7 @@ return function(Aire, ctx)
             saveConfig()
             if manual then
                 Upd.warn("no se pudo comprobar:", err)
-                UIManager:show(InfoMessage:new{ text = _("Could not check for updates. Try again later.") })
+                UIManager:show(InfoMessage:new{ aire_title = _("Update"), text = _("Could not check for updates. Try again later.") })
             else
                 logger.dbg("Aire/Update: comprobación automática fallida:", err)
             end
@@ -366,6 +367,7 @@ return function(Aire, ctx)
             saveConfig()
             if manual then
                 UIManager:show(InfoMessage:new{
+                    aire_title = _("Update"),
                     text = T(_("You already have the latest version (%1)."), installedVersion()),
                 })
             end
@@ -374,7 +376,7 @@ return function(Aire, ctx)
 
     local function check(manual)
         if manual then
-            local working = InfoMessage:new{ text = "⌛", show_icon = false, alignment = "center" }
+            local working = InfoMessage:new{ aire_title = _("Update"), text = "⌛", show_icon = false, alignment = "center" }
             UIManager:show(working)
             UIManager:forceRePaint()
             UIManager:close(working)

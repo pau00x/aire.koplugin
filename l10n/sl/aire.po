@@ -206,7 +206,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 stolpci"
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr "Na voljo je nova različica"
 
@@ -256,11 +256,11 @@ msgstr "Napredno"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr "Aire %1 na voljo"
 
@@ -516,6 +516,11 @@ msgstr ""
 msgid "Change"
 msgstr "Spremeni"
 
+#: styles/toc.lua:144
+#, koreader
+msgid "Chapter"
+msgstr ""
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Poglavje %1 od %2"
@@ -540,11 +545,11 @@ msgstr "Napolnjena"
 msgid "Charging"
 msgstr "Polnjenje"
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr "Preveri vsak teden"
 
-#: views/update.lua:431
+#: views/update.lua:433
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -627,7 +632,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "Posodobitev ni bilo mogoče preveriti. Poskusite znova pozneje."
 
@@ -638,7 +643,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Posodobitve ni bilo mogoče namestiti. Aire %1 ostaja nameščena."
 
@@ -988,6 +993,10 @@ msgstr "Mape"
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr "Datoteka pisave"
+
 #: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
@@ -1146,11 +1155,11 @@ msgstr "V Zbirkah se pojavi zbirka za vsakega avtorja z 2 ali več knjigami. Pos
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "V Zbirkah se pojavi zbirka za vsako ključno besedo z 2 ali več knjigami. Posodabljajo se samodejno in se ne shranijo v zbirke KOReaderja."
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr "Vključi različice beta"
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr "Nameščena različica: %1"
 
@@ -1245,7 +1254,7 @@ msgstr "Zadnje"
 msgid "Last 7 days summary"
 msgstr "Povzetek zadnjih 7 dni"
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr "Zadnje preverjanje: %1"
 
@@ -1253,7 +1262,7 @@ msgstr "Zadnje preverjanje: %1"
 msgid "Last read"
 msgstr "Zadnje branje"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1648,6 +1657,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Opombe"
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr "Obvestilo"
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1686,7 +1699,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Na čakanju"
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Samo ko je Wi-Fi že vklopljen: Aire ga nikoli ne vklopi."
 
@@ -2094,7 +2107,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr "Prikaži vse spremembe"
 
@@ -2126,7 +2139,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:435
+#: views/update.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2178,7 +2191,7 @@ msgstr "Pokaži opis"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr "Preskoči"
 
@@ -2350,7 +2363,7 @@ msgstr "Trenutna knjiga ni del serije"
 msgid "This collection is empty"
 msgstr "Ta zbirka je prazna"
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Ta kopija ima mapo dev/ (preizkusi). Nova različica je nima, zato bo odstranjena."
 
@@ -2452,16 +2465,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr "Posodobi Aire"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "Posodobi Aire (na voljo %1)"
 
@@ -2546,7 +2559,7 @@ msgstr "Pripomočki %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "Že imate najnovejšo različico (%1)."
 
@@ -2562,7 +2575,7 @@ msgstr "Nimate še nobenih poudarkov"
 msgid "You have not opened any book yet"
 msgstr "Niste še odprli nobene knjige"
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr "Imate različico %1"
 
@@ -2595,7 +2608,7 @@ msgstr "povpr. / dan"
 msgid "battery"
 msgstr "baterija"
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr "beta"
 
@@ -2656,7 +2669,7 @@ msgstr "zadnjih 7 dni"
 msgid "light"
 msgstr "osvetlitev"
 
-#: views/update.lua:458
+#: views/update.lua:460
 #, koreader
 msgid "never"
 msgstr ""

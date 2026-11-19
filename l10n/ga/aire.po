@@ -222,7 +222,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 cholún"
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr "Tá leagan nua ar fáil"
 
@@ -272,11 +272,11 @@ msgstr "Ardsocruithe"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr "Aire %1 ar fáil"
 
@@ -533,6 +533,11 @@ msgstr ""
 msgid "Change"
 msgstr "Athraigh"
 
+#: styles/toc.lua:144
+#, koreader
+msgid "Chapter"
+msgstr ""
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Caibidil %1 de %2"
@@ -557,11 +562,11 @@ msgstr "Luchtaithe"
 msgid "Charging"
 msgstr "Á luchtú"
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr "Seiceáil gach seachtain"
 
-#: views/update.lua:431
+#: views/update.lua:433
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -644,7 +649,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "Níorbh fhéidir nuashonruithe a sheiceáil. Bain triail eile as ar ball."
 
@@ -655,7 +660,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Níorbh fhéidir an nuashonrú a shuiteáil. Tá Aire %1 suiteáilte fós."
 
@@ -1005,6 +1010,10 @@ msgstr "Fillteáin"
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr "Comhad cló"
+
 #: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
@@ -1163,11 +1172,11 @@ msgstr "In Bailiúcháin, feictear bailiúchán do gach údar a bhfuil 2 leabhar
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "In Bailiúcháin, feictear bailiúchán do gach eochairfhocal a bhfuil 2 leabhar nó níos mó aige. Nuashonraítear iad go huathoibríoch agus ní shábháiltear iad i mbailiúcháin KOReader."
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr "Cuir leaganacha béite san áireamh"
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr "Leagan suiteáilte: %1"
 
@@ -1262,7 +1271,7 @@ msgstr "Deireanach"
 msgid "Last 7 days summary"
 msgstr "Achoimre na 7 lá seo caite"
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr "Seiceáil dheireanach: %1"
 
@@ -1270,7 +1279,7 @@ msgstr "Seiceáil dheireanach: %1"
 msgid "Last read"
 msgstr "Léite go deireanach"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1667,6 +1676,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Nótaí"
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr "Fógra"
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1705,7 +1718,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Ar feitheamh"
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Ach amháin nuair atá Wi-Fi ar siúl cheana: ní chuireann Aire ar siúl é choíche."
 
@@ -2113,7 +2126,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr "Féach ar gach athrú"
 
@@ -2145,7 +2158,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:435
+#: views/update.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2197,7 +2210,7 @@ msgstr "Taispeáin achoimre"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr "Scipeáil"
 
@@ -2369,7 +2382,7 @@ msgstr "Níl an leabhar reatha mar chuid de shraith"
 msgid "This collection is empty"
 msgstr "Tá an bailiúchán seo folamh"
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Tá an fillteán dev/ (tástálacha) sa chóip seo. Níl sé sa leagan nua, mar sin bainfear é."
 
@@ -2471,16 +2484,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr "Nuashonraigh Aire"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "Nuashonraigh Aire (%1 ar fáil)"
 
@@ -2566,7 +2579,7 @@ msgstr "Giuirléidí %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "Tá an leagan is déanaí agat cheana (%1)."
 
@@ -2582,7 +2595,7 @@ msgstr "Níl aon bhuaicphointe agat fós"
 msgid "You have not opened any book yet"
 msgstr "Níor oscail tú aon leabhar fós"
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr "Tá leagan %1 agat"
 
@@ -2615,7 +2628,7 @@ msgstr "meán / lá"
 msgid "battery"
 msgstr "ceallra"
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr "béite"
 
@@ -2678,7 +2691,7 @@ msgstr "na 7 lá seo caite"
 msgid "light"
 msgstr "solas"
 
-#: views/update.lua:458
+#: views/update.lua:460
 #, koreader
 msgid "never"
 msgstr ""
