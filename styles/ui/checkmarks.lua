@@ -5,6 +5,21 @@
 --]]
 
 local B = ...
+
+-- Letra de las casillas y opciones (búsqueda, ordenar, pickers…): la de las
+-- filas de las hojas (common/screen.lua, ROW_FONT). Si quien las crea pasa su
+-- propia letra (p. ej. el selector de fuentes, que enseña cada una), se respeta.
+do
+    local Font_ = require("ui/font")
+    local row_face = Font_:getFace("cfont", package.loaded.aire_screen.SHEET.ROW_FONT)
+    local ok_cb, CheckButton_ = pcall(require, "ui/widget/checkbutton")
+    if ok_cb and type(CheckButton_) == "table" then
+        CheckButton_.face = row_face
+        CheckButton_.checkmark_face = row_face
+    end
+    local ok_rt, RadioButtonTable_ = pcall(require, "ui/widget/radiobuttontable")
+    if ok_rt and type(RadioButtonTable_) == "table" then RadioButtonTable_.face = row_face end
+end
 local uiOpt = B.uiOpt
 local Device = require("device")
 local BD = require("ui/bidi")

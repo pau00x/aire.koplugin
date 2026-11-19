@@ -76,6 +76,7 @@ M.SHEET = {
     SUB_FONT        = 13, -- subtítulo de la hoja (gris; como el de las pantallas completas)
     SUB_GAP         = 2,  -- entre el título y el subtítulo (y entre líneas del subtítulo)
     ROW_FONT        = 15, -- texto de las filas
+    BODY_FONT       = 15, -- texto del contenido (avisos, sinopsis, diccionario, lo que se escribe)
     LABEL_FONT      = 11, -- etiqueta de sección (negrita, mayúsculas, gris)
     ICON            = 22, -- icono, casilla o círculo de una fila
     TITLE_GAP       = 12, -- debajo del título
@@ -198,6 +199,12 @@ function M.sheetWidth()
 end
 function M.sheetInnerWidth()
     return M.sheetWidth() - 2 * Screen:scaleBySize(M.SHEET.PAD) - 2 * Size.border.thin
+end
+
+-- Hueco bajo las hojas: su margen. En el lector también pisan la barra de
+-- estado de abajo (elegido así), así que no se deja su alto
+function M.sheetBottom()
+    return Screen:scaleBySize(M.SHEET.MARGIN)
 end
 
 -- Pie con los puntos: con dock, los puntos tal cual (el hueco hasta el dock

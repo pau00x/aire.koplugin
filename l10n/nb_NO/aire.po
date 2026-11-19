@@ -530,7 +530,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Tøm miniatyrbilder av omslag"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:764 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -713,7 +713,7 @@ msgstr ""
 msgid "Delete…"
 msgstr "Slett…"
 
-#: styles/ui/sheets.lua:494
+#: styles/ui/sheets.lua:554
 #, koreader
 msgid "Description"
 msgstr ""
@@ -956,7 +956,7 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: styles/ui/sheets.lua:717
+#: styles/ui/sheets.lua:834
 msgid "Fonts"
 msgstr "Skrifttyper"
 
@@ -2070,7 +2070,7 @@ msgstr "Serienummer på omslag"
 msgid "Set alarm"
 msgstr ""
 
-#: styles/ui/sheets.lua:769
+#: styles/ui/sheets.lua:886
 msgid "Set font"
 msgstr "Bruk skrifttype"
 

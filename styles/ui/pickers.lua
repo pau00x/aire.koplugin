@@ -208,7 +208,7 @@ if not TitleBar._aire_sheet_line_patched then
             -- Mismas letras que el resto de hojas: título en negrita 15,
             -- texto de debajo normal 15
             if rawget(self, "title_face") == nil then self.title_face = Font:getFace("tfont", 15) end
-            if rawget(self, "info_text_face") == nil then self.info_text_face = Font:getFace("cfont", 15) end
+            if rawget(self, "info_text_face") == nil then self.info_text_face = Font:getFace("cfont", package.loaded.aire_screen.SHEET.SUB_FONT) end
             if rawget(self, "subtitle_face") == nil then self.subtitle_face = Font:getFace("cfont", 13) end
         end
         return orig_tb_init(self, ...)

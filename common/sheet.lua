@@ -46,7 +46,7 @@ M.liveRect = liveRect
 -- Alto máximo del contenido de una hoja (pantalla menos márgenes, relleno y borde)
 function M.maxContentHeight()
     local SH = AireScreen.SHEET
-    return Screen:getHeight() - 2 * S(SH.MARGIN) - 2 * (S(SH.PAD) + Size.border.thin)
+    return Screen:getHeight() - S(SH.MARGIN) - AireScreen.sheetBottom() - 2 * (S(SH.PAD) + Size.border.thin)
 end
 
 --===========================================================================
@@ -99,7 +99,7 @@ function M.frame(content, owner, opts)
         body,
     }
     local root = BottomContainer:new{
-        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - S(SH.MARGIN) },
+        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - AireScreen.sheetBottom() },
         opts.wrap and opts.wrap(frame) or frame,
     }
     return frame, root
@@ -179,6 +179,67 @@ function Sheet:onCloseWidget()
     else
         UIManager:setDirty(nil, function() return "ui", self.frame and liveRect(self.frame) end)
     end
+end
+
+--===========================================================================
+-- Barras de título de KOReader dentro de una hoja (diccionario, visor de
+-- texto, escribir…): como la cabecera común. Título a la izquierda (TITLE_FONT,
+-- negrita), subtítulo SUB_FONT, sin línea debajo, el icono de menú a la
+-- derecha y sin la X (la hoja se cierra
+-- tocando fuera o con Atrás).
+--   sheetTitleOpts(o)              cambia las opciones de TitleBar:new
+--   withSheetTitleBar(fn, ...)     ejecuta fn con las TitleBar (no a pantalla
+--                                  completa) que se creen dentro así
+--   withSheetTitleBarAt(inset, fn, ...)  igual, con el margen del título
+--===========================================================================
+function M.sheetTitleOpts(o, inset)
+    if type(o) ~= "table" or o.fullscreen then return o end
+    -- inset: margen del título con el borde de su ventana (nil: el de KOReader).
+    -- 0 si la hoja ya pone el relleno; SHEET.PAD si la ventana no tiene relleno
+    -- Con inset, la hoja pone los huecos: arriba el mismo margen que a los lados
+    -- y debajo nada (el hueco hasta el contenido lo pone quien monta la ventana).
+    -- Si no, KOReader sumaba su propio relleno al de la hoja
+    if inset then
+        o.title_h_padding = inset
+        -- El icono (≡) con ese mismo margen: KOReader alinea el título con él,
+        -- así que basta con esto (con su margen de 11 quedaba un hueco grande)
+        o.button_padding = inset
+        o.bottom_v_padding = 0
+        if not (o.left_icon or o.right_icon) then o.title_top_padding = inset end
+    end
+    local Font = require("ui/font")
+    local SH = AireScreen.SHEET
+    o.align = "left"
+    o.with_bottom_line = false
+    o.title_face = Font:getFace("tfont", SH.TITLE_FONT)
+    o.subtitle_face = Font:getFace("cfont", SH.SUB_FONT)
+    o.info_text_face = Font:getFace("cfont", SH.SUB_FONT)
+    if o.left_icon and not o.right_icon then
+        o.right_icon = AireScreen.menuIcon(o.left_icon)
+        o.right_icon_tap_callback = o.left_icon_tap_callback
+        o.right_icon_hold_callback = o.left_icon_hold_callback
+        o.left_icon, o.left_icon_tap_callback, o.left_icon_hold_callback = nil, nil, nil
+    end
+    o.close_callback, o.close_hold_callback = nil, nil
+    return o
+end
+
+function M.withSheetTitleBarAt(inset, fn, ...)
+    local TitleBar = require("ui/widget/titlebar")
+    return AireUI.withTemporaryNew(TitleBar, function(base_new, cls, o)
+        local moved = type(o) == "table" and not o.fullscreen and o.left_icon ~= nil and o.right_icon == nil
+        local tb = base_new(cls, M.sheetTitleOpts(o, inset))
+        -- KOReader ancla sus menús al icono de la izquierda (titlebar.left_button):
+        -- ahora está a la derecha, así que left_button es ese mismo botón
+        if moved and type(tb) == "table" and tb.left_button == nil and tb.right_button then
+            tb.left_button = tb.right_button
+        end
+        return tb
+    end, fn, ...)
+end
+
+function M.withSheetTitleBar(fn, ...)
+    return M.withSheetTitleBarAt(nil, fn, ...)
 end
 
 --===========================================================================
@@ -278,10 +339,22 @@ function M.separator(w)
     }
 end
 
+-- Texto de un botón: una línea; si no cabe, dos con la misma letra (nunca se
+-- encoge, como en los botones de KOReader dentro de las hojas)
+function M.buttonLabel(text, max_w, max_h, face, fg, bg)
+    local TextWidget = require("ui/widget/textwidget")
+    local tw = TextWidget:new{ text = text or "", face = face, fgcolor = fg, max_width = max_w, padding = 0 }
+    if not (tw.isTruncated and tw:isTruncated()) then return tw end
+    tw:free()
+    local TextBoxWidget = require("ui/widget/textboxwidget")
+    return TextBoxWidget:new{ text = text or "", face = face, fgcolor = fg, bgcolor = bg, width = max_w,
+        height = max_h, height_adjust = true, height_overflow_show_ellipsis = true,
+        alignment = "center", line_height = 0 }
+end
+
 function M.button(text, w, cb, opts)
     opts = opts or {}
     local CenterContainer = require("ui/widget/container/centercontainer")
-    local TextWidget = require("ui/widget/textwidget")
     local SH = SHM()
     local h = S(SH.BTN_H)
     local outline = opts.active and opts.style == "outline"
@@ -296,8 +369,8 @@ function M.button(text, w, cb, opts)
         radius = S(SH.BTN_RADIUS), padding = 0,
         CenterContainer:new{
             dimen = Geom:new{ w = w - 2 * bsize, h = h - 2 * bsize },
-            TextWidget:new{ text = text or "", face = AireUI.face(opts.active == true, SH.BTN_FONT),
-                fgcolor = fg, max_width = w - S(16), padding = 0 },
+            M.buttonLabel(text, w - S(16), h - 2 * bsize, AireUI.face(opts.active == true, SH.BTN_FONT), fg,
+                filled and Blitbuffer.COLOR_BLACK or Blitbuffer.COLOR_WHITE),
         },
     }
     if filled and opts.active and opts.style == "gray" and opts.lighten then box = opts.lighten(box) end
