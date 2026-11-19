@@ -1011,12 +1011,25 @@ return function(Aire, ctx)
         return res
     end
 
+    local function cancelPrefetch(L)
+        if not L then return end
+        if L.prefetch_cb then
+            UIManager:unschedule(L.prefetch_cb)
+            L.prefetch_cb = nil
+        end
+        if L.prefetch_todo then
+            for _i, c in ipairs(L.prefetch_todo) do pcall(c.free, c) end
+            L.prefetch_todo = nil
+        end
+    end
+
     -- Con el Kindle en reposo, se preparan las miniaturas de la página
     -- siguiente (celdas fuera de pantalla, una cada poco), para que deslizar
     -- sea inmediato. No se repinta nada. Si se cambia de página o de pestaña,
     -- se para.
     function Aire:startPrefetch(kind, next_cells)
         local L = state(self, kind)
+        cancelPrefetch(L)
         L.load_token = (L.load_token or 0) + 1
         local token = L.load_token
         if not next_cells then return end
@@ -1025,21 +1038,26 @@ return function(Aire, ctx)
         end
         local slow = function(path, w, h) return coverSlow(L, path, w, h) end
         local prefetch
-        prefetch = function(list)
+        prefetch = function()
+            L.prefetch_cb = nil
+            local list = L.prefetch_todo
             if not alive() then
-                for _i, c in ipairs(list) do pcall(c.free, c) end
+                cancelPrefetch(L)
                 return
             end
-            local c = table.remove(list, 1)
+            local c = list and table.remove(list, 1)
             if c then
                 pcall(c.loadPending, c, slow)
                 pcall(c.free, c)
-                UIManager:scheduleIn(0.05, function() prefetch(list) end)
+                L.prefetch_cb = prefetch
+                UIManager:scheduleIn(0.05, prefetch)
             else
+                L.prefetch_todo = nil
                 Thumbs.maybeTrim()
             end
         end
-        UIManager:scheduleIn(0.6, function()
+        local start_cb = function()
+            L.prefetch_cb = nil
             if not alive() then return end
             local ok, list = pcall(next_cells)
             if ok and type(list) == "table" then
@@ -1047,9 +1065,12 @@ return function(Aire, ctx)
                 for _i, c in ipairs(list) do
                     if c.pending then table.insert(todo, c) else pcall(c.free, c) end
                 end
-                prefetch(todo)
+                L.prefetch_todo = todo
+                prefetch()
             end
-        end)
+        end
+        L.prefetch_cb = start_cb
+        UIManager:scheduleIn(0.6, start_cb)
     end
 
     -- Texto del filtro y el orden actuales ("Todos · Recientes"); nil si la
@@ -1308,6 +1329,9 @@ return function(Aire, ctx)
     -- (abrir un libro) o al pasar de MAX_CACHED_COVERS.
     function Aire:closeGridViews(keep_covers)
         if self._gv_poll then UIManager:unschedule(self._gv_poll) end
+        if self._gv then
+            for kind in pairs(LISTS.GRID_VIEWS) do cancelPrefetch(self._gv[kind]) end
+        end
         if keep_covers then return end
         for kind in pairs(LISTS.GRID_VIEWS) do
             if self._gv and self._gv[kind] then self:freeGridCovers(kind) end
