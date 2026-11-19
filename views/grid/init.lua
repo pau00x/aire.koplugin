@@ -1036,7 +1036,7 @@ return function(Aire, ctx)
                 pcall(c.free, c)
                 UIManager:scheduleIn(0.05, function() prefetch(list) end)
             else
-                Thumbs.trim()
+                Thumbs.maybeTrim()
             end
         end
         UIManager:scheduleIn(0.6, function()

@@ -28,6 +28,8 @@ if not ok_z then zstd = nil end
 
 local DIR = DataStorage:getDataDir() .. "/cache/aire-thumbs"
 local MAX_FILES = 600 -- al pasar de aquí se borran las más antiguas
+local TRIM_EVERY = 40 -- recortar tras N escrituras (evita recorrer la caché en cada prefetch)
+local puts_since_trim = 0
 
 local M = {}
 
@@ -79,6 +81,7 @@ end
 --- Guarda bb (ya escalado) como miniatura de path para una caja de w×h.
 function M.put(path, w, h, bb)
     if not zstd or not path or not bb or not ensureDir() then return end
+    local wrote = false
     local ok, err = pcall(function()
         local f = fileFor(path, w, h)
         if not f then return end
@@ -94,8 +97,13 @@ function M.put(path, w, h, bb)
         fh:close()
         C.free(cbuf)
         os.rename(f .. ".tmp", f)
+        wrote = true
     end)
-    if not ok then logger.dbg("Aire/Thumbs: no se pudo guardar", path, err) end
+    if ok and wrote then
+        puts_since_trim = puts_since_trim + 1
+    elseif not ok then
+        logger.dbg("Aire/Thumbs: no se pudo guardar", path, err)
+    end
 end
 
 --- Si hay demasiadas, borrar las más antiguas (por fecha de acceso/cambio).
@@ -106,8 +114,8 @@ function M.trim()
         for name in lfs.dir(DIR) do
             if name:match("%.thumb$") then
                 local p = DIR .. "/" .. name
-                local attr = lfs.attributes(p)
-                if attr then table.insert(list, { p = p, t = attr.access or attr.modification or 0 }) end
+                local t = lfs.attributes(p, "access") or lfs.attributes(p, "modification")
+                if t then table.insert(list, { p = p, t = t }) end
             elseif name:match("%.tmp$") then
                 os.remove(DIR .. "/" .. name)
             end
@@ -118,8 +126,16 @@ function M.trim()
     end)
 end
 
+--- Recorta la caché solo cuando se han acumulado suficientes escrituras nuevas.
+function M.maybeTrim()
+    if puts_since_trim < TRIM_EVERY then return end
+    puts_since_trim = 0
+    M.trim()
+end
+
 --- Borrar todas (p. ej. desde el menú de pruebas).
 function M.clear()
+    puts_since_trim = 0
     if lfs.attributes(DIR, "mode") ~= "directory" then return end
     pcall(function()
         for name in lfs.dir(DIR) do
