@@ -6,7 +6,6 @@
         y ruta debajo en gris
 --]]
 
-local Device = require("device")
 local FileManagerShortcuts = require("apps/filemanager/filemanagershortcuts")
 local FrameContainer = require("ui/widget/container/framecontainer")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
@@ -21,8 +20,6 @@ local logger = require("logger")
 local _ = require("gettext")
 local N_ = _.ngettext
 local T = require("ffi/util").template
-local Screen = Device.screen
-local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Shortcuts"
 local AireUI = package.loaded.aire_ui
@@ -38,8 +35,8 @@ local function styleShortcutItem(item, item_w, item_h, pad_h)
     if not entry or item._aire_sc_card_done then return end
     item._aire_sc_card_done = true
 
-    local card_w = math.max(S(120), item_w - 2 * pad_h)
-    local gap_b = S(8)
+    -- Ancho de la tarjeta y hueco de debajo: los comunes (common/list.lua)
+    local card_w, _card_max_h, gap_b = package.loaded.aire_list.geometry(item_w, item_h, pad_h, nil)
     local card_h = math.max(S(46), item_h - gap_b)
     local inner_pad_h = S(12)
     local icon_sz = S(22)
@@ -76,7 +73,7 @@ local function styleShortcutItem(item, item_w, item_h, pad_h)
         bordersize = Size.border.thin,
         color = GRAY_LINE,
         background = WHITE,
-        radius = S(10),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = 0,
         padding_left = inner_pad_h,
         padding_right = inner_pad_h,
@@ -88,16 +85,8 @@ local function styleShortcutItem(item, item_w, item_h, pad_h)
         },
     }
 
-    item[1] = FrameContainer:new{
-        width = item_w,
-        height = item_h,
-        bordersize = 0,
-        padding = 0,
-        padding_left = pad_h,
-        padding_right = pad_h,
-        padding_bottom = gap_b,
-        card,
-    }
+    -- La tarjeta en la fila, con su margen y el hueco de debajo (common/list.lua)
+    package.loaded.aire_list.place(item, card, item_w, pad_h, { gap = gap_b, item_h = item_h })
 end
 
 local ITEMS_PER_PAGE = 8 -- (con más, las tarjetas no caben y se tocan entre sí)
@@ -158,21 +147,10 @@ safeWrap(FileManagerShortcuts, "onShowFolderShortcutsDialog", function(orig_show
                 self.title_bar:setSubTitle(sub, true)
             end
             if not self.item_group then return end
-            self.item_group.align = "left"
-            local w = self.dimen and self.dimen.w or Screen:getWidth()
-            local first_item = self.item_group[1]
-            local avail_w = (first_item and first_item.dimen and first_item.dimen.w)
-                or (self.inner_dimen and self.inner_dimen.w)
-                or w
-            local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(SIDE) - outer_pad)
-            for _, child in ipairs(self.item_group) do
-                if child and child.entry then
-                    local ih = (child.dimen and child.dimen.h) or S(64)
-                    styleShortcutItem(child, avail_w, ih, pad_h)
-                end
-            end
-            self.item_group:resetLayout()
+            -- Filas con el margen común (common/list.lua)
+            package.loaded.aire_list.eachItem(self, function(child, avail_w, ih, pad_h)
+                styleShortcutItem(child, avail_w, ih, pad_h)
+            end, S(64))
         end
         function sm:updateItems(select_number, ...)
             orig_update(self, select_number, ...)

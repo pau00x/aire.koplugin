@@ -48,7 +48,7 @@ local function buildSummaryCard(rs, avail_w, pad_h)
         bordersize = Size.border.thin,
         color = GRAY_BORDER,
         background = GRAY_CARD,
-        radius = S(10),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = pad,
         VerticalGroup:new{
             align = "left",
@@ -87,8 +87,8 @@ local function styleSearchItem(item, item_w, item_h, pad_h)
     if not entry or item._aire_search_card_done then return end
     item._aire_search_card_done = true
 
-    local card_w = math.max(S(120), item_w - 2 * pad_h)
-    local gap_b = S(8)
+    -- Ancho de la tarjeta y hueco de debajo: los comunes (common/list.lua)
+    local card_w, _card_max_h, gap_b = package.loaded.aire_list.geometry(item_w, item_h, pad_h, nil)
     local max_card_h = math.max(S(44), item_h - gap_b)
     local inner_pad = S(11)  -- igual que la tarjeta de resumen: textos alineados
     local in_w = card_w - 2 * inner_pad - 2 * Size.border.thin
@@ -143,7 +143,7 @@ local function styleSearchItem(item, item_w, item_h, pad_h)
         bordersize = Size.border.thin,
         color = GRAY_LINE,
         background = WHITE,
-        radius = S(10),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = inner_pad,
         VerticalGroup:new{
             align = "left",
@@ -154,17 +154,8 @@ local function styleSearchItem(item, item_w, item_h, pad_h)
     }
     local card_h = math.min(max_card_h, card:getSize().h)
 
-    item[1] = FrameContainer:new{
-        width = item_w,
-        height = card_h + gap_b,
-        bordersize = 0,
-        padding = 0,
-        padding_left = pad_h,
-        padding_right = pad_h,
-        padding_bottom = gap_b,
-        card,
-    }
-    if item.dimen then item.dimen.h = card_h + gap_b end
+    -- La tarjeta en la fila, con su margen y el hueco de debajo (common/list.lua)
+    package.loaded.aire_list.place(item, card, item_w, pad_h, { gap = gap_b, fit = true, max_h = card_h })
 end
 
 safeWrap(ReaderSearch, "onShowFindAllResults", function(orig_show, self, not_cached)
@@ -216,25 +207,15 @@ safeWrap(ReaderSearch, "onShowFindAllResults", function(orig_show, self, not_cac
         safeWrap(rm, "updateItems", function(orig_update, self, select_number, ...)
             orig_update(self, select_number, ...)
             if not self.item_group then return end
-            self.item_group.align = "left"
-            local w = self.dimen and self.dimen.w or Screen:getWidth()
-            local first_item = self.item_group[1]
-            local avail_w = (first_item and first_item.dimen and first_item.dimen.w)
-                or (self.inner_dimen and self.inner_dimen.w)
-                or w
-            local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(SIDE) - outer_pad)
-            for _, child in ipairs(self.item_group) do
-                if child and child.entry then
-                    local ih = (child.dimen and child.dimen.h) or S(84)
-                    styleSearchItem(child, avail_w, ih, pad_h)
-                end
-            end
+            -- Filas con el margen común (common/list.lua); arriba, la tarjeta fija
+            local avail_w, pad_h = package.loaded.aire_list.eachItem(self, function(child, aw, ih, ph)
+                styleSearchItem(child, aw, ih, ph)
+            end, S(84))
             if self.item_table and #self.item_table > 0 then
                 local hero = buildSummaryCard(self._search_owner, avail_w, pad_h)
                 table.insert(self.item_group, 1, hero)
+                self.item_group:resetLayout()
             end
-            self.item_group:resetLayout()
         end, TAG)
         rm:updateItems(1)
         UIManager:setDirty(rm, "ui")

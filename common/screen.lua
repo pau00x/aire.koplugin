@@ -5,6 +5,7 @@
 
       METRICS    márgenes y espacios base (en píxeles sin escalar; S() al usarlos)
       SHEET      medidas de las hojas inferiores y submenús (sheetWidth, sheetInnerWidth)
+      LIST       medidas de las listas de contenido en tarjetas (common/list.lua)
       Pager      paginación por puntos (● activo alargado) o "3 / 12"
       statusBar  barra de estado (hora, indicadores, energía); los datos los
                  da views/topbar.lua con setStatusSource
@@ -82,6 +83,13 @@ M.SHEET = {
     TITLE_GAP       = 12, -- debajo del título
     LABEL_GAP       = 8,  -- debajo de una etiqueta de sección
     GROUP_GAP       = 12, -- entre grupos (y a cada lado de un separador)
+}
+
+-- Listas de contenido en tarjetas (common/list.lua)
+M.LIST = {
+    CARD_RADIUS = 10,  -- esquinas de las tarjetas
+    CARD_GAP    = 8,   -- hueco entre tarjetas
+    CARD_MIN_W  = 120, -- ancho mínimo de una tarjeta
 }
 
 local PAGER = {

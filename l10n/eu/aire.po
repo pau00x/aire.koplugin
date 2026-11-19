@@ -106,7 +106,7 @@ msgstr "%1 or."
 msgid "%1 pp./h"
 msgstr "%1 or./h"
 
-#: styles/shortcuts.lua:156
+#: styles/shortcuts.lua:145
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "gordetako %1 lasterbide"
@@ -198,7 +198,7 @@ msgstr "Aktibo"
 msgid "Activity summary"
 msgstr "Jardueraren laburpena"
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:303
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:114
+#: styles/shortcuts.lua:103
 msgid "Add to folder shortcuts"
 msgstr "Gehitu karpeten lasterbideetara"
 
@@ -326,7 +326,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "LIBURUA"
 
-#: styles/bookmark.lua:43
+#: styles/bookmark.lua:39
 msgid "BOOKMARK"
 msgstr "LASTER-MARKA"
 
@@ -778,7 +778,7 @@ msgstr "Editatu Hasierako widgetak"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:303
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -787,7 +787,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Editatu seriea"
 
-#: styles/bookmark.lua:341
+#: styles/bookmark.lua:307
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -1005,7 +1005,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Ezarritako keinuak: %1"
 
-#: styles/bookmark.lua:366
+#: styles/bookmark.lua:332
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1023,7 +1023,7 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Sareta: %1 zutabe"
 
-#: styles/bookmark.lua:42
+#: styles/bookmark.lua:38
 msgid "HIGHLIGHT"
 msgstr "NABARMENDUA"
 
@@ -1426,7 +1426,7 @@ msgstr "HURRENGOA"
 msgid "NEXT REVIEW"
 msgstr "HURRENGO BERRIKUSPENA"
 
-#: styles/bookmark.lua:41
+#: styles/bookmark.lua:37
 msgid "NOTE"
 msgstr "OHARRA"
 
@@ -1562,7 +1562,7 @@ msgstr "Ez dago irakurketa-saiorik hilabete honetan"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:155
+#: styles/shortcuts.lua:144
 msgid "No saved shortcuts"
 msgstr "Ez dago gordetako lasterbiderik"
 
@@ -1889,7 +1889,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:354
+#: dev/devtools.lua:636 styles/bookmark.lua:320
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1899,7 +1899,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Kendu"
 
-#: styles/bookmark.lua:351
+#: styles/bookmark.lua:317
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1919,7 +1919,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:353
+#: styles/bookmark.lua:319
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""

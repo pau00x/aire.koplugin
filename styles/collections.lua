@@ -13,8 +13,6 @@
         invertía todo el rectángulo en negro, con las esquinas cuadradas).
 --]]
 
-local Blitbuffer = require("ffi/blitbuffer")
-local Device = require("device")
 local FileManagerCollection = require("apps/filemanager/filemanagercollection")
 local Font = require("ui/font")
 local FrameContainer = require("ui/widget/container/framecontainer")
@@ -26,10 +24,7 @@ local OverlapGroup = require("ui/widget/overlapgroup")
 local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
 local TextWidget = require("ui/widget/textwidget")
-local UIManager = require("ui/uimanager")
 local logger = require("logger")
-local Screen = Device.screen
-local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Collections"
 local AireUI = package.loaded.aire_ui
@@ -41,30 +36,13 @@ FileManagerCollection._aire_coll_styled = true
 local ITEMS_PER_PAGE = 8
 
 
--- Toque: la tarjeta en gris un momento y luego lo de KOReader
-local function onTapCard(item, _arg, ges)
-    if not item[1] or not item[1].dimen then return end
-    local pos = item:getGesPosition(ges)
-    local card = item._aire_card
-    if card and G_reader_settings:nilOrTrue("flash_ui") then
-        local old = card.background
-        card.background = Blitbuffer.COLOR_LIGHT_GRAY
-        UIManager:widgetRepaint(item[1], item[1].dimen.x, item[1].dimen.y)
-        UIManager:setDirty(nil, "fast", item[1].dimen)
-        UIManager:forceRePaint()
-        card.background = old
-    end
-    item.menu:onMenuSelect(item.entry, pos)
-    return true
-end
-
 local function styleCollItem(item, item_w, item_h, pad_h, selected)
     local entry = item.entry
     if not entry or item._aire_coll_done then return end
     item._aire_coll_done = true
 
-    local gap_b = S(8)
-    local card_w = math.max(S(120), item_w - 2 * pad_h)
+    -- Ancho de la tarjeta y hueco de debajo: los comunes (common/list.lua)
+    local card_w, _card_max_h, gap_b = package.loaded.aire_list.geometry(item_w, item_h, pad_h)
     local card_h = math.max(S(36), item_h - gap_b)
     local inner_pad = S(14)
     local in_w = card_w - 2 * inner_pad - 2 * Size.border.thin
@@ -101,24 +79,15 @@ local function styleCollItem(item, item_w, item_h, pad_h, selected)
         bordersize = Size.border.thin,
         color = is_sel and GRAY_BORDER or GRAY_LINE,
         background = is_sel and GRAY_CARD or WHITE,
-        radius = S(10),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = 0,
         padding_left = inner_pad,
         padding_right = inner_pad,
         og,
     }
-    item._aire_card = card
-    item.onTapSelect = onTapCard
-    item[1] = FrameContainer:new{
-        width = item_w,
-        height = item_h,
-        bordersize = 0,
-        padding = 0,
-        padding_left = pad_h,
-        padding_right = pad_h,
-        padding_bottom = gap_b,
-        card,
-    }
+    -- La tarjeta en la fila (common/list.lua); al tocarla, gris un momento
+    package.loaded.aire_list.place(item, card, item_w, pad_h, { gap = gap_b, item_h = item_h })
+    item.onTapSelect = package.loaded.aire_list.onTapFlash
 end
 
 safeWrap(FileManagerCollection, "onShowCollList", function(orig_show, self, ...)
@@ -147,18 +116,10 @@ safeWrap(FileManagerCollection, "onShowCollList", function(orig_show, self, ...)
         safeWrap(menu, "updateItems", function(orig_update, self, select_number, ...)
             orig_update(self, select_number, ...)
             if not self.item_group then return end
-            self.item_group.align = "left"
-            local w = self.dimen and self.dimen.w or Screen:getWidth()
-            local first = self.item_group[1]
-            local avail_w = (first and first.dimen and first.dimen.w) or (self.inner_dimen and self.inner_dimen.w) or w
-            local pad_h = math.max(0, S(SIDE) - math.floor((w - avail_w) / 2))
-            for _i, child in ipairs(self.item_group) do
-                if child and child.entry then
-                    styleCollItem(child, avail_w, (child.dimen and child.dimen.h) or S(56), pad_h,
-                        manager.selected_collections)
-                end
-            end
-            self.item_group:resetLayout()
+            -- Filas con el margen común (common/list.lua)
+            package.loaded.aire_list.eachItem(self, function(child, avail_w, ih, pad_h)
+                styleCollItem(child, avail_w, ih, pad_h, manager.selected_collections)
+            end, S(56))
         end, TAG)
         menu:updateItems(1)
     end)

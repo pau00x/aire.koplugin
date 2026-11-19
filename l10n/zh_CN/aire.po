@@ -94,7 +94,7 @@ msgstr "%1 页"
 msgid "%1 pp./h"
 msgstr "%1 页/小时"
 
-#: styles/shortcuts.lua:156
+#: styles/shortcuts.lua:145
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 个已保存的快捷方式"
@@ -182,7 +182,7 @@ msgstr "运行中"
 msgid "Activity summary"
 msgstr "活动概览"
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:303
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:114
+#: styles/shortcuts.lua:103
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -313,7 +313,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "书籍"
 
-#: styles/bookmark.lua:43
+#: styles/bookmark.lua:39
 msgid "BOOKMARK"
 msgstr "书签"
 
@@ -771,7 +771,7 @@ msgstr "编辑主屏幕小组件"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:303
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -780,7 +780,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "编辑丛书"
 
-#: styles/bookmark.lua:341
+#: styles/bookmark.lua:307
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -1002,7 +1002,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "已设置的手势：%1"
 
-#: styles/bookmark.lua:366
+#: styles/bookmark.lua:332
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "网格：%1 列"
 
-#: styles/bookmark.lua:42
+#: styles/bookmark.lua:38
 msgid "HIGHLIGHT"
 msgstr "高亮"
 
@@ -1424,7 +1424,7 @@ msgstr "下一本"
 msgid "NEXT REVIEW"
 msgstr "下次复习"
 
-#: styles/bookmark.lua:41
+#: styles/bookmark.lua:37
 msgid "NOTE"
 msgstr "笔记"
 
@@ -1564,7 +1564,7 @@ msgstr "本月没有阅读记录"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:155
+#: styles/shortcuts.lua:144
 msgid "No saved shortcuts"
 msgstr "没有保存的快捷方式"
 
@@ -1898,7 +1898,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:354
+#: dev/devtools.lua:636 styles/bookmark.lua:320
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1908,7 +1908,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "移除"
 
-#: styles/bookmark.lua:351
+#: styles/bookmark.lua:317
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1928,7 +1928,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:353
+#: styles/bookmark.lua:319
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""

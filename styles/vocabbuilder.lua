@@ -161,7 +161,7 @@ local function patchItemClass(VocabItemWidget)
             bordersize = Size.border.thin,
             color = is_hero and GRAY_BORDER or GRAY_LINE,
             background = is_hero and GRAY_CARD or WHITE,
-            radius = S(10),
+            radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
             padding = 0,
             padding_left = pad,
             padding_right = pad,

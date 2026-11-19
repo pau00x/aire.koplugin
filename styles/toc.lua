@@ -57,7 +57,7 @@ local function buildHeroCard(toc, avail_w, pad_h)
         bordersize = Size.border.thin,
         color = GRAY_BORDER,
         background = GRAY_CARD,
-        radius = S(10),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = pad,
         VerticalGroup:new{
             align = "left",
@@ -104,8 +104,8 @@ local function styleTocMenuItem(item, item_w, item_h, pad_h, cur_ch_title)
 
     local depth = math.max(0, (tonumber(entry.depth) or 1) - 1)
     local indent = math.min(S(48), depth * S(16))
-    local card_w = math.max(S(120), item_w - 2 * pad_h - indent)
-    local gap_b = S(6)
+    -- Ancho de la tarjeta y hueco de debajo: los comunes (common/list.lua)
+    local card_w, _card_max_h, gap_b = package.loaded.aire_list.geometry(item_w, item_h, pad_h, { indent = indent })
     local card_h = math.max(S(32), item_h - gap_b)
     local is_cur = entry.bold == true or (cur_ch_title and cur_ch_title ~= "" and entry.text == cur_ch_title)
 
@@ -158,23 +158,15 @@ local function styleTocMenuItem(item, item_w, item_h, pad_h, cur_ch_title)
         bordersize = Size.border.thin,
         color = is_cur and GRAY_BORDER or GRAY_LINE,
         background = is_cur and GRAY_CARD or WHITE,
-        radius = S(9),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = 0,
         padding_left = inner_pad_h,
         padding_right = inner_pad_h,
         og,
     }
 
-    item[1] = FrameContainer:new{
-        width = item_w,
-        height = item_h,
-        bordersize = 0,
-        padding = 0,
-        padding_left = pad_h + indent,
-        padding_right = pad_h,
-        padding_bottom = gap_b,
-        card,
-    }
+    -- La tarjeta en la fila, con su margen y el hueco de debajo (common/list.lua)
+    package.loaded.aire_list.place(item, card, item_w, pad_h, { gap = gap_b, item_h = item_h, indent = indent })
 end
 
 safeWrap(ReaderToc, "onShowToc", function(orig_onShowToc, self)
@@ -253,24 +245,13 @@ safeWrap(ReaderToc, "onShowToc", function(orig_onShowToc, self)
         safeWrap(tm, "updateItems", function(orig_update, self, select_number, ...)
             orig_update(self, select_number, ...)
             if not self.item_group then return end
-            self.item_group.align = "left"
-            local w = self.dimen and self.dimen.w or Screen:getWidth()
-            local first_item = self.item_group[1]
-            local avail_w = (first_item and first_item.dimen and first_item.dimen.w)
-                or (self.inner_dimen and self.inner_dimen.w)
-                or w
-            -- Menu ya aplica items_padding a los lados de item_group: completamos hasta S(SIDE)
-            local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(SIDE) - outer_pad)
             local owner = self._toc_owner
             local cp = owner and (owner.pageno or (owner.ui and owner.ui.getCurrentPage and owner.ui:getCurrentPage()))
             local cur_ch = owner and owner.getTocTitleByPage and cp and owner:getTocTitleByPage(cp)
-            for _, child in ipairs(self.item_group) do
-                if child and child.entry then
-                    local ih = (child.dimen and child.dimen.h) or S(52)
-                    styleTocMenuItem(child, avail_w, ih, pad_h, cur_ch)
-                end
-            end
+            -- Filas con el margen común (common/list.lua); arriba, la tarjeta fija
+            local avail_w, pad_h = package.loaded.aire_list.eachItem(self, function(child, aw, ih, ph)
+                styleTocMenuItem(child, aw, ih, ph, cur_ch)
+            end, S(52))
             local hero = buildHeroCard(owner, avail_w, pad_h)
             table.insert(self.item_group, 1, hero)
             self.item_group:resetLayout()

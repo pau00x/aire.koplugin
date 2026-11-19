@@ -411,7 +411,7 @@ local function patchCoverBrowser(plugin)
                         bordersize = border,
                         color = Blitbuffer.COLOR_GRAY_D,
                         background = Blitbuffer.COLOR_WHITE,
-                        radius = Screen:scaleBySize(10),
+                        radius = Screen:scaleBySize(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista)
                         padding = 0,
                         CenterContainer:new{
                             dimen = Geom:new{ w = inner_w, h = inner_h },

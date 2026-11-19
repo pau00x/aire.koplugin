@@ -158,9 +158,8 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
                 changed = true
                 local item_w = (child.dimen and child.dimen.w) or (menu.item_dimen and menu.item_dimen.w) or menu.width or Screen:getWidth()
                 local item_h = (child.dimen and child.dimen.h) or (menu.item_dimen and menu.item_dimen.h) or Screen:scaleBySize(48)
-                local gap_b = Screen:scaleBySize(8)
-                local card_w = math.max(Screen:scaleBySize(120), item_w - 2 * pad_h)
-                local card_h = math.max(Screen:scaleBySize(28), item_h - gap_b)
+                -- Medidas de la tarjeta: las comunes (common/list.lua)
+                local card_w, card_h, gap_b = package.loaded.aire_list.geometry(item_w, item_h, pad_h)
                 local inner_w = math.max(Screen:scaleBySize(80), card_w - 2 * inner_pad - 2 * Size.border.thin)
                 local inner_h = math.max(Screen:scaleBySize(20), card_h - 2 * Size.border.thin)
                 local is_dir = child.entry.is_file == false or (not child.entry.is_file and not child.entry.file)
@@ -208,22 +207,13 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
                     bordersize = Size.border.thin,
                     color = Blitbuffer.COLOR_GRAY_D,
                     background = Blitbuffer.COLOR_WHITE,
-                    radius = Screen:scaleBySize(10),
+                    radius = Screen:scaleBySize(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista)
                     padding = 0,
                     padding_left = inner_pad,
                     padding_right = inner_pad,
                     row,
                 }
-                child[1] = FrameContainer:new{
-                    width = item_w,
-                    height = item_h,
-                    bordersize = 0,
-                    padding = 0,
-                    padding_left = pad_h,
-                    padding_right = pad_h,
-                    padding_bottom = gap_b,
-                    card,
-                }
+                package.loaded.aire_list.place(child, card, item_w, pad_h, { gap = gap_b, item_h = item_h })
             end
         end
         if changed and menu.item_group.resetLayout then menu.item_group:resetLayout() end

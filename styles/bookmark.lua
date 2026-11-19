@@ -9,7 +9,6 @@
 --]]
 
 local datetime = require("datetime")
-local Device = require("device")
 local FrameContainer = require("ui/widget/container/framecontainer")
 local Geom = require("ui/geometry")
 local LeftContainer = require("ui/widget/container/leftcontainer")
@@ -24,9 +23,6 @@ local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local logger = require("logger")
 local _ = require("gettext")
-local Screen = Device.screen
-local METRICS = package.loaded.aire_screen.METRICS -- medidas comunes (common/screen.lua)
-local SIDE = METRICS.SIDE
 local AireUI = package.loaded.aire_ui
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Bookmark"
@@ -55,14 +51,6 @@ end
 -- Mantener pulsado: la tarjeta en negro un momento y los detalles. KOReader
 -- invertía un rectángulo que ya no coincide con la tarjeta (franja negra) y no
 -- hacía nada si aún no tenía su posición; en el Kindle no se abrían.
-local function onHoldCard(item, _arg, ges)
-    -- Solo la tarjeta en negro (común a las listas: styles/ui/titlebar.lua)
-    local flash = require("ui/widget/menu")._aire_flashCard
-    if flash then pcall(flash, item._aire_bm_card) end
-    local ok, err = pcall(item.menu.onMenuHold, item.menu, item.entry, item:getGesPosition(ges))
-    if not ok then logger.warn("Aire/Bookmark: mantener pulsado:", err) end
-    return true
-end
 
 -- Tarjeta con el alto de su contenido (hasta item_h): KOReader reparte el alto
 -- de la página entre items_per_page y las tarjetas cortas dejaban mucho hueco.
@@ -72,8 +60,8 @@ local function styleBookmarkItem(item, item_w, item_h, pad_h)
     if not entry or item._aire_bm_card_done then return end
     item._aire_bm_card_done = true
 
-    local card_w = math.max(S(120), item_w - 2 * pad_h)
-    local gap_b = S(8)
+    -- Ancho de la tarjeta y hueco de debajo: los comunes (common/list.lua)
+    local card_w, _card_max_h, gap_b = package.loaded.aire_list.geometry(item_w, item_h, pad_h, nil)
     local max_card_h = math.max(S(44), item_h - gap_b)
     local inner_pad = S(11)
     local in_w = card_w - 2 * inner_pad - 2 * Size.border.thin
@@ -172,25 +160,14 @@ local function styleBookmarkItem(item, item_w, item_h, pad_h)
         bordersize = Size.border.thin,
         color = GRAY_LINE,
         background = WHITE,
-        radius = S(10),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = inner_pad,
         body_vg,
     }
     local card_h = math.min(max_card_h, card:getSize().h)
 
-    item[1] = FrameContainer:new{
-        width = item_w,
-        height = card_h + gap_b,
-        bordersize = 0,
-        padding = 0,
-        padding_left = pad_h,
-        padding_right = pad_h,
-        padding_bottom = gap_b,
-        card,
-    }
-    if item.dimen then item.dimen.h = card_h + gap_b end
-    item._aire_bm_card = card
-    item.onHoldSelect = onHoldCard
+    -- La tarjeta en la fila, con su margen y el hueco de debajo (common/list.lua)
+    package.loaded.aire_list.place(item, card, item_w, pad_h, { gap = gap_b, fit = true, max_h = card_h })
 end
 
 safeWrap(ReaderBookmark, "onShowBookmark", function(orig_onShowBookmark, self, ...)
@@ -217,21 +194,10 @@ safeWrap(ReaderBookmark, "onShowBookmark", function(orig_onShowBookmark, self, .
         safeWrap(bm_menu, "updateItems", function(orig_update, self, select_number, ...)
             orig_update(self, select_number, ...)
             if not self.item_group then return end
-            self.item_group.align = "left"
-            local w = self.dimen and self.dimen.w or Screen:getWidth()
-            local first_item = self.item_group[1]
-            local avail_w = (first_item and first_item.dimen and first_item.dimen.w)
-                or (self.inner_dimen and self.inner_dimen.w)
-                or w
-            local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(SIDE) - outer_pad)
-            for _, child in ipairs(self.item_group) do
-                if child and child.entry then
-                    local ih = (child.dimen and child.dimen.h) or S(84)
-                    styleBookmarkItem(child, avail_w, ih, pad_h)
-                end
-            end
-            self.item_group:resetLayout()
+            -- Filas con el margen común (common/list.lua)
+            package.loaded.aire_list.eachItem(self, function(child, avail_w, ih, pad_h)
+                styleBookmarkItem(child, avail_w, ih, pad_h)
+            end, S(84))
         end, TAG)
         bm_menu:updateItems(1)
         UIManager:setDirty(bm_menu, "ui")

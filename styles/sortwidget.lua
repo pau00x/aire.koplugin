@@ -70,7 +70,7 @@ if SortItemWidget and not SortItemWidget._aire_card then
             bordersize = Size.border.thin,
             color = inv and BLACK or GRAY_LINE,
             background = inv and BLACK or WHITE,
-            radius = S(10),
+            radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
             padding = 0,
             focusable = true,
             focus_border_size = Size.border.thin,

@@ -106,7 +106,7 @@ msgstr "%1 σελ."
 msgid "%1 pp./h"
 msgstr "%1 σελ./ώρα"
 
-#: styles/shortcuts.lua:156
+#: styles/shortcuts.lua:145
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 αποθηκευμένη συντόμευση"
@@ -198,7 +198,7 @@ msgstr "Ενεργό"
 msgid "Activity summary"
 msgstr "Σύνοψη δραστηριότητας"
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:303
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:114
+#: styles/shortcuts.lua:103
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -328,7 +328,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "ΒΙΒΛΙΟ"
 
-#: styles/bookmark.lua:43
+#: styles/bookmark.lua:39
 msgid "BOOKMARK"
 msgstr "ΕΠΙΣΗΜΕΙΩΣΗ"
 
@@ -786,7 +786,7 @@ msgstr "Επεξεργασία μικροεφαρμογών Αρχικής"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:303
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -795,7 +795,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Επεξεργασία σειράς"
 
-#: styles/bookmark.lua:341
+#: styles/bookmark.lua:307
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -1017,7 +1017,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Ορισμένες χειρονομίες: %1"
 
-#: styles/bookmark.lua:366
+#: styles/bookmark.lua:332
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1035,7 +1035,7 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Πλέγμα: %1 στήλες"
 
-#: styles/bookmark.lua:42
+#: styles/bookmark.lua:38
 msgid "HIGHLIGHT"
 msgstr "ΕΠΙΣΗΜΑΝΣΗ"
 
@@ -1438,7 +1438,7 @@ msgstr "ΕΠΟΜΕΝΟ"
 msgid "NEXT REVIEW"
 msgstr "ΕΠΟΜΕΝΗ ΕΠΑΝΑΛΗΨΗ"
 
-#: styles/bookmark.lua:41
+#: styles/bookmark.lua:37
 msgid "NOTE"
 msgstr "ΣΗΜΕΙΩΣΗ"
 
@@ -1578,7 +1578,7 @@ msgstr "Καμία συνεδρία ανάγνωσης αυτόν τον μήν�
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:155
+#: styles/shortcuts.lua:144
 msgid "No saved shortcuts"
 msgstr "Καμία αποθηκευμένη συντόμευση"
 
@@ -1912,7 +1912,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:354
+#: dev/devtools.lua:636 styles/bookmark.lua:320
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1922,7 +1922,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: styles/bookmark.lua:351
+#: styles/bookmark.lua:317
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1942,7 +1942,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:353
+#: styles/bookmark.lua:319
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
