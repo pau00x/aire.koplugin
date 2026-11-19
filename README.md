@@ -216,9 +216,9 @@ aire.koplugin/
 ├── ui/                # Shared UI primitives: theme, screen metrics, bottom sheets, card lists, full-screen pages
 ├── views/             # Aire's own screens: home, topbar, dock, explorer, power (power sheet),
 │                      #   update_sheet (OTA UI), booksheet (hold sheets),
-│                      #   grid/ (Library, Collections, History: init, data, cells, cover thumbnails),
+│                      #   grid/ (Library, Collections, History: init, data, cells, LRU covers, library cache, thumbnails),
 │                      #   stats/ (Stats, Recap: init, data, charts),
-│                      #   widgets/ (Home widgets: init, parts)
+│                      #   widgets/ (Home widgets: init, parts, catalog, picker/presets)
 ├── styles/            # Restyling of KOReader screens grouped by area:
 │                      #   reader/ (toc, bookmark, search, skim, highlight, footer, bookmap, pagebrowser),
 │                      #   filemanager/ (bookinfo, bookstatus, collections, covers, shortcuts, sortwidget, imageviewer),
