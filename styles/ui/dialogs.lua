@@ -397,25 +397,36 @@ if OPENING_BOOK_TITLE and not ReaderUI._opening_book_title then
 end
 
 --===========================================================================
--- 6) AVISOS RÁPIDOS (NOTIFICATION / TOASTS) EN FORMA DE PÍLDORA
+-- 6) AVISOS RÁPIDOS (NOTIFICATION / TOASTS) ARRIBA CON ESTILO DE HOJA
 --===========================================================================
 if PILL_NOTIFICATIONS and not Notification._pill_patched then
     Notification._pill_patched = true
+    local AireScreen = package.loaded.aire_screen
+    local SHEET = AireScreen.SHEET
     safeWrap(Notification, "init", function(orig_Notification_init, self)
+        local S_ = function(n) return Screen:scaleBySize(n) end
+        local margin = S_(SHEET.MARGIN)
+        local pad_h = S_(SHEET.PAD)
+        local pad_v = S_(10)
+        if rawget(self, "face") == nil then
+            self.face = Font:getFace("cfont", SHEET.BODY_FONT)
+        end
+        self.margin = margin
+        self.padding = pad_h
         orig_Notification_init(self)
         local f = self.frame
         if not f then return end
-        f.padding_left = Size.padding.large
-        f.padding_right = Size.padding.large
-        f.padding_top = Size.padding.default
-        f.padding_bottom = Size.padding.default
-        -- Mismo radio y borde fino que el resto de ventanas del plugin
-        f.radius = Size.radius.window
+        f.margin = 0
+        f.padding_left = pad_h
+        f.padding_right = pad_h
+        f.padding_top = pad_v
+        f.padding_bottom = pad_v
+        f.radius = S_(SHEET.RADIUS)
         f.bordersize = Size.border.thin
         f._size = nil
         local sz = f:getSize()
         if self[1] and self[1][1] and self._shown_idx then
-            self[1][1].height = sz.h * (self._shown_idx - 1) + (self.margin or 0)
+            self[1][1].height = margin + (sz.h + margin) * (self._shown_idx - 1)
             if self[1].resetLayout then self[1]:resetLayout() end
         end
     end, TAG)
