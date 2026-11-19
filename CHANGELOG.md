@@ -4,6 +4,14 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+### Changed
+
+- **Unified icon set across KOReader**: replaced all active KOReader UI icons (navigation chevrons, stars, list/ToC controls, reading/progress markers, notices, Wi-Fi signal levels, and PDF/CRE layout icons) with matching Aire SVGs, and replaced the Unicode `✓` in checked buttons (such as the book status row) with Aire's SVG checkmark.
+
+### Internal
+
+- Centralized global KOReader → Aire icon overrides in `core/icons.lua` (`M.OVERRIDES`), removing duplicate icon maps from `styles/ui/touchmenu.lua`, `styles/ui/readermenu.lua`, `styles/ui/floating.lua`, and `ui/screen.lua`, while preserving user overrides in `<DataDir>/icons/`. Removed the unused `aire.typography.svg` and normalized `aire.chevron.down.svg` stroke width.
+
 ## [0.4.0] - 2026-11-19
 
 ### Changed

@@ -199,6 +199,7 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
         if self._aire_custom_bar and self._aire_moved_left_to_right and self._aire_right_icon_w and icon then
             self._aire_right_icon_w:free()
             self._aire_right_icon_w.icon = package.loaded.aire_screen.menuIcon(icon)
+            self._aire_right_icon_w.file = nil
             self._aire_right_icon_w:init()
             if self.show_parent then
                 UIManager:setDirty(self.show_parent, "ui", self.dimen)

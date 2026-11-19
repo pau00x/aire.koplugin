@@ -56,7 +56,11 @@ if plugin_dir then
     if not _._aire_l10n_lang then
         pcall(function() dofile(plugin_dir .. "/core/l10n.lua").load(plugin_dir) end)
     end
-    pcall(function() dofile(plugin_dir .. "/core/icons.lua").register(plugin_dir) end)
+    pcall(function()
+        local Icons = dofile(plugin_dir .. "/core/icons.lua")
+        Icons.register(plugin_dir)
+        package.loaded.aire_icons = Icons
+    end)
     -- Piezas comunes (medidas, letra, colores, zonas pulsables, envoltorios
     -- seguros): todos los módulos las toman de package.loaded.aire_ui, la
     -- estructura de las pantallas completas (medidas, puntos de página) de

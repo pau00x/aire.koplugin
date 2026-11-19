@@ -338,9 +338,11 @@ end
 --   -> widget, parts  (parts.title, parts.menu_icon, parts.setTitle(text),
 --                      parts.setMenuIcon(icon))
 --===========================================================================
--- El ≡ de KOReader se cambia por el de Aire en todas las cabeceras
-local ICON_ALIASES = { ["appbar.menu"] = "aire.menu" }
-function M.menuIcon(icon) return ICON_ALIASES[icon] or icon end
+-- Mapeo centralizado en core/icons.lua (M.OVERRIDES)
+function M.menuIcon(icon)
+    local Icons = package.loaded.aire_icons
+    return (Icons and Icons.resolve(icon)) or icon
+end
 
 -- Zona pulsable con margen extra alrededor (iconos y botones de la derecha)
 local function rightTappable(widget, on_tap, on_hold, eh, ev)
@@ -452,6 +454,7 @@ function M.header(w, opts)
         if not parts.menu_icon then return end
         parts.menu_icon:free()
         parts.menu_icon.icon = M.menuIcon(icon)
+        parts.menu_icon.file = nil
         parts.menu_icon:init()
     end
     return widget, parts

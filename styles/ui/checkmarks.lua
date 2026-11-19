@@ -59,7 +59,7 @@ if MODERN_CHECKMARKS and not CheckMark._modern_checkmarks then
     end
 
     local available = {}
-    for _, n in ipairs({ "aire.checkbox.off", "aire.checkbox.on", "aire.radio.off", "aire.radio.on" }) do
+    for _, n in ipairs({ "aire.checkbox.off", "aire.checkbox.on", "aire.radio.off", "aire.radio.on", "aire.check" }) do
         available[n] = iconExists(n)
         if not available[n] then logger.warn("Aire/UI: falta el icono", n) end
     end
@@ -127,4 +127,50 @@ if MODERN_CHECKMARKS and not CheckMark._modern_checkmarks then
             orig_RadioMark_init(self)
         end
     end, TAG)
+
+    -- Botones con checked_func (p. ej. Leyendo / En pausa / Terminado en
+    -- booksheet.lua y menús de ButtonDialog): sustituye el "  ✓" Unicode por
+    -- el icono SVG aire.check.
+    if available["aire.check"] then
+        local Button = require("ui/widget/button")
+        local HorizontalGroup = require("ui/widget/horizontalgroup")
+        local HorizontalSpan = require("ui/widget/horizontalspan")
+        safeWrap(Button, "init", function(orig_Button_init, self)
+            if not (self.text and self.checked_func and self.checkmark == Button.checkmark) then
+                return orig_Button_init(self)
+            end
+            local ok_c, is_checked = pcall(self.checked_func)
+            local checked = ok_c and is_checked and true or false
+            local had_own = rawget(self, "checkmark")
+            self.checkmark = ""
+            local ok_init, err = pcall(orig_Button_init, self)
+            rawset(self, "checkmark", had_own)
+            if not ok_init then error(err) end
+            if not (self.label_container and self.label_widget) then return end
+            local lw_sz = self.label_widget:getSize()
+            local icon_sz = math.max(Screen:scaleBySize(12), math.floor((lw_sz.h or Screen:scaleBySize(20)) * 0.65))
+            local gap = Screen:scaleBySize(6)
+            if self._min_needed_width then
+                self._min_needed_width = self._min_needed_width + gap + icon_sz
+            end
+            if not checked then return end
+            local lc_w = self.label_container.dimen and self.label_container.dimen.w
+            if lc_w and lw_sz.w + gap + icon_sz > lc_w and self.label_widget.setMaxWidth then
+                self.label_widget:setMaxWidth(math.max(1, lc_w - gap - icon_sz))
+            end
+            local check_icon = IconWidget:new{
+                icon = "aire.check",
+                width = icon_sz,
+                height = icon_sz,
+                alpha = true,
+                dim = not self.enabled or nil,
+            }
+            local span = HorizontalSpan:new{ width = gap }
+            if BD.mirroredUILayout() then
+                self.label_container[1] = HorizontalGroup:new{ align = "center", check_icon, span, self.label_widget }
+            else
+                self.label_container[1] = HorizontalGroup:new{ align = "center", self.label_widget, span, check_icon }
+            end
+        end, TAG)
+    end
 end
