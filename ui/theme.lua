@@ -17,6 +17,7 @@ M.BLACK       = Blitbuffer.COLOR_BLACK
 M.WHITE       = Blitbuffer.COLOR_WHITE
 M.GRAY_DARK   = Blitbuffer.COLOR_DARK_GRAY
 M.GRAY_TEXT   = Blitbuffer.COLOR_DARK_GRAY
+M.GRAY        = Blitbuffer.COLOR_GRAY
 M.GRAY_LIGHT  = Blitbuffer.COLOR_LIGHT_GRAY
 M.GRAY_CARD   = Blitbuffer.COLOR_GRAY_E
 M.GRAY_BORDER = Blitbuffer.COLOR_GRAY_B

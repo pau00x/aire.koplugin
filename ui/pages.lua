@@ -40,18 +40,18 @@ local Screen = Device.screen
 
 local P = {}
 
-P.BLACK = Blitbuffer.COLOR_BLACK
-P.WHITE = Blitbuffer.COLOR_WHITE
-P.GRAY_DARK = Blitbuffer.COLOR_DARK_GRAY
-P.GRAY_CARD = Blitbuffer.COLOR_GRAY_E
-P.GRAY_BORDER = Blitbuffer.COLOR_GRAY
-P.GRAY_LINE = Blitbuffer.COLOR_LIGHT_GRAY
+-- Medidas, letra y paleta: las comunes (ui/theme.lua)
+local AireUI = package.loaded.aire_ui
+P.BLACK = AireUI.BLACK
+P.WHITE = AireUI.WHITE
+P.GRAY_DARK = AireUI.GRAY_DARK
+P.GRAY_CARD = AireUI.GRAY_CARD
+P.GRAY_BORDER = AireUI.GRAY
+P.GRAY_LINE = AireUI.GRAY_LIGHT
 local METRICS = package.loaded.aire_screen.METRICS
 P.SIDE = METRICS.SIDE -- margen lateral (como el resto de Aire: ui/screen.lua)
 P.GAP = 8   -- hueco entre tarjetas
 
--- Medidas y letra: las comunes (ui/theme.lua)
-local AireUI = package.loaded.aire_ui
 P.S = AireUI.S
 local S = P.S
 P.face = AireUI.face
