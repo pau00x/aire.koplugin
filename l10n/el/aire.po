@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "«%1» · %2 αποτέλεσμα"
@@ -32,7 +32,7 @@ msgstr "%1 % (σε αναμονή)"
 msgid "%1 % read"
 msgstr "%1 % διαβασμένο"
 
-#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
+#: styles/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 βιβλίο"
@@ -56,13 +56,13 @@ msgid_plural "%1 days"
 msgstr[0] "%1 ημέρα"
 msgstr[1] "%1 ημέρες"
 
-#: styles/bookinfo.lua:222
+#: styles/bookinfo.lua:240
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "πριν από %1 ημέρα"
 msgstr[1] "πριν από %1 ημέρες"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:643
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 ημέρα ανάγνωσης"
@@ -80,7 +80,7 @@ msgid_plural "%1 finished books"
 msgstr[0] "%1 τελειωμένο βιβλίο"
 msgstr[1] "%1 τελειωμένα βιβλία"
 
-#: styles/bookinfo.lua:229
+#: styles/bookinfo.lua:247
 msgid "%1 month ago"
 msgid_plural "%1 months ago"
 msgstr[0] "πριν από %1 μήνα"
@@ -98,15 +98,15 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 σελ. διαβάστηκε"
 msgstr[1] "%1 σελ. διαβάστηκαν"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
+#: styles/bookinfo.lua:591 styles/bookinfo.lua:595 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 σελ."
 
-#: views/stats.lua:635
+#: views/stats.lua:621
 msgid "%1 pp./h"
 msgstr "%1 σελ./ώρα"
 
-#: styles/shortcuts.lua:156
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 αποθηκευμένη συντόμευση"
@@ -118,7 +118,7 @@ msgid_plural "%1 series"
 msgstr[0] "%1 σειρά"
 msgstr[1] "%1 σειρές"
 
-#: styles/bookinfo.lua:225
+#: styles/bookinfo.lua:243
 msgid "%1 week ago"
 msgid_plural "%1 weeks ago"
 msgstr[0] "πριν από %1 εβδομάδα"
@@ -128,11 +128,11 @@ msgstr[1] "πριν από %1 εβδομάδες"
 msgid "%1, %2 %3"
 msgstr "%1, %3 %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% του βιβλίου"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% του βιβλίου · απομένουν %d σελ. στο κεφάλαιο"
 
@@ -142,7 +142,7 @@ msgid_plural "%d books"
 msgstr[0] ""
 msgstr[1] ""
 
-#: styles/bookinfo.lua:941 styles/bookstatus.lua:63
+#: styles/bookinfo.lua:959 styles/bookstatus.lua:63
 msgid "%d of 5 stars"
 msgstr "%d από 5 αστέρια"
 
@@ -150,11 +150,11 @@ msgstr "%d από 5 αστέρια"
 msgid "+ Brightness"
 msgstr "+ Φωτεινότητα"
 
-#: views/stats.lua:487
+#: views/stats.lua:478
 msgid "+%1 more"
 msgstr "+%1 ακόμα"
 
-#: styles/bookinfo.lua:940 styles/bookstatus.lua:62
+#: styles/bookinfo.lua:958 styles/bookstatus.lua:62
 msgid "1 of 5 stars"
 msgstr "1 από 5 αστέρια"
 
@@ -182,7 +182,7 @@ msgstr "Υπάρχει νέα έκδοση"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "ΕΝΕΡΓΗ ΑΝΑΖΗΤΗΣΗ"
 
@@ -198,7 +198,7 @@ msgstr "Ενεργό"
 msgid "Activity summary"
 msgstr "Σύνοψη δραστηριότητας"
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:114
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -249,7 +249,7 @@ msgstr ""
 msgid "All"
 msgstr "Όλα"
 
-#: styles/statspages.lua:258 styles/statspages.lua:261
+#: styles/statspages.lua:240 styles/statspages.lua:243
 #, koreader
 msgid "All books"
 msgstr ""
@@ -263,7 +263,7 @@ msgstr "Όλα τελειωμένα"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:578
 msgid "Annual"
 msgstr "Ετήσια"
 
@@ -275,7 +275,7 @@ msgstr "Ετήσια ανασκόπηση"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -324,15 +324,15 @@ msgstr ""
 msgid "Average time per page"
 msgstr ""
 
-#: styles/bookinfo.lua:339
+#: styles/bookinfo.lua:357
 msgid "BOOK"
 msgstr "ΒΙΒΛΙΟ"
 
-#: styles/bookmark.lua:43
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "ΕΠΙΣΗΜΕΙΩΣΗ"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Basque"
 msgstr ""
@@ -341,11 +341,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Μπαταρία"
 
-#: views/stats.lua:681
+#: views/stats.lua:661
 msgid "Best day"
 msgstr "Καλύτερη ημέρα"
 
-#: views/stats.lua:684
+#: views/stats.lua:664
 msgid "Best month"
 msgstr "Καλύτερος μήνας"
 
@@ -420,12 +420,12 @@ msgstr ""
 msgid "Books are not deleted, only the collection."
 msgstr "Τα βιβλία δεν διαγράφονται, μόνο η συλλογή."
 
-#: styles/statspages.lua:266 styles/statspages.lua:267
+#: styles/statspages.lua:248 styles/statspages.lua:249
 #, koreader
 msgid "Books by month"
 msgstr ""
 
-#: styles/statspages.lua:263 styles/statspages.lua:264
+#: styles/statspages.lua:245 styles/statspages.lua:246
 #, koreader
 msgid "Books by week"
 msgstr ""
@@ -438,7 +438,7 @@ msgstr "Κάτω μενού (φύλλα)"
 msgid "CURRENT CHAPTER"
 msgstr "ΤΡΕΧΟΝ ΚΕΦΑΛΑΙΟ"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "ΤΡΕΧΟΝ ΚΕΦΑΛΑΙΟ · ΣΕΛΙΔΑ %d"
 
@@ -466,7 +466,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -475,7 +475,7 @@ msgstr ""
 msgid "Capture"
 msgstr "Λήψη"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Catalan"
 msgstr ""
@@ -521,7 +521,7 @@ msgstr ""
 msgid "Check patches and plugins on startup"
 msgstr "Έλεγχος patches και προσθέτων στην εκκίνηση"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Chinese"
 msgstr ""
@@ -534,7 +534,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Εκκαθάριση μικρογραφιών εξωφύλλων"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -627,12 +627,12 @@ msgstr "Οι μικρογραφίες εξωφύλλων εκκαθαρίστη�
 msgid "Current page/Total pages"
 msgstr ""
 
-#: styles/bookinfo.lua:319
+#: styles/bookinfo.lua:337
 #, koreader
 msgid "Current page:"
 msgstr ""
 
-#: styles/statspages.lua:106 styles/statspages.lua:442
+#: styles/statspages.lua:106 styles/statspages.lua:427
 #, koreader
 msgid "Current statistics"
 msgstr ""
@@ -641,11 +641,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Διαβάζετε τώρα"
 
-#: views/stats.lua:655
+#: views/stats.lua:641
 msgid "DAILY RHYTHM"
 msgstr "ΗΜΕΡΗΣΙΟΣ ΡΥΘΜΟΣ"
 
-#: views/stats.lua:676
+#: views/stats.lua:656
 msgid "Daily average"
 msgstr "Ημερήσιος μέσος όρος"
 
@@ -661,7 +661,7 @@ msgstr "Ημερομηνία"
 msgid "Date finished"
 msgstr "Ημερομηνία ολοκλήρωσης"
 
-#: views/stats.lua:679
+#: views/stats.lua:659
 msgid "Day %1"
 msgstr "Ημέρα %1"
 
@@ -765,7 +765,7 @@ msgstr ""
 msgid "Downloading… %1 of %2"
 msgstr "Λήψη… %1 από %2"
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Dutch"
 msgstr ""
@@ -786,16 +786,16 @@ msgstr "Επεξεργασία μικροεφαρμογών Αρχικής"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
 
-#: styles/bookinfo.lua:355
+#: styles/bookinfo.lua:373
 msgid "Edit series"
 msgstr "Επεξεργασία σειράς"
 
-#: styles/bookmark.lua:341
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -813,7 +813,7 @@ msgstr "Χωρίς γραφικά στοιχεία"
 msgid "Empty collection"
 msgstr "Κενή συλλογή"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Κενός φάκελος"
 
@@ -826,7 +826,7 @@ msgstr "Κενή σειρά"
 msgid "Enabled"
 msgstr ""
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "English"
 msgstr ""
@@ -854,7 +854,7 @@ msgstr "Όλα όσα σχεδιάζει το πρόσθετο, με δοκιμ�
 msgid "Exit"
 msgstr ""
 
-#: styles/bookinfo.lua:341 styles/bookinfo.lua:1016
+#: styles/bookinfo.lua:359 styles/bookinfo.lua:1034
 msgid "FILE"
 msgstr "ΑΡΧΕΙΟ"
 
@@ -886,12 +886,12 @@ msgstr "Φεβρουαρίου"
 msgid "File browser"
 msgstr ""
 
-#: styles/bookinfo.lua:316
+#: styles/bookinfo.lua:334
 #, koreader
 msgid "File date:"
 msgstr ""
 
-#: styles/bookinfo.lua:313
+#: styles/bookinfo.lua:331
 #, koreader
 msgid "Filename:"
 msgstr ""
@@ -909,7 +909,7 @@ msgstr "Φίλτρο και ταξινόμηση"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
+#: styles/bookinfo.lua:277 styles/bookinfo.lua:591 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Τελειωμένο"
@@ -943,7 +943,7 @@ msgstr ""
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
-#: styles/bookinfo.lua:317
+#: styles/bookinfo.lua:335
 #, koreader
 msgid "Folder:"
 msgstr ""
@@ -965,17 +965,17 @@ msgstr ""
 msgid "Fonts"
 msgstr "Γραμματοσειρές"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
 
-#: styles/bookinfo.lua:314 styles/bookinfo.lua:502
+#: styles/bookinfo.lua:332 styles/bookinfo.lua:520
 #, koreader
 msgid "Format:"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "French"
 msgstr ""
@@ -993,12 +993,12 @@ msgstr "Πλήρης ανανέωση"
 msgid "Full screens"
 msgstr "Πλήρεις οθόνες"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Galician"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "German"
 msgstr ""
@@ -1017,7 +1017,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Ορισμένες χειρονομίες: %1"
 
-#: styles/bookmark.lua:366
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1026,7 +1026,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Επάνω"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1035,11 +1035,11 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Πλέγμα: %1 στήλες"
 
-#: styles/bookmark.lua:42
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "ΕΠΙΣΗΜΑΝΣΗ"
 
-#: views/stats.lua:663
+#: views/stats.lua:649
 msgid "HIGHLIGHTS"
 msgstr "ΚΟΡΥΦΑΙΕΣ ΣΤΙΓΜΕΣ"
 
@@ -1142,7 +1142,7 @@ msgstr ""
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Θα χρησιμοποιηθεί μετά την επανεκκίνηση του KOReader. Οι ρυθμίσεις σας διατηρούνται."
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Italian"
 msgstr ""
@@ -1152,7 +1152,7 @@ msgctxt "aire"
 msgid "January"
 msgstr "Ιανουαρίου"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Japanese"
 msgstr ""
@@ -1176,7 +1176,7 @@ msgstr ""
 msgid "KOReader engine (crengine)"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Korean"
 msgstr ""
@@ -1205,7 +1205,7 @@ msgstr "Μεγάλο ρολόι και ημερομηνία"
 msgid "Large · small · small inverted — swipe ← →, tap to exit"
 msgstr "Μεγάλο · μικρό · μικρό αντεστραμμένο — σύρετε ← →, πατήστε για έξοδο"
 
-#: styles/bookinfo.lua:897
+#: styles/bookinfo.lua:915
 msgid "Last"
 msgstr "Τελευταία"
 
@@ -1226,7 +1226,7 @@ msgstr "Τελευταία ανάγνωση"
 msgid "Later"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Latin"
 msgstr ""
@@ -1288,19 +1288,19 @@ msgstr "Φόρτωση μήνα…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "ΑΠΟΤΕΛΕΣΜΑ"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "ΑΠΟΤΕΛΕΣΜΑ %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:641
 msgid "MONTHLY RHYTHM"
 msgstr "ΜΗΝΙΑΙΟΣ ΡΥΘΜΟΣ"
 
-#: views/stats.lua:693
+#: views/stats.lua:673
 msgid "MOST READ"
 msgstr "ΤΑ ΠΙΟ ΔΙΑΒΑΣΜΕΝΑ"
 
@@ -1362,7 +1362,7 @@ msgstr "Χρήση μνήμης"
 msgid "Menu next to text"
 msgstr ""
 
-#: styles/bookinfo.lua:318
+#: styles/bookinfo.lua:336
 #, koreader
 msgid "Metadata:"
 msgstr ""
@@ -1380,7 +1380,7 @@ msgstr "Ανάμειξη φακέλων"
 msgid "Mix series"
 msgstr "Ανάμειξη σειρών"
 
-#: views/stats.lua:590
+#: views/stats.lua:576
 msgid "Monthly"
 msgstr "Μηνιαία"
 
@@ -1421,7 +1421,7 @@ msgstr ""
 msgid "Multiple fields"
 msgstr ""
 
-#: styles/bookinfo.lua:367
+#: styles/bookinfo.lua:385
 #, koreader
 msgid "N/A"
 msgstr ""
@@ -1438,7 +1438,7 @@ msgstr "ΕΠΟΜΕΝΟ"
 msgid "NEXT REVIEW"
 msgstr "ΕΠΟΜΕΝΗ ΕΠΑΝΑΛΗΨΗ"
 
-#: styles/bookmark.lua:41
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "ΣΗΜΕΙΩΣΗ"
 
@@ -1447,7 +1447,7 @@ msgstr "ΣΗΜΕΙΩΣΗ"
 msgid "Name"
 msgstr ""
 
-#: styles/bookinfo.lua:501
+#: styles/bookinfo.lua:519
 msgid "Name:"
 msgstr "Όνομα:"
 
@@ -1460,7 +1460,7 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: styles/bookinfo.lua:571
+#: styles/bookinfo.lua:589
 msgctxt "aire"
 msgid "New"
 msgstr "Νέο"
@@ -1512,7 +1512,7 @@ msgstr "Χωρίς δεδομένα CoverBrowser"
 msgid "No book in progress"
 msgstr "Κανένα βιβλίο σε εξέλιξη"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Κανένα βιβλίο δεν ταιριάζει με το φίλτρο"
 
@@ -1532,7 +1532,7 @@ msgstr "Κανένα βιβλίο στον αρχικό φάκελο"
 msgid "No books with this filter"
 msgstr "Κανένα βιβλίο με αυτό το φίλτρο"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Χωρίς κεφάλαιο"
 
@@ -1552,7 +1552,7 @@ msgstr "Κανένα τρέχον βιβλίο"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Χωρίς δεδομένα: ενεργοποιήστε το πρόσθετο Στατιστικά και διαβάστε λίγο"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1565,7 +1565,7 @@ msgstr "Κανένα επόμενο μη τελειωμένο βιβλίο"
 msgid "No previous book"
 msgstr "Κανένα προηγούμενο βιβλίο"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:347 views/stats.lua:612
 msgid "No reading activity in this period"
 msgstr "Καμία δραστηριότητα ανάγνωσης σε αυτήν την περίοδο"
 
@@ -1578,7 +1578,7 @@ msgstr "Καμία συνεδρία ανάγνωσης αυτόν τον μήν�
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:155
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Καμία αποθηκευμένη συντόμευση"
 
@@ -1594,11 +1594,11 @@ msgstr "Κανένα μη ξεκινημένο βιβλίο"
 msgid "No vocabulary words"
 msgstr "Δεν υπάρχουν λέξεις"
 
-#: styles/bookinfo.lua:939 styles/bookstatus.lua:61
+#: styles/bookinfo.lua:957 styles/bookstatus.lua:61
 msgid "Not rated"
 msgstr "Χωρίς βαθμολογία"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
+#: styles/bookinfo.lua:278 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "Δεν ξεκίνησε"
 
@@ -1607,12 +1607,12 @@ msgstr "Δεν ξεκίνησε"
 msgid "Note"
 msgstr ""
 
-#: styles/bookinfo.lua:322
+#: styles/bookinfo.lua:340
 #, koreader
 msgid "Notebook file:"
 msgstr ""
 
-#: styles/bookinfo.lua:896
+#: styles/bookinfo.lua:914
 msgctxt "aire"
 msgid "Notes"
 msgstr "Σημειώσεις"
@@ -1626,7 +1626,7 @@ msgstr "Νοεμβρίου"
 msgid "Number"
 msgstr ""
 
-#: styles/bookinfo.lua:359
+#: styles/bookinfo.lua:377
 msgid "Number in series"
 msgstr "Αριθμός στη σειρά"
 
@@ -1650,7 +1650,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
+#: styles/bookinfo.lua:276 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "Σε αναμονή"
@@ -1760,7 +1760,7 @@ msgstr ""
 msgid "Portrait"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Portuguese"
 msgstr ""
@@ -1813,11 +1813,11 @@ msgstr "Απόσπασμα της ημέρας"
 msgid "RANDOM"
 msgstr "ΤΥΧΑΙΟ"
 
-#: styles/bookinfo.lua:944 styles/bookstatus.lua:313
+#: styles/bookinfo.lua:962 styles/bookstatus.lua:313
 msgid "RATING"
 msgstr "ΒΑΘΜΟΛΟΓΙΑ"
 
-#: styles/bookinfo.lua:340
+#: styles/bookinfo.lua:358
 msgid "READING"
 msgstr "ΑΝΑΓΝΩΣΗ"
 
@@ -1829,7 +1829,7 @@ msgstr "ΚΑΤΑΣΤΑΣΗ ΑΝΑΓΝΩΣΗΣ"
 msgid "RECAP"
 msgstr "ΑΝΑΣΚΟΠΗΣΗ"
 
-#: styles/bookinfo.lua:984 styles/bookstatus.lua:390
+#: styles/bookinfo.lua:1002 styles/bookstatus.lua:390
 msgid "REVIEW / NOTES"
 msgstr "ΚΡΙΤΙΚΗ / ΣΗΜΕΙΩΣΕΙΣ"
 
@@ -1845,7 +1845,7 @@ msgstr "Τυχαίο βιβλίο"
 msgid "Rating and review"
 msgstr "Βαθμολογία και κριτική"
 
-#: styles/bookinfo.lua:320
+#: styles/bookinfo.lua:338
 #, koreader
 msgid "Rating:"
 msgstr ""
@@ -1869,7 +1869,7 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:202 styles/bookinfo.lua:257 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
+#: dev/tests/regressions.lua:202 styles/bookinfo.lua:275 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "Υπό ανάγνωση"
@@ -1891,7 +1891,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:553
+#: views/stats.lua:539
 msgid "Recap"
 msgstr "Ανασκόπηση"
 
@@ -1912,7 +1912,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:354
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1922,7 +1922,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: styles/bookmark.lua:351
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1942,7 +1942,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:353
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1993,7 +1993,7 @@ msgstr ""
 msgid "Reverse sorting"
 msgstr ""
 
-#: styles/bookinfo.lua:321
+#: styles/bookinfo.lua:339
 #, koreader
 msgid "Review:"
 msgstr ""
@@ -2008,7 +2008,7 @@ msgstr ""
 msgid "Rotate"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Russian"
 msgstr ""
@@ -2077,7 +2077,7 @@ msgstr "Σεπτεμβρίου"
 msgid "Series"
 msgstr ""
 
-#: styles/bookinfo.lua:358
+#: styles/bookinfo.lua:376
 msgid "Series name"
 msgstr "Όνομα σειράς"
 
@@ -2142,7 +2142,7 @@ msgstr ""
 msgid "Show synopsis"
 msgstr "Εμφάνιση σύνοψης"
 
-#: styles/bookinfo.lua:315
+#: styles/bookinfo.lua:333
 #, koreader
 msgid "Size:"
 msgstr ""
@@ -2193,7 +2193,7 @@ msgstr "Ταξινόμηση συλλογών…"
 msgid "Sort files"
 msgstr "Ταξινόμηση αρχείων"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Spanish"
 msgstr ""
@@ -2246,7 +2246,7 @@ msgstr ""
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:971 styles/bookinfo.lua:988 styles/bookstatus.lua:395
+#: dev/devtools.lua:971 styles/bookinfo.lua:1006 styles/bookstatus.lua:395
 msgid "Tap to add or edit your review of this book…"
 msgstr "Πατήστε για να προσθέσετε ή να επεξεργαστείτε την κριτική σας για αυτό το βιβλίο…"
 
@@ -2258,7 +2258,7 @@ msgstr "Πατήστε για άνοιγμα της βιβλιοθήκης"
 msgid "Tap to stop"
 msgstr "Πατήστε για διακοπή"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Πατήστε για προβολή ορισμού"
 
@@ -2315,7 +2315,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Το τρέχον βιβλίο δεν ανήκει σε σειρά"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Αυτή η συλλογή είναι κενή"
 
@@ -2331,11 +2331,11 @@ msgstr "Αυτόν τον μήνα"
 msgid "This month · %1 · %2 pp."
 msgstr "Αυτόν τον μήνα · %1 · %2 σελ."
 
-#: styles/statspages.lua:266
+#: styles/statspages.lua:248
 msgid "This month: %1"
 msgstr "Αυτόν τον μήνα: %1"
 
-#: styles/statspages.lua:263
+#: styles/statspages.lua:245
 msgid "This week: %1"
 msgstr "Αυτή την εβδομάδα: %1"
 
@@ -2348,12 +2348,12 @@ msgstr "Φέτος"
 msgid "Time"
 msgstr ""
 
-#: styles/statspages.lua:240
+#: styles/statspages.lua:231
 #, koreader
 msgid "Time range statistics"
 msgstr ""
 
-#: styles/bookinfo.lua:895
+#: styles/bookinfo.lua:913
 msgid "Time read"
 msgstr "Χρόνος ανάγνωσης"
 
@@ -2394,12 +2394,12 @@ msgstr ""
 msgid "Today and streak"
 msgstr "Σήμερα και σερί"
 
-#: styles/statspages.lua:319
+#: styles/statspages.lua:301
 #, koreader
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:667
 msgid "Top author"
 msgstr "Πιο διαβασμένος συγγραφέας"
 
@@ -2421,7 +2421,7 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
 #, koreader
 msgid "Update"
 msgstr ""
@@ -2458,7 +2458,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Επανάληψη λεξιλογίου"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Επανάληψη λεξιλογίου · %1 λέξη"
@@ -2525,7 +2525,7 @@ msgstr "Δεν διαβάσατε εκείνη την ημέρα"
 msgid "You don't have any highlights yet"
 msgstr "Δεν έχετε ακόμα επισημάνσεις"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Δεν έχετε ανοίξει ακόμα κανένα βιβλίο"
 
@@ -2589,7 +2589,7 @@ msgstr ""
 msgid "files"
 msgstr "αρχείων"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:629 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "τελειωμένο βιβλίο"
@@ -2629,7 +2629,7 @@ msgstr ""
 msgid "night mode"
 msgstr ""
 
-#: styles/bookinfo.lua:264
+#: styles/bookinfo.lua:282
 msgid "now"
 msgstr "τώρα"
 
@@ -2645,7 +2645,7 @@ msgstr "σελ. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "σελ. %1 από %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:621
 msgid "pages read"
 msgstr "σελίδες που διαβάστηκαν"
 
@@ -2653,7 +2653,7 @@ msgstr "σελίδες που διαβάστηκαν"
 msgid "port %1"
 msgstr "θύρα %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:625
 msgid "reading time"
 msgstr "χρόνος ανάγνωσης"
 
@@ -2719,7 +2719,7 @@ msgstr "χρονόμετρο"
 msgid "today"
 msgstr "σήμερα"
 
-#: styles/bookinfo.lua:219
+#: styles/bookinfo.lua:237
 msgctxt "aire"
 msgid "today"
 msgstr "σήμερα"
@@ -2732,7 +2732,7 @@ msgstr "σήμερα · %1 σελ."
 msgid "wi-fi"
 msgstr "wi-fi"
 
-#: styles/bookinfo.lua:220
+#: styles/bookinfo.lua:238
 msgctxt "aire"
 msgid "yesterday"
 msgstr "χθες"

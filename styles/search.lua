@@ -9,13 +9,8 @@
 
 local Device = require("device")
 local FrameContainer = require("ui/widget/container/framecontainer")
-local Geom = require("ui/geometry")
-local LeftContainer = require("ui/widget/container/leftcontainer")
-local OverlapGroup = require("ui/widget/overlapgroup")
 local ReaderSearch = require("apps/reader/modules/readersearch")
-local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
-local TextBoxWidget = require("ui/widget/textboxwidget")
 local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
 local VerticalGroup = require("ui/widget/verticalgroup")
@@ -29,7 +24,7 @@ local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (c
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Search"
 local AireUI = package.loaded.aire_ui
-local S, face, BLACK, WHITE, GRAY_DARK, GRAY_CARD, GRAY_BORDER, GRAY_LINE = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_CARD, AireUI.GRAY_BORDER, AireUI.GRAY_LINE
+local S, face, BLACK, GRAY_DARK, GRAY_CARD, GRAY_BORDER = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.GRAY_DARK, AireUI.GRAY_CARD, AireUI.GRAY_BORDER
 
 if ReaderSearch._aire_search_styled then return end
 ReaderSearch._aire_search_styled = true
@@ -40,7 +35,7 @@ local function buildSummaryCard(rs, avail_w, pad_h)
     local query = rs.last_search_text or ""
     local total = rs.findall_results and #rs.findall_results or 0
     local card_w = avail_w - 2 * pad_h
-    local pad = S(11)
+    local pad = S(package.loaded.aire_screen.LIST.CARD_PAD) -- (como las tarjetas de la lista)
     local in_w = card_w - 2 * pad - 2 * Size.border.thin
 
     local card = FrameContainer:new{
@@ -48,13 +43,13 @@ local function buildSummaryCard(rs, avail_w, pad_h)
         bordersize = Size.border.thin,
         color = GRAY_BORDER,
         background = GRAY_CARD,
-        radius = S(10),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = pad,
         VerticalGroup:new{
             align = "left",
             TextWidget:new{
                 text = _("ACTIVE SEARCH"),
-                face = face(true, 10),
+                face = face(true, package.loaded.aire_screen.LIST.META),
                 fgcolor = GRAY_DARK,
                 max_width = in_w,
                 padding = 0,
@@ -62,7 +57,7 @@ local function buildSummaryCard(rs, avail_w, pad_h)
             VerticalSpan:new{ width = S(3) },
             TextWidget:new{
                 text = T(N_("\"%1\" · %2 match", "\"%1\" · %2 matches", total), query, total),
-                face = face(true, 14),
+                face = face(true, package.loaded.aire_screen.LIST.TITLE),
                 fgcolor = BLACK,
                 max_width = in_w,
                 padding = 0,
@@ -86,85 +81,24 @@ local function styleSearchItem(item, item_w, item_h, pad_h)
     local entry = item.entry
     if not entry or item._aire_search_card_done then return end
     item._aire_search_card_done = true
-
-    local card_w = math.max(S(120), item_w - 2 * pad_h)
-    local gap_b = S(8)
-    local max_card_h = math.max(S(44), item_h - gap_b)
-    local inner_pad = S(11)  -- igual que la tarjeta de resumen: textos alineados
-    local in_w = card_w - 2 * inner_pad - 2 * Size.border.thin
-
+    -- Tarjeta común (common/list.lua): "COINCIDENCIA N" arriba con la página a
+    -- la derecha y el fragmento (hasta 3 líneas, normal: es un elemento final;
+    -- KOReader da la palabra buscada en negrita) con el alto que necesite
+    local Lst = package.loaded.aire_list
+    local card_w, max_card_h, gap_b = Lst.geometry(item_w, item_h, pad_h)
     local dim = false
     if type(entry.mandatory_dim_func) == "function" then
         local ok, v = pcall(entry.mandatory_dim_func)
         dim = ok and v or false
     end
     local page_str = entry.mandatory and tostring(entry.mandatory) or ""
-    local page_w = page_str ~= "" and TextWidget:new{
-        text = page_str,
-        face = face(false, 12),
-        fgcolor = dim and GRAY_DARK or BLACK,
-        padding = 0,
-    } or nil
-    local page_reserve = page_w and (page_w:getSize().w + S(8)) or 0
-    local idx_lbl = entry.idx and string.format(_("MATCH %d"), entry.idx) or _("MATCH")
-    local meta_w = TextWidget:new{
-        text = idx_lbl,
-        face = face(true, 10),
-        fgcolor = GRAY_DARK,
-        max_width = math.max(S(60), in_w - page_reserve),
-        padding = 0,
-    }
-    local top_h = math.max(meta_w:getSize().h, page_w and page_w:getSize().h or 0)
-    local top_og = OverlapGroup:new{
-        dimen = Geom:new{ w = in_w, h = top_h },
-        LeftContainer:new{ dimen = Geom:new{ w = in_w, h = top_h }, meta_w },
-    }
-    if page_w then
-        table.insert(top_og, RightContainer:new{ dimen = Geom:new{ w = in_w, h = top_h }, page_w })
-    end
-
-    -- Fragmento (con la palabra buscada en negrita: KOReader lo da en "Poor Text Formatting")
-    local text_face = face(false, 13)
-    local text = entry.text or ""
-    local tb = TextBoxWidget:new{ text = text, face = text_face, fgcolor = BLACK, width = in_w, padding = 0 }
-    local lh = tb.line_height_px or S(18)
-    local body_h = max_card_h - 2 * inner_pad - 2 * Size.border.thin - top_h - S(4)
-    local max_lines = math.max(1, math.min(3, math.floor(body_h / lh)))
-    if tb:getSize().h > max_lines * lh then
-        tb:free()
-        tb = TextBoxWidget:new{
-            text = text, face = text_face, fgcolor = BLACK, width = in_w, padding = 0,
-            height = max_lines * lh, height_overflow_show_ellipsis = true,
-        }
-    end
-
-    local card = FrameContainer:new{
-        width = card_w,
-        bordersize = Size.border.thin,
-        color = GRAY_LINE,
-        background = WHITE,
-        radius = S(10),
-        padding = inner_pad,
-        VerticalGroup:new{
-            align = "left",
-            top_og,
-            VerticalSpan:new{ width = S(4) },
-            tb,
-        },
-    }
-    local card_h = math.min(max_card_h, card:getSize().h)
-
-    item[1] = FrameContainer:new{
-        width = item_w,
-        height = card_h + gap_b,
-        bordersize = 0,
-        padding = 0,
-        padding_left = pad_h,
-        padding_right = pad_h,
-        padding_bottom = gap_b,
-        card,
-    }
-    if item.dimen then item.dimen.h = card_h + gap_b end
+    local card = Lst.card({
+        meta = entry.idx and string.format(_("MATCH %d"), entry.idx) or _("MATCH"),
+        right = page_str ~= "" and { text = page_str, strong = not dim } or nil,
+        title = entry.text or "", title_lines = "fill", title_max = 3,
+        h = max_card_h, fit = true,
+    }, card_w)
+    Lst.place(item, card, item_w, pad_h, { gap = gap_b, fit = true, max_h = max_card_h })
 end
 
 safeWrap(ReaderSearch, "onShowFindAllResults", function(orig_show, self, not_cached)
@@ -216,25 +150,15 @@ safeWrap(ReaderSearch, "onShowFindAllResults", function(orig_show, self, not_cac
         safeWrap(rm, "updateItems", function(orig_update, self, select_number, ...)
             orig_update(self, select_number, ...)
             if not self.item_group then return end
-            self.item_group.align = "left"
-            local w = self.dimen and self.dimen.w or Screen:getWidth()
-            local first_item = self.item_group[1]
-            local avail_w = (first_item and first_item.dimen and first_item.dimen.w)
-                or (self.inner_dimen and self.inner_dimen.w)
-                or w
-            local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(SIDE) - outer_pad)
-            for _, child in ipairs(self.item_group) do
-                if child and child.entry then
-                    local ih = (child.dimen and child.dimen.h) or S(84)
-                    styleSearchItem(child, avail_w, ih, pad_h)
-                end
-            end
+            -- Filas con el margen común (common/list.lua); arriba, la tarjeta fija
+            local avail_w, pad_h = package.loaded.aire_list.eachItem(self, function(child, aw, ih, ph)
+                styleSearchItem(child, aw, ih, ph)
+            end, S(84))
             if self.item_table and #self.item_table > 0 then
                 local hero = buildSummaryCard(self._search_owner, avail_w, pad_h)
                 table.insert(self.item_group, 1, hero)
+                self.item_group:resetLayout()
             end
-            self.item_group:resetLayout()
         end, TAG)
         rm:updateItems(1)
         UIManager:setDirty(rm, "ui")

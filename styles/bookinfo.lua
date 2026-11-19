@@ -112,6 +112,8 @@ if CLEAN_HIERARCHY then
             end
             return str:upper()
         end
+        -- Letra de las filas clave / valor de las listas (common/screen.lua, LIST)
+        local LIST = package.loaded.aire_screen.LIST
         safeWrap(KeyValueItem, "init", function(_orig, self)
             local blank = isBlank(self.value)
             local is_header = blank and not self.callback
@@ -120,6 +122,10 @@ if CLEAN_HIERARCHY then
             if not blank and explicit_bold == nil then
                 self.key_bold = false
             end
+            -- Clave y valor a LIST.VALUE (KOReader llegaba a 22 según el alto)
+            self.font_size = LIST.VALUE
+            self.value_font_name = "cfont"
+            if self.key_bold ~= false then self.key_font_name = "tfont" end
             _orig(self)
             -- Estructura: FrameContainer > HorizontalGroup > LeftContainer > TextWidget
             local hg = self[1] and self[1][1]
@@ -128,7 +134,7 @@ if CLEAN_HIERARCHY then
             if type(key_w) ~= "table" or getmetatable(key_w) ~= TextWidget then return end
             if is_header then
                 -- Cabecera: mayúsculas pequeñas en gris (como LECTURA / ARCHIVO)
-                key_w.face = Font:getFace("cfont", math.max(11, math.floor((self.font_size or 20) * 0.65)))
+                key_w.face = Font:getFace("cfont", LIST.META)
                 key_w.bold = true
                 key_w.fgcolor = Blitbuffer.COLOR_DARK_GRAY
                 key_w.text = upper(tostring(self.key or ""))
@@ -140,9 +146,12 @@ if CLEAN_HIERARCHY then
                 local RightContainer = require("ui/widget/container/rightcontainer")
                 local d = hg.dimen
                 if d and d.w and d.h then
-                    local chevron = TextWidget:new{ text = "›", face = Font:getFace("cfont", self.font_size or 20),
+                    local chevron = TextWidget:new{ text = "›", face = Font:getFace("cfont", LIST.TITLE),
                         fgcolor = Blitbuffer.COLOR_DARK_GRAY }
+                    -- (abre otra página: en negrita, como en las demás listas)
                     key_w.fgcolor = Blitbuffer.COLOR_BLACK
+                    key_w.bold = true
+                    key_w:free()
                     key_w:setMaxWidth(math.max(10, d.w - chevron:getWidth() - Size.padding.default))
                     self[1][1] = OverlapGroup:new{
                         dimen = Geom:new{ w = d.w, h = d.h },
@@ -157,6 +166,15 @@ if CLEAN_HIERARCHY then
         end, TAG)
     else
         logger.warn("Aire/BookInfo: no se encontró KeyValueItem, solo se aplican las líneas finas")
+    end
+
+    -- Filas por página por defecto: las que caben con el alto común (LIST.ROW_H);
+    -- si el usuario eligió otro número en KOReader, se usa el suyo
+    KeyValuePage.getDefaultItemsPerPage = function()
+        local sw, sh = Screen:getWidth(), Screen:getHeight()
+        if sw > sh then sw, sh = sh, sw end
+        local row_h = Screen:scaleBySize(package.loaded.aire_screen.LIST.ROW_H)
+        return math.floor(sw / row_h) - 3, math.floor(sh / row_h) - 3
     end
 
     safeWrap(KeyValuePage, "_populateItems", function(orig_KeyValuePage_populateItems, self, ...)

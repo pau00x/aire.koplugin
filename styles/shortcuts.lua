@@ -6,27 +6,16 @@
         y ruta debajo en gris
 --]]
 
-local Device = require("device")
 local FileManagerShortcuts = require("apps/filemanager/filemanagershortcuts")
-local FrameContainer = require("ui/widget/container/framecontainer")
-local HorizontalGroup = require("ui/widget/horizontalgroup")
-local HorizontalSpan = require("ui/widget/horizontalspan")
-local IconWidget = require("ui/widget/iconwidget")
-local Size = require("ui/size")
-local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
-local VerticalGroup = require("ui/widget/verticalgroup")
-local VerticalSpan = require("ui/widget/verticalspan")
 local logger = require("logger")
 local _ = require("gettext")
 local N_ = _.ngettext
 local T = require("ffi/util").template
-local Screen = Device.screen
-local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Shortcuts"
 local AireUI = package.loaded.aire_ui
-local S, face, BLACK, WHITE, GRAY_DARK, GRAY_LINE = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_LINE
+local S = AireUI.S
 
 if FileManagerShortcuts._aire_shortcuts_styled then return end
 FileManagerShortcuts._aire_shortcuts_styled = true
@@ -37,67 +26,17 @@ local function styleShortcutItem(item, item_w, item_h, pad_h)
     local entry = item.entry
     if not entry or item._aire_sc_card_done then return end
     item._aire_sc_card_done = true
-
-    local card_w = math.max(S(120), item_w - 2 * pad_h)
-    local gap_b = S(8)
-    local card_h = math.max(S(46), item_h - gap_b)
-    local inner_pad_h = S(12)
-    local icon_sz = S(22)
-    local text_w = math.max(S(80), card_w - 2 * inner_pad_h - 2 * Size.border.thin - icon_sz - S(10))
-
-    local title_txt = entry.name or entry.text or ""
-    local path_txt = entry.folder or ""
-
-    local text_vg = VerticalGroup:new{
-        align = "left",
-        TextWidget:new{
-            text = title_txt,
-            face = face(true, 14),
-            fgcolor = BLACK,
-            max_width = text_w,
-            padding = 0,
-        },
-    }
-    if path_txt ~= "" then
-        table.insert(text_vg, VerticalSpan:new{ width = S(2) })
-        table.insert(text_vg, TextWidget:new{
-            text = path_txt,
-            face = face(false, 12),
-            fgcolor = GRAY_DARK,
-            max_width = text_w,
-            truncate_left = true,
-            padding = 0,
-        })
-    end
-
-    local card = FrameContainer:new{
-        width = card_w,
-        height = card_h,
-        bordersize = Size.border.thin,
-        color = GRAY_LINE,
-        background = WHITE,
-        radius = S(10),
-        padding = 0,
-        padding_left = inner_pad_h,
-        padding_right = inner_pad_h,
-        HorizontalGroup:new{
-            align = "center",
-            IconWidget:new{ icon = "aire.folder", width = icon_sz, height = icon_sz, alpha = true },
-            HorizontalSpan:new{ width = S(10) },
-            text_vg,
-        },
-    }
-
-    item[1] = FrameContainer:new{
-        width = item_w,
-        height = item_h,
-        bordersize = 0,
-        padding = 0,
-        padding_left = pad_h,
-        padding_right = pad_h,
-        padding_bottom = gap_b,
-        card,
-    }
+    -- Tarjeta común (common/list.lua): carpeta, nombre en negrita (abre una
+    -- lista) y la ruta debajo
+    local Lst = package.loaded.aire_list
+    local card_w, card_h, gap_b = Lst.geometry(item_w, item_h, pad_h)
+    local card = Lst.card({
+        left = { icon = "aire.folder" },
+        title = entry.name or entry.text or "", bold = true,
+        sub = entry.folder,
+        h = card_h,
+    }, card_w)
+    Lst.place(item, card, item_w, pad_h, { gap = gap_b, item_h = item_h })
 end
 
 local ITEMS_PER_PAGE = 8 -- (con más, las tarjetas no caben y se tocan entre sí)
@@ -158,21 +97,10 @@ safeWrap(FileManagerShortcuts, "onShowFolderShortcutsDialog", function(orig_show
                 self.title_bar:setSubTitle(sub, true)
             end
             if not self.item_group then return end
-            self.item_group.align = "left"
-            local w = self.dimen and self.dimen.w or Screen:getWidth()
-            local first_item = self.item_group[1]
-            local avail_w = (first_item and first_item.dimen and first_item.dimen.w)
-                or (self.inner_dimen and self.inner_dimen.w)
-                or w
-            local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(SIDE) - outer_pad)
-            for _, child in ipairs(self.item_group) do
-                if child and child.entry then
-                    local ih = (child.dimen and child.dimen.h) or S(64)
-                    styleShortcutItem(child, avail_w, ih, pad_h)
-                end
-            end
-            self.item_group:resetLayout()
+            -- Filas con el margen común (common/list.lua)
+            package.loaded.aire_list.eachItem(self, function(child, avail_w, ih, pad_h)
+                styleShortcutItem(child, avail_w, ih, pad_h)
+            end, S(64))
         end
         function sm:updateItems(select_number, ...)
             orig_update(self, select_number, ...)

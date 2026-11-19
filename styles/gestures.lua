@@ -102,7 +102,7 @@ local function buildPage(gestures, o)
                             table.insert(widgets, P.label(e[1], w))
                         end
                     elseif not skip_section then
-                        table.insert(widgets, P.row(e[1], e[2], w, e.callback, { height = S(38) }))
+                        table.insert(widgets, P.row(e[1], e[2], w, e.callback))
                     end
                 end
             end

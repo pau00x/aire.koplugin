@@ -10,11 +10,7 @@
 local Device = require("device")
 local Font = require("ui/font")
 local FrameContainer = require("ui/widget/container/framecontainer")
-local Geom = require("ui/geometry")
-local LeftContainer = require("ui/widget/container/leftcontainer")
-local OverlapGroup = require("ui/widget/overlapgroup")
 local ReaderToc = require("apps/reader/modules/readertoc")
-local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
 local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
@@ -27,7 +23,7 @@ local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (c
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Toc"
 local AireUI = package.loaded.aire_ui
-local S, face, BLACK, WHITE, GRAY_DARK, GRAY_CARD, GRAY_BORDER, GRAY_LINE = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_CARD, AireUI.GRAY_BORDER, AireUI.GRAY_LINE
+local S, face, BLACK, GRAY_DARK, GRAY_CARD, GRAY_BORDER = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.GRAY_DARK, AireUI.GRAY_CARD, AireUI.GRAY_BORDER
 
 if ReaderToc._aire_toc_styled then return end
 ReaderToc._aire_toc_styled = true
@@ -49,7 +45,7 @@ local function buildHeroCard(toc, avail_w, pad_h)
         or string.format(_("%d %% of book"), pct)
 
     local card_w = avail_w - 2 * pad_h
-    local pad = S(11)
+    local pad = S(package.loaded.aire_screen.LIST.CARD_PAD) -- (tamaños de las tarjetas de lista)
     local in_w = card_w - 2 * pad - 2 * Size.border.thin
 
     local card = FrameContainer:new{
@@ -57,13 +53,13 @@ local function buildHeroCard(toc, avail_w, pad_h)
         bordersize = Size.border.thin,
         color = GRAY_BORDER,
         background = GRAY_CARD,
-        radius = S(10),
+        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
         padding = pad,
         VerticalGroup:new{
             align = "left",
             TextWidget:new{
                 text = string.format(_("CURRENT CHAPTER · PAGE %d"), cur_page),
-                face = face(true, 10),
+                face = face(true, package.loaded.aire_screen.LIST.META),
                 fgcolor = GRAY_DARK,
                 max_width = in_w,
                 padding = 0,
@@ -71,7 +67,7 @@ local function buildHeroCard(toc, avail_w, pad_h)
             VerticalSpan:new{ width = S(3) },
             TextWidget:new{
                 text = ch_title,
-                face = face(true, 14),
+                face = face(true, package.loaded.aire_screen.LIST.TITLE),
                 fgcolor = BLACK,
                 max_width = in_w,
                 padding = 0,
@@ -79,7 +75,7 @@ local function buildHeroCard(toc, avail_w, pad_h)
             VerticalSpan:new{ width = S(2) },
             TextWidget:new{
                 text = sub_txt,
-                face = face(false, 12),
+                face = face(false, package.loaded.aire_screen.LIST.SUB),
                 fgcolor = GRAY_DARK,
                 max_width = in_w,
                 padding = 0,
@@ -101,80 +97,29 @@ local function styleTocMenuItem(item, item_w, item_h, pad_h, cur_ch_title)
     local entry = item.entry
     if not entry or item._aire_toc_card_done then return end
     item._aire_toc_card_done = true
-
+    -- Tarjeta común (common/list.lua) con sangría por nivel (propia del índice):
+    -- el capítulo actual en negrita y gris claro, con su página destacada
+    local Lst = package.loaded.aire_list
     local depth = math.max(0, (tonumber(entry.depth) or 1) - 1)
     local indent = math.min(S(48), depth * S(16))
-    local card_w = math.max(S(120), item_w - 2 * pad_h - indent)
-    local gap_b = S(6)
-    local card_h = math.max(S(32), item_h - gap_b)
+    local card_w, card_h, gap_b = Lst.geometry(item_w, item_h, pad_h, { indent = indent })
     local is_cur = entry.bold == true or (cur_ch_title and cur_ch_title ~= "" and entry.text == cur_ch_title)
-
-    local inner_pad_h = S(12)
-    local in_w = card_w - 2 * inner_pad_h - 2 * Size.border.thin
     local page_str = entry.mandatory and tostring(entry.mandatory) or ""
-
-    local pill_w = 0
-    local pill_wgt
-    if page_str ~= "" then
-        local pw_txt = TextWidget:new{
-            text = page_str,
-            face = face(is_cur, 13),
-            fgcolor = is_cur and BLACK or GRAY_DARK,
-            padding = 0,
-        }
-        pill_w = pw_txt:getSize().w + S(10)
-        pill_wgt = pw_txt
-    end
-
-    local state_str = ""
     -- En KOReader entry.state es un botón: "control.collapse" = desplegado
+    local state_str = ""
     local st = entry.state
     if st == "expanded" or (type(st) == "table" and st.icon == "control.collapse") then
         state_str = "▾ "
     elseif entry.state then
         state_str = "▸ "
     end
-    local title_txt = (state_str .. (entry.text or "")):gsub("^%s+", "")
-    local title_w = TextWidget:new{
-        text = title_txt,
-        face = face(is_cur, 14), -- (solo el capítulo actual en negrita)
-        fgcolor = entry.dim and GRAY_DARK or BLACK,
-        max_width = math.max(S(60), in_w - pill_w),
-        padding = 0,
-    }
-
-    local row_h = card_h - 2 * Size.border.thin
-    local og = OverlapGroup:new{
-        dimen = Geom:new{ w = in_w, h = row_h },
-        LeftContainer:new{ dimen = Geom:new{ w = in_w, h = row_h }, title_w },
-    }
-    if pill_wgt then
-        table.insert(og, RightContainer:new{ dimen = Geom:new{ w = in_w, h = row_h }, pill_wgt })
-    end
-
-    local card = FrameContainer:new{
-        width = card_w,
-        height = card_h,
-        bordersize = Size.border.thin,
-        color = is_cur and GRAY_BORDER or GRAY_LINE,
-        background = is_cur and GRAY_CARD or WHITE,
-        radius = S(9),
-        padding = 0,
-        padding_left = inner_pad_h,
-        padding_right = inner_pad_h,
-        og,
-    }
-
-    item[1] = FrameContainer:new{
-        width = item_w,
-        height = item_h,
-        bordersize = 0,
-        padding = 0,
-        padding_left = pad_h + indent,
-        padding_right = pad_h,
-        padding_bottom = gap_b,
-        card,
-    }
+    local card = Lst.card({
+        title = (state_str .. (entry.text or "")):gsub("^%s+", ""), bold = is_cur, dim = entry.dim,
+        right = page_str ~= "" and { text = page_str, strong = is_cur } or nil,
+        state = is_cur and "current" or nil,
+        h = card_h,
+    }, card_w)
+    Lst.place(item, card, item_w, pad_h, { gap = gap_b, item_h = item_h, indent = indent })
 end
 
 safeWrap(ReaderToc, "onShowToc", function(orig_onShowToc, self)
@@ -253,24 +198,13 @@ safeWrap(ReaderToc, "onShowToc", function(orig_onShowToc, self)
         safeWrap(tm, "updateItems", function(orig_update, self, select_number, ...)
             orig_update(self, select_number, ...)
             if not self.item_group then return end
-            self.item_group.align = "left"
-            local w = self.dimen and self.dimen.w or Screen:getWidth()
-            local first_item = self.item_group[1]
-            local avail_w = (first_item and first_item.dimen and first_item.dimen.w)
-                or (self.inner_dimen and self.inner_dimen.w)
-                or w
-            -- Menu ya aplica items_padding a los lados de item_group: completamos hasta S(SIDE)
-            local outer_pad = math.floor((w - avail_w) / 2)
-            local pad_h = math.max(0, S(SIDE) - outer_pad)
             local owner = self._toc_owner
             local cp = owner and (owner.pageno or (owner.ui and owner.ui.getCurrentPage and owner.ui:getCurrentPage()))
             local cur_ch = owner and owner.getTocTitleByPage and cp and owner:getTocTitleByPage(cp)
-            for _, child in ipairs(self.item_group) do
-                if child and child.entry then
-                    local ih = (child.dimen and child.dimen.h) or S(52)
-                    styleTocMenuItem(child, avail_w, ih, pad_h, cur_ch)
-                end
-            end
+            -- Filas con el margen común (common/list.lua); arriba, la tarjeta fija
+            local avail_w, pad_h = package.loaded.aire_list.eachItem(self, function(child, aw, ih, ph)
+                styleTocMenuItem(child, aw, ih, ph, cur_ch)
+            end, S(52))
             local hero = buildHeroCard(owner, avail_w, pad_h)
             table.insert(self.item_group, 1, hero)
             self.item_group:resetLayout()

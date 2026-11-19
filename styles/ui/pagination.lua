@@ -12,17 +12,10 @@ local Device = require("device")
 local Blitbuffer = require("ffi/blitbuffer")
 local CenterContainer = require("ui/widget/container/centercontainer")
 local Font = require("ui/font")
-local FrameContainer = require("ui/widget/container/framecontainer")
 local Geom = require("ui/geometry")
-local HorizontalGroup = require("ui/widget/horizontalgroup")
 local KeyValuePage = require("ui/widget/keyvaluepage")
-local LeftContainer = require("ui/widget/container/leftcontainer")
-local RightContainer = require("ui/widget/container/rightcontainer")
 local Menu = require("ui/widget/menu")
-local OverlapGroup = require("ui/widget/overlapgroup")
-local Size = require("ui/size")
 local TextBoxWidget = require("ui/widget/textboxwidget")
-local TextWidget = require("ui/widget/textwidget")
 local TouchMenu = require("ui/widget/touchmenu")
 local logger = require("logger")
 local _ = require("gettext")
@@ -148,7 +141,6 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
     local function stylePlainExplorerItems(menu)
         if menu.name ~= "filemanager" or not menu.item_group or #menu.item_group == 0 then return end
         local pad_h = Screen:scaleBySize(SIDE)
-        local inner_pad = Screen:scaleBySize(14)
         local changed = false
         for _i, child in ipairs(menu.item_group) do
             if type(child) == "table" and child.entry and child._underline_container
@@ -158,72 +150,18 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
                 changed = true
                 local item_w = (child.dimen and child.dimen.w) or (menu.item_dimen and menu.item_dimen.w) or menu.width or Screen:getWidth()
                 local item_h = (child.dimen and child.dimen.h) or (menu.item_dimen and menu.item_dimen.h) or Screen:scaleBySize(48)
-                local gap_b = Screen:scaleBySize(8)
-                local card_w = math.max(Screen:scaleBySize(120), item_w - 2 * pad_h)
-                local card_h = math.max(Screen:scaleBySize(28), item_h - gap_b)
-                local inner_w = math.max(Screen:scaleBySize(80), card_w - 2 * inner_pad - 2 * Size.border.thin)
-                local inner_h = math.max(Screen:scaleBySize(20), card_h - 2 * Size.border.thin)
+                -- Tarjeta común (common/list.lua): carpetas en negrita (abren una
+                -- lista), archivos en normal; a la derecha, lo que KOReader pone
+                local Lst = package.loaded.aire_list
+                local card_w, card_h, gap_b = Lst.geometry(item_w, item_h, pad_h)
                 local is_dir = child.entry.is_file == false or (not child.entry.is_file and not child.entry.file)
-                local title_txt = child.text or child.entry.text or ""
                 local mand_txt = child.mandatory or child.entry.mandatory or ""
-
-                local mand_w
-                local mand_used = 0
-                if mand_txt ~= "" then
-                    mand_w = TextWidget:new{
-                        text = mand_txt,
-                        face = Font:getFace("infont", 13),
-                        fgcolor = Blitbuffer.COLOR_DARK_GRAY,
-                        padding = 0,
-                    }
-                    mand_used = mand_w:getSize().w + Screen:scaleBySize(8)
-                end
-
-                local text_w = math.max(Screen:scaleBySize(80), inner_w - mand_used)
-                local title_w = TextWidget:new{
-                    text = title_txt,
-                    face = Font:getFace(is_dir and "tfont" or "cfont", 15),
-                    fgcolor = Blitbuffer.COLOR_BLACK,
-                    bold = is_dir,
-                    max_width = text_w,
-                    padding = 0,
-                }
-
-                local left_hg = HorizontalGroup:new{ align = "center", title_w }
-
-                local row
-                if mand_w then
-                    row = OverlapGroup:new{
-                        dimen = Geom:new{ w = inner_w, h = inner_h },
-                        LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = inner_h }, left_hg },
-                        RightContainer:new{ dimen = Geom:new{ w = inner_w, h = inner_h }, mand_w },
-                    }
-                else
-                    row = LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = inner_h }, left_hg }
-                end
-
-                local card = FrameContainer:new{
-                    width = card_w,
-                    height = card_h,
-                    bordersize = Size.border.thin,
-                    color = Blitbuffer.COLOR_GRAY_D,
-                    background = Blitbuffer.COLOR_WHITE,
-                    radius = Screen:scaleBySize(10),
-                    padding = 0,
-                    padding_left = inner_pad,
-                    padding_right = inner_pad,
-                    row,
-                }
-                child[1] = FrameContainer:new{
-                    width = item_w,
-                    height = item_h,
-                    bordersize = 0,
-                    padding = 0,
-                    padding_left = pad_h,
-                    padding_right = pad_h,
-                    padding_bottom = gap_b,
-                    card,
-                }
+                local card = Lst.card({
+                    title = child.text or child.entry.text or "", bold = is_dir,
+                    right = mand_txt ~= "" and { text = mand_txt } or nil,
+                    h = card_h,
+                }, card_w)
+                Lst.place(child, card, item_w, pad_h, { gap = gap_b, item_h = item_h })
             end
         end
         if changed and menu.item_group.resetLayout then menu.item_group:resetLayout() end

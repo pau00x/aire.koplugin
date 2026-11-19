@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "\"%1\" · %2 hasil"
@@ -31,7 +31,7 @@ msgstr "%1 % (tunda)"
 msgid "%1 % read"
 msgstr "%1 % dibaca"
 
-#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
+#: styles/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 buku"
@@ -51,12 +51,12 @@ msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 hari"
 
-#: styles/bookinfo.lua:222
+#: styles/bookinfo.lua:240
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 hari lalu"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:643
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 hari membaca"
@@ -71,7 +71,7 @@ msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 buku selesai"
 
-#: styles/bookinfo.lua:229
+#: styles/bookinfo.lua:247
 msgid "%1 month ago"
 msgid_plural "%1 months ago"
 msgstr[0] "%1 bulan lalu"
@@ -86,15 +86,15 @@ msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 hlm. dibaca"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
+#: styles/bookinfo.lua:591 styles/bookinfo.lua:595 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 hlm."
 
-#: views/stats.lua:635
+#: views/stats.lua:621
 msgid "%1 pp./h"
 msgstr "%1 hlm./jam"
 
-#: styles/shortcuts.lua:156
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 pintasan tersimpan"
@@ -104,7 +104,7 @@ msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 seri"
 
-#: styles/bookinfo.lua:225
+#: styles/bookinfo.lua:243
 msgid "%1 week ago"
 msgid_plural "%1 weeks ago"
 msgstr[0] "%1 minggu lalu"
@@ -113,11 +113,11 @@ msgstr[0] "%1 minggu lalu"
 msgid "%1, %2 %3"
 msgstr "%1, %3 %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% dari buku"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% dari buku · %d hlm. tersisa di bab ini"
 
@@ -126,7 +126,7 @@ msgid "%d book"
 msgid_plural "%d books"
 msgstr[0] ""
 
-#: styles/bookinfo.lua:941 styles/bookstatus.lua:63
+#: styles/bookinfo.lua:959 styles/bookstatus.lua:63
 msgid "%d of 5 stars"
 msgstr "%d dari 5 bintang"
 
@@ -134,11 +134,11 @@ msgstr "%d dari 5 bintang"
 msgid "+ Brightness"
 msgstr "+ Kecerahan"
 
-#: views/stats.lua:487
+#: views/stats.lua:478
 msgid "+%1 more"
 msgstr "+%1 lagi"
 
-#: styles/bookinfo.lua:940 styles/bookstatus.lua:62
+#: styles/bookinfo.lua:958 styles/bookstatus.lua:62
 msgid "1 of 5 stars"
 msgstr "1 dari 5 bintang"
 
@@ -166,7 +166,7 @@ msgstr "Ada versi baru"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "PENCARIAN AKTIF"
 
@@ -182,7 +182,7 @@ msgstr "Aktif"
 msgid "Activity summary"
 msgstr "Ringkasan aktivitas"
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:114
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -234,7 +234,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: styles/statspages.lua:258 styles/statspages.lua:261
+#: styles/statspages.lua:240 styles/statspages.lua:243
 #, koreader
 msgid "All books"
 msgstr ""
@@ -248,7 +248,7 @@ msgstr "Semua selesai"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:578
 msgid "Annual"
 msgstr "Tahunan"
 
@@ -260,7 +260,7 @@ msgstr "Rangkuman tahunan"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -309,15 +309,15 @@ msgstr ""
 msgid "Average time per page"
 msgstr ""
 
-#: styles/bookinfo.lua:339
+#: styles/bookinfo.lua:357
 msgid "BOOK"
 msgstr "BUKU"
 
-#: styles/bookmark.lua:43
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "MARKAH"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Basque"
 msgstr ""
@@ -326,11 +326,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Baterai"
 
-#: views/stats.lua:681
+#: views/stats.lua:661
 msgid "Best day"
 msgstr "Hari terbaik"
 
-#: views/stats.lua:684
+#: views/stats.lua:664
 msgid "Best month"
 msgstr "Bulan terbaik"
 
@@ -405,12 +405,12 @@ msgstr ""
 msgid "Books are not deleted, only the collection."
 msgstr "Buku tidak dihapus, hanya koleksinya."
 
-#: styles/statspages.lua:266 styles/statspages.lua:267
+#: styles/statspages.lua:248 styles/statspages.lua:249
 #, koreader
 msgid "Books by month"
 msgstr ""
 
-#: styles/statspages.lua:263 styles/statspages.lua:264
+#: styles/statspages.lua:245 styles/statspages.lua:246
 #, koreader
 msgid "Books by week"
 msgstr ""
@@ -423,7 +423,7 @@ msgstr "Menu bawah (lembar)"
 msgid "CURRENT CHAPTER"
 msgstr "BAB SAAT INI"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "BAB SAAT INI · HALAMAN %d"
 
@@ -451,7 +451,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -460,7 +460,7 @@ msgstr ""
 msgid "Capture"
 msgstr "Tangkap"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Catalan"
 msgstr ""
@@ -506,7 +506,7 @@ msgstr ""
 msgid "Check patches and plugins on startup"
 msgstr "Periksa patch dan plugin saat mulai"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 msgid "Chinese"
 msgstr "Tionghoa"
 
@@ -518,7 +518,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Hapus gambar mini sampul"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -611,12 +611,12 @@ msgstr "Gambar mini sampul dihapus"
 msgid "Current page/Total pages"
 msgstr ""
 
-#: styles/bookinfo.lua:319
+#: styles/bookinfo.lua:337
 #, koreader
 msgid "Current page:"
 msgstr ""
 
-#: styles/statspages.lua:106 styles/statspages.lua:442
+#: styles/statspages.lua:106 styles/statspages.lua:427
 #, koreader
 msgid "Current statistics"
 msgstr ""
@@ -625,11 +625,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Sedang dibaca"
 
-#: views/stats.lua:655
+#: views/stats.lua:641
 msgid "DAILY RHYTHM"
 msgstr "RITME HARIAN"
 
-#: views/stats.lua:676
+#: views/stats.lua:656
 msgid "Daily average"
 msgstr "Rata-rata harian"
 
@@ -645,7 +645,7 @@ msgstr "Tanggal"
 msgid "Date finished"
 msgstr "Tanggal selesai"
 
-#: views/stats.lua:679
+#: views/stats.lua:659
 msgid "Day %1"
 msgstr "Hari ke-%1"
 
@@ -749,7 +749,7 @@ msgstr ""
 msgid "Downloading… %1 of %2"
 msgstr "Mengunduh… %1 dari %2"
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Dutch"
 msgstr ""
@@ -770,16 +770,16 @@ msgstr "Sunting widget Beranda"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:337
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
 
-#: styles/bookinfo.lua:355
+#: styles/bookinfo.lua:373
 msgid "Edit series"
 msgstr "Sunting seri"
 
-#: styles/bookmark.lua:341
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -797,7 +797,7 @@ msgstr "Tanpa widget"
 msgid "Empty collection"
 msgstr "Koleksi kosong"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Folder kosong"
 
@@ -810,7 +810,7 @@ msgstr "Seri kosong"
 msgid "Enabled"
 msgstr ""
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "English"
 msgstr ""
@@ -838,7 +838,7 @@ msgstr "Semua yang digambar oleh plugin, dengan data contoh. Usap ← → untuk 
 msgid "Exit"
 msgstr ""
 
-#: styles/bookinfo.lua:341 styles/bookinfo.lua:1016
+#: styles/bookinfo.lua:359 styles/bookinfo.lua:1034
 msgid "FILE"
 msgstr "BERKAS"
 
@@ -870,12 +870,12 @@ msgstr "Februari"
 msgid "File browser"
 msgstr ""
 
-#: styles/bookinfo.lua:316
+#: styles/bookinfo.lua:334
 #, koreader
 msgid "File date:"
 msgstr ""
 
-#: styles/bookinfo.lua:313
+#: styles/bookinfo.lua:331
 #, koreader
 msgid "Filename:"
 msgstr ""
@@ -893,7 +893,7 @@ msgstr "Filter dan urutkan"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
+#: styles/bookinfo.lua:277 styles/bookinfo.lua:591 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Selesai"
@@ -927,7 +927,7 @@ msgstr ""
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
-#: styles/bookinfo.lua:317
+#: styles/bookinfo.lua:335
 #, koreader
 msgid "Folder:"
 msgstr ""
@@ -949,17 +949,17 @@ msgstr ""
 msgid "Fonts"
 msgstr "Fon"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
 
-#: styles/bookinfo.lua:314 styles/bookinfo.lua:502
+#: styles/bookinfo.lua:332 styles/bookinfo.lua:520
 #, koreader
 msgid "Format:"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "French"
 msgstr ""
@@ -977,12 +977,12 @@ msgstr "Penyegaran penuh"
 msgid "Full screens"
 msgstr "Layar penuh"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Galician"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "German"
 msgstr ""
@@ -1001,7 +1001,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Gestur diatur: %1"
 
-#: styles/bookmark.lua:366
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1010,7 +1010,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Naik"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1019,11 +1019,11 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Kisi: %1 kolom"
 
-#: styles/bookmark.lua:42
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "SOROTAN"
 
-#: views/stats.lua:663
+#: views/stats.lua:649
 msgid "HIGHLIGHTS"
 msgstr "SOROTAN"
 
@@ -1126,7 +1126,7 @@ msgstr ""
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Akan digunakan setelah KOReader dimulai ulang. Pengaturan Anda tetap tersimpan."
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Italian"
 msgstr ""
@@ -1136,7 +1136,7 @@ msgctxt "aire"
 msgid "January"
 msgstr "Januari"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Japanese"
 msgstr ""
@@ -1160,7 +1160,7 @@ msgstr ""
 msgid "KOReader engine (crengine)"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Korean"
 msgstr ""
@@ -1189,7 +1189,7 @@ msgstr "Jam dan tanggal besar"
 msgid "Large · small · small inverted — swipe ← →, tap to exit"
 msgstr "Besar · kecil · kecil terbalik — usap ← →, ketuk untuk keluar"
 
-#: styles/bookinfo.lua:897
+#: styles/bookinfo.lua:915
 msgid "Last"
 msgstr "Terakhir"
 
@@ -1209,7 +1209,7 @@ msgstr "Terakhir dibaca"
 msgid "Later"
 msgstr "Nanti"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Latin"
 msgstr ""
@@ -1271,19 +1271,19 @@ msgstr "Memuat bulan…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "HASIL"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "HASIL %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:641
 msgid "MONTHLY RHYTHM"
 msgstr "RITME BULANAN"
 
-#: views/stats.lua:693
+#: views/stats.lua:673
 msgid "MOST READ"
 msgstr "PALING BANYAK DIBACA"
 
@@ -1346,7 +1346,7 @@ msgstr "Memori terpakai"
 msgid "Menu next to text"
 msgstr ""
 
-#: styles/bookinfo.lua:318
+#: styles/bookinfo.lua:336
 #, koreader
 msgid "Metadata:"
 msgstr ""
@@ -1364,7 +1364,7 @@ msgstr "Campur folder"
 msgid "Mix series"
 msgstr "Campur seri"
 
-#: views/stats.lua:590
+#: views/stats.lua:576
 msgid "Monthly"
 msgstr "Bulanan"
 
@@ -1405,7 +1405,7 @@ msgstr ""
 msgid "Multiple fields"
 msgstr ""
 
-#: styles/bookinfo.lua:367
+#: styles/bookinfo.lua:385
 #, koreader
 msgid "N/A"
 msgstr ""
@@ -1422,7 +1422,7 @@ msgstr "BERIKUTNYA"
 msgid "NEXT REVIEW"
 msgstr "PENGULANGAN BERIKUTNYA"
 
-#: styles/bookmark.lua:41
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "CATATAN"
 
@@ -1431,7 +1431,7 @@ msgstr "CATATAN"
 msgid "Name"
 msgstr ""
 
-#: styles/bookinfo.lua:501
+#: styles/bookinfo.lua:519
 msgid "Name:"
 msgstr "Nama:"
 
@@ -1444,7 +1444,7 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: styles/bookinfo.lua:571
+#: styles/bookinfo.lua:589
 msgctxt "aire"
 msgid "New"
 msgstr "Baru"
@@ -1496,7 +1496,7 @@ msgstr "Tidak ada data CoverBrowser"
 msgid "No book in progress"
 msgstr "Tidak ada buku yang sedang dibaca"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Tidak ada buku yang cocok dengan filter"
 
@@ -1516,7 +1516,7 @@ msgstr "Tidak ada buku di folder beranda"
 msgid "No books with this filter"
 msgstr "Tidak ada buku dengan filter ini"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Tanpa bab"
 
@@ -1536,7 +1536,7 @@ msgstr "Tidak ada buku saat ini"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Tidak ada data: aktifkan plugin Statistik dan baca sebentar"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1549,7 +1549,7 @@ msgstr "Tidak ada buku berikutnya yang belum selesai"
 msgid "No previous book"
 msgstr "Tidak ada buku sebelumnya"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:347 views/stats.lua:612
 msgid "No reading activity in this period"
 msgstr "Tidak ada aktivitas membaca pada periode ini"
 
@@ -1562,7 +1562,7 @@ msgstr "Tidak ada sesi membaca bulan ini"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:155
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Tidak ada pintasan tersimpan"
 
@@ -1578,11 +1578,11 @@ msgstr "Tidak ada buku yang belum dimulai"
 msgid "No vocabulary words"
 msgstr "Tidak ada kata"
 
-#: styles/bookinfo.lua:939 styles/bookstatus.lua:61
+#: styles/bookinfo.lua:957 styles/bookstatus.lua:61
 msgid "Not rated"
 msgstr "Belum dinilai"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
+#: styles/bookinfo.lua:278 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "Belum dimulai"
 
@@ -1591,12 +1591,12 @@ msgstr "Belum dimulai"
 msgid "Note"
 msgstr ""
 
-#: styles/bookinfo.lua:322
+#: styles/bookinfo.lua:340
 #, koreader
 msgid "Notebook file:"
 msgstr ""
 
-#: styles/bookinfo.lua:896
+#: styles/bookinfo.lua:914
 msgctxt "aire"
 msgid "Notes"
 msgstr "Catatan"
@@ -1610,7 +1610,7 @@ msgstr "November"
 msgid "Number"
 msgstr ""
 
-#: styles/bookinfo.lua:359
+#: styles/bookinfo.lua:377
 msgid "Number in series"
 msgstr "Nomor dalam seri"
 
@@ -1634,7 +1634,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
+#: styles/bookinfo.lua:276 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "Tunda"
@@ -1744,7 +1744,7 @@ msgstr ""
 msgid "Portrait"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Portuguese"
 msgstr ""
@@ -1797,11 +1797,11 @@ msgstr "Kutipan hari ini"
 msgid "RANDOM"
 msgstr "ACAK"
 
-#: styles/bookinfo.lua:944 styles/bookstatus.lua:313
+#: styles/bookinfo.lua:962 styles/bookstatus.lua:313
 msgid "RATING"
 msgstr "PENILAIAN"
 
-#: styles/bookinfo.lua:340
+#: styles/bookinfo.lua:358
 msgid "READING"
 msgstr "MEMBACA"
 
@@ -1813,7 +1813,7 @@ msgstr "STATUS BACAAN"
 msgid "RECAP"
 msgstr "RANGKUMAN"
 
-#: styles/bookinfo.lua:984 styles/bookstatus.lua:390
+#: styles/bookinfo.lua:1002 styles/bookstatus.lua:390
 msgid "REVIEW / NOTES"
 msgstr "ULASAN / CATATAN"
 
@@ -1829,7 +1829,7 @@ msgstr "Buku acak"
 msgid "Rating and review"
 msgstr "Penilaian dan ulasan"
 
-#: styles/bookinfo.lua:320
+#: styles/bookinfo.lua:338
 #, koreader
 msgid "Rating:"
 msgstr ""
@@ -1853,7 +1853,7 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:202 styles/bookinfo.lua:257 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
+#: dev/tests/regressions.lua:202 styles/bookinfo.lua:275 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "Dibaca"
@@ -1875,7 +1875,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:553
+#: views/stats.lua:539
 msgid "Recap"
 msgstr "Rangkuman"
 
@@ -1896,7 +1896,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:354
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1906,7 +1906,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Hapus"
 
-#: styles/bookmark.lua:351
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1926,7 +1926,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:353
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1976,7 +1976,7 @@ msgstr "Mulai ulang sekarang"
 msgid "Reverse sorting"
 msgstr ""
 
-#: styles/bookinfo.lua:321
+#: styles/bookinfo.lua:339
 #, koreader
 msgid "Review:"
 msgstr ""
@@ -1991,7 +1991,7 @@ msgstr ""
 msgid "Rotate"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Russian"
 msgstr ""
@@ -2060,7 +2060,7 @@ msgstr "September"
 msgid "Series"
 msgstr ""
 
-#: styles/bookinfo.lua:358
+#: styles/bookinfo.lua:376
 msgid "Series name"
 msgstr "Nama seri"
 
@@ -2125,7 +2125,7 @@ msgstr ""
 msgid "Show synopsis"
 msgstr "Tampilkan sinopsis"
 
-#: styles/bookinfo.lua:315
+#: styles/bookinfo.lua:333
 #, koreader
 msgid "Size:"
 msgstr ""
@@ -2176,7 +2176,7 @@ msgstr "Urutkan koleksi…"
 msgid "Sort files"
 msgstr "Urutkan berkas"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Spanish"
 msgstr ""
@@ -2229,7 +2229,7 @@ msgstr ""
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:971 styles/bookinfo.lua:988 styles/bookstatus.lua:395
+#: dev/devtools.lua:971 styles/bookinfo.lua:1006 styles/bookstatus.lua:395
 msgid "Tap to add or edit your review of this book…"
 msgstr "Ketuk untuk menambah atau menyunting ulasan Anda tentang buku ini…"
 
@@ -2241,7 +2241,7 @@ msgstr "Ketuk untuk membuka pustaka"
 msgid "Tap to stop"
 msgstr "Ketuk untuk berhenti"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Ketuk untuk melihat definisi"
 
@@ -2298,7 +2298,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Buku saat ini bukan bagian dari seri"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Koleksi ini kosong"
 
@@ -2314,11 +2314,11 @@ msgstr "Bulan ini"
 msgid "This month · %1 · %2 pp."
 msgstr "Bulan ini · %1 · %2 hlm."
 
-#: styles/statspages.lua:266
+#: styles/statspages.lua:248
 msgid "This month: %1"
 msgstr "Bulan ini: %1"
 
-#: styles/statspages.lua:263
+#: styles/statspages.lua:245
 msgid "This week: %1"
 msgstr "Minggu ini: %1"
 
@@ -2331,12 +2331,12 @@ msgstr "Tahun ini"
 msgid "Time"
 msgstr ""
 
-#: styles/statspages.lua:240
+#: styles/statspages.lua:231
 #, koreader
 msgid "Time range statistics"
 msgstr ""
 
-#: styles/bookinfo.lua:895
+#: styles/bookinfo.lua:913
 msgid "Time read"
 msgstr "Waktu baca"
 
@@ -2376,12 +2376,12 @@ msgstr ""
 msgid "Today and streak"
 msgstr "Hari ini dan runtunan"
 
-#: styles/statspages.lua:319
+#: styles/statspages.lua:301
 #, koreader
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:667
 msgid "Top author"
 msgstr "Penulis teratas"
 
@@ -2403,7 +2403,7 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
 #, koreader
 msgid "Update"
 msgstr ""
@@ -2440,7 +2440,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Pengulangan kosakata"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Pengulangan kosakata · %1 kata"
@@ -2506,7 +2506,7 @@ msgstr "Anda tidak membaca hari itu"
 msgid "You don't have any highlights yet"
 msgstr "Anda belum punya sorotan"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Anda belum membuka buku apa pun"
 
@@ -2569,7 +2569,7 @@ msgstr ""
 msgid "files"
 msgstr "berkas"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:629 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "buku selesai"
@@ -2608,7 +2608,7 @@ msgstr ""
 msgid "night mode"
 msgstr ""
 
-#: styles/bookinfo.lua:264
+#: styles/bookinfo.lua:282
 msgid "now"
 msgstr "sekarang"
 
@@ -2624,7 +2624,7 @@ msgstr "hlm. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "hlm. %1 dari %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:621
 msgid "pages read"
 msgstr "halaman dibaca"
 
@@ -2632,7 +2632,7 @@ msgstr "halaman dibaca"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:625
 msgid "reading time"
 msgstr "waktu membaca"
 
@@ -2697,7 +2697,7 @@ msgstr "pengatur waktu"
 msgid "today"
 msgstr "hari ini"
 
-#: styles/bookinfo.lua:219
+#: styles/bookinfo.lua:237
 msgctxt "aire"
 msgid "today"
 msgstr "hari ini"
@@ -2710,7 +2710,7 @@ msgstr "hari ini · %1 hlm."
 msgid "wi-fi"
 msgstr "wi-fi"
 
-#: styles/bookinfo.lua:220
+#: styles/bookinfo.lua:238
 msgctxt "aire"
 msgid "yesterday"
 msgstr "kemarin"

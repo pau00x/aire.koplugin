@@ -29,8 +29,6 @@ local Geom = require("ui/geometry")
 local GestureRange = require("ui/gesturerange")
 local InputContainer = require("ui/widget/container/inputcontainer")
 local LeftContainer = require("ui/widget/container/leftcontainer")
-local OverlapGroup = require("ui/widget/overlapgroup")
-local RightContainer = require("ui/widget/container/rightcontainer")
 local Size = require("ui/size")
 local TextBoxWidget = require("ui/widget/textboxwidget")
 local TextWidget = require("ui/widget/textwidget")
@@ -127,26 +125,12 @@ function P.tile(value, sub, w, on_tap)
 end
 
 -- Fila clave / valor (o › si abre algo y no tiene valor). Línea fina debajo.
+-- Fila clave / valor: la común de las listas (common/list.lua: row)
 function P.row(key, value, w, on_tap, opts)
     opts = opts or {}
-    local h = opts.height or S(40)
-    local has_value = value ~= nil and tostring(value) ~= "" and tostring(value) ~= " "
-    local right_txt = has_value and tostring(value) or (on_tap and "›" or "")
-    local right = TextWidget:new{ text = right_txt, face = face(has_value, 14),
-        fgcolor = has_value and P.BLACK or P.GRAY_DARK, max_width = math.floor(w * 0.6), padding = 0 }
-    local left = TextWidget:new{ text = tostring(key or ""), face = face(false, 14),
-        fgcolor = (has_value or not on_tap) and P.GRAY_DARK or P.BLACK,
-        max_width = math.max(S(40), w - right:getSize().w - S(12)), padding = 0 }
-    local og = OverlapGroup:new{
-        dimen = Geom:new{ w = w, h = h },
-        LeftContainer:new{ dimen = Geom:new{ w = w, h = h }, left },
-        RightContainer:new{ dimen = Geom:new{ w = w, h = h }, right },
-    }
-    local vg = VerticalGroup:new{ align = "left", og }
-    if not opts.no_line then
-        table.insert(vg, P.line(w))
-    end
-    return P.tappable(vg, on_tap)
+    return package.loaded.aire_list.row({
+        key = key, value = value, callback = on_tap, line = not opts.no_line,
+    }, w)
 end
 
 local Line = Widget:extend{ width = 0 }

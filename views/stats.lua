@@ -346,7 +346,7 @@ return function(Aire, ctx)
         content:resetLayout()
         local dock = self:buildNavBar(w)
         local dock_area = package.loaded.aire_screen.dockReserve(dock)
-        local row_h = S(30)
+        local row_h = S(package.loaded.aire_screen.LIST.ROW_H) -- (filas comunes: common/list.lua)
         local detail_min = S(16) + S(20) + S(8) + 3 * row_h
         local grid_max = sh - content:getSize().h - dock_area - detail_min
         table.insert(content, CalendarGrid:new{
@@ -464,32 +464,18 @@ return function(Aire, ctx)
                 }
                 UIManager:show(dlg)
             end
+            -- Filas comunes (common/list.lua): el libro (es el elemento) y su tiempo
+            local Lst = package.loaded.aire_list
             for i = 1, shown do
                 local b = books[i]
-                local right = TextWidget:new{ text = fmtDuration(b.secs), face = face(false, 14), fgcolor = BLACK, padding = 0 }
-                local row_w = OverlapGroup:new{
-                    dimen = Geom:new{ w = w, h = row_h },
-                    LeftContainer:new{
-                        dimen = Geom:new{ w = w, h = row_h },
-                        TextWidget:new{ text = b.title, face = face(true, 14), fgcolor = BLACK,
-                            max_width = w - right:getSize().w - S(16), padding = 0 },
-                    },
-                    RightContainer:new{ dimen = Geom:new{ w = w, h = row_h }, right },
-                }
-                table.insert(content, b.id_book
-                    and tappable(row_w, function() showBookStatsSheet(b) end, function() showBookStatsSheet(b) end)
-                    or row_w)
+                local open = b.id_book and function() showBookStatsSheet(b) end or nil
+                table.insert(content, Lst.row({ key = b.title, key_main = true, value = fmtDuration(b.secs),
+                    callback = open, hold_callback = open, line = i < shown or shown < #books }, w))
             end
             if shown < #books then
                 -- "+N más ›": abre la lista completa del día
-                local more = HorizontalGroup:new{
-                    align = "center",
-                    TextWidget:new{ text = T(_("+%1 more"), #books - shown), face = face(true, 13), fgcolor = BLACK, padding = 0 },
-                    HorizontalSpan:new{ width = S(4) },
-                    IconWidget:new{ icon = "chevron.right", width = S(14), height = S(14), alpha = true },
-                }
                 local day_title = head
-                table.insert(content, tappable(more, function()
+                table.insert(content, Lst.row({ key = T(_("+%1 more"), #books - shown), line = false, callback = function()
                     local kv_page
                     local kv = {}
                     for _i, b in ipairs(books) do
@@ -504,7 +490,7 @@ return function(Aire, ctx)
                     end
                     kv_page = KeyValuePage:new{ title = day_title, kv_pairs = kv }
                     UIManager:show(kv_page)
-                end, nil, { h = S(12), v = S(10) }))
+                end }, w))
             end
         end
         content:resetLayout()
@@ -662,15 +648,9 @@ return function(Aire, ctx)
             table.insert(content, VerticalSpan:new{ width = S(18) })
             table.insert(content, sectionLabel(_("HIGHLIGHTS")))
             table.insert(content, VerticalSpan:new{ width = S(6) })
-            local kv_h = S(24)
+            -- Filas clave / valor comunes (common/list.lua)
             local function kvRow(k, v)
-                local rw = TextWidget:new{ text = v, face = face(true, 13), fgcolor = BLACK, max_width = math.floor(w * 0.65), padding = 0 }
-                local lw = TextWidget:new{ text = k, face = face(false, 13), fgcolor = GRAY_TEXT, max_width = w - rw:getSize().w - S(12), padding = 0 }
-                table.insert(content, OverlapGroup:new{
-                    dimen = Geom:new{ w = w, h = kv_h },
-                    LeftContainer:new{ dimen = Geom:new{ w = w, h = kv_h }, lw },
-                    RightContainer:new{ dimen = Geom:new{ w = w, h = kv_h }, rw },
-                })
+                table.insert(content, package.loaded.aire_list.row({ key = k, value = v }, w))
             end
             local avg_secs = recap.read_days > 0 and (recap.total_secs / recap.read_days) or 0
             kvRow(_("Daily average"), fmtDuration(avg_secs))
@@ -693,22 +673,16 @@ return function(Aire, ctx)
                 table.insert(content, sectionLabel(_("MOST READ")))
                 table.insert(content, VerticalSpan:new{ width = S(6) })
                 content:resetLayout()
-                local row_h = S(26)
+                -- Filas comunes (common/list.lua): el libro (es el elemento) y su tiempo
+                local row_h = S(package.loaded.aire_screen.LIST.ROW_H) + Size.line.thin
                 local fit = math.max(0, math.floor((sh - dock_area - content:getSize().h) / row_h))
                 local shown = math.min(#recap.top_books, fit)
                 for i = 1, shown do
                     local b = recap.top_books[i]
-                    local right = TextWidget:new{ text = fmtDuration(b.secs), face = face(false, 13), fgcolor = GRAY_TEXT, padding = 0 }
-                    local left = TextWidget:new{
-                        text = ("%d. %s"):format(i, b.title),
-                        face = face(true, 13), fgcolor = BLACK,
-                        max_width = w - right:getSize().w - S(12), padding = 0,
-                    }
-                    table.insert(content, OverlapGroup:new{
-                        dimen = Geom:new{ w = w, h = row_h },
-                        LeftContainer:new{ dimen = Geom:new{ w = w, h = row_h }, left },
-                        RightContainer:new{ dimen = Geom:new{ w = w, h = row_h }, right },
-                    })
+                    table.insert(content, package.loaded.aire_list.row({
+                        key = ("%d. %s"):format(i, b.title), key_main = true,
+                        value = fmtDuration(b.secs), line = i < shown,
+                    }, w))
                 end
             end
         end

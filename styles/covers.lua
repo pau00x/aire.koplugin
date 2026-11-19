@@ -353,7 +353,7 @@ local function patchCoverBrowser(plugin)
                 local orig_w = self.width
                 local orig_h = self.height
                 local pad_h = Screen:scaleBySize(SIDE)
-                local gap_b = orig_h >= Screen:scaleBySize(60) and Screen:scaleBySize(8) or Screen:scaleBySize(6)
+                local gap_b = Screen:scaleBySize(package.loaded.aire_screen.LIST.CARD_GAP) -- (hueco común de las listas)
                 local pad_in = Screen:scaleBySize(4)
                 local border = Size.border.thin
                 local card_w = math.max(Screen:scaleBySize(120), orig_w - 2 * pad_h)
@@ -387,7 +387,9 @@ local function patchCoverBrowser(plugin)
                 elseif orig_mand and orig_mand ~= "" then
                     TextWidget.new = function(cls, o)
                         if type(o) == "table" and o.text == orig_mand then
-                            o.face = Font:getFace("infont", 14)
+                            -- (como los valores de las listas: common/screen.lua, LIST)
+                            o.face = Font:getFace("cfont", package.loaded.aire_screen.LIST.VALUE)
+                            o.fgcolor = Blitbuffer.COLOR_DARK_GRAY
                         end
                         return orig_tw_new(cls, o)
                     end
@@ -411,7 +413,7 @@ local function patchCoverBrowser(plugin)
                         bordersize = border,
                         color = Blitbuffer.COLOR_GRAY_D,
                         background = Blitbuffer.COLOR_WHITE,
-                        radius = Screen:scaleBySize(10),
+                        radius = Screen:scaleBySize(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista)
                         padding = 0,
                         CenterContainer:new{
                             dimen = Geom:new{ w = inner_w, h = inner_h },

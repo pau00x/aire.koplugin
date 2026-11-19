@@ -474,22 +474,22 @@ return function(Aire, ctx)
     -- Hoja de energía → "Actualizar": elegir KOReader o Aire
     ---------------------------------------------------------------------------
     local function showChooser(on_koreader)
-        local P = getP()
         local in_w = select(4, sheetGeometry())
         local sheet
         local l = available()
+        -- Título y filas de las hojas (common/sheet.lua)
+        local Sh = package.loaded.aire_sheet
         sheet = newSheet(VerticalGroup:new{
             align = "left",
-            title(_("Update"), in_w),
-            VerticalSpan:new{ width = S(6) },
-            P.row("KOReader", nil, in_w, function()
+            Sh.title(_("Update"), in_w),
+            Sh.row({ text = "KOReader", callback = function()
                 UIManager:close(sheet)
                 on_koreader()
-            end),
-            P.row(l and T(_("Aire %1 available"), l.version) or "Aire", nil, in_w, function()
+            end }, in_w),
+            Sh.row({ text = l and T(_("Aire %1 available"), l.version) or "Aire", callback = function()
                 UIManager:close(sheet)
                 check(true)
-            end, { no_line = true }),
+            end }, in_w),
         })
         UIManager:show(sheet)
     end
