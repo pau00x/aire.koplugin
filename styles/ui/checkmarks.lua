@@ -1,13 +1,13 @@
 --[[
     aire.koplugin/styles/ui/checkmarks.lua
     Casillas (CheckMark) y opciones (RadioMark) con los iconos SVG aire.checkbox.* y aire.radio.*.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua).
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua).
 --]]
 
 local B = ...
 
 -- Letra de las casillas y opciones (búsqueda, ordenar, pickers…): la de las
--- filas de las hojas (common/screen.lua, ROW_FONT). Si quien las crea pasa su
+-- filas de las hojas (ui/screen.lua, ROW_FONT). Si quien las crea pasa su
 -- propia letra (p. ej. el selector de fuentes, que enseña cada una), se respeta.
 do
     local Font_ = require("ui/font")

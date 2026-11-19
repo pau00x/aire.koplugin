@@ -31,15 +31,16 @@ The optional `dev/` folder (git-ignored) holds test tools: `dev/devtools.lua` ad
 ## Code guidelines
 
 - **Language**: Lua 5.1 / LuaJIT, as in KOReader. Follow KOReader's style (4 spaces, `local` everything, `require` at the top).
-- **File names**: lowercase, no separators, named after what they change (`styles/toc.lua` restyles KOReader's table of contents).
+- **File names**: lowercase, no separators, named after what they change (`styles/reader/toc.lua` restyles KOReader's table of contents).
 - **Where things go**:
-  - `views/`: Aire's own screens.
-  - `styles/<screen>.lua`: restyling of one KOReader screen.
-  - `styles/ui/`: KOReader-wide changes, loaded **in order** by `styles/ui.lua`. Several parts wrap the same KOReader methods, so do not reorder them without checking.
-  - `common/`: helpers shared by the rest.
+  - `core/`: core helpers (settings, l10n, icons, compatibility check, OTA updater).
+  - `ui/`: shared UI primitives (theme, screen metrics, bottom sheets, card lists, full-screen pages).
+  - `views/`: Aire's own screens (`views/*.lua` and `views/*/init.lua` for multi-file views).
+  - `styles/reader/`, `styles/filemanager/`, `styles/plugins/`: restyling of KOReader screens grouped by area.
+  - `styles/ui/`: KOReader-wide changes, loaded **in order** by `styles/ui/init.lua`. Several parts wrap the same KOReader methods, so do not reorder them without checking.
 - **Never edit KOReader or official plugins.** Wrap methods at runtime, keep a reference to the original (`local orig_x = Class.x`) and always call it.
 - **Fail safely**: anything that hooks into KOReader internals must survive a missing method or upvalue (`pcall`, nil checks) and log a warning instead of breaking KOReader's startup.
-- **LuaJIT limits**: a function can use at most 60 upvalues (variables from outside it); with 61 the whole file fails to load. The view modules (`views/*.lua`, except `booksheet.lua`) and `menu.lua` are one big "mixin" function (`return function(Aire, ctx) … end`): declare the modules it uses **inside** it (they are already there), not as new locals at the top of the file. Check with `python scripts/lualint.py -t <files>`, which lists the functions with most upvalues and fails above 60.
+- **LuaJIT limits**: a function can use at most 60 upvalues (variables from outside it); with 61 the whole file fails to load. The view modules (`views/*.lua` and `views/*/init.lua`, except `booksheet.lua`) and `menu.lua` are one big "mixin" function (`return function(Aire, ctx) … end`): declare the modules it uses **inside** it (they are already there), not as new locals at the top of the file. Check with `python scripts/lualint.py -t <files>`, which lists the functions with most upvalues and fails above 60.
 - **Vararg**: never use `...` inside a closure; capture it first (`local args = { ... }`).
 - **Log tags**: `logger.warn("Aire/<Module>: …")`.
 - **Icons**: bundled icons are `icons/aire.<name>.svg` and are referenced as `"aire.<name>"`.

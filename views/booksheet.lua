@@ -100,12 +100,12 @@ local function getBookProps(file_manager, file)
     return props
 end
 
--- Ancho útil de la hoja (common/screen.lua)
+-- Ancho útil de la hoja (ui/screen.lua)
 local function getHeaderWidth()
     return package.loaded.aire_screen.sheetInnerWidth()
 end
 
--- Subtítulo de la ficha (autor, datos): el común de las hojas (common/sheet.lua,
+-- Subtítulo de la ficha (autor, datos): el común de las hojas (ui/sheet.lua,
 -- 13 en gris), debajo del título del menú
 local function makeHeaderSubwidget(lines)
     if not lines or #lines == 0 then return nil end

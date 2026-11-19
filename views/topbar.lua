@@ -114,7 +114,7 @@ return function(Aire, ctx)
         end
     end
 
-    -- Datos de la barra de estado común (common/screen.lua)
+    -- Datos de la barra de estado común (ui/screen.lua)
     local AireScreen = package.loaded.aire_screen
     AireScreen.setStatusSource{
         clock = clockString,
@@ -247,7 +247,7 @@ return function(Aire, ctx)
     function Aire:onNotCharging() refreshHeaderAndWidgets(self) end
     function Aire:onTimeFormatChanged() self:refreshHeader() end
     function Aire:onFrontlightStateChanged() refreshHeaderAndWidgets(self) end
-    -- Al cerrar el diálogo de luz (views/widgets.lua lo anuncia): actualizar los widgets
+    -- Al cerrar el diálogo de luz (views/widgets/init.lua lo anuncia): actualizar los widgets
     function Aire:onHomeWidgetsRefresh()
         if self.refreshWidgets then self:refreshWidgets() end
     end

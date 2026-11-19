@@ -68,7 +68,7 @@ return function(Aire, ctx)
                 sort_label = capFirst(col.text)
             end
         end
-        -- Hoja para elegir el orden (common/sheet.lua), la misma que la de la
+        -- Hoja para elegir el orden (ui/sheet.lua), la misma que la de la
         -- Librería: el orden actual relleno y debajo invertir / mezclar carpetas.
         -- (El botón con el orden actual va en la cabecera.)
         local function openSort()
@@ -119,7 +119,7 @@ return function(Aire, ctx)
         local folder_name = at_home and _("Home")
             or (cur_path == "/" and "/")
             or BD.directory((cur_path and cur_path:match("([^/]+)/*$")) or self:pathText(cur_path))
-        -- Cabecera común (common/screen.lua): en subcarpetas, "‹ Carpeta" sube un
+        -- Cabecera común (ui/screen.lua): en subcarpetas, "‹ Carpeta" sube un
         -- nivel; a la derecha, el orden actual ▾
         local AireScreen = package.loaded.aire_screen
         local title_w = AireScreen.header(w, {

@@ -32,8 +32,8 @@
     Aire (init, apply, cambiar de vista, ciclo de vida). El resto son "mixins"
     que añaden métodos a Aire (ver la lista al cargarlos más abajo):
       views/power.lua · topbar.lua · dock.lua · explorer.lua · home.lua
-      views/grid.lua · stats.lua · widgets.lua · update.lua · menu.lua
-    Ajustes por defecto y lectura: common/config.lua.
+      views/grid/init.lua · stats/init.lua · widgets/init.lua · update_sheet.lua · menu.lua
+    Ajustes por defecto y lectura: core/config.lua.
 --]]
 
 local Device = require("device")
@@ -54,22 +54,22 @@ local UI = nil
 if plugin_dir then
     -- Traducciones: normalmente ya las cargó _meta.lua (KOReader lo lee antes)
     if not _._aire_l10n_lang then
-        pcall(function() dofile(plugin_dir .. "/common/l10n.lua").load(plugin_dir) end)
+        pcall(function() dofile(plugin_dir .. "/core/l10n.lua").load(plugin_dir) end)
     end
-    pcall(function() dofile(plugin_dir .. "/common/icons.lua").register(plugin_dir) end)
+    pcall(function() dofile(plugin_dir .. "/core/icons.lua").register(plugin_dir) end)
     -- Piezas comunes (medidas, letra, colores, zonas pulsables, envoltorios
     -- seguros): todos los módulos las toman de package.loaded.aire_ui, la
     -- estructura de las pantallas completas (medidas, puntos de página) de
-    -- package.loaded.aire_screen y las pantallas de common/pages.lua de
+    -- package.loaded.aire_screen y las pantallas de ui/pages.lua de
     -- package.loaded.aire_pages
-    UI = dofile(plugin_dir .. "/common/ui.lua")
+    UI = dofile(plugin_dir .. "/ui/theme.lua")
     package.loaded.aire_ui = UI
-    package.loaded.aire_screen = dofile(plugin_dir .. "/common/screen.lua")
-    -- Hojas inferiores (marco, cierre, refresco, desplazamiento): common/sheet.lua
-    package.loaded.aire_sheet = dofile(plugin_dir .. "/common/sheet.lua")
-    -- Listas de contenido en tarjetas (recorrer, medir, marco, colocar): common/list.lua
-    package.loaded.aire_list = dofile(plugin_dir .. "/common/list.lua")
-    package.loaded.aire_pages = dofile(plugin_dir .. "/common/pages.lua")
+    package.loaded.aire_screen = dofile(plugin_dir .. "/ui/screen.lua")
+    -- Hojas inferiores (marco, cierre, refresco, desplazamiento): ui/sheet.lua
+    package.loaded.aire_sheet = dofile(plugin_dir .. "/ui/sheet.lua")
+    -- Listas de contenido en tarjetas (recorrer, medir, marco, colocar): ui/list.lua
+    package.loaded.aire_list = dofile(plugin_dir .. "/ui/list.lua")
+    package.loaded.aire_pages = dofile(plugin_dir .. "/ui/pages.lua")
     -- Cabecera en crash.log (como la de KOReader) con la versión de _meta.lua,
     -- para que cada log diga cuál era. Es lo único que Aire escribe siempre al
     -- arrancar; el resto va con logger.dbg (registro detallado de KOReader).
@@ -97,8 +97,8 @@ local GRAY_TEXT = UI.GRAY_TEXT
 local SEPARATOR = "  "
 
 
--- Ajustes (valores por defecto y lectura en common/config.lua)
-local Config = dofile((plugin_dir or "plugins/aire.koplugin") .. "/common/config.lua")
+-- Ajustes (valores por defecto y lectura en core/config.lua)
+local Config = dofile((plugin_dir or "plugins/aire.koplugin") .. "/core/config.lua")
 local config = Config.load()
 FileManager._aire_rounded_covers = config.rounded_covers
 
@@ -124,30 +124,31 @@ local function loadModule(file)
     local ok, err = pcall(dofile, PLUGIN_DIR .. "/" .. file)
     if not ok then logger.warn("Aire: error cargando", file, err) end
 end
--- El orden importa: bookinfo.lua lee
--- KeyValueItem de KeyValuePage antes de que styles/ui.lua lo envuelva.
-loadModule("styles/covers.lua")              -- portadas del mosaico
-loadModule("styles/bookinfo.lua")            -- Información del libro
-loadModule("styles/bookmap.lua")             -- Mapa del libro (BookMapWidget)
-loadModule("styles/pagebrowser.lua")         -- Explorador de páginas (PageBrowserWidget)
-loadModule("styles/imageviewer.lua")         -- Visor de imágenes / portadas (ImageViewer)
-loadModule("styles/readerprogress.lua")      -- Progreso de lectura (statistics.koplugin)
-loadModule("styles/calendar.lua")            -- Calendario de lectura (statistics.koplugin)
-loadModule("styles/vocabbuilder.lua")        -- Constructor de vocabulario (vocabbuilder.koplugin)
-loadModule("styles/toc.lua")                 -- Índice del libro (ReaderToc)
-loadModule("styles/bookmark.lua")            -- Marcadores y notas (ReaderBookmark)
-loadModule("styles/search.lua")              -- Resultados de búsqueda (ReaderSearch)
-loadModule("styles/shortcuts.lua")           -- Atajos de carpetas (FileManagerShortcuts)
-loadModule("styles/bookstatus.lua")          -- Estado del libro (BookStatusWidget)
-loadModule("styles/collections.lua")         -- Lista de colecciones de KOReader (elegir colecciones)
-loadModule("styles/statspages.lua")          -- Estadísticas: libro actual, intervalo de tiempo, línea de tiempo
-loadModule("styles/gestures.lua")            -- Resumen de gestos (plugin Gestures)
-loadModule("styles/skim.lua")                -- Vista rápida del documento (SkimToWidget)
-loadModule("styles/highlight.lua")           -- Subrayados: mantener pulsado uno existente
-loadModule("styles/footer.lua")              -- Barra de estado del lector (ReaderFooter)
-loadModule("views/booksheet.lua")           -- ficha al mantener pulsado
-loadModule("styles/ui.lua")                  -- interfaz general: carga styles/ui/*.lua
-loadModule("styles/sortwidget.lua")          -- Ordenar (colecciones…): tarjetas y puntos de página (después de ui.lua)
+-- Invariante de orden: bookinfo.lua -> styles/ui/init.lua -> sortwidget.lua.
+-- bookinfo.lua lee KeyValueItem de KeyValuePage antes de que styles/ui/init.lua lo envuelva,
+-- y sortwidget.lua se aplica después de styles/ui/init.lua (barra de título de Aire).
+loadModule("styles/filemanager/covers.lua")         -- portadas del mosaico
+loadModule("styles/filemanager/bookinfo.lua")       -- Información del libro
+loadModule("styles/reader/bookmap.lua")             -- Mapa del libro (BookMapWidget)
+loadModule("styles/reader/pagebrowser.lua")         -- Explorador de páginas (PageBrowserWidget)
+loadModule("styles/filemanager/imageviewer.lua")    -- Visor de imágenes / portadas (ImageViewer)
+loadModule("styles/plugins/readerprogress.lua")     -- Progreso de lectura (statistics.koplugin)
+loadModule("styles/plugins/calendar.lua")           -- Calendario de lectura (statistics.koplugin)
+loadModule("styles/plugins/vocabbuilder.lua")       -- Constructor de vocabulario (vocabbuilder.koplugin)
+loadModule("styles/reader/toc.lua")                 -- Índice del libro (ReaderToc)
+loadModule("styles/reader/bookmark.lua")            -- Marcadores y notas (ReaderBookmark)
+loadModule("styles/reader/search.lua")              -- Resultados de búsqueda (ReaderSearch)
+loadModule("styles/filemanager/shortcuts.lua")      -- Atajos de carpetas (FileManagerShortcuts)
+loadModule("styles/filemanager/bookstatus.lua")     -- Estado del libro (BookStatusWidget)
+loadModule("styles/filemanager/collections.lua")    -- Lista de colecciones de KOReader (elegir colecciones)
+loadModule("styles/plugins/statspages.lua")         -- Estadísticas: libro actual, intervalo de tiempo, línea de tiempo
+loadModule("styles/plugins/gestures.lua")           -- Resumen de gestos (plugin Gestures)
+loadModule("styles/reader/skim.lua")                -- Vista rápida del documento (SkimToWidget)
+loadModule("styles/reader/highlight.lua")           -- Subrayados: mantener pulsado uno existente
+loadModule("styles/reader/footer.lua")              -- Barra de estado del lector (ReaderFooter)
+loadModule("views/booksheet.lua")                   -- ficha al mantener pulsado
+loadModule("styles/ui/init.lua")                    -- interfaz general: carga styles/ui/*.lua
+loadModule("styles/filemanager/sortwidget.lua")     -- Ordenar (colecciones…): tarjetas y puntos de página (después de ui/init.lua)
 
 -- El explorador (FileChooser "filemanager") se crea con la altura que deja
 -- libre nuestra barra superior. Menu/Mosaic calculan todo a partir de height.
@@ -257,8 +258,8 @@ function Aire:init()
             if config.enabled then UIManager:setDirty(fm, "full") end
             -- Restos de una actualización (aire.koplugin.old / .new)
             if plugin.cleanupUpdateLeftovers then pcall(plugin.cleanupUpdateLeftovers, plugin) end
-            -- Parches / plugins nuevos o incompatibles (common/compat.lua), una vez por sesión
-            local ok, compat = pcall(dofile, PLUGIN_DIR .. "/common/compat.lua")
+            -- Parches / plugins nuevos o incompatibles (core/compat.lua), una vez por sesión
+            local ok, compat = pcall(dofile, PLUGIN_DIR .. "/core/compat.lua")
             if ok and type(compat) == "table" then
                 local ok2, err = pcall(compat.run, config, saveConfig)
                 if not ok2 then logger.warn("Aire: error en la comprobación de compatibilidad:", err) end
@@ -312,7 +313,7 @@ function Aire:isHomeVisible()
     return self:isOwnView() and self.view == "home"
 end
 
--- Márgenes (iguales en Inicio, vistas y explorador): common/screen.lua
+-- Márgenes (iguales en Inicio, vistas y explorador): ui/screen.lua
 local METRICS = package.loaded.aire_screen.METRICS
 local TOP_PAD, TOP_GAP_BELOW, SIDE_PAD = METRICS.TOP_PAD, METRICS.TOP_GAP_BELOW, METRICS.SIDE
 local DOCK_GAP_ABOVE, DOCK_MARGIN_BOTTOM = METRICS.DOCK_GAP_ABOVE, METRICS.DOCK_MARGIN_BOTTOM
@@ -338,7 +339,7 @@ do
     -- El orden importa: cada uno puede usar lo que los anteriores dejan en el contexto
     for _i, file in ipairs({
         "views/power.lua", "views/topbar.lua", "views/dock.lua", "views/explorer.lua",
-        "views/home.lua", "views/grid.lua", "views/stats.lua", "views/widgets.lua", "views/update.lua",
+        "views/home.lua", "views/grid/init.lua", "views/stats/init.lua", "views/widgets/init.lua", "views/update_sheet.lua",
         "menu.lua",
     }) do
         local ok, mixin = pcall(dofile, PLUGIN_DIR .. "/" .. file)

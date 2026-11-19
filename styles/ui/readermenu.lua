@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/readermenu.lua
     Menú inferior del lector (ConfigDialog) como hoja inferior, con controles y pestañas con el estilo de Aire.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua
     y lo que exporta styles/ui/sheets.lua).
 --]]
 

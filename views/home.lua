@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/views/home.lua
     Pantalla de Inicio: libro en curso, portada, tarjeta "Leyendo ahora"
-    y montaje de la pantalla (los widgets están en views/widgets.lua).
+    y montaje de la pantalla (los widgets están en views/widgets/init.lua).
     Se carga desde main.lua como "mixin" (añade métodos a Aire).
     OJO: no usar "_" como variable de bucle (tapa a gettext).
 --]]

@@ -76,7 +76,7 @@ return function(Aire, ctx)
         return Lightened:new{ widget }
     end
 
-    -- Hoja común (common/sheet.lua): marco, tocar fuera / Atrás y refresco
+    -- Hoja común (ui/sheet.lua): marco, tocar fuera / Atrás y refresco
     local PowerSheet = package.loaded.aire_sheet.Sheet:extend{
         entries = nil,   -- { sleep, poweroff, reboot, restart, exit, update, update_aire, start_aire_update, choose_update } -> función
         version = nil,
@@ -87,7 +87,7 @@ return function(Aire, ctx)
 
     function PowerSheet:init()
         package.loaded.aire_sheet.Sheet.init(self)
-        local st = package.loaded.aire_screen.SHEET -- medidas de hoja (common/screen.lua)
+        local st = package.loaded.aire_screen.SHEET -- medidas de hoja (ui/screen.lua)
         local btn_gap = S(st.BTN_GAP)
         local border = Size.border.thin
         local inner_w = package.loaded.aire_screen.sheetInnerWidth()
@@ -111,7 +111,7 @@ return function(Aire, ctx)
         elseif E.update_aire then
             on_update = E.update_aire
         end
-        -- Cabecera común de las hojas (common/sheet.lua): KOReader y, debajo, Aire;
+        -- Cabecera común de las hojas (ui/sheet.lua): KOReader y, debajo, Aire;
         -- el hueco lo pone la fila (a la derecha va "Actualizar")
         local names = package.loaded.aire_sheet.header(self.version or "KOReader",
             self.aire_version and { self.aire_version } or nil,
@@ -182,7 +182,7 @@ return function(Aire, ctx)
                     bordersize = bthick,
                     color = BLACK_C,
                     background = filled and BLACK_C or WHITE_C,
-                    radius = S(st.BTN_RADIUS), -- (common/screen.lua, como los demás botones)
+                    radius = S(st.BTN_RADIUS), -- (ui/screen.lua, como los demás botones)
                     padding = 0,
                     width = bw,
                     height = bh,
@@ -266,7 +266,7 @@ return function(Aire, ctx)
         end
         local ok_v, rev = pcall(function() return require("version"):getCurrentRevision() end)
         rev = ok_v and type(rev) == "string" and rev:gsub("^v", "") or nil
-        -- Aire (views/update.lua): su línea en la cabecera y, si ya se sabe que
+        -- Aire (views/update_sheet.lua): su línea en la cabecera y, si ya se sabe que
         -- hay una versión nueva, la tarjeta
         local upd = ctx.update
         local aire_version, aire_installed, aire_latest
@@ -287,7 +287,7 @@ return function(Aire, ctx)
         }
         UIManager:show(sheet, "ui")
     end
-    -- Para el botón de encendido del menú superior (styles/ui.lua): en el lector
+    -- Para el botón de encendido del menú superior (styles/ui/init.lua): en el lector
     -- el FileManager está cerrado y no hay instancia de Aire a la que pedírselo
     FileManager.aire_showPowerSheet = showPowerDialog
 

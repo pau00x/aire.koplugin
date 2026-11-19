@@ -4,6 +4,10 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+### Internal
+
+- Reorganized plugin layout without changing behavior: split `common/` into `core/` (`compat`, `config`, `icons`, `l10n`, `updater`) and `ui/` (`theme`, `screen`, `sheet`, `list`, `pages`), moved multi-file views to `views/{grid,stats,widgets}/init.lua`, renamed `views/update.lua` to `views/update_sheet.lua`, and grouped `styles/` into `reader/`, `filemanager/`, `plugins/` and `ui/init.lua`.
+
 ## [0.3.0] - 2026-11-19
 
 ### Changed

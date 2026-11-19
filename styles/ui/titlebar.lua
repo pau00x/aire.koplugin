@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/titlebar.lua
     Barras de título y pantallas completas: barra de estado, dock, cabecera unificada y ventanas emergentes coherentes.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua).
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua).
 --]]
 
 local B = ...
@@ -24,7 +24,7 @@ local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local _ = require("gettext")
 local Screen = Device.screen
-local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (ui/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/UI"
 
@@ -106,7 +106,7 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
             local side = Screen:scaleBySize(SIDE)
             local in_w = self.width - 2 * side
             if back_cb then
-                -- Cabecera común (common/screen.lua): la misma que Librería, Explorador…
+                -- Cabecera común (ui/screen.lua): la misma que Librería, Explorador…
                 local header, parts = AireScreen.header(in_w, {
                     title = self.title,
                     on_back = back_cb,
@@ -137,7 +137,7 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
             end
             local gap_top = Screen:scaleBySize(AireScreen.METRICS.HEADER_GAP)
             -- Subtítulo: el que pasa Aire (_aire_subtitle, ver withTitleBar en
-            -- common/screen.lua), el de KOReader o, en el lector, el título del libro
+            -- ui/screen.lua), el de KOReader o, en el lector, el título del libro
             local doc_props = ReaderUI and ReaderUI.instance and ReaderUI.instance.doc_props
             local book_title = doc_props and (doc_props.display_title or doc_props.title)
             local sub_txt = self._aire_subtitle
@@ -270,7 +270,7 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
             local sw, sh = Screen:getWidth(), Screen:getHeight()
             local is_fs = self.covers_fullscreen
                 or ((self.width == nil or self.width == sw) and (self.height == nil or self.height == sh))
-            -- Cuándo hay dock lo decide common/screen.lua (no en el lector, no
+            -- Cuándo hay dock lo decide ui/screen.lua (no en el lector, no
             -- con la pantalla de inicio desactivada…); aquí, solo pantallas completas
             local dock, reserve
             if is_fs and not self.is_popout and self.name ~= "filemanager" then
@@ -410,7 +410,7 @@ end
 -- 16) RESTO DE VISTAS A PANTALLA COMPLETA CON TÍTULO + SUBTÍTULO + STATUS BAR
 --===========================================================================
 do
-    -- Interceptor común de las barras de título (common/screen.lua): solo la
+    -- Interceptor común de las barras de título (ui/screen.lua): solo la
     -- primera que se cree, siempre a pantalla completa
     local function withFullscreenTitleBar(fn, opts)
         return package.loaded.aire_screen.withTitleBar({

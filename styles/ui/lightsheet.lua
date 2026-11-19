@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/lightsheet.lua
     Hoja propia de Iluminación (diseño 1B): escalones de brillo y calidez (el icono del sol enciende y apaga); sustituye Device.showLightDialog.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua
     y lo que exporta styles/ui/sheets.lua).
 --]]
 
@@ -35,7 +35,7 @@ if not uiOpt("sheets") then return end
 -- Iluminación (diseño 1B): escalones de brillo y de calidez,
 -- − Brillo / + Brillo y Listo
 -------------------------------------------------------------------------
--- Hoja común (common/sheet.lua): marco, tocar fuera / Atrás y refresco
+-- Hoja común (ui/sheet.lua): marco, tocar fuera / Atrás y refresco
 local Sheet = package.loaded.aire_sheet.Sheet
 local LightSheet = Sheet:extend{ full_refresh = true }
 
@@ -154,7 +154,7 @@ function LightSheet:build()
     table.insert(content, VerticalSpan:new{ width = S_(16) })
 
     -- Botones como la hoja
-    -- Botones comunes de las hojas (common/sheet.lua)
+    -- Botones comunes de las hojas (ui/sheet.lua)
     table.insert(content, package.loaded.aire_sheet.buttons({
         { text = _("− Brightness"), callback = function() self:setBrightness((on and cur or min) - stride) end },
         { text = _("+ Brightness"), callback = function() self:setBrightness((on and cur or min) + stride) end },
