@@ -20,11 +20,11 @@ msgstr[1] "«%1» · %2 مورد"
 msgid "\"Reading now\" card with light background"
 msgstr "کارت «در حال مطالعه» با پس‌زمینهٔ روشن"
 
-#: views/booksheet.lua:192
+#: views/booksheet.lua:167
 msgid "%1 % (%2 / %3 pp.)"
 msgstr "%1 % (%2 / %3 ص.)"
 
-#: views/booksheet.lua:184
+#: views/booksheet.lua:159
 msgid "%1 % (on hold)"
 msgstr "%1 % (درانتظار)"
 
@@ -32,7 +32,7 @@ msgstr "%1 % (درانتظار)"
 msgid "%1 % read"
 msgstr "%1 % خوانده‌شده"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
+#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 کتاب"
@@ -44,7 +44,7 @@ msgid_plural "%1 bookmarks"
 msgstr[0] "%1 نشانک"
 msgstr[1] "%1 نشانک"
 
-#: views/grid.lua:493 views/grid.lua:494
+#: views/grid.lua:487 views/grid.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 مجموعه"
@@ -62,19 +62,19 @@ msgid_plural "%1 days ago"
 msgstr[0] "%1 روز پیش"
 msgstr[1] "%1 روز پیش"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 روز مطالعه"
 msgstr[1] "%1 روز مطالعه"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 پایان‌یافته"
 msgstr[1] "%1 پایان‌یافته"
 
-#: views/grid.lua:576
+#: views/grid.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 کتاب پایان‌یافته"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 ص. خوانده‌شده"
 msgstr[1] "%1 ص. خوانده‌شده"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 ص."
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "%1 pp./h"
 msgstr "%1 ص./ساعت"
 
@@ -112,7 +112,7 @@ msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 میانبر ذخیره‌شده"
 msgstr[1] "%1 میانبر ذخیره‌شده"
 
-#: views/grid.lua:324
+#: views/grid.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 سری"
@@ -146,15 +146,11 @@ msgstr[1] ""
 msgid "%d of 5 stars"
 msgstr "%d از 5 ستاره"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "(فعلی)"
-
-#: styles/ui/lightsheet.lua:185
+#: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ روشنایی"
 
-#: views/stats.lua:488
+#: views/stats.lua:487
 msgid "+%1 more"
 msgstr "+%1 مورد دیگر"
 
@@ -178,7 +174,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 ستون"
 
-#: views/update.lua:340
+#: views/update.lua:292
 msgid "A new version is available"
 msgstr "نسخهٔ جدیدی موجود است"
 
@@ -202,7 +198,7 @@ msgstr "فعال"
 msgid "Activity summary"
 msgstr "خلاصهٔ فعالیت"
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -228,15 +224,15 @@ msgstr "پیشرفته"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:276 views/update.lua:333
+#: views/update.lua:228 views/update.lua:285
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:159 views/update.lua:537
+#: views/power.lua:147 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 موجود است"
 
-#: views/update.lua:190
+#: views/update.lua:142
 msgid "Aire %1 installed"
 msgstr "Aire %1 نصب شد"
 
@@ -257,16 +253,16 @@ msgstr "همه"
 msgid "All books"
 msgstr ""
 
-#: views/booksheet.lua:351
+#: views/booksheet.lua:326
 msgid "All finished"
 msgstr "همه پایان‌یافته"
 
-#: views/grid.lua:578 views/widgets.lua:441
+#: views/grid.lua:572 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:593
+#: views/stats.lua:592
 msgid "Annual"
 msgstr "سالانه"
 
@@ -309,7 +305,7 @@ msgstr "مجموعه‌های خودکار بر اساس ژانر (کلیدوا�
 msgid "Automatic tests"
 msgstr "آزمون‌های خودکار"
 
-#: views/grid.lua:1009
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "خودکار: کتاب‌های این نویسنده"
 
@@ -344,11 +340,11 @@ msgstr ""
 msgid "Battery"
 msgstr "باتری"
 
-#: views/stats.lua:682
+#: views/stats.lua:681
 msgid "Best day"
 msgstr "بهترین روز"
 
-#: views/stats.lua:685
+#: views/stats.lua:684
 msgid "Best month"
 msgstr "بهترین ماه"
 
@@ -419,7 +415,7 @@ msgstr "نشانک‌ها و هایلایت‌ها"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:970
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "کتاب‌ها حذف نمی‌شوند، فقط مجموعه حذف می‌شود."
 
@@ -469,7 +465,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -487,7 +483,7 @@ msgstr ""
 msgid "Change"
 msgstr "تغییر"
 
-#: styles/skim.lua:90
+#: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "فصل %1 از %2"
 
@@ -511,11 +507,11 @@ msgstr "شارژ کامل"
 msgid "Charging"
 msgstr "در حال شارژ"
 
-#: views/update.lua:486
+#: views/update.lua:438
 msgid "Check every week"
 msgstr "بررسی هر هفته"
 
-#: views/update.lua:479
+#: views/update.lua:431
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -537,7 +533,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "پاک کردن تصاویر کوچک جلدها"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -554,7 +550,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "ترتیب مجموعه"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -567,7 +563,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "ترتیب مجموعه‌ها"
 
-#: common/compat.lua:183
+#: common/compat.lua:182
 msgid "Compatibility"
 msgstr "سازگاری"
 
@@ -579,7 +575,7 @@ msgstr ""
 msgid "Connected"
 msgstr "متصل"
 
-#: views/booksheet.lua:375
+#: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
 msgstr ""
@@ -598,7 +594,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:398
+#: views/update.lua:350
 msgid "Could not check for updates. Try again later."
 msgstr "بررسی به‌روزرسانی‌ها ممکن نشد. بعداً دوباره امتحان کنید."
 
@@ -609,7 +605,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:259
+#: views/update.lua:211
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "نصب به‌روزرسانی ممکن نشد. Aire %1 همچنان نصب است."
 
@@ -644,11 +640,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "در حال مطالعه"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "DAILY RHYTHM"
 msgstr "ریتم روزانه"
 
-#: views/stats.lua:677
+#: views/stats.lua:676
 msgid "Daily average"
 msgstr "میانگین روزانه"
 
@@ -664,7 +660,7 @@ msgstr "تاریخ"
 msgid "Date finished"
 msgstr "تاریخ پایان"
 
-#: views/stats.lua:680
+#: views/stats.lua:679
 msgid "Day %1"
 msgstr "روز %1"
 
@@ -682,16 +678,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "دسامبر"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:448
+#: views/stats.lua:447
 msgid "Delete all book stats"
 msgstr "حذف همهٔ آمارهای کتاب"
 
-#: views/stats.lua:452
+#: views/stats.lua:451
 msgid "Delete all stats?"
 msgstr "همهٔ آمارها حذف شود؟"
 
@@ -700,15 +696,15 @@ msgstr "همهٔ آمارها حذف شود؟"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:435
+#: views/stats.lua:434
 msgid "Delete minutes for this day?"
 msgstr "دقیقه‌های این روز حذف شود؟"
 
-#: views/stats.lua:431
+#: views/stats.lua:430
 msgid "Delete minutes from this day"
 msgstr "حذف دقیقه‌های این روز"
 
-#: views/grid.lua:969
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "مجموعه حذف شود؟"
 
@@ -716,11 +712,11 @@ msgstr "مجموعه حذف شود؟"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1020
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "حذف…"
 
-#: styles/ui/sheets.lua:501
+#: styles/ui/sheets.lua:554
 #, koreader
 msgid "Description"
 msgstr ""
@@ -759,12 +755,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:210
+#: views/update.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:234
+#: views/update.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "در حال بارگیری… %1 از %2"
 
@@ -789,7 +785,7 @@ msgstr "ویرایش ابزارک‌های خانه"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -798,12 +794,12 @@ msgstr ""
 msgid "Edit series"
 msgstr "ویرایش سری"
 
-#: styles/bookmark.lua:382
+#: styles/bookmark.lua:341
 #, koreader
 msgid "Edit text"
 msgstr ""
 
-#: views/booksheet.lua:347
+#: views/booksheet.lua:322
 msgid "Empty"
 msgstr "خالی"
 
@@ -812,7 +808,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "بدون ابزارک"
 
-#: views/grid.lua:470
+#: views/grid.lua:464
 msgid "Empty collection"
 msgstr "مجموعهٔ خالی"
 
@@ -820,7 +816,7 @@ msgstr "مجموعهٔ خالی"
 msgid "Empty folder"
 msgstr "پوشهٔ خالی"
 
-#: views/grid.lua:303
+#: views/grid.lua:297
 msgid "Empty series"
 msgstr "سری خالی"
 
@@ -852,7 +848,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "همهٔ آنچه افزونه رسم می‌کند، با داده‌های نمونه. برای ورق زدن ← → بکشید؛ برای خروج بیرون یا روی صفحه ضربه بزنید."
 
-#: views/power.lua:222
+#: views/power.lua:210
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -861,7 +857,7 @@ msgstr ""
 msgid "FILE"
 msgstr "فایل"
 
-#: views/grid.lua:795
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "پالایش"
 
@@ -874,7 +870,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "پوشه‌های برگزیده"
 
-#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -884,7 +880,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "فوریه"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -899,11 +895,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:739
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "پالایش"
 
-#: dev/devtools.lua:659 views/grid.lua:738
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "پالایش و مرتب‌سازی"
 
@@ -912,7 +908,7 @@ msgstr "پالایش و مرتب‌سازی"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:181 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "پایان‌یافته"
@@ -950,7 +946,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "پوشه‌ها"
 
@@ -963,11 +959,11 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: styles/ui/sheets.lua:724
+#: styles/ui/sheets.lua:834
 msgid "Fonts"
 msgstr "قلم‌ها"
 
-#: styles/vocabbuilder.lua:154
+#: styles/vocabbuilder.lua:153
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -982,7 +978,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:101
+#: styles/ui/lightsheet.lua:87
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1019,16 +1015,16 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "حرکات تنظیم‌شده: %1"
 
-#: styles/bookmark.lua:407
+#: styles/bookmark.lua:366
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "بالا"
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:156
+#: common/compat.lua:178 styles/vocabbuilder.lua:155
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1041,7 +1037,7 @@ msgstr "شبکه: %1 ستون"
 msgid "HIGHLIGHT"
 msgstr "هایلایت"
 
-#: views/stats.lua:664
+#: views/stats.lua:663
 msgid "HIGHLIGHTS"
 msgstr "نکات برجسته"
 
@@ -1054,7 +1050,7 @@ msgstr "هنوز نرسیده است"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1351
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1063,7 +1059,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:614
+#: views/grid.lua:608
 msgid "History is empty"
 msgstr "تاریخچه خالی است"
 
@@ -1075,7 +1071,7 @@ msgstr "نگه‌داشتن همان کار ضربه را انجام دهد"
 msgid "Hold to configure"
 msgstr "برای پیکربندی نگه دارید"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1116,15 +1112,15 @@ msgstr "در مجموعه‌ها، برای هر نویسنده‌ای که 2 ک
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "در مجموعه‌ها، برای هر کلیدواژه‌ای که 2 کتاب یا بیشتر دارد یک مجموعه نمایش داده می‌شود. این مجموعه‌ها خودکار به‌روز می‌شوند و در مجموعه‌های KOReader ذخیره نمی‌شوند."
 
-#: views/update.lua:495
+#: views/update.lua:447
 msgid "Include beta versions"
 msgstr "شامل نسخه‌های بتا"
 
-#: views/update.lua:514
+#: views/update.lua:466
 msgid "Installed version: %1"
 msgstr "نسخهٔ نصب‌شده: %1"
 
-#: views/update.lua:246
+#: views/update.lua:198
 msgid "Installing…"
 msgstr "در حال نصب…"
 
@@ -1140,7 +1136,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:193
+#: views/update.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "پس از راه‌اندازی دوبارهٔ KOReader استفاده می‌شود. تنظیمات شما حفظ می‌شود."
 
@@ -1169,7 +1165,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "ژوئن"
 
-#: views/power.lua:221
+#: views/power.lua:209
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1215,7 +1211,7 @@ msgstr "آخرین"
 msgid "Last 7 days summary"
 msgstr "خلاصهٔ 7 روز گذشته"
 
-#: views/update.lua:507
+#: views/update.lua:459
 msgid "Last check: %1"
 msgstr "آخرین بررسی: %1"
 
@@ -1223,7 +1219,7 @@ msgstr "آخرین بررسی: %1"
 msgid "Last read"
 msgstr "آخرین مطالعه"
 
-#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1242,7 +1238,7 @@ msgstr "چیدمان"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "کتابخانه"
 
@@ -1298,15 +1294,15 @@ msgstr "مورد"
 msgid "MATCH %d"
 msgstr "مورد %d"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "MONTHLY RHYTHM"
 msgstr "ریتم ماهانه"
 
-#: views/stats.lua:694
+#: views/stats.lua:693
 msgid "MOST READ"
 msgstr "پرخواننده‌ترین‌ها"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "نمای اصلی"
 
@@ -1319,15 +1315,15 @@ msgstr "مارس"
 msgid "Margins"
 msgstr "حاشیه‌ها"
 
-#: views/booksheet.lua:430
+#: views/booksheet.lua:405
 msgid "Mark"
 msgstr "علامت‌گذاری"
 
-#: views/booksheet.lua:429
+#: views/booksheet.lua:404
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "همهٔ کتاب‌های «%1» در حال مطالعه علامت‌گذاری شوند؟"
 
-#: views/grid.lua:1057
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "همهٔ کتاب‌های مجموعهٔ «%1» در حال مطالعه علامت‌گذاری شوند؟"
 
@@ -1335,19 +1331,19 @@ msgstr "همهٔ کتاب‌های مجموعهٔ «%1» در حال مطالع�
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "علامت‌گذاری کل مجموعه به‌عنوان پایان‌یافته"
 
-#: views/grid.lua:1056
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "علامت‌گذاری کل مجموعه به‌عنوان در حال مطالعه"
 
-#: views/booksheet.lua:403
+#: views/booksheet.lua:378
 msgid "Mark entire series as finished"
 msgstr "علامت‌گذاری کل سری به‌عنوان پایان‌یافته"
 
-#: views/booksheet.lua:424
+#: views/booksheet.lua:399
 msgid "Mark entire series as reading"
 msgstr "علامت‌گذاری کل سری به‌عنوان در حال مطالعه"
 
@@ -1374,15 +1370,15 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "ساده"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "ترکیب پوشه‌ها"
 
-#: views/grid.lua:816
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "ترکیب سری‌ها"
 
-#: views/stats.lua:591
+#: views/stats.lua:590
 msgid "Monthly"
 msgstr "ماهانه"
 
@@ -1394,11 +1390,11 @@ msgstr "خلاصهٔ ماهانه"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "بیشتر"
 
-#: views/booksheet.lua:258
+#: views/booksheet.lua:233
 msgid "More options…"
 msgstr "گزینه‌های بیشتر…"
 
@@ -1436,7 +1432,7 @@ msgstr "جدید"
 msgid "NEXT"
 msgstr "بعدی"
 
-#: styles/vocabbuilder.lua:123
+#: styles/vocabbuilder.lua:122
 msgid "NEXT REVIEW"
 msgstr "مرور بعدی"
 
@@ -1466,12 +1462,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "جدید"
 
-#: views/grid.lua:489
+#: views/grid.lua:483
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1011 views/grid.lua:1024
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "مجموعهٔ جدید…"
 
@@ -1491,7 +1487,7 @@ msgstr "بعدی %1"
 msgid "Next batch of test widgets"
 msgstr "دستهٔ بعدی ابزارک‌های آزمایشی"
 
-#: styles/skim.lua:113
+#: styles/skim.lua:102
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1517,19 +1513,19 @@ msgstr "کتابی در حال مطالعه نیست"
 msgid "No book matches the filter"
 msgstr "هیچ کتابی با پالایه مطابقت ندارد"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this month"
 msgstr "این ماه کتابی تمام نشده است"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this year"
 msgstr "امسال کتابی تمام نشده است"
 
-#: views/grid.lua:335
+#: views/grid.lua:329
 msgid "No books in home folder"
 msgstr "کتابی در پوشهٔ خانه نیست"
 
-#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
+#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
 msgid "No books with this filter"
 msgstr "کتابی با این پالایه نیست"
 
@@ -1537,11 +1533,11 @@ msgstr "کتابی با این پالایه نیست"
 msgid "No chapter"
 msgstr "بدون فصل"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections"
 msgstr "مجموعه‌ای نیست"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections with this filter"
 msgstr "مجموعه‌ای با این پالایه نیست"
 
@@ -1566,7 +1562,7 @@ msgstr "کتاب تمام‌نشدهٔ بعدی وجود ندارد"
 msgid "No previous book"
 msgstr "کتاب قبلی وجود ندارد"
 
-#: styles/statspages.lua:365 views/stats.lua:627
+#: styles/statspages.lua:365 views/stats.lua:626
 msgid "No reading activity in this period"
 msgstr "در این بازه مطالعه‌ای نبوده است"
 
@@ -1591,7 +1587,7 @@ msgstr "آماری برای این کتاب نیست"
 msgid "No unstarted books"
 msgstr "کتاب شروع‌نشده‌ای نیست"
 
-#: styles/vocabbuilder.lua:92
+#: styles/vocabbuilder.lua:91
 msgid "No vocabulary words"
 msgstr "واژه‌ای نیست"
 
@@ -1599,7 +1595,7 @@ msgstr "واژه‌ای نیست"
 msgid "Not rated"
 msgstr "بدون امتیاز"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:197 views/booksheet.lua:355
+#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "شروع‌نشده"
 
@@ -1649,12 +1645,12 @@ msgstr "خاموش"
 msgid "On"
 msgstr "روشن"
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:186 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "درانتظار"
 
-#: views/update.lua:487
+#: views/update.lua:439
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "فقط وقتی Wi-Fi از قبل روشن است: Aire هرگز آن را روشن نمی‌کند."
 
@@ -1663,7 +1659,7 @@ msgstr "فقط وقتی Wi-Fi از قبل روشن است: Aire هرگز آن ر
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "باز کردن مجموعه"
 
@@ -1671,11 +1667,11 @@ msgstr "باز کردن مجموعه"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "باز کردن سری"
 
-#: views/booksheet.lua:391
+#: views/booksheet.lua:366
 msgid "Open series folder"
 msgstr "باز کردن پوشهٔ سری"
 
@@ -1763,7 +1759,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:179
+#: views/power.lua:167
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1776,7 +1772,7 @@ msgstr "قبلی"
 msgid "Previous book"
 msgstr "کتاب قبلی"
 
-#: styles/skim.lua:110
+#: styles/skim.lua:99
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1889,7 +1885,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:554
+#: views/stats.lua:553
 msgid "Recap"
 msgstr "خلاصه"
 
@@ -1910,7 +1906,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:395
+#: dev/devtools.lua:636 styles/bookmark.lua:354
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1920,17 +1916,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "حذف"
 
-#: styles/bookmark.lua:392
+#: styles/bookmark.lua:351
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:503
+#: views/booksheet.lua:567 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "حذف از مجموعه"
 
-#: views/booksheet.lua:556 views/grid.lua:619
+#: views/booksheet.lua:531 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1940,7 +1936,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:353
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1950,7 +1946,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1018
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "تغییر نام…"
 
@@ -1963,12 +1959,12 @@ msgstr "ابزارک‌های خانه با پیش‌تنظیم «%1» جایگ�
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:220
+#: views/power.lua:208
 #, koreader
 msgid "Restart"
 msgstr ""
 
-#: common/compat.lua:172
+#: common/compat.lua:171
 #, koreader
 msgid "Restart KOReader"
 msgstr ""
@@ -1977,16 +1973,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "برای اعمال تغییر، KOReader را دوباره راه‌اندازی کنید."
 
-#: views/update.lua:194
+#: views/update.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "برای استفاده، KOReader را دوباره راه‌اندازی کنید. تنظیمات شما حفظ می‌شود."
 
-#: views/update.lua:183
+#: views/update.lua:135
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:810
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2011,7 +2007,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:805
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "مرتب‌سازی بر اساس"
 
@@ -2044,7 +2040,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2061,7 +2057,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:354
+#: views/update.lua:306
 msgid "See all changes"
 msgstr "دیدن همهٔ تغییرات"
 
@@ -2070,7 +2066,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "سپتامبر"
 
-#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2088,12 +2084,12 @@ msgstr "شمارهٔ سری روی جلدها"
 msgid "Set alarm"
 msgstr ""
 
-#: styles/ui/sheets.lua:776
+#: styles/ui/sheets.lua:886
 #, koreader
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:483
+#: views/update.lua:435
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2145,11 +2141,11 @@ msgstr "نمایش خلاصه"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:371
+#: views/update.lua:323
 msgid "Skip"
 msgstr "رد کردن"
 
-#: views/power.lua:178
+#: views/power.lua:166
 msgctxt "aire"
 msgid "Sleep"
 msgstr "خواب"
@@ -2162,7 +2158,7 @@ msgstr "هوشمند"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "مرتب‌سازی"
 
@@ -2174,19 +2170,19 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:739
+#: dev/devtools.lua:613 views/grid.lua:746
 msgid "Sort by"
 msgstr "مرتب‌سازی بر اساس"
 
-#: dev/devtools.lua:825 views/grid.lua:989
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "مرتب‌سازی مجموعه‌ها"
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "مرتب‌سازی مجموعه‌ها…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "مرتب‌سازی فایل‌ها"
 
@@ -2199,7 +2195,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "جلدها و سری‌های مربعی"
 
-#: views/booksheet.lua:375 views/widgets.lua:570
+#: views/booksheet.lua:350 views/widgets.lua:570
 msgid "Start"
 msgstr "شروع"
 
@@ -2207,7 +2203,7 @@ msgstr "شروع"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "آمار"
 
@@ -2227,7 +2223,7 @@ msgstr "حافظه"
 msgid "Swap tap and hold"
 msgstr "جابه‌جایی ضربه و نگه‌داشتن"
 
-#: views/booksheet.lua:223
+#: views/booksheet.lua:198
 msgid "Synopsis"
 msgstr "خلاصه"
 
@@ -2255,11 +2251,11 @@ msgstr "برای باز کردن کتابخانه ضربه بزنید"
 msgid "Tap to stop"
 msgstr "برای توقف ضربه بزنید"
 
-#: styles/vocabbuilder.lua:132
+#: styles/vocabbuilder.lua:131
 msgid "Tap to view definition"
 msgstr "برای دیدن تعریف ضربه بزنید"
 
-#: views/grid.lua:1252
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "کتاب آزمایشی"
 
@@ -2316,7 +2312,7 @@ msgstr "کتاب فعلی جزو هیچ سری‌ای نیست"
 msgid "This collection is empty"
 msgstr "این مجموعه خالی است"
 
-#: views/update.lua:366
+#: views/update.lua:318
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "این نسخه پوشهٔ dev/ (آزمایش‌ها) را دارد. نسخهٔ جدید آن را ندارد، پس حذف می‌شود."
 
@@ -2396,7 +2392,7 @@ msgstr "امروز و پیوستگی"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:688
+#: views/stats.lua:687
 msgid "Top author"
 msgstr "نویسندهٔ برتر"
 
@@ -2418,16 +2414,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire"
 msgstr "به‌روزرسانی Aire"
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire (%1 available)"
 msgstr "به‌روزرسانی Aire (%1 موجود است)"
 
@@ -2435,7 +2431,7 @@ msgstr "به‌روزرسانی Aire (%1 موجود است)"
 msgid "Update KOReader"
 msgstr "به‌روزرسانی KOReader"
 
-#: views/update.lua:214
+#: views/update.lua:166
 msgid "Updating Aire"
 msgstr "در حال به‌روزرسانی Aire"
 
@@ -2455,7 +2451,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "مرور واژگان"
 
-#: styles/vocabbuilder.lua:306
+#: styles/vocabbuilder.lua:308
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "مرور واژگان · %1 واژه"
@@ -2510,7 +2506,7 @@ msgstr "ابزارک‌های %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:417
+#: views/update.lua:369
 msgid "You already have the latest version (%1)."
 msgstr "شما آخرین نسخه را دارید (%1)."
 
@@ -2526,11 +2522,11 @@ msgstr "هنوز هایلایتی ندارید"
 msgid "You have not opened any book yet"
 msgstr "هنوز هیچ کتابی باز نکرده‌اید"
 
-#: views/power.lua:162 views/update.lua:342
+#: views/power.lua:150 views/update.lua:294
 msgid "You have version %1"
 msgstr "نسخهٔ شما %1 است"
 
-#: views/grid.lua:581
+#: views/grid.lua:575
 msgid "You haven't finished any books yet"
 msgstr "هنوز هیچ کتابی را تمام نکرده‌اید"
 
@@ -2547,7 +2543,7 @@ msgstr ""
 msgid "and highlights"
 msgstr "و هایلایت‌ها"
 
-#: views/booksheet.lua:359
+#: views/booksheet.lua:334
 msgid "at %1 %"
 msgstr "در %1 %"
 
@@ -2559,7 +2555,7 @@ msgstr "میانگین / روز"
 msgid "battery"
 msgstr "باتری"
 
-#: views/update.lua:334
+#: views/update.lua:286
 msgid "beta"
 msgstr "بتا"
 
@@ -2586,7 +2582,7 @@ msgstr ""
 msgid "files"
 msgstr "فایل‌ها"
 
-#: views/stats.lua:644 views/widgets.lua:423
+#: views/stats.lua:643 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "کتاب پایان‌یافته"
@@ -2616,7 +2612,7 @@ msgstr "7 روز گذشته"
 msgid "light"
 msgstr "نور"
 
-#: views/update.lua:506
+#: views/update.lua:458
 #, koreader
 msgid "never"
 msgstr ""
@@ -2642,7 +2638,7 @@ msgstr "ص. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "ص. %1 از %2"
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "pages read"
 msgstr "صفحهٔ خوانده‌شده"
 
@@ -2650,7 +2646,7 @@ msgstr "صفحهٔ خوانده‌شده"
 msgid "port %1"
 msgstr "درگاه %1"
 
-#: views/stats.lua:640
+#: views/stats.lua:639
 msgid "reading time"
 msgstr "زمان مطالعه"
 
@@ -2738,6 +2734,6 @@ msgstr "دیروز"
 msgid "~%1 left"
 msgstr "حدود %1 مانده"
 
-#: styles/ui/lightsheet.lua:183
+#: styles/ui/lightsheet.lua:159
 msgid "− Brightness"
 msgstr "− روشنایی"

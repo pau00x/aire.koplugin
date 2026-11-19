@@ -19,11 +19,11 @@ msgstr[0] "「%1」 · %2 個結果"
 msgid "\"Reading now\" card with light background"
 msgstr "淺色背景的「正在閱讀」卡片"
 
-#: views/booksheet.lua:192
+#: views/booksheet.lua:167
 msgid "%1 % (%2 / %3 pp.)"
 msgstr "%1 % (%2 / %3 頁)"
 
-#: views/booksheet.lua:184
+#: views/booksheet.lua:159
 msgid "%1 % (on hold)"
 msgstr "%1 % (等候中)"
 
@@ -31,7 +31,7 @@ msgstr "%1 % (等候中)"
 msgid "%1 % read"
 msgstr "已讀 %1 %"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
+#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 本"
@@ -41,7 +41,7 @@ msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 個書籤"
 
-#: views/grid.lua:493 views/grid.lua:494
+#: views/grid.lua:487 views/grid.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 個收藏清單"
@@ -56,17 +56,17 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 天前"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "閱讀 %1 天"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "讀完 %1 本"
 
-#: views/grid.lua:576
+#: views/grid.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "讀完 %1 本"
@@ -86,11 +86,11 @@ msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "已讀 %1 頁"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 頁"
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "%1 pp./h"
 msgstr "%1 頁/小時"
 
@@ -99,7 +99,7 @@ msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 個已儲存的捷徑"
 
-#: views/grid.lua:324
+#: views/grid.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 個系列"
@@ -130,15 +130,11 @@ msgstr[0] ""
 msgid "%d of 5 stars"
 msgstr "%d 顆星（滿分 5 顆星）"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "（目前）"
-
-#: styles/ui/lightsheet.lua:185
+#: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ 亮度"
 
-#: views/stats.lua:488
+#: views/stats.lua:487
 msgid "+%1 more"
 msgstr "還有 %1 本"
 
@@ -162,7 +158,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 欄"
 
-#: views/update.lua:340
+#: views/update.lua:292
 msgid "A new version is available"
 msgstr "有新版本"
 
@@ -186,7 +182,7 @@ msgstr "執行中"
 msgid "Activity summary"
 msgstr "活動摘要"
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -212,15 +208,15 @@ msgstr "進階"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:276 views/update.lua:333
+#: views/update.lua:228 views/update.lua:285
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:159 views/update.lua:537
+#: views/power.lua:147 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 可用"
 
-#: views/update.lua:190
+#: views/update.lua:142
 msgid "Aire %1 installed"
 msgstr "已安裝 Aire %1"
 
@@ -243,16 +239,16 @@ msgstr ""
 msgid "All books"
 msgstr ""
 
-#: views/booksheet.lua:351
+#: views/booksheet.lua:326
 msgid "All finished"
 msgstr "全部讀完"
 
-#: views/grid.lua:578 views/widgets.lua:441
+#: views/grid.lua:572 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:593
+#: views/stats.lua:592
 msgid "Annual"
 msgstr "年度"
 
@@ -295,7 +291,7 @@ msgstr "依類型（關鍵字）自動建立收藏清單"
 msgid "Automatic tests"
 msgstr "自動測試"
 
-#: views/grid.lua:1009
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "自動：此作者的書"
 
@@ -330,11 +326,11 @@ msgstr ""
 msgid "Battery"
 msgstr "電池"
 
-#: views/stats.lua:682
+#: views/stats.lua:681
 msgid "Best day"
 msgstr "最佳一天"
 
-#: views/stats.lua:685
+#: views/stats.lua:684
 msgid "Best month"
 msgstr "最佳月份"
 
@@ -405,7 +401,7 @@ msgstr "書籤和劃線"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:970
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "只會刪除收藏清單，不會刪除書籍。"
 
@@ -455,7 +451,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -473,7 +469,7 @@ msgstr ""
 msgid "Change"
 msgstr "變更"
 
-#: styles/skim.lua:90
+#: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "第 %1 章，共 %2 章"
 
@@ -497,11 +493,11 @@ msgstr "已充飽"
 msgid "Charging"
 msgstr "充電中"
 
-#: views/update.lua:486
+#: views/update.lua:438
 msgid "Check every week"
 msgstr "每週檢查"
 
-#: views/update.lua:479
+#: views/update.lua:431
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -523,7 +519,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "清除封面縮圖"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -540,7 +536,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "收藏清單內順序"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -553,7 +549,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "收藏清單順序"
 
-#: common/compat.lua:183
+#: common/compat.lua:182
 msgid "Compatibility"
 msgstr "相容性"
 
@@ -565,7 +561,7 @@ msgstr ""
 msgid "Connected"
 msgstr "已連線"
 
-#: views/booksheet.lua:375
+#: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
 msgstr ""
@@ -584,7 +580,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:398
+#: views/update.lua:350
 msgid "Could not check for updates. Try again later."
 msgstr "無法檢查更新。請稍後再試。"
 
@@ -595,7 +591,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:259
+#: views/update.lua:211
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "無法安裝更新。仍保留 Aire %1。"
 
@@ -630,11 +626,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "正在閱讀"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "DAILY RHYTHM"
 msgstr "每日節奏"
 
-#: views/stats.lua:677
+#: views/stats.lua:676
 msgid "Daily average"
 msgstr "每日平均"
 
@@ -650,7 +646,7 @@ msgstr "日期"
 msgid "Date finished"
 msgstr "讀完日期"
 
-#: views/stats.lua:680
+#: views/stats.lua:679
 msgid "Day %1"
 msgstr "%1日"
 
@@ -668,16 +664,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "12月"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:448
+#: views/stats.lua:447
 msgid "Delete all book stats"
 msgstr "刪除本書的所有統計"
 
-#: views/stats.lua:452
+#: views/stats.lua:451
 msgid "Delete all stats?"
 msgstr "刪除所有統計？"
 
@@ -686,15 +682,15 @@ msgstr "刪除所有統計？"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:435
+#: views/stats.lua:434
 msgid "Delete minutes for this day?"
 msgstr "刪除這一天的閱讀時間？"
 
-#: views/stats.lua:431
+#: views/stats.lua:430
 msgid "Delete minutes from this day"
 msgstr "刪除這一天的閱讀時間"
 
-#: views/grid.lua:969
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "刪除此收藏清單？"
 
@@ -702,11 +698,11 @@ msgstr "刪除此收藏清單？"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1020
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "刪除…"
 
-#: styles/ui/sheets.lua:501
+#: styles/ui/sheets.lua:554
 #, koreader
 msgid "Description"
 msgstr ""
@@ -745,12 +741,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:210
+#: views/update.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:234
+#: views/update.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "正在下載… %1 / %2"
 
@@ -775,7 +771,7 @@ msgstr "編輯主畫面小工具"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -784,12 +780,12 @@ msgstr ""
 msgid "Edit series"
 msgstr "編輯系列"
 
-#: styles/bookmark.lua:382
+#: styles/bookmark.lua:341
 #, koreader
 msgid "Edit text"
 msgstr ""
 
-#: views/booksheet.lua:347
+#: views/booksheet.lua:322
 msgid "Empty"
 msgstr "空"
 
@@ -798,7 +794,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "無小工具"
 
-#: views/grid.lua:470
+#: views/grid.lua:464
 msgid "Empty collection"
 msgstr "空的收藏清單"
 
@@ -806,7 +802,7 @@ msgstr "空的收藏清單"
 msgid "Empty folder"
 msgstr "空資料夾"
 
-#: views/grid.lua:303
+#: views/grid.lua:297
 msgid "Empty series"
 msgstr "空的系列"
 
@@ -838,7 +834,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "外掛繪製的所有畫面，使用模擬資料。左右滑動 ← → 翻頁；點擊外部或頁面離開。"
 
-#: views/power.lua:222
+#: views/power.lua:210
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -847,7 +843,7 @@ msgstr ""
 msgid "FILE"
 msgstr "檔案"
 
-#: views/grid.lua:795
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "篩選"
 
@@ -860,7 +856,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "最愛資料夾"
 
-#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -870,7 +866,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "2月"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -885,11 +881,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:739
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "篩選"
 
-#: dev/devtools.lua:659 views/grid.lua:738
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "篩選和排序"
 
@@ -898,7 +894,7 @@ msgstr "篩選和排序"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:181 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "已完成"
@@ -937,7 +933,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "資料夾"
 
@@ -950,11 +946,11 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: styles/ui/sheets.lua:724
+#: styles/ui/sheets.lua:834
 msgid "Fonts"
 msgstr "字型"
 
-#: styles/vocabbuilder.lua:154
+#: styles/vocabbuilder.lua:153
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -969,7 +965,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:101
+#: styles/ui/lightsheet.lua:87
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1006,16 +1002,16 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "已設定的手勢：%1"
 
-#: styles/bookmark.lua:407
+#: styles/bookmark.lua:366
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "上一層"
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:156
+#: common/compat.lua:178 styles/vocabbuilder.lua:155
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1028,7 +1024,7 @@ msgstr "格狀：%1 欄"
 msgid "HIGHLIGHT"
 msgstr "劃線"
 
-#: views/stats.lua:664
+#: views/stats.lua:663
 msgid "HIGHLIGHTS"
 msgstr "亮點"
 
@@ -1041,7 +1037,7 @@ msgstr "還沒到這一天"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1351
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1050,7 +1046,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:614
+#: views/grid.lua:608
 msgid "History is empty"
 msgstr "歷史為空"
 
@@ -1062,7 +1058,7 @@ msgstr "長按與點擊效果相同"
 msgid "Hold to configure"
 msgstr "長按以設定"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1103,15 +1099,15 @@ msgstr "在收藏清單中，每位擁有 2 本以上書籍的作者都會產生
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "在收藏清單中，每個擁有 2 本以上書籍的關鍵字都會產生一個收藏清單。這些清單會自動更新，不會儲存到 KOReader 收藏清單中。"
 
-#: views/update.lua:495
+#: views/update.lua:447
 msgid "Include beta versions"
 msgstr "包含測試版"
 
-#: views/update.lua:514
+#: views/update.lua:466
 msgid "Installed version: %1"
 msgstr "已安裝版本：%1"
 
-#: views/update.lua:246
+#: views/update.lua:198
 msgid "Installing…"
 msgstr "正在安裝…"
 
@@ -1127,7 +1123,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:193
+#: views/update.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "重新啟動 KOReader 後生效。你的設定會保留。"
 
@@ -1156,7 +1152,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "6月"
 
-#: views/power.lua:221
+#: views/power.lua:209
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1202,7 +1198,7 @@ msgstr "最近"
 msgid "Last 7 days summary"
 msgstr "最近 7 天摘要"
 
-#: views/update.lua:507
+#: views/update.lua:459
 msgid "Last check: %1"
 msgstr "上次檢查：%1"
 
@@ -1210,7 +1206,7 @@ msgstr "上次檢查：%1"
 msgid "Last read"
 msgstr "最近閱讀"
 
-#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1229,7 +1225,7 @@ msgstr "版面配置"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "書庫"
 
@@ -1285,15 +1281,15 @@ msgstr "符合"
 msgid "MATCH %d"
 msgstr "符合 %d"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "MONTHLY RHYTHM"
 msgstr "每月節奏"
 
-#: views/stats.lua:694
+#: views/stats.lua:693
 msgid "MOST READ"
 msgstr "最常閱讀"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "主檢視"
 
@@ -1306,15 +1302,15 @@ msgstr "3月"
 msgid "Margins"
 msgstr "邊界"
 
-#: views/booksheet.lua:430
+#: views/booksheet.lua:405
 msgid "Mark"
 msgstr "標記"
 
-#: views/booksheet.lua:429
+#: views/booksheet.lua:404
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "將「%1」中的所有書籍標記為正在閱讀？"
 
-#: views/grid.lua:1057
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "將收藏清單「%1」中的所有書籍標記為正在閱讀？"
 
@@ -1322,19 +1318,19 @@ msgstr "將收藏清單「%1」中的所有書籍標記為正在閱讀？"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "將整個收藏清單標記為已完成"
 
-#: views/grid.lua:1056
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "將整個收藏清單標記為正在閱讀"
 
-#: views/booksheet.lua:403
+#: views/booksheet.lua:378
 msgid "Mark entire series as finished"
 msgstr "將整個系列標記為已完成"
 
-#: views/booksheet.lua:424
+#: views/booksheet.lua:399
 msgid "Mark entire series as reading"
 msgstr "將整個系列標記為正在閱讀"
 
@@ -1361,15 +1357,15 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "極簡"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "混合顯示資料夾"
 
-#: views/grid.lua:816
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "混合顯示系列"
 
-#: views/stats.lua:591
+#: views/stats.lua:590
 msgid "Monthly"
 msgstr "月度"
 
@@ -1381,11 +1377,11 @@ msgstr "月度回顧"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "更多"
 
-#: views/booksheet.lua:258
+#: views/booksheet.lua:233
 msgid "More options…"
 msgstr "更多選項…"
 
@@ -1423,7 +1419,7 @@ msgstr "新書"
 msgid "NEXT"
 msgstr "下一本"
 
-#: styles/vocabbuilder.lua:123
+#: styles/vocabbuilder.lua:122
 msgid "NEXT REVIEW"
 msgstr "下次複習"
 
@@ -1454,12 +1450,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "未讀"
 
-#: views/grid.lua:489
+#: views/grid.lua:483
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1011 views/grid.lua:1024
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "新增收藏清單…"
 
@@ -1479,7 +1475,7 @@ msgstr "下一本 %1"
 msgid "Next batch of test widgets"
 msgstr "下一批測試小工具"
 
-#: styles/skim.lua:113
+#: styles/skim.lua:102
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1505,19 +1501,19 @@ msgstr "沒有正在閱讀的書"
 msgid "No book matches the filter"
 msgstr "沒有符合篩選條件的書"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this month"
 msgstr "本月沒有讀完的書"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this year"
 msgstr "今年沒有讀完的書"
 
-#: views/grid.lua:335
+#: views/grid.lua:329
 msgid "No books in home folder"
 msgstr "主資料夾中沒有書籍"
 
-#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
+#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
 msgid "No books with this filter"
 msgstr "沒有符合此篩選的書"
 
@@ -1525,11 +1521,11 @@ msgstr "沒有符合此篩選的書"
 msgid "No chapter"
 msgstr "無章節"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections"
 msgstr "沒有收藏清單"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections with this filter"
 msgstr "沒有符合此篩選的收藏清單"
 
@@ -1554,7 +1550,7 @@ msgstr "沒有下一本未讀完的書"
 msgid "No previous book"
 msgstr "沒有上一本書"
 
-#: styles/statspages.lua:365 views/stats.lua:627
+#: styles/statspages.lua:365 views/stats.lua:626
 msgid "No reading activity in this period"
 msgstr "此期間沒有閱讀紀錄"
 
@@ -1579,7 +1575,7 @@ msgstr "本書沒有統計資料"
 msgid "No unstarted books"
 msgstr "沒有未開始的書"
 
-#: styles/vocabbuilder.lua:92
+#: styles/vocabbuilder.lua:91
 msgid "No vocabulary words"
 msgstr "沒有生詞"
 
@@ -1587,7 +1583,7 @@ msgstr "沒有生詞"
 msgid "Not rated"
 msgstr "未評分"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:197 views/booksheet.lua:355
+#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "未開始"
 
@@ -1639,12 +1635,12 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:186 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "等候中"
 
-#: views/update.lua:487
+#: views/update.lua:439
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "僅在 Wi-Fi 已開啟時：Aire 從不開啟 Wi-Fi。"
 
@@ -1653,7 +1649,7 @@ msgstr "僅在 Wi-Fi 已開啟時：Aire 從不開啟 Wi-Fi。"
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "開啟收藏清單"
 
@@ -1661,11 +1657,11 @@ msgstr "開啟收藏清單"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "開啟系列"
 
-#: views/booksheet.lua:391
+#: views/booksheet.lua:366
 msgid "Open series folder"
 msgstr "開啟系列資料夾"
 
@@ -1754,7 +1750,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:179
+#: views/power.lua:167
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1767,7 +1763,7 @@ msgstr "上一本"
 msgid "Previous book"
 msgstr "上一本書"
 
-#: styles/skim.lua:110
+#: styles/skim.lua:99
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1880,7 +1876,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:554
+#: views/stats.lua:553
 msgid "Recap"
 msgstr "回顧"
 
@@ -1901,7 +1897,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:395
+#: dev/devtools.lua:636 styles/bookmark.lua:354
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1911,17 +1907,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "移除"
 
-#: styles/bookmark.lua:392
+#: styles/bookmark.lua:351
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:503
+#: views/booksheet.lua:567 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "從收藏清單中移除"
 
-#: views/booksheet.lua:556 views/grid.lua:619
+#: views/booksheet.lua:531 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1931,7 +1927,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:353
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1941,7 +1937,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1018
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "重新命名…"
 
@@ -1954,12 +1950,12 @@ msgstr "要以預設「%1」取代主頁小工具嗎？"
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:220
+#: views/power.lua:208
 #, koreader
 msgid "Restart"
 msgstr ""
 
-#: common/compat.lua:172
+#: common/compat.lua:171
 #, koreader
 msgid "Restart KOReader"
 msgstr ""
@@ -1968,16 +1964,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "重新啟動 KOReader 後變更才會生效。"
 
-#: views/update.lua:194
+#: views/update.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "重新啟動 KOReader 後即可使用。你的設定會保留。"
 
-#: views/update.lua:183
+#: views/update.lua:135
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:810
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2002,7 +1998,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:805
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "排序依據"
 
@@ -2035,7 +2031,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2052,7 +2048,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:354
+#: views/update.lua:306
 msgid "See all changes"
 msgstr "查看所有變更"
 
@@ -2061,7 +2057,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "9月"
 
-#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2079,12 +2075,12 @@ msgstr "在封面上顯示系列編號"
 msgid "Set alarm"
 msgstr ""
 
-#: styles/ui/sheets.lua:776
+#: styles/ui/sheets.lua:886
 #, koreader
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:483
+#: views/update.lua:435
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2136,11 +2132,11 @@ msgstr "顯示簡介"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:371
+#: views/update.lua:323
 msgid "Skip"
 msgstr "略過"
 
-#: views/power.lua:178
+#: views/power.lua:166
 msgctxt "aire"
 msgid "Sleep"
 msgstr "休眠"
@@ -2153,7 +2149,7 @@ msgstr "智慧"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "排序"
 
@@ -2165,20 +2161,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:739
+#: dev/devtools.lua:613 views/grid.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:989
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "排序收藏清單"
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "排序收藏清單…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "排序檔案"
 
@@ -2191,7 +2187,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "方形封面和系列"
 
-#: views/booksheet.lua:375 views/widgets.lua:570
+#: views/booksheet.lua:350 views/widgets.lua:570
 msgid "Start"
 msgstr "開始"
 
@@ -2199,7 +2195,7 @@ msgstr "開始"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "統計"
 
@@ -2219,7 +2215,7 @@ msgstr "儲存空間"
 msgid "Swap tap and hold"
 msgstr "交換點擊和長按"
 
-#: views/booksheet.lua:223
+#: views/booksheet.lua:198
 msgid "Synopsis"
 msgstr "簡介"
 
@@ -2247,11 +2243,11 @@ msgstr "點擊開啟書庫"
 msgid "Tap to stop"
 msgstr "點擊停止"
 
-#: styles/vocabbuilder.lua:132
+#: styles/vocabbuilder.lua:131
 msgid "Tap to view definition"
 msgstr "點擊查看釋義"
 
-#: views/grid.lua:1252
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "測試書籍"
 
@@ -2308,7 +2304,7 @@ msgstr "目前書籍不屬於任何系列"
 msgid "This collection is empty"
 msgstr "此收藏清單是空的"
 
-#: views/update.lua:366
+#: views/update.lua:318
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "此副本包含 dev/ 資料夾（測試）。新版本不包含它，因此它將被刪除。"
 
@@ -2388,7 +2384,7 @@ msgstr "今日和連續天數"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:688
+#: views/stats.lua:687
 msgid "Top author"
 msgstr "最常讀作者"
 
@@ -2410,16 +2406,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire"
 msgstr "更新 Aire"
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire (%1 available)"
 msgstr "更新 Aire（%1 可用）"
 
@@ -2427,7 +2423,7 @@ msgstr "更新 Aire（%1 可用）"
 msgid "Update KOReader"
 msgstr "更新 KOReader"
 
-#: views/update.lua:214
+#: views/update.lua:166
 msgid "Updating Aire"
 msgstr "正在更新 Aire"
 
@@ -2447,7 +2443,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "單字複習"
 
-#: styles/vocabbuilder.lua:306
+#: styles/vocabbuilder.lua:308
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "單字複習 · %1 個單字"
@@ -2501,7 +2497,7 @@ msgstr "小工具 %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:417
+#: views/update.lua:369
 msgid "You already have the latest version (%1)."
 msgstr "你已經是最新版本（%1）。"
 
@@ -2517,11 +2513,11 @@ msgstr "你還沒有任何劃線"
 msgid "You have not opened any book yet"
 msgstr "你還沒有開啟過任何書"
 
-#: views/power.lua:162 views/update.lua:342
+#: views/power.lua:150 views/update.lua:294
 msgid "You have version %1"
 msgstr "你的版本：%1"
 
-#: views/grid.lua:581
+#: views/grid.lua:575
 msgid "You haven't finished any books yet"
 msgstr "你還沒有讀完任何書"
 
@@ -2538,7 +2534,7 @@ msgstr ""
 msgid "and highlights"
 msgstr "和劃線"
 
-#: views/booksheet.lua:359
+#: views/booksheet.lua:334
 msgid "at %1 %"
 msgstr "已讀 %1 %"
 
@@ -2550,7 +2546,7 @@ msgstr "每日平均"
 msgid "battery"
 msgstr "電量"
 
-#: views/update.lua:334
+#: views/update.lua:286
 msgid "beta"
 msgstr "測試版"
 
@@ -2576,7 +2572,7 @@ msgstr ""
 msgid "files"
 msgstr "檔案"
 
-#: views/stats.lua:644 views/widgets.lua:423
+#: views/stats.lua:643 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "讀完的書"
@@ -2605,7 +2601,7 @@ msgstr "最近 7 天"
 msgid "light"
 msgstr "前光"
 
-#: views/update.lua:506
+#: views/update.lua:458
 #, koreader
 msgid "never"
 msgstr ""
@@ -2631,7 +2627,7 @@ msgstr "第 %1 / %2 頁"
 msgid "p. %1 of %2"
 msgstr "第 %1 頁，共 %2 頁"
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "pages read"
 msgstr "已讀頁數"
 
@@ -2639,7 +2635,7 @@ msgstr "已讀頁數"
 msgid "port %1"
 msgstr "連接埠 %1"
 
-#: views/stats.lua:640
+#: views/stats.lua:639
 msgid "reading time"
 msgstr "閱讀時間"
 
@@ -2726,6 +2722,6 @@ msgstr "昨天"
 msgid "~%1 left"
 msgstr "剩餘約 %1"
 
-#: styles/ui/lightsheet.lua:183
+#: styles/ui/lightsheet.lua:159
 msgid "− Brightness"
 msgstr "− 亮度"

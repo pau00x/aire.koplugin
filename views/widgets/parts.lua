@@ -6,20 +6,15 @@
 --]]
 
 local Blitbuffer = require("ffi/blitbuffer")
-local BottomContainer = require("ui/widget/container/bottomcontainer")
-local CenterContainer = require("ui/widget/container/centercontainer")
 local Device = require("device")
 local Event = require("ui/event")
-local FrameContainer = require("ui/widget/container/framecontainer")
 local Geom = require("ui/geometry")
 local GestureRange = require("ui/gesturerange")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
 local HorizontalSpan = require("ui/widget/horizontalspan")
 local IconWidget = require("ui/widget/iconwidget")
 local InputContainer = require("ui/widget/container/inputcontainer")
-local LeftContainer = require("ui/widget/container/leftcontainer")
 local Size = require("ui/size")
-local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
@@ -27,7 +22,6 @@ local Widget = require("ui/widget/widget")
 local lfs = require("libs/libkoreader-lfs")
 local Screen = Device.screen
 
-local BLACK = Blitbuffer.COLOR_BLACK
 local WHITE = Blitbuffer.COLOR_WHITE
 
 ---------------------------------------------------------------------------
@@ -88,56 +82,46 @@ end
 --                    callback = fn(sheet), separator = bool }, ... }
 --   buttons   -> { { text, callback = fn(sheet), primary = bool }, ... }
 ---------------------------------------------------------------------------
-local OptionSheet = InputContainer:extend{
+-- Hoja común (common/sheet.lua): marco, cierre y refresco; aquí solo el contenido
+local OptionSheet = package.loaded.aire_sheet.Sheet:extend{
     title = nil, rows_fn = nil, buttons = nil, S = nil, face = nil, tappable = nil, on_close = nil,
     columns = 1, -- 2: filas en dos columnas (p. ej. elegir widget)
+    full_refresh = true, -- lo de debajo (Inicio y el dock) puede haber cambiado
 }
 
 function OptionSheet:init()
-    local S, face, tappable = self.S, self.face, self.tappable
-    local sw, sh = Screen:getWidth(), Screen:getHeight()
-    self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
-    local st = require("ui/widget/buttondialog").aire_sheet_style or {}
-    local margin, pad, border = S(st.margin or 6), S(st.pad or 14), Size.border.thin
-    local sheet_radius = S(st.radius or 14)
-    local btn_h = S(st.btn_h or 44)
-    local btn_radius = S(st.btn_radius or 10)
-    local btn_gap = S(st.btn_gap or 8)
-    local btn_font = st.btn_font or 16
-    local inner_w = sw - 2 * margin - 2 * (pad + border)
-    local content = VerticalGroup:new{ align = "left" }
-    if self.title then
-        table.insert(content, TextWidget:new{ text = self.title, face = face(true, 15), fgcolor = BLACK, max_width = inner_w, padding = 0 })
-        table.insert(content, VerticalSpan:new{ width = S(10) })
+    package.loaded.aire_sheet.Sheet.init(self)
+    self.close_callback = self.on_close
+    -- Los botones van en el pie fijo: si hay muchas filas, se desplazan solo ellas
+    self:setContent(function(inner_w) return self:buildContent(inner_w) end, self:buildButtons())
+end
+
+function OptionSheet:buildButtons()
+    if not (self.buttons and #self.buttons > 0) then return nil end
+    local list = {}
+    for _i, b in ipairs(self.buttons) do
+        local cb = b.callback
+        table.insert(list, { text = b.text, primary = b.primary, callback = function() cb(self) end })
     end
-    local row_h = S(44)
+    return package.loaded.aire_sheet.buttons(list, package.loaded.aire_screen.sheetInnerWidth())
+end
+
+function OptionSheet:buildContent(inner_w)
+    -- Piezas comunes de las hojas (common/sheet.lua): título, filas y botones
+    local Sh = package.loaded.aire_sheet
+    local S = self.S
+    local content = VerticalGroup:new{ align = "left" }
+    if self.title then table.insert(content, Sh.title(self.title, inner_w)) end
     local cols = self.columns or 1
     local col_gap = S(10)
     local cell_w = cols > 1 and math.floor((inner_w - (cols - 1) * col_gap) / cols) or inner_w
     local pending -- fila de varias columnas a medio llenar
     for _i, r in ipairs(self.rows_fn() or {}) do
-        local enabled = r.enabled ~= false
-        local color = enabled and BLACK or Blitbuffer.COLOR_GRAY
-        local line = HorizontalGroup:new{ align = "center" }
-        local lead = 0
-        if r.checked ~= nil then
-            local icon = r.radio and (r.checked and "aire.radio.on" or "aire.radio.off")
-                or (r.checked and "aire.checkbox.on" or "aire.checkbox.off")
-            table.insert(line, IconWidget:new{ icon = icon, width = S(22), height = S(22), alpha = true, dim = not enabled })
-            table.insert(line, HorizontalSpan:new{ width = S(10) })
-            lead = S(32)
-        elseif r.icon then
-            table.insert(line, IconWidget:new{ icon = r.icon, width = S(22), height = S(22), alpha = true, dim = not enabled })
-            table.insert(line, HorizontalSpan:new{ width = S(10) })
-            lead = S(32)
-        end
-        table.insert(line, TextWidget:new{ text = r.text, face = face(false, 15), fgcolor = color,
-            max_width = cell_w - lead, padding = 0 })
-        local row = LeftContainer:new{ dimen = Geom:new{ w = cell_w, h = row_h }, line }
-        if enabled and r.callback then
-            local cb = r.callback
-            row = tappable(row, function() cb(self) end)
-        end
+        local cb = r.callback
+        local row = Sh.row({
+            text = r.text, icon = r.icon, checked = r.checked, radio = r.radio, enabled = r.enabled,
+            callback = cb and function() cb(self) end,
+        }, cell_w)
         if cols > 1 then
             if not pending then
                 pending = HorizontalGroup:new{ align = "center", row }
@@ -152,49 +136,7 @@ function OptionSheet:init()
             if r.separator then table.insert(content, VerticalSpan:new{ width = S(4) }) end
         end
     end
-    if self.buttons and #self.buttons > 0 then
-        table.insert(content, VerticalSpan:new{ width = S(10) })
-        local gap = btn_gap
-        local bw = math.floor((inner_w - (#self.buttons - 1) * gap) / #self.buttons)
-        local bh = btn_h
-        local brow = HorizontalGroup:new{ align = "center" }
-        for i, b in ipairs(self.buttons) do
-            if i > 1 then table.insert(brow, HorizontalSpan:new{ width = gap }) end
-            local box = FrameContainer:new{
-                bordersize = border, color = BLACK, background = b.primary and BLACK or WHITE,
-                radius = btn_radius, padding = 0, width = bw, height = bh,
-                CenterContainer:new{
-                    dimen = Geom:new{ w = bw - 2 * border, h = bh - 2 * border },
-                    TextWidget:new{ text = b.text, face = face(false, btn_font), fgcolor = b.primary and WHITE or BLACK, padding = 0 },
-                },
-            }
-            local cb = b.callback
-            table.insert(brow, tappable(box, function() cb(self) end))
-        end
-        table.insert(content, brow)
-    end
-    self.sheet = FrameContainer:new{
-        bordersize = border, color = BLACK, background = WHITE, radius = sheet_radius, padding = pad, content,
-    }
-    self[1] = BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh - margin }, self.sheet }
-    self.ges_events = {
-        AireOutside = { GestureRange:new{ ges = "tap", range = function() return self.dimen end } },
-    }
-end
-
-function OptionSheet:onAireOutside(_args, ges)
-    local sd = self.sheet and self.sheet.dimen
-    if ges and ges.pos and sd and sd.x and ges.pos:intersectWith(sd) then return true end
-    self:close()
-    return true
-end
-
-function OptionSheet:close()
-    -- Refresco de toda la pantalla al cerrar: lo de debajo (Inicio y el dock)
-    -- puede haber cambiado mientras la hoja estaba abierta
-    self._closed = true
-    UIManager:close(self, "ui")
-    if self.on_close then self.on_close() end
+    return content
 end
 
 -- Volver a dibujar con las opciones actualizadas
@@ -209,9 +151,6 @@ function OptionSheet:rebuild()
     UIManager:show(new, "ui")
 end
 
-function OptionSheet:onCloseWidget()
-    UIManager:setDirty(nil, "ui")
-end
 
 ---------------------------------------------------------------------------
 -- Hueco vacío (solo en edición): contorno gris claro y "+"

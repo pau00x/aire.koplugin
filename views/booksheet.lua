@@ -37,20 +37,13 @@
 --]]
 
 local BD = require("ui/bidi")
-local Blitbuffer = require("ffi/blitbuffer")
 local BookList = require("ui/widget/booklist")
 local ButtonDialog = require("ui/widget/buttondialog")
 local ConfirmBox = require("ui/widget/confirmbox")
 local DocumentRegistry = require("document/documentregistry")
 local FileManager = require("apps/filemanager/filemanager")
 local FileManagerBookInfo = require("apps/filemanager/filemanagerbookinfo")
-local Font = require("ui/font")
-local Screen = require("device").screen
-local Size = require("ui/size")
-local TextBoxWidget = require("ui/widget/textboxwidget")
 local UIManager = require("ui/uimanager")
-local VerticalGroup = require("ui/widget/verticalgroup")
-local VerticalSpan = require("ui/widget/verticalspan")
 local filemanagerutil = require("apps/filemanager/filemanagerutil")
 local logger = require("logger")
 local _ = require("gettext")
@@ -63,7 +56,6 @@ local T = require("ffi/util").template
 if FileManager._book_hold_sheet_patched then return end
 FileManager._book_hold_sheet_patched = true
 
-local SUB_COLOR = Blitbuffer.COLOR_DARK_GRAY
 local SEPARATOR = " · "
 
 ---------------------------------------------------------------------------
@@ -108,36 +100,19 @@ local function getBookProps(file_manager, file)
     return props
 end
 
+-- Ancho útil de la hoja (common/screen.lua)
 local function getHeaderWidth()
-    -- Hoja con el estilo nuevo (styles/ui.lua): el ancho útil lo da ella
-    if ButtonDialog.aire_sheetInnerWidth then return ButtonDialog.aire_sheetInnerWidth() end
-    -- Mismo ancho que el menú: como hoja inferior (styles/ui.lua, sección 11) ocupa
-    -- todo el ancho menos el margen; si no, el 90 % del lado corto
-    local margin = (ButtonDialog.aire_sheet_style and ButtonDialog.aire_sheet_style.margin) or 6
-    local dlg_w = ButtonDialog._aire_sheet_patched
-        and (Screen:getWidth() - 2 * Screen:scaleBySize(margin))
-        or math.floor(math.min(Screen:getWidth(), Screen:getHeight()) * 0.9)
-    local bt_w = dlg_w - 2 * Size.border.window - 2 * Size.padding.button
-    return bt_w - 2 * (Size.padding.large + Size.margin.title)
+    return package.loaded.aire_screen.sheetInnerWidth()
 end
 
-local function makeHeaderSubwidget(lines, align)
+-- Subtítulo de la ficha (autor, datos): el común de las hojas (common/sheet.lua,
+-- 13 en gris), debajo del título del menú
+local function makeHeaderSubwidget(lines)
     if not lines or #lines == 0 then return nil end
-    local w = getHeaderWidth()
-    local vg = VerticalGroup:new{ align = align or "left" }
+    local texts = {}
+    for _i, entry in ipairs(lines) do table.insert(texts, entry.text) end
+    local vg = package.loaded.aire_sheet.subtitleLines(texts, getHeaderWidth())
     vg.not_focusable = true
-    for i, entry in ipairs(lines) do
-        if i > 1 then
-            table.insert(vg, VerticalSpan:new{ width = Size.span.vertical_default })
-        end
-        table.insert(vg, TextBoxWidget:new{
-            text = entry.text,
-            width = w,
-            face = Font:getFace("cfont", entry.size or 16),
-            fgcolor = entry.color or SUB_COLOR,
-            alignment = align or "left",
-        })
-    end
     return { vg }
 end
 
@@ -202,10 +177,10 @@ local function showBookSheetFor(opts)
 
     local sub_lines = {}
     if authors then
-        table.insert(sub_lines, { text = authors, size = 16 })
+        table.insert(sub_lines, { text = authors })
     end
     if #meta_parts > 0 then
-        table.insert(sub_lines, { text = table.concat(meta_parts, SEPARATOR), size = 14 })
+        table.insert(sub_lines, { text = table.concat(meta_parts, SEPARATOR) })
     end
 
     local function close_dialog()
@@ -267,7 +242,7 @@ local function showBookSheetFor(opts)
     owner.file_dialog = ButtonDialog:new{
         title = title,
         title_align = "left",
-        _added_widgets = makeHeaderSubwidget(sub_lines, "left"),
+        _added_widgets = makeHeaderSubwidget(sub_lines),
         buttons = buttons,
     }
     UIManager:show(owner.file_dialog)
@@ -361,9 +336,9 @@ local function showSeriesSheet(file_chooser, file_manager, group_item, opts)
 
     local sub_lines = {}
     if authors then
-        table.insert(sub_lines, { text = authors, size = 16 })
+        table.insert(sub_lines, { text = authors })
     end
-    table.insert(sub_lines, { text = table.concat(meta_parts, SEPARATOR), size = 14 })
+    table.insert(sub_lines, { text = table.concat(meta_parts, SEPARATOR) })
 
     local dialog
     local function closeDialog()
@@ -470,7 +445,7 @@ local function showSeriesSheet(file_chooser, file_manager, group_item, opts)
     dialog = ButtonDialog:new{
         title = BD.auto(series_name),
         title_align = "left",
-        _added_widgets = makeHeaderSubwidget(sub_lines, "left"),
+        _added_widgets = makeHeaderSubwidget(sub_lines),
         buttons = buttons,
     }
     local owner = opts.owner or file_chooser

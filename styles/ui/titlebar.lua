@@ -392,7 +392,7 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
                 local tb = self.title_bar
                 tb.with_bottom_line = false
                 tb.title_face = Font:getFace("tfont", 15)
-                tb.info_text_face = Font:getFace("cfont", 15)
+                tb.info_text_face = Font:getFace("cfont", package.loaded.aire_screen.SHEET.SUB_FONT)
                 tb.subtitle_face = Font:getFace("cfont", 13)
                 tb.title_h_padding = Screen:scaleBySize(14)
                 tb.title_top_padding = Screen:scaleBySize(14)

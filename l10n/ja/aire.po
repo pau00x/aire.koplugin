@@ -19,11 +19,11 @@ msgstr[0] "「%1」 · %2 件一致"
 msgid "\"Reading now\" card with light background"
 msgstr "「読書中」カードを明るい背景にする"
 
-#: views/booksheet.lua:192
+#: views/booksheet.lua:167
 msgid "%1 % (%2 / %3 pp.)"
 msgstr "%1 % (%2 / %3 ページ)"
 
-#: views/booksheet.lua:184
+#: views/booksheet.lua:159
 msgid "%1 % (on hold)"
 msgstr "%1 % (保留)"
 
@@ -31,7 +31,7 @@ msgstr "%1 % (保留)"
 msgid "%1 % read"
 msgstr "%1 % 読了"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
+#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 冊"
@@ -41,7 +41,7 @@ msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "ブックマーク %1 件"
 
-#: views/grid.lua:493 views/grid.lua:494
+#: views/grid.lua:487 views/grid.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 コレクション"
@@ -56,17 +56,17 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 日前"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "読書 %1 日"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 冊読了"
 
-#: views/grid.lua:576
+#: views/grid.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "読了 %1 冊"
@@ -86,11 +86,11 @@ msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 ページ読了"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 ページ"
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "%1 pp./h"
 msgstr "%1 ページ/時"
 
@@ -99,7 +99,7 @@ msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "保存済みショートカット %1 件"
 
-#: views/grid.lua:324
+#: views/grid.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 シリーズ"
@@ -130,15 +130,11 @@ msgstr[0] ""
 msgid "%d of 5 stars"
 msgstr "5 つ星中 %d"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "(現在)"
-
-#: styles/ui/lightsheet.lua:185
+#: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "輝度 +"
 
-#: views/stats.lua:488
+#: views/stats.lua:487
 msgid "+%1 more"
 msgstr "他 %1 冊"
 
@@ -162,7 +158,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 列"
 
-#: views/update.lua:340
+#: views/update.lua:292
 msgid "A new version is available"
 msgstr "新しいバージョンがあります"
 
@@ -186,7 +182,7 @@ msgstr "実行中"
 msgid "Activity summary"
 msgstr "アクティビティの概要"
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -211,15 +207,15 @@ msgstr "詳細設定"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:276 views/update.lua:333
+#: views/update.lua:228 views/update.lua:285
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:159 views/update.lua:537
+#: views/power.lua:147 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 が利用可能"
 
-#: views/update.lua:190
+#: views/update.lua:142
 msgid "Aire %1 installed"
 msgstr "Aire %1 をインストールしました"
 
@@ -240,16 +236,16 @@ msgstr "すべて"
 msgid "All books"
 msgstr ""
 
-#: views/booksheet.lua:351
+#: views/booksheet.lua:326
 msgid "All finished"
 msgstr "すべて読了"
 
-#: views/grid.lua:578 views/widgets.lua:441
+#: views/grid.lua:572 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:593
+#: views/stats.lua:592
 msgid "Annual"
 msgstr "年間"
 
@@ -292,7 +288,7 @@ msgstr "ジャンル（キーワード）別の自動コレクション"
 msgid "Automatic tests"
 msgstr "自動テスト"
 
-#: views/grid.lua:1009
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "自動: この作者の本"
 
@@ -327,11 +323,11 @@ msgstr ""
 msgid "Battery"
 msgstr "バッテリー"
 
-#: views/stats.lua:682
+#: views/stats.lua:681
 msgid "Best day"
 msgstr "最高の日"
 
-#: views/stats.lua:685
+#: views/stats.lua:684
 msgid "Best month"
 msgstr "最高の月"
 
@@ -402,7 +398,7 @@ msgstr "ブックマークとハイライト"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:970
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "本は削除されず、コレクションのみ削除されます。"
 
@@ -452,7 +448,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -470,7 +466,7 @@ msgstr ""
 msgid "Change"
 msgstr "変更"
 
-#: styles/skim.lua:90
+#: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "第%1章 / 全%2章"
 
@@ -494,11 +490,11 @@ msgstr "充電完了"
 msgid "Charging"
 msgstr "充電中"
 
-#: views/update.lua:486
+#: views/update.lua:438
 msgid "Check every week"
 msgstr "毎週確認する"
 
-#: views/update.lua:479
+#: views/update.lua:431
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -519,7 +515,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "表紙のサムネイルを消去"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -536,7 +532,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "コレクション内の順序"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -549,7 +545,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "コレクションの順序"
 
-#: common/compat.lua:183
+#: common/compat.lua:182
 msgid "Compatibility"
 msgstr "互換性"
 
@@ -561,7 +557,7 @@ msgstr ""
 msgid "Connected"
 msgstr "接続済み"
 
-#: views/booksheet.lua:375
+#: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
 msgstr ""
@@ -580,7 +576,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:398
+#: views/update.lua:350
 msgid "Could not check for updates. Try again later."
 msgstr "アップデートを確認できませんでした。後でもう一度お試しください。"
 
@@ -591,7 +587,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:259
+#: views/update.lua:211
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "アップデートをインストールできませんでした。Aire %1 のままです。"
 
@@ -626,11 +622,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "読書中の本"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "DAILY RHYTHM"
 msgstr "日別の推移"
 
-#: views/stats.lua:677
+#: views/stats.lua:676
 msgid "Daily average"
 msgstr "1日の平均"
 
@@ -646,7 +642,7 @@ msgstr "日付"
 msgid "Date finished"
 msgstr "読了日"
 
-#: views/stats.lua:680
+#: views/stats.lua:679
 msgid "Day %1"
 msgstr "%1日"
 
@@ -664,16 +660,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "12月"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:448
+#: views/stats.lua:447
 msgid "Delete all book stats"
 msgstr "この本の統計をすべて削除"
 
-#: views/stats.lua:452
+#: views/stats.lua:451
 msgid "Delete all stats?"
 msgstr "すべての統計を削除しますか？"
 
@@ -682,15 +678,15 @@ msgstr "すべての統計を削除しますか？"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:435
+#: views/stats.lua:434
 msgid "Delete minutes for this day?"
 msgstr "この日の読書時間を削除しますか？"
 
-#: views/stats.lua:431
+#: views/stats.lua:430
 msgid "Delete minutes from this day"
 msgstr "この日の読書時間を削除"
 
-#: views/grid.lua:969
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "コレクションを削除しますか？"
 
@@ -698,11 +694,11 @@ msgstr "コレクションを削除しますか？"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1020
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "削除…"
 
-#: styles/ui/sheets.lua:501
+#: styles/ui/sheets.lua:554
 #, koreader
 msgid "Description"
 msgstr ""
@@ -741,12 +737,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:210
+#: views/update.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:234
+#: views/update.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "ダウンロード中… %1 / %2"
 
@@ -771,7 +767,7 @@ msgstr "ホームのウィジェットを編集"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -780,12 +776,12 @@ msgstr ""
 msgid "Edit series"
 msgstr "シリーズを編集"
 
-#: styles/bookmark.lua:382
+#: styles/bookmark.lua:341
 #, koreader
 msgid "Edit text"
 msgstr ""
 
-#: views/booksheet.lua:347
+#: views/booksheet.lua:322
 msgid "Empty"
 msgstr "空"
 
@@ -794,7 +790,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "ウィジェットなし"
 
-#: views/grid.lua:470
+#: views/grid.lua:464
 msgid "Empty collection"
 msgstr "空のコレクション"
 
@@ -802,7 +798,7 @@ msgstr "空のコレクション"
 msgid "Empty folder"
 msgstr "空のフォルダー"
 
-#: views/grid.lua:303
+#: views/grid.lua:297
 msgid "Empty series"
 msgstr "空のシリーズ"
 
@@ -834,7 +830,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "プラグインが描画するすべての画面（サンプルデータ）。← → にスワイプしてページ送り、外側またはページをタップして終了。"
 
-#: views/power.lua:222
+#: views/power.lua:210
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -843,7 +839,7 @@ msgstr ""
 msgid "FILE"
 msgstr "ファイル"
 
-#: views/grid.lua:795
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "絞り込み"
 
@@ -856,7 +852,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "お気に入りのフォルダー"
 
-#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -866,7 +862,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "2月"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -881,11 +877,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:739
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "絞り込み"
 
-#: dev/devtools.lua:659 views/grid.lua:738
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "絞り込みと並べ替え"
 
@@ -894,7 +890,7 @@ msgstr "絞り込みと並べ替え"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:181 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "完了"
@@ -933,7 +929,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "フォルダー"
 
@@ -946,11 +942,11 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: styles/ui/sheets.lua:724
+#: styles/ui/sheets.lua:834
 msgid "Fonts"
 msgstr "フォント"
 
-#: styles/vocabbuilder.lua:154
+#: styles/vocabbuilder.lua:153
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -965,7 +961,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:101
+#: styles/ui/lightsheet.lua:87
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1002,16 +998,16 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "設定済みのジェスチャー: %1"
 
-#: styles/bookmark.lua:407
+#: styles/bookmark.lua:366
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "上へ"
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:156
+#: common/compat.lua:178 styles/vocabbuilder.lua:155
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1024,7 +1020,7 @@ msgstr "グリッド: %1 列"
 msgid "HIGHLIGHT"
 msgstr "ハイライト"
 
-#: views/stats.lua:664
+#: views/stats.lua:663
 msgid "HIGHLIGHTS"
 msgstr "ハイライト"
 
@@ -1037,7 +1033,7 @@ msgstr "まだ来ていない日です"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1351
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1046,7 +1042,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:614
+#: views/grid.lua:608
 msgid "History is empty"
 msgstr "履歴は空です"
 
@@ -1058,7 +1054,7 @@ msgstr "長押しもタップと同じ動作"
 msgid "Hold to configure"
 msgstr "長押しで設定"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1099,15 +1095,15 @@ msgstr "コレクションに、2 冊以上の本がある作者ごとのコレ�
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "コレクションに、2 冊以上の本があるキーワードごとのコレクションが表示されます。自動的に更新され、KOReader のコレクションには保存されません。"
 
-#: views/update.lua:495
+#: views/update.lua:447
 msgid "Include beta versions"
 msgstr "ベータ版を含める"
 
-#: views/update.lua:514
+#: views/update.lua:466
 msgid "Installed version: %1"
 msgstr "インストール済みのバージョン: %1"
 
-#: views/update.lua:246
+#: views/update.lua:198
 msgid "Installing…"
 msgstr "インストール中…"
 
@@ -1123,7 +1119,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:193
+#: views/update.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "KOReader の再起動後に使用されます。設定はそのまま残ります。"
 
@@ -1152,7 +1148,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "6月"
 
-#: views/power.lua:221
+#: views/power.lua:209
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1198,7 +1194,7 @@ msgstr "最終"
 msgid "Last 7 days summary"
 msgstr "過去 7 日間の概要"
 
-#: views/update.lua:507
+#: views/update.lua:459
 msgid "Last check: %1"
 msgstr "最終確認: %1"
 
@@ -1206,7 +1202,7 @@ msgstr "最終確認: %1"
 msgid "Last read"
 msgstr "最後に読んだ日"
 
-#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
 msgid "Later"
 msgstr "後で"
 
@@ -1224,7 +1220,7 @@ msgstr "レイアウト"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "ライブラリ"
 
@@ -1280,15 +1276,15 @@ msgstr "一致"
 msgid "MATCH %d"
 msgstr "一致 %d"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "MONTHLY RHYTHM"
 msgstr "月別の推移"
 
-#: views/stats.lua:694
+#: views/stats.lua:693
 msgid "MOST READ"
 msgstr "よく読んだ本"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "メイン表示"
 
@@ -1301,15 +1297,15 @@ msgstr "3月"
 msgid "Margins"
 msgstr "余白"
 
-#: views/booksheet.lua:430
+#: views/booksheet.lua:405
 msgid "Mark"
 msgstr "マーク"
 
-#: views/booksheet.lua:429
+#: views/booksheet.lua:404
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "「%1」のすべての本を読書中にしますか？"
 
-#: views/grid.lua:1057
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "コレクション「%1」のすべての本を読書中にしますか？"
 
@@ -1317,19 +1313,19 @@ msgstr "コレクション「%1」のすべての本を読書中にしますか�
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "コレクション全体を完了にする"
 
-#: views/grid.lua:1056
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "コレクション全体を読書中にする"
 
-#: views/booksheet.lua:403
+#: views/booksheet.lua:378
 msgid "Mark entire series as finished"
 msgstr "シリーズ全体を完了にする"
 
-#: views/booksheet.lua:424
+#: views/booksheet.lua:399
 msgid "Mark entire series as reading"
 msgstr "シリーズ全体を読書中にする"
 
@@ -1356,15 +1352,15 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "ミニマル"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "フォルダーを混在"
 
-#: views/grid.lua:816
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "シリーズを混在"
 
-#: views/stats.lua:591
+#: views/stats.lua:590
 msgid "Monthly"
 msgstr "月間"
 
@@ -1376,11 +1372,11 @@ msgstr "月間まとめ"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "その他"
 
-#: views/booksheet.lua:258
+#: views/booksheet.lua:233
 msgid "More options…"
 msgstr "その他のオプション…"
 
@@ -1418,7 +1414,7 @@ msgstr "新着"
 msgid "NEXT"
 msgstr "次"
 
-#: styles/vocabbuilder.lua:123
+#: styles/vocabbuilder.lua:122
 msgid "NEXT REVIEW"
 msgstr "次の復習"
 
@@ -1448,11 +1444,11 @@ msgctxt "aire"
 msgid "New"
 msgstr "未読"
 
-#: views/grid.lua:489
+#: views/grid.lua:483
 msgid "New collection"
 msgstr "新しいコレクション"
 
-#: views/grid.lua:1011 views/grid.lua:1024
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "新しいコレクション…"
 
@@ -1472,7 +1468,7 @@ msgstr "次 %1"
 msgid "Next batch of test widgets"
 msgstr "次のテストウィジェット群"
 
-#: styles/skim.lua:113
+#: styles/skim.lua:102
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1498,19 +1494,19 @@ msgstr "読書中の本はありません"
 msgid "No book matches the filter"
 msgstr "条件に一致する本はありません"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this month"
 msgstr "今月読了した本はありません"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this year"
 msgstr "今年読了した本はありません"
 
-#: views/grid.lua:335
+#: views/grid.lua:329
 msgid "No books in home folder"
 msgstr "ホームフォルダーに本がありません"
 
-#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
+#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
 msgid "No books with this filter"
 msgstr "この条件の本はありません"
 
@@ -1518,11 +1514,11 @@ msgstr "この条件の本はありません"
 msgid "No chapter"
 msgstr "章なし"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections"
 msgstr "コレクションはありません"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections with this filter"
 msgstr "この条件のコレクションはありません"
 
@@ -1547,7 +1543,7 @@ msgstr "次の未読了の本はありません"
 msgid "No previous book"
 msgstr "前の本はありません"
 
-#: styles/statspages.lua:365 views/stats.lua:627
+#: styles/statspages.lua:365 views/stats.lua:626
 msgid "No reading activity in this period"
 msgstr "この期間の読書記録はありません"
 
@@ -1572,7 +1568,7 @@ msgstr "この本の統計はありません"
 msgid "No unstarted books"
 msgstr "未読の本はありません"
 
-#: styles/vocabbuilder.lua:92
+#: styles/vocabbuilder.lua:91
 msgid "No vocabulary words"
 msgstr "単語がありません"
 
@@ -1580,7 +1576,7 @@ msgstr "単語がありません"
 msgid "Not rated"
 msgstr "未評価"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:197 views/booksheet.lua:355
+#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "未読"
 
@@ -1632,12 +1628,12 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:186 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "保留"
 
-#: views/update.lua:487
+#: views/update.lua:439
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Wi-Fi がすでにオンのときのみ。Aire が Wi-Fi をオンにすることはありません。"
 
@@ -1646,7 +1642,7 @@ msgstr "Wi-Fi がすでにオンのときのみ。Aire が Wi-Fi をオンにす
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "コレクションを開く"
 
@@ -1654,11 +1650,11 @@ msgstr "コレクションを開く"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "シリーズを開く"
 
-#: views/booksheet.lua:391
+#: views/booksheet.lua:366
 msgid "Open series folder"
 msgstr "シリーズのフォルダーを開く"
 
@@ -1746,7 +1742,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:179
+#: views/power.lua:167
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1759,7 +1755,7 @@ msgstr "前"
 msgid "Previous book"
 msgstr "前の本"
 
-#: styles/skim.lua:110
+#: styles/skim.lua:99
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1871,7 +1867,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:554
+#: views/stats.lua:553
 msgid "Recap"
 msgstr "まとめ"
 
@@ -1892,7 +1888,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:395
+#: dev/devtools.lua:636 styles/bookmark.lua:354
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1902,17 +1898,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "削除"
 
-#: styles/bookmark.lua:392
+#: styles/bookmark.lua:351
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:503
+#: views/booksheet.lua:567 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "コレクションから削除"
 
-#: views/booksheet.lua:556 views/grid.lua:619
+#: views/booksheet.lua:531 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1922,7 +1918,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:353
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1932,7 +1928,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1018
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "名前を変更…"
 
@@ -1945,12 +1941,12 @@ msgstr "ホームのウィジェットをプリセット「%1」に置き換え�
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:220
+#: views/power.lua:208
 #, koreader
 msgid "Restart"
 msgstr ""
 
-#: common/compat.lua:172
+#: common/compat.lua:171
 #, koreader
 msgid "Restart KOReader"
 msgstr ""
@@ -1959,16 +1955,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "変更を反映するには KOReader を再起動してください。"
 
-#: views/update.lua:194
+#: views/update.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "使用するには KOReader を再起動してください。設定はそのまま残ります。"
 
-#: views/update.lua:183
+#: views/update.lua:135
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:810
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -1993,7 +1989,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:805
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "並び順"
 
@@ -2026,7 +2022,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2043,7 +2039,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:354
+#: views/update.lua:306
 msgid "See all changes"
 msgstr "すべての変更を見る"
 
@@ -2052,7 +2048,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "9月"
 
-#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2070,12 +2066,12 @@ msgstr "表紙にシリーズ番号を表示"
 msgid "Set alarm"
 msgstr ""
 
-#: styles/ui/sheets.lua:776
+#: styles/ui/sheets.lua:886
 #, koreader
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:483
+#: views/update.lua:435
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2127,11 +2123,11 @@ msgstr "あらすじを表示"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:371
+#: views/update.lua:323
 msgid "Skip"
 msgstr "スキップ"
 
-#: views/power.lua:178
+#: views/power.lua:166
 msgctxt "aire"
 msgid "Sleep"
 msgstr "スリープ"
@@ -2144,7 +2140,7 @@ msgstr "スマート"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "並べ替え"
 
@@ -2156,20 +2152,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:739
+#: dev/devtools.lua:613 views/grid.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:989
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "コレクションを並べ替え"
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "コレクションを並べ替え…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "ファイルを並べ替え"
 
@@ -2182,7 +2178,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "正方形の表紙とシリーズ"
 
-#: views/booksheet.lua:375 views/widgets.lua:570
+#: views/booksheet.lua:350 views/widgets.lua:570
 msgid "Start"
 msgstr "開始"
 
@@ -2190,7 +2186,7 @@ msgstr "開始"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "統計"
 
@@ -2210,7 +2206,7 @@ msgstr "ストレージ"
 msgid "Swap tap and hold"
 msgstr "タップと長押しを入れ替え"
 
-#: views/booksheet.lua:223
+#: views/booksheet.lua:198
 msgid "Synopsis"
 msgstr "あらすじ"
 
@@ -2238,11 +2234,11 @@ msgstr "タップしてライブラリを開く"
 msgid "Tap to stop"
 msgstr "タップで停止"
 
-#: styles/vocabbuilder.lua:132
+#: styles/vocabbuilder.lua:131
 msgid "Tap to view definition"
 msgstr "タップで意味を表示"
 
-#: views/grid.lua:1252
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "テスト用の本"
 
@@ -2299,7 +2295,7 @@ msgstr "現在の本はシリーズに含まれていません"
 msgid "This collection is empty"
 msgstr "このコレクションは空です"
 
-#: views/update.lua:366
+#: views/update.lua:318
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "このコピーには dev/ フォルダー (テスト) があります。新しいバージョンには含まれないため、削除されます。"
 
@@ -2379,7 +2375,7 @@ msgstr "今日と連続記録"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:688
+#: views/stats.lua:687
 msgid "Top author"
 msgstr "よく読んだ作者"
 
@@ -2401,16 +2397,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire"
 msgstr "Aire をアップデート"
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire (%1 available)"
 msgstr "Aire をアップデート (%1 が利用可能)"
 
@@ -2418,7 +2414,7 @@ msgstr "Aire をアップデート (%1 が利用可能)"
 msgid "Update KOReader"
 msgstr "KOReader をアップデート"
 
-#: views/update.lua:214
+#: views/update.lua:166
 msgid "Updating Aire"
 msgstr "Aire をアップデート中"
 
@@ -2438,7 +2434,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "単語の復習"
 
-#: styles/vocabbuilder.lua:306
+#: styles/vocabbuilder.lua:308
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "単語の復習 · %1 語"
@@ -2492,7 +2488,7 @@ msgstr "ウィジェット %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:417
+#: views/update.lua:369
 msgid "You already have the latest version (%1)."
 msgstr "すでに最新バージョンです (%1)。"
 
@@ -2508,11 +2504,11 @@ msgstr "まだハイライトがありません"
 msgid "You have not opened any book yet"
 msgstr "まだ本を開いていません"
 
-#: views/power.lua:162 views/update.lua:342
+#: views/power.lua:150 views/update.lua:294
 msgid "You have version %1"
 msgstr "現在のバージョン: %1"
 
-#: views/grid.lua:581
+#: views/grid.lua:575
 msgid "You haven't finished any books yet"
 msgstr "まだ読了した本はありません"
 
@@ -2529,7 +2525,7 @@ msgstr ""
 msgid "and highlights"
 msgstr "とハイライト"
 
-#: views/booksheet.lua:359
+#: views/booksheet.lua:334
 msgid "at %1 %"
 msgstr "読了 %1 %"
 
@@ -2541,7 +2537,7 @@ msgstr "1 日平均"
 msgid "battery"
 msgstr "バッテリー"
 
-#: views/update.lua:334
+#: views/update.lua:286
 msgid "beta"
 msgstr "ベータ"
 
@@ -2567,7 +2563,7 @@ msgstr ""
 msgid "files"
 msgstr "ファイル"
 
-#: views/stats.lua:644 views/widgets.lua:423
+#: views/stats.lua:643 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "読了した本"
@@ -2596,7 +2592,7 @@ msgstr "過去 7 日間"
 msgid "light"
 msgstr "ライト"
 
-#: views/update.lua:506
+#: views/update.lua:458
 msgid "never"
 msgstr "なし"
 
@@ -2621,7 +2617,7 @@ msgstr "%1 / %2 ページ"
 msgid "p. %1 of %2"
 msgstr "%1 / %2 ページ"
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "pages read"
 msgstr "読んだページ"
 
@@ -2629,7 +2625,7 @@ msgstr "読んだページ"
 msgid "port %1"
 msgstr "ポート %1"
 
-#: views/stats.lua:640
+#: views/stats.lua:639
 msgid "reading time"
 msgstr "読書時間"
 
@@ -2716,6 +2712,6 @@ msgstr "昨日"
 msgid "~%1 left"
 msgstr "残り約 %1"
 
-#: styles/ui/lightsheet.lua:183
+#: styles/ui/lightsheet.lua:159
 msgid "− Brightness"
 msgstr "輝度 −"

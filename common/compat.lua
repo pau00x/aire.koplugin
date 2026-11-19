@@ -163,7 +163,6 @@ function M.run(config, saveConfig)
         local ButtonDialog = require("ui/widget/buttondialog")
         local Font = require("ui/font")
         local TextBoxWidget = require("ui/widget/textboxwidget")
-        local Screen = require("device").screen
         local compat_dlg
         local buttons = {}
         if #disabled > 0 then
@@ -186,8 +185,7 @@ function M.run(config, saveConfig)
             _added_widgets = {
                 TextBoxWidget:new{
                     text = table.concat(lines, "\n"),
-                    width = ButtonDialog.aire_sheetInnerWidth and ButtonDialog.aire_sheetInnerWidth()
-                        or (Screen:getWidth() - 2 * Screen:scaleBySize(40)),
+                    width = package.loaded.aire_screen.sheetInnerWidth(),
                     face = Font:getFace("cfont", 15),
                     alignment = "left",
                 },

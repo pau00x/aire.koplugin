@@ -65,6 +65,8 @@ if plugin_dir then
     UI = dofile(plugin_dir .. "/common/ui.lua")
     package.loaded.aire_ui = UI
     package.loaded.aire_screen = dofile(plugin_dir .. "/common/screen.lua")
+    -- Hojas inferiores (marco, cierre, refresco, desplazamiento): common/sheet.lua
+    package.loaded.aire_sheet = dofile(plugin_dir .. "/common/sheet.lua")
     package.loaded.aire_pages = dofile(plugin_dir .. "/common/pages.lua")
     -- Cabecera en crash.log (como la de KOReader) con la versión de _meta.lua,
     -- para que cada log diga cuál era. Es lo único que Aire escribe siempre al

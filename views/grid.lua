@@ -134,18 +134,14 @@ return function(Aire, ctx)
     -- mismo módulo que arriba.
     local Blitbuffer = require("ffi/blitbuffer")
     local BookList = require("ui/widget/booklist")
-    local BottomContainer = require("ui/widget/container/bottomcontainer")
-    local ButtonDialog = require("ui/widget/buttondialog")
     local CenterContainer = require("ui/widget/container/centercontainer")
     local Notification = require("ui/widget/notification")
     local RenderImage = require("ui/renderimage")
-    local FrameContainer = require("ui/widget/container/framecontainer")
     local Geom = require("ui/geometry")
     local GestureRange = require("ui/gesturerange")
     local HorizontalGroup = require("ui/widget/horizontalgroup")
     local HorizontalSpan = require("ui/widget/horizontalspan")
     local InputContainer = require("ui/widget/container/inputcontainer")
-    local Size = require("ui/size")
     local TextWidget = require("ui/widget/textwidget")
     local UIManager = require("ui/uimanager")
     local VerticalGroup = require("ui/widget/verticalgroup")
@@ -158,11 +154,9 @@ return function(Aire, ctx)
     local T = require("ffi/util").template
     local C_ = _.pgettext
     local Screen = require("device").screen
-    local BLACK = Blitbuffer.COLOR_BLACK
-    local WHITE = Blitbuffer.COLOR_WHITE
     local GRAY_TEXT = Blitbuffer.COLOR_DARK_GRAY
 
-    local S, face, tappable, config, saveConfig = ctx.S, ctx.face, ctx.tappable, ctx.config, ctx.saveConfig
+    local S, face, config, saveConfig = ctx.S, ctx.face, ctx.config, ctx.saveConfig
     GridCell.state.CONFIG = config
     do
         local test_file = (ctx.PLUGIN_DIR or "plugins/aire.koplugin") .. "/dev/devtools.lua"
@@ -719,159 +713,41 @@ return function(Aire, ctx)
     end
 
     function Aire:showGridFilterSortMenu(filters, sorts)
-        local st = ButtonDialog.aire_sheet_style or {}
-        local margin = S(st.margin or 6)
-        local pad = S(st.pad or 14)
-        local sheet_radius = S(st.radius or 14)
-        local btn_radius = S(st.btn_radius or 10)
-        local btn_gap = S(st.btn_gap or 8)
-        local btn_h = S(42)
-        local border = Size.border.thin
-        local sw, sh = Screen:getWidth(), Screen:getHeight()
-        local inner_w = sw - 2 * margin - 2 * (pad + border)
-        local col_w = math.floor((inner_w - btn_gap) / 2)
-        local col_w2 = inner_w - btn_gap - col_w
-
-        local sheet = InputContainer:extend{}
-        local dlg
-        local content = VerticalGroup:new{ align = "left" }
-        local title = (filters and sorts) and _("Filter and sort")
-            or (filters and _("Filter") or _("Sort by"))
-        table.insert(content, TextWidget:new{
-            text = title, face = face(true, 15), fgcolor = BLACK, max_width = inner_w, padding = 0,
-        })
-        table.insert(content, VerticalSpan:new{ width = S(12) })
-
-        local function addSection(heading, spec)
-            table.insert(content, TextWidget:new{
-                text = heading, face = face(true, 11), fgcolor = GRAY_TEXT, max_width = inner_w, padding = 0,
-            })
-            table.insert(content, VerticalSpan:new{ width = S(8) })
+        -- Hoja común para elegir (common/sheet.lua): la opción actual, rellena
+        local groups = {}
+        local function addGroup(heading, spec)
             local current = config[spec.key] or spec.default
-            local style = ctx.selStyle and ctx.selStyle() or "black"
-            local i = 1
-            while i <= #spec.list do
-                local row = HorizontalGroup:new{ align = "center" }
-                for col = 1, 2 do
-                    local item = spec.list[i]
-                    if not item then break end
-                    if col == 2 then table.insert(row, HorizontalSpan:new{ width = btn_gap }) end
-                    local bw = (col == 1 and spec.list[i + 1]) and col_w or (col == 2 and col_w2 or inner_w)
-                    local active = (item.id == current)
-                    local filled = active and style ~= "outline"
-                    local bthick = (active and style == "outline") and Size.border.thick or border
-                    local box = FrameContainer:new{
-                        bordersize = bthick,
-                        color = BLACK,
-                        background = filled and BLACK or WHITE,
-                        radius = btn_radius,
-                        padding = 0,
-                        width = bw,
-                        height = btn_h,
-                        CenterContainer:new{
-                            dimen = Geom:new{ w = bw - 2 * bthick, h = btn_h - 2 * bthick },
-                            TextWidget:new{
-                                text = item.label,
-                                face = face(active, 14),
-                                fgcolor = filled and WHITE or BLACK,
-                                max_width = bw - S(16),
-                                padding = 0,
-                            },
-                        },
-                    }
-                    if filled and style == "gray" and ctx.lightened then box = ctx.lightened(box) end
-                    local id, key = item.id, spec.key
-                    table.insert(row, tappable(box, function()
-                        UIManager:close(dlg, "ui")
-                        self:setGridOption(key, id)
-                    end))
-                    i = i + 1
-                end
-                table.insert(content, row)
-                if i <= #spec.list then table.insert(content, VerticalSpan:new{ width = btn_gap }) end
+            local items = {}
+            for _i, item in ipairs(spec.list) do
+                local id, key = item.id, spec.key
+                table.insert(items, { text = item.label, active = (item.id == current),
+                    callback = function() self:setGridOption(key, id) end })
             end
+            table.insert(groups, { heading = heading, items = items })
         end
-
-        if filters then addSection(_("FILTER"), filters) end
-        if filters and sorts then
-            table.insert(content, VerticalSpan:new{ width = S(14) })
-            table.insert(content, require("ui/widget/linewidget"):new{
-                dimen = Geom:new{ w = inner_w, h = Size.line.thin },
-                background = Blitbuffer.COLOR_LIGHT_GRAY,
-            })
-            table.insert(content, VerticalSpan:new{ width = S(12) })
-        end
+        if filters then addGroup(_("FILTER"), filters) end
         if sorts then
-            addSection(_("SORT BY"), sorts)
+            addGroup(_("SORT BY"), sorts)
             local rev_key = sorts.key .. "_rev"
             local rev = config[rev_key] == true
-            local mixed_key = sorts.mixed_key
             local extras = {
-                { label = _("Reverse sorting"), active = rev, on_tap = function()
-                    self:setGridOption(rev_key, not rev)
-                end },
+                { text = _("Reverse sorting"), active = rev,
+                  callback = function() self:setGridOption(rev_key, not rev) end },
             }
+            local mixed_key = sorts.mixed_key
             if mixed_key then
                 local mixed = config[mixed_key] ~= false
-                table.insert(extras, { label = _("Mix series"), active = mixed, on_tap = function()
-                    self:setGridOption(mixed_key, not mixed)
-                end })
+                table.insert(extras, { text = _("Mix series"), active = mixed,
+                    callback = function() self:setGridOption(mixed_key, not mixed) end })
             end
-            table.insert(content, VerticalSpan:new{ width = S(12) })
-            table.insert(content, require("ui/widget/linewidget"):new{
-                dimen = Geom:new{ w = inner_w, h = Size.line.thin },
-                background = Blitbuffer.COLOR_LIGHT_GRAY,
-            })
-            table.insert(content, VerticalSpan:new{ width = S(12) })
-            local style = ctx.selStyle and ctx.selStyle() or "black"
-            local erow = HorizontalGroup:new{ align = "center" }
-            for idx, ex in ipairs(extras) do
-                if idx > 1 then table.insert(erow, HorizontalSpan:new{ width = btn_gap }) end
-                local bw = (#extras == 1) and inner_w or (idx == 1 and col_w or col_w2)
-                local filled = ex.active and style ~= "outline"
-                local bthick = (ex.active and style == "outline") and Size.border.thick or border
-                local box = FrameContainer:new{
-                    bordersize = bthick, color = BLACK, background = filled and BLACK or WHITE,
-                    radius = btn_radius, padding = 0, width = bw, height = btn_h,
-                    CenterContainer:new{
-                        dimen = Geom:new{ w = bw - 2 * bthick, h = btn_h - 2 * bthick },
-                        TextWidget:new{
-                            text = ex.label, face = face(ex.active, 14),
-                            fgcolor = filled and WHITE or BLACK, max_width = bw - S(16), padding = 0,
-                        },
-                    },
-                }
-                if filled and style == "gray" and ctx.lightened then box = ctx.lightened(box) end
-                local fn = ex.on_tap
-                table.insert(erow, tappable(box, function()
-                    UIManager:close(dlg, "ui")
-                    fn()
-                end))
-            end
-            table.insert(content, erow)
+            table.insert(groups, { items = extras })
         end
-
-        local card = FrameContainer:new{
-            bordersize = border, color = BLACK, background = WHITE,
-            radius = sheet_radius, padding = pad, content,
+        package.loaded.aire_sheet.showChoices{
+            title = (filters and sorts) and _("Filter and sort") or (filters and _("Filter") or _("Sort by")),
+            groups = groups,
+            style = ctx.selStyle and ctx.selStyle() or "black",
+            lighten = ctx.lightened,
         }
-        dlg = sheet:new{
-            dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh },
-            BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh - margin }, card },
-        }
-        dlg.ges_events = {
-            AireOutside = { GestureRange:new{ ges = "tap", range = function() return dlg.dimen end } },
-        }
-        dlg.onAireOutside = function(_s, _args, ges)
-            local sd = card.dimen
-            if ges and ges.pos and sd and sd.x and ges.pos:intersectWith(sd) then return true end
-            UIManager:close(dlg, "ui")
-            return true
-        end
-        dlg.onCloseWidget = function()
-            UIManager:setDirty(nil, "ui", card.dimen)
-        end
-        UIManager:show(dlg, "ui")
     end
 
     function Aire:openGridGroup(key)

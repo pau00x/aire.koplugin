@@ -10,7 +10,6 @@
 --]]
 
 local BottomContainer = require("ui/widget/container/bottomcontainer")
-local ButtonDialog = require("ui/widget/buttondialog")
 local CenterContainer = require("ui/widget/container/centercontainer")
 local Device = require("device")
 local FrameContainer = require("ui/widget/container/framecontainer")
@@ -179,7 +178,7 @@ local function patchMenuDialog(MenuDialog)
         self.covers_fullscreen = false
         local frame = self[1] and self[1][1]
         if frame and type(frame) == "table" then
-            frame.width = ButtonDialog.aire_sheetWidth and ButtonDialog.aire_sheetWidth() or (Screen:getWidth() - 2 * S(6))
+            frame.width = package.loaded.aire_screen.sheetWidth()
             frame.bordersize = Size.border.thin
             frame.color = BLACK
             frame.background = WHITE

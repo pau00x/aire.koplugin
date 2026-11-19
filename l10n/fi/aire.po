@@ -20,11 +20,11 @@ msgstr[1] "”%1” · %2 osumaa"
 msgid "\"Reading now\" card with light background"
 msgstr "”Luetaan nyt” -kortti vaalealla taustalla"
 
-#: views/booksheet.lua:192
+#: views/booksheet.lua:167
 msgid "%1 % (%2 / %3 pp.)"
 msgstr "%1 % (%2 / %3 s.)"
 
-#: views/booksheet.lua:184
+#: views/booksheet.lua:159
 msgid "%1 % (on hold)"
 msgstr "%1 % (pidossa)"
 
@@ -32,7 +32,7 @@ msgstr "%1 % (pidossa)"
 msgid "%1 % read"
 msgstr "%1 % luettu"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
+#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 kirja"
@@ -44,7 +44,7 @@ msgid_plural "%1 bookmarks"
 msgstr[0] "%1 kirjanmerkki"
 msgstr[1] "%1 kirjanmerkkiä"
 
-#: views/grid.lua:493 views/grid.lua:494
+#: views/grid.lua:487 views/grid.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 kokoelma"
@@ -62,19 +62,19 @@ msgid_plural "%1 days ago"
 msgstr[0] "%1 päivä sitten"
 msgstr[1] "%1 päivää sitten"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 lukupäivä"
 msgstr[1] "%1 lukupäivää"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 luettu"
 msgstr[1] "%1 luettua"
 
-#: views/grid.lua:576
+#: views/grid.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 luettu kirja"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 s. luettu"
 msgstr[1] "%1 s. luettu"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 s."
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "%1 pp./h"
 msgstr "%1 s./h"
 
@@ -112,7 +112,7 @@ msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 tallennettu pikakuvake"
 msgstr[1] "%1 tallennettua pikakuvaketta"
 
-#: views/grid.lua:324
+#: views/grid.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 sarja"
@@ -146,15 +146,11 @@ msgstr[1] ""
 msgid "%d of 5 stars"
 msgstr "%d / 5 tähteä"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "(nykyinen)"
-
-#: styles/ui/lightsheet.lua:185
+#: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ Kirkkaus"
 
-#: views/stats.lua:488
+#: views/stats.lua:487
 msgid "+%1 more"
 msgstr "+%1 lisää"
 
@@ -178,7 +174,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 saraketta"
 
-#: views/update.lua:340
+#: views/update.lua:292
 msgid "A new version is available"
 msgstr "Uusi versio on saatavilla"
 
@@ -202,7 +198,7 @@ msgstr "Käynnissä"
 msgid "Activity summary"
 msgstr "Lukemisen yhteenveto"
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -228,15 +224,15 @@ msgstr "Lisäasetukset"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:276 views/update.lua:333
+#: views/update.lua:228 views/update.lua:285
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:159 views/update.lua:537
+#: views/power.lua:147 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 saatavilla"
 
-#: views/update.lua:190
+#: views/update.lua:142
 msgid "Aire %1 installed"
 msgstr "Aire %1 asennettu"
 
@@ -257,16 +253,16 @@ msgstr "Kaikki"
 msgid "All books"
 msgstr ""
 
-#: views/booksheet.lua:351
+#: views/booksheet.lua:326
 msgid "All finished"
 msgstr "Kaikki luettu"
 
-#: views/grid.lua:578 views/widgets.lua:441
+#: views/grid.lua:572 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:593
+#: views/stats.lua:592
 msgid "Annual"
 msgstr "Vuosi"
 
@@ -309,7 +305,7 @@ msgstr "Automaattiset kokoelmat lajityypin mukaan (avainsana)"
 msgid "Automatic tests"
 msgstr "Automaattiset testit"
 
-#: views/grid.lua:1009
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "Automaattinen: tämän kirjailijan kirjat"
 
@@ -344,11 +340,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Akku"
 
-#: views/stats.lua:682
+#: views/stats.lua:681
 msgid "Best day"
 msgstr "Paras päivä"
 
-#: views/stats.lua:685
+#: views/stats.lua:684
 msgid "Best month"
 msgstr "Paras kuukausi"
 
@@ -418,7 +414,7 @@ msgstr "Kirjanmerkit ja korostukset"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:970
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "Kirjoja ei poisteta, vain kokoelma."
 
@@ -468,7 +464,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -486,7 +482,7 @@ msgstr ""
 msgid "Change"
 msgstr "Vaihda"
 
-#: styles/skim.lua:90
+#: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Luku %1/%2"
 
@@ -510,11 +506,11 @@ msgstr "Ladattu"
 msgid "Charging"
 msgstr "Latautuu"
 
-#: views/update.lua:486
+#: views/update.lua:438
 msgid "Check every week"
 msgstr "Tarkista viikoittain"
 
-#: views/update.lua:479
+#: views/update.lua:431
 msgid "Check for updates"
 msgstr "Tarkista päivitykset"
 
@@ -534,7 +530,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Tyhjennä kansikuvien pienoiskuvat"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -551,7 +547,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Kokoelman järjestys"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -564,7 +560,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "Kokoelmien järjestys"
 
-#: common/compat.lua:183
+#: common/compat.lua:182
 msgid "Compatibility"
 msgstr "Yhteensopivuus"
 
@@ -576,7 +572,7 @@ msgstr ""
 msgid "Connected"
 msgstr "Yhdistetty"
 
-#: views/booksheet.lua:375
+#: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
 msgstr ""
@@ -595,7 +591,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:398
+#: views/update.lua:350
 msgid "Could not check for updates. Try again later."
 msgstr "Päivityksiä ei voitu tarkistaa. Yritä myöhemmin uudelleen."
 
@@ -606,7 +602,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:259
+#: views/update.lua:211
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Päivitystä ei voitu asentaa. Aire %1 on yhä asennettuna."
 
@@ -641,11 +637,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Luetaan nyt"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "DAILY RHYTHM"
 msgstr "PÄIVÄRYTMI"
 
-#: views/stats.lua:677
+#: views/stats.lua:676
 msgid "Daily average"
 msgstr "Päivän keskiarvo"
 
@@ -661,7 +657,7 @@ msgstr "Päivämäärä"
 msgid "Date finished"
 msgstr "Lopetuspäivä"
 
-#: views/stats.lua:680
+#: views/stats.lua:679
 msgid "Day %1"
 msgstr "Päivä %1"
 
@@ -679,16 +675,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "joulukuuta"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:448
+#: views/stats.lua:447
 msgid "Delete all book stats"
 msgstr "Poista kaikki kirjan tilastot"
 
-#: views/stats.lua:452
+#: views/stats.lua:451
 msgid "Delete all stats?"
 msgstr "Poistetaanko kaikki tilastot?"
 
@@ -697,15 +693,15 @@ msgstr "Poistetaanko kaikki tilastot?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:435
+#: views/stats.lua:434
 msgid "Delete minutes for this day?"
 msgstr "Poistetaanko tämän päivän minuutit?"
 
-#: views/stats.lua:431
+#: views/stats.lua:430
 msgid "Delete minutes from this day"
 msgstr "Poista tämän päivän minuutit"
 
-#: views/grid.lua:969
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "Poistetaanko kokoelma?"
 
@@ -713,11 +709,11 @@ msgstr "Poistetaanko kokoelma?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1020
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "Poista…"
 
-#: styles/ui/sheets.lua:501
+#: styles/ui/sheets.lua:554
 #, koreader
 msgid "Description"
 msgstr ""
@@ -756,12 +752,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:210
+#: views/update.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:234
+#: views/update.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "Ladataan… %1 / %2"
 
@@ -786,7 +782,7 @@ msgstr "Muokkaa Koti-widgetejä"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -795,12 +791,12 @@ msgstr ""
 msgid "Edit series"
 msgstr "Muokkaa sarjaa"
 
-#: styles/bookmark.lua:382
+#: styles/bookmark.lua:341
 #, koreader
 msgid "Edit text"
 msgstr ""
 
-#: views/booksheet.lua:347
+#: views/booksheet.lua:322
 msgid "Empty"
 msgstr "Tyhjä"
 
@@ -809,7 +805,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Ei pienoisohjelmia"
 
-#: views/grid.lua:470
+#: views/grid.lua:464
 msgid "Empty collection"
 msgstr "Tyhjä kokoelma"
 
@@ -817,7 +813,7 @@ msgstr "Tyhjä kokoelma"
 msgid "Empty folder"
 msgstr "Tyhjä kansio"
 
-#: views/grid.lua:303
+#: views/grid.lua:297
 msgid "Empty series"
 msgstr "Tyhjä sarja"
 
@@ -849,7 +845,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Kaikki, mitä lisäosa piirtää, esimerkkitiedoilla. Pyyhkäise ← → vaihtaaksesi sivua; napauta ulkopuolelle tai sivulle poistuaksesi."
 
-#: views/power.lua:222
+#: views/power.lua:210
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -858,7 +854,7 @@ msgstr ""
 msgid "FILE"
 msgstr "TIEDOSTO"
 
-#: views/grid.lua:795
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "SUODATA"
 
@@ -871,7 +867,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Suosikkikansiot"
 
-#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -881,7 +877,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "helmikuuta"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -896,11 +892,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:739
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "Suodata"
 
-#: dev/devtools.lua:659 views/grid.lua:738
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "Suodata ja lajittele"
 
@@ -909,7 +905,7 @@ msgstr "Suodata ja lajittele"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:181 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Valmis"
@@ -947,7 +943,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "Kansiot"
 
@@ -960,11 +956,11 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: styles/ui/sheets.lua:724
+#: styles/ui/sheets.lua:834
 msgid "Fonts"
 msgstr "Fontit"
 
-#: styles/vocabbuilder.lua:154
+#: styles/vocabbuilder.lua:153
 msgid "Forgot"
 msgstr "Unohdin"
 
@@ -978,7 +974,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:101
+#: styles/ui/lightsheet.lua:87
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1015,16 +1011,16 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Asetetut eleet: %1"
 
-#: styles/bookmark.lua:407
+#: styles/bookmark.lua:366
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "Ylös"
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:156
+#: common/compat.lua:178 styles/vocabbuilder.lua:155
 msgid "Got it"
 msgstr "Selvä"
 
@@ -1036,7 +1032,7 @@ msgstr "Ruudukko: %1 saraketta"
 msgid "HIGHLIGHT"
 msgstr "KOROSTUS"
 
-#: views/stats.lua:664
+#: views/stats.lua:663
 msgid "HIGHLIGHTS"
 msgstr "KOHOKOHDAT"
 
@@ -1049,7 +1045,7 @@ msgstr "Ei ole vielä tullut"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1351
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1058,7 +1054,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:614
+#: views/grid.lua:608
 msgid "History is empty"
 msgstr "Historia on tyhjä"
 
@@ -1070,7 +1066,7 @@ msgstr "Pitkä painallus toimii kuin napautus"
 msgid "Hold to configure"
 msgstr "Määritä pitkällä painalluksella"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1111,15 +1107,15 @@ msgstr "Kokoelmissa näkyy kokoelma jokaiselle kirjailijalle, jolla on vähintä
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Kokoelmissa näkyy kokoelma jokaiselle avainsanalle, jolla on vähintään 2 kirjaa. Ne päivittyvät automaattisesti eivätkä tallennu KOReaderin kokoelmiin."
 
-#: views/update.lua:495
+#: views/update.lua:447
 msgid "Include beta versions"
 msgstr "Ota mukaan beetaversiot"
 
-#: views/update.lua:514
+#: views/update.lua:466
 msgid "Installed version: %1"
 msgstr "Asennettu versio: %1"
 
-#: views/update.lua:246
+#: views/update.lua:198
 msgid "Installing…"
 msgstr "Asennetaan…"
 
@@ -1135,7 +1131,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:193
+#: views/update.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Otetaan käyttöön, kun KOReader käynnistetään uudelleen. Asetuksesi säilyvät."
 
@@ -1164,7 +1160,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "kesäkuuta"
 
-#: views/power.lua:221
+#: views/power.lua:209
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1210,7 +1206,7 @@ msgstr "Viimeksi"
 msgid "Last 7 days summary"
 msgstr "Viimeisten 7 päivän yhteenveto"
 
-#: views/update.lua:507
+#: views/update.lua:459
 msgid "Last check: %1"
 msgstr "Viimeisin tarkistus: %1"
 
@@ -1218,7 +1214,7 @@ msgstr "Viimeisin tarkistus: %1"
 msgid "Last read"
 msgstr "Viimeksi luettu"
 
-#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
 msgid "Later"
 msgstr "Myöhemmin"
 
@@ -1236,7 +1232,7 @@ msgstr "Asettelu"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "Kirjasto"
 
@@ -1292,15 +1288,15 @@ msgstr "OSUMA"
 msgid "MATCH %d"
 msgstr "OSUMA %d"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "MONTHLY RHYTHM"
 msgstr "KUUKAUSIRYTMI"
 
-#: views/stats.lua:694
+#: views/stats.lua:693
 msgid "MOST READ"
 msgstr "LUETUIMMAT"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "Päänäkymä"
 
@@ -1313,15 +1309,15 @@ msgstr "maaliskuuta"
 msgid "Margins"
 msgstr "Marginaalit"
 
-#: views/booksheet.lua:430
+#: views/booksheet.lua:405
 msgid "Mark"
 msgstr "Merkitse"
 
-#: views/booksheet.lua:429
+#: views/booksheet.lua:404
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Merkitäänkö kaikki kohteen ”%1” kirjat luettaviksi?"
 
-#: views/grid.lua:1057
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Merkitäänkö kaikki kokoelman ”%1” kirjat luettaviksi?"
 
@@ -1329,19 +1325,19 @@ msgstr "Merkitäänkö kaikki kokoelman ”%1” kirjat luettaviksi?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "Merkitse koko kokoelma valmiiksi"
 
-#: views/grid.lua:1056
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "Merkitse koko kokoelma luettavaksi"
 
-#: views/booksheet.lua:403
+#: views/booksheet.lua:378
 msgid "Mark entire series as finished"
 msgstr "Merkitse koko sarja valmiiksi"
 
-#: views/booksheet.lua:424
+#: views/booksheet.lua:399
 msgid "Mark entire series as reading"
 msgstr "Merkitse koko sarja luettavaksi"
 
@@ -1368,15 +1364,15 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Minimaalinen"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "Sekoita kansiot"
 
-#: views/grid.lua:816
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "Sekoita sarjat"
 
-#: views/stats.lua:591
+#: views/stats.lua:590
 msgid "Monthly"
 msgstr "Kuukausi"
 
@@ -1388,11 +1384,11 @@ msgstr "Kuukauden yhteenveto"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "Lisää"
 
-#: views/booksheet.lua:258
+#: views/booksheet.lua:233
 msgid "More options…"
 msgstr "Lisää vaihtoehtoja…"
 
@@ -1430,7 +1426,7 @@ msgstr "UUSI"
 msgid "NEXT"
 msgstr "SEURAAVA"
 
-#: styles/vocabbuilder.lua:123
+#: styles/vocabbuilder.lua:122
 msgid "NEXT REVIEW"
 msgstr "SEURAAVA KERTAUS"
 
@@ -1460,12 +1456,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Uusi"
 
-#: views/grid.lua:489
+#: views/grid.lua:483
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1011 views/grid.lua:1024
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "Uusi kokoelma…"
 
@@ -1485,7 +1481,7 @@ msgstr "Seuraava %1"
 msgid "Next batch of test widgets"
 msgstr "Seuraava erä testiwidgetejä"
 
-#: styles/skim.lua:113
+#: styles/skim.lua:102
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1511,19 +1507,19 @@ msgstr "Ei keskeneräistä kirjaa"
 msgid "No book matches the filter"
 msgstr "Mikään kirja ei vastaa suodatinta"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this month"
 msgstr "Ei luettuja kirjoja tässä kuussa"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this year"
 msgstr "Ei luettuja kirjoja tänä vuonna"
 
-#: views/grid.lua:335
+#: views/grid.lua:329
 msgid "No books in home folder"
 msgstr "Kotikansiossa ei ole kirjoja"
 
-#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
+#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
 msgid "No books with this filter"
 msgstr "Ei kirjoja tällä suodattimella"
 
@@ -1531,11 +1527,11 @@ msgstr "Ei kirjoja tällä suodattimella"
 msgid "No chapter"
 msgstr "Ei lukua"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections"
 msgstr "Ei kokoelmia"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections with this filter"
 msgstr "Ei kokoelmia tällä suodattimella"
 
@@ -1560,7 +1556,7 @@ msgstr "Ei seuraavaa keskeneräistä kirjaa"
 msgid "No previous book"
 msgstr "Ei edellistä kirjaa"
 
-#: styles/statspages.lua:365 views/stats.lua:627
+#: styles/statspages.lua:365 views/stats.lua:626
 msgid "No reading activity in this period"
 msgstr "Ei lukemista tällä jaksolla"
 
@@ -1584,7 +1580,7 @@ msgstr "Ei tilastoja tästä kirjasta"
 msgid "No unstarted books"
 msgstr "Ei aloittamattomia kirjoja"
 
-#: styles/vocabbuilder.lua:92
+#: styles/vocabbuilder.lua:91
 msgid "No vocabulary words"
 msgstr "Ei sanoja"
 
@@ -1592,7 +1588,7 @@ msgstr "Ei sanoja"
 msgid "Not rated"
 msgstr "Ei arvioitu"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:197 views/booksheet.lua:355
+#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "Ei aloitettu"
 
@@ -1644,12 +1640,12 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:186 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "Pidossa"
 
-#: views/update.lua:487
+#: views/update.lua:439
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Vain kun Wi-Fi on jo päällä: Aire ei koskaan kytke sitä päälle."
 
@@ -1658,7 +1654,7 @@ msgstr "Vain kun Wi-Fi on jo päällä: Aire ei koskaan kytke sitä päälle."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "Avaa kokoelma"
 
@@ -1666,11 +1662,11 @@ msgstr "Avaa kokoelma"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "Avaa sarja"
 
-#: views/booksheet.lua:391
+#: views/booksheet.lua:366
 msgid "Open series folder"
 msgstr "Avaa sarjan kansio"
 
@@ -1758,7 +1754,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:179
+#: views/power.lua:167
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1771,7 +1767,7 @@ msgstr "Edellinen"
 msgid "Previous book"
 msgstr "Edellinen kirja"
 
-#: styles/skim.lua:110
+#: styles/skim.lua:99
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1884,7 +1880,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:554
+#: views/stats.lua:553
 msgid "Recap"
 msgstr "Yhteenveto"
 
@@ -1905,7 +1901,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:395
+#: dev/devtools.lua:636 styles/bookmark.lua:354
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1915,17 +1911,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Poista"
 
-#: styles/bookmark.lua:392
+#: styles/bookmark.lua:351
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:503
+#: views/booksheet.lua:567 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Poista kokoelmasta"
 
-#: views/booksheet.lua:556 views/grid.lua:619
+#: views/booksheet.lua:531 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1935,7 +1931,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:353
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1945,7 +1941,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1018
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "Nimeä uudelleen…"
 
@@ -1958,12 +1954,12 @@ msgstr "Korvataanko aloitusnäytön pienoisohjelmat esiasetuksella ”%1”?"
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:220
+#: views/power.lua:208
 #, koreader
 msgid "Restart"
 msgstr ""
 
-#: common/compat.lua:172
+#: common/compat.lua:171
 #, koreader
 msgid "Restart KOReader"
 msgstr ""
@@ -1972,15 +1968,15 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Käynnistä KOReader uudelleen, jotta muutos tulee voimaan."
 
-#: views/update.lua:194
+#: views/update.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Käynnistä KOReader uudelleen ottaaksesi sen käyttöön. Asetuksesi säilyvät."
 
-#: views/update.lua:183
+#: views/update.lua:135
 msgid "Restart now"
 msgstr "Käynnistä uudelleen nyt"
 
-#: views/explorer.lua:103 views/grid.lua:810
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2005,7 +2001,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:805
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "LAJITTELE"
 
@@ -2037,7 +2033,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2054,7 +2050,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:354
+#: views/update.lua:306
 msgid "See all changes"
 msgstr "Näytä kaikki muutokset"
 
@@ -2063,7 +2059,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "syyskuuta"
 
-#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2080,11 +2076,11 @@ msgstr "Sarjan numero kansissa"
 msgid "Set alarm"
 msgstr ""
 
-#: styles/ui/sheets.lua:776
+#: styles/ui/sheets.lua:886
 msgid "Set font"
 msgstr "Aseta fontti"
 
-#: views/update.lua:483
+#: views/update.lua:435
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2136,11 +2132,11 @@ msgstr "Näytä tiivistelmä"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:371
+#: views/update.lua:323
 msgid "Skip"
 msgstr "Ohita"
 
-#: views/power.lua:178
+#: views/power.lua:166
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Lepotila"
@@ -2153,7 +2149,7 @@ msgstr "Älykäs"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "Lajittele"
 
@@ -2165,20 +2161,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:739
+#: dev/devtools.lua:613 views/grid.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:989
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "Lajittele kokoelmat"
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "Lajittele kokoelmat…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "Lajittele tiedostot"
 
@@ -2191,7 +2187,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "Neliönmuotoiset kannet ja sarjat"
 
-#: views/booksheet.lua:375 views/widgets.lua:570
+#: views/booksheet.lua:350 views/widgets.lua:570
 msgid "Start"
 msgstr "Aloita"
 
@@ -2199,7 +2195,7 @@ msgstr "Aloita"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "Tilastot"
 
@@ -2219,7 +2215,7 @@ msgstr "Tallennustila"
 msgid "Swap tap and hold"
 msgstr "Vaihda napautus ja pitkä painallus"
 
-#: views/booksheet.lua:223
+#: views/booksheet.lua:198
 msgid "Synopsis"
 msgstr "Tiivistelmä"
 
@@ -2247,11 +2243,11 @@ msgstr "Avaa kirjasto napauttamalla"
 msgid "Tap to stop"
 msgstr "Pysäytä napauttamalla"
 
-#: styles/vocabbuilder.lua:132
+#: styles/vocabbuilder.lua:131
 msgid "Tap to view definition"
 msgstr "Näytä määritelmä napauttamalla"
 
-#: views/grid.lua:1252
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "Testikirja"
 
@@ -2308,7 +2304,7 @@ msgstr "Nykyinen kirja ei kuulu sarjaan"
 msgid "This collection is empty"
 msgstr "Tämä kokoelma on tyhjä"
 
-#: views/update.lua:366
+#: views/update.lua:318
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Tässä kopiossa on dev/-kansio (testit). Uusi versio ei sisällä sitä, joten se poistetaan."
 
@@ -2388,7 +2384,7 @@ msgstr "Tänään ja putki"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:688
+#: views/stats.lua:687
 msgid "Top author"
 msgstr "Luetuin kirjailija"
 
@@ -2410,15 +2406,15 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
 msgid "Update"
 msgstr "Päivitä"
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire"
 msgstr "Päivitä Aire"
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire (%1 available)"
 msgstr "Päivitä Aire (%1 saatavilla)"
 
@@ -2426,7 +2422,7 @@ msgstr "Päivitä Aire (%1 saatavilla)"
 msgid "Update KOReader"
 msgstr "Päivitä KOReader"
 
-#: views/update.lua:214
+#: views/update.lua:166
 msgid "Updating Aire"
 msgstr "Päivitetään Airea"
 
@@ -2446,7 +2442,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Sanaston kertaus"
 
-#: styles/vocabbuilder.lua:306
+#: styles/vocabbuilder.lua:308
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Sanaston kertaus · %1 sana"
@@ -2501,7 +2497,7 @@ msgstr "Widgetit %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:417
+#: views/update.lua:369
 msgid "You already have the latest version (%1)."
 msgstr "Sinulla on jo uusin versio (%1)."
 
@@ -2517,11 +2513,11 @@ msgstr "Sinulla ei ole vielä korostuksia"
 msgid "You have not opened any book yet"
 msgstr "Et ole vielä avannut yhtään kirjaa"
 
-#: views/power.lua:162 views/update.lua:342
+#: views/power.lua:150 views/update.lua:294
 msgid "You have version %1"
 msgstr "Sinulla on versio %1"
 
-#: views/grid.lua:581
+#: views/grid.lua:575
 msgid "You haven't finished any books yet"
 msgstr "Et ole vielä lukenut loppuun yhtään kirjaa"
 
@@ -2538,7 +2534,7 @@ msgstr ""
 msgid "and highlights"
 msgstr "ja korostukset"
 
-#: views/booksheet.lua:359
+#: views/booksheet.lua:334
 msgid "at %1 %"
 msgstr "kohdassa %1 %"
 
@@ -2550,7 +2546,7 @@ msgstr "ka. / päivä"
 msgid "battery"
 msgstr "akku"
 
-#: views/update.lua:334
+#: views/update.lua:286
 msgid "beta"
 msgstr "beta"
 
@@ -2577,7 +2573,7 @@ msgstr ""
 msgid "files"
 msgstr "tiedostoja"
 
-#: views/stats.lua:644 views/widgets.lua:423
+#: views/stats.lua:643 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "luettu kirja"
@@ -2607,7 +2603,7 @@ msgstr "viim. 7 päivää"
 msgid "light"
 msgstr "valo"
 
-#: views/update.lua:506
+#: views/update.lua:458
 msgid "never"
 msgstr "ei koskaan"
 
@@ -2631,7 +2627,7 @@ msgstr "s. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "s. %1 / %2"
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "pages read"
 msgstr "luettua sivua"
 
@@ -2639,7 +2635,7 @@ msgstr "luettua sivua"
 msgid "port %1"
 msgstr "portti %1"
 
-#: views/stats.lua:640
+#: views/stats.lua:639
 msgid "reading time"
 msgstr "lukuaika"
 
@@ -2727,6 +2723,6 @@ msgstr "eilen"
 msgid "~%1 left"
 msgstr "~%1 jäljellä"
 
-#: styles/ui/lightsheet.lua:183
+#: styles/ui/lightsheet.lua:159
 msgid "− Brightness"
 msgstr "− Kirkkaus"

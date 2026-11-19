@@ -10,18 +10,14 @@ return function(Aire, ctx)
     -- Módulos y valores compartidos declarados aquí dentro: así no cuentan
     -- como upvalues de esta función (LuaJIT admite 60).
     local Blitbuffer = require("ffi/blitbuffer")
-    local BottomContainer = require("ui/widget/container/bottomcontainer")
-    local ButtonDialog = require("ui/widget/buttondialog")
     local CenterContainer = require("ui/widget/container/centercontainer")
     local Device = require("device")
     local FileManager = require("apps/filemanager/filemanager")
     local FrameContainer = require("ui/widget/container/framecontainer")
     local Geom = require("ui/geometry")
-    local GestureRange = require("ui/gesturerange")
     local HorizontalGroup = require("ui/widget/horizontalgroup")
     local HorizontalSpan = require("ui/widget/horizontalspan")
     local IconWidget = require("ui/widget/iconwidget")
-    local InputContainer = require("ui/widget/container/inputcontainer")
     local LeftContainer = require("ui/widget/container/leftcontainer")
     local NetworkMgr = require("ui/network/manager")
     local OverlapGroup = require("ui/widget/overlapgroup")
@@ -37,7 +33,6 @@ return function(Aire, ctx)
     local _ = require("gettext")
     local C_ = _.pgettext
     local T = require("ffi/util").template
-    local Screen = Device.screen
     local S = ctx.S
     local face = ctx.face
     local tappable = ctx.tappable
@@ -81,7 +76,8 @@ return function(Aire, ctx)
         return Lightened:new{ widget }
     end
 
-    local PowerSheet = InputContainer:extend{
+    -- Hoja común (common/sheet.lua): marco, tocar fuera / Atrás y refresco
+    local PowerSheet = package.loaded.aire_sheet.Sheet:extend{
         entries = nil,   -- { sleep, poweroff, reboot, restart, exit, update, update_aire, start_aire_update, choose_update } -> función
         version = nil,
         aire_version = nil,   -- "Aire 0.1.0"
@@ -90,15 +86,11 @@ return function(Aire, ctx)
     }
 
     function PowerSheet:init()
-        local sw, sh = Screen:getWidth(), Screen:getHeight()
-        self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
-        local st = ButtonDialog.aire_sheet_style or {}
-        local margin = S(st.margin or 6)
-        local pad = S(st.pad or 14)
-        local sheet_radius = S(st.radius or 14)
-        local btn_gap = S(st.btn_gap or 8)
+        package.loaded.aire_sheet.Sheet.init(self)
+        local st = package.loaded.aire_screen.SHEET -- medidas de hoja (common/screen.lua)
+        local btn_gap = S(st.BTN_GAP)
         local border = Size.border.thin
-        local inner_w = sw - 2 * margin - 2 * (pad + border)
+        local inner_w = package.loaded.aire_screen.sheetInnerWidth()
         local E = self.entries
         local BLACK_C, WHITE_C = Blitbuffer.COLOR_BLACK, Blitbuffer.COLOR_WHITE
 
@@ -119,15 +111,11 @@ return function(Aire, ctx)
         elseif E.update_aire then
             on_update = E.update_aire
         end
-        local names = VerticalGroup:new{
-            align = "left",
-            TextWidget:new{ text = self.version or "KOReader", face = face(true, 15), fgcolor = BLACK_C, padding = 0 },
-        }
-        if self.aire_version then
-            table.insert(names, VerticalSpan:new{ width = S(2) })
-            table.insert(names, TextWidget:new{ text = self.aire_version, face = face(false, 12),
-                fgcolor = Blitbuffer.COLOR_DARK_GRAY, padding = 0 })
-        end
+        -- Cabecera común de las hojas (common/sheet.lua): KOReader y, debajo, Aire;
+        -- el hueco lo pone la fila (a la derecha va "Actualizar")
+        local names = package.loaded.aire_sheet.header(self.version or "KOReader",
+            self.aire_version and { self.aire_version } or nil,
+            inner_w - S(120), { no_gap = true })
         local head_h = math.max(S(30), names:getSize().h)
         local head = OverlapGroup:new{
             dimen = Geom:new{ w = inner_w, h = head_h },
@@ -194,7 +182,7 @@ return function(Aire, ctx)
                     bordersize = bthick,
                     color = BLACK_C,
                     background = filled and BLACK_C or WHITE_C,
-                    radius = S(12),
+                    radius = S(st.BTN_RADIUS), -- (common/screen.lua, como los demás botones)
                     padding = 0,
                     width = bw,
                     height = bh,
@@ -252,35 +240,7 @@ return function(Aire, ctx)
             table.insert(content, row)
         end
 
-        self.sheet = FrameContainer:new{
-            bordersize = border,
-            color = BLACK_C,
-            background = WHITE_C,
-            radius = sheet_radius,
-            padding = pad,
-            content,
-        }
-        self[1] = BottomContainer:new{
-            dimen = Geom:new{ w = sw, h = sh - margin },
-            self.sheet,
-        }
-        -- Tocar fuera de la hoja la cierra
-        self.ges_events = {
-            AireOutside = { GestureRange:new{ ges = "tap", range = function() return self.dimen end } },
-        }
-    end
-
-    function PowerSheet:onAireOutside(_args, ges)
-        local sd = self.sheet and self.sheet.dimen
-        if ges and ges.pos and sd and sd.x and ges.pos:intersectWith(sd) then
-            return true -- dentro de la hoja pero sin botón: no hacer nada
-        end
-        UIManager:close(self)
-        return true
-    end
-
-    function PowerSheet:onCloseWidget()
-        UIManager:setDirty(nil, "ui", self.sheet and self.sheet.dimen)
+        self:setContent(content)
     end
 
     local function showPowerDialog()

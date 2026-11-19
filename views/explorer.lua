@@ -10,7 +10,6 @@ return function(Aire, ctx)
     -- Módulos y valores compartidos declarados aquí dentro: así no cuentan
     -- como upvalues de esta función (LuaJIT admite 60).
     local BD = require("ui/bidi")
-    local ButtonDialog = require("ui/widget/buttondialog")
     local Device = require("device")
     local Geom = require("ui/geometry")
     local HorizontalGroup = require("ui/widget/horizontalgroup")
@@ -69,10 +68,12 @@ return function(Aire, ctx)
                 sort_label = capFirst(col.text)
             end
         end
-        -- Diálogo de ordenar (el botón con el orden actual va en la cabecera)
+        -- Hoja para elegir el orden (common/sheet.lua), la misma que la de la
+        -- Librería: el orden actual relleno y debajo invertir / mezclar carpetas.
+        -- (El botón con el orden actual va en la cabecera.)
         local function openSort()
             if not (fc and fc.collates) then return end
-            local _cur_col, cur_id = fc:getCollate()
+            local cur_col, cur_id = fc:getCollate()
             local list = {}
             for k, v in pairs(fc.collates) do
                 if v.menu_order and v.menu_order <= 60 then
@@ -80,57 +81,39 @@ return function(Aire, ctx)
                 end
             end
             table.sort(list, function(a, b) return a.order < b.order end)
-            local dialog
-            local buttons, row = {}, {}
+            local function after()
+                self:apply()
+                UIManager:setDirty(self.ui, "ui")
+            end
+            local function flip(setting)
+                return function()
+                    G_reader_settings:flipNilOrFalse(setting)
+                    if fc.refreshPath then fc:refreshPath() end
+                    after()
+                end
+            end
+            local sorts = {}
             for _i, item in ipairs(list) do
                 local k = item.id
-                table.insert(row, {
-                    text = item.text,
-                    is_enter_default = (k == cur_id),
-                    callback = function()
-                        UIManager:close(dialog, "ui")
-                        if fm and fm.onSetSortBy then fm:onSetSortBy(k) end
-                        self:apply()
-                        UIManager:setDirty(self.ui, "ui")
-                    end,
-                })
-                if #row == 2 then table.insert(buttons, row); row = {} end
+                table.insert(sorts, { text = item.text, active = (k == cur_id), callback = function()
+                    if fm and fm.onSetSortBy then fm:onSetSortBy(k) end
+                    after()
+                end })
             end
-            if #row > 0 then table.insert(buttons, row) end
-            table.insert(buttons, {})
-            local rev = G_reader_settings:isTrue("reverse_collate")
-            local extra_row = { {
-                text = _("Reverse sorting"),
-                is_enter_default = rev,
-                callback = function()
-                    UIManager:close(dialog, "ui")
-                    G_reader_settings:flipNilOrFalse("reverse_collate")
-                    if fc.refreshPath then fc:refreshPath() end
-                    self:apply()
-                    UIManager:setDirty(self.ui, "ui")
-                end,
-            } }
-            if _cur_col and _cur_col.can_collate_mixed then
-                local mixed = G_reader_settings:isTrue("collate_mixed")
-                table.insert(extra_row, {
-                    text = _("Mix folders"),
-                    is_enter_default = mixed,
-                    callback = function()
-                        UIManager:close(dialog, "ui")
-                        G_reader_settings:flipNilOrFalse("collate_mixed")
-                        if fc.refreshPath then fc:refreshPath() end
-                        self:apply()
-                        UIManager:setDirty(self.ui, "ui")
-                    end,
-                })
-            end
-            table.insert(buttons, extra_row)
-            dialog = ButtonDialog:new{
-                title = _("Sort files"),
-                title_align = "left",
-                buttons = buttons,
+            local extras = {
+                { text = _("Reverse sorting"), active = G_reader_settings:isTrue("reverse_collate"),
+                  callback = flip("reverse_collate") },
             }
-            UIManager:show(dialog)
+            if cur_col and cur_col.can_collate_mixed then
+                table.insert(extras, { text = _("Mix folders"), active = G_reader_settings:isTrue("collate_mixed"),
+                    callback = flip("collate_mixed") })
+            end
+            package.loaded.aire_sheet.showChoices{
+                title = _("Sort files"),
+                groups = { { heading = _("SORT BY"), items = sorts }, { items = extras } },
+                style = ctx.selStyle and ctx.selStyle() or "black",
+                lighten = ctx.lightened,
+            }
         end
 
         local folder_name = at_home and _("Home")

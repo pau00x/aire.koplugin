@@ -10,17 +10,12 @@
     vista rápida de PDF); solo cambia cómo se monta. Si falla, la de KOReader.
 --]]
 
-local BottomContainer = require("ui/widget/container/bottomcontainer")
-local ButtonDialog = require("ui/widget/buttondialog")
 local Device = require("device")
-local FrameContainer = require("ui/widget/container/framecontainer")
 local Geom = require("ui/geometry")
 local GestureRange = require("ui/gesturerange")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
 local HorizontalSpan = require("ui/widget/horizontalspan")
-local Size = require("ui/size")
 local SkimToWidget = require("ui/widget/skimtowidget")
-local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
@@ -71,11 +66,7 @@ end
 local function build(self)
     local P = getP()
     local S = P.S
-    local sw, sh = Screen:getWidth(), Screen:getHeight()
-    local style = ButtonDialog.aire_sheet_style or { margin = 6, radius = 14, pad = 14 }
-    local sheet_w = ButtonDialog.aire_sheetWidth and ButtonDialog.aire_sheetWidth() or (sw - 2 * S(6))
-    local pad = S(style.pad or 14)
-    local in_w = sheet_w - 2 * pad - 2 * Size.border.thin
+    local in_w = package.loaded.aire_screen.sheetInnerWidth()
 
     local toc = self.ui.toc
     local ticks = toc and toc.getTocTicksFlattened and toc:getTocTicksFlattened() or {}
@@ -99,42 +90,30 @@ local function build(self)
     local next_ch = toc and toc:getNextChapter(self.curr_page)
     local content = VerticalGroup:new{
         align = "left",
-        TextWidget:new{ text = title, face = P.face(true, 17), fgcolor = P.BLACK, max_width = in_w, padding = 0 },
-        VerticalSpan:new{ width = S(2) },
-        TextWidget:new{ text = sub, face = P.face(false, 13), fgcolor = P.GRAY_DARK, max_width = in_w, padding = 0 },
-        VerticalSpan:new{ width = S(12) },
+        -- Cabecera común de las hojas (common/sheet.lua): capítulo y "Capítulo X de Y · pág."
+        package.loaded.aire_sheet.header(title, { sub }, in_w),
         self._aire_bar,
         VerticalSpan:new{ width = S(12) },
         HorizontalGroup:new{
             align = "center",
-            P.pill("‹ " .. _("Previous chapter"), half, prev_ch and go(prev_ch) or nil,
+            package.loaded.aire_sheet.button("‹ " .. _("Previous chapter"), half, prev_ch and go(prev_ch) or nil,
                 { disabled = not prev_ch, on_hold = go(1) }),
             HorizontalSpan:new{ width = gap },
-            P.pill(_("Next chapter") .. " ›", half, next_ch and go(next_ch) or nil,
+            package.loaded.aire_sheet.button(_("Next chapter") .. " ›", half, next_ch and go(next_ch) or nil,
                 { disabled = not next_ch, on_hold = go(self.page_count) }),
         },
         VerticalSpan:new{ width = gap },
         HorizontalGroup:new{
             align = "center",
-            P.pill("−10", q, go(self.curr_page - 10)), HorizontalSpan:new{ width = gap },
-            P.pill("−1", q, go(self.curr_page - 1)), HorizontalSpan:new{ width = gap },
-            P.pill("+1", q, go(self.curr_page + 1)), HorizontalSpan:new{ width = gap },
-            P.pill("+10", q, go(self.curr_page + 10)),
+            package.loaded.aire_sheet.button("−10", q, go(self.curr_page - 10)), HorizontalSpan:new{ width = gap },
+            package.loaded.aire_sheet.button("−1", q, go(self.curr_page - 1)), HorizontalSpan:new{ width = gap },
+            package.loaded.aire_sheet.button("+1", q, go(self.curr_page + 1)), HorizontalSpan:new{ width = gap },
+            package.loaded.aire_sheet.button("+10", q, go(self.curr_page + 10)),
         },
     }
-    self.skimto_frame = FrameContainer:new{
-        width = sheet_w,
-        bordersize = Size.border.thin,
-        color = Blitbuffer.COLOR_BLACK,
-        background = Blitbuffer.COLOR_WHITE,
-        radius = S(style.radius or 14),
-        padding = pad,
-        content,
-    }
-    self[1] = BottomContainer:new{
-        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - S(style.margin or 6) },
-        self.skimto_frame,
-    }
+    -- Marco y posición de hoja comunes (common/sheet.lua); el cierre y los
+    -- toques son los de SkimToWidget (KOReader)
+    self.skimto_frame, self[1] = package.loaded.aire_sheet.frame(content, self)
 end
 
 safeWrap(SkimToWidget, "init", function(orig_init, self)

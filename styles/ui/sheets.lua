@@ -55,26 +55,19 @@ local Widget = require("ui/widget/widget")
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/UI"
 local S_ = function(n) return Screen:scaleBySize(n) end
-local SHEET_PAD = 14          -- relleno interior de la hoja
-local SHEET_BTN_H = 44        -- alto de los botones
-local SHEET_BTN_RADIUS = 10   -- esquinas de los botones
-local SHEET_BTN_GAP = 8       -- hueco entre botones
-local SHEET_BTN_FONT = 16     -- tamaño de letra de los botones (si no piden otro)
+-- Medidas de las hojas: common/screen.lua (SHEET), la única fuente
+local AireScreen = package.loaded.aire_screen
+local SHEET_PAD = AireScreen.SHEET.PAD
+local SHEET_BTN_H = AireScreen.SHEET.BTN_H
+local SHEET_BTN_RADIUS = AireScreen.SHEET.BTN_RADIUS
+local SHEET_BTN_GAP = AireScreen.SHEET.BTN_GAP
+local SHEET_BTN_FONT = AireScreen.SHEET.BTN_FONT
 
 -- Ancho exterior de cualquier hoja y ancho útil dentro de ella
-local function sheetWidth() return Screen:getWidth() - 2 * S_(SHEET_MARGIN) end
-local function sheetInnerWidth() return sheetWidth() - 2 * S_(SHEET_PAD) - 2 * Size.border.thin end
+local sheetWidth, sheetInnerWidth = AireScreen.sheetWidth, AireScreen.sheetInnerWidth
+-- (para parches de la comunidad que los leían de aquí; Aire usa common/screen.lua)
 ButtonDialog.aire_sheetWidth = sheetWidth
 ButtonDialog.aire_sheetInnerWidth = sheetInnerWidth
-ButtonDialog.aire_sheet_style = {
-    margin = SHEET_MARGIN,
-    radius = SHEET_RADIUS,
-    pad = SHEET_PAD,
-    btn_h = SHEET_BTN_H,
-    btn_radius = SHEET_BTN_RADIUS,
-    btn_gap = SHEET_BTN_GAP,
-    btn_font = SHEET_BTN_FONT,
-}
 
 -- > 0 mientras se monta una hoja: las tablas de botones que se creen entonces
 -- toman el estilo de hoja
@@ -139,10 +132,31 @@ if (BUTTONDIALOG_AS_SHEET or OTHER_DIALOGS_AS_SHEET) and not ButtonTable._aire_s
         end
         local orig_buttons = self.buttons
         local styled = {}
-        for i, row in ipairs(orig_buttons or {}) do
+        -- Sin el botón "Cerrar": las hojas se cierran tocando fuera o con Atrás
+        -- ("Cancelar", junto a otra acción, se queda). El de id "close" se
+        -- deja: InputDialog y KeyboardLayoutDialog lo pulsan por dentro al tocar
+        -- fuera o con Atrás (onCloseDialog), salvo donde se pide quitarlo
+        -- (diccionario: _aire_drop_close, se cierra por su cuenta)
+        local CLOSE_TEXT = _("Close")
+        local drop_close_id = rawget(ButtonTable, "_aire_drop_close")
+        local function isCloseBtn(b)
+            return type(b) == "table" and b.text == CLOSE_TEXT and (b.id ~= "close" or drop_close_id)
+                and not rawget(ButtonTable, "_aire_keep_close")
+        end
+        for _i, row in ipairs(orig_buttons or {}) do
+            local new_row = {}
+            for _j, b in ipairs(row) do
+                if not isCloseBtn(b) then table.insert(new_row, b) end
+            end
+            -- una fila que solo tenía "Cerrar" desaparece
+            if #new_row > 0 or #row == 0 then table.insert(styled, new_row) end
+        end
+        local filtered = styled
+        styled = {}
+        for i, row in ipairs(filtered) do
             local new_row = {}
             for j, b in ipairs(row) do
-                local set_font = type(b) == "table" and (b.text or (keep_table_width and b.text_func)) and b.font_size == nil
+                local set_font = type(b) == "table" and (b.text or b.text_func)
                 local primary = isPrimaryBtn(b) and rawequal(b.background, nil)
                 if set_font or primary then
                     local c = setmetatable({}, { __index = b })
@@ -187,6 +201,7 @@ if (BUTTONDIALOG_AS_SHEET or OTHER_DIALOGS_AS_SHEET) and not ButtonTable._aire_s
     end, TAG)
 
     safeWrap(Button, "init", function(orig_btn_init, self, ...)
+        local sheet_text = false
         if in_sheet_table and (self.bordersize or 0) == 0 then
             self.bordersize = Size.border.thin
             self.radius = S_(SHEET_BTN_RADIUS)
@@ -196,8 +211,41 @@ if (BUTTONDIALOG_AS_SHEET or OTHER_DIALOGS_AS_SHEET) and not ButtonTable._aire_s
             end
             self._aire_primary = rawequal(self.background, PRIMARY_BG)
             self._aire_sheet_btn = true
+            -- Todos los botones de hoja con la misma letra (BTN_FONT, sin
+            -- negrita, como los de Aire). KOReader encogía la de cada botón que
+            -- no cabía: aquí no se encoge (abajo, si no cabe, va en dos líneas)
+            if self.text and not self.menu_style then
+                self.text_font_face = "cfont"
+                self.text_font_size = SHEET_BTN_FONT
+                self.text_font_bold = false
+                self.avoid_text_truncation = false
+                sheet_text = true
+            end
         end
         orig_btn_init(self, ...)
+        if sheet_text and self.label_widget and self.label_container
+                and self.label_widget.isTruncated and self.label_widget:isTruncated() then
+            -- No cabe en una línea: dos líneas con la misma letra
+            local ok_l, err_l = pcall(function()
+                local TBW = require("ui/widget/textboxwidget")
+                local d = self.label_container.dimen
+                local lw = TBW:new{
+                    text = self.label_widget.text, lang = self.lang, width = self.label_widget.max_width or d.w,
+                    height = d.h, height_adjust = true, height_overflow_show_ellipsis = true,
+                    alignment = self.align == "left" and "left" or "center", line_height = 0,
+                    -- (el color va al crearlo: un TextBoxWidget no lo cambia después)
+                    fgcolor = self._aire_primary
+                        and (self.enabled and Blitbuffer.COLOR_WHITE or Blitbuffer.COLOR_GRAY)
+                        or self.label_widget.fgcolor,
+                    bgcolor = self.background, bold = false,
+                    face = Font:getFace("cfont", SHEET_BTN_FONT),
+                }
+                self.label_widget:free(true)
+                self.label_widget = lw
+                self.label_container[1] = lw
+            end)
+            if not ok_l then logger.warn("Aire/UI: botón en dos líneas:", err_l) end
+        end
         if self._aire_primary and self.frame then
             self.frame.color = Blitbuffer.COLOR_BLACK
             if self.label_widget and self.text then
@@ -310,7 +358,12 @@ if BUTTONDIALOG_AS_SHEET and not ButtonDialog._aire_sheet_patched then
         self.title_face = Font:getFace("tfont", 15)
         self.title_padding = 0
         self.title_margin = 0
-        withSheetStyle(orig_init, self, ...)
+        -- Si no se puede cerrar tocando fuera, se deja su "Cerrar"
+        local keep_close = self.dismissable == false
+        if keep_close then rawset(ButtonTable, "_aire_keep_close", true) end
+        local ok_s, err_s = pcall(withSheetStyle, orig_init, self, ...)
+        if keep_close then rawset(ButtonTable, "_aire_keep_close", nil) end
+        if not ok_s then error(err_s, 0) end
         if not self.movable then return end
         local ok, err = pcall(function()
             local frame = self.movable[1]
@@ -332,7 +385,7 @@ if BUTTONDIALOG_AS_SHEET and not ButtonDialog._aire_sheet_patched then
             end
             self[1] = BottomContainer:new{
                 dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(),
-                                  h = Screen:getHeight() - S_(SHEET_MARGIN) },
+                                  h = Screen:getHeight() - AireScreen.sheetBottom() },
                 self.movable,
             }
         end)
@@ -428,7 +481,7 @@ if OTHER_DIALOGS_AS_SHEET then
                 frame.padding_right = free - math.floor(free / 2)
                 frame.padding_top, frame.padding_bottom = pad, pad_b
                 -- Nunca más alta que la pantalla: si no cabe, menos relleno
-                local max_h = Screen:getHeight() - 2 * S_(SHEET_MARGIN)
+                local max_h = Screen:getHeight() - S_(SHEET_MARGIN) - AireScreen.sheetBottom()
                 local h = frame:getSize().h
                 if h > max_h then
                     local cut = math.ceil((h - max_h) / 2)
@@ -438,7 +491,7 @@ if OTHER_DIALOGS_AS_SHEET then
             end
         end
         local sheet = BottomContainer:new{
-            dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - S_(SHEET_MARGIN) },
+            dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - AireScreen.sheetBottom() },
             child,
         }
         sheet._aire_sheet = true
@@ -470,7 +523,7 @@ if OTHER_DIALOGS_AS_SHEET then
         { "ui/widget/openwithdialog",       { "init" },                     "once" },
         { "ui/widget/keyboardlayoutdialog", { "init" },                     "param" },
         -- (Vista rápida del documento: la monta entera styles/skim.lua)
-        { "ui/widget/textviewer",           { "init" },                     "param" },
+        { "ui/widget/textviewer",           { "init" },                     "once" }, -- ancho: el útil de la hoja
         -- Tienen opciones: también como hoja (revisión de ventanas flotantes)
         { "ui/widget/networksetting",       { "init" },                     "param" }, -- lista de redes wifi
     }
@@ -510,7 +563,7 @@ if OTHER_DIALOGS_AS_SHEET then
                     :gsub("^%s+", ""):gsub("%s+$", "")
             end
             if rawget(dlg, "height") == nil then
-                dlg.height = Screen:getHeight() - 2 * S_(SHEET_MARGIN) - 2 * S_(SHEET_PAD)
+                dlg.height = Screen:getHeight() - S_(SHEET_MARGIN) - AireScreen.sheetBottom() - 2 * S_(SHEET_PAD)
                     - 2 * Size.border.thin - S_(40)
             end
         end
@@ -593,6 +646,22 @@ if OTHER_DIALOGS_AS_SHEET then
         if w.vgroup and depth == 0 then thinSeparators(w.vgroup, 1) end
     end
 
+    -- Visor de texto: letra del contenido de las hojas (BODY_FONT) por defecto.
+    -- Si el usuario elige otra en el visor, KOReader la guarda en
+    -- textviewer_text_types y se usa esa. (El código, en monoespaciada, igual.)
+    do
+        local ok_tv, TV = pcall(require, "ui/widget/textviewer")
+        if ok_tv and type(TV) == "table" and type(TV.text_types) == "table" then
+            for _k, v in pairs(TV.text_types) do
+                if type(v) == "table" and not v.monospace_font then v.font_size = AireScreen.SHEET.BODY_FONT end
+            end
+        end
+    end
+
+    -- Ventanas con barra de título propia de KOReader: la cabecera común de
+    -- las hojas (common/sheet.lua: título a la izquierda, sin línea ni X)
+    local SHEET_TITLE = { ["ui/widget/textviewer"] = true }
+
     local adapted = 0
     for _i, t in ipairs(TARGETS) do
         local ok, cls = pcall(require, t[1])
@@ -600,6 +669,47 @@ if OTHER_DIALOGS_AS_SHEET then
             cls._aire_sheet_patched = true
             for _j, name in ipairs(t[2]) do
                 local orig = rawget(cls, name) or cls[name]
+                if type(orig) == "function" and name == "init" and SHEET_TITLE[t[1]] then
+                    local plain = orig
+                    orig = function(d, ...)
+                        -- Visor de texto (sinopsis…): la hoja ya pone el relleno a
+                        -- los lados, así que título, texto y botones van sin margen
+                        -- propio; arriba y abajo del texto, los huecos comunes
+                        local SH = package.loaded.aire_screen.SHEET
+                        -- Ancho útil exacto de la hoja (el de las demás ventanas
+                        -- cuenta con un margen propio de KOReader que aquí no hay)
+                        d.width = package.loaded.aire_screen.sheetInnerWidth()
+                        if rawget(d, "text_padding") == nil then d.text_padding = 0 end
+                        if rawget(d, "text_margin") == nil then d.text_margin = 0 end
+                        if rawget(d, "button_padding") == nil then d.button_padding = 0 end
+                        local r = { package.loaded.aire_sheet.withSheetTitleBarAt(0, plain, d, ...) }
+                        -- Alto justo: si el texto cabe con sitio de sobra, se vuelve
+                        -- a montar más baja (KOReader le da siempre casi toda la
+                        -- pantalla); si no cabe, se queda alta y se desplaza
+                        local stw = d.scroll_widget
+                        local tbw = stw and stw.text_widget
+                        if d.is_txt and tbw and tbw.getAllLineCount and tbw.getLineHeight and stw.getSize then
+                            -- (getTextHeight da el alto visible, no el del texto entero)
+                            local ok_h, need = pcall(function() return tbw:getAllLineCount() * tbw:getLineHeight() end)
+                            local have = stw:getSize().h
+                            if ok_h and type(need) == "number" and need > 0 and need < have then
+                                d.height = math.max(S_(120), d.height - (have - need))
+                                d:free()
+                                r = { package.loaded.aire_sheet.withSheetTitleBarAt(0, plain, d, ...) }
+                            end
+                        end
+                        local tw = d.textw
+                        if tw and tw.padding == 0 then
+                            tw.padding_top = S_(SH.TITLE_GAP)
+                            tw.padding_bottom = S_(SH.GROUP_GAP)
+                            local vg = d.frame and d.frame[1]
+                            local cc = vg and vg[2]
+                            if cc and cc.dimen then cc.dimen.h = tw:getSize().h end
+                            if vg and vg.resetLayout then vg:resetLayout() end
+                        end
+                        return unpack(r)
+                    end
+                end
                 if type(orig) == "function" then
                     cls[name] = function(dlg, ...)
                         local res
@@ -829,7 +939,7 @@ if OTHER_DIALOGS_AS_SHEET then
             }
             self.movable = MovableContainer:new{ frame }
             self[1] = BottomContainer:new{
-                dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - S_(SHEET_MARGIN) },
+                dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - AireScreen.sheetBottom() },
                 self.movable,
             }
         end, TAG)
@@ -851,11 +961,14 @@ if OTHER_DIALOGS_AS_SHEET then
             end
             local inner = sheetInnerWidth()
             local pad = S_(SHEET_PAD)
-            local text = VerticalGroup:new{ align = "left",
-                TextBoxWidget:new{ text = self.text or "", face = Font:getFace("tfont", 15), width = inner } }
-            if self.aire_bold_text then
-                table.insert(text, VerticalSpan:new{ width = S_(8) })
-                table.insert(text, TextBoxWidget:new{ text = self.aire_bold_text, face = Font:getFace("cfont", 15), width = inner })
+            local function buildText(w)
+                local vg = VerticalGroup:new{ align = "left",
+                    TextBoxWidget:new{ text = self.text or "", face = Font:getFace("tfont", 15), width = w } }
+                if self.aire_bold_text then
+                    table.insert(vg, VerticalSpan:new{ width = S_(8) })
+                    table.insert(vg, TextBoxWidget:new{ text = self.aire_bold_text, face = Font:getFace("cfont", 15), width = w })
+                end
+                return vg
             end
             local bt = withSheetStyle(function()
                 return ButtonTable:new{
@@ -864,16 +977,32 @@ if OTHER_DIALOGS_AS_SHEET then
                     buttons = button_row,
                 }
             end)
-            local frame = FrameContainer:new{
-                background = WHITE, bordersize = Size.border.thin, radius = S_(SHEET_RADIUS),
-                padding = pad, padding_bottom = math.max(0, pad - Size.span.vertical_default),
+            -- Texto muy largo: se desplaza solo el texto y los botones siguen a
+            -- la vista (common/sheet.lua: alto máximo de una hoja)
+            local text = buildText(inner)
+            local max_text_h = package.loaded.aire_sheet.maxContentHeight() - bt:getSize().h - S_(16)
+            if text:getSize().h > max_text_h then
+                text:free()
+                text = ScrollableContainer:new{
+                    dimen = Geom:new{ w = inner, h = math.max(S_(80), max_text_h) },
+                    show_parent = self,
+                    buildText(inner - ScrollableContainer:getScrollbarWidth()),
+                }
+                self.cropping_widget = text
+            end
+            -- Marco y posición de hoja comunes (common/sheet.lua), dentro del
+            -- MovableContainer que KOReader espera; la tabla ya deja un hueco
+            -- bajo la última fila de botones
+            local _frame
+            _frame, self[1] = package.loaded.aire_sheet.frame(
                 VerticalGroup:new{ align = "left", text, VerticalSpan:new{ width = S_(16) }, bt },
-            }
-            self.movable = MovableContainer:new{ frame }
-            self[1] = BottomContainer:new{
-                dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - S_(SHEET_MARGIN) },
-                self.movable,
-            }
+                self, {
+                    padding_bottom = math.max(0, pad - Size.span.vertical_default),
+                    wrap = function(f)
+                        self.movable = MovableContainer:new{ f }
+                        return self.movable
+                    end,
+                })
         end
 
         safeWrap(MultiConfirmBox, "init", function(_orig, self)

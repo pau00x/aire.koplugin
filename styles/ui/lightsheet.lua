@@ -7,15 +7,7 @@
 
 local B = ...
 local uiOpt = B.uiOpt
-local liveRect = B.liveRect
-local SHEET_MARGIN = B.SHEET_MARGIN
-local SHEET_RADIUS = B.SHEET_RADIUS
 local S_ = B.S_
-local SHEET_PAD = B.SHEET_PAD
-local SHEET_BTN_H = B.SHEET_BTN_H
-local SHEET_BTN_RADIUS = B.SHEET_BTN_RADIUS
-local SHEET_BTN_GAP = B.SHEET_BTN_GAP
-local SHEET_BTN_FONT = B.SHEET_BTN_FONT
 local sheetInnerWidth = B.sheetInnerWidth
 local Tap = B.Tap
 local StepBar = B.StepBar
@@ -32,14 +24,10 @@ local TextWidget = require("ui/widget/textwidget")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local _ = require("gettext")
-local Screen = Device.screen
-local InputContainer = require("ui/widget/container/inputcontainer")
-local GestureRange = require("ui/gesturerange")
 local UIManager = require("ui/uimanager")
 local Event = require("ui/event")
-local BottomContainer = require("ui/widget/container/bottomcontainer")
 local Blitbuffer = require("ffi/blitbuffer")
-local WHITE, BLACK = Blitbuffer.COLOR_WHITE, Blitbuffer.COLOR_BLACK
+local BLACK = Blitbuffer.COLOR_BLACK
 
 if not uiOpt("sheets") then return end
 
@@ -47,15 +35,13 @@ if not uiOpt("sheets") then return end
 -- Iluminación (diseño 1B): escalones de brillo y de calidez,
 -- − Brillo / + Brillo y Listo
 -------------------------------------------------------------------------
-local LightSheet = InputContainer:extend{}
+-- Hoja común (common/sheet.lua): marco, tocar fuera / Atrás y refresco
+local Sheet = package.loaded.aire_sheet.Sheet
+local LightSheet = Sheet:extend{ full_refresh = true }
 
 function LightSheet:init()
     self.powerd = Device:getPowerDevice()
-    local sw, sh = Screen:getWidth(), Screen:getHeight()
-    self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
-    self.ges_events = {
-        AireOutside = { GestureRange:new{ ges = "tap", range = function() return self.dimen end } },
-    }
+    Sheet.init(self)
     self:build()
 end
 
@@ -88,7 +74,7 @@ end
 
 function LightSheet:build()
     local p = self.powerd
-    local margin, pad, border = S_(SHEET_MARGIN), S_(SHEET_PAD), Size.border.thin
+    local border = Size.border.thin
     local inner = sheetInnerWidth()
     local face_t = Font:getFace("tfont", 15)
     local face = Font:getFace("cfont", 15)
@@ -168,26 +154,13 @@ function LightSheet:build()
     table.insert(content, VerticalSpan:new{ width = S_(16) })
 
     -- Botones como la hoja
-    local function sheetButton(text, primary, w, cb)
-        local bh = S_(SHEET_BTN_H)
-        return Tap:new{ callback = cb, FrameContainer:new{
-            bordersize = border, color = BLACK, background = primary and BLACK or WHITE,
-            radius = S_(SHEET_BTN_RADIUS), padding = 0, width = w, height = bh,
-            CenterContainer:new{ dimen = Geom:new{ w = w - 2 * border, h = bh - 2 * border },
-                TextWidget:new{ text = text, face = Font:getFace("cfont", SHEET_BTN_FONT),
-                    fgcolor = primary and WHITE or BLACK, padding = 0 } } } }
-    end
-    local bgap = S_(SHEET_BTN_GAP)
-    local half = math.floor((inner - bgap) / 2)
-    table.insert(content, HorizontalGroup:new{ align = "center",
-        sheetButton(_("− Brightness"), false, half, function() self:setBrightness((on and cur or min) - stride) end),
-        HorizontalSpan:new{ width = bgap },
-        sheetButton(_("+ Brightness"), false, inner - half - bgap, function() self:setBrightness((on and cur or min) + stride) end) })
+    -- Botones comunes de las hojas (common/sheet.lua)
+    table.insert(content, package.loaded.aire_sheet.buttons({
+        { text = _("− Brightness"), callback = function() self:setBrightness((on and cur or min) - stride) end },
+        { text = _("+ Brightness"), callback = function() self:setBrightness((on and cur or min) + stride) end },
+    }, inner))
 
-    self.sheet = FrameContainer:new{ bordersize = border, color = BLACK, background = WHITE,
-        radius = S_(SHEET_RADIUS), padding = pad, content }
-    self[1] = BottomContainer:new{ dimen = Geom:new{ x = 0, y = 0, w = self.dimen.w, h = self.dimen.h - margin },
-        self.sheet }
+    self:setContent(content)
 end
 
 function LightSheet:refresh()
@@ -198,18 +171,8 @@ function LightSheet:refresh()
     end)
 end
 
-function LightSheet:onAireOutside(_args, ges)
-    local sd = self.sheet and liveRect(self.sheet)
-    if ges and ges.pos and sd and sd.x and ges.pos:intersectWith(sd) then return true end
-    return self:onClose()
-end
-
-function LightSheet:onClose()
-    UIManager:close(self, "ui")
-    return true
-end
-
 function LightSheet:onCloseWidget()
+    Sheet.onCloseWidget(self)
     UIManager:nextTick(function() UIManager:broadcastEvent(Event:new("HomeWidgetsRefresh")) end)
 end
 

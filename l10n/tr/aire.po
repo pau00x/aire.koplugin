@@ -20,11 +20,11 @@ msgstr[1] "«%1» · %2 eşleşme"
 msgid "\"Reading now\" card with light background"
 msgstr "Açık arka planlı \"Şimdi okunan\" kartı"
 
-#: views/booksheet.lua:192
+#: views/booksheet.lua:167
 msgid "%1 % (%2 / %3 pp.)"
 msgstr "%1 % (%2 / %3 s.)"
 
-#: views/booksheet.lua:184
+#: views/booksheet.lua:159
 msgid "%1 % (on hold)"
 msgstr "%1 % (bekliyor)"
 
@@ -32,7 +32,7 @@ msgstr "%1 % (bekliyor)"
 msgid "%1 % read"
 msgstr "%1 % okundu"
 
-#: styles/statspages.lua:258 views/booksheet.lua:347 views/grid/books.lua:297 views/grid.lua:323 views/grid.lua:328
+#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 kitap"
@@ -44,7 +44,7 @@ msgid_plural "%1 bookmarks"
 msgstr[0] "%1 yer imi"
 msgstr[1] "%1 yer imi"
 
-#: views/grid.lua:493 views/grid.lua:494
+#: views/grid.lua:487 views/grid.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 derme"
@@ -62,19 +62,19 @@ msgid_plural "%1 days ago"
 msgstr[0] "%1 gün önce"
 msgstr[1] "%1 gün önce"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:658
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 gün okuma"
 msgstr[1] "%1 gün okuma"
 
-#: views/booksheet.lua:353 views/grid/books.lua:297 views/grid.lua:325
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 tamamlandı"
 msgstr[1] "%1 tamamlandı"
 
-#: views/grid.lua:576
+#: views/grid.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 tamamlanan kitap"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 s. okundu"
 msgstr[1] "%1 s. okundu"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:200 views/stats.lua:302
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 s."
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "%1 pp./h"
 msgstr "%1 s./sa"
 
@@ -112,7 +112,7 @@ msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 kayıtlı kısayol"
 msgstr[1] "%1 kayıtlı kısayol"
 
-#: views/grid.lua:324
+#: views/grid.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 dizi"
@@ -146,15 +146,11 @@ msgstr[1] ""
 msgid "%d of 5 stars"
 msgstr "5 üzerinden %d yıldız"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "(geçerli)"
-
-#: styles/ui/lightsheet.lua:185
+#: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ Parlaklık"
 
-#: views/stats.lua:488
+#: views/stats.lua:487
 msgid "+%1 more"
 msgstr "+%1 daha"
 
@@ -178,7 +174,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 sütun"
 
-#: views/update.lua:340
+#: views/update.lua:292
 msgid "A new version is available"
 msgstr "Yeni bir sürüm var"
 
@@ -202,7 +198,7 @@ msgstr "Etkin"
 msgid "Activity summary"
 msgstr "Etkinlik özeti"
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -228,15 +224,15 @@ msgstr "Gelişmiş"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:276 views/update.lua:333
+#: views/update.lua:228 views/update.lua:285
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:159 views/update.lua:537
+#: views/power.lua:147 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 kullanılabilir"
 
-#: views/update.lua:190
+#: views/update.lua:142
 msgid "Aire %1 installed"
 msgstr "Aire %1 yüklendi"
 
@@ -258,16 +254,16 @@ msgstr "Tümü"
 msgid "All books"
 msgstr ""
 
-#: views/booksheet.lua:351
+#: views/booksheet.lua:326
 msgid "All finished"
 msgstr "Tümü tamamlandı"
 
-#: views/grid.lua:578 views/widgets.lua:441
+#: views/grid.lua:572 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:593
+#: views/stats.lua:592
 msgid "Annual"
 msgstr "Yıllık"
 
@@ -310,7 +306,7 @@ msgstr "Türe göre otomatik dermeler (anahtar sözcük)"
 msgid "Automatic tests"
 msgstr "Otomatik testler"
 
-#: views/grid.lua:1009
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "Otomatik: bu yazarın kitapları"
 
@@ -345,11 +341,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Pil"
 
-#: views/stats.lua:682
+#: views/stats.lua:681
 msgid "Best day"
 msgstr "En iyi gün"
 
-#: views/stats.lua:685
+#: views/stats.lua:684
 msgid "Best month"
 msgstr "En iyi ay"
 
@@ -420,7 +416,7 @@ msgstr "Yer imleri ve vurgular"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:970
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "Kitaplar silinmez, yalnızca derme silinir."
 
@@ -470,7 +466,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:417
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -488,7 +484,7 @@ msgstr ""
 msgid "Change"
 msgstr "Değiştir"
 
-#: styles/skim.lua:90
+#: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Bölüm %1 / %2"
 
@@ -512,11 +508,11 @@ msgstr "Şarj oldu"
 msgid "Charging"
 msgstr "Şarj oluyor"
 
-#: views/update.lua:486
+#: views/update.lua:438
 msgid "Check every week"
 msgstr "Her hafta denetle"
 
-#: views/update.lua:479
+#: views/update.lua:431
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -538,7 +534,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Kapak küçük resimlerini temizle"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:771 views/widgets.lua:650
+#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -555,7 +551,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Derme sırası"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1350
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -568,7 +564,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "Dermelerin sırası"
 
-#: common/compat.lua:183
+#: common/compat.lua:182
 msgid "Compatibility"
 msgstr "Uyumluluk"
 
@@ -580,7 +576,7 @@ msgstr ""
 msgid "Connected"
 msgstr "Bağlı"
 
-#: views/booksheet.lua:375
+#: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
 msgstr ""
@@ -599,7 +595,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:398
+#: views/update.lua:350
 msgid "Could not check for updates. Try again later."
 msgstr "Güncellemeler denetlenemedi. Daha sonra yeniden dene."
 
@@ -610,7 +606,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:259
+#: views/update.lua:211
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Güncelleme yüklenemedi. Aire %1 yüklü kalmaya devam ediyor."
 
@@ -645,11 +641,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Şu an okunan"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "DAILY RHYTHM"
 msgstr "GÜNLÜK RİTİM"
 
-#: views/stats.lua:677
+#: views/stats.lua:676
 msgid "Daily average"
 msgstr "Günlük ortalama"
 
@@ -665,7 +661,7 @@ msgstr "Tarih"
 msgid "Date finished"
 msgstr "Bitirme tarihi"
 
-#: views/stats.lua:680
+#: views/stats.lua:679
 msgid "Day %1"
 msgstr "%1. gün"
 
@@ -683,16 +679,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "Aralık"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:251 views/grid.lua:971 views/stats.lua:437
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:448
+#: views/stats.lua:447
 msgid "Delete all book stats"
 msgstr "Tüm kitap istatistiklerini sil"
 
-#: views/stats.lua:452
+#: views/stats.lua:451
 msgid "Delete all stats?"
 msgstr "Tüm istatistikler silinsin mi?"
 
@@ -701,15 +697,15 @@ msgstr "Tüm istatistikler silinsin mi?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:435
+#: views/stats.lua:434
 msgid "Delete minutes for this day?"
 msgstr "Bu günün dakikaları silinsin mi?"
 
-#: views/stats.lua:431
+#: views/stats.lua:430
 msgid "Delete minutes from this day"
 msgstr "Bu günün dakikalarını sil"
 
-#: views/grid.lua:969
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "Derme silinsin mi?"
 
@@ -717,11 +713,11 @@ msgstr "Derme silinsin mi?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1020
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "Sil…"
 
-#: styles/ui/sheets.lua:501
+#: styles/ui/sheets.lua:554
 #, koreader
 msgid "Description"
 msgstr ""
@@ -760,12 +756,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:210
+#: views/update.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:234
+#: views/update.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "İndiriliyor… %1 / %2"
 
@@ -790,7 +786,7 @@ msgstr "Ana ekran widget'larını düzenle"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:378
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -799,12 +795,12 @@ msgstr ""
 msgid "Edit series"
 msgstr "Diziyi düzenle"
 
-#: styles/bookmark.lua:382
+#: styles/bookmark.lua:341
 #, koreader
 msgid "Edit text"
 msgstr ""
 
-#: views/booksheet.lua:347
+#: views/booksheet.lua:322
 msgid "Empty"
 msgstr "Boş"
 
@@ -813,7 +809,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Bileşen yok"
 
-#: views/grid.lua:470
+#: views/grid.lua:464
 msgid "Empty collection"
 msgstr "Boş derme"
 
@@ -821,7 +817,7 @@ msgstr "Boş derme"
 msgid "Empty folder"
 msgstr "Boş klasör"
 
-#: views/grid.lua:303
+#: views/grid.lua:297
 msgid "Empty series"
 msgstr "Boş dizi"
 
@@ -853,7 +849,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Eklentinin çizdiği her şey, örnek verilerle. Sayfa çevirmek için ← → kaydırın; çıkmak için dışarıya veya sayfaya dokunun."
 
-#: views/power.lua:222
+#: views/power.lua:210
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -862,7 +858,7 @@ msgstr ""
 msgid "FILE"
 msgstr "DOSYA"
 
-#: views/grid.lua:795
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "FİLTRE"
 
@@ -875,7 +871,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Sık kullanılan klasörler"
 
-#: dev/devtools.lua:821 views/grid.lua:347 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -885,7 +881,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "Şubat"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -900,11 +896,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:739
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "Filtre"
 
-#: dev/devtools.lua:659 views/grid.lua:738
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "Filtrele ve sırala"
 
@@ -913,7 +909,7 @@ msgstr "Filtrele ve sırala"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:181 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Tamamlandı"
@@ -952,7 +948,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "Klasörler"
 
@@ -965,11 +961,11 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: styles/ui/sheets.lua:724
+#: styles/ui/sheets.lua:834
 msgid "Fonts"
 msgstr "Yazı tipleri"
 
-#: styles/vocabbuilder.lua:154
+#: styles/vocabbuilder.lua:153
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -984,7 +980,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:101
+#: styles/ui/lightsheet.lua:87
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1021,16 +1017,16 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Ayarlı hareketler: %1"
 
-#: styles/bookmark.lua:407
+#: styles/bookmark.lua:366
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "Yukarı"
 
-#: common/compat.lua:179 styles/vocabbuilder.lua:156
+#: common/compat.lua:178 styles/vocabbuilder.lua:155
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1043,7 +1039,7 @@ msgstr "Izgara: %1 sütun"
 msgid "HIGHLIGHT"
 msgstr "VURGU"
 
-#: views/stats.lua:664
+#: views/stats.lua:663
 msgid "HIGHLIGHTS"
 msgstr "ÖNE ÇIKANLAR"
 
@@ -1056,7 +1052,7 @@ msgstr "Henüz gelmedi"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1351
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1065,7 +1061,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:614
+#: views/grid.lua:608
 msgid "History is empty"
 msgstr "Geçmiş boş"
 
@@ -1077,7 +1073,7 @@ msgstr "Basılı tutmak dokunmayla aynı işi yapar"
 msgid "Hold to configure"
 msgstr "Ayarlamak için basılı tutun"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1118,15 +1114,15 @@ msgstr "Dermeler'de, 2 veya daha fazla kitabı olan her yazar için bir derme g�
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Dermeler'de, 2 veya daha fazla kitabı olan her anahtar sözcük için bir derme görünür. Otomatik olarak güncellenir ve KOReader dermelerine kaydedilmez."
 
-#: views/update.lua:495
+#: views/update.lua:447
 msgid "Include beta versions"
 msgstr "Beta sürümleri dahil et"
 
-#: views/update.lua:514
+#: views/update.lua:466
 msgid "Installed version: %1"
 msgstr "Yüklü sürüm: %1"
 
-#: views/update.lua:246
+#: views/update.lua:198
 msgid "Installing…"
 msgstr "Yükleniyor…"
 
@@ -1142,7 +1138,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:193
+#: views/update.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "KOReader yeniden başlatıldığında kullanılacak. Ayarların korunur."
 
@@ -1171,7 +1167,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "Haziran"
 
-#: views/power.lua:221
+#: views/power.lua:209
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1217,7 +1213,7 @@ msgstr "Son"
 msgid "Last 7 days summary"
 msgstr "Son 7 günün özeti"
 
-#: views/update.lua:507
+#: views/update.lua:459
 msgid "Last check: %1"
 msgstr "Son denetim: %1"
 
@@ -1225,7 +1221,7 @@ msgstr "Son denetim: %1"
 msgid "Last read"
 msgstr "Son okunan"
 
-#: common/compat.lua:171 views/update.lua:180 views/update.lua:376
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1244,7 +1240,7 @@ msgstr "Düzen"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1349
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "Kitaplık"
 
@@ -1300,15 +1296,15 @@ msgstr "EŞLEŞME"
 msgid "MATCH %d"
 msgstr "EŞLEŞME %d"
 
-#: views/stats.lua:656
+#: views/stats.lua:655
 msgid "MONTHLY RHYTHM"
 msgstr "AYLIK RİTİM"
 
-#: views/stats.lua:694
+#: views/stats.lua:693
 msgid "MOST READ"
 msgstr "EN ÇOK OKUNANLAR"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "Ana görünüm"
 
@@ -1321,15 +1317,15 @@ msgstr "Mart"
 msgid "Margins"
 msgstr "Kenar boşlukları"
 
-#: views/booksheet.lua:430
+#: views/booksheet.lua:405
 msgid "Mark"
 msgstr "İşaretle"
 
-#: views/booksheet.lua:429
+#: views/booksheet.lua:404
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "\"%1\" içindeki tüm kitaplar okunuyor olarak işaretlensin mi?"
 
-#: views/grid.lua:1057
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "\"%1\" dermesindeki tüm kitaplar okunuyor olarak işaretlensin mi?"
 
@@ -1337,19 +1333,19 @@ msgstr "\"%1\" dermesindeki tüm kitaplar okunuyor olarak işaretlensin mi?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1055
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "Tüm dermeyi tamamlandı olarak işaretle"
 
-#: views/grid.lua:1056
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "Tüm dermeyi okunuyor olarak işaretle"
 
-#: views/booksheet.lua:403
+#: views/booksheet.lua:378
 msgid "Mark entire series as finished"
 msgstr "Tüm diziyi tamamlandı olarak işaretle"
 
-#: views/booksheet.lua:424
+#: views/booksheet.lua:399
 msgid "Mark entire series as reading"
 msgstr "Tüm diziyi okunuyor olarak işaretle"
 
@@ -1376,15 +1372,15 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Sade"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "Klasörleri karıştır"
 
-#: views/grid.lua:816
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "Dizileri karıştır"
 
-#: views/stats.lua:591
+#: views/stats.lua:590
 msgid "Monthly"
 msgstr "Aylık"
 
@@ -1396,11 +1392,11 @@ msgstr "Aylık özet"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "Daha fazla"
 
-#: views/booksheet.lua:258
+#: views/booksheet.lua:233
 msgid "More options…"
 msgstr "Diğer seçenekler…"
 
@@ -1438,7 +1434,7 @@ msgstr "YENİ"
 msgid "NEXT"
 msgstr "SONRAKİ"
 
-#: styles/vocabbuilder.lua:123
+#: styles/vocabbuilder.lua:122
 msgid "NEXT REVIEW"
 msgstr "SONRAKİ TEKRAR"
 
@@ -1469,12 +1465,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Yeni"
 
-#: views/grid.lua:489
+#: views/grid.lua:483
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1011 views/grid.lua:1024
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "Yeni derme…"
 
@@ -1494,7 +1490,7 @@ msgstr "Sonraki %1"
 msgid "Next batch of test widgets"
 msgstr "Sonraki test widget'ları"
 
-#: styles/skim.lua:113
+#: styles/skim.lua:102
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1520,19 +1516,19 @@ msgstr "Devam eden kitap yok"
 msgid "No book matches the filter"
 msgstr "Filtreyle eşleşen kitap yok"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this month"
 msgstr "Bu ay tamamlanan kitap yok"
 
-#: views/grid.lua:582
+#: views/grid.lua:576
 msgid "No books finished this year"
 msgstr "Bu yıl tamamlanan kitap yok"
 
-#: views/grid.lua:335
+#: views/grid.lua:329
 msgid "No books in home folder"
 msgstr "Başlangıç klasöründe kitap yok"
 
-#: views/grid.lua:335 views/grid.lua:470 views/grid.lua:614
+#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
 msgid "No books with this filter"
 msgstr "Bu filtreyle kitap yok"
 
@@ -1540,11 +1536,11 @@ msgstr "Bu filtreyle kitap yok"
 msgid "No chapter"
 msgstr "Bölüm yok"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections"
 msgstr "Derme yok"
 
-#: views/grid.lua:497
+#: views/grid.lua:491
 msgid "No collections with this filter"
 msgstr "Bu filtreyle derme yok"
 
@@ -1569,7 +1565,7 @@ msgstr "Tamamlanmamış sonraki kitap yok"
 msgid "No previous book"
 msgstr "Önceki kitap yok"
 
-#: styles/statspages.lua:365 views/stats.lua:627
+#: styles/statspages.lua:365 views/stats.lua:626
 msgid "No reading activity in this period"
 msgstr "Bu dönemde okuma etkinliği yok"
 
@@ -1594,7 +1590,7 @@ msgstr "Bu kitap için istatistik yok"
 msgid "No unstarted books"
 msgstr "Başlanmamış kitap yok"
 
-#: styles/vocabbuilder.lua:92
+#: styles/vocabbuilder.lua:91
 msgid "No vocabulary words"
 msgstr "Kelime yok"
 
@@ -1602,7 +1598,7 @@ msgstr "Kelime yok"
 msgid "Not rated"
 msgstr "Puanlanmadı"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:197 views/booksheet.lua:355
+#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "Başlanmadı"
 
@@ -1654,12 +1650,12 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:186 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "Bekliyor"
 
-#: views/update.lua:487
+#: views/update.lua:439
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Yalnızca Wi-Fi zaten açıksa: Aire onu asla açmaz."
 
@@ -1668,7 +1664,7 @@ msgstr "Yalnızca Wi-Fi zaten açıksa: Aire onu asla açmaz."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "Dermeyi aç"
 
@@ -1676,11 +1672,11 @@ msgstr "Dermeyi aç"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "Diziyi aç"
 
-#: views/booksheet.lua:391
+#: views/booksheet.lua:366
 msgid "Open series folder"
 msgstr "Dizi klasörünü aç"
 
@@ -1769,7 +1765,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:179
+#: views/power.lua:167
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1782,7 +1778,7 @@ msgstr "Önceki"
 msgid "Previous book"
 msgstr "Önceki kitap"
 
-#: styles/skim.lua:110
+#: styles/skim.lua:99
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1895,7 +1891,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:554
+#: views/stats.lua:553
 msgid "Recap"
 msgstr "Özet"
 
@@ -1916,7 +1912,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:395
+#: dev/devtools.lua:636 styles/bookmark.lua:354
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1926,17 +1922,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: styles/bookmark.lua:392
+#: styles/bookmark.lua:351
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:592 views/grid.lua:503
+#: views/booksheet.lua:567 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Dermeden çıkar"
 
-#: views/booksheet.lua:556 views/grid.lua:619
+#: views/booksheet.lua:531 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1946,7 +1942,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:394
+#: styles/bookmark.lua:353
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1956,7 +1952,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1018
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "Yeniden adlandır…"
 
@@ -1969,12 +1965,12 @@ msgstr "Ana ekran bileşenleri \"%1\" ön ayarıyla değiştirilsin mi?"
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:220
+#: views/power.lua:208
 #, koreader
 msgid "Restart"
 msgstr ""
 
-#: common/compat.lua:172
+#: common/compat.lua:171
 #, koreader
 msgid "Restart KOReader"
 msgstr ""
@@ -1983,16 +1979,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Değişikliğin geçerli olması için KOReader'ı yeniden başlatın."
 
-#: views/update.lua:194
+#: views/update.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Kullanmak için KOReader'ı yeniden başlat. Ayarların korunur."
 
-#: views/update.lua:183
+#: views/update.lua:135
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:810
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2017,7 +2013,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:805
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "SIRALAMA"
 
@@ -2050,7 +2046,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2067,7 +2063,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:354
+#: views/update.lua:306
 msgid "See all changes"
 msgstr "Tüm değişiklikleri gör"
 
@@ -2076,7 +2072,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "Eylül"
 
-#: dev/devtools.lua:527 views/booksheet.lua:315 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2094,12 +2090,12 @@ msgstr "Kapaklarda dizi numarası"
 msgid "Set alarm"
 msgstr ""
 
-#: styles/ui/sheets.lua:776
+#: styles/ui/sheets.lua:886
 #, koreader
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:483
+#: views/update.lua:435
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2151,11 +2147,11 @@ msgstr "Özeti göster"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:371
+#: views/update.lua:323
 msgid "Skip"
 msgstr "Atla"
 
-#: views/power.lua:178
+#: views/power.lua:166
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Uyu"
@@ -2168,7 +2164,7 @@ msgstr "Akıllı"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "Sırala"
 
@@ -2180,20 +2176,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:739
+#: dev/devtools.lua:613 views/grid.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:989
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "Dermeleri sırala"
 
-#: views/grid.lua:1012 views/grid.lua:1025
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "Dermeleri sırala…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "Dosyaları sırala"
 
@@ -2206,7 +2202,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "Kare kapaklar ve diziler"
 
-#: views/booksheet.lua:375 views/widgets.lua:570
+#: views/booksheet.lua:350 views/widgets.lua:570
 msgid "Start"
 msgstr "Başla"
 
@@ -2214,7 +2210,7 @@ msgstr "Başla"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "İstatistik"
 
@@ -2234,7 +2230,7 @@ msgstr "Depolama"
 msgid "Swap tap and hold"
 msgstr "Dokunma ve basılı tutmayı takas et"
 
-#: views/booksheet.lua:223
+#: views/booksheet.lua:198
 msgid "Synopsis"
 msgstr "Özet"
 
@@ -2262,11 +2258,11 @@ msgstr "Kitaplığı açmak için dokunun"
 msgid "Tap to stop"
 msgstr "Durdurmak için dokunun"
 
-#: styles/vocabbuilder.lua:132
+#: styles/vocabbuilder.lua:131
 msgid "Tap to view definition"
 msgstr "Tanımı görmek için dokunun"
 
-#: views/grid.lua:1252
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "Test kitabı"
 
@@ -2323,7 +2319,7 @@ msgstr "Geçerli kitap bir diziye ait değil"
 msgid "This collection is empty"
 msgstr "Bu derme boş"
 
-#: views/update.lua:366
+#: views/update.lua:318
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Bu kopyada dev/ klasörü (testler) var. Yeni sürümde yok, bu yüzden silinecek."
 
@@ -2403,7 +2399,7 @@ msgstr "Bugün ve seri"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:688
+#: views/stats.lua:687
 msgid "Top author"
 msgstr "En çok okunan yazar"
 
@@ -2425,16 +2421,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:143 views/power.lua:170 views/update.lua:377 views/update.lua:531
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire"
 msgstr "Aire'yi güncelle"
 
-#: views/update.lua:474
+#: views/update.lua:426
 msgid "Update Aire (%1 available)"
 msgstr "Aire'yi güncelle (%1 kullanılabilir)"
 
@@ -2442,7 +2438,7 @@ msgstr "Aire'yi güncelle (%1 kullanılabilir)"
 msgid "Update KOReader"
 msgstr "KOReader'ı güncelle"
 
-#: views/update.lua:214
+#: views/update.lua:166
 msgid "Updating Aire"
 msgstr "Aire güncelleniyor"
 
@@ -2462,7 +2458,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Sözcük tekrarı"
 
-#: styles/vocabbuilder.lua:306
+#: styles/vocabbuilder.lua:308
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Sözcük tekrarı · %1 sözcük"
@@ -2517,7 +2513,7 @@ msgstr "Widget'lar %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:417
+#: views/update.lua:369
 msgid "You already have the latest version (%1)."
 msgstr "Zaten en son sürüme sahipsin (%1)."
 
@@ -2533,11 +2529,11 @@ msgstr "Henüz hiç vurgunuz yok"
 msgid "You have not opened any book yet"
 msgstr "Henüz hiçbir kitap açmadınız"
 
-#: views/power.lua:162 views/update.lua:342
+#: views/power.lua:150 views/update.lua:294
 msgid "You have version %1"
 msgstr "Sürümün: %1"
 
-#: views/grid.lua:581
+#: views/grid.lua:575
 msgid "You haven't finished any books yet"
 msgstr "Henüz hiçbir kitabı bitirmediniz"
 
@@ -2554,7 +2550,7 @@ msgstr ""
 msgid "and highlights"
 msgstr "ve vurgular"
 
-#: views/booksheet.lua:359
+#: views/booksheet.lua:334
 msgid "at %1 %"
 msgstr "okunan: %1 %"
 
@@ -2566,7 +2562,7 @@ msgstr "ort. / gün"
 msgid "battery"
 msgstr "pil"
 
-#: views/update.lua:334
+#: views/update.lua:286
 msgid "beta"
 msgstr "beta"
 
@@ -2593,7 +2589,7 @@ msgstr ""
 msgid "files"
 msgstr "dosyalar"
 
-#: views/stats.lua:644 views/widgets.lua:423
+#: views/stats.lua:643 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "tamamlanan kitap"
@@ -2623,7 +2619,7 @@ msgstr "son 7 gün"
 msgid "light"
 msgstr "ışık"
 
-#: views/update.lua:506
+#: views/update.lua:458
 #, koreader
 msgid "never"
 msgstr ""
@@ -2649,7 +2645,7 @@ msgstr "s. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "s. %1 / %2"
 
-#: views/stats.lua:636
+#: views/stats.lua:635
 msgid "pages read"
 msgstr "okunan sayfa"
 
@@ -2657,7 +2653,7 @@ msgstr "okunan sayfa"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:640
+#: views/stats.lua:639
 msgid "reading time"
 msgstr "okuma süresi"
 
@@ -2745,6 +2741,6 @@ msgstr "dün"
 msgid "~%1 left"
 msgstr "~%1 kaldı"
 
-#: styles/ui/lightsheet.lua:183
+#: styles/ui/lightsheet.lua:159
 msgid "− Brightness"
 msgstr "− Parlaklık"
