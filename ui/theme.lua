@@ -84,17 +84,21 @@ end
 --- Inicial del día de la semana (wday de os.date: 1 = domingo) en el idioma
 -- de KOReader. En español, la costumbre: L M X J V S D (miércoles = X).
 local DAY_ES = { "D", "L", "M", "X", "J", "V", "S" }
+local DT, U8
 function M.dayLetter(wday)
     local lang = G_reader_settings and G_reader_settings:readSetting("language") or ""
     if lang:match("^es") then return DAY_ES[wday] or "?" end
-    local dt = require("datetime")
-    local short = dt.weekDays and dt.weekDays[wday]
-    local tr = short and dt.shortDayOfWeekTranslation and dt.shortDayOfWeekTranslation[short] or short or "?"
+    if not DT then DT = require("datetime") end
+    local short = DT.weekDays and DT.weekDays[wday]
+    local tr = short and DT.shortDayOfWeekTranslation and DT.shortDayOfWeekTranslation[short] or short or "?"
     local first = tostring(tr):match("^[%z\1-\127\194-\244][\128-\191]*") or "?"
     -- (mayúscula también fuera del ASCII: ruso, griego…)
-    local ok_u, U = pcall(require, "ffi/utf8proc")
-    if ok_u and U and U.uppercase_dumb then
-        local ok, up = pcall(U.uppercase_dumb, first)
+    if U8 == nil then
+        local ok_u, mod = pcall(require, "ffi/utf8proc")
+        U8 = (ok_u and mod and mod.uppercase_dumb) and mod or false
+    end
+    if U8 then
+        local ok, up = pcall(U8.uppercase_dumb, first)
         if ok and type(up) == "string" then return up end
     end
     return first:upper()
