@@ -10,6 +10,7 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 - Audit quick fixes: throttled `Thumbs.trim()` to every 40 writes (using `lfs.attributes` field queries), guarded `refreshHeader()` against closed FileManager instances, derived `ui/pages.lua` palette from `ui/theme.lua`, lazily cached `datetime`/`utf8proc` in `dayLetter()`, explicitly cancelled pending grid prefetch timers, avoided redundant `saveConfig()` calls on unchanged mode, and loaded `core/compat.lua` once per session.
 - Extracted grid cover caching into `views/grid/covers.lua` with real LRU eviction (max 48 buffers per tab) and visible-page pinning, replacing the full cache flush on overflow.
 - Extracted library scanning and metadata loading into `views/grid/library.lua` with session-level caching (invalidated on root/mtime changes, 5-minute TTL, resume/USB disconnect, and explicit reloads).
+- Split `views/widgets/init.lua` into `views/widgets/catalog.lua` (widget definitions) and `views/widgets/picker.lua` (presets, gallery, picker, options, edit mode).
 
 ## [0.3.0] - 2026-11-19
 

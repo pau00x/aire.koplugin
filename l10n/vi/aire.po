@@ -31,7 +31,7 @@ msgstr "%1 % (đang giữ)"
 msgid "%1 % read"
 msgstr "Đã đọc %1 %"
 
-#: styles/plugins/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid/init.lua:317 views/grid/init.lua:322
+#: styles/plugins/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid/init.lua:321 views/grid/init.lua:326
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 cuốn"
@@ -41,7 +41,7 @@ msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 dấu trang"
 
-#: views/grid/init.lua:487 views/grid/init.lua:488
+#: views/grid/init.lua:491 views/grid/init.lua:492
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 bộ sưu tập"
@@ -61,12 +61,12 @@ msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 ngày đọc"
 
-#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid/init.lua:319
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid/init.lua:323
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 đã hoàn thành"
 
-#: views/grid/init.lua:570
+#: views/grid/init.lua:574
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 cuốn đã hoàn thành"
@@ -99,7 +99,7 @@ msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 lối tắt đã lưu"
 
-#: views/grid/init.lua:318
+#: views/grid/init.lua:322
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 series"
@@ -121,7 +121,7 @@ msgstr "%d %% cuốn sách"
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% cuốn sách · còn %d tr. trong chương"
 
-#: dev/tests/regressions.lua:199 dev/tests/regressions.lua:200
+#: dev/tests/regressions.lua:279 dev/tests/regressions.lua:280
 msgid "%d book"
 msgid_plural "%d books"
 msgstr[0] ""
@@ -170,11 +170,11 @@ msgstr ""
 msgid "ACTIVE SEARCH"
 msgstr "TÌM KIẾM HIỆN TẠI"
 
-#: views/widgets/init.lua:349
+#: views/widgets/catalog.lua:232
 msgid "ADDED"
 msgstr "ĐÃ THÊM"
 
-#: views/widgets/init.lua:597
+#: views/widgets/catalog.lua:456
 msgid "Active"
 msgstr "Đang bật"
 
@@ -196,7 +196,7 @@ msgstr ""
 msgid "Add to folder shortcuts"
 msgstr ""
 
-#: dev/devtools.lua:640 views/widgets/init.lua:1116
+#: dev/devtools.lua:640 views/widgets/picker.lua:214
 msgid "Add widget"
 msgstr "Thêm widget"
 
@@ -243,7 +243,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Tất cả đã hoàn thành"
 
-#: views/grid/init.lua:572 views/widgets/init.lua:441
+#: views/grid/init.lua:576 views/widgets/catalog.lua:300
 #, koreader
 msgid "Always"
 msgstr ""
@@ -291,7 +291,7 @@ msgstr "Bộ sưu tập tự động theo thể loại (từ khóa)"
 msgid "Automatic tests"
 msgstr "Kiểm thử tự động"
 
-#: views/grid/init.lua:885
+#: views/grid/init.lua:895
 msgid "Automatic: books by this author"
 msgstr "Tự động: sách của tác giả này"
 
@@ -322,7 +322,7 @@ msgstr "DẤU TRANG"
 msgid "Basque"
 msgstr ""
 
-#: dev/devtools.lua:645 views/topbar.lua:42 views/widgets/init.lua:502
+#: dev/devtools.lua:645 views/topbar.lua:42 views/widgets/catalog.lua:361
 msgid "Battery"
 msgstr "Pin"
 
@@ -379,7 +379,7 @@ msgstr ""
 msgid "Book status (with data)"
 msgstr ""
 
-#: views/widgets/init.lua:550
+#: views/widgets/catalog.lua:409
 #, koreader
 msgid "Bookmarks"
 msgstr ""
@@ -392,7 +392,7 @@ msgstr ""
 msgid "Bookmarks (with data)"
 msgstr ""
 
-#: views/widgets/init.lua:549
+#: views/widgets/catalog.lua:408
 msgid "Bookmarks and highlights"
 msgstr "Dấu trang và điểm nổi bật"
 
@@ -401,7 +401,7 @@ msgstr "Dấu trang và điểm nổi bật"
 msgid "Books"
 msgstr ""
 
-#: views/grid/init.lua:846
+#: views/grid/init.lua:856
 msgid "Books are not deleted, only the collection."
 msgstr "Sách không bị xóa, chỉ xóa bộ sưu tập."
 
@@ -456,7 +456,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: views/widgets/init.lua:496
+#: views/widgets/catalog.lua:355
 msgid "Capture"
 msgstr "Chụp"
 
@@ -465,7 +465,7 @@ msgstr "Chụp"
 msgid "Catalan"
 msgstr ""
 
-#: views/widgets/init.lua:1178
+#: views/widgets/picker.lua:276
 msgid "Change"
 msgstr "Thay đổi"
 
@@ -490,11 +490,11 @@ msgstr ""
 msgid "Chapter 8"
 msgstr ""
 
-#: views/widgets/init.lua:507
+#: views/widgets/catalog.lua:366
 msgid "Charged"
 msgstr "Đã sạc đầy"
 
-#: views/widgets/init.lua:507
+#: views/widgets/catalog.lua:366
 msgid "Charging"
 msgstr "Đang sạc"
 
@@ -541,7 +541,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Thứ tự trong bộ sưu tập"
 
-#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1226
+#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1194
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -554,7 +554,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "Thứ tự bộ sưu tập"
 
-#: core/compat.lua:182
+#: core/compat.lua:180
 msgid "Compatibility"
 msgstr "Tương thích"
 
@@ -562,7 +562,7 @@ msgstr "Tương thích"
 msgid "Confirmation"
 msgstr ""
 
-#: views/widgets/init.lua:470
+#: views/widgets/catalog.lua:329
 msgid "Connected"
 msgstr "Đã kết nối"
 
@@ -600,11 +600,11 @@ msgstr ""
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Không thể cài bản cập nhật. Aire %1 vẫn được giữ nguyên."
 
-#: views/widgets/init.lua:203
+#: views/widgets/catalog.lua:60
 msgid "Could not read database"
 msgstr "Không thể đọc cơ sở dữ liệu"
 
-#: views/widgets/init.lua:442
+#: views/widgets/catalog.lua:301
 msgid "Count: %1"
 msgstr "Đếm: %1"
 
@@ -669,7 +669,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "tháng 12"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid/init.lua:847 views/stats/init.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid/init.lua:857 views/stats/init.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -695,7 +695,7 @@ msgstr "Xóa số phút của ngày này?"
 msgid "Delete minutes from this day"
 msgstr "Xóa số phút của ngày này"
 
-#: views/grid/init.lua:845
+#: views/grid/init.lua:855
 msgid "Delete the collection?"
 msgstr "Xóa bộ sưu tập?"
 
@@ -703,7 +703,7 @@ msgstr "Xóa bộ sưu tập?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid/init.lua:896
+#: views/grid/init.lua:906
 msgid "Delete…"
 msgstr "Xóa…"
 
@@ -712,16 +712,16 @@ msgstr "Xóa…"
 msgid "Description"
 msgstr ""
 
-#: dev/devtools.lua:540 dev/devtools.lua:546 views/widgets/init.lua:535 views/widgets/init.lua:536
+#: dev/devtools.lua:540 dev/devtools.lua:546 views/widgets/catalog.lua:394 views/widgets/catalog.lua:395
 #, koreader
 msgid "Dictionary"
 msgstr ""
 
-#: views/widgets/init.lua:481
+#: views/widgets/catalog.lua:340
 msgid "Disabled"
 msgstr "Đang tắt"
 
-#: core/compat.lua:157
+#: core/compat.lua:155
 msgid "Disabled due to incompatibility with the Home screen:"
 msgstr "Đã tắt do không tương thích với Màn hình chính:"
 
@@ -737,7 +737,7 @@ msgstr "Thanh dock"
 msgid "Documents"
 msgstr ""
 
-#: dev/devtools.lua:637 views/home.lua:217 views/widgets/init.lua:1002 views/widgets/init.lua:1184
+#: dev/devtools.lua:637 views/home.lua:217 views/widgets/init.lua:376 views/widgets/picker.lua:282
 #, koreader
 msgid "Done"
 msgstr ""
@@ -760,7 +760,7 @@ msgstr "Đang tải… %1 / %2"
 msgid "Dutch"
 msgstr ""
 
-#: views/widgets/init.lua:1006
+#: views/widgets/init.lua:380
 msgid "EDITING WIDGETS"
 msgstr "ĐANG SỬA WIDGET"
 
@@ -794,12 +794,12 @@ msgstr ""
 msgid "Empty"
 msgstr "Trống"
 
-#: views/widgets/init.lua:841
+#: views/widgets/picker.lua:65
 msgctxt "aire"
 msgid "Empty"
 msgstr "Không có tiện ích"
 
-#: views/grid/init.lua:464
+#: views/grid/init.lua:468
 msgid "Empty collection"
 msgstr "Bộ sưu tập trống"
 
@@ -807,11 +807,11 @@ msgstr "Bộ sưu tập trống"
 msgid "Empty folder"
 msgstr "Thư mục trống"
 
-#: views/grid/init.lua:297
+#: views/grid/init.lua:301
 msgid "Empty series"
 msgstr "Series trống"
 
-#: views/widgets/init.lua:481
+#: views/widgets/catalog.lua:340
 #, koreader
 msgid "Enabled"
 msgstr ""
@@ -848,7 +848,7 @@ msgstr ""
 msgid "FILE"
 msgstr "TỆP"
 
-#: views/grid/init.lua:728
+#: views/grid/init.lua:738
 msgid "FILTER"
 msgstr "LỌC"
 
@@ -857,11 +857,11 @@ msgstr "LỌC"
 msgid "Fantasy"
 msgstr ""
 
-#: views/widgets/init.lua:556
+#: views/widgets/catalog.lua:415
 msgid "Favorite folders"
 msgstr "Thư mục yêu thích"
 
-#: dev/devtools.lua:821 views/grid/init.lua:341 views/widgets/init.lua:393
+#: dev/devtools.lua:821 views/grid/init.lua:345 views/widgets/catalog.lua:252
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -886,11 +886,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid/init.lua:746
+#: views/grid/init.lua:756
 msgid "Filter"
 msgstr "Lọc"
 
-#: dev/devtools.lua:659 views/grid/init.lua:746
+#: dev/devtools.lua:659 views/grid/init.lua:756
 msgid "Filter and sort"
 msgstr "Lọc và sắp xếp"
 
@@ -938,7 +938,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:47 views/widgets/init.lua:557
+#: views/dock.lua:47 views/widgets/catalog.lua:416
 msgid "Folders"
 msgstr "Thư mục"
 
@@ -979,7 +979,7 @@ msgstr ""
 msgid "Frontlight"
 msgstr ""
 
-#: views/widgets/init.lua:488
+#: views/widgets/catalog.lua:347
 msgid "Full refresh"
 msgstr "Làm mới toàn bộ"
 
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Lên trên"
 
-#: core/compat.lua:178 styles/plugins/vocabbuilder.lua:156
+#: core/compat.lua:176 styles/plugins/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1046,7 +1046,7 @@ msgstr "Chưa tới"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:40 views/grid/init.lua:1227
+#: views/dock.lua:40 views/grid/init.lua:1195
 #, koreader
 msgid "History"
 msgstr ""
@@ -1055,15 +1055,15 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid/init.lua:608
+#: views/grid/init.lua:612
 msgid "History is empty"
 msgstr "Lịch sử trống"
 
-#: views/widgets/init.lua:1159
+#: views/widgets/picker.lua:257
 msgid "Hold does the same as tap"
 msgstr "Giữ có tác dụng như chạm"
 
-#: views/widgets/init.lua:570
+#: views/widgets/catalog.lua:429
 msgid "Hold to configure"
 msgstr "Giữ để cấu hình"
 
@@ -1120,7 +1120,7 @@ msgstr "Phiên bản đã cài: %1"
 msgid "Installing…"
 msgstr "Đang cài…"
 
-#: dev/devtools.lua:631 views/home.lua:212 views/widgets/init.lua:1154
+#: dev/devtools.lua:631 views/home.lua:212 views/widgets/picker.lua:252
 msgid "Inverted colors"
 msgstr "Đảo màu"
 
@@ -1187,7 +1187,7 @@ msgstr "7 NGÀY QUA"
 msgid "Labels under icons"
 msgstr "Nhãn dưới biểu tượng"
 
-#: views/widgets/init.lua:1148
+#: views/widgets/picker.lua:246
 msgid "Large (also occupies the right cell)"
 msgstr "Lớn (chiếm cả ô bên phải)"
 
@@ -1195,7 +1195,7 @@ msgstr "Lớn (chiếm cả ô bên phải)"
 msgid "Large clock and date"
 msgstr "Đồng hồ và ngày lớn"
 
-#: views/widgets/init.lua:957
+#: views/widgets/picker.lua:172
 msgid "Large · small · small inverted — swipe ← →, tap to exit"
 msgstr "Lớn · nhỏ · nhỏ đảo màu — vuốt ← →, chạm để thoát"
 
@@ -1215,7 +1215,7 @@ msgstr "Lần kiểm tra cuối: %1"
 msgid "Last read"
 msgstr "Đọc gần nhất"
 
-#: core/compat.lua:170 views/update_sheet.lua:132 views/update_sheet.lua:329
+#: core/compat.lua:168 views/update_sheet.lua:132 views/update_sheet.lua:329
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1234,7 +1234,7 @@ msgstr "Bố cục"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid/init.lua:1225
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid/init.lua:1193
 msgid "Library"
 msgstr "Thư viện"
 
@@ -1246,7 +1246,7 @@ msgstr ""
 msgid "Library and covers"
 msgstr "Thư viện và ảnh bìa"
 
-#: views/widgets/init.lua:348
+#: views/widgets/catalog.lua:231
 msgid "Library is empty"
 msgstr "Thư viện trống"
 
@@ -1254,7 +1254,7 @@ msgstr "Thư viện trống"
 msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
 msgstr "Thư viện, Bộ sưu tập và Lịch sử lưu bản sao nhỏ của bìa sách để mở nhanh hơn. Hãy xóa chúng nếu một bìa không cập nhật."
 
-#: dev/devtools.lua:644 dev/devtools.lua:688 views/widgets/init.lua:451
+#: dev/devtools.lua:644 dev/devtools.lua:688 views/widgets/catalog.lua:310
 msgid "Light"
 msgstr "Đèn"
 
@@ -1319,7 +1319,7 @@ msgstr "Đánh dấu"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Đánh dấu tất cả sách trong \"%1\" là đang đọc?"
 
-#: views/grid/init.lua:933
+#: views/grid/init.lua:943
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Đánh dấu tất cả sách trong bộ sưu tập \"%1\" là đang đọc?"
 
@@ -1327,11 +1327,11 @@ msgstr "Đánh dấu tất cả sách trong bộ sưu tập \"%1\" là đang đ�
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid/init.lua:931
+#: views/grid/init.lua:941
 msgid "Mark entire collection as finished"
 msgstr "Đánh dấu cả bộ sưu tập là đã hoàn thành"
 
-#: views/grid/init.lua:932
+#: views/grid/init.lua:942
 msgid "Mark entire collection as reading"
 msgstr "Đánh dấu cả bộ sưu tập là đang đọc"
 
@@ -1361,7 +1361,7 @@ msgstr ""
 msgid "Metadata:"
 msgstr ""
 
-#: views/widgets/init.lua:838
+#: views/widgets/picker.lua:62
 msgctxt "aire"
 msgid "Minimal"
 msgstr "Tối giản"
@@ -1370,7 +1370,7 @@ msgstr "Tối giản"
 msgid "Mix folders"
 msgstr "Trộn thư mục"
 
-#: views/grid/init.lua:740
+#: views/grid/init.lua:750
 msgid "Mix series"
 msgstr "Trộn series"
 
@@ -1420,11 +1420,11 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: views/widgets/init.lua:348
+#: views/widgets/catalog.lua:231
 msgid "NEW"
 msgstr "MỚI"
 
-#: views/widgets/init.lua:288 views/widgets/init.lua:292
+#: views/widgets/catalog.lua:171 views/widgets/catalog.lua:175
 msgid "NEXT"
 msgstr "TIẾP THEO"
 
@@ -1448,7 +1448,7 @@ msgstr "Tên:"
 msgid "Neighbor"
 msgstr ""
 
-#: dev/devtools.lua:663 views/grid/init.lua:49 views/widgets/init.lua:348 views/widgets/init.lua:349
+#: dev/devtools.lua:663 views/grid/init.lua:49 views/widgets/catalog.lua:231 views/widgets/catalog.lua:232
 #, koreader
 msgid "New"
 msgstr ""
@@ -1458,24 +1458,24 @@ msgctxt "aire"
 msgid "New"
 msgstr "Mới"
 
-#: views/grid/init.lua:483
+#: views/grid/init.lua:487
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid/init.lua:887 views/grid/init.lua:900
+#: views/grid/init.lua:897 views/grid/init.lua:910
 msgid "New collection…"
 msgstr "Bộ sưu tập mới…"
 
-#: core/compat.lua:152
+#: core/compat.lua:150
 msgid "New since last time:"
 msgstr "Mới kể từ lần trước:"
 
-#: views/widgets/init.lua:288 views/widgets/init.lua:294
+#: views/widgets/catalog.lua:171 views/widgets/catalog.lua:177
 msgid "Next"
 msgstr "Tiếp theo"
 
-#: views/widgets/init.lua:294
+#: views/widgets/catalog.lua:177
 msgid "Next %1"
 msgstr "Tiếp theo %1"
 
@@ -1488,16 +1488,16 @@ msgstr "Loạt widget thử nghiệm tiếp theo"
 msgid "Next chapter"
 msgstr ""
 
-#: dev/devtools.lua:642 views/widgets/init.lua:284
+#: dev/devtools.lua:642 views/widgets/catalog.lua:167
 msgid "Next in series"
 msgstr "Tiếp theo trong series"
 
-#: views/widgets/init.lua:478
+#: views/widgets/catalog.lua:337
 #, koreader
 msgid "Night mode"
 msgstr ""
 
-#: views/widgets/init.lua:185
+#: views/widgets/catalog.lua:42
 msgid "No CoverBrowser data"
 msgstr "Không có dữ liệu CoverBrowser"
 
@@ -1509,19 +1509,19 @@ msgstr "Không có sách đang đọc"
 msgid "No book matches the filter"
 msgstr "Không có sách khớp với bộ lọc"
 
-#: views/grid/init.lua:576
+#: views/grid/init.lua:580
 msgid "No books finished this month"
 msgstr "Không có sách hoàn thành trong tháng này"
 
-#: views/grid/init.lua:576
+#: views/grid/init.lua:580
 msgid "No books finished this year"
 msgstr "Không có sách hoàn thành trong năm nay"
 
-#: views/grid/init.lua:329
+#: views/grid/init.lua:333
 msgid "No books in home folder"
 msgstr "Không có sách trong thư mục chính"
 
-#: views/grid/init.lua:329 views/grid/init.lua:464 views/grid/init.lua:608
+#: views/grid/init.lua:333 views/grid/init.lua:468 views/grid/init.lua:612
 msgid "No books with this filter"
 msgstr "Không có sách với bộ lọc này"
 
@@ -1529,15 +1529,15 @@ msgstr "Không có sách với bộ lọc này"
 msgid "No chapter"
 msgstr "Không có chương"
 
-#: views/grid/init.lua:491
+#: views/grid/init.lua:495
 msgid "No collections"
 msgstr "Không có bộ sưu tập"
 
-#: views/grid/init.lua:491
+#: views/grid/init.lua:495
 msgid "No collections with this filter"
 msgstr "Không có bộ sưu tập với bộ lọc này"
 
-#: views/widgets/init.lua:180
+#: views/widgets/catalog.lua:37
 msgid "No current book"
 msgstr "Không có sách hiện tại"
 
@@ -1550,11 +1550,11 @@ msgstr "Không có dữ liệu: hãy bật tiện ích Thống kê và đọc m�
 msgid "No items"
 msgstr ""
 
-#: views/widgets/init.lua:233
+#: views/widgets/catalog.lua:90
 msgid "No next unfinished book"
 msgstr "Không có sách chưa hoàn thành tiếp theo"
 
-#: views/widgets/init.lua:309
+#: views/widgets/catalog.lua:192
 msgid "No previous book"
 msgstr "Không có sách trước"
 
@@ -1579,7 +1579,7 @@ msgstr "Không có lối tắt đã lưu"
 msgid "No stats for this book"
 msgstr "Không có thống kê cho sách này"
 
-#: views/widgets/init.lua:327
+#: views/widgets/catalog.lua:210
 msgid "No unstarted books"
 msgstr "Không có sách chưa bắt đầu"
 
@@ -1627,7 +1627,7 @@ msgstr ""
 msgid "Number in series"
 msgstr "Số thứ tự trong series"
 
-#: dev/devtools.lua:497 dev/tests/regressions.lua:197 dev/tests/regressions.lua:198
+#: dev/devtools.lua:497 dev/tests/regressions.lua:277 dev/tests/regressions.lua:278
 #, koreader
 msgid "OK"
 msgstr ""
@@ -1637,12 +1637,12 @@ msgctxt "aire"
 msgid "October"
 msgstr "tháng 10"
 
-#: views/widgets/init.lua:456 views/widgets/init.lua:457 views/widgets/init.lua:470 views/widgets/init.lua:597
+#: views/widgets/catalog.lua:315 views/widgets/catalog.lua:316 views/widgets/catalog.lua:329 views/widgets/catalog.lua:456
 #, koreader
 msgid "Off"
 msgstr ""
 
-#: dev/devtools.lua:649 views/widgets/init.lua:457 views/widgets/init.lua:470
+#: dev/devtools.lua:649 views/widgets/catalog.lua:316 views/widgets/catalog.lua:329
 #, koreader
 msgid "On"
 msgstr ""
@@ -1661,7 +1661,7 @@ msgstr "Chỉ khi Wi-Fi đã bật: Aire không bao giờ tự bật Wi-Fi."
 msgid "Open"
 msgstr ""
 
-#: views/grid/init.lua:930
+#: views/grid/init.lua:940
 msgid "Open collection"
 msgstr "Mở bộ sưu tập"
 
@@ -1669,7 +1669,7 @@ msgstr "Mở bộ sưu tập"
 msgid "Open library"
 msgstr ""
 
-#: views/grid/init.lua:930
+#: views/grid/init.lua:940
 msgid "Open series"
 msgstr "Mở series"
 
@@ -1711,7 +1711,7 @@ msgstr "Nếu không, thẻ sách hiện tại có nền đen chữ trắng."
 msgid "PDF engine (MuPDF)"
 msgstr ""
 
-#: views/widgets/init.lua:309 views/widgets/init.lua:312
+#: views/widgets/catalog.lua:192 views/widgets/catalog.lua:195
 msgid "PREVIOUS"
 msgstr "TRƯỚC"
 
@@ -1767,11 +1767,11 @@ msgstr ""
 msgid "Power off"
 msgstr ""
 
-#: views/widgets/init.lua:309 views/widgets/init.lua:313
+#: views/widgets/catalog.lua:192 views/widgets/catalog.lua:196
 msgid "Previous"
 msgstr "Trước"
 
-#: views/widgets/init.lua:301
+#: views/widgets/catalog.lua:184
 msgid "Previous book"
 msgstr "Sách trước"
 
@@ -1789,11 +1789,11 @@ msgstr ""
 msgid "QR code"
 msgstr ""
 
-#: views/widgets/init.lua:384
+#: views/widgets/catalog.lua:243
 msgid "QUOTE"
 msgstr "TRÍCH DẪN"
 
-#: views/widgets/init.lua:833
+#: views/widgets/picker.lua:57
 msgctxt "aire"
 msgid "Quick actions"
 msgstr "Thao tác nhanh"
@@ -1802,11 +1802,11 @@ msgstr "Thao tác nhanh"
 msgid "Quote"
 msgstr ""
 
-#: views/widgets/init.lua:380
+#: views/widgets/catalog.lua:239
 msgid "Quote of the day"
 msgstr "Trích dẫn trong ngày"
 
-#: views/widgets/init.lua:327 views/widgets/init.lua:334
+#: views/widgets/catalog.lua:210 views/widgets/catalog.lua:217
 msgid "RANDOM"
 msgstr "NGẪU NHIÊN"
 
@@ -1830,11 +1830,11 @@ msgstr "TỔNG KẾT"
 msgid "REVIEW / NOTES"
 msgstr "NHẬN XÉT / GHI CHÚ"
 
-#: views/widgets/init.lua:327 views/widgets/init.lua:334
+#: views/widgets/catalog.lua:210 views/widgets/catalog.lua:217
 msgid "Random"
 msgstr "Ngẫu nhiên"
 
-#: dev/devtools.lua:643 views/widgets/init.lua:320
+#: dev/devtools.lua:643 views/widgets/catalog.lua:203
 msgid "Random book"
 msgstr "Sách ngẫu nhiên"
 
@@ -1847,12 +1847,12 @@ msgstr "Đánh giá và nhận xét"
 msgid "Rating:"
 msgstr ""
 
-#: views/widgets/init.lua:563
+#: views/widgets/catalog.lua:422
 #, koreader
 msgid "Read timer"
 msgstr ""
 
-#: views/widgets/init.lua:824
+#: views/widgets/picker.lua:48
 #, koreader
 msgid "Reader"
 msgstr ""
@@ -1866,7 +1866,7 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:202 styles/filemanager/bookinfo.lua:275 styles/filemanager/bookstatus.lua:54 views/grid/init.lua:48 views/grid/init.lua:54
+#: dev/tests/regressions.lua:282 styles/filemanager/bookinfo.lua:275 styles/filemanager/bookstatus.lua:54 views/grid/init.lua:48 views/grid/init.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "Đang đọc"
@@ -1896,7 +1896,7 @@ msgstr "Tổng kết"
 msgid "Recent"
 msgstr "Gần đây"
 
-#: dev/devtools.lua:617 views/grid/init.lua:64 views/widgets/init.lua:341
+#: dev/devtools.lua:617 views/grid/init.lua:64 views/widgets/catalog.lua:224
 msgid "Recently added"
 msgstr "Thêm gần đây"
 
@@ -1904,7 +1904,7 @@ msgstr "Thêm gần đây"
 msgid "Recently read"
 msgstr ""
 
-#: views/widgets/init.lua:489
+#: views/widgets/catalog.lua:348
 #, koreader
 msgid "Refresh"
 msgstr ""
@@ -1914,7 +1914,7 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: views/widgets/init.lua:1179
+#: views/widgets/picker.lua:277
 msgctxt "aire"
 msgid "Remove"
 msgstr "Xóa"
@@ -1924,12 +1924,12 @@ msgstr "Xóa"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:567 views/grid/init.lua:497
+#: views/booksheet.lua:567 views/grid/init.lua:501
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Xóa khỏi bộ sưu tập"
 
-#: views/booksheet.lua:531 views/grid/init.lua:613
+#: views/booksheet.lua:531 views/grid/init.lua:617
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1949,7 +1949,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid/init.lua:894
+#: views/grid/init.lua:904
 msgid "Rename…"
 msgstr "Đổi tên…"
 
@@ -1967,12 +1967,12 @@ msgstr ""
 msgid "Restart"
 msgstr ""
 
-#: core/compat.lua:171
+#: core/compat.lua:169
 #, koreader
 msgid "Restart KOReader"
 msgstr ""
 
-#: core/compat.lua:160
+#: core/compat.lua:158
 msgid "Restart KOReader for the change to take effect."
 msgstr "Khởi động lại KOReader để áp dụng thay đổi."
 
@@ -1985,7 +1985,7 @@ msgstr "Khởi động lại KOReader để dùng. Cài đặt của bạn đư�
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:104 views/grid/init.lua:734
+#: views/explorer.lua:104 views/grid/init.lua:744
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2010,16 +2010,16 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/explorer.lua:113 views/grid/init.lua:730
+#: views/explorer.lua:113 views/grid/init.lua:740
 msgid "SORT BY"
 msgstr "SẮP XẾP THEO"
 
-#: views/widgets/init.lua:597
+#: views/widgets/catalog.lua:456
 #, koreader
 msgid "SSH"
 msgstr ""
 
-#: views/widgets/init.lua:592 views/widgets/init.lua:618
+#: views/widgets/catalog.lua:451 views/widgets/catalog.lua:477
 #, koreader
 msgid "SSH server"
 msgstr ""
@@ -2038,12 +2038,12 @@ msgstr ""
 msgid "Science Fiction"
 msgstr ""
 
-#: views/widgets/init.lua:495
+#: views/widgets/catalog.lua:354
 #, koreader
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets/init.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets/catalog.lua:386
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2173,16 +2173,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid/init.lua:746
+#: dev/devtools.lua:613 views/grid/init.lua:756
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid/init.lua:865
+#: dev/devtools.lua:825 views/grid/init.lua:875
 msgid "Sort collections"
 msgstr "Sắp xếp bộ sưu tập"
 
-#: views/grid/init.lua:888 views/grid/init.lua:901
+#: views/grid/init.lua:898 views/grid/init.lua:911
 msgid "Sort collections…"
 msgstr "Sắp xếp bộ sưu tập…"
 
@@ -2199,7 +2199,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "Ảnh bìa vuông và series"
 
-#: views/booksheet.lua:350 views/widgets/init.lua:570
+#: views/booksheet.lua:350 views/widgets/catalog.lua:429
 msgid "Start"
 msgstr "Bắt đầu"
 
@@ -2219,11 +2219,11 @@ msgstr ""
 msgid "Status bar font"
 msgstr ""
 
-#: dev/devtools.lua:645 views/widgets/init.lua:514
+#: dev/devtools.lua:645 views/widgets/catalog.lua:373
 msgid "Storage"
 msgstr "Bộ nhớ"
 
-#: views/widgets/init.lua:1168
+#: views/widgets/picker.lua:266
 msgid "Swap tap and hold"
 msgstr "Hoán đổi chạm và giữ"
 
@@ -2251,7 +2251,7 @@ msgstr "Chạm để thêm hoặc sửa nhận xét của bạn về cuốn sác
 msgid "Tap to open the library"
 msgstr "Chạm để mở thư viện"
 
-#: views/widgets/init.lua:568
+#: views/widgets/catalog.lua:427
 msgid "Tap to stop"
 msgstr "Chạm để dừng"
 
@@ -2259,7 +2259,7 @@ msgstr "Chạm để dừng"
 msgid "Tap to view definition"
 msgstr "Chạm để xem định nghĩa"
 
-#: views/grid/init.lua:1128
+#: views/grid/init.lua:1095
 msgid "Test book"
 msgstr "Sách thử nghiệm"
 
@@ -2308,7 +2308,7 @@ msgstr ""
 msgid "The Stormlight Archive"
 msgstr ""
 
-#: views/widgets/init.lua:183
+#: views/widgets/catalog.lua:40
 msgid "The current book is not part of a series"
 msgstr "Sách hiện tại không thuộc series nào"
 
@@ -2320,7 +2320,7 @@ msgstr "Bộ sưu tập này trống"
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Bản này có thư mục dev/ (kiểm thử). Phiên bản mới không có, nên thư mục sẽ bị xóa."
 
-#: views/widgets/init.lua:441
+#: views/widgets/catalog.lua:300
 msgid "This month"
 msgstr "Tháng này"
 
@@ -2336,7 +2336,7 @@ msgstr "Tháng này: %1"
 msgid "This week: %1"
 msgstr "Tuần này: %1"
 
-#: views/widgets/init.lua:441
+#: views/widgets/catalog.lua:300
 msgid "This year"
 msgstr "Năm nay"
 
@@ -2387,7 +2387,7 @@ msgstr ""
 msgid "Today"
 msgstr ""
 
-#: views/widgets/init.lua:268
+#: views/widgets/catalog.lua:151
 msgid "Today and streak"
 msgstr "Hôm nay và chuỗi ngày"
 
@@ -2484,7 +2484,7 @@ msgstr "Khi mở KOReader, cảnh báo về bản vá và tiện ích mới, đ�
 msgid "White corner: reading. Gray corner: on hold."
 msgstr "Góc trắng: đang đọc. Góc xám: đang giữ."
 
-#: dev/devtools.lua:644 views/widgets/init.lua:465
+#: dev/devtools.lua:644 views/widgets/catalog.lua:324
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
@@ -2492,7 +2492,7 @@ msgstr "Wi-Fi"
 msgid "Wi-Fi networks"
 msgstr ""
 
-#: views/widgets/init.lua:954
+#: views/widgets/picker.lua:169
 msgid "Widget gallery · %1 / %2"
 msgstr "Xem trước widget · %1 / %2"
 
@@ -2500,11 +2500,11 @@ msgstr "Xem trước widget · %1 / %2"
 msgid "Widget presets"
 msgstr "Bộ tiện ích có sẵn"
 
-#: views/widgets/init.lua:939
+#: views/widgets/picker.lua:154
 msgid "Widgets %1–%2"
 msgstr "Widget %1–%2"
 
-#: dev/devtools.lua:540 views/widgets/init.lua:542 views/widgets/init.lua:543
+#: dev/devtools.lua:540 views/widgets/catalog.lua:401 views/widgets/catalog.lua:402
 #, koreader
 msgid "Wikipedia"
 msgstr ""
@@ -2517,7 +2517,7 @@ msgstr "Bạn đã có phiên bản mới nhất (%1)."
 msgid "You didn't read that day"
 msgstr "Bạn không đọc vào ngày đó"
 
-#: views/widgets/init.lua:384
+#: views/widgets/catalog.lua:243
 msgid "You don't have any highlights yet"
 msgstr "Bạn chưa có điểm nổi bật nào"
 
@@ -2529,7 +2529,7 @@ msgstr "Bạn chưa mở cuốn sách nào"
 msgid "You have version %1"
 msgstr "Bạn đang dùng %1"
 
-#: views/grid/init.lua:575
+#: views/grid/init.lua:579
 msgid "You haven't finished any books yet"
 msgstr "Bạn chưa đọc xong cuốn sách nào"
 
@@ -2542,7 +2542,7 @@ msgid ""
 "Synonyms: brief, fleeting, passing, transitory."
 msgstr ""
 
-#: views/widgets/init.lua:550 views/widgets/init.lua:550
+#: views/widgets/catalog.lua:409 views/widgets/catalog.lua:409
 msgid "and highlights"
 msgstr "và điểm nổi bật"
 
@@ -2554,7 +2554,7 @@ msgstr "ở %1 %"
 msgid "avg. / day"
 msgstr "TB / ngày"
 
-#: views/widgets/init.lua:506
+#: views/widgets/catalog.lua:365
 msgid "battery"
 msgstr "pin"
 
@@ -2562,7 +2562,7 @@ msgstr "pin"
 msgid "beta"
 msgstr "beta"
 
-#: views/widgets/init.lua:403
+#: views/widgets/catalog.lua:262
 msgid "book"
 msgid_plural "books"
 msgstr[0] "cuốn"
@@ -2575,16 +2575,16 @@ msgstr "xung đột với ảnh bìa của tiện ích"
 msgid "ephemeral"
 msgstr ""
 
-#: views/widgets/init.lua:403
+#: views/widgets/catalog.lua:262
 #, koreader
 msgid "favorites"
 msgstr ""
 
-#: views/widgets/init.lua:528
+#: views/widgets/catalog.lua:387
 msgid "files"
 msgstr "tệp"
 
-#: views/stats/init.lua:629 views/widgets/init.lua:423
+#: views/stats/init.lua:629 views/widgets/catalog.lua:282
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "cuốn đã hoàn thành"
@@ -2593,11 +2593,11 @@ msgstr[0] "cuốn đã hoàn thành"
 msgid "finished in %1"
 msgstr "hoàn thành năm %1"
 
-#: views/widgets/init.lua:518 views/widgets/init.lua:520
+#: views/widgets/catalog.lua:377 views/widgets/catalog.lua:379
 msgid "free"
 msgstr "trống"
 
-#: views/widgets/init.lua:252
+#: views/widgets/catalog.lua:109
 msgid "in total"
 msgstr "tổng cộng"
 
@@ -2609,7 +2609,7 @@ msgstr "đã có trong Aire"
 msgid "last 7 days"
 msgstr "7 ngày qua"
 
-#: views/widgets/init.lua:456
+#: views/widgets/catalog.lua:315
 msgid "light"
 msgstr "đèn"
 
@@ -2618,7 +2618,7 @@ msgstr "đèn"
 msgid "never"
 msgstr ""
 
-#: views/widgets/init.lua:481
+#: views/widgets/catalog.lua:340
 #, koreader
 msgid "night mode"
 msgstr ""
@@ -2627,7 +2627,7 @@ msgstr ""
 msgid "now"
 msgstr "bây giờ"
 
-#: views/widgets/init.lua:521
+#: views/widgets/catalog.lua:380
 msgid "of %1"
 msgstr "trên %1"
 
@@ -2643,7 +2643,7 @@ msgstr "tr. %1 / %2"
 msgid "pages read"
 msgstr "trang đã đọc"
 
-#: views/widgets/init.lua:598
+#: views/widgets/catalog.lua:457
 msgid "port %1"
 msgstr "cổng %1"
 
@@ -2663,19 +2663,19 @@ msgstr "thay thế ảnh bìa của trình duyệt tệp"
 msgid "replaces the home screen"
 msgstr "thay thế màn hình chính"
 
-#: views/widgets/init.lua:489 views/widgets/init.lua:496
+#: views/widgets/catalog.lua:348 views/widgets/catalog.lua:355
 msgid "screen"
 msgstr "màn hình"
 
-#: views/widgets/init.lua:543
+#: views/widgets/catalog.lua:402
 msgid "search"
 msgstr "tìm kiếm"
 
-#: views/widgets/init.lua:536
+#: views/widgets/catalog.lua:395
 msgid "search word"
 msgstr "tra từ"
 
-#: views/widgets/init.lua:557 views/widgets/init.lua:557
+#: views/widgets/catalog.lua:416 views/widgets/catalog.lua:416
 msgid "shortcuts"
 msgstr "lối tắt"
 
@@ -2683,11 +2683,11 @@ msgstr "lối tắt"
 msgid "streak"
 msgstr "chuỗi"
 
-#: views/widgets/init.lua:276
+#: views/widgets/catalog.lua:159
 msgid "streak %1"
 msgstr "chuỗi %1"
 
-#: views/widgets/init.lua:275
+#: views/widgets/catalog.lua:158
 msgid "streak %1 day"
 msgid_plural "streak %1 days"
 msgstr[0] "chuỗi %1 ngày"
@@ -2696,19 +2696,19 @@ msgstr[0] "chuỗi %1 ngày"
 msgid "the plugin has its own status bar"
 msgstr "tiện ích có thanh trạng thái riêng"
 
-#: views/widgets/init.lua:252
+#: views/widgets/catalog.lua:109
 msgid "this month"
 msgstr "tháng này"
 
-#: views/widgets/init.lua:252
+#: views/widgets/catalog.lua:109
 msgid "this year"
 msgstr "năm nay"
 
-#: views/widgets/init.lua:568 views/widgets/init.lua:570
+#: views/widgets/catalog.lua:427 views/widgets/catalog.lua:429
 msgid "timer"
 msgstr "hẹn giờ"
 
-#: views/widgets/init.lua:272 views/widgets/init.lua:274
+#: views/widgets/catalog.lua:155 views/widgets/catalog.lua:157
 msgid "today"
 msgstr "hôm nay"
 
@@ -2721,7 +2721,7 @@ msgstr "hôm nay"
 msgid "today · %1 pp."
 msgstr "hôm nay · %1 tr."
 
-#: views/widgets/init.lua:470
+#: views/widgets/catalog.lua:329
 msgid "wi-fi"
 msgstr "wi-fi"
 
