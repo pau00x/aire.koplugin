@@ -244,7 +244,10 @@ return function(Aire, ctx)
     function Aire:onNetworkConnected() refreshHeaderAndWidgets(self) end
     function Aire:onNetworkDisconnected() refreshHeaderAndWidgets(self) end
     function Aire:onCharging() refreshHeaderAndWidgets(self) end
-    function Aire:onNotCharging() refreshHeaderAndWidgets(self) end
+    function Aire:onNotCharging()
+        if self.invalidateLibraryCache then self:invalidateLibraryCache() end
+        refreshHeaderAndWidgets(self)
+    end
     function Aire:onTimeFormatChanged() self:refreshHeader() end
     function Aire:onFrontlightStateChanged() refreshHeaderAndWidgets(self) end
     -- Al cerrar el diálogo de luz (views/widgets/init.lua lo anuncia): actualizar los widgets

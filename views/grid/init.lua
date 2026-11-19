@@ -95,16 +95,20 @@ local SORTS_HISTORY = {
 local GRID_DIR = (debug.getinfo(1, "S").source or ""):match("^@(.*)/[^/]*$") or "plugins/aire.koplugin/views/grid"
 -- Datos (buscar, metadatos, ordenar, filtrar) y widgets (celda, puntos)
 local Books = dofile(GRID_DIR .. "/books.lua")
-local findOption, getBIM, scanBooks, loadMetadataUnder = Books.findOption, Books.getBIM, Books.scanBooks, Books.loadMetadataUnder
+local findOption, getBIM, loadMetadataUnder = Books.findOption, Books.getBIM, Books.loadMetadataUnder
 local metaIn, makeBook, isAutoKey, groupRank = Books.metaIn, Books.makeBook, Books.isAutoKey, Books.groupRank
 local lowerKey, byTitle, sortEntries, filterBooks = Books.lowerKey, Books.byTitle, Books.sortEntries, Books.filterBooks
 local countDone, booksAndDone, RANK, AUTO = Books.countDone, Books.booksAndDone, Books.RANK, Books.AUTO
 local Cell = dofile(GRID_DIR .. "/cell.lua")
 local GridCell = Cell.GridCell
 local Pager = package.loaded.aire_screen.Pager
--- Miniaturas de portadas en disco (ya escaladas a la celda) y caché LRU
+-- Miniaturas de portadas en disco (ya escaladas a la celda), caché LRU y caché de Librería
 local Thumbs = dofile(GRID_DIR .. "/thumbs.lua")
 local Covers = dofile(GRID_DIR .. "/covers.lua")({ getBIM = getBIM, Thumbs = Thumbs })
+local Library = dofile(GRID_DIR .. "/library.lua")({
+    scanBooks = Books.scanBooks,
+    loadMetadataUnder = loadMetadataUnder,
+})
 -- Herramientas de prueba (devtools.lua, opcional): las fija el mixin
 local TEST = nil
 
@@ -252,10 +256,8 @@ return function(Aire, ctx)
     P.library = {
         load = function(self, L)
             local root = libRoot()
-            local files = {}
-            scanBooks(root, files, 1)
             local BIM = getBIM()
-            local meta = loadMetadataUnder(BIM, root)
+            local files, meta = Library.get(root, BIM)
             local books, by_series, missing = {}, {}, {}
             for _i, f in ipairs(files) do
                 local m = meta[f.path]
@@ -680,11 +682,16 @@ return function(Aire, ctx)
                     UIManager:scheduleIn(2, self._gv_poll)
                     return
                 end
+                Library.invalidate()
                 if self:isGridViewVisible() then self:reloadGridView(self.view) end
             end
         end
         UIManager:unschedule(self._gv_poll)
         UIManager:scheduleIn(2, self._gv_poll)
+    end
+
+    function Aire:invalidateLibraryCache()
+        Library.invalidate()
     end
 
     -------------------------------------------------------------------------
@@ -701,6 +708,7 @@ return function(Aire, ctx)
     end
 
     function Aire:reloadGridView(kind)
+        if kind == "library" then Library.invalidate() end
         self:freeGridCovers(kind)
         self:loadGridView(kind)
         if self.view == kind then self:refreshGridView() end
