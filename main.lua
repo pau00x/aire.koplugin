@@ -389,8 +389,10 @@ function Aire:showHome()
         -- estadísticas: los widgets vuelven a leer sus datos
         if self.invalidateWidgetData then self:invalidateWidgetData() end
     end
-    config.mode = "library"
-    saveConfig()
+    if config.mode ~= "library" then
+        config.mode = "library"
+        saveConfig()
+    end
     if self.closeGridViews then self:closeGridViews(true) end
     if self.closeStatsView then self:closeStatsView() end
     self.view = "home"
@@ -409,8 +411,10 @@ end
 
 function Aire:showExplorer()
     if self.closeGridViews then self:closeGridViews() end
-    config.mode = "explorer"
-    saveConfig()
+    if config.mode ~= "explorer" then
+        config.mode = "explorer"
+        saveConfig()
+    end
     self:showFiles(false)
 end
 
