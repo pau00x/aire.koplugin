@@ -1,8 +1,8 @@
 --[[
     aire.koplugin/views/grid/cell.lua
-    Widgets de las vistas de cuadrícula (views/grid.lua): la celda de una
+    Widgets de las vistas de cuadrícula (views/grid/init.lua): la celda de una
     portada o de un grupo (GridCell). Los puntos de página son los comunes
-    (common/screen.lua).
+    (ui/screen.lua).
     GridCell.state = { TEST, CONFIG }: lo rellena el mixin de grid.lua
     (herramientas de prueba de devtools.lua, opcionales).
 --]]

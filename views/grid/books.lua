@@ -1,6 +1,6 @@
 --[[
     aire.koplugin/views/grid/books.lua
-    Datos de las vistas de cuadrícula (views/grid.lua): buscar libros en la
+    Datos de las vistas de cuadrícula (views/grid/init.lua): buscar libros en la
     carpeta de inicio, leer sus metadatos de CoverBrowser, agrupar, ordenar y
     filtrar. Sin widgets.
 --]]

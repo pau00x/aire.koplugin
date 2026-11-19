@@ -10,7 +10,7 @@ local TouchMenu = require("ui/widget/touchmenu")
 local logger = require("logger")
 local userpatch = require("userpatch")
 local Screen = Device.screen
-local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (ui/screen.lua)
 
 -- (Las opciones de Interfaz del menú se quitaron: todo activado siempre)
 local function uiOpt(_key) return true end
@@ -54,7 +54,7 @@ end
 
 -- Medidas compartidas por varias piezas (hojas inferiores y menú superior)
 -- stylua: ignore start
-local SHEET = package.loaded.aire_screen.SHEET -- medidas de las hojas (common/screen.lua)
+local SHEET = package.loaded.aire_screen.SHEET -- medidas de las hojas (ui/screen.lua)
 local SHEET_MARGIN              = SHEET.MARGIN
 local SHEET_RADIUS              = SHEET.RADIUS
 local MENU_SIDE_INSET           = SHEET.MENU_SIDE_INSET

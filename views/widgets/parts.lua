@@ -1,6 +1,6 @@
 --[[
     aire.koplugin/views/widgets/parts.lua
-    Piezas de los widgets de Inicio (views/widgets.lua): formatos (tiempo,
+    Piezas de los widgets de Inicio (views/widgets/init.lua): formatos (tiempo,
     tamaño), utilidades (eventos, archivos, luz), icono blanco, hoja de
     opciones (OptionSheet), hueco vacío (WidgetSlot) y celda (WidgetCell).
 --]]
@@ -82,7 +82,7 @@ end
 --                    callback = fn(sheet), separator = bool }, ... }
 --   buttons   -> { { text, callback = fn(sheet), primary = bool }, ... }
 ---------------------------------------------------------------------------
--- Hoja común (common/sheet.lua): marco, cierre y refresco; aquí solo el contenido
+-- Hoja común (ui/sheet.lua): marco, cierre y refresco; aquí solo el contenido
 local OptionSheet = package.loaded.aire_sheet.Sheet:extend{
     title = nil, rows_fn = nil, buttons = nil, S = nil, face = nil, tappable = nil, on_close = nil,
     columns = 1, -- 2: filas en dos columnas (p. ej. elegir widget)
@@ -107,7 +107,7 @@ function OptionSheet:buildButtons()
 end
 
 function OptionSheet:buildContent(inner_w)
-    -- Piezas comunes de las hojas (common/sheet.lua): título, filas y botones
+    -- Piezas comunes de las hojas (ui/sheet.lua): título, filas y botones
     local Sh = package.loaded.aire_sheet
     local S = self.S
     local content = VerticalGroup:new{ align = "left" }

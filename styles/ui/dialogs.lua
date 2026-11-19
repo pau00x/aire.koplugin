@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/dialogs.lua
     Diálogos y avisos: esquinas redondeadas, botones y títulos limpios, InfoMessage/ConfirmBox centrados, 'Abriendo «Título»…' y avisos rápidos.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua).
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua).
 --]]
 
 local B = ...

@@ -1,6 +1,6 @@
 --[[
     aire.koplugin/views/stats/charts.lua
-    Gráficos de la pestaña Estadísticas (views/stats.lua): barras de la semana,
+    Gráficos de la pestaña Estadísticas (views/stats/init.lua): barras de la semana,
     barras de la recapitulación y la cuadrícula del calendario del mes.
     Uso: dofile(".../charts.lua")(Data)  (Data = views/stats/data.lua ya cargado)
 --]]

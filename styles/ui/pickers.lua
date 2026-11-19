@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/pickers.lua
     Controles dentro de las hojas: números (− valor + y barra), fecha y hora, listas de opciones y títulos sin línea.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua
     y lo que exporta styles/ui/sheets.lua).
 --]]
 

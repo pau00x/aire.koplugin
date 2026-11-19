@@ -212,7 +212,7 @@ return function(Aire, ctx)
         }
     end
 
-    -- Dock de las pantallas completas (common/screen.lua decide cuándo sale y
+    -- Dock de las pantallas completas (ui/screen.lua decide cuándo sale y
     -- dónde va): las pestañas de Inicio, sin ninguna marcada; al tocar una se
     -- cierra la pantalla. Solo con la Pantalla de inicio activada (si no,
     -- llevaría a pestañas que no existen).
@@ -238,7 +238,7 @@ return function(Aire, ctx)
     ---------------------------------------------------------------------------
     -- Acciones
     ---------------------------------------------------------------------------
-    -- Hoja para elegir (common/sheet.lua): el modo actual, relleno
+    -- Hoja para elegir (ui/sheet.lua): el modo actual, relleno
     function Aire:showModeSelector()
         package.loaded.aire_sheet.showChoices{
             title = _("Main view"),

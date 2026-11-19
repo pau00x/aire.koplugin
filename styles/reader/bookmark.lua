@@ -1,0 +1,285 @@
+--[[
+    aire.koplugin/styles/reader/bookmark.lua
+    Rediseño moderno (Opción C sin píldora) de ReaderBookmark ("Marcadores y notas"):
+      - Cada marcador en tarjeta blanca redondeada (radius S(10), borde gris fino)
+        con el alto de su contenido (hasta 6 por página)
+      - Cabecera superior: TIPO · CAPÍTULO · FECHA (traducida) a la izquierda y página (sin píldora) a la derecha
+      - Cita en negrita y bloque gris interior si tiene nota personal
+      - Subtítulo con Título · Autor cuando no hay filtro activo
+--]]
+
+local datetime = require("datetime")
+local FrameContainer = require("ui/widget/container/framecontainer")
+local Geom = require("ui/geometry")
+local LeftContainer = require("ui/widget/container/leftcontainer")
+local OverlapGroup = require("ui/widget/overlapgroup")
+local ReaderBookmark = require("apps/reader/modules/readerbookmark")
+local RightContainer = require("ui/widget/container/rightcontainer")
+local TextBoxWidget = require("ui/widget/textboxwidget")
+local TextWidget = require("ui/widget/textwidget")
+local UIManager = require("ui/uimanager")
+local VerticalGroup = require("ui/widget/verticalgroup")
+local VerticalSpan = require("ui/widget/verticalspan")
+local logger = require("logger")
+local _ = require("gettext")
+local AireUI = package.loaded.aire_ui
+local safeWrap = package.loaded.aire_ui.safeWrap
+local TAG = "Aire/Bookmark"
+local S, face, GRAY_DARK, GRAY_CARD = AireUI.S, AireUI.face, AireUI.GRAY_DARK, AireUI.GRAY_CARD
+
+if ReaderBookmark._aire_bm_styled then return end
+ReaderBookmark._aire_bm_styled = true
+
+
+
+local TYPE_LABELS = {
+    note = _("NOTE"),
+    highlight = _("HIGHLIGHT"),
+    bookmark = _("BOOKMARK"),
+}
+
+-- "2026-11-17 18:43:00" -> fecha corta traducida por KOReader (día de la semana, mes, día, año)
+local function shortDate(dt)
+    local y, m, d = dt:match("^(%d%d%d%d)-(%d%d)-(%d%d)")
+    if not y then return dt:sub(1, 10) end
+    local secs = os.time{ year = tonumber(y), month = tonumber(m), day = tonumber(d), hour = 12 }
+    local ok, str = pcall(datetime.secondsToDate, secs, true)
+    return ok and str or dt:sub(1, 10)
+end
+
+-- Mantener pulsado: la tarjeta en negro un momento y los detalles. KOReader
+-- invertía un rectángulo que ya no coincide con la tarjeta (franja negra) y no
+-- hacía nada si aún no tenía su posición; en el Kindle no se abrían.
+
+-- Tarjeta con el alto de su contenido (hasta item_h): KOReader reparte el alto
+-- de la página entre items_per_page y las tarjetas cortas dejaban mucho hueco.
+-- El MenuItem se encoge al alto de la tarjeta (su dimen es también la zona táctil).
+local function styleBookmarkItem(item, item_w, item_h, pad_h)
+    local entry = item.entry
+    if not entry or item._aire_bm_card_done then return end
+    item._aire_bm_card_done = true
+    -- Tarjeta común (ui/list.lua): TIPO · CAPÍTULO · FECHA arriba con la
+    -- página a la derecha, el subrayado (normal: es un elemento final) con el
+    -- alto que quepa y, si hay nota, su recuadro gris debajo (propio de aquí)
+    local Lst = package.loaded.aire_list
+    local L = package.loaded.aire_screen.LIST
+    local card_w, max_card_h, gap_b = Lst.geometry(item_w, item_h, pad_h)
+
+    local btype = entry.type
+    local type_lbl = TYPE_LABELS[btype] or (entry.note and TYPE_LABELS.note) or TYPE_LABELS.bookmark
+    local meta_parts = { type_lbl }
+    if type(entry.chapter) == "string" and entry.chapter ~= "" then table.insert(meta_parts, entry.chapter) end
+    if type(entry.datetime) == "string" and entry.datetime ~= "" then
+        table.insert(meta_parts, shortDate(entry.datetime))
+    end
+    local page_str = entry.mandatory and tostring(entry.mandatory) or ""
+    -- Texto principal: el subrayado sin el icono ni la nota que KOReader le añade
+    -- (entry.text); la nota va solo en el recuadro gris
+    local main_txt = entry.text_orig
+    if type(main_txt) ~= "string" or main_txt == "" then main_txt = entry.text or "" end
+    local note_txt = type(entry.note) == "string" and entry.note ~= "" and entry.note or nil
+
+    local card = Lst.card({
+        meta = table.concat(meta_parts, " · "),
+        right = page_str ~= "" and { text = page_str, strong = entry.bold == true } or nil,
+        title = main_txt, title_lines = "fill", dim = entry.mandatory_dim,
+        body = note_txt and function(inner_w)
+            local note_pad = S(6)
+            local tb = TextBoxWidget:new{ text = note_txt, face = face(false, L.SUB), fgcolor = GRAY_DARK,
+                bgcolor = GRAY_CARD, width = inner_w - 2 * note_pad, padding = 0 }
+            local lh = tb.line_height_px or tb:getLineHeight()
+            if tb:getSize().h > 2 * lh then
+                tb:free()
+                tb = TextBoxWidget:new{ text = note_txt, face = face(false, L.SUB), fgcolor = GRAY_DARK,
+                    bgcolor = GRAY_CARD, width = inner_w - 2 * note_pad, padding = 0,
+                    height = 2 * lh, height_overflow_show_ellipsis = true }
+            end
+            return FrameContainer:new{ width = inner_w, bordersize = 0, background = GRAY_CARD,
+                radius = S(6), padding = note_pad, tb }
+        end or nil,
+        h = max_card_h, fit = true,
+    }, card_w)
+    Lst.place(item, card, item_w, pad_h, { gap = gap_b, fit = true, max_h = max_card_h })
+end
+
+safeWrap(ReaderBookmark, "onShowBookmark", function(orig_onShowBookmark, self, ...)
+    local res = orig_onShowBookmark(self, ...)
+    local bm_menu = self.bookmark_menu and self.bookmark_menu[1]
+    if bm_menu and not bm_menu._aire_bm_hooked then
+        bm_menu._aire_bm_hooked = true
+        bm_menu.with_dots = false
+        bm_menu.is_borderless = true
+        bm_menu.items_per_page = 6
+        bm_menu.items_max_lines = nil
+        if bm_menu._recalculateDimen then bm_menu:_recalculateDimen(false) end
+
+        if bm_menu.title_bar and bm_menu.title_bar.setSubTitle then
+            local sub = package.loaded.aire_ui.bookSubtitle(self.ui)
+            if sub ~= "" then
+                bm_menu.title_bar._aire_default_subtitle = sub
+                if not bm_menu.subtitle or bm_menu.subtitle == "" then
+                    bm_menu.title_bar:setSubTitle(sub, true)
+                end
+            end
+        end
+
+        safeWrap(bm_menu, "updateItems", function(orig_update, self, select_number, ...)
+            orig_update(self, select_number, ...)
+            if not self.item_group then return end
+            -- Filas con el margen común (ui/list.lua)
+            package.loaded.aire_list.eachItem(self, function(child, avail_w, ih, pad_h)
+                styleBookmarkItem(child, avail_w, ih, pad_h)
+            end, S(84))
+        end, TAG)
+        bm_menu:updateItems(1)
+        UIManager:setDirty(bm_menu, "ui")
+    end
+    return res
+end, TAG)
+
+--===========================================================================
+-- Detalles de un marcador (mantener pulsado en la lista, o desde el lector):
+-- hoja inferior con la misma tarjeta que la lista (tipo · capítulo · fecha,
+-- página, texto y nota en gris), acciones en píldoras ("Ir al marcador" en
+-- negro) y los puntos de página abajo: deslizar a los lados cambia de
+-- marcador. Mismas acciones y mismas actualizaciones que el TextViewer de KOReader.
+--===========================================================================
+local ConfirmBox = require("ui/widget/confirmbox")
+local HorizontalGroup = require("ui/widget/horizontalgroup")
+local HorizontalSpan = require("ui/widget/horizontalspan")
+
+-- Pantallas comunes (ui/pages.lua, cargado una vez en main.lua)
+local function getP() return package.loaded.aire_pages end
+
+-- Hoja común (ui/sheet.lua): marco, tocar fuera / Atrás y refresco
+local DetailsSheet = package.loaded.aire_sheet.Sheet
+
+local function showDetailsSheet(bookmark, item_or_index)
+    local P = getP()
+    local bm_menu = bookmark.bookmark_menu and bookmark.bookmark_menu[1]
+    local item_table, item, item_idx
+    if bm_menu then
+        item_table = bm_menu.item_table
+        item = item_or_index
+        item_idx = item.idx
+    else
+        item_table = bookmark.ui.annotation.annotations
+        item_idx = item_or_index
+        item = item_table[item_idx]
+    end
+    if not item then return false end
+    local items_nb = #item_table
+    local not_select_mode = not (bm_menu and bm_menu.select_count) and not bookmark.ui.highlight.select_mode
+
+    local sheet
+    local function edit_details_callback()
+        bookmark.details_updated = true
+        UIManager:close(sheet)
+        bookmark:showBookmarkDetails(item_or_index)
+    end
+    local function close_callback()
+        if bookmark.details_updated then
+            bookmark.details_updated = nil
+            if bm_menu then
+                if bookmark.show_edited_only then
+                    for i = items_nb, 1, -1 do
+                        if not item_table[i].text_edited then table.remove(item_table, i) end
+                    end
+                end
+                bookmark:updateBookmarkList(item_table, -1)
+            elseif bookmark.view.highlight.note_mark then
+                UIManager:setDirty(bookmark.dialog, "ui")
+            end
+        end
+    end
+
+    local in_w = package.loaded.aire_screen.sheetInnerWidth()
+
+    -- Cabecera: TIPO · capítulo · fecha y la página a la derecha
+    local btype = ReaderBookmark.getBookmarkType(item)
+    local meta = { TYPE_LABELS[btype] or TYPE_LABELS.bookmark }
+    if type(item.chapter) == "string" and item.chapter ~= "" then table.insert(meta, item.chapter) end
+    if type(item.datetime) == "string" and item.datetime ~= "" then table.insert(meta, shortDate(item.datetime)) end
+    local page_str = item.mandatory or (bookmark.getBookmarkPageString and bookmark:getBookmarkPageString(item.page)) or ""
+    local page_w = TextWidget:new{ text = tostring(page_str), face = face(false, 12), fgcolor = GRAY_DARK, padding = 0 }
+    local meta_w = TextWidget:new{ text = table.concat(meta, " · "), face = face(true, 10), fgcolor = GRAY_DARK,
+        max_width = in_w - page_w:getSize().w - S(8), padding = 0 }
+    local top_h = math.max(meta_w:getSize().h, page_w:getSize().h)
+    local text = item.text_orig or item.text or ""
+    local note = type(item.note) == "string" and item.note ~= "" and item.note or nil
+
+    local content = VerticalGroup:new{
+        align = "left",
+        OverlapGroup:new{
+            dimen = Geom:new{ w = in_w, h = top_h },
+            LeftContainer:new{ dimen = Geom:new{ w = in_w, h = top_h }, meta_w },
+            RightContainer:new{ dimen = Geom:new{ w = in_w, h = top_h }, page_w },
+        },
+        VerticalSpan:new{ width = S(6) },
+        P.text(text, in_w, { bold = true, size = 14, max_lines = 8 }),
+    }
+    if note then
+        local npad = S(8)
+        table.insert(content, VerticalSpan:new{ width = S(8) })
+        table.insert(content, FrameContainer:new{
+            width = in_w, bordersize = 0, background = GRAY_CARD, radius = S(8), padding = npad,
+            P.text(note, in_w - 2 * npad, { size = 13, color = GRAY_DARK, bgcolor = GRAY_CARD, max_lines = 5 }),
+        })
+    end
+    -- Acciones
+    local gap = S(8)
+    local half = math.floor((in_w - gap) / 2)
+    table.insert(content, VerticalSpan:new{ width = S(14) })
+    table.insert(content, HorizontalGroup:new{
+        align = "center",
+        package.loaded.aire_sheet.button(note and _("Edit note") or _("Add note"), half, function()
+            bookmark:setBookmarkNote(item_or_index, nil, nil, edit_details_callback)
+        end, { disabled = not not_select_mode }),
+        HorizontalSpan:new{ width = gap },
+        package.loaded.aire_sheet.button(_("Edit text"), half, function()
+            bookmark:editHighlightedText(item_or_index, edit_details_callback)
+        end, { disabled = not (item.drawer and not_select_mode),
+               on_hold = item.text_edited and not_select_mode and function()
+                   bookmark:setHighlightedText(item_or_index, nil, edit_details_callback)
+               end or nil }),
+    })
+    table.insert(content, VerticalSpan:new{ width = gap })
+    table.insert(content, HorizontalGroup:new{
+        align = "center",
+        package.loaded.aire_sheet.button(_("Remove bookmark"), half, function()
+            UIManager:show(ConfirmBox:new{
+                text = _("Remove this bookmark?"),
+                ok_text = _("Remove"),
+                ok_callback = function()
+                    UIManager:close(sheet)
+                    bookmark:removeItem(item, not bm_menu and item_idx)
+                    if bm_menu then
+                        table.remove(item_table, item_idx)
+                        bookmark:updateBookmarkList(item_table, -1)
+                    end
+                end,
+            })
+        end, { disabled = not not_select_mode }),
+        HorizontalSpan:new{ width = gap },
+        package.loaded.aire_sheet.button(_("Go to bookmark"), half, function()
+            UIManager:close(sheet)
+            close_callback()
+            bookmark.ui.link:addCurrentLocationToStack()
+            bookmark:gotoBookmark(item.page, item.pos0)
+            if bm_menu then bm_menu.close_callback() end
+        end, { primary = true, disabled = bm_menu and bm_menu.select_count ~= nil }),
+    })
+    -- Un solo marcador: sin puntos de página ni deslizar a los lados
+    sheet = DetailsSheet:new{ close_callback = close_callback, content = content }
+    UIManager:show(sheet)
+    return true
+end
+
+safeWrap(ReaderBookmark, "showBookmarkDetails", function(orig_details, self, item_or_index, ...)
+    local ok, res = pcall(showDetailsSheet, self, item_or_index)
+    if ok and res then return true end
+    if not ok then logger.warn("Aire/Bookmark: detalles:", res) end
+    return orig_details(self, item_or_index, ...)
+end, TAG)
+
+logger.dbg("Aire/Bookmark: aplicado desde el plugin")

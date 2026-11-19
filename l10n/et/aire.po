@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: styles/search.lua:59
+#: styles/reader/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "„%1” · %2 vaste"
@@ -32,93 +32,93 @@ msgstr "%1 % (ootel)"
 msgid "%1 % read"
 msgstr "%1 % loetud"
 
-#: styles/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
+#: styles/plugins/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid/init.lua:317 views/grid/init.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 raamat"
 msgstr[1] "%1 raamatut"
 
-#: styles/bookmap.lua:100
+#: styles/reader/bookmap.lua:100
 msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 järjehoidja"
 msgstr[1] "%1 järjehoidjat"
 
-#: views/grid.lua:487 views/grid.lua:488
+#: views/grid/init.lua:487 views/grid/init.lua:488
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 kogu"
 msgstr[1] "%1 kogu"
 
-#: views/stats.lua:214
+#: views/stats/init.lua:214
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 päev"
 msgstr[1] "%1 päeva"
 
-#: styles/bookinfo.lua:240
+#: styles/filemanager/bookinfo.lua:240
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 päev tagasi"
 msgstr[1] "%1 päeva tagasi"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:643
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:303 views/stats/init.lua:643
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 lugemispäev"
 msgstr[1] "%1 lugemispäeva"
 
-#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid.lua:319
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid/init.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 lõpetatud"
 msgstr[1] "%1 lõpetatud"
 
-#: views/grid.lua:570
+#: views/grid/init.lua:570
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 lõpetatud raamat"
 msgstr[1] "%1 lõpetatud raamatut"
 
-#: styles/bookinfo.lua:247
+#: styles/filemanager/bookinfo.lua:247
 msgid "%1 month ago"
 msgid_plural "%1 months ago"
 msgstr[0] "%1 kuu tagasi"
 msgstr[1] "%1 kuud tagasi"
 
-#: styles/bookmap.lua:98
+#: styles/reader/bookmap.lua:98
 msgid "%1 page left"
 msgid_plural "%1 pages left"
 msgstr[0] "%1 lk jäänud"
 msgstr[1] "%1 lk jäänud"
 
-#: styles/readerprogress.lua:175
+#: styles/plugins/readerprogress.lua:175
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 lk loetud"
 msgstr[1] "%1 lk loetud"
 
-#: styles/bookinfo.lua:591 styles/bookinfo.lua:595 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
+#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:302
 msgid "%1 pp."
 msgstr "%1 lk"
 
-#: views/stats.lua:621
+#: views/stats/init.lua:621
 msgid "%1 pp./h"
 msgstr "%1 lk/h"
 
-#: styles/shortcuts.lua:95
+#: styles/filemanager/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 salvestatud otsetee"
 msgstr[1] "%1 salvestatud otseteed"
 
-#: views/grid.lua:318
+#: views/grid/init.lua:318
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 sari"
 msgstr[1] "%1 sarja"
 
-#: styles/bookinfo.lua:243
+#: styles/filemanager/bookinfo.lua:243
 msgid "%1 week ago"
 msgid_plural "%1 weeks ago"
 msgstr[0] "%1 nädal tagasi"
@@ -128,11 +128,11 @@ msgstr[1] "%1 nädalat tagasi"
 msgid "%1, %2 %3"
 msgstr "%1, %3. %2"
 
-#: styles/toc.lua:45
+#: styles/reader/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% raamatust"
 
-#: styles/toc.lua:44
+#: styles/reader/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% raamatust · peatükis %d lk jäänud"
 
@@ -142,7 +142,7 @@ msgid_plural "%d books"
 msgstr[0] ""
 msgstr[1] ""
 
-#: styles/bookinfo.lua:959 styles/bookstatus.lua:63
+#: styles/filemanager/bookinfo.lua:959 styles/filemanager/bookstatus.lua:63
 msgid "%d of 5 stars"
 msgstr "%d / 5 tärni"
 
@@ -150,11 +150,11 @@ msgstr "%d / 5 tärni"
 msgid "+ Brightness"
 msgstr "+ Eredus"
 
-#: views/stats.lua:478
+#: views/stats/init.lua:478
 msgid "+%1 more"
 msgstr "+%1 veel"
 
-#: styles/bookinfo.lua:958 styles/bookstatus.lua:62
+#: styles/filemanager/bookinfo.lua:958 styles/filemanager/bookstatus.lua:62
 msgid "1 of 5 stars"
 msgstr "1 / 5 tärni"
 
@@ -174,7 +174,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 veergu"
 
-#: views/update.lua:293
+#: views/update_sheet.lua:293
 msgid "A new version is available"
 msgstr "Saadaval on uus versioon"
 
@@ -182,23 +182,23 @@ msgstr "Saadaval on uus versioon"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:51
+#: styles/reader/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "AKTIIVNE OTSING"
 
-#: views/widgets.lua:349
+#: views/widgets/init.lua:349
 msgid "ADDED"
 msgstr "LISATUD"
 
-#: views/widgets.lua:597
+#: views/widgets/init.lua:597
 msgid "Active"
 msgstr "Aktiivne"
 
-#: views/stats.lua:192
+#: views/stats/init.lua:192
 msgid "Activity summary"
 msgstr "Tegevuse kokkuvõte"
 
-#: styles/bookmark.lua:235
+#: styles/reader/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -207,12 +207,12 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:53
+#: styles/filemanager/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
 
-#: dev/devtools.lua:640 views/widgets.lua:1116
+#: dev/devtools.lua:640 views/widgets/init.lua:1116
 msgid "Add widget"
 msgstr "Lisa vidin"
 
@@ -224,15 +224,15 @@ msgstr "Täpsemalt"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:229 views/update.lua:286
+#: views/update_sheet.lua:229 views/update_sheet.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:491
+#: views/power.lua:147 views/update_sheet.lua:491
 msgid "Aire %1 available"
 msgstr "Aire %1 saadaval"
 
-#: views/update.lua:142
+#: views/update_sheet.lua:142
 msgid "Aire %1 installed"
 msgstr "Aire %1 paigaldatud"
 
@@ -245,11 +245,11 @@ msgstr "Aire hoiatused (crash.log)"
 msgid "Alarm"
 msgstr ""
 
-#: dev/devtools.lua:662 views/grid.lua:47 views/grid.lua:53
+#: dev/devtools.lua:662 views/grid/init.lua:47 views/grid/init.lua:53
 msgid "All"
 msgstr "Kõik"
 
-#: styles/statspages.lua:240 styles/statspages.lua:243
+#: styles/plugins/statspages.lua:240 styles/plugins/statspages.lua:243
 #, koreader
 msgid "All books"
 msgstr ""
@@ -258,16 +258,16 @@ msgstr ""
 msgid "All finished"
 msgstr "Kõik lõpetatud"
 
-#: views/grid.lua:572 views/widgets.lua:441
+#: views/grid/init.lua:572 views/widgets/init.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:578
+#: views/stats/init.lua:578
 msgid "Annual"
 msgstr "Aasta"
 
-#: views/stats.lua:278
+#: views/stats/init.lua:278
 msgid "Annual recap"
 msgstr "Aasta kokkuvõte"
 
@@ -275,7 +275,7 @@ msgstr "Aasta kokkuvõte"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
+#: dev/devtools.lua:695 menu.lua:331 styles/filemanager/sortwidget.lua:122 styles/filemanager/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -290,7 +290,7 @@ msgctxt "aire"
 msgid "August"
 msgstr "august"
 
-#: dev/devtools.lua:526 dev/devtools.lua:616 dev/devtools.lua:666 dev/devtools.lua:832 views/grid.lua:61
+#: dev/devtools.lua:526 dev/devtools.lua:616 dev/devtools.lua:666 dev/devtools.lua:832 views/grid/init.lua:61
 msgid "Author"
 msgstr "Autor"
 
@@ -306,7 +306,7 @@ msgstr "Automaatsed kogud žanri järgi (märksõna)"
 msgid "Automatic tests"
 msgstr "Automaattestid"
 
-#: views/grid.lua:885
+#: views/grid/init.lua:885
 msgid "Automatic: books by this author"
 msgstr "Automaatne: selle autori raamatud"
 
@@ -314,42 +314,42 @@ msgstr "Automaatne: selle autori raamatud"
 msgid "Average speed"
 msgstr ""
 
-#: styles/statspages.lua:81
+#: styles/plugins/statspages.lua:81
 #, koreader
 msgid "Average time per day"
 msgstr ""
 
-#: styles/statspages.lua:84
+#: styles/plugins/statspages.lua:84
 #, koreader
 msgid "Average time per page"
 msgstr ""
 
-#: styles/bookinfo.lua:357
+#: styles/filemanager/bookinfo.lua:357
 msgid "BOOK"
 msgstr "RAAMAT"
 
-#: styles/bookmark.lua:38
+#: styles/reader/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "JÄRJEHOIDJA"
 
-#: styles/bookinfo.lua:216
+#: styles/filemanager/bookinfo.lua:216
 #, koreader
 msgid "Basque"
 msgstr ""
 
-#: dev/devtools.lua:645 views/topbar.lua:42 views/widgets.lua:502
+#: dev/devtools.lua:645 views/topbar.lua:42 views/widgets/init.lua:502
 msgid "Battery"
 msgstr "Aku"
 
-#: views/stats.lua:661
+#: views/stats/init.lua:661
 msgid "Best day"
 msgstr "Parim päev"
 
-#: views/stats.lua:664
+#: views/stats/init.lua:664
 msgid "Best month"
 msgstr "Parim kuu"
 
-#: styles/bookstatus.lua:182
+#: styles/filemanager/bookstatus.lua:182
 msgid "Book"
 msgstr "Raamat"
 
@@ -358,12 +358,12 @@ msgstr "Raamat"
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:973 styles/bookmap.lua:259
+#: dev/devtools.lua:973 styles/reader/bookmap.lua:259
 #, koreader
 msgid "Book map"
 msgstr ""
 
-#: styles/statspages.lua:82
+#: styles/plugins/statspages.lua:82
 #, koreader
 msgid "Book marked as finished"
 msgstr ""
@@ -372,7 +372,7 @@ msgstr ""
 msgid "Book sheet"
 msgstr ""
 
-#: styles/statspages.lua:81
+#: styles/plugins/statspages.lua:81
 #, koreader
 msgid "Book start date"
 msgstr ""
@@ -381,7 +381,7 @@ msgstr ""
 msgid "Book stats"
 msgstr ""
 
-#: styles/bookstatus.lua:352
+#: styles/filemanager/bookstatus.lua:352
 #, koreader
 msgid "Book status"
 msgstr ""
@@ -394,7 +394,7 @@ msgstr ""
 msgid "Book status (with data)"
 msgstr ""
 
-#: views/widgets.lua:550
+#: views/widgets/init.lua:550
 #, koreader
 msgid "Bookmarks"
 msgstr ""
@@ -407,7 +407,7 @@ msgstr ""
 msgid "Bookmarks (with data)"
 msgstr ""
 
-#: views/widgets.lua:549
+#: views/widgets/init.lua:549
 msgid "Bookmarks and highlights"
 msgstr "Järjehoidjad ja esiletõstud"
 
@@ -416,16 +416,16 @@ msgstr "Järjehoidjad ja esiletõstud"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:846
+#: views/grid/init.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "Raamatuid ei kustutata, ainult kogu."
 
-#: styles/statspages.lua:248 styles/statspages.lua:249
+#: styles/plugins/statspages.lua:248 styles/plugins/statspages.lua:249
 #, koreader
 msgid "Books by month"
 msgstr ""
 
-#: styles/statspages.lua:245 styles/statspages.lua:246
+#: styles/plugins/statspages.lua:245 styles/plugins/statspages.lua:246
 #, koreader
 msgid "Books by week"
 msgstr ""
@@ -434,23 +434,23 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "Alumised menüüd (lehed)"
 
-#: styles/bookmap.lua:105
+#: styles/reader/bookmap.lua:105
 msgid "CURRENT CHAPTER"
 msgstr "PRAEGUNE PEATÜKK"
 
-#: styles/toc.lua:61
+#: styles/reader/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "PRAEGUNE PEATÜKK · LEHEKÜLG %d"
 
-#: styles/readerprogress.lua:172
+#: styles/plugins/readerprogress.lua:172
 msgid "CURRENT SESSION"
 msgstr "PRAEGUNE SEANSS"
 
-#: views/home.lua:382 views/stats.lua:231
+#: views/home.lua:382 views/stats/init.lua:231
 msgid "CURRENTLY READING"
 msgstr "PRAEGU LOEN"
 
-#: styles/calendar.lua:115 styles/calendar.lua:230 views/stats.lua:299
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:299
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -466,30 +466,30 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/filemanager/sortwidget.lua:127 views/stats/init.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
 
-#: views/widgets.lua:496
+#: views/widgets/init.lua:496
 msgid "Capture"
 msgstr "Jäädvusta"
 
-#: styles/bookinfo.lua:216
+#: styles/filemanager/bookinfo.lua:216
 #, koreader
 msgid "Catalan"
 msgstr ""
 
-#: views/widgets.lua:1178
+#: views/widgets/init.lua:1178
 msgid "Change"
 msgstr "Muuda"
 
-#: styles/toc.lua:144
+#: styles/reader/toc.lua:144
 #, koreader
 msgid "Chapter"
 msgstr ""
 
-#: styles/skim.lua:81
+#: styles/reader/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Peatükk %1/%2"
 
@@ -505,19 +505,19 @@ msgstr ""
 msgid "Chapter 8"
 msgstr ""
 
-#: views/widgets.lua:507
+#: views/widgets/init.lua:507
 msgid "Charged"
 msgstr "Laetud"
 
-#: views/widgets.lua:507
+#: views/widgets/init.lua:507
 msgid "Charging"
 msgstr "Laeb"
 
-#: views/update.lua:440
+#: views/update_sheet.lua:440
 msgid "Check every week"
 msgstr "Kontrolli iga nädal"
 
-#: views/update.lua:433
+#: views/update_sheet.lua:433
 msgid "Check for updates"
 msgstr "Kontrolli uuendusi"
 
@@ -525,7 +525,7 @@ msgstr "Kontrolli uuendusi"
 msgid "Check patches and plugins on startup"
 msgstr "Kontrolli käivitamisel paiku ja pluginaid"
 
-#: styles/bookinfo.lua:218
+#: styles/filemanager/bookinfo.lua:218
 #, koreader
 msgid "Chinese"
 msgstr ""
@@ -538,12 +538,12 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Kustuta kaanepisipildid"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/filemanager/sortwidget.lua:120 styles/filemanager/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
 
-#: views/grid.lua:67
+#: views/grid/init.lua:67
 msgid "Collection"
 msgstr "Kogu"
 
@@ -551,11 +551,11 @@ msgstr "Kogu"
 msgid "Collection name"
 msgstr ""
 
-#: views/grid.lua:67
+#: views/grid/init.lua:67
 msgid "Collection order"
 msgstr "Kogu järjekord"
 
-#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
+#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -564,11 +564,11 @@ msgstr ""
 msgid "Collections (test data)"
 msgstr ""
 
-#: views/grid.lua:76
+#: views/grid/init.lua:76
 msgid "Collections order"
 msgstr "Kogude järjekord"
 
-#: common/compat.lua:182
+#: core/compat.lua:182
 msgid "Compatibility"
 msgstr "Ühilduvus"
 
@@ -576,7 +576,7 @@ msgstr "Ühilduvus"
 msgid "Confirmation"
 msgstr ""
 
-#: views/widgets.lua:470
+#: views/widgets/init.lua:470
 msgid "Connected"
 msgstr "Ühendatud"
 
@@ -599,7 +599,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:351
+#: views/update_sheet.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "Uuendusi ei õnnestunud kontrollida. Proovi hiljem uuesti."
 
@@ -610,15 +610,15 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:212
+#: views/update_sheet.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Uuendust ei õnnestunud paigaldada. Aire %1 on endiselt paigaldatud."
 
-#: views/widgets.lua:203
+#: views/widgets/init.lua:203
 msgid "Could not read database"
 msgstr "Andmebaasi ei õnnestunud lugeda"
 
-#: views/widgets.lua:442
+#: views/widgets/init.lua:442
 msgid "Count: %1"
 msgstr "Loendus: %1"
 
@@ -626,17 +626,17 @@ msgstr "Loendus: %1"
 msgid "Cover thumbnails cleared"
 msgstr "Kaanepisipildid kustutatud"
 
-#: styles/statspages.lua:83
+#: styles/plugins/statspages.lua:83
 #, koreader
 msgid "Current page/Total pages"
 msgstr ""
 
-#: styles/bookinfo.lua:337
+#: styles/filemanager/bookinfo.lua:337
 #, koreader
 msgid "Current page:"
 msgstr ""
 
-#: styles/statspages.lua:106 styles/statspages.lua:427
+#: styles/plugins/statspages.lua:106 styles/plugins/statspages.lua:427
 #, koreader
 msgid "Current statistics"
 msgstr ""
@@ -645,11 +645,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Praegu loen"
 
-#: views/stats.lua:641
+#: views/stats/init.lua:641
 msgid "DAILY RHYTHM"
 msgstr "PÄEVARÜTM"
 
-#: views/stats.lua:656
+#: views/stats/init.lua:656
 msgid "Daily average"
 msgstr "Päeva keskmine"
 
@@ -657,15 +657,15 @@ msgstr "Päeva keskmine"
 msgid "Data page"
 msgstr ""
 
-#: dev/devtools.lua:706 views/grid.lua:81
+#: dev/devtools.lua:706 views/grid/init.lua:81
 msgid "Date"
 msgstr "Kuupäev"
 
-#: dev/devtools.lua:709 views/grid.lua:81
+#: dev/devtools.lua:709 views/grid/init.lua:81
 msgid "Date finished"
 msgstr "Lõpetamise kuupäev"
 
-#: views/stats.lua:659
+#: views/stats/init.lua:659
 msgid "Day %1"
 msgstr "%1. päev"
 
@@ -673,7 +673,7 @@ msgstr "%1. päev"
 msgid "Days reading"
 msgstr ""
 
-#: styles/statspages.lua:80
+#: styles/plugins/statspages.lua:80
 #, koreader
 msgid "Days reading this book"
 msgstr ""
@@ -683,33 +683,33 @@ msgctxt "aire"
 msgid "December"
 msgstr "detsember"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid.lua:847 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid/init.lua:847 views/stats/init.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats.lua:447
+#: views/stats/init.lua:447
 msgid "Delete all book stats"
 msgstr "Kustuta kogu raamatu statistika"
 
-#: views/stats.lua:451
+#: views/stats/init.lua:451
 msgid "Delete all stats?"
 msgstr "Kustutada kogu statistika?"
 
-#: styles/highlight.lua:61
+#: styles/reader/highlight.lua:61
 #, koreader
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats.lua:434
+#: views/stats/init.lua:434
 msgid "Delete minutes for this day?"
 msgstr "Kustutada selle päeva minutid?"
 
-#: views/stats.lua:430
+#: views/stats/init.lua:430
 msgid "Delete minutes from this day"
 msgstr "Kustuta selle päeva minutid"
 
-#: views/grid.lua:845
+#: views/grid/init.lua:845
 msgid "Delete the collection?"
 msgstr "Kustutada kogu?"
 
@@ -717,7 +717,7 @@ msgstr "Kustutada kogu?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:896
+#: views/grid/init.lua:896
 msgid "Delete…"
 msgstr "Kustuta…"
 
@@ -726,16 +726,16 @@ msgstr "Kustuta…"
 msgid "Description"
 msgstr ""
 
-#: dev/devtools.lua:540 dev/devtools.lua:546 views/widgets.lua:535 views/widgets.lua:536
+#: dev/devtools.lua:540 dev/devtools.lua:546 views/widgets/init.lua:535 views/widgets/init.lua:536
 #, koreader
 msgid "Dictionary"
 msgstr ""
 
-#: views/widgets.lua:481
+#: views/widgets/init.lua:481
 msgid "Disabled"
 msgstr "Keelatud"
 
-#: common/compat.lua:157
+#: core/compat.lua:157
 msgid "Disabled due to incompatibility with the Home screen:"
 msgstr "Keelatud, kuna ei ühildu avakuvaga:"
 
@@ -751,7 +751,7 @@ msgstr "Dokk"
 msgid "Documents"
 msgstr ""
 
-#: dev/devtools.lua:637 views/home.lua:217 views/widgets.lua:1002 views/widgets.lua:1184
+#: dev/devtools.lua:637 views/home.lua:217 views/widgets/init.lua:1002 views/widgets/init.lua:1184
 #, koreader
 msgid "Done"
 msgstr ""
@@ -760,21 +760,21 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:162
+#: views/update_sheet.lua:162
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:186
+#: views/update_sheet.lua:186
 msgid "Downloading… %1 of %2"
 msgstr "Allalaadimine… %1 / %2"
 
-#: styles/bookinfo.lua:217
+#: styles/filemanager/bookinfo.lua:217
 #, koreader
 msgid "Dutch"
 msgstr ""
 
-#: views/widgets.lua:1006
+#: views/widgets/init.lua:1006
 msgid "EDITING WIDGETS"
 msgstr "VIDINATE MUUTMINE"
 
@@ -790,16 +790,16 @@ msgstr "Muuda Kodu vidinaid"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:235
+#: styles/reader/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
 
-#: styles/bookinfo.lua:373
+#: styles/filemanager/bookinfo.lua:373
 msgid "Edit series"
 msgstr "Muuda sarja"
 
-#: styles/bookmark.lua:239
+#: styles/reader/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -808,12 +808,12 @@ msgstr ""
 msgid "Empty"
 msgstr "Tühi"
 
-#: views/widgets.lua:841
+#: views/widgets/init.lua:841
 msgctxt "aire"
 msgid "Empty"
 msgstr "Vidinateta"
 
-#: views/grid.lua:464
+#: views/grid/init.lua:464
 msgid "Empty collection"
 msgstr "Tühi kogu"
 
@@ -821,16 +821,16 @@ msgstr "Tühi kogu"
 msgid "Empty folder"
 msgstr "Tühi kaust"
 
-#: views/grid.lua:297
+#: views/grid/init.lua:297
 msgid "Empty series"
 msgstr "Tühi sari"
 
-#: views/widgets.lua:481
+#: views/widgets/init.lua:481
 #, koreader
 msgid "Enabled"
 msgstr ""
 
-#: styles/bookinfo.lua:216
+#: styles/filemanager/bookinfo.lua:216
 #, koreader
 msgid "English"
 msgstr ""
@@ -839,12 +839,12 @@ msgstr ""
 msgid "Epic fantasy"
 msgstr ""
 
-#: styles/statspages.lua:82
+#: styles/plugins/statspages.lua:82
 #, koreader
 msgid "Estimated finish date"
 msgstr ""
 
-#: styles/statspages.lua:80
+#: styles/plugins/statspages.lua:80
 #, koreader
 msgid "Estimated reading time left"
 msgstr ""
@@ -858,11 +858,11 @@ msgstr "Kõik, mida plugin joonistab, näidisandmetega. Lehtede vahetamiseks lib
 msgid "Exit"
 msgstr ""
 
-#: styles/bookinfo.lua:359 styles/bookinfo.lua:1034
+#: styles/filemanager/bookinfo.lua:359 styles/filemanager/bookinfo.lua:1034
 msgid "FILE"
 msgstr "FAIL"
 
-#: views/grid.lua:728
+#: views/grid/init.lua:728
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -871,11 +871,11 @@ msgstr "FILTER"
 msgid "Fantasy"
 msgstr ""
 
-#: views/widgets.lua:556
+#: views/widgets/init.lua:556
 msgid "Favorite folders"
 msgstr "Lemmikkaustad"
 
-#: dev/devtools.lua:821 views/grid.lua:341 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid/init.lua:341 views/widgets/init.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -890,21 +890,21 @@ msgstr "veebruar"
 msgid "File browser"
 msgstr ""
 
-#: styles/bookinfo.lua:334
+#: styles/filemanager/bookinfo.lua:334
 #, koreader
 msgid "File date:"
 msgstr ""
 
-#: styles/bookinfo.lua:331
+#: styles/filemanager/bookinfo.lua:331
 #, koreader
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:746
+#: views/grid/init.lua:746
 msgid "Filter"
 msgstr "Filtreeri"
 
-#: dev/devtools.lua:659 views/grid.lua:746
+#: dev/devtools.lua:659 views/grid/init.lua:746
 msgid "Filter and sort"
 msgstr "Filtreeri ja sorteeri"
 
@@ -913,7 +913,7 @@ msgstr "Filtreeri ja sorteeri"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:277 styles/bookinfo.lua:591 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
+#: styles/filemanager/bookinfo.lua:277 styles/filemanager/bookinfo.lua:591 styles/filemanager/bookstatus.lua:56 views/booksheet.lua:156 views/grid/init.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Lõpetatud"
@@ -926,7 +926,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "Lõpetatud raamatud hallilt"
 
-#: styles/imageviewer.lua:99
+#: styles/filemanager/imageviewer.lua:99
 #, koreader
 msgid "Fit"
 msgstr ""
@@ -947,12 +947,12 @@ msgstr ""
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
-#: styles/bookinfo.lua:335
+#: styles/filemanager/bookinfo.lua:335
 #, koreader
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:47 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets/init.lua:557
 msgid "Folders"
 msgstr "Kaustad"
 
@@ -973,17 +973,17 @@ msgstr ""
 msgid "Fonts"
 msgstr "Fondid"
 
-#: styles/vocabbuilder.lua:154
+#: styles/plugins/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
 
-#: styles/bookinfo.lua:332 styles/bookinfo.lua:520
+#: styles/filemanager/bookinfo.lua:332 styles/filemanager/bookinfo.lua:520
 #, koreader
 msgid "Format:"
 msgstr ""
 
-#: styles/bookinfo.lua:217
+#: styles/filemanager/bookinfo.lua:217
 #, koreader
 msgid "French"
 msgstr ""
@@ -993,7 +993,7 @@ msgstr ""
 msgid "Frontlight"
 msgstr ""
 
-#: views/widgets.lua:488
+#: views/widgets/init.lua:488
 msgid "Full refresh"
 msgstr "Täielik värskendus"
 
@@ -1001,31 +1001,31 @@ msgstr "Täielik värskendus"
 msgid "Full screens"
 msgstr "Täisekraanid"
 
-#: styles/bookinfo.lua:216
+#: styles/filemanager/bookinfo.lua:216
 #, koreader
 msgid "Galician"
 msgstr ""
 
-#: styles/bookinfo.lua:217
+#: styles/filemanager/bookinfo.lua:217
 #, koreader
 msgid "German"
 msgstr ""
 
-#: styles/gestures.lua:120
+#: styles/plugins/gestures.lua:120
 #, koreader
 msgid "Gestures in file browser"
 msgstr ""
 
-#: styles/gestures.lua:120
+#: styles/plugins/gestures.lua:120
 #, koreader
 msgid "Gestures in reader"
 msgstr ""
 
-#: styles/gestures.lua:62
+#: styles/plugins/gestures.lua:62
 msgid "Gestures set: %1"
 msgstr "Määratud žestid: %1"
 
-#: styles/bookmark.lua:264
+#: styles/reader/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1034,7 +1034,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Üles"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:156
+#: core/compat.lua:178 styles/plugins/vocabbuilder.lua:156
 msgid "Got it"
 msgstr "Selge"
 
@@ -1042,15 +1042,15 @@ msgstr "Selge"
 msgid "Grid: %1 columns"
 msgstr "Ruudustik: %1 veergu"
 
-#: styles/bookmark.lua:37
+#: styles/reader/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "ESILETÕST"
 
-#: views/stats.lua:649
+#: views/stats/init.lua:649
 msgid "HIGHLIGHTS"
 msgstr "TIPPHETKED"
 
-#: views/stats.lua:379
+#: views/stats/init.lua:379
 msgid "Hasn't arrived yet"
 msgstr "Pole veel saabunud"
 
@@ -1059,7 +1059,7 @@ msgstr "Pole veel saabunud"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:40 views/grid.lua:1227
+#: views/dock.lua:40 views/grid/init.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1068,15 +1068,15 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:608
+#: views/grid/init.lua:608
 msgid "History is empty"
 msgstr "Ajalugu on tühi"
 
-#: views/widgets.lua:1159
+#: views/widgets/init.lua:1159
 msgid "Hold does the same as tap"
 msgstr "Hoidmine teeb sama mis puudutus"
 
-#: views/widgets.lua:570
+#: views/widgets/init.lua:570
 msgid "Hold to configure"
 msgstr "Hoia seadistamiseks"
 
@@ -1105,7 +1105,7 @@ msgstr "Kodu vidinad"
 msgid "Horizontal"
 msgstr ""
 
-#: dev/devtools.lua:862 styles/imageviewer.lua:43
+#: dev/devtools.lua:862 styles/filemanager/imageviewer.lua:43
 msgid "Image"
 msgstr "Pilt"
 
@@ -1121,19 +1121,19 @@ msgstr "Kogudes kuvatakse kogu iga autori kohta, kellel on vähemalt 2 raamatut.
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Kogudes kuvatakse kogu iga märksõna kohta, millel on vähemalt 2 raamatut. Need uuenevad automaatselt ega salvestu KOReaderi kogudesse."
 
-#: views/update.lua:449
+#: views/update_sheet.lua:449
 msgid "Include beta versions"
 msgstr "Kaasa beetaversioonid"
 
-#: views/update.lua:468
+#: views/update_sheet.lua:468
 msgid "Installed version: %1"
 msgstr "Paigaldatud versioon: %1"
 
-#: views/update.lua:198
+#: views/update_sheet.lua:198
 msgid "Installing…"
 msgstr "Paigaldamine…"
 
-#: dev/devtools.lua:631 views/home.lua:212 views/widgets.lua:1154
+#: dev/devtools.lua:631 views/home.lua:212 views/widgets/init.lua:1154
 msgid "Inverted colors"
 msgstr "Pööratud värvid"
 
@@ -1145,11 +1145,11 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:145
+#: views/update_sheet.lua:145
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Seda kasutatakse pärast KOReaderi taaskäivitamist. Sinu seaded säilivad."
 
-#: styles/bookinfo.lua:217
+#: styles/filemanager/bookinfo.lua:217
 #, koreader
 msgid "Italian"
 msgstr ""
@@ -1159,7 +1159,7 @@ msgctxt "aire"
 msgid "January"
 msgstr "jaanuar"
 
-#: styles/bookinfo.lua:218
+#: styles/filemanager/bookinfo.lua:218
 #, koreader
 msgid "Japanese"
 msgstr ""
@@ -1183,7 +1183,7 @@ msgstr ""
 msgid "KOReader engine (crengine)"
 msgstr ""
 
-#: styles/bookinfo.lua:218
+#: styles/filemanager/bookinfo.lua:218
 #, koreader
 msgid "Korean"
 msgstr ""
@@ -1192,7 +1192,7 @@ msgstr ""
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats.lua:223
+#: views/stats/init.lua:223
 msgid "LAST 7 DAYS"
 msgstr "VIIMASED 7 PÄEVA"
 
@@ -1200,7 +1200,7 @@ msgstr "VIIMASED 7 PÄEVA"
 msgid "Labels under icons"
 msgstr "Sildid ikoonide all"
 
-#: views/widgets.lua:1148
+#: views/widgets/init.lua:1148
 msgid "Large (also occupies the right cell)"
 msgstr "Suur (hõlmab ka parempoolse lahtri)"
 
@@ -1208,32 +1208,32 @@ msgstr "Suur (hõlmab ka parempoolse lahtri)"
 msgid "Large clock and date"
 msgstr "Suur kell ja kuupäev"
 
-#: views/widgets.lua:957
+#: views/widgets/init.lua:957
 msgid "Large · small · small inverted — swipe ← →, tap to exit"
 msgstr "Suur · väike · väike pööratud — libista ← →, väljumiseks puuduta"
 
-#: styles/bookinfo.lua:915
+#: styles/filemanager/bookinfo.lua:915
 msgid "Last"
 msgstr "Viimane"
 
-#: styles/readerprogress.lua:127
+#: styles/plugins/readerprogress.lua:127
 msgid "Last 7 days summary"
 msgstr "Viimase 7 päeva kokkuvõte"
 
-#: views/update.lua:461
+#: views/update_sheet.lua:461
 msgid "Last check: %1"
 msgstr "Viimane kontroll: %1"
 
-#: dev/devtools.lua:837 views/grid.lua:87
+#: dev/devtools.lua:837 views/grid/init.lua:87
 msgid "Last read"
 msgstr "Viimati loetud"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
+#: core/compat.lua:170 views/update_sheet.lua:132 views/update_sheet.lua:329
 #, koreader
 msgid "Later"
 msgstr ""
 
-#: styles/bookinfo.lua:218
+#: styles/filemanager/bookinfo.lua:218
 #, koreader
 msgid "Latin"
 msgstr ""
@@ -1247,7 +1247,7 @@ msgstr "Paigutus"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid/init.lua:1225
 msgid "Library"
 msgstr "Raamatukogu"
 
@@ -1259,7 +1259,7 @@ msgstr ""
 msgid "Library and covers"
 msgstr "Raamatukogu ja kaaned"
 
-#: views/widgets.lua:348
+#: views/widgets/init.lua:348
 msgid "Library is empty"
 msgstr "Raamatukogu on tühi"
 
@@ -1267,7 +1267,7 @@ msgstr "Raamatukogu on tühi"
 msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
 msgstr "Raamatukogu, Kogud ja Ajalugu hoiavad kaantest väikesi koopiaid, et kiiremini avaneda. Kustuta need, kui mõni kaas ei uuendu."
 
-#: dev/devtools.lua:644 dev/devtools.lua:688 views/widgets.lua:451
+#: dev/devtools.lua:644 dev/devtools.lua:688 views/widgets/init.lua:451
 msgid "Light"
 msgstr "Valgus"
 
@@ -1287,7 +1287,7 @@ msgstr "Loend failinimedega"
 msgid "List without covers"
 msgstr "Loend kaanteta"
 
-#: styles/calendar.lua:117
+#: styles/plugins/calendar.lua:117
 msgid "Loading month…"
 msgstr "Kuu laadimine…"
 
@@ -1295,19 +1295,19 @@ msgstr "Kuu laadimine…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:96
+#: styles/reader/search.lua:96
 msgid "MATCH"
 msgstr "VASTE"
 
-#: styles/search.lua:96
+#: styles/reader/search.lua:96
 msgid "MATCH %d"
 msgstr "VASTE %d"
 
-#: views/stats.lua:641
+#: views/stats/init.lua:641
 msgid "MONTHLY RHYTHM"
 msgstr "KUURÜTM"
 
-#: views/stats.lua:673
+#: views/stats/init.lua:673
 msgid "MOST READ"
 msgstr "ENIM LOETUD"
 
@@ -1332,7 +1332,7 @@ msgstr "Märgi"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Märkida kõik raamatud „%1” loetavaks?"
 
-#: views/grid.lua:933
+#: views/grid/init.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Märkida kõik kogu „%1” raamatud loetavaks?"
 
@@ -1340,11 +1340,11 @@ msgstr "Märkida kõik kogu „%1” raamatud loetavaks?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:931
+#: views/grid/init.lua:931
 msgid "Mark entire collection as finished"
 msgstr "Märgi kogu kollektsioon lõpetatuks"
 
-#: views/grid.lua:932
+#: views/grid/init.lua:932
 msgid "Mark entire collection as reading"
 msgstr "Märgi kogu kollektsioon loetavaks"
 
@@ -1369,12 +1369,12 @@ msgstr "Kasutatud mälu"
 msgid "Menu next to text"
 msgstr ""
 
-#: styles/bookinfo.lua:336
+#: styles/filemanager/bookinfo.lua:336
 #, koreader
 msgid "Metadata:"
 msgstr ""
 
-#: views/widgets.lua:838
+#: views/widgets/init.lua:838
 msgctxt "aire"
 msgid "Minimal"
 msgstr "Minimaalne"
@@ -1383,15 +1383,15 @@ msgstr "Minimaalne"
 msgid "Mix folders"
 msgstr "Sega kaustad"
 
-#: views/grid.lua:740
+#: views/grid/init.lua:740
 msgid "Mix series"
 msgstr "Sega sarjad"
 
-#: views/stats.lua:576
+#: views/stats/init.lua:576
 msgid "Monthly"
 msgstr "Kuu"
 
-#: views/stats.lua:276
+#: views/stats/init.lua:276
 msgid "Monthly recap"
 msgstr "Kuu kokkuvõte"
 
@@ -1428,32 +1428,32 @@ msgstr ""
 msgid "Multiple fields"
 msgstr ""
 
-#: styles/bookinfo.lua:385
+#: styles/filemanager/bookinfo.lua:385
 #, koreader
 msgid "N/A"
 msgstr ""
 
-#: views/widgets.lua:348
+#: views/widgets/init.lua:348
 msgid "NEW"
 msgstr "UUS"
 
-#: views/widgets.lua:288 views/widgets.lua:292
+#: views/widgets/init.lua:288 views/widgets/init.lua:292
 msgid "NEXT"
 msgstr "JÄRGMINE"
 
-#: styles/vocabbuilder.lua:122
+#: styles/plugins/vocabbuilder.lua:122
 msgid "NEXT REVIEW"
 msgstr "JÄRGMINE KORDUS"
 
-#: styles/bookmark.lua:36
+#: styles/reader/bookmark.lua:36
 msgid "NOTE"
 msgstr "MÄRGE"
 
-#: views/grid.lua:78
+#: views/grid/init.lua:78
 msgid "Name"
 msgstr "Nimi"
 
-#: styles/bookinfo.lua:519
+#: styles/filemanager/bookinfo.lua:519
 msgid "Name:"
 msgstr "Nimi:"
 
@@ -1461,34 +1461,34 @@ msgstr "Nimi:"
 msgid "Neighbor"
 msgstr ""
 
-#: dev/devtools.lua:663 views/grid.lua:49 views/widgets.lua:348 views/widgets.lua:349
+#: dev/devtools.lua:663 views/grid/init.lua:49 views/widgets/init.lua:348 views/widgets/init.lua:349
 #, koreader
 msgid "New"
 msgstr ""
 
-#: styles/bookinfo.lua:589
+#: styles/filemanager/bookinfo.lua:589
 msgctxt "aire"
 msgid "New"
 msgstr "Uus"
 
-#: views/grid.lua:483
+#: views/grid/init.lua:483
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:887 views/grid.lua:900
+#: views/grid/init.lua:887 views/grid/init.lua:900
 msgid "New collection…"
 msgstr "Uus kogu…"
 
-#: common/compat.lua:152
+#: core/compat.lua:152
 msgid "New since last time:"
 msgstr "Uut alates eelmisest korrast:"
 
-#: views/widgets.lua:288 views/widgets.lua:294
+#: views/widgets/init.lua:288 views/widgets/init.lua:294
 msgid "Next"
 msgstr "Järgmine"
 
-#: views/widgets.lua:294
+#: views/widgets/init.lua:294
 msgid "Next %1"
 msgstr "Järgmine %1"
 
@@ -1496,25 +1496,25 @@ msgstr "Järgmine %1"
 msgid "Next batch of test widgets"
 msgstr "Järgmine testvidinate komplekt"
 
-#: styles/skim.lua:102
+#: styles/reader/skim.lua:102
 #, koreader
 msgid "Next chapter"
 msgstr ""
 
-#: dev/devtools.lua:642 views/widgets.lua:284
+#: dev/devtools.lua:642 views/widgets/init.lua:284
 msgid "Next in series"
 msgstr "Järgmine sarjas"
 
-#: views/widgets.lua:478
+#: views/widgets/init.lua:478
 #, koreader
 msgid "Night mode"
 msgstr ""
 
-#: views/widgets.lua:185
+#: views/widgets/init.lua:185
 msgid "No CoverBrowser data"
 msgstr "CoverBrowseri andmed puuduvad"
 
-#: views/home.lua:251 views/stats.lua:108
+#: views/home.lua:251 views/stats/init.lua:108
 msgid "No book in progress"
 msgstr "Pooleliolevat raamatut pole"
 
@@ -1522,39 +1522,39 @@ msgstr "Pooleliolevat raamatut pole"
 msgid "No book matches the filter"
 msgstr "Ükski raamat ei vasta filtrile"
 
-#: views/grid.lua:576
+#: views/grid/init.lua:576
 msgid "No books finished this month"
 msgstr "Sel kuul pole ühtegi raamatut lõpetatud"
 
-#: views/grid.lua:576
+#: views/grid/init.lua:576
 msgid "No books finished this year"
 msgstr "Sel aastal pole ühtegi raamatut lõpetatud"
 
-#: views/grid.lua:329
+#: views/grid/init.lua:329
 msgid "No books in home folder"
 msgstr "Kodukaustas pole raamatuid"
 
-#: views/grid.lua:329 views/grid.lua:464 views/grid.lua:608
+#: views/grid/init.lua:329 views/grid/init.lua:464 views/grid/init.lua:608
 msgid "No books with this filter"
 msgstr "Selle filtriga raamatuid pole"
 
-#: styles/bookmap.lua:89 styles/toc.lua:41
+#: styles/reader/bookmap.lua:89 styles/reader/toc.lua:41
 msgid "No chapter"
 msgstr "Peatükk puudub"
 
-#: views/grid.lua:491
+#: views/grid/init.lua:491
 msgid "No collections"
 msgstr "Kogusid pole"
 
-#: views/grid.lua:491
+#: views/grid/init.lua:491
 msgid "No collections with this filter"
 msgstr "Selle filtriga kogusid pole"
 
-#: views/widgets.lua:180
+#: views/widgets/init.lua:180
 msgid "No current book"
 msgstr "Praegust raamatut pole"
 
-#: views/stats.lua:200
+#: views/stats/init.lua:200
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Andmed puuduvad: luba Statistika plugin ja loe veidi"
 
@@ -1563,48 +1563,48 @@ msgstr "Andmed puuduvad: luba Statistika plugin ja loe veidi"
 msgid "No items"
 msgstr ""
 
-#: views/widgets.lua:233
+#: views/widgets/init.lua:233
 msgid "No next unfinished book"
 msgstr "Järgmist lõpetamata raamatut pole"
 
-#: views/widgets.lua:309
+#: views/widgets/init.lua:309
 msgid "No previous book"
 msgstr "Eelmist raamatut pole"
 
-#: styles/statspages.lua:347 views/stats.lua:612
+#: styles/plugins/statspages.lua:347 views/stats/init.lua:612
 msgid "No reading activity in this period"
 msgstr "Selles perioodis pole lugemistegevust"
 
-#: styles/calendar.lua:233
+#: styles/plugins/calendar.lua:233
 msgid "No reading sessions this month"
 msgstr "Sel kuul pole lugemisseansse"
 
-#: styles/imageviewer.lua:100
+#: styles/filemanager/imageviewer.lua:100
 #, koreader
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:94
+#: styles/filemanager/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Salvestatud otseteid pole"
 
-#: views/stats.lua:122
+#: views/stats/init.lua:122
 msgid "No stats for this book"
 msgstr "Selle raamatu kohta statistikat pole"
 
-#: views/widgets.lua:327
+#: views/widgets/init.lua:327
 msgid "No unstarted books"
 msgstr "Alustamata raamatuid pole"
 
-#: styles/vocabbuilder.lua:91
+#: styles/plugins/vocabbuilder.lua:91
 msgid "No vocabulary words"
 msgstr "Sõnu pole"
 
-#: styles/bookinfo.lua:957 styles/bookstatus.lua:61
+#: styles/filemanager/bookinfo.lua:957 styles/filemanager/bookstatus.lua:61
 msgid "Not rated"
 msgstr "Hindamata"
 
-#: styles/bookinfo.lua:278 views/booksheet.lua:172 views/booksheet.lua:330
+#: styles/filemanager/bookinfo.lua:278 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "Alustamata"
 
@@ -1613,12 +1613,12 @@ msgstr "Alustamata"
 msgid "Note"
 msgstr ""
 
-#: styles/bookinfo.lua:340
+#: styles/filemanager/bookinfo.lua:340
 #, koreader
 msgid "Notebook file:"
 msgstr ""
 
-#: styles/bookinfo.lua:914
+#: styles/filemanager/bookinfo.lua:914
 msgctxt "aire"
 msgid "Notes"
 msgstr "Märkmed"
@@ -1636,7 +1636,7 @@ msgstr "november"
 msgid "Number"
 msgstr ""
 
-#: styles/bookinfo.lua:377
+#: styles/filemanager/bookinfo.lua:377
 msgid "Number in series"
 msgstr "Number sarjas"
 
@@ -1650,22 +1650,22 @@ msgctxt "aire"
 msgid "October"
 msgstr "oktoober"
 
-#: views/widgets.lua:456 views/widgets.lua:457 views/widgets.lua:470 views/widgets.lua:597
+#: views/widgets/init.lua:456 views/widgets/init.lua:457 views/widgets/init.lua:470 views/widgets/init.lua:597
 #, koreader
 msgid "Off"
 msgstr ""
 
-#: dev/devtools.lua:649 views/widgets.lua:457 views/widgets.lua:470
+#: dev/devtools.lua:649 views/widgets/init.lua:457 views/widgets/init.lua:470
 #, koreader
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:276 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
+#: styles/filemanager/bookinfo.lua:276 styles/filemanager/bookstatus.lua:55 views/booksheet.lua:161 views/grid/init.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "Ootel"
 
-#: views/update.lua:441
+#: views/update_sheet.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Ainult siis, kui Wi-Fi on juba sees: Aire ei lülita seda kunagi sisse."
 
@@ -1674,7 +1674,7 @@ msgstr "Ainult siis, kui Wi-Fi on juba sees: Aire ei lülita seda kunagi sisse."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:930
+#: views/grid/init.lua:930
 msgid "Open collection"
 msgstr "Ava kogu"
 
@@ -1682,7 +1682,7 @@ msgstr "Ava kogu"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:930
+#: views/grid/init.lua:930
 msgid "Open series"
 msgstr "Ava sari"
 
@@ -1711,7 +1711,7 @@ msgstr ""
 msgid "Orientation"
 msgstr "Suund"
 
-#: styles/imageviewer.lua:99
+#: styles/filemanager/imageviewer.lua:99
 #, koreader
 msgid "Original size"
 msgstr ""
@@ -1724,7 +1724,7 @@ msgstr "Muidu on praeguse raamatu kaart must valge tekstiga."
 msgid "PDF engine (MuPDF)"
 msgstr ""
 
-#: views/widgets.lua:309 views/widgets.lua:312
+#: views/widgets/init.lua:309 views/widgets/init.lua:312
 msgid "PREVIOUS"
 msgstr "EELMINE"
 
@@ -1733,7 +1733,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "Lk %1 / %2"
 
-#: dev/devtools.lua:976 styles/pagebrowser.lua:279
+#: dev/devtools.lua:976 styles/reader/pagebrowser.lua:279
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1742,17 +1742,17 @@ msgstr ""
 msgid "Page fit"
 msgstr "Lehe sobitus"
 
-#: dev/devtools.lua:834 styles/statspages.lua:83
+#: dev/devtools.lua:834 styles/plugins/statspages.lua:83
 #, koreader
 msgid "Pages read"
 msgstr ""
 
-#: styles/statspages.lua:77
+#: styles/plugins/statspages.lua:77
 #, koreader
 msgid "Pages read this session"
 msgstr ""
 
-#: styles/statspages.lua:78
+#: styles/plugins/statspages.lua:78
 #, koreader
 msgid "Pages read today"
 msgstr ""
@@ -1770,7 +1770,7 @@ msgstr ""
 msgid "Portrait"
 msgstr ""
 
-#: styles/bookinfo.lua:217
+#: styles/filemanager/bookinfo.lua:217
 #, koreader
 msgid "Portuguese"
 msgstr ""
@@ -1780,20 +1780,20 @@ msgstr ""
 msgid "Power off"
 msgstr ""
 
-#: views/widgets.lua:309 views/widgets.lua:313
+#: views/widgets/init.lua:309 views/widgets/init.lua:313
 msgid "Previous"
 msgstr "Eelmine"
 
-#: views/widgets.lua:301
+#: views/widgets/init.lua:301
 msgid "Previous book"
 msgstr "Eelmine raamat"
 
-#: styles/skim.lua:99
+#: styles/reader/skim.lua:99
 #, koreader
 msgid "Previous chapter"
 msgstr ""
 
-#: dev/devtools.lua:561 dev/devtools.lua:617 styles/statspages.lua:122 views/grid.lua:63 views/grid.lua:72
+#: dev/devtools.lua:561 dev/devtools.lua:617 styles/plugins/statspages.lua:122 views/grid/init.lua:63 views/grid/init.lua:72
 #, koreader
 msgid "Progress"
 msgstr ""
@@ -1802,11 +1802,11 @@ msgstr ""
 msgid "QR code"
 msgstr ""
 
-#: views/widgets.lua:384
+#: views/widgets/init.lua:384
 msgid "QUOTE"
 msgstr "TSITAAT"
 
-#: views/widgets.lua:833
+#: views/widgets/init.lua:833
 msgctxt "aire"
 msgid "Quick actions"
 msgstr "Kiirtoimingud"
@@ -1815,56 +1815,56 @@ msgstr "Kiirtoimingud"
 msgid "Quote"
 msgstr ""
 
-#: views/widgets.lua:380
+#: views/widgets/init.lua:380
 msgid "Quote of the day"
 msgstr "Päeva tsitaat"
 
-#: views/widgets.lua:327 views/widgets.lua:334
+#: views/widgets/init.lua:327 views/widgets/init.lua:334
 msgid "RANDOM"
 msgstr "JUHUSLIK"
 
-#: styles/bookinfo.lua:962 styles/bookstatus.lua:313
+#: styles/filemanager/bookinfo.lua:962 styles/filemanager/bookstatus.lua:313
 msgid "RATING"
 msgstr "HINNANG"
 
-#: styles/bookinfo.lua:358
+#: styles/filemanager/bookinfo.lua:358
 msgid "READING"
 msgstr "LUGEMINE"
 
-#: styles/bookstatus.lua:293
+#: styles/filemanager/bookstatus.lua:293
 msgid "READING STATUS"
 msgstr "LUGEMISE OLEK"
 
-#: views/stats.lua:242
+#: views/stats/init.lua:242
 msgid "RECAP"
 msgstr "KOKKUVÕTE"
 
-#: styles/bookinfo.lua:1002 styles/bookstatus.lua:390
+#: styles/filemanager/bookinfo.lua:1002 styles/filemanager/bookstatus.lua:390
 msgid "REVIEW / NOTES"
 msgstr "ARVUSTUS / MÄRKMED"
 
-#: views/widgets.lua:327 views/widgets.lua:334
+#: views/widgets/init.lua:327 views/widgets/init.lua:334
 msgid "Random"
 msgstr "Juhuslik"
 
-#: dev/devtools.lua:643 views/widgets.lua:320
+#: dev/devtools.lua:643 views/widgets/init.lua:320
 msgid "Random book"
 msgstr "Juhuslik raamat"
 
-#: styles/bookstatus.lua:346
+#: styles/filemanager/bookstatus.lua:346
 msgid "Rating and review"
 msgstr "Hinnang ja arvustus"
 
-#: styles/bookinfo.lua:338
+#: styles/filemanager/bookinfo.lua:338
 #, koreader
 msgid "Rating:"
 msgstr ""
 
-#: views/widgets.lua:563
+#: views/widgets/init.lua:563
 msgid "Read timer"
 msgstr "Lugemistaimer"
 
-#: views/widgets.lua:824
+#: views/widgets/init.lua:824
 #, koreader
 msgid "Reader"
 msgstr ""
@@ -1878,12 +1878,12 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:202 styles/bookinfo.lua:275 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
+#: dev/tests/regressions.lua:202 styles/filemanager/bookinfo.lua:275 styles/filemanager/bookstatus.lua:54 views/grid/init.lua:48 views/grid/init.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "Lugemine"
 
-#: styles/readerprogress.lua:126
+#: styles/plugins/readerprogress.lua:126
 #, koreader
 msgid "Reading progress"
 msgstr ""
@@ -1900,15 +1900,15 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:539
+#: views/stats/init.lua:539
 msgid "Recap"
 msgstr "Kokkuvõte"
 
-#: dev/devtools.lua:666 views/grid.lua:64
+#: dev/devtools.lua:666 views/grid/init.lua:64
 msgid "Recent"
 msgstr "Uued"
 
-#: dev/devtools.lua:617 views/grid.lua:64 views/widgets.lua:341
+#: dev/devtools.lua:617 views/grid/init.lua:64 views/widgets/init.lua:341
 msgid "Recently added"
 msgstr "Hiljuti lisatud"
 
@@ -1916,42 +1916,42 @@ msgstr "Hiljuti lisatud"
 msgid "Recently read"
 msgstr ""
 
-#: views/widgets.lua:489
+#: views/widgets/init.lua:489
 #, koreader
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:252
+#: dev/devtools.lua:636 styles/reader/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
 
-#: views/widgets.lua:1179
+#: views/widgets/init.lua:1179
 msgctxt "aire"
 msgid "Remove"
 msgstr "Eemalda"
 
-#: styles/bookmark.lua:249
+#: styles/reader/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:567 views/grid.lua:497
+#: views/booksheet.lua:567 views/grid/init.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Eemalda kogust"
 
-#: views/booksheet.lua:531 views/grid.lua:613
+#: views/booksheet.lua:531 views/grid/init.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
 
-#: styles/highlight.lua:84
+#: styles/reader/highlight.lua:84
 #, koreader
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:251
+#: styles/reader/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1961,7 +1961,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:894
+#: views/grid/init.lua:894
 msgid "Rename…"
 msgstr "Muuda nime…"
 
@@ -1979,30 +1979,30 @@ msgstr ""
 msgid "Restart"
 msgstr ""
 
-#: common/compat.lua:171
+#: core/compat.lua:171
 #, koreader
 msgid "Restart KOReader"
 msgstr ""
 
-#: common/compat.lua:160
+#: core/compat.lua:160
 msgid "Restart KOReader for the change to take effect."
 msgstr "Muudatuse jõustumiseks taaskäivita KOReader."
 
-#: views/update.lua:146
+#: views/update_sheet.lua:146
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Selle kasutamiseks taaskäivita KOReader. Sinu seaded säilivad."
 
-#: views/update.lua:135
+#: views/update_sheet.lua:135
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:104 views/grid.lua:734
+#: views/explorer.lua:104 views/grid/init.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
 
-#: styles/bookinfo.lua:339
+#: styles/filemanager/bookinfo.lua:339
 #, koreader
 msgid "Review:"
 msgstr ""
@@ -2012,26 +2012,26 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: styles/imageviewer.lua:100
+#: styles/filemanager/imageviewer.lua:100
 #, koreader
 msgid "Rotate"
 msgstr ""
 
-#: styles/bookinfo.lua:218
+#: styles/filemanager/bookinfo.lua:218
 #, koreader
 msgid "Russian"
 msgstr ""
 
-#: views/explorer.lua:113 views/grid.lua:730
+#: views/explorer.lua:113 views/grid/init.lua:730
 msgid "SORT BY"
 msgstr "SORTEERI"
 
-#: views/widgets.lua:597
+#: views/widgets/init.lua:597
 #, koreader
 msgid "SSH"
 msgstr ""
 
-#: views/widgets.lua:592 views/widgets.lua:618
+#: views/widgets/init.lua:592 views/widgets/init.lua:618
 #, koreader
 msgid "SSH server"
 msgstr ""
@@ -2050,12 +2050,12 @@ msgstr ""
 msgid "Science Fiction"
 msgstr ""
 
-#: views/widgets.lua:495
+#: views/widgets/init.lua:495
 #, koreader
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets/init.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2072,7 +2072,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:307
+#: views/update_sheet.lua:307
 msgid "See all changes"
 msgstr "Vaata kõiki muudatusi"
 
@@ -2081,12 +2081,12 @@ msgctxt "aire"
 msgid "September"
 msgstr "september"
 
-#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid/init.lua:62 views/grid/init.lua:71 views/grid/init.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
 
-#: styles/bookinfo.lua:376
+#: styles/filemanager/bookinfo.lua:376
 msgid "Series name"
 msgstr "Sarja nimi"
 
@@ -2103,7 +2103,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:437
+#: views/update_sheet.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2150,12 +2150,12 @@ msgstr ""
 msgid "Show synopsis"
 msgstr "Näita sisukokkuvõtet"
 
-#: styles/bookinfo.lua:333
+#: styles/filemanager/bookinfo.lua:333
 #, koreader
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:324
+#: views/update_sheet.lua:324
 msgid "Skip"
 msgstr "Jäta vahele"
 
@@ -2164,7 +2164,7 @@ msgctxt "aire"
 msgid "Sleep"
 msgstr "Unerežiim"
 
-#: dev/devtools.lua:665 views/grid.lua:59 views/grid.lua:68 views/grid.lua:77
+#: dev/devtools.lua:665 views/grid/init.lua:59 views/grid/init.lua:68 views/grid/init.lua:77
 msgid "Smart"
 msgstr "Nutikas"
 
@@ -2184,16 +2184,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:746
+#: dev/devtools.lua:613 views/grid/init.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:865
+#: dev/devtools.lua:825 views/grid/init.lua:865
 msgid "Sort collections"
 msgstr "Sorteeri kogud"
 
-#: views/grid.lua:888 views/grid.lua:901
+#: views/grid/init.lua:888 views/grid/init.lua:901
 msgid "Sort collections…"
 msgstr "Sorteeri kogud…"
 
@@ -2201,7 +2201,7 @@ msgstr "Sorteeri kogud…"
 msgid "Sort files"
 msgstr "Sorteeri failid"
 
-#: styles/bookinfo.lua:216
+#: styles/filemanager/bookinfo.lua:216
 #, koreader
 msgid "Spanish"
 msgstr ""
@@ -2210,7 +2210,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "Ruudukujulised kaaned ja sarjad"
 
-#: views/booksheet.lua:350 views/widgets.lua:570
+#: views/booksheet.lua:350 views/widgets/init.lua:570
 msgid "Start"
 msgstr "Alusta"
 
@@ -2218,7 +2218,7 @@ msgstr "Alusta"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:41 views/stats.lua:189
+#: views/dock.lua:41 views/stats/init.lua:189
 msgid "Stats"
 msgstr "Statistika"
 
@@ -2230,11 +2230,11 @@ msgstr ""
 msgid "Status bar font"
 msgstr ""
 
-#: dev/devtools.lua:645 views/widgets.lua:514
+#: dev/devtools.lua:645 views/widgets/init.lua:514
 msgid "Storage"
 msgstr "Salvestusruum"
 
-#: views/widgets.lua:1168
+#: views/widgets/init.lua:1168
 msgid "Swap tap and hold"
 msgstr "Vaheta puudutus ja hoidmine"
 
@@ -2254,7 +2254,7 @@ msgstr ""
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:971 styles/bookinfo.lua:1006 styles/bookstatus.lua:395
+#: dev/devtools.lua:971 styles/filemanager/bookinfo.lua:1006 styles/filemanager/bookstatus.lua:395
 msgid "Tap to add or edit your review of this book…"
 msgstr "Puuduta, et lisada või muuta selle raamatu arvustust…"
 
@@ -2262,15 +2262,15 @@ msgstr "Puuduta, et lisada või muuta selle raamatu arvustust…"
 msgid "Tap to open the library"
 msgstr "Puuduta raamatukogu avamiseks"
 
-#: views/widgets.lua:568
+#: views/widgets/init.lua:568
 msgid "Tap to stop"
 msgstr "Puuduta peatamiseks"
 
-#: styles/vocabbuilder.lua:132
+#: styles/plugins/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Puuduta definitsiooni vaatamiseks"
 
-#: views/grid.lua:1128
+#: views/grid/init.lua:1128
 msgid "Test book"
 msgstr "Testraamat"
 
@@ -2319,7 +2319,7 @@ msgstr ""
 msgid "The Stormlight Archive"
 msgstr ""
 
-#: views/widgets.lua:183
+#: views/widgets/init.lua:183
 msgid "The current book is not part of a series"
 msgstr "Praegune raamat ei kuulu sarja"
 
@@ -2327,27 +2327,27 @@ msgstr "Praegune raamat ei kuulu sarja"
 msgid "This collection is empty"
 msgstr "See kogu on tühi"
 
-#: views/update.lua:319
+#: views/update_sheet.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Selles koopias on kaust dev/ (testid). Uus versioon seda ei sisalda, seega see eemaldatakse."
 
-#: views/widgets.lua:441
+#: views/widgets/init.lua:441
 msgid "This month"
 msgstr "Sel kuul"
 
-#: views/stats.lua:191
+#: views/stats/init.lua:191
 msgid "This month · %1 · %2 pp."
 msgstr "Sel kuul · %1 · %2 lk"
 
-#: styles/statspages.lua:248
+#: styles/plugins/statspages.lua:248
 msgid "This month: %1"
 msgstr "Sel kuul: %1"
 
-#: styles/statspages.lua:245
+#: styles/plugins/statspages.lua:245
 msgid "This week: %1"
 msgstr "Sel nädalal: %1"
 
-#: views/widgets.lua:441
+#: views/widgets/init.lua:441
 msgid "This year"
 msgstr "Sel aastal"
 
@@ -2356,31 +2356,31 @@ msgstr "Sel aastal"
 msgid "Time"
 msgstr ""
 
-#: styles/statspages.lua:231
+#: styles/plugins/statspages.lua:231
 #, koreader
 msgid "Time range statistics"
 msgstr ""
 
-#: styles/bookinfo.lua:913
+#: styles/filemanager/bookinfo.lua:913
 msgid "Time read"
 msgstr "Lugemisaeg"
 
-#: styles/statspages.lua:79
+#: styles/plugins/statspages.lua:79
 #, koreader
 msgid "Time spent reading"
 msgstr ""
 
-#: styles/statspages.lua:77
+#: styles/plugins/statspages.lua:77
 #, koreader
 msgid "Time spent reading this session"
 msgstr ""
 
-#: styles/statspages.lua:78
+#: styles/plugins/statspages.lua:78
 #, koreader
 msgid "Time spent reading today"
 msgstr ""
 
-#: dev/devtools.lua:525 dev/devtools.lua:615 dev/devtools.lua:665 dev/devtools.lua:832 views/grid.lua:60
+#: dev/devtools.lua:525 dev/devtools.lua:615 dev/devtools.lua:665 dev/devtools.lua:832 views/grid/init.lua:60
 #, koreader
 msgid "Title"
 msgstr ""
@@ -2398,16 +2398,16 @@ msgstr ""
 msgid "Today"
 msgstr ""
 
-#: views/widgets.lua:268
+#: views/widgets/init.lua:268
 msgid "Today and streak"
 msgstr "Täna ja seeria"
 
-#: styles/statspages.lua:301
+#: styles/plugins/statspages.lua:301
 #, koreader
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:667
+#: views/stats/init.lua:667
 msgid "Top author"
 msgstr "Enim loetud autor"
 
@@ -2415,7 +2415,7 @@ msgstr "Enim loetud autor"
 msgid "Top bar"
 msgstr "Ülariba"
 
-#: styles/statspages.lua:79
+#: styles/plugins/statspages.lua:79
 #, koreader
 msgid "Total time spent on this book"
 msgstr ""
@@ -2429,16 +2429,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
+#: views/power.lua:131 views/power.lua:158 views/update_sheet.lua:211 views/update_sheet.lua:330 views/update_sheet.lua:351
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:428
+#: views/update_sheet.lua:428
 msgid "Update Aire"
 msgstr "Uuenda Aire"
 
-#: views/update.lua:428
+#: views/update_sheet.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "Uuenda Aire (%1 saadaval)"
 
@@ -2446,7 +2446,7 @@ msgstr "Uuenda Aire (%1 saadaval)"
 msgid "Update KOReader"
 msgstr "Uuenda KOReader"
 
-#: views/update.lua:166
+#: views/update_sheet.lua:166
 msgid "Updating Aire"
 msgstr "Aire uuendamine"
 
@@ -2466,7 +2466,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Sõnavara kordamine"
 
-#: styles/vocabbuilder.lua:309
+#: styles/plugins/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Sõnavara kordamine · %1 sõna"
@@ -2480,7 +2480,7 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/readerprogress.lua:195
+#: styles/plugins/readerprogress.lua:195
 msgid "WEEKLY ACTIVITY"
 msgstr "NÄDALA TEGEVUS"
 
@@ -2496,7 +2496,7 @@ msgstr "KOReaderi avamisel hoiatab uute paikade ja pluginate eest ning keelab ne
 msgid "White corner: reading. Gray corner: on hold."
 msgstr "Valge nurk: pooleli. Hall nurk: ootel."
 
-#: dev/devtools.lua:644 views/widgets.lua:465
+#: dev/devtools.lua:644 views/widgets/init.lua:465
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
@@ -2504,7 +2504,7 @@ msgstr "Wi-Fi"
 msgid "Wi-Fi networks"
 msgstr ""
 
-#: views/widgets.lua:954
+#: views/widgets/init.lua:954
 msgid "Widget gallery · %1 / %2"
 msgstr "Vidinagalerii · %1 / %2"
 
@@ -2512,24 +2512,24 @@ msgstr "Vidinagalerii · %1 / %2"
 msgid "Widget presets"
 msgstr "Vidinate eelseadistused"
 
-#: views/widgets.lua:939
+#: views/widgets/init.lua:939
 msgid "Widgets %1–%2"
 msgstr "Vidinad %1–%2"
 
-#: dev/devtools.lua:540 views/widgets.lua:542 views/widgets.lua:543
+#: dev/devtools.lua:540 views/widgets/init.lua:542 views/widgets/init.lua:543
 #, koreader
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:371
+#: views/update_sheet.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "Sul on juba uusim versioon (%1)."
 
-#: views/stats.lua:379
+#: views/stats/init.lua:379
 msgid "You didn't read that day"
 msgstr "Sel päeval sa ei lugenud"
 
-#: views/widgets.lua:384
+#: views/widgets/init.lua:384
 msgid "You don't have any highlights yet"
 msgstr "Sul pole veel esiletõstusid"
 
@@ -2537,11 +2537,11 @@ msgstr "Sul pole veel esiletõstusid"
 msgid "You have not opened any book yet"
 msgstr "Sa pole veel ühtegi raamatut avanud"
 
-#: views/power.lua:150 views/update.lua:295
+#: views/power.lua:150 views/update_sheet.lua:295
 msgid "You have version %1"
 msgstr "Sul on versioon %1"
 
-#: views/grid.lua:575
+#: views/grid/init.lua:575
 msgid "You haven't finished any books yet"
 msgstr "Sa pole veel ühtegi raamatut lõpetanud"
 
@@ -2554,7 +2554,7 @@ msgid ""
 "Synonyms: brief, fleeting, passing, transitory."
 msgstr ""
 
-#: views/widgets.lua:550 views/widgets.lua:550
+#: views/widgets/init.lua:550 views/widgets/init.lua:550
 msgid "and highlights"
 msgstr "ja esiletõstud"
 
@@ -2562,25 +2562,25 @@ msgstr "ja esiletõstud"
 msgid "at %1 %"
 msgstr "kohal %1 %"
 
-#: styles/readerprogress.lua:159
+#: styles/plugins/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "kesk. / päev"
 
-#: views/widgets.lua:506
+#: views/widgets/init.lua:506
 msgid "battery"
 msgstr "aku"
 
-#: views/update.lua:287
+#: views/update_sheet.lua:287
 msgid "beta"
 msgstr "beeta"
 
-#: views/widgets.lua:403
+#: views/widgets/init.lua:403
 msgid "book"
 msgid_plural "books"
 msgstr[0] "raamat"
 msgstr[1] "raamatut"
 
-#: common/compat.lua:32 common/compat.lua:34 common/compat.lua:35 common/compat.lua:36 common/compat.lua:37
+#: core/compat.lua:32 core/compat.lua:34 core/compat.lua:35 core/compat.lua:36 core/compat.lua:37
 msgid "conflicts with plugin covers"
 msgstr "on vastuolus plugina kaantega"
 
@@ -2588,163 +2588,163 @@ msgstr "on vastuolus plugina kaantega"
 msgid "ephemeral"
 msgstr ""
 
-#: views/widgets.lua:403
+#: views/widgets/init.lua:403
 #, koreader
 msgid "favorites"
 msgstr ""
 
-#: views/widgets.lua:528
+#: views/widgets/init.lua:528
 msgid "files"
 msgstr "failid"
 
-#: views/stats.lua:629 views/widgets.lua:423
+#: views/stats/init.lua:629 views/widgets/init.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "lõpetatud raamat"
 msgstr[1] "lõpetatud raamatut"
 
-#: views/stats.lua:217
+#: views/stats/init.lua:217
 msgid "finished in %1"
 msgstr "lõpetatud %1"
 
-#: views/widgets.lua:518 views/widgets.lua:520
+#: views/widgets/init.lua:518 views/widgets/init.lua:520
 msgid "free"
 msgstr "vaba"
 
-#: views/widgets.lua:252
+#: views/widgets/init.lua:252
 msgid "in total"
 msgstr "kokku"
 
-#: common/compat.lua:27 common/compat.lua:28 common/compat.lua:29 common/compat.lua:30 common/compat.lua:31
+#: core/compat.lua:27 core/compat.lua:28 core/compat.lua:29 core/compat.lua:30 core/compat.lua:31
 msgid "included in Aire"
 msgstr "sisaldub Aire'is"
 
-#: styles/readerprogress.lua:158
+#: styles/plugins/readerprogress.lua:158
 msgid "last 7 days"
 msgstr "viimased 7 päeva"
 
-#: views/widgets.lua:456
+#: views/widgets/init.lua:456
 msgid "light"
 msgstr "valgus"
 
-#: views/update.lua:460
+#: views/update_sheet.lua:460
 #, koreader
 msgid "never"
 msgstr ""
 
-#: views/widgets.lua:481
+#: views/widgets/init.lua:481
 msgid "night mode"
 msgstr "öörežiim"
 
-#: styles/bookinfo.lua:282
+#: styles/filemanager/bookinfo.lua:282
 msgid "now"
 msgstr "praegu"
 
-#: views/widgets.lua:521
+#: views/widgets/init.lua:521
 msgid "of %1"
 msgstr "kokku %1"
 
-#: styles/pagebrowser.lua:97 styles/pagebrowser.lua:98
+#: styles/reader/pagebrowser.lua:97 styles/reader/pagebrowser.lua:98
 msgid "p. %1 / %2"
 msgstr "lk %1 / %2"
 
-#: styles/bookstatus.lua:216
+#: styles/filemanager/bookstatus.lua:216
 msgid "p. %1 of %2"
 msgstr "lk %1 / %2"
 
-#: views/stats.lua:621
+#: views/stats/init.lua:621
 msgid "pages read"
 msgstr "loetud lehekülge"
 
-#: views/widgets.lua:598
+#: views/widgets/init.lua:598
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats.lua:625
+#: views/stats/init.lua:625
 msgid "reading time"
 msgstr "lugemisaeg"
 
-#: common/compat.lua:43
+#: core/compat.lua:43
 msgid "replaces the file browser and covers"
 msgstr "asendab failihalduri ja kaaned"
 
-#: common/compat.lua:45
+#: core/compat.lua:45
 msgid "replaces the file browser covers"
 msgstr "asendab failihalduri kaaned"
 
-#: common/compat.lua:44
+#: core/compat.lua:44
 msgid "replaces the home screen"
 msgstr "asendab avakuva"
 
-#: views/widgets.lua:489 views/widgets.lua:496
+#: views/widgets/init.lua:489 views/widgets/init.lua:496
 msgid "screen"
 msgstr "ekraan"
 
-#: views/widgets.lua:543
+#: views/widgets/init.lua:543
 msgid "search"
 msgstr "otsing"
 
-#: views/widgets.lua:536
+#: views/widgets/init.lua:536
 msgid "search word"
 msgstr "otsi sõna"
 
-#: views/widgets.lua:557 views/widgets.lua:557
+#: views/widgets/init.lua:557 views/widgets/init.lua:557
 msgid "shortcuts"
 msgstr "otseteed"
 
-#: views/stats.lua:214
+#: views/stats/init.lua:214
 msgid "streak"
 msgstr "seeria"
 
-#: views/widgets.lua:276
+#: views/widgets/init.lua:276
 msgid "streak %1"
 msgstr "seeria %1"
 
-#: views/widgets.lua:275
+#: views/widgets/init.lua:275
 msgid "streak %1 day"
 msgid_plural "streak %1 days"
 msgstr[0] "seeria %1 päev"
 msgstr[1] "seeria %1 päeva"
 
-#: common/compat.lua:26
+#: core/compat.lua:26
 msgid "the plugin has its own status bar"
 msgstr "pluginal on oma olekuriba"
 
-#: views/widgets.lua:252
+#: views/widgets/init.lua:252
 msgid "this month"
 msgstr "sel kuul"
 
-#: views/widgets.lua:252
+#: views/widgets/init.lua:252
 msgid "this year"
 msgstr "sel aastal"
 
-#: views/widgets.lua:568 views/widgets.lua:570
+#: views/widgets/init.lua:568 views/widgets/init.lua:570
 msgid "timer"
 msgstr "taimer"
 
-#: views/widgets.lua:272 views/widgets.lua:274
+#: views/widgets/init.lua:272 views/widgets/init.lua:274
 msgid "today"
 msgstr "täna"
 
-#: styles/bookinfo.lua:237
+#: styles/filemanager/bookinfo.lua:237
 msgctxt "aire"
 msgid "today"
 msgstr "täna"
 
-#: styles/readerprogress.lua:157 views/stats.lua:209
+#: styles/plugins/readerprogress.lua:157 views/stats/init.lua:209
 msgid "today · %1 pp."
 msgstr "täna · %1 lk"
 
-#: views/widgets.lua:470
+#: views/widgets/init.lua:470
 msgid "wi-fi"
 msgstr "wi-fi"
 
-#: styles/bookinfo.lua:238
+#: styles/filemanager/bookinfo.lua:238
 msgctxt "aire"
 msgid "yesterday"
 msgstr "eile"
 
-#: views/stats.lua:127
+#: views/stats/init.lua:127
 msgid "~%1 left"
 msgstr "~%1 jäänud"
 

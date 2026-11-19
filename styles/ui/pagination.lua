@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/pagination.lua
     Paginación por puntos en todo KOReader (Menu, KeyValuePage, TouchMenu, calendario, vocabulario) y aviso gris en listas vacías.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua).
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua).
 --]]
 
 local B = ...
@@ -20,7 +20,7 @@ local TouchMenu = require("ui/widget/touchmenu")
 local logger = require("logger")
 local _ = require("gettext")
 local Screen = Device.screen
-local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (common/screen.lua)
+local SIDE = package.loaded.aire_screen.METRICS.SIDE -- margen lateral común (ui/screen.lua)
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/UI"
 
@@ -37,12 +37,12 @@ local EMPTY_LIST_MESSAGE        = true   -- aviso gris centrado en listas vacía
 if DOT_PAGINATION and not Menu._dot_pagination_patched then
     Menu._dot_pagination_patched = true
 
-    -- Puntos de página: la pieza común (common/screen.lua), la misma que usan
-    -- la cuadrícula de la Librería y common/pages.lua
+    -- Puntos de página: la pieza común (ui/screen.lua), la misma que usan
+    -- la cuadrícula de la Librería y ui/pages.lua
     local DotPager = package.loaded.aire_screen.Pager
     Menu._aire_dot_pager_cls = DotPager
 
-    -- Pie de los puntos (common/screen.lua): las pantallas completas sin dock
+    -- Pie de los puntos (ui/screen.lua): las pantallas completas sin dock
     -- (en el lector…) dejan debajo el mismo hueco que hay hasta el dock
     local AireScreen = package.loaded.aire_screen
     local function wantsBottomGap(w)
@@ -150,7 +150,7 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
                 changed = true
                 local item_w = (child.dimen and child.dimen.w) or (menu.item_dimen and menu.item_dimen.w) or menu.width or Screen:getWidth()
                 local item_h = (child.dimen and child.dimen.h) or (menu.item_dimen and menu.item_dimen.h) or Screen:scaleBySize(48)
-                -- Tarjeta común (common/list.lua): carpetas en negrita (abren una
+                -- Tarjeta común (ui/list.lua): carpetas en negrita (abren una
                 -- lista), archivos en normal; a la derecha, lo que KOReader pone
                 local Lst = package.loaded.aire_list
                 local card_w, card_h, gap_b = Lst.geometry(item_w, item_h, pad_h)
@@ -240,7 +240,7 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
             if not self.page_info then return end
             if not self._dot_pager then
                 -- Mismo alto que en el resto y el hueco común hasta el borde
-                -- (common/screen.lua); el pie de KOReader, más alto, queda encima
+                -- (ui/screen.lua); el pie de KOReader, más alto, queda encima
                 self._dot_pager = DotPager:new{
                     height = Screen:scaleBySize(BAR_HEIGHT),
                     get_state = function()
@@ -252,7 +252,7 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
         end, TAG)
     end)
 
-    -- Se exporta en Menu: styles/vocabbuilder.lua lo aplica a la clase cuando la
+    -- Se exporta en Menu: styles/plugins/vocabbuilder.lua lo aplica a la clase cuando la
     -- encuentra (al cargar el plugin o, si no, al abrir el vocabulario)
     local function patchVocabFooter(VocabularyBuilderWidget)
         if type(VocabularyBuilderWidget) ~= "table" or VocabularyBuilderWidget._dot_pager_patched then return end
@@ -285,7 +285,7 @@ if DOT_PAGINATION and not Menu._dot_pagination_patched then
                 self.page_info[i] = nil
             end
             -- Debajo, el mismo hueco hasta el borde que en las demás pantallas
-            -- sin dock (common/screen.lua); los botones de los lados, arriba
+            -- sin dock (ui/screen.lua); los botones de los lados, arriba
             local bottom = Screen:scaleBySize(AireScreen.METRICS.DOTS_BOTTOM)
             self.page_info.align = "top"
             self.page_info[1] = first_item

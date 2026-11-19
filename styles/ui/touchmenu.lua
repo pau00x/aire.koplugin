@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/touchmenu.lua
     Menú superior (TouchMenu): submenús con chevron y valor en gris, pestañas, pie con hora y batería, separadores suaves.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua).
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua).
 --]]
 
 local B = ...

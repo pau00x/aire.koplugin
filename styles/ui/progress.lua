@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/progress.lua
     Barras de progreso (ProgressWidget) en forma de cápsula y sin borde.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua).
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua).
 --]]
 
 local B = ...

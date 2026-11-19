@@ -1,6 +1,6 @@
 --[[
     aire.koplugin/views/stats/data.lua
-    Datos de la pestaña Estadísticas (views/stats.lua): lectura de la base de
+    Datos de la pestaña Estadísticas (views/stats/init.lua): lectura de la base de
     datos de KOReader (statistics.sqlite3), resúmenes, mes, día, recapitulación
     y borrar estadísticas de un libro. Sin widgets.
     state.FAKE: estadísticas de prueba (devtools.lua); lo fija el mixin.

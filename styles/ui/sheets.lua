@@ -1,7 +1,7 @@
 --[[
     aire.koplugin/styles/ui/sheets.lua
     Hojas inferiores: estilo común, menús de opciones (ButtonDialog) y otras ventanas como hoja, componentes de las hojas y confirmación de 3 botones.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua
     y lo que exporta styles/ui/sheets.lua).
 --]]
 
@@ -55,7 +55,7 @@ local Widget = require("ui/widget/widget")
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/UI"
 local S_ = function(n) return Screen:scaleBySize(n) end
--- Medidas de las hojas: common/screen.lua (SHEET), la única fuente
+-- Medidas de las hojas: ui/screen.lua (SHEET), la única fuente
 local AireScreen = package.loaded.aire_screen
 local SHEET_PAD = AireScreen.SHEET.PAD
 local SHEET_BTN_H = AireScreen.SHEET.BTN_H
@@ -65,7 +65,7 @@ local SHEET_BTN_FONT = AireScreen.SHEET.BTN_FONT
 
 -- Ancho exterior de cualquier hoja y ancho útil dentro de ella
 local sheetWidth, sheetInnerWidth = AireScreen.sheetWidth, AireScreen.sheetInnerWidth
--- (para parches de la comunidad que los leían de aquí; Aire usa common/screen.lua)
+-- (para parches de la comunidad que los leían de aquí; Aire usa ui/screen.lua)
 ButtonDialog.aire_sheetWidth = sheetWidth
 ButtonDialog.aire_sheetInnerWidth = sheetInnerWidth
 
@@ -522,7 +522,7 @@ if OTHER_DIALOGS_AS_SHEET then
         { "ui/widget/radiobuttonwidget",    { "init", "update" },           "param" },
         { "ui/widget/openwithdialog",       { "init" },                     "once" },
         { "ui/widget/keyboardlayoutdialog", { "init" },                     "param" },
-        -- (Vista rápida del documento: la monta entera styles/skim.lua)
+        -- (Vista rápida del documento: la monta entera styles/reader/skim.lua)
         { "ui/widget/textviewer",           { "init" },                     "once" }, -- ancho: el útil de la hoja
         -- Tienen opciones: también como hoja (revisión de ventanas flotantes)
         { "ui/widget/networksetting",       { "init" },                     "param" }, -- lista de redes wifi
@@ -659,7 +659,7 @@ if OTHER_DIALOGS_AS_SHEET then
     end
 
     -- Ventanas con barra de título propia de KOReader: la cabecera común de
-    -- las hojas (common/sheet.lua: título a la izquierda, sin línea ni X)
+    -- las hojas (ui/sheet.lua: título a la izquierda, sin línea ni X)
     local SHEET_TITLE = { ["ui/widget/textviewer"] = true }
 
     local adapted = 0
@@ -978,7 +978,7 @@ if OTHER_DIALOGS_AS_SHEET then
                 }
             end)
             -- Texto muy largo: se desplaza solo el texto y los botones siguen a
-            -- la vista (common/sheet.lua: alto máximo de una hoja)
+            -- la vista (ui/sheet.lua: alto máximo de una hoja)
             local text = buildText(inner)
             local max_text_h = package.loaded.aire_sheet.maxContentHeight() - bt:getSize().h - S_(16)
             if text:getSize().h > max_text_h then
@@ -990,7 +990,7 @@ if OTHER_DIALOGS_AS_SHEET then
                 }
                 self.cropping_widget = text
             end
-            -- Marco y posición de hoja comunes (common/sheet.lua), dentro del
+            -- Marco y posición de hoja comunes (ui/sheet.lua), dentro del
             -- MovableContainer que KOReader espera; la tabla ya deja un hueco
             -- bajo la última fila de botones
             local _frame

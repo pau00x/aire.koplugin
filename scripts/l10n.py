@@ -53,7 +53,7 @@ KOREADER_ONLY = {
         "Show progress in mosaic mode", "Show parent folder",
         "Show all files from subfolders", "Show filename in Open last/previous menu items",
         "Show collection mark",
-        # Estadísticas (styles/statspages.lua): se usan para reconocer las filas de
+        # Estadísticas (styles/plugins/statspages.lua): se usan para reconocer las filas de
         # KOReader, tienen que ser exactamente su texto
         "Current statistics", "Time spent reading this session", "Pages read this session",
         "Time spent reading today", "Pages read today", "Total time spent on this book",
@@ -150,7 +150,7 @@ def extract_strings():
     refs = {}
     for path in sorted(PLUGIN_DIR.rglob("*.lua")):
         rel = path.relative_to(PLUGIN_DIR).as_posix()
-        if rel in ("l10n.lua", "common/l10n.lua") or rel.startswith("koreader/"):
+        if rel in ("l10n.lua", "core/l10n.lua") or rel.startswith("koreader/"):
             continue
         for lineno, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             for pat, has_ctx in STRING_PATTERNS:

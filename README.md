@@ -97,7 +97,7 @@ Aire has **no external dependencies**: it only uses KOReader's own modules and n
    └── plugins/
        └── aire.koplugin/
    ```
-   Only `_meta.lua`, `main.lua`, `menu.lua`, `common/`, `views/`, `styles/`, `icons/` and the compiled translations (`l10n/*/aire.mo`) are needed on the device. Release zips contain just that. When working from a clone, `python scripts/kindle_copy.py` makes a clean copy for the device.
+   Only `_meta.lua`, `main.lua`, `menu.lua`, `core/`, `ui/`, `views/`, `styles/`, `icons/` and the compiled translations (`l10n/*/aire.mo`) are needed on the device. Release zips contain just that. When working from a clone, `python scripts/kindle_copy.py` makes a clean copy for the device.
 3. Restart KOReader.
 4. If Aire is not active, enable it in **Tools → More tools → Plugin management**.
 
@@ -212,14 +212,18 @@ aire.koplugin/
 ├── _meta.lua          # Plugin metadata
 ├── main.lua           # Entry point: loads everything, plugin class, view switching
 ├── menu.lua           # Aire's settings menu and clean-up of KOReader's menus
-├── common/            # Shared helpers: settings, UI, bundled icons, l10n loader, compatibility check
+├── core/              # Core helpers: settings, bundled icons, l10n loader, compatibility check, OTA updater
+├── ui/                # Shared UI primitives: theme, screen metrics, bottom sheets, card lists, full-screen pages
 ├── views/             # Aire's own screens: home, topbar, dock, explorer, power (power sheet),
-│                      #   grid (Library, Collections, History; grid/ = data, cells, cover thumbnails),
-│                      #   stats (Stats, Recap; stats/ = data, charts),
-│                      #   widgets (Home widgets; widgets/ = parts), booksheet (hold sheets)
-├── styles/            # Restyling of KOReader screens, one file per screen
-│                      #   (bookinfo, toc, search, calendar, sortwidget…); ui.lua loads the
-│                      #   KOReader-wide parts in styles/ui/ (dialogs, menus, sheets…)
+│                      #   update_sheet (OTA UI), booksheet (hold sheets),
+│                      #   grid/ (Library, Collections, History: init, data, cells, cover thumbnails),
+│                      #   stats/ (Stats, Recap: init, data, charts),
+│                      #   widgets/ (Home widgets: init, parts)
+├── styles/            # Restyling of KOReader screens grouped by area:
+│                      #   reader/ (toc, bookmark, search, skim, highlight, footer, bookmap, pagebrowser),
+│                      #   filemanager/ (bookinfo, bookstatus, collections, covers, shortcuts, sortwidget, imageviewer),
+│                      #   plugins/ (calendar, gestures, readerprogress, statspages, vocabbuilder),
+│                      #   ui/ (KOReader-wide dialogs, menus, sheets… loaded in order by ui/init.lua)
 ├── icons/             # Bundled SVG icons (aire.*) and their licenses (icons/LICENSE.md)
 ├── l10n/              # Gettext translation catalogs (.pot and .po sources, compiled .mo)
 ├── scripts/           # Maintenance scripts (l10n.py, lualint.py, kindle_copy.py)

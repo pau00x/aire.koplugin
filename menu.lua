@@ -644,7 +644,7 @@ return function(Aire, ctx)
                         end,
                     },
                     {
-                        -- Actualizaciones (views/update.lua): con esto la versión publicada
+                        -- Actualizaciones (views/update_sheet.lua): con esto la versión publicada
                         -- cuenta como nueva y se puede probar todo, también instalarla
                         text = "Simular Aire 0.0.1 (actualizaciones)",
                         checked_func = function() return ctx.update and ctx.update.fakeVersion() ~= nil end,

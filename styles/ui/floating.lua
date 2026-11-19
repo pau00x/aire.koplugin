@@ -3,7 +3,7 @@
     Ventanas flotantes de KOReader: tocar fuera para cerrar con su tamaño real y borde fino; con las hojas
     activadas (opción "sheets"), avisos, diccionario, notas al pie y ventanas con teclado van como hoja
     inferior (sección 21 y ventanas con teclado). Los menús anclados siguen flotando.
-    Lo carga styles/ui.lua en su orden (recibe la tabla de styles/ui/base.lua).
+    Lo carga styles/ui/init.lua en su orden (recibe la tabla de styles/ui/base.lua).
 --]]
 
 local B = ...
@@ -263,7 +263,7 @@ do
             local large = self.is_wiki_fullpage or G_reader_settings:isTrue("dict_largewindow") or self.temp_large_window
             if large then return orig_dq_init(self, ...) end
             -- Como hoja inferior (elegido: siempre abajo): ancho de hoja y la
-            -- cabecera común (common/sheet.lua); si no, flotante del ancho del dock
+            -- cabecera común (ui/sheet.lua); si no, flotante del ancho del dock
             local as_sheet = B.uiOpt("sheets")
             if rawget(self, "width") == nil then
                 self.width = as_sheet and package.loaded.aire_screen.sheetWidth() or dockWidth()
@@ -349,7 +349,7 @@ end
 --===========================================================================
 -- 21) AVISOS COMO HOJA INFERIOR
 --     Mensajes (InfoMessage), código QR y barra de progreso: abajo, con el
---     ancho, el borde, las esquinas y el relleno de las hojas (common/screen.lua,
+--     ancho, el borde, las esquinas y el relleno de las hojas (ui/screen.lua,
 --     SHEET). Se cierran como siempre (tocar o esperar).
 --===========================================================================
 if B.uiOpt("sheets") then
