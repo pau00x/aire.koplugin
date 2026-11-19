@@ -4,6 +4,8 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-19
+
 ### Changed
 
 - **Library stays up to date**: Aire keeps the Library book list between screens instead of reading every folder each time you come back from a book. It is read again when you delete, rename, copy or move files, edit book information, wake the device, unplug USB, or after 5 minutes.
