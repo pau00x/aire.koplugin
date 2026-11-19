@@ -201,6 +201,8 @@ local Aire = WidgetContainer:extend{
     is_doc_only = false,
 }
 
+local compat_checked = false
+
 function Aire:init()
     Aire._active_instance = self
     if not self.ui or self.ui.document then return end
@@ -259,12 +261,15 @@ function Aire:init()
             -- Restos de una actualización (aire.koplugin.old / .new)
             if plugin.cleanupUpdateLeftovers then pcall(plugin.cleanupUpdateLeftovers, plugin) end
             -- Parches / plugins nuevos o incompatibles (core/compat.lua), una vez por sesión
-            local ok, compat = pcall(dofile, PLUGIN_DIR .. "/core/compat.lua")
-            if ok and type(compat) == "table" then
-                local ok2, err = pcall(compat.run, config, saveConfig)
-                if not ok2 then logger.warn("Aire: error en la comprobación de compatibilidad:", err) end
-            elseif not ok then
-                logger.warn("Aire: error cargando compat.lua:", compat)
+            if not compat_checked then
+                compat_checked = true
+                local ok, compat = pcall(dofile, PLUGIN_DIR .. "/core/compat.lua")
+                if ok and type(compat) == "table" then
+                    local ok2, err = pcall(compat.run, config, saveConfig)
+                    if not ok2 then logger.warn("Aire: error en la comprobación de compatibilidad:", err) end
+                elseif not ok then
+                    logger.warn("Aire: error cargando compat.lua:", compat)
+                end
             end
         end)
     end)
