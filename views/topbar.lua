@@ -202,7 +202,7 @@ return function(Aire, ctx)
     -- Reloj y estado en vivo
     ---------------------------------------------------------------------------
     function Aire:refreshHeader()
-        if not config.enabled or self._suspended or not self._status_w then return end
+        if not config.enabled or self._suspended or self._aire_closed or not self._status_w then return end
         self._status_w:setText(buildStatusString())
         if self._status_group then self._status_group:resetLayout() end
         if self._clock_w then self._clock_w:setText(clockString()) end
