@@ -32,7 +32,7 @@ msgstr "%1 % (en espera)"
 msgid "%1 % read"
 msgstr "%1 % llegit"
 
-#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
+#: styles/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 llibre"
@@ -248,7 +248,7 @@ msgstr ""
 msgid "All"
 msgstr "Tots"
 
-#: styles/statspages.lua:258 styles/statspages.lua:261
+#: styles/statspages.lua:240 styles/statspages.lua:243
 #, koreader
 msgid "All books"
 msgstr ""
@@ -419,12 +419,12 @@ msgstr ""
 msgid "Books are not deleted, only the collection."
 msgstr "Els llibres no se suprimeixen, només la col·lecció."
 
-#: styles/statspages.lua:266 styles/statspages.lua:267
+#: styles/statspages.lua:248 styles/statspages.lua:249
 #, koreader
 msgid "Books by month"
 msgstr ""
 
-#: styles/statspages.lua:263 styles/statspages.lua:264
+#: styles/statspages.lua:245 styles/statspages.lua:246
 #, koreader
 msgid "Books by week"
 msgstr ""
@@ -631,7 +631,7 @@ msgstr ""
 msgid "Current page:"
 msgstr ""
 
-#: styles/statspages.lua:106 styles/statspages.lua:442
+#: styles/statspages.lua:106 styles/statspages.lua:427
 #, koreader
 msgid "Current statistics"
 msgstr ""
@@ -1564,7 +1564,7 @@ msgstr "No hi ha cap llibre següent sense acabar"
 msgid "No previous book"
 msgstr "No hi ha cap llibre anterior"
 
-#: styles/statspages.lua:365 views/stats.lua:612
+#: styles/statspages.lua:347 views/stats.lua:612
 msgid "No reading activity in this period"
 msgstr "Cap activitat de lectura en aquest període"
 
@@ -2330,11 +2330,11 @@ msgstr "Aquest mes"
 msgid "This month · %1 · %2 pp."
 msgstr "Aquest mes · %1 · %2 pàg."
 
-#: styles/statspages.lua:266
+#: styles/statspages.lua:248
 msgid "This month: %1"
 msgstr "Aquest mes: %1"
 
-#: styles/statspages.lua:263
+#: styles/statspages.lua:245
 msgid "This week: %1"
 msgstr "Aquesta setmana: %1"
 
@@ -2347,7 +2347,7 @@ msgstr "Aquest any"
 msgid "Time"
 msgstr ""
 
-#: styles/statspages.lua:240
+#: styles/statspages.lua:231
 #, koreader
 msgid "Time range statistics"
 msgstr ""
@@ -2393,7 +2393,7 @@ msgstr ""
 msgid "Today and streak"
 msgstr "Avui i ratxa"
 
-#: styles/statspages.lua:319
+#: styles/statspages.lua:301
 #, koreader
 msgid "Today's timeline"
 msgstr ""

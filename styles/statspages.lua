@@ -183,7 +183,6 @@ end
 -- Lista en tarjetas con barra (semanas, meses, libros)
 local function showListPage(stats, title, subtitle, kv_pairs, metric)
     local P = getP()
-    local S = P.S
     local page
     page = P.Page:new{
         title = title,
@@ -195,27 +194,20 @@ local function showListPage(stats, title, subtitle, kv_pairs, metric)
                 if v > maxv then maxv = v end
             end
             local widgets = {}
-            local in_w = P.cardInner(w)
+            -- Tarjeta común (common/list.lua): nombre (negrita si abre su
+            -- detalle), el dato a la derecha y la barra proporcional debajo
+            local Lst = package.loaded.aire_list
             for _i, e in ipairs(kv_pairs) do
                 if type(e) == "table" and e[1] then
-                    local val = TextWidget:new{ text = tostring(e[2] or ""), face = P.face(false, 12),
-                        fgcolor = P.GRAY_DARK, padding = 0, max_width = math.floor(in_w * 0.55) }
-                    local name = TextWidget:new{ text = tostring(e[1]), face = P.face(true, 14), fgcolor = P.BLACK,
-                        padding = 0, max_width = in_w - val:getSize().w - S(8) }
-                    local lh = math.max(name:getSize().h, val:getSize().h)
                     local v = metric(e) or 0
-                    local content = VerticalGroup:new{
-                        align = "left",
-                        OverlapGroup:new{
-                            dimen = Geom:new{ w = in_w, h = lh },
-                            LeftContainer:new{ dimen = Geom:new{ w = in_w, h = lh }, name },
-                            RightContainer:new{ dimen = Geom:new{ w = in_w, h = lh }, val },
-                        },
-                        VerticalSpan:new{ width = S(6) },
-                        P.bar(in_w, maxv > 0 and v / maxv or 0),
-                    }
                     local cb = e.callback
-                    table.insert(widgets, P.tappable(P.card(content, w), cb and function()
+                    local card = Lst.card({
+                        title = tostring(e[1]), bold = cb ~= nil,
+                        right = { text = tostring(e[2] or "") },
+                        body = function(in_w) return P.bar(in_w, maxv > 0 and v / maxv or 0) end,
+                        fit = true,
+                    }, w)
+                    table.insert(widgets, P.tappable(card, cb and function()
                         stats.kv = page
                         cb()
                     end))
@@ -233,26 +225,16 @@ local function secondsOf(e) return parseDuration(e[2]) end
 
 local function showTimeRange(stats)
     local P = getP()
-    local S = P.S
     local sum = dbSummary(stats)
     local main
     main = P.Page:new{
         title = _("Time range statistics"),
         build = function(_pg, w, h)
-            local in_w = P.cardInner(w)
+            -- Tarjeta común (common/list.lua): abre otra lista, en negrita y con ›
             local function navCard(title, sub, on_tap)
-                local chevron = TextWidget:new{ text = "›", face = P.face(false, 18), fgcolor = P.GRAY_DARK, padding = 0 }
-                local t = TextWidget:new{ text = title, face = P.face(true, 15), fgcolor = P.BLACK, padding = 0,
-                    max_width = in_w - chevron:getSize().w - S(8) }
-                local s = TextWidget:new{ text = sub or "", face = P.face(false, 12), fgcolor = P.GRAY_DARK,
-                    padding = 0, max_width = in_w - chevron:getSize().w - S(8) }
-                local vg = VerticalGroup:new{ align = "left", t, VerticalSpan:new{ width = S(3) }, s }
-                local hh = vg:getSize().h
-                return P.tappable(P.card(OverlapGroup:new{
-                    dimen = Geom:new{ w = in_w, h = hh },
-                    LeftContainer:new{ dimen = Geom:new{ w = in_w, h = hh }, vg },
-                    RightContainer:new{ dimen = Geom:new{ w = in_w, h = hh }, chevron },
-                }, w, { padding = S(12) }), on_tap)
+                return P.tappable(package.loaded.aire_list.card({
+                    title = title, bold = true, sub = sub, right = { chevron = true }, fit = true,
+                }, w), on_tap)
             end
             local widgets = {
                 navCard(_("All books"), fmtDuration(sum.total) .. " · " .. T(N_("%1 book", "%1 books", sum.books or 0), sum.books or 0),
@@ -375,12 +357,15 @@ local function showTimeline(stats, day_offset)
                     local color = shade(i)
                     function Sq:getSize() return Geom:new{ w = sq, h = sq } end
                     function Sq:paintTo(bb, x, y) bb:paintRoundedRect(x, y, sq, sq, color, math.floor(sq / 3)) end
-                    local tm = TextWidget:new{ text = tostring(b[2] or ""), face = P.face(false, 13),
+                    -- Como las filas de datos (common/list.lua): el libro en
+                    -- normal (es un dato) y su tiempo, en filas de LIST.ROW_H
+                    local LIST = package.loaded.aire_screen.LIST
+                    local tm = TextWidget:new{ text = tostring(b[2] or ""), face = P.face(false, LIST.VALUE),
                         fgcolor = P.GRAY_DARK, padding = 0 }
                     local name_w = in_w - sq - S(10) - tm:getSize().w - S(10)
-                    local name = TextWidget:new{ text = tostring(b[1] or ""), face = P.face(true, 14),
+                    local name = TextWidget:new{ text = tostring(b[1] or ""), face = P.face(false, LIST.SUB),
                         fgcolor = P.BLACK, padding = 0, max_width = math.max(S(40), name_w) }
-                    local lh = S(34)
+                    local lh = S(LIST.ROW_H)
                     if i > 1 then table.insert(list, P.line(in_w)) end
                     table.insert(list, OverlapGroup:new{
                         dimen = Geom:new{ w = in_w, h = lh },

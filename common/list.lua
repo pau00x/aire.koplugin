@@ -129,7 +129,7 @@ end
 --   meta                 etiqueta pequeña arriba (LIST.META, mayúsculas); con
 --                        ella, lo de la derecha va en su fila
 --   left  = { icon = "…" } | { check = bool [, radio = true] }
---   right = { text = "…", strong = bool } | { check = bool }
+--   right = { text = "…", strong = bool } | { check = bool } | { chevron = true }
 --   body  = function(inner_w) -> widget   (debajo del texto: la nota…)
 --   state = "current" | "selected" | nil  (gris claro, borde gris)
 --   h                    alto fijo (contenido centrado) o, con fit, el máximo
@@ -148,6 +148,10 @@ local function accessory(a)
                 or (a.check and "aire.checkbox.on" or "aire.checkbox.off")
         end
         return IconWidget:new{ icon = icon, width = S(L.ICON), height = S(L.ICON), alpha = true }
+    end
+    if a.chevron then
+        local TextWidget = require("ui/widget/textwidget")
+        return TextWidget:new{ text = "›", face = face(false, L.TITLE), fgcolor = Blitbuffer.COLOR_DARK_GRAY, padding = 0 }
     end
     if a.text and a.text ~= "" then
         local TextWidget = require("ui/widget/textwidget")

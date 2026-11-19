@@ -36,7 +36,7 @@ msgstr "%1 % (معلّق)"
 msgid "%1 % read"
 msgstr "%1 % مقروء"
 
-#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
+#: styles/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 كتاب"
@@ -311,7 +311,7 @@ msgstr ""
 msgid "All"
 msgstr "الكل"
 
-#: styles/statspages.lua:258 styles/statspages.lua:261
+#: styles/statspages.lua:240 styles/statspages.lua:243
 #, koreader
 msgid "All books"
 msgstr ""
@@ -480,12 +480,12 @@ msgstr ""
 msgid "Books are not deleted, only the collection."
 msgstr "لن تُحذف الكتب، بل المجموعة فقط."
 
-#: styles/statspages.lua:266 styles/statspages.lua:267
+#: styles/statspages.lua:248 styles/statspages.lua:249
 #, koreader
 msgid "Books by month"
 msgstr ""
 
-#: styles/statspages.lua:263 styles/statspages.lua:264
+#: styles/statspages.lua:245 styles/statspages.lua:246
 #, koreader
 msgid "Books by week"
 msgstr ""
@@ -690,7 +690,7 @@ msgstr ""
 msgid "Current page:"
 msgstr ""
 
-#: styles/statspages.lua:106 styles/statspages.lua:442
+#: styles/statspages.lua:106 styles/statspages.lua:427
 #, koreader
 msgid "Current statistics"
 msgstr ""
@@ -1616,7 +1616,7 @@ msgstr "لا يوجد كتاب تالٍ غير منتهٍ"
 msgid "No previous book"
 msgstr "لا يوجد كتاب سابق"
 
-#: styles/statspages.lua:365 views/stats.lua:612
+#: styles/statspages.lua:347 views/stats.lua:612
 msgid "No reading activity in this period"
 msgstr "لا يوجد نشاط قراءة في هذه الفترة"
 
@@ -2377,11 +2377,11 @@ msgstr "هذا الشهر"
 msgid "This month · %1 · %2 pp."
 msgstr "هذا الشهر · %1 · %2 ص."
 
-#: styles/statspages.lua:266
+#: styles/statspages.lua:248
 msgid "This month: %1"
 msgstr "هذا الشهر: %1"
 
-#: styles/statspages.lua:263
+#: styles/statspages.lua:245
 msgid "This week: %1"
 msgstr "هذا الأسبوع: %1"
 
@@ -2394,7 +2394,7 @@ msgstr "هذا العام"
 msgid "Time"
 msgstr ""
 
-#: styles/statspages.lua:240
+#: styles/statspages.lua:231
 #, koreader
 msgid "Time range statistics"
 msgstr ""
@@ -2440,7 +2440,7 @@ msgstr ""
 msgid "Today and streak"
 msgstr "اليوم والتتابع"
 
-#: styles/statspages.lua:319
+#: styles/statspages.lua:301
 #, koreader
 msgid "Today's timeline"
 msgstr ""

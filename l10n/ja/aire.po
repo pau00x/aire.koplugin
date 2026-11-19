@@ -31,7 +31,7 @@ msgstr "%1 % (保留)"
 msgid "%1 % read"
 msgstr "%1 % 読了"
 
-#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
+#: styles/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 冊"
@@ -231,7 +231,7 @@ msgstr ""
 msgid "All"
 msgstr "すべて"
 
-#: styles/statspages.lua:258 styles/statspages.lua:261
+#: styles/statspages.lua:240 styles/statspages.lua:243
 #, koreader
 msgid "All books"
 msgstr ""
@@ -402,12 +402,12 @@ msgstr ""
 msgid "Books are not deleted, only the collection."
 msgstr "本は削除されず、コレクションのみ削除されます。"
 
-#: styles/statspages.lua:266 styles/statspages.lua:267
+#: styles/statspages.lua:248 styles/statspages.lua:249
 #, koreader
 msgid "Books by month"
 msgstr ""
 
-#: styles/statspages.lua:263 styles/statspages.lua:264
+#: styles/statspages.lua:245 styles/statspages.lua:246
 #, koreader
 msgid "Books by week"
 msgstr ""
@@ -613,7 +613,7 @@ msgstr ""
 msgid "Current page:"
 msgstr ""
 
-#: styles/statspages.lua:106 styles/statspages.lua:442
+#: styles/statspages.lua:106 styles/statspages.lua:427
 #, koreader
 msgid "Current statistics"
 msgstr ""
@@ -1543,7 +1543,7 @@ msgstr "次の未読了の本はありません"
 msgid "No previous book"
 msgstr "前の本はありません"
 
-#: styles/statspages.lua:365 views/stats.lua:612
+#: styles/statspages.lua:347 views/stats.lua:612
 msgid "No reading activity in this period"
 msgstr "この期間の読書記録はありません"
 
@@ -2307,11 +2307,11 @@ msgstr "今月"
 msgid "This month · %1 · %2 pp."
 msgstr "今月 · %1 · %2 ページ"
 
-#: styles/statspages.lua:266
+#: styles/statspages.lua:248
 msgid "This month: %1"
 msgstr "今月: %1"
 
-#: styles/statspages.lua:263
+#: styles/statspages.lua:245
 msgid "This week: %1"
 msgstr "今週: %1"
 
@@ -2324,7 +2324,7 @@ msgstr "今年"
 msgid "Time"
 msgstr ""
 
-#: styles/statspages.lua:240
+#: styles/statspages.lua:231
 #, koreader
 msgid "Time range statistics"
 msgstr ""
@@ -2370,7 +2370,7 @@ msgstr ""
 msgid "Today and streak"
 msgstr "今日と連続記録"
 
-#: styles/statspages.lua:319
+#: styles/statspages.lua:301
 #, koreader
 msgid "Today's timeline"
 msgstr ""

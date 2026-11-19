@@ -387,7 +387,9 @@ local function patchCoverBrowser(plugin)
                 elseif orig_mand and orig_mand ~= "" then
                     TextWidget.new = function(cls, o)
                         if type(o) == "table" and o.text == orig_mand then
-                            o.face = Font:getFace("infont", 14)
+                            -- (como los valores de las listas: common/screen.lua, LIST)
+                            o.face = Font:getFace("cfont", package.loaded.aire_screen.LIST.VALUE)
+                            o.fgcolor = Blitbuffer.COLOR_DARK_GRAY
                         end
                         return orig_tw_new(cls, o)
                     end
