@@ -246,51 +246,15 @@ end, TAG)
 -- negro) y los puntos de página abajo: deslizar a los lados cambia de
 -- marcador. Mismas acciones y mismas actualizaciones que el TextViewer de KOReader.
 --===========================================================================
-local BottomContainer = require("ui/widget/container/bottomcontainer")
 local ConfirmBox = require("ui/widget/confirmbox")
-local GestureRange = require("ui/gesturerange")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
 local HorizontalSpan = require("ui/widget/horizontalspan")
-local InputContainer = require("ui/widget/container/inputcontainer")
 
 -- Pantallas comunes (common/pages.lua, cargado una vez en main.lua)
 local function getP() return package.loaded.aire_pages end
 
-local DetailsSheet = InputContainer:extend{ modal = true }
-
-function DetailsSheet:init()
-    local sw, sh = Screen:getWidth(), Screen:getHeight()
-    self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
-    self.ges_events = {
-        AireTapOut = { GestureRange:new{ ges = "tap", range = self.dimen } },
-        AireSwipe = { GestureRange:new{ ges = "swipe", range = self.dimen } },
-    }
-    if Device:hasKeys() then self.key_events = { Close = { { Device.input.group.Back } } } end
-end
-function DetailsSheet:onAireTapOut(_arg, ges)
-    if self.frame and self.frame.dimen and ges and ges.pos and not ges.pos:intersectWith(self.frame.dimen) then
-        self:onClose()
-    end
-    return true
-end
--- Deslizar hacia abajo cierra; a los lados no hace nada (no se cambia de marcador)
-function DetailsSheet:onAireSwipe(_arg, ges)
-    if ges and ges.direction == "south" then self:onClose() return true end
-    return true
-end
--- Al mostrarse, pedir refresco de pantalla: UIManager:show sin tipo solo la
--- pinta en memoria y en el Kindle no aparecía (en las capturas sí)
-function DetailsSheet:onShow()
-    UIManager:setDirty(self, function() return "ui", self.frame and self.frame.dimen end)
-end
-function DetailsSheet:onClose()
-    UIManager:close(self)
-    if self.close_callback then self.close_callback() end
-    return true
-end
-function DetailsSheet:onCloseWidget()
-    UIManager:setDirty(nil, function() return "ui", self.frame and self.frame.dimen end)
-end
+-- Hoja común (common/sheet.lua): marco, tocar fuera / Atrás y refresco
+local DetailsSheet = package.loaded.aire_sheet.Sheet
 
 local function showDetailsSheet(bookmark, item_or_index)
     local P = getP()
@@ -331,11 +295,7 @@ local function showDetailsSheet(bookmark, item_or_index)
         end
     end
 
-    local sw, sh = Screen:getWidth(), Screen:getHeight()
-    local style = package.loaded.aire_screen.SHEET
-    local sheet_w = package.loaded.aire_screen.sheetWidth()
-    local pad = S(style.PAD)
-    local in_w = sheet_w - 2 * pad - 2 * Size.border.thin
+    local in_w = package.loaded.aire_screen.sheetInnerWidth()
 
     -- Cabecera: TIPO · capítulo · fecha y la página a la derecha
     local btype = ReaderBookmark.getBookmarkType(item)
@@ -412,15 +372,7 @@ local function showDetailsSheet(bookmark, item_or_index)
         end, { primary = true, disabled = bm_menu and bm_menu.select_count ~= nil }),
     })
     -- Un solo marcador: sin puntos de página ni deslizar a los lados
-    sheet = DetailsSheet:new{ close_callback = close_callback }
-    sheet.frame = FrameContainer:new{
-        width = sheet_w, bordersize = Size.border.thin, color = BLACK, background = WHITE,
-        radius = S(style.RADIUS), padding = pad, content,
-    }
-    sheet[1] = BottomContainer:new{
-        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - S(style.MARGIN) },
-        sheet.frame,
-    }
+    sheet = DetailsSheet:new{ close_callback = close_callback, content = content }
     UIManager:show(sheet)
     return true
 end

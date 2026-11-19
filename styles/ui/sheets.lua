@@ -857,16 +857,19 @@ if OTHER_DIALOGS_AS_SHEET then
                     buttons = button_row,
                 }
             end)
-            local frame = FrameContainer:new{
-                background = WHITE, bordersize = Size.border.thin, radius = S_(SHEET_RADIUS),
-                padding = pad, padding_bottom = math.max(0, pad - Size.span.vertical_default),
+            -- Marco y posición de hoja comunes (common/sheet.lua), dentro del
+            -- MovableContainer que KOReader espera; la tabla ya deja un hueco
+            -- bajo la última fila de botones
+            local _frame
+            _frame, self[1] = package.loaded.aire_sheet.frame(
                 VerticalGroup:new{ align = "left", text, VerticalSpan:new{ width = S_(16) }, bt },
-            }
-            self.movable = MovableContainer:new{ frame }
-            self[1] = BottomContainer:new{
-                dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - S_(SHEET_MARGIN) },
-                self.movable,
-            }
+                self, {
+                    padding_bottom = math.max(0, pad - Size.span.vertical_default),
+                    wrap = function(f)
+                        self.movable = MovableContainer:new{ f }
+                        return self.movable
+                    end,
+                })
         end
 
         safeWrap(MultiConfirmBox, "init", function(_orig, self)

@@ -134,7 +134,6 @@ return function(Aire, ctx)
     -- mismo módulo que arriba.
     local Blitbuffer = require("ffi/blitbuffer")
     local BookList = require("ui/widget/booklist")
-    local BottomContainer = require("ui/widget/container/bottomcontainer")
     local CenterContainer = require("ui/widget/container/centercontainer")
     local Notification = require("ui/widget/notification")
     local RenderImage = require("ui/renderimage")
@@ -719,19 +718,14 @@ return function(Aire, ctx)
 
     function Aire:showGridFilterSortMenu(filters, sorts)
         local st = package.loaded.aire_screen.SHEET -- medidas de hoja (common/screen.lua)
-        local margin = S(st.MARGIN)
-        local pad = S(st.PAD)
-        local sheet_radius = S(st.RADIUS)
         local btn_radius = S(st.BTN_RADIUS)
         local btn_gap = S(st.BTN_GAP)
         local btn_h = S(42)
         local border = Size.border.thin
-        local sw, sh = Screen:getWidth(), Screen:getHeight()
-        local inner_w = sw - 2 * margin - 2 * (pad + border)
+        local inner_w = package.loaded.aire_screen.sheetInnerWidth()
         local col_w = math.floor((inner_w - btn_gap) / 2)
         local col_w2 = inner_w - btn_gap - col_w
 
-        local sheet = InputContainer:extend{}
         local dlg
         local content = VerticalGroup:new{ align = "left" }
         local title = (filters and sorts) and _("Filter and sort")
@@ -850,26 +844,8 @@ return function(Aire, ctx)
             table.insert(content, erow)
         end
 
-        local card = FrameContainer:new{
-            bordersize = border, color = BLACK, background = WHITE,
-            radius = sheet_radius, padding = pad, content,
-        }
-        dlg = sheet:new{
-            dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh },
-            BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh - margin }, card },
-        }
-        dlg.ges_events = {
-            AireOutside = { GestureRange:new{ ges = "tap", range = function() return dlg.dimen end } },
-        }
-        dlg.onAireOutside = function(_s, _args, ges)
-            local sd = card.dimen
-            if ges and ges.pos and sd and sd.x and ges.pos:intersectWith(sd) then return true end
-            UIManager:close(dlg, "ui")
-            return true
-        end
-        dlg.onCloseWidget = function()
-            UIManager:setDirty(nil, "ui", card.dimen)
-        end
+        -- Hoja común (common/sheet.lua): marco, tocar fuera / Atrás y refresco
+        dlg = package.loaded.aire_sheet.Sheet:new{ content = content }
         UIManager:show(dlg, "ui")
     end
 

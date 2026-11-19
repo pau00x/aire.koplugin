@@ -10,14 +10,11 @@
     vista rápida de PDF); solo cambia cómo se monta. Si falla, la de KOReader.
 --]]
 
-local BottomContainer = require("ui/widget/container/bottomcontainer")
 local Device = require("device")
-local FrameContainer = require("ui/widget/container/framecontainer")
 local Geom = require("ui/geometry")
 local GestureRange = require("ui/gesturerange")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
 local HorizontalSpan = require("ui/widget/horizontalspan")
-local Size = require("ui/size")
 local SkimToWidget = require("ui/widget/skimtowidget")
 local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
@@ -70,11 +67,7 @@ end
 local function build(self)
     local P = getP()
     local S = P.S
-    local sw, sh = Screen:getWidth(), Screen:getHeight()
-    local style = package.loaded.aire_screen.SHEET
-    local sheet_w = package.loaded.aire_screen.sheetWidth()
-    local pad = S(style.PAD)
-    local in_w = sheet_w - 2 * pad - 2 * Size.border.thin
+    local in_w = package.loaded.aire_screen.sheetInnerWidth()
 
     local toc = self.ui.toc
     local ticks = toc and toc.getTocTicksFlattened and toc:getTocTicksFlattened() or {}
@@ -121,19 +114,9 @@ local function build(self)
             P.pill("+10", q, go(self.curr_page + 10)),
         },
     }
-    self.skimto_frame = FrameContainer:new{
-        width = sheet_w,
-        bordersize = Size.border.thin,
-        color = Blitbuffer.COLOR_BLACK,
-        background = Blitbuffer.COLOR_WHITE,
-        radius = S(style.RADIUS),
-        padding = pad,
-        content,
-    }
-    self[1] = BottomContainer:new{
-        dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh - S(style.MARGIN) },
-        self.skimto_frame,
-    }
+    -- Marco y posición de hoja comunes (common/sheet.lua); el cierre y los
+    -- toques son los de SkimToWidget (KOReader)
+    self.skimto_frame, self[1] = package.loaded.aire_sheet.frame(content, self)
 end
 
 safeWrap(SkimToWidget, "init", function(orig_init, self)

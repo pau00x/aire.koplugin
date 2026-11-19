@@ -6,7 +6,6 @@
 --]]
 
 local Blitbuffer = require("ffi/blitbuffer")
-local BottomContainer = require("ui/widget/container/bottomcontainer")
 local CenterContainer = require("ui/widget/container/centercontainer")
 local Device = require("device")
 local Event = require("ui/event")
@@ -88,23 +87,27 @@ end
 --                    callback = fn(sheet), separator = bool }, ... }
 --   buttons   -> { { text, callback = fn(sheet), primary = bool }, ... }
 ---------------------------------------------------------------------------
-local OptionSheet = InputContainer:extend{
+-- Hoja común (common/sheet.lua): marco, cierre y refresco; aquí solo el contenido
+local OptionSheet = package.loaded.aire_sheet.Sheet:extend{
     title = nil, rows_fn = nil, buttons = nil, S = nil, face = nil, tappable = nil, on_close = nil,
     columns = 1, -- 2: filas en dos columnas (p. ej. elegir widget)
+    full_refresh = true, -- lo de debajo (Inicio y el dock) puede haber cambiado
 }
 
 function OptionSheet:init()
+    package.loaded.aire_sheet.Sheet.init(self)
+    self.close_callback = self.on_close
+    self:setContent(function(inner_w) return self:buildContent(inner_w) end)
+end
+
+function OptionSheet:buildContent(inner_w)
     local S, face, tappable = self.S, self.face, self.tappable
-    local sw, sh = Screen:getWidth(), Screen:getHeight()
-    self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
     local st = package.loaded.aire_screen.SHEET -- medidas de hoja (common/screen.lua)
-    local margin, pad, border = S(st.MARGIN), S(st.PAD), Size.border.thin
-    local sheet_radius = S(st.RADIUS)
+    local border = Size.border.thin
     local btn_h = S(st.BTN_H)
     local btn_radius = S(st.BTN_RADIUS)
     local btn_gap = S(st.BTN_GAP)
     local btn_font = st.BTN_FONT
-    local inner_w = sw - 2 * margin - 2 * (pad + border)
     local content = VerticalGroup:new{ align = "left" }
     if self.title then
         table.insert(content, TextWidget:new{ text = self.title, face = face(true, 15), fgcolor = BLACK, max_width = inner_w, padding = 0 })
@@ -173,28 +176,7 @@ function OptionSheet:init()
         end
         table.insert(content, brow)
     end
-    self.sheet = FrameContainer:new{
-        bordersize = border, color = BLACK, background = WHITE, radius = sheet_radius, padding = pad, content,
-    }
-    self[1] = BottomContainer:new{ dimen = Geom:new{ w = sw, h = sh - margin }, self.sheet }
-    self.ges_events = {
-        AireOutside = { GestureRange:new{ ges = "tap", range = function() return self.dimen end } },
-    }
-end
-
-function OptionSheet:onAireOutside(_args, ges)
-    local sd = self.sheet and self.sheet.dimen
-    if ges and ges.pos and sd and sd.x and ges.pos:intersectWith(sd) then return true end
-    self:close()
-    return true
-end
-
-function OptionSheet:close()
-    -- Refresco de toda la pantalla al cerrar: lo de debajo (Inicio y el dock)
-    -- puede haber cambiado mientras la hoja estaba abierta
-    self._closed = true
-    UIManager:close(self, "ui")
-    if self.on_close then self.on_close() end
+    return content
 end
 
 -- Volver a dibujar con las opciones actualizadas
@@ -209,9 +191,6 @@ function OptionSheet:rebuild()
     UIManager:show(new, "ui")
 end
 
-function OptionSheet:onCloseWidget()
-    UIManager:setDirty(nil, "ui")
-end
 
 ---------------------------------------------------------------------------
 -- Hueco vacío (solo en edición): contorno gris claro y "+"

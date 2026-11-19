@@ -14,12 +14,15 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 - **Lists to pick from** (Vocabulary builder's "Move to book" and "Filter words from books"): only Close and Apply at the bottom; the first / last page buttons are gone (the dots and swiping change page).
 - **Bookmark details** no longer show page dots, and swiping left or right no longer moves to another bookmark (swiping down still closes). The Calendar subtitle uses the common subtitle row; Recap leaves the common gap below its title.
 
+- **Sheets close the same way**: tapping outside or the Back key close every Aire sheet (power, options, light, library filter and sort, updates, bookmark details); swiping on a sheet no longer closes it nor reaches the screen below. Options sheets with many rows scroll instead of running off the screen.
+
 ### Fixed
 
 - **Vocabulary builder**: the first time it was opened after starting KOReader it kept KOReader's margins until it was opened again.
 
 ### Internal
 
+- Submenus, step 2: new `common/sheet.lua` (`package.loaded.aire_sheet`). `frame` builds the sheet frame at the bottom (and scrolls content that doesn't fit when given a builder); `Sheet` adds closing (tap outside with the live size, Back), swallowing swipes, and the refresh when shown and closed. Power, options, light, updates, library filter and sort and bookmark details are `Sheet`s; skim and the three-button confirmation use `frame`. Each kept its own copy of all this before.
 - Submenus, step 1: the sheet measurements (margin, radius, padding, button height, radius, gap and font, top menu inset) live only in `common/screen.lua` (`SHEET`, `sheetWidth`, `sheetInnerWidth`). `styles/ui/base.lua`, `styles/ui/sheets.lua` and Aire's own sheets (options, power, updates, library filter and sort, bookmark details, skim, book sheet…) read them from there instead of `ButtonDialog.aire_sheet_style` with their own fallback copies. No visible changes.
 - Full-screen layout, step 1: new `common/screen.lua` (`package.loaded.aire_screen`) with the shared margins and spacing (`METRICS`) and the only page-dots widget (`Pager`). The Library grid no longer has its own copy (`PageDots` removed), Menu/KeyValuePage/Page lists use the same one, and the side margin hard-coded in `styles/` and `common/pages.lua` comes from `METRICS.SIDE`. No visible changes.
 - Full-screen layout, step 2: one status bar, one header and one subtitle row for every full screen (`statusBar`, `header`, `subtitle` in `common/screen.lua`). Aire's own views (`buildTopBar`, `buildViewTitle`, `buildBackHeader`, the file browser title) and KOReader's full screens (`styles/ui/titlebar.lua`) now build them the same way instead of keeping their own copies. No visible changes.

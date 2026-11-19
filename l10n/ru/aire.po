@@ -34,7 +34,7 @@ msgstr "%1 % (отложено)"
 msgid "%1 % read"
 msgstr "%1 % прочитано"
 
-#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:322 views/grid.lua:327
+#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:321 views/grid.lua:326
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 книга"
@@ -50,7 +50,7 @@ msgstr[1] "%1 закладки"
 msgstr[2] "%1 закладок"
 msgstr[3] "%1 закладки"
 
-#: views/grid.lua:492 views/grid.lua:493
+#: views/grid.lua:491 views/grid.lua:492
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 подборка"
@@ -82,7 +82,7 @@ msgstr[1] "%1 дня чтения"
 msgstr[2] "%1 дней чтения"
 msgstr[3] "%1 дня чтения"
 
-#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:324
+#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:323
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "завершено: %1"
@@ -90,7 +90,7 @@ msgstr[1] "завершено: %1"
 msgstr[2] "завершено: %1"
 msgstr[3] "завершено: %1"
 
-#: views/grid.lua:575
+#: views/grid.lua:574
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 завершённая книга"
@@ -138,7 +138,7 @@ msgstr[1] "%1 сохранённых ярлыка"
 msgstr[2] "%1 сохранённых ярлыков"
 msgstr[3] "%1 сохранённого ярлыка"
 
-#: views/grid.lua:323
+#: views/grid.lua:322
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 серия"
@@ -182,7 +182,7 @@ msgstr "%d из 5 звёзд"
 msgid "(current)"
 msgstr "(текущий)"
 
-#: styles/ui/lightsheet.lua:185
+#: styles/ui/lightsheet.lua:175
 msgid "+ Brightness"
 msgstr "+ Яркость"
 
@@ -210,7 +210,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 столбца"
 
-#: views/update.lua:338
+#: views/update.lua:298
 msgid "A new version is available"
 msgstr "Доступна новая версия"
 
@@ -234,7 +234,7 @@ msgstr "Активен"
 msgid "Activity summary"
 msgstr "Сводка активности"
 
-#: styles/bookmark.lua:377
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -260,15 +260,15 @@ msgstr "Дополнительно"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:274 views/update.lua:331
+#: views/update.lua:234 views/update.lua:291
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:158 views/update.lua:535
+#: views/power.lua:151 views/update.lua:495
 msgid "Aire %1 available"
 msgstr "Доступна Aire %1"
 
-#: views/update.lua:188
+#: views/update.lua:148
 msgid "Aire %1 installed"
 msgstr "Aire %1 установлена"
 
@@ -295,7 +295,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Все завершены"
 
-#: views/grid.lua:577 views/widgets.lua:441
+#: views/grid.lua:576 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
@@ -343,7 +343,7 @@ msgstr "Автоматические подборки по жанру (ключ�
 msgid "Automatic tests"
 msgstr "Автоматические тесты"
 
-#: views/grid.lua:1008
+#: views/grid.lua:984
 msgid "Automatic: books by this author"
 msgstr "Автоматическая: книги этого автора"
 
@@ -453,7 +453,7 @@ msgstr "Закладки и выделения"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:969
+#: views/grid.lua:945
 msgid "Books are not deleted, only the collection."
 msgstr "Книги не удаляются, только подборка."
 
@@ -521,7 +521,7 @@ msgstr ""
 msgid "Change"
 msgstr "Изменить"
 
-#: styles/skim.lua:89
+#: styles/skim.lua:82
 msgid "Chapter %1 of %2"
 msgstr "Глава %1 из %2"
 
@@ -545,11 +545,11 @@ msgstr "Заряжена"
 msgid "Charging"
 msgstr "Заряжается"
 
-#: views/update.lua:484
+#: views/update.lua:444
 msgid "Check every week"
 msgstr "Проверять каждую неделю"
 
-#: views/update.lua:477
+#: views/update.lua:437
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -588,7 +588,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Порядок подборки"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1349
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1325
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -632,7 +632,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:396
+#: views/update.lua:356
 msgid "Could not check for updates. Try again later."
 msgstr "Не удалось проверить обновления. Попробуйте позже."
 
@@ -643,7 +643,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:257
+#: views/update.lua:217
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Не удалось установить обновление. Aire %1 остаётся установленной."
 
@@ -716,7 +716,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "декабря"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:970 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:946 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -742,7 +742,7 @@ msgstr "Удалить минуты за этот день?"
 msgid "Delete minutes from this day"
 msgstr "Удалить минуты за этот день"
 
-#: views/grid.lua:968
+#: views/grid.lua:944
 msgid "Delete the collection?"
 msgstr "Удалить подборку?"
 
@@ -750,7 +750,7 @@ msgstr "Удалить подборку?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1019
+#: views/grid.lua:995
 msgid "Delete…"
 msgstr "Удалить…"
 
@@ -793,12 +793,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:208
+#: views/update.lua:168
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:232
+#: views/update.lua:192
 msgid "Downloading… %1 of %2"
 msgstr "Загрузка… %1 из %2"
 
@@ -823,7 +823,7 @@ msgstr "Изменить виджеты главного экрана"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:377
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -832,7 +832,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Изменить серию"
 
-#: styles/bookmark.lua:381
+#: styles/bookmark.lua:341
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -846,7 +846,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Без виджетов"
 
-#: views/grid.lua:469
+#: views/grid.lua:468
 msgid "Empty collection"
 msgstr "Подборка пуста"
 
@@ -854,7 +854,7 @@ msgstr "Подборка пуста"
 msgid "Empty folder"
 msgstr "Папка пуста"
 
-#: views/grid.lua:302
+#: views/grid.lua:301
 msgid "Empty series"
 msgstr "Серия пуста"
 
@@ -886,7 +886,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Всё, что рисует плагин, с тестовыми данными. Листайте ← → для смены страниц; нажмите на страницу или вне её, чтобы выйти."
 
-#: views/power.lua:221
+#: views/power.lua:214
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -895,7 +895,7 @@ msgstr ""
 msgid "FILE"
 msgstr "ФАЙЛ"
 
-#: views/grid.lua:794
+#: views/grid.lua:788
 msgid "FILTER"
 msgstr "ФИЛЬТР"
 
@@ -908,7 +908,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Избранные папки"
 
-#: dev/devtools.lua:821 views/grid.lua:346 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:345 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -933,11 +933,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:738
+#: views/grid.lua:732
 msgid "Filter"
 msgstr "Фильтр"
 
-#: dev/devtools.lua:659 views/grid.lua:737
+#: dev/devtools.lua:659 views/grid.lua:731
 msgid "Filter and sort"
 msgstr "Фильтр и сортировка"
 
@@ -1017,7 +1017,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:101
+#: styles/ui/lightsheet.lua:91
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1054,7 +1054,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Назначенные жесты: %1"
 
-#: styles/bookmark.lua:406
+#: styles/bookmark.lua:366
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1089,7 +1089,7 @@ msgstr "Ещё не наступил"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1350
+#: views/dock.lua:42 views/grid.lua:1326
 #, koreader
 msgid "History"
 msgstr ""
@@ -1098,7 +1098,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:613
+#: views/grid.lua:612
 msgid "History is empty"
 msgstr "История пуста"
 
@@ -1151,15 +1151,15 @@ msgstr "В «Подборках» появляется подборка для �
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "В «Подборках» появляется подборка для каждого ключевого слова, у которого 2 книги или больше. Они обновляются автоматически и не сохраняются в подборках KOReader."
 
-#: views/update.lua:493
+#: views/update.lua:453
 msgid "Include beta versions"
 msgstr "Включать бета-версии"
 
-#: views/update.lua:512
+#: views/update.lua:472
 msgid "Installed version: %1"
 msgstr "Установленная версия: %1"
 
-#: views/update.lua:244
+#: views/update.lua:204
 msgid "Installing…"
 msgstr "Установка…"
 
@@ -1175,7 +1175,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:191
+#: views/update.lua:151
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Будет использоваться после перезапуска KOReader. Ваши настройки сохраняются."
 
@@ -1204,7 +1204,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "июня"
 
-#: views/power.lua:220
+#: views/power.lua:213
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1250,7 +1250,7 @@ msgstr "Последнее"
 msgid "Last 7 days summary"
 msgstr "Сводка за последние 7 дней"
 
-#: views/update.lua:505
+#: views/update.lua:465
 msgid "Last check: %1"
 msgstr "Последняя проверка: %1"
 
@@ -1258,7 +1258,7 @@ msgstr "Последняя проверка: %1"
 msgid "Last read"
 msgstr "Последнее чтение"
 
-#: common/compat.lua:170 views/update.lua:178 views/update.lua:374
+#: common/compat.lua:170 views/update.lua:138 views/update.lua:334
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1277,7 +1277,7 @@ msgstr "Макет"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1348
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1324
 msgid "Library"
 msgstr "Библиотека"
 
@@ -1363,7 +1363,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Отметить все книги в «%1» как «Читаю»?"
 
-#: views/grid.lua:1056
+#: views/grid.lua:1032
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Отметить все книги подборки «%1» как «Читаю»?"
 
@@ -1371,11 +1371,11 @@ msgstr "Отметить все книги подборки «%1» как «Чи
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:1030
 msgid "Mark entire collection as finished"
 msgstr "Отметить всю подборку как завершённую"
 
-#: views/grid.lua:1055
+#: views/grid.lua:1031
 msgid "Mark entire collection as reading"
 msgstr "Отметить всю подборку как «Читаю»"
 
@@ -1414,7 +1414,7 @@ msgstr "Минимальный"
 msgid "Mix folders"
 msgstr "Смешивать папки"
 
-#: views/grid.lua:815
+#: views/grid.lua:809
 msgid "Mix series"
 msgstr "Смешивать серии"
 
@@ -1503,12 +1503,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Новый"
 
-#: views/grid.lua:488
+#: views/grid.lua:487
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1010 views/grid.lua:1023
+#: views/grid.lua:986 views/grid.lua:999
 msgid "New collection…"
 msgstr "Новая подборка…"
 
@@ -1528,7 +1528,7 @@ msgstr "Следующая %1"
 msgid "Next batch of test widgets"
 msgstr "Следующая партия тестовых виджетов"
 
-#: styles/skim.lua:112
+#: styles/skim.lua:105
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1554,19 +1554,19 @@ msgstr "Нет читаемой книги"
 msgid "No book matches the filter"
 msgstr "Нет книг, подходящих под фильтр"
 
-#: views/grid.lua:581
+#: views/grid.lua:580
 msgid "No books finished this month"
 msgstr "В этом месяце нет завершённых книг"
 
-#: views/grid.lua:581
+#: views/grid.lua:580
 msgid "No books finished this year"
 msgstr "В этом году нет завершённых книг"
 
-#: views/grid.lua:334
+#: views/grid.lua:333
 msgid "No books in home folder"
 msgstr "В домашней папке нет книг"
 
-#: views/grid.lua:334 views/grid.lua:469 views/grid.lua:613
+#: views/grid.lua:333 views/grid.lua:468 views/grid.lua:612
 msgid "No books with this filter"
 msgstr "Нет книг с этим фильтром"
 
@@ -1574,11 +1574,11 @@ msgstr "Нет книг с этим фильтром"
 msgid "No chapter"
 msgstr "Без главы"
 
-#: views/grid.lua:496
+#: views/grid.lua:495
 msgid "No collections"
 msgstr "Нет подборок"
 
-#: views/grid.lua:496
+#: views/grid.lua:495
 msgid "No collections with this filter"
 msgstr "Нет подборок с этим фильтром"
 
@@ -1693,7 +1693,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Отложено"
 
-#: views/update.lua:485
+#: views/update.lua:445
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Только если Wi-Fi уже включён: Aire никогда его не включает."
 
@@ -1702,7 +1702,7 @@ msgstr "Только если Wi-Fi уже включён: Aire никогда �
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1053
+#: views/grid.lua:1029
 msgid "Open collection"
 msgstr "Открыть подборку"
 
@@ -1710,7 +1710,7 @@ msgstr "Открыть подборку"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1053
+#: views/grid.lua:1029
 msgid "Open series"
 msgstr "Открыть серию"
 
@@ -1803,7 +1803,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:178
+#: views/power.lua:171
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1816,7 +1816,7 @@ msgstr "Предыдущая"
 msgid "Previous book"
 msgstr "Предыдущая книга"
 
-#: styles/skim.lua:109
+#: styles/skim.lua:102
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1950,7 +1950,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:394
+#: dev/devtools.lua:636 styles/bookmark.lua:354
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1960,17 +1960,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Убрать"
 
-#: styles/bookmark.lua:391
+#: styles/bookmark.lua:351
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:583 views/grid.lua:502
+#: views/booksheet.lua:583 views/grid.lua:501
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Убрать из подборки"
 
-#: views/booksheet.lua:547 views/grid.lua:618
+#: views/booksheet.lua:547 views/grid.lua:617
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1980,7 +1980,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:393
+#: styles/bookmark.lua:353
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1990,7 +1990,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1017
+#: views/grid.lua:993
 msgid "Rename…"
 msgstr "Переименовать…"
 
@@ -2003,7 +2003,7 @@ msgstr "Заменить виджеты на главном экране наб�
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:219
+#: views/power.lua:212
 #, koreader
 msgid "Restart"
 msgstr ""
@@ -2017,16 +2017,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Перезапустите KOReader, чтобы изменения вступили в силу."
 
-#: views/update.lua:192
+#: views/update.lua:152
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Перезапустите KOReader, чтобы использовать её. Ваши настройки сохраняются."
 
-#: views/update.lua:181
+#: views/update.lua:141
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:809
+#: views/explorer.lua:103 views/grid.lua:803
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2051,7 +2051,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:804
+#: views/grid.lua:798
 msgid "SORT BY"
 msgstr "СОРТИРОВКА"
 
@@ -2101,7 +2101,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:352
+#: views/update.lua:312
 msgid "See all changes"
 msgstr "Все изменения"
 
@@ -2133,7 +2133,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:481
+#: views/update.lua:441
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2185,11 +2185,11 @@ msgstr "Показывать аннотацию"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:329
 msgid "Skip"
 msgstr "Пропустить"
 
-#: views/power.lua:177
+#: views/power.lua:170
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Режим сна"
@@ -2214,16 +2214,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:738
+#: dev/devtools.lua:613 views/grid.lua:732
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:988
+#: dev/devtools.lua:825 views/grid.lua:964
 msgid "Sort collections"
 msgstr "Сортировка подборок"
 
-#: views/grid.lua:1011 views/grid.lua:1024
+#: views/grid.lua:987 views/grid.lua:1000
 msgid "Sort collections…"
 msgstr "Сортировать подборки…"
 
@@ -2300,7 +2300,7 @@ msgstr "Нажмите, чтобы остановить"
 msgid "Tap to view definition"
 msgstr "Нажмите, чтобы увидеть определение"
 
-#: views/grid.lua:1251
+#: views/grid.lua:1227
 msgid "Test book"
 msgstr "Тестовая книга"
 
@@ -2357,7 +2357,7 @@ msgstr "Текущая книга не входит в серию"
 msgid "This collection is empty"
 msgstr "Эта подборка пуста"
 
-#: views/update.lua:364
+#: views/update.lua:324
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "В этой копии есть папка dev/ (тесты). В новой версии её нет, поэтому она будет удалена."
 
@@ -2459,16 +2459,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:142 views/power.lua:169 views/update.lua:375 views/update.lua:529
+#: views/power.lua:135 views/power.lua:162 views/update.lua:335 views/update.lua:489
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:472
+#: views/update.lua:432
 msgid "Update Aire"
 msgstr "Обновить Aire"
 
-#: views/update.lua:472
+#: views/update.lua:432
 msgid "Update Aire (%1 available)"
 msgstr "Обновить Aire (доступна %1)"
 
@@ -2476,7 +2476,7 @@ msgstr "Обновить Aire (доступна %1)"
 msgid "Update KOReader"
 msgstr "Обновить KOReader"
 
-#: views/update.lua:212
+#: views/update.lua:172
 msgid "Updating Aire"
 msgstr "Обновление Aire"
 
@@ -2553,7 +2553,7 @@ msgstr "Виджеты %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:415
+#: views/update.lua:375
 msgid "You already have the latest version (%1)."
 msgstr "У вас уже последняя версия (%1)."
 
@@ -2569,11 +2569,11 @@ msgstr "У вас пока нет выделений"
 msgid "You have not opened any book yet"
 msgstr "Вы ещё не открыли ни одной книги"
 
-#: views/power.lua:161 views/update.lua:340
+#: views/power.lua:154 views/update.lua:300
 msgid "You have version %1"
 msgstr "У вас версия %1"
 
-#: views/grid.lua:580
+#: views/grid.lua:579
 msgid "You haven't finished any books yet"
 msgstr "Вы ещё не завершили ни одной книги"
 
@@ -2602,7 +2602,7 @@ msgstr "в среднем / день"
 msgid "battery"
 msgstr "батарея"
 
-#: views/update.lua:332
+#: views/update.lua:292
 msgid "beta"
 msgstr "бета"
 
@@ -2663,7 +2663,7 @@ msgstr "последние 7 дней"
 msgid "light"
 msgstr "подсветка"
 
-#: views/update.lua:504
+#: views/update.lua:464
 #, koreader
 msgid "never"
 msgstr ""
@@ -2787,6 +2787,6 @@ msgstr "вчера"
 msgid "~%1 left"
 msgstr "осталось ~%1"
 
-#: styles/ui/lightsheet.lua:183
+#: styles/ui/lightsheet.lua:173
 msgid "− Brightness"
 msgstr "− Яркость"

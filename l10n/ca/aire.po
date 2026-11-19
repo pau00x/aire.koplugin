@@ -32,7 +32,7 @@ msgstr "%1 % (en espera)"
 msgid "%1 % read"
 msgstr "%1 % llegit"
 
-#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:322 views/grid.lua:327
+#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:321 views/grid.lua:326
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 llibre"
@@ -44,7 +44,7 @@ msgid_plural "%1 bookmarks"
 msgstr[0] "%1 marcador"
 msgstr[1] "%1 marcadors"
 
-#: views/grid.lua:492 views/grid.lua:493
+#: views/grid.lua:491 views/grid.lua:492
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 col·lecció"
@@ -68,13 +68,13 @@ msgid_plural "%1 days reading"
 msgstr[0] "%1 dia llegint"
 msgstr[1] "%1 dies llegint"
 
-#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:324
+#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:323
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 acabat"
 msgstr[1] "%1 acabats"
 
-#: views/grid.lua:575
+#: views/grid.lua:574
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 llibre acabat"
@@ -112,7 +112,7 @@ msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 drecera desada"
 msgstr[1] "%1 dreceres desades"
 
-#: views/grid.lua:323
+#: views/grid.lua:322
 msgid "%1 series"
 msgid_plural "%1 series"
 msgstr[0] "%1 sèrie"
@@ -150,7 +150,7 @@ msgstr "%d de 5 estrelles"
 msgid "(current)"
 msgstr "(actual)"
 
-#: styles/ui/lightsheet.lua:185
+#: styles/ui/lightsheet.lua:175
 msgid "+ Brightness"
 msgstr "+ Lluentor"
 
@@ -178,7 +178,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 columnes"
 
-#: views/update.lua:338
+#: views/update.lua:298
 msgid "A new version is available"
 msgstr "Hi ha una versió nova"
 
@@ -202,7 +202,7 @@ msgstr "Actiu"
 msgid "Activity summary"
 msgstr "Resum d'activitat"
 
-#: styles/bookmark.lua:377
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -228,15 +228,15 @@ msgstr "Avançat"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:274 views/update.lua:331
+#: views/update.lua:234 views/update.lua:291
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:158 views/update.lua:535
+#: views/power.lua:151 views/update.lua:495
 msgid "Aire %1 available"
 msgstr "Aire %1 disponible"
 
-#: views/update.lua:188
+#: views/update.lua:148
 msgid "Aire %1 installed"
 msgstr "Aire %1 instal·lada"
 
@@ -261,7 +261,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Tots acabats"
 
-#: views/grid.lua:577 views/widgets.lua:441
+#: views/grid.lua:576 views/widgets.lua:441
 #, koreader
 msgid "Always"
 msgstr ""
@@ -309,7 +309,7 @@ msgstr "Col·leccions automàtiques per gènere (paraula clau)"
 msgid "Automatic tests"
 msgstr "Proves automàtiques"
 
-#: views/grid.lua:1008
+#: views/grid.lua:984
 msgid "Automatic: books by this author"
 msgstr "Automàtica: llibres d'aquest autor"
 
@@ -419,7 +419,7 @@ msgstr "Marcadors i subratllats"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:969
+#: views/grid.lua:945
 msgid "Books are not deleted, only the collection."
 msgstr "Els llibres no se suprimeixen, només la col·lecció."
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Change"
 msgstr "Canvia"
 
-#: styles/skim.lua:89
+#: styles/skim.lua:82
 msgid "Chapter %1 of %2"
 msgstr "Capítol %1 de %2"
 
@@ -511,11 +511,11 @@ msgstr "Carregada"
 msgid "Charging"
 msgstr "Carregant"
 
-#: views/update.lua:484
+#: views/update.lua:444
 msgid "Check every week"
 msgstr "Comprova-ho cada setmana"
 
-#: views/update.lua:477
+#: views/update.lua:437
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -554,7 +554,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Ordre de la col·lecció"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1349
+#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1325
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -598,7 +598,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:396
+#: views/update.lua:356
 msgid "Could not check for updates. Try again later."
 msgstr "No s'ha pogut comprovar si hi ha actualitzacions. Torna-ho a provar més tard."
 
@@ -609,7 +609,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:257
+#: views/update.lua:217
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "No s'ha pogut instal·lar l'actualització. Continua instal·lada Aire %1."
 
@@ -682,7 +682,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "de desembre"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:970 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:946 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -708,7 +708,7 @@ msgstr "Voleu suprimir els minuts d'aquest dia?"
 msgid "Delete minutes from this day"
 msgstr "Suprimeix els minuts d'aquest dia"
 
-#: views/grid.lua:968
+#: views/grid.lua:944
 msgid "Delete the collection?"
 msgstr "Voleu suprimir la col·lecció?"
 
@@ -716,7 +716,7 @@ msgstr "Voleu suprimir la col·lecció?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:1019
+#: views/grid.lua:995
 msgid "Delete…"
 msgstr "Suprimeix…"
 
@@ -759,12 +759,12 @@ msgstr ""
 msgid "Downloading covers"
 msgstr ""
 
-#: views/update.lua:208
+#: views/update.lua:168
 #, koreader
 msgid "Downloading…"
 msgstr ""
 
-#: views/update.lua:232
+#: views/update.lua:192
 msgid "Downloading… %1 of %2"
 msgstr "S'està baixant… %1 de %2"
 
@@ -789,7 +789,7 @@ msgstr "Edita els ginys d'Inici"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:377
+#: styles/bookmark.lua:337
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -798,7 +798,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Edita la sèrie"
 
-#: styles/bookmark.lua:381
+#: styles/bookmark.lua:341
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -812,7 +812,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Sense ginys"
 
-#: views/grid.lua:469
+#: views/grid.lua:468
 msgid "Empty collection"
 msgstr "Col·lecció buida"
 
@@ -820,7 +820,7 @@ msgstr "Col·lecció buida"
 msgid "Empty folder"
 msgstr "Carpeta buida"
 
-#: views/grid.lua:302
+#: views/grid.lua:301
 msgid "Empty series"
 msgstr "Sèrie buida"
 
@@ -852,7 +852,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Tot el que dibuixa el complement, amb dades inventades. Llisqueu ← → per passar pàgina; toqueu fora o a la pàgina per sortir."
 
-#: views/power.lua:221
+#: views/power.lua:214
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -861,7 +861,7 @@ msgstr ""
 msgid "FILE"
 msgstr "FITXER"
 
-#: views/grid.lua:794
+#: views/grid.lua:788
 msgid "FILTER"
 msgstr "FILTRE"
 
@@ -874,7 +874,7 @@ msgstr ""
 msgid "Favorite folders"
 msgstr "Carpetes preferides"
 
-#: dev/devtools.lua:821 views/grid.lua:346 views/widgets.lua:393
+#: dev/devtools.lua:821 views/grid.lua:345 views/widgets.lua:393
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -899,11 +899,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:738
+#: views/grid.lua:732
 msgid "Filter"
 msgstr "Filtra"
 
-#: dev/devtools.lua:659 views/grid.lua:737
+#: dev/devtools.lua:659 views/grid.lua:731
 msgid "Filter and sort"
 msgstr "Filtra i ordena"
 
@@ -983,7 +983,7 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: styles/ui/lightsheet.lua:101
+#: styles/ui/lightsheet.lua:91
 #, koreader
 msgid "Frontlight"
 msgstr ""
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Gestos configurats: %1"
 
-#: styles/bookmark.lua:406
+#: styles/bookmark.lua:366
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1055,7 +1055,7 @@ msgstr "Encara no ha arribat"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1350
+#: views/dock.lua:42 views/grid.lua:1326
 #, koreader
 msgid "History"
 msgstr ""
@@ -1064,7 +1064,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid.lua:613
+#: views/grid.lua:612
 msgid "History is empty"
 msgstr "L'historial és buit"
 
@@ -1117,15 +1117,15 @@ msgstr "A Col·leccions apareix una col·lecció per a cada autor amb 2 o més l
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "A Col·leccions apareix una col·lecció per a cada paraula clau amb 2 o més llibres. S'actualitzen automàticament i no es desen a les col·leccions de KOReader."
 
-#: views/update.lua:493
+#: views/update.lua:453
 msgid "Include beta versions"
 msgstr "Inclou versions beta"
 
-#: views/update.lua:512
+#: views/update.lua:472
 msgid "Installed version: %1"
 msgstr "Versió instal·lada: %1"
 
-#: views/update.lua:244
+#: views/update.lua:204
 msgid "Installing…"
 msgstr "S'està instal·lant…"
 
@@ -1141,7 +1141,7 @@ msgstr ""
 msgid "Inverted portrait"
 msgstr ""
 
-#: views/update.lua:191
+#: views/update.lua:151
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "S'utilitzarà en reiniciar KOReader. Es conserven els teus ajustos."
 
@@ -1170,7 +1170,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "de juny"
 
-#: views/power.lua:220
+#: views/power.lua:213
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1216,7 +1216,7 @@ msgstr "Última"
 msgid "Last 7 days summary"
 msgstr "Resum dels últims 7 dies"
 
-#: views/update.lua:505
+#: views/update.lua:465
 msgid "Last check: %1"
 msgstr "Última comprovació: %1"
 
@@ -1224,7 +1224,7 @@ msgstr "Última comprovació: %1"
 msgid "Last read"
 msgstr "Última lectura"
 
-#: common/compat.lua:170 views/update.lua:178 views/update.lua:374
+#: common/compat.lua:170 views/update.lua:138 views/update.lua:334
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1243,7 +1243,7 @@ msgstr "Disposició"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1348
+#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1324
 msgid "Library"
 msgstr "Biblioteca"
 
@@ -1328,7 +1328,7 @@ msgstr "Marca"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Voleu marcar tots els llibres de «%1» com a en lectura?"
 
-#: views/grid.lua:1056
+#: views/grid.lua:1032
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Voleu marcar tots els llibres de la col·lecció «%1» com a en lectura?"
 
@@ -1336,11 +1336,11 @@ msgstr "Voleu marcar tots els llibres de la col·lecció «%1» com a en lectura
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:1054
+#: views/grid.lua:1030
 msgid "Mark entire collection as finished"
 msgstr "Marca tota la col·lecció com a acabada"
 
-#: views/grid.lua:1055
+#: views/grid.lua:1031
 msgid "Mark entire collection as reading"
 msgstr "Marca tota la col·lecció com a en lectura"
 
@@ -1379,7 +1379,7 @@ msgstr "Mínim"
 msgid "Mix folders"
 msgstr "Barreja carpetes"
 
-#: views/grid.lua:815
+#: views/grid.lua:809
 msgid "Mix series"
 msgstr "Barreja sèries"
 
@@ -1468,12 +1468,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nou"
 
-#: views/grid.lua:488
+#: views/grid.lua:487
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:1010 views/grid.lua:1023
+#: views/grid.lua:986 views/grid.lua:999
 msgid "New collection…"
 msgstr "Nova col·lecció…"
 
@@ -1493,7 +1493,7 @@ msgstr "Següent %1"
 msgid "Next batch of test widgets"
 msgstr "Següent tanda de ginys de prova"
 
-#: styles/skim.lua:112
+#: styles/skim.lua:105
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1519,19 +1519,19 @@ msgstr "Cap llibre en curs"
 msgid "No book matches the filter"
 msgstr "Cap llibre coincideix amb el filtre"
 
-#: views/grid.lua:581
+#: views/grid.lua:580
 msgid "No books finished this month"
 msgstr "Cap llibre acabat aquest mes"
 
-#: views/grid.lua:581
+#: views/grid.lua:580
 msgid "No books finished this year"
 msgstr "Cap llibre acabat aquest any"
 
-#: views/grid.lua:334
+#: views/grid.lua:333
 msgid "No books in home folder"
 msgstr "No hi ha llibres a la carpeta d'inici"
 
-#: views/grid.lua:334 views/grid.lua:469 views/grid.lua:613
+#: views/grid.lua:333 views/grid.lua:468 views/grid.lua:612
 msgid "No books with this filter"
 msgstr "Cap llibre amb aquest filtre"
 
@@ -1539,11 +1539,11 @@ msgstr "Cap llibre amb aquest filtre"
 msgid "No chapter"
 msgstr "Sense capítol"
 
-#: views/grid.lua:496
+#: views/grid.lua:495
 msgid "No collections"
 msgstr "No hi ha col·leccions"
 
-#: views/grid.lua:496
+#: views/grid.lua:495
 msgid "No collections with this filter"
 msgstr "Cap col·lecció amb aquest filtre"
 
@@ -1658,7 +1658,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "En espera"
 
-#: views/update.lua:485
+#: views/update.lua:445
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Només amb el Wi-Fi ja encès: Aire no l'encén mai."
 
@@ -1667,7 +1667,7 @@ msgstr "Només amb el Wi-Fi ja encès: Aire no l'encén mai."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:1053
+#: views/grid.lua:1029
 msgid "Open collection"
 msgstr "Obre la col·lecció"
 
@@ -1675,7 +1675,7 @@ msgstr "Obre la col·lecció"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:1053
+#: views/grid.lua:1029
 msgid "Open series"
 msgstr "Obre la sèrie"
 
@@ -1768,7 +1768,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:178
+#: views/power.lua:171
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1781,7 +1781,7 @@ msgstr "Anterior"
 msgid "Previous book"
 msgstr "Llibre anterior"
 
-#: styles/skim.lua:109
+#: styles/skim.lua:102
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1915,7 +1915,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:394
+#: dev/devtools.lua:636 styles/bookmark.lua:354
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1925,17 +1925,17 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Elimina"
 
-#: styles/bookmark.lua:391
+#: styles/bookmark.lua:351
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:583 views/grid.lua:502
+#: views/booksheet.lua:583 views/grid.lua:501
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Elimina de la col·lecció"
 
-#: views/booksheet.lua:547 views/grid.lua:618
+#: views/booksheet.lua:547 views/grid.lua:617
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1945,7 +1945,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:393
+#: styles/bookmark.lua:353
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -1955,7 +1955,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:1017
+#: views/grid.lua:993
 msgid "Rename…"
 msgstr "Reanomena…"
 
@@ -1968,7 +1968,7 @@ msgstr "Voleu substituir els ginys d'Inici pel conjunt «%1»?"
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:219
+#: views/power.lua:212
 #, koreader
 msgid "Restart"
 msgstr ""
@@ -1982,16 +1982,16 @@ msgstr ""
 msgid "Restart KOReader for the change to take effect."
 msgstr "Reinicieu KOReader perquè el canvi tingui efecte."
 
-#: views/update.lua:192
+#: views/update.lua:152
 msgid "Restart KOReader to use it. Your settings are kept."
 msgstr "Reinicia KOReader per utilitzar-la. Es conserven els teus ajustos."
 
-#: views/update.lua:181
+#: views/update.lua:141
 #, koreader
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:809
+#: views/explorer.lua:103 views/grid.lua:803
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2016,7 +2016,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:804
+#: views/grid.lua:798
 msgid "SORT BY"
 msgstr "ORDENA PER"
 
@@ -2066,7 +2066,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:352
+#: views/update.lua:312
 msgid "See all changes"
 msgstr "Mostra totes les novetats"
 
@@ -2098,7 +2098,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:481
+#: views/update.lua:441
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2150,11 +2150,11 @@ msgstr "Mostra la sinopsi"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:329
 msgid "Skip"
 msgstr "Omet"
 
-#: views/power.lua:177
+#: views/power.lua:170
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Suspendre"
@@ -2179,16 +2179,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:738
+#: dev/devtools.lua:613 views/grid.lua:732
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:988
+#: dev/devtools.lua:825 views/grid.lua:964
 msgid "Sort collections"
 msgstr "Ordena les col·leccions"
 
-#: views/grid.lua:1011 views/grid.lua:1024
+#: views/grid.lua:987 views/grid.lua:1000
 msgid "Sort collections…"
 msgstr "Ordena les col·leccions…"
 
@@ -2265,7 +2265,7 @@ msgstr "Toqueu per aturar"
 msgid "Tap to view definition"
 msgstr "Toqueu per veure la definició"
 
-#: views/grid.lua:1251
+#: views/grid.lua:1227
 msgid "Test book"
 msgstr "Llibre de prova"
 
@@ -2322,7 +2322,7 @@ msgstr "El llibre actual no forma part de cap sèrie"
 msgid "This collection is empty"
 msgstr "Aquesta col·lecció és buida"
 
-#: views/update.lua:364
+#: views/update.lua:324
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Aquesta còpia té la carpeta dev/ (proves). La versió nova no la porta, així que s'esborrarà."
 
@@ -2424,16 +2424,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:142 views/power.lua:169 views/update.lua:375 views/update.lua:529
+#: views/power.lua:135 views/power.lua:162 views/update.lua:335 views/update.lua:489
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:472
+#: views/update.lua:432
 msgid "Update Aire"
 msgstr "Actualitza Aire"
 
-#: views/update.lua:472
+#: views/update.lua:432
 msgid "Update Aire (%1 available)"
 msgstr "Actualitza Aire (%1 disponible)"
 
@@ -2441,7 +2441,7 @@ msgstr "Actualitza Aire (%1 disponible)"
 msgid "Update KOReader"
 msgstr "Actualitza KOReader"
 
-#: views/update.lua:212
+#: views/update.lua:172
 msgid "Updating Aire"
 msgstr "S'està actualitzant Aire"
 
@@ -2516,7 +2516,7 @@ msgstr "Widgets %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:415
+#: views/update.lua:375
 msgid "You already have the latest version (%1)."
 msgstr "Ja tens l'última versió (%1)."
 
@@ -2532,11 +2532,11 @@ msgstr "Encara no teniu subratllats"
 msgid "You have not opened any book yet"
 msgstr "Encara no heu obert cap llibre"
 
-#: views/power.lua:161 views/update.lua:340
+#: views/power.lua:154 views/update.lua:300
 msgid "You have version %1"
 msgstr "Tens la %1"
 
-#: views/grid.lua:580
+#: views/grid.lua:579
 msgid "You haven't finished any books yet"
 msgstr "Encara no heu acabat cap llibre"
 
@@ -2565,7 +2565,7 @@ msgstr "mitjana / dia"
 msgid "battery"
 msgstr "bateria"
 
-#: views/update.lua:332
+#: views/update.lua:292
 msgid "beta"
 msgstr "beta"
 
@@ -2622,7 +2622,7 @@ msgstr "últims 7 dies"
 msgid "light"
 msgstr "llum"
 
-#: views/update.lua:504
+#: views/update.lua:464
 #, koreader
 msgid "never"
 msgstr ""
@@ -2744,6 +2744,6 @@ msgstr "ahir"
 msgid "~%1 left"
 msgstr "queden ~%1"
 
-#: styles/ui/lightsheet.lua:183
+#: styles/ui/lightsheet.lua:173
 msgid "− Brightness"
 msgstr "− Lluentor"

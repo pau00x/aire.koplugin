@@ -10,15 +10,10 @@
 
 return function(Aire, ctx)
     -- Módulos declarados aquí dentro: así no cuentan como upvalues (LuaJIT admite 60)
-    local BottomContainer = require("ui/widget/container/bottomcontainer")
     local Device = require("device")
-    local FrameContainer = require("ui/widget/container/framecontainer")
-    local Geom = require("ui/geometry")
-    local GestureRange = require("ui/gesturerange")
     local HorizontalGroup = require("ui/widget/horizontalgroup")
     local HorizontalSpan = require("ui/widget/horizontalspan")
     local InfoMessage = require("ui/widget/infomessage")
-    local InputContainer = require("ui/widget/container/inputcontainer")
     local NetworkMgr = require("ui/network/manager")
     local Size = require("ui/size")
     local TextWidget = require("ui/widget/textwidget")
@@ -28,7 +23,6 @@ return function(Aire, ctx)
     local logger = require("logger")
     local _ = require("gettext")
     local T = require("ffi/util").template
-    local Screen = Device.screen
     local S = ctx.S
     local face = ctx.face
     local config = ctx.config
@@ -78,34 +72,9 @@ return function(Aire, ctx)
     ---------------------------------------------------------------------------
     -- Hoja inferior común (como la de los marcadores)
     ---------------------------------------------------------------------------
-    local UpdateSheet = InputContainer:extend{ modal = true, dismissable = true }
-    function UpdateSheet:init()
-        local sw, sh = Screen:getWidth(), Screen:getHeight()
-        self.dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }
-        self.ges_events = {
-            AireTapOut = { GestureRange:new{ ges = "tap", range = self.dimen } },
-        }
-        if Device:hasKeys() then self.key_events = { Close = { { Device.input.group.Back } } } end
-    end
-    function UpdateSheet:onAireTapOut(_arg, ges)
-        if self.dismissable and self.frame and self.frame.dimen and ges and ges.pos
-                and not ges.pos:intersectWith(self.frame.dimen) then
-            self:onClose()
-        end
-        return true
-    end
-    function UpdateSheet:onClose()
-        if not self.dismissable then return true end
-        UIManager:close(self)
-        return true
-    end
-    -- Sin tipo de refresco, UIManager:show solo pinta en memoria (ver 4.19 del handoff)
-    function UpdateSheet:onShow()
-        UIManager:setDirty(self, function() return "ui", self.frame and self.frame.dimen end)
-    end
-    function UpdateSheet:onCloseWidget()
-        UIManager:setDirty(nil, function() return "ui", self.frame and self.frame.dimen end)
-    end
+    -- Hoja común (common/sheet.lua): marco, tocar fuera / Atrás (si dismissable)
+    -- y refresco al abrir y cerrar
+    local UpdateSheet = package.loaded.aire_sheet.Sheet
 
     local function sheetGeometry()
         local style = package.loaded.aire_screen.SHEET
@@ -115,18 +84,9 @@ return function(Aire, ctx)
     end
 
     local function newSheet(content, opts)
-        local P = getP()
-        local style, sheet_w, pad = sheetGeometry()
-        local sheet = UpdateSheet:new(opts or {})
-        sheet.frame = FrameContainer:new{
-            width = sheet_w, bordersize = Size.border.thin, color = P.BLACK, background = P.WHITE,
-            radius = S(style.RADIUS), padding = pad, content,
-        }
-        sheet[1] = BottomContainer:new{
-            dimen = Geom:new{ x = 0, y = 0, w = Screen:getWidth(), h = Screen:getHeight() - S(style.MARGIN) },
-            sheet.frame,
-        }
-        return sheet
+        opts = opts or {}
+        opts.content = content
+        return UpdateSheet:new(opts)
     end
 
     -- Fila de píldoras del mismo ancho; la última puede ser la principal (negra)
