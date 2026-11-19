@@ -174,7 +174,7 @@ msgstr ""
 msgid "4 columns"
 msgstr ""
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr ""
 
@@ -222,11 +222,11 @@ msgstr ""
 msgid "Aire"
 msgstr ""
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr ""
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr ""
 
@@ -464,6 +464,10 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
+#: styles/toc.lua:144
+msgid "Chapter"
+msgstr ""
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr ""
@@ -488,11 +492,11 @@ msgstr ""
 msgid "Charging"
 msgstr ""
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr ""
 
-#: views/update.lua:431
+#: views/update.lua:433
 msgid "Check for updates"
 msgstr ""
 
@@ -568,7 +572,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr ""
 
@@ -579,7 +583,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr ""
 
@@ -903,6 +907,10 @@ msgstr ""
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr ""
+
 #: dev/devtools.lua:693
 msgid "Font size"
 msgstr ""
@@ -1047,11 +1055,11 @@ msgstr ""
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr ""
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr ""
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr ""
 
@@ -1142,7 +1150,7 @@ msgstr ""
 msgid "Last 7 days summary"
 msgstr ""
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr ""
 
@@ -1150,7 +1158,7 @@ msgstr ""
 msgid "Last read"
 msgstr ""
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 msgid "Later"
 msgstr ""
 
@@ -1531,6 +1539,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr ""
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr ""
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1566,7 +1578,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr ""
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr ""
 
@@ -1935,7 +1947,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr ""
 
@@ -1964,7 +1976,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:435
+#: views/update.lua:437
 msgid "Settings"
 msgstr ""
 
@@ -2008,7 +2020,7 @@ msgstr ""
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr ""
 
@@ -2177,7 +2189,7 @@ msgstr ""
 msgid "This collection is empty"
 msgstr ""
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr ""
 
@@ -2269,15 +2281,15 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr ""
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr ""
 
@@ -2359,7 +2371,7 @@ msgstr ""
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr ""
 
@@ -2375,7 +2387,7 @@ msgstr ""
 msgid "You have not opened any book yet"
 msgstr ""
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr ""
 
@@ -2408,7 +2420,7 @@ msgstr ""
 msgid "battery"
 msgstr ""
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr ""
 
@@ -2464,7 +2476,7 @@ msgstr ""
 msgid "light"
 msgstr ""
 
-#: views/update.lua:458
+#: views/update.lua:460
 msgid "never"
 msgstr ""
 

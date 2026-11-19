@@ -141,6 +141,7 @@ safeWrap(ReaderToc, "onShowToc", function(orig_onShowToc, self)
                 local txt = tostring(item.text or ""):gsub("^%s+", "")
                 UIManager:show(InfoMessage:new{
                     text = txt,
+                    aire_title = _("Chapter"),
                     show_icon = false,
                     alignment = "left",
                     face = Font:getFace("cfont", 16),

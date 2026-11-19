@@ -158,7 +158,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 cột"
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr "Có phiên bản mới"
 
@@ -208,11 +208,11 @@ msgstr "Nâng cao"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr "Đã có Aire %1"
 
@@ -469,6 +469,11 @@ msgstr ""
 msgid "Change"
 msgstr "Thay đổi"
 
+#: styles/toc.lua:144
+#, koreader
+msgid "Chapter"
+msgstr ""
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Chương %1 / %2"
@@ -493,11 +498,11 @@ msgstr "Đã sạc đầy"
 msgid "Charging"
 msgstr "Đang sạc"
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr "Kiểm tra hằng tuần"
 
-#: views/update.lua:431
+#: views/update.lua:433
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -580,7 +585,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "Không thể kiểm tra cập nhật. Hãy thử lại sau."
 
@@ -591,7 +596,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Không thể cài bản cập nhật. Aire %1 vẫn được giữ nguyên."
 
@@ -941,6 +946,10 @@ msgstr "Thư mục"
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr "Tệp phông chữ"
+
 #: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
@@ -1099,11 +1108,11 @@ msgstr "Trong Bộ sưu tập, mỗi tác giả có từ 2 cuốn sách trở l�
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Trong Bộ sưu tập, mỗi từ khóa có từ 2 cuốn sách trở lên sẽ có một bộ sưu tập. Chúng tự động cập nhật và không được lưu vào bộ sưu tập của KOReader."
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr "Bao gồm bản beta"
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr "Phiên bản đã cài: %1"
 
@@ -1198,7 +1207,7 @@ msgstr "Lần cuối"
 msgid "Last 7 days summary"
 msgstr "Tóm tắt 7 ngày qua"
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr "Lần kiểm tra cuối: %1"
 
@@ -1206,7 +1215,7 @@ msgstr "Lần kiểm tra cuối: %1"
 msgid "Last read"
 msgstr "Đọc gần nhất"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1601,6 +1610,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Ghi chú"
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr "Thông báo"
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1639,7 +1652,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Đang giữ"
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Chỉ khi Wi-Fi đã bật: Aire không bao giờ tự bật Wi-Fi."
 
@@ -2047,7 +2060,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr "Xem mọi thay đổi"
 
@@ -2079,7 +2092,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update.lua:435
+#: views/update.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2131,7 +2144,7 @@ msgstr "Hiển thị tóm tắt"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr "Bỏ qua"
 
@@ -2303,7 +2316,7 @@ msgstr "Sách hiện tại không thuộc series nào"
 msgid "This collection is empty"
 msgstr "Bộ sưu tập này trống"
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Bản này có thư mục dev/ (kiểm thử). Phiên bản mới không có, nên thư mục sẽ bị xóa."
 
@@ -2405,16 +2418,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr "Cập nhật Aire"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "Cập nhật Aire (đã có %1)"
 
@@ -2496,7 +2509,7 @@ msgstr "Widget %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "Bạn đã có phiên bản mới nhất (%1)."
 
@@ -2512,7 +2525,7 @@ msgstr "Bạn chưa có điểm nổi bật nào"
 msgid "You have not opened any book yet"
 msgstr "Bạn chưa mở cuốn sách nào"
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr "Bạn đang dùng %1"
 
@@ -2545,7 +2558,7 @@ msgstr "TB / ngày"
 msgid "battery"
 msgstr "pin"
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr "beta"
 
@@ -2600,7 +2613,7 @@ msgstr "7 ngày qua"
 msgid "light"
 msgstr "đèn"
 
-#: views/update.lua:458
+#: views/update.lua:460
 #, koreader
 msgid "never"
 msgstr ""

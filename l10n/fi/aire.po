@@ -174,7 +174,7 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 saraketta"
 
-#: views/update.lua:292
+#: views/update.lua:293
 msgid "A new version is available"
 msgstr "Uusi versio on saatavilla"
 
@@ -224,11 +224,11 @@ msgstr "Lisäasetukset"
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update.lua:228 views/update.lua:285
+#: views/update.lua:229 views/update.lua:286
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update.lua:489
+#: views/power.lua:147 views/update.lua:491
 msgid "Aire %1 available"
 msgstr "Aire %1 saatavilla"
 
@@ -482,6 +482,10 @@ msgstr ""
 msgid "Change"
 msgstr "Vaihda"
 
+#: styles/toc.lua:144
+msgid "Chapter"
+msgstr "Luku"
+
 #: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Luku %1/%2"
@@ -506,11 +510,11 @@ msgstr "Ladattu"
 msgid "Charging"
 msgstr "Latautuu"
 
-#: views/update.lua:438
+#: views/update.lua:440
 msgid "Check every week"
 msgstr "Tarkista viikoittain"
 
-#: views/update.lua:431
+#: views/update.lua:433
 msgid "Check for updates"
 msgstr "Tarkista päivitykset"
 
@@ -591,7 +595,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update.lua:350
+#: views/update.lua:351
 msgid "Could not check for updates. Try again later."
 msgstr "Päivityksiä ei voitu tarkistaa. Yritä myöhemmin uudelleen."
 
@@ -602,7 +606,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update.lua:211
+#: views/update.lua:212
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Päivitystä ei voitu asentaa. Aire %1 on yhä asennettuna."
 
@@ -951,6 +955,10 @@ msgstr "Kansiot"
 msgid "Font (status bar)"
 msgstr ""
 
+#: styles/ui/sheets.lua:853
+msgid "Font file"
+msgstr "Fonttitiedosto"
+
 #: dev/devtools.lua:693
 #, koreader
 msgid "Font size"
@@ -1107,11 +1115,11 @@ msgstr "Kokoelmissa näkyy kokoelma jokaiselle kirjailijalle, jolla on vähintä
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Kokoelmissa näkyy kokoelma jokaiselle avainsanalle, jolla on vähintään 2 kirjaa. Ne päivittyvät automaattisesti eivätkä tallennu KOReaderin kokoelmiin."
 
-#: views/update.lua:447
+#: views/update.lua:449
 msgid "Include beta versions"
 msgstr "Ota mukaan beetaversiot"
 
-#: views/update.lua:466
+#: views/update.lua:468
 msgid "Installed version: %1"
 msgstr "Asennettu versio: %1"
 
@@ -1206,7 +1214,7 @@ msgstr "Viimeksi"
 msgid "Last 7 days summary"
 msgstr "Viimeisten 7 päivän yhteenveto"
 
-#: views/update.lua:459
+#: views/update.lua:461
 msgid "Last check: %1"
 msgstr "Viimeisin tarkistus: %1"
 
@@ -1214,7 +1222,7 @@ msgstr "Viimeisin tarkistus: %1"
 msgid "Last read"
 msgstr "Viimeksi luettu"
 
-#: common/compat.lua:170 views/update.lua:132 views/update.lua:328
+#: common/compat.lua:170 views/update.lua:132 views/update.lua:329
 msgid "Later"
 msgstr "Myöhemmin"
 
@@ -1607,6 +1615,10 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Muistiinpanot"
 
+#: styles/ui/floating.lua:389
+msgid "Notice"
+msgstr "Ilmoitus"
+
 #: views/topbar.lua:93
 msgctxt "aire"
 msgid "November"
@@ -1645,7 +1657,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Pidossa"
 
-#: views/update.lua:439
+#: views/update.lua:441
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Vain kun Wi-Fi on jo päällä: Aire ei koskaan kytke sitä päälle."
 
@@ -2050,7 +2062,7 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update.lua:306
+#: views/update.lua:307
 msgid "See all changes"
 msgstr "Näytä kaikki muutokset"
 
@@ -2080,7 +2092,7 @@ msgstr ""
 msgid "Set font"
 msgstr "Aseta fontti"
 
-#: views/update.lua:435
+#: views/update.lua:437
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2132,7 +2144,7 @@ msgstr "Näytä tiivistelmä"
 msgid "Size:"
 msgstr ""
 
-#: views/update.lua:323
+#: views/update.lua:324
 msgid "Skip"
 msgstr "Ohita"
 
@@ -2304,7 +2316,7 @@ msgstr "Nykyinen kirja ei kuulu sarjaan"
 msgid "This collection is empty"
 msgstr "Tämä kokoelma on tyhjä"
 
-#: views/update.lua:318
+#: views/update.lua:319
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Tässä kopiossa on dev/-kansio (testit). Uusi versio ei sisällä sitä, joten se poistetaan."
 
@@ -2406,15 +2418,15 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
+#: views/power.lua:131 views/power.lua:158 views/update.lua:211 views/update.lua:330 views/update.lua:351
 msgid "Update"
 msgstr "Päivitä"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire"
 msgstr "Päivitä Aire"
 
-#: views/update.lua:426
+#: views/update.lua:428
 msgid "Update Aire (%1 available)"
 msgstr "Päivitä Aire (%1 saatavilla)"
 
@@ -2497,7 +2509,7 @@ msgstr "Widgetit %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update.lua:369
+#: views/update.lua:371
 msgid "You already have the latest version (%1)."
 msgstr "Sinulla on jo uusin versio (%1)."
 
@@ -2513,7 +2525,7 @@ msgstr "Sinulla ei ole vielä korostuksia"
 msgid "You have not opened any book yet"
 msgstr "Et ole vielä avannut yhtään kirjaa"
 
-#: views/power.lua:150 views/update.lua:294
+#: views/power.lua:150 views/update.lua:295
 msgid "You have version %1"
 msgstr "Sinulla on versio %1"
 
@@ -2546,7 +2558,7 @@ msgstr "ka. / päivä"
 msgid "battery"
 msgstr "akku"
 
-#: views/update.lua:286
+#: views/update.lua:287
 msgid "beta"
 msgstr "beta"
 
@@ -2603,7 +2615,7 @@ msgstr "viim. 7 päivää"
 msgid "light"
 msgstr "valo"
 
-#: views/update.lua:458
+#: views/update.lua:460
 msgid "never"
 msgstr "ei koskaan"
 

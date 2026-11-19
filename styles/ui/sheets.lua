@@ -850,7 +850,7 @@ if OTHER_DIALOGS_AS_SHEET then
                     provider = font_file,
                     face = Font:getFace(font_file, 16),
                     hold_callback = function()
-                        UIManager:show(InfoMessage:new{ text = font_file, show_icon = false })
+                        UIManager:show(InfoMessage:new{ text = font_file, aire_title = _("Font file"), show_icon = false })
                     end,
                 } })
             end
