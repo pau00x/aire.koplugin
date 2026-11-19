@@ -8,6 +8,7 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 - Reorganized plugin layout without changing behavior: split `common/` into `core/` (`compat`, `config`, `icons`, `l10n`, `updater`) and `ui/` (`theme`, `screen`, `sheet`, `list`, `pages`), moved multi-file views to `views/{grid,stats,widgets}/init.lua`, renamed `views/update.lua` to `views/update_sheet.lua`, and grouped `styles/` into `reader/`, `filemanager/`, `plugins/` and `ui/init.lua`.
 - Audit quick fixes: throttled `Thumbs.trim()` to every 40 writes (using `lfs.attributes` field queries), guarded `refreshHeader()` against closed FileManager instances, derived `ui/pages.lua` palette from `ui/theme.lua`, lazily cached `datetime`/`utf8proc` in `dayLetter()`, explicitly cancelled pending grid prefetch timers, avoided redundant `saveConfig()` calls on unchanged mode, and loaded `core/compat.lua` once per session.
+- Extracted grid cover caching into `views/grid/covers.lua` with real LRU eviction (max 48 buffers per tab) and visible-page pinning, replacing the full cache flush on overflow.
 
 ## [0.3.0] - 2026-11-19
 

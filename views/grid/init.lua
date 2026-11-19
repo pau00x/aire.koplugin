@@ -102,8 +102,9 @@ local countDone, booksAndDone, RANK, AUTO = Books.countDone, Books.booksAndDone,
 local Cell = dofile(GRID_DIR .. "/cell.lua")
 local GridCell = Cell.GridCell
 local Pager = package.loaded.aire_screen.Pager
--- Miniaturas de portadas en disco (ya escaladas a la celda)
+-- Miniaturas de portadas en disco (ya escaladas a la celda) y caché LRU
 local Thumbs = dofile(GRID_DIR .. "/thumbs.lua")
+local Covers = dofile(GRID_DIR .. "/covers.lua")({ getBIM = getBIM, Thumbs = Thumbs })
 -- Herramientas de prueba (devtools.lua, opcional): las fija el mixin
 local TEST = nil
 
@@ -136,7 +137,6 @@ return function(Aire, ctx)
     local BookList = require("ui/widget/booklist")
     local CenterContainer = require("ui/widget/container/centercontainer")
     local Notification = require("ui/widget/notification")
-    local RenderImage = require("ui/renderimage")
     local Geom = require("ui/geometry")
     local GestureRange = require("ui/gesturerange")
     local HorizontalGroup = require("ui/widget/horizontalgroup")
@@ -188,7 +188,9 @@ return function(Aire, ctx)
     local function state(self, kind)
         self._gv = self._gv or {}
         if not self._gv[kind] then
-            self._gv[kind] = { page = 1, open = nil, covers = {} }
+            self._gv[kind] = { page = 1, open = nil, cover_cache = Covers.new() }
+        elseif not self._gv[kind].cover_cache then
+            self._gv[kind].cover_cache = Covers.new()
         end
         return self._gv[kind]
     end
@@ -939,76 +941,12 @@ return function(Aire, ctx)
     -------------------------------------------------------------------------
     -- Construcción
     -------------------------------------------------------------------------
-    -- Portadas: se guardan por ruta mientras se sigue en la pestaña (cambiar de
-    -- página, filtro u orden, Wi-Fi, reloj… ya no las vuelve a leer y
-    -- descomprimir). Se liberan al salir de la pestaña, al recargarla y si se
-    -- juntan más de MAX_CACHED_COVERS. Las celdas no son dueñas de ellas
-    -- (image_disposable = false).
-    local MAX_CACHED_COVERS = 48 -- por pestaña (3 páginas de 4 columnas)
-
+    -- Portadas: caché LRU en views/grid/covers.lua (por pestaña). Las celdas
+    -- no son dueñas de los buffers (image_disposable = false); se desalojan
+    -- las menos recientes al superar el límite y se liberan todas al salir.
     function Aire:freeGridCovers(kind)
         local L = state(self, kind)
-        -- Escaladas primero (si no hizo falta escalar, es el mismo buffer que el
-        -- original: no liberarlo dos veces)
-        local originals = {}
-        for _path, bb in pairs(L.covers or {}) do
-            if bb then originals[bb] = true end
-        end
-        for _key, sbb in pairs(L.scaled or {}) do
-            if not originals[sbb] then pcall(sbb.free, sbb) end
-        end
-        for bb in pairs(originals) do pcall(bb.free, bb) end
-        L.covers, L.scaled, L.n_covers = {}, {}, 0
-    end
-
-    local function getCover(L, path)
-        -- (el estado de una pestaña puede venir sin la tabla: p. ej. el que
-        -- restauran o montan los tests)
-        L.covers = L.covers or {}
-        local cached = L.covers[path]
-        if cached ~= nil then return cached or nil end
-        local BIM = getBIM()
-        if not BIM then return nil end
-        local ok, bi = pcall(BIM.getBookInfo, BIM, path, true)
-        local bb = ok and bi and bi.has_cover and bi.cover_bb or false
-        L.covers[path] = bb
-        if bb then L.n_covers = (L.n_covers or 0) + 1 end
-        return bb or nil
-    end
-
-    -- Portada ya escalada a w×h. Rápida: en memoria o en disco (miniatura).
-    -- Lenta: leerla de CoverBrowser, escalarla y guardar la miniatura; el
-    -- original ya no hace falta y se libera.
-    local function thumbKey(path, w, h) return "t|" .. path .. "|" .. w .. "x" .. h end
-    local function coverFast(L, path, w, h)
-        L.scaled = L.scaled or {}
-        local k = thumbKey(path, w, h)
-        local sbb = L.scaled[k]
-        if sbb then return sbb end
-        sbb = Thumbs.get(path, w, h)
-        if sbb then
-            L.scaled[k] = sbb
-            L.n_covers = (L.n_covers or 0) + 1
-        end
-        return sbb
-    end
-    local function coverSlow(L, path, w, h)
-        local sbb = coverFast(L, path, w, h)
-        if sbb then return sbb end
-        local cbb = getCover(L, path)
-        if not cbb then return nil end
-        local iw, ih = cbb:getWidth(), cbb:getHeight()
-        local s = math.min(w / iw, h / ih)
-        local ok, res = pcall(RenderImage.scaleBlitBuffer, RenderImage, cbb,
-            math.max(1, math.floor(iw * s + 0.5)), math.max(1, math.floor(ih * s + 0.5)), false)
-        if not ok or not res then return nil end
-        L.scaled[thumbKey(path, w, h)] = res
-        Thumbs.put(path, w, h, res)
-        if not rawequal(res, cbb) then
-            pcall(cbb.free, cbb)
-            L.covers[path] = nil
-        end
-        return res
+        if L.cover_cache then L.cover_cache:freeAll() end
     end
 
     local function cancelPrefetch(L)
@@ -1036,7 +974,7 @@ return function(Aire, ctx)
         local function alive()
             return L.load_token == token and self.view == kind and self:isGridViewVisible()
         end
-        local slow = function(path, w, h) return coverSlow(L, path, w, h) end
+        local slow = function(path, w, h) return L.cover_cache:get(path, w, h, true, false) end
         local prefetch
         prefetch = function()
             L.prefetch_cb = nil
@@ -1160,10 +1098,12 @@ return function(Aire, ctx)
             end
         end
 
-        L.scaled = L.scaled or {}
+        local cache = L.cover_cache
+        cache:clearPins()
         local RC = require("readcollection")
-        local fast = function(path, fw, fh) return coverFast(L, path, fw, fh) end
-        local function makeCell(e, c)
+        local fast_pin = function(path, fw, fh) return cache:get(path, fw, fh, false, true) end
+        local fast_prefetch = function(path, fw, fh) return cache:get(path, fw, fh, false, false) end
+        local function makeCell(e, c, fast_fn)
             local cover_path, mosaic_paths
             if e.is_group then
                 -- Series y colecciones (también vacías): mosaico con las
@@ -1179,8 +1119,8 @@ return function(Aire, ctx)
             local cw = cell_w + (c < rem_w and 1 or 0)
             return GridCell:new{
                     entry = e, width = cw, height = cell_h, cover_path = cover_path, mosaic_paths = mosaic_paths,
-                    cover_fast = fast,
-                    scaled_cache = L.scaled,
+                    cover_fast = fast_fn or fast_pin,
+                    scaled_cache = cache.aux,
                     series_badge = self.view == "library" and config.series_badge ~= false,
                     -- Marca de colección (KOReader: Configuración → Mostrar marca de
                     -- colección); no en Colecciones, donde ya se sabe
@@ -1214,7 +1154,7 @@ return function(Aire, ctx)
         grid[1] = vg
         -- Portadas que no tienen miniatura todavía: se hacen ya, antes de
         -- enseñar la página (el usuario prefiere que no vayan apareciendo)
-        local slow = function(path, fw, fh) return coverSlow(L, path, fw, fh) end
+        local slow = function(path, fw, fh) return cache:get(path, fw, fh, true, true) end
         for _i, cell in ipairs(cells) do
             if cell.pending then pcall(cell.loadPending, cell, slow) end
         end
@@ -1223,7 +1163,7 @@ return function(Aire, ctx)
         local next_cells = next_first <= #entries and function()
             local list = {}
             for i = next_first, math.min(#entries, next_first + per_page - 1) do
-                table.insert(list, makeCell(entries[i], (i - next_first) % COLS))
+                table.insert(list, makeCell(entries[i], (i - next_first) % COLS, fast_prefetch))
             end
             return list
         end or nil
@@ -1234,7 +1174,6 @@ return function(Aire, ctx)
     function Aire:buildGridView(kind)
         local L = state(self, kind)
         if not L.loaded then self:loadGridView(kind) end
-        if (L.n_covers or 0) > MAX_CACHED_COVERS then self:freeGridCovers(kind) end
         local t0 = time.now()
         local lvl = P[kind].level(self, L)
 
