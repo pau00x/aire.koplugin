@@ -431,6 +431,7 @@ end
 
 function Aire:onResume()
     self._suspended = false
+    if self.invalidateLibraryCache then self:invalidateLibraryCache() end
     self:refreshHeader()
 end
 
