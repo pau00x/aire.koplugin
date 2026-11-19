@@ -21,11 +21,11 @@ msgstr[2] "„%1” · %2 de rezultate"
 msgid "\"Reading now\" card with light background"
 msgstr "Card „Citești acum” cu fundal deschis"
 
-#: views/booksheet.lua:183
+#: views/booksheet.lua:167
 msgid "%1 % (%2 / %3 pp.)"
 msgstr "%1 % (%2 / %3 pag.)"
 
-#: views/booksheet.lua:175
+#: views/booksheet.lua:159
 msgid "%1 % (on hold)"
 msgstr "%1 % (amânat)"
 
@@ -33,7 +33,7 @@ msgstr "%1 % (amânat)"
 msgid "%1 % read"
 msgstr "%1 % citit"
 
-#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
+#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 carte"
@@ -75,7 +75,7 @@ msgstr[0] "%1 zi de citit"
 msgstr[1] "%1 zile de citit"
 msgstr[2] "%1 de zile de citit"
 
-#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:319
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 finalizată"
@@ -110,7 +110,7 @@ msgstr[0] "%1 pagină citită"
 msgstr[1] "%1 pagini citite"
 msgstr[2] "%1 de pagini citite"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:191 views/stats.lua:302
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 pag."
 
@@ -244,7 +244,7 @@ msgstr "Aire"
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:151 views/update.lua:489
+#: views/power.lua:147 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 disponibilă"
 
@@ -271,7 +271,7 @@ msgstr ""
 msgid "All books"
 msgstr ""
 
-#: views/booksheet.lua:342
+#: views/booksheet.lua:326
 msgid "All finished"
 msgstr "Toate finalizate"
 
@@ -501,7 +501,7 @@ msgstr ""
 msgid "Change"
 msgstr "Schimbă"
 
-#: styles/skim.lua:82
+#: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Capitolul %1 din %2"
 
@@ -593,7 +593,7 @@ msgstr ""
 msgid "Connected"
 msgstr "Conectat"
 
-#: views/booksheet.lua:366
+#: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
 msgstr ""
@@ -696,7 +696,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembrie"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:847 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -817,7 +817,7 @@ msgstr "Editează seria"
 msgid "Edit text"
 msgstr ""
 
-#: views/booksheet.lua:338
+#: views/booksheet.lua:322
 msgid "Empty"
 msgstr "Goală"
 
@@ -866,7 +866,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Tot ce desenează plugin-ul, cu date fictive. Glisează ← → pentru a întoarce paginile; atinge în afară sau pe pagină pentru a ieși."
 
-#: views/power.lua:214
+#: views/power.lua:210
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -926,7 +926,7 @@ msgstr "Filtrează și ordonează"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:172 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Finalizat"
@@ -1184,7 +1184,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "iunie"
 
-#: views/power.lua:213
+#: views/power.lua:209
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1334,12 +1334,12 @@ msgstr "martie"
 msgid "Margins"
 msgstr "Margini"
 
-#: views/booksheet.lua:421
+#: views/booksheet.lua:405
 #, koreader
 msgid "Mark"
 msgstr ""
 
-#: views/booksheet.lua:420
+#: views/booksheet.lua:404
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Marchezi toate cărțile din „%1” ca în citire?"
 
@@ -1359,11 +1359,11 @@ msgstr "Marchează toată colecția ca finalizată"
 msgid "Mark entire collection as reading"
 msgstr "Marchează toată colecția ca în citire"
 
-#: views/booksheet.lua:394
+#: views/booksheet.lua:378
 msgid "Mark entire series as finished"
 msgstr "Marchează toată seria ca finalizată"
 
-#: views/booksheet.lua:415
+#: views/booksheet.lua:399
 msgid "Mark entire series as reading"
 msgstr "Marchează toată seria ca în citire"
 
@@ -1414,7 +1414,7 @@ msgstr ""
 msgid "More"
 msgstr "Mai mult"
 
-#: views/booksheet.lua:249
+#: views/booksheet.lua:233
 msgid "More options…"
 msgstr "Mai multe opțiuni…"
 
@@ -1508,7 +1508,7 @@ msgstr "Următoarea %1"
 msgid "Next batch of test widgets"
 msgstr "Următorul lot de widgeturi de test"
 
-#: styles/skim.lua:105
+#: styles/skim.lua:102
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1616,7 +1616,7 @@ msgstr "Niciun cuvânt"
 msgid "Not rated"
 msgstr "Fără evaluare"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:188 views/booksheet.lua:346
+#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "Neînceput"
 
@@ -1668,7 +1668,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:177 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "Amânat"
@@ -1694,7 +1694,7 @@ msgstr ""
 msgid "Open series"
 msgstr "Deschide seria"
 
-#: views/booksheet.lua:382
+#: views/booksheet.lua:366
 msgid "Open series folder"
 msgstr "Deschide dosarul seriei"
 
@@ -1783,7 +1783,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:171
+#: views/power.lua:167
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1796,7 +1796,7 @@ msgstr "Anterior"
 msgid "Previous book"
 msgstr "Cartea anterioară"
 
-#: styles/skim.lua:102
+#: styles/skim.lua:99
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1945,12 +1945,12 @@ msgstr "Elimină"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:583 views/grid.lua:497
+#: views/booksheet.lua:567 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Elimină din colecție"
 
-#: views/booksheet.lua:547 views/grid.lua:613
+#: views/booksheet.lua:531 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1983,7 +1983,7 @@ msgstr "Înlocuiți widgeturile din Acasă cu presetarea „%1”?"
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:212
+#: views/power.lua:208
 #, koreader
 msgid "Restart"
 msgstr ""
@@ -2090,7 +2090,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "septembrie"
 
-#: dev/devtools.lua:527 views/booksheet.lua:306 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2169,7 +2169,7 @@ msgstr ""
 msgid "Skip"
 msgstr "Omite"
 
-#: views/power.lua:170
+#: views/power.lua:166
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Repaus"
@@ -2220,7 +2220,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "Coperți și serii pătrate"
 
-#: views/booksheet.lua:366 views/widgets.lua:570
+#: views/booksheet.lua:350 views/widgets.lua:570
 msgid "Start"
 msgstr "Începe"
 
@@ -2248,7 +2248,7 @@ msgstr "Stocare"
 msgid "Swap tap and hold"
 msgstr "Inversează atingerea cu apăsarea lungă"
 
-#: views/booksheet.lua:214
+#: views/booksheet.lua:198
 msgid "Synopsis"
 msgstr "Rezumat"
 
@@ -2439,7 +2439,7 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:135 views/power.lua:162 views/update.lua:329 views/update.lua:483
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
@@ -2548,7 +2548,7 @@ msgstr "Încă nu ai evidențieri"
 msgid "You have not opened any book yet"
 msgstr "Încă nu ai deschis nicio carte"
 
-#: views/power.lua:154 views/update.lua:294
+#: views/power.lua:150 views/update.lua:294
 msgid "You have version %1"
 msgstr "Ai versiunea %1"
 
@@ -2569,7 +2569,7 @@ msgstr ""
 msgid "and highlights"
 msgstr "și evidențieri"
 
-#: views/booksheet.lua:350
+#: views/booksheet.lua:334
 msgid "at %1 %"
 msgstr "la %1 %"
 

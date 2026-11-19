@@ -184,6 +184,9 @@ end
 --===========================================================================
 -- Piezas del contenido (todas de ancho w; medidas de SHEET)
 --   title(text, w)              título de la hoja, con su hueco debajo
+--   header(title, lines, w, o)  título y subtítulo (una o varias líneas, en gris),
+--                               con su hueco debajo (o.no_gap: sin él)
+--   subtitleLines(lines, w)     solo las líneas del subtítulo (texto que se parte)
 --   section(text, w)            etiqueta de grupo ("ORDENAR POR"), con su hueco
 --   separator(w)                línea fina entre grupos, con hueco a cada lado
 --   gap(kind)                   hueco común: "title" | "label" | "group"
@@ -216,6 +219,39 @@ function M.title(text, w)
             fgcolor = Blitbuffer.COLOR_BLACK, max_width = w, padding = 0 },
         M.gap("title"),
     }
+end
+
+function M.subtitleLines(lines, w)
+    local TextBoxWidget = require("ui/widget/textboxwidget")
+    local VerticalGroup = require("ui/widget/verticalgroup")
+    local VerticalSpan = require("ui/widget/verticalspan")
+    local vg = VerticalGroup:new{ align = "left" }
+    for i, line in ipairs(lines or {}) do
+        if line and line ~= "" then
+            if i > 1 then table.insert(vg, VerticalSpan:new{ width = S(SHM().SUB_GAP) }) end
+            table.insert(vg, TextBoxWidget:new{ text = line, width = w,
+                face = AireUI.face(false, SHM().SUB_FONT), fgcolor = Blitbuffer.COLOR_DARK_GRAY })
+        end
+    end
+    return vg
+end
+
+function M.header(title, lines, w, o)
+    o = o or {}
+    local TextWidget = require("ui/widget/textwidget")
+    local VerticalGroup = require("ui/widget/verticalgroup")
+    local VerticalSpan = require("ui/widget/verticalspan")
+    local vg = VerticalGroup:new{
+        align = "left",
+        TextWidget:new{ text = title or "", face = AireUI.face(true, SHM().TITLE_FONT),
+            fgcolor = Blitbuffer.COLOR_BLACK, max_width = w, padding = 0 },
+    }
+    if lines and #lines > 0 then
+        table.insert(vg, VerticalSpan:new{ width = S(SHM().SUB_GAP) })
+        table.insert(vg, M.subtitleLines(lines, w))
+    end
+    if not o.no_gap then table.insert(vg, M.gap("title")) end
+    return vg
 end
 
 function M.section(text, w)

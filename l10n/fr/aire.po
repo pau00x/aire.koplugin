@@ -20,11 +20,11 @@ msgstr[1] "« %1 » · %2 résultats"
 msgid "\"Reading now\" card with light background"
 msgstr "Carte « En cours de lecture » sur fond clair"
 
-#: views/booksheet.lua:183
+#: views/booksheet.lua:167
 msgid "%1 % (%2 / %3 pp.)"
 msgstr "%1 % (%2 / %3 p.)"
 
-#: views/booksheet.lua:175
+#: views/booksheet.lua:159
 msgid "%1 % (on hold)"
 msgstr "%1 % (en attente)"
 
@@ -32,7 +32,7 @@ msgstr "%1 % (en attente)"
 msgid "%1 % read"
 msgstr "%1 % lu"
 
-#: styles/statspages.lua:258 views/booksheet.lua:338 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
+#: styles/statspages.lua:258 views/booksheet.lua:322 views/grid/books.lua:297 views/grid.lua:317 views/grid.lua:322
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 livre"
@@ -68,7 +68,7 @@ msgid_plural "%1 days reading"
 msgstr[0] "%1 jour de lecture"
 msgstr[1] "%1 jours de lecture"
 
-#: views/booksheet.lua:344 views/grid/books.lua:297 views/grid.lua:319
+#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid.lua:319
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 terminé"
@@ -98,7 +98,7 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 page lue"
 msgstr[1] "%1 pages lues"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:191 views/stats.lua:302
+#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 p."
 
@@ -228,7 +228,7 @@ msgstr "Aire"
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:151 views/update.lua:489
+#: views/power.lua:147 views/update.lua:489
 msgid "Aire %1 available"
 msgstr "Aire %1 disponible"
 
@@ -255,7 +255,7 @@ msgstr ""
 msgid "All books"
 msgstr ""
 
-#: views/booksheet.lua:342
+#: views/booksheet.lua:326
 msgid "All finished"
 msgstr "Tous terminés"
 
@@ -485,7 +485,7 @@ msgstr ""
 msgid "Change"
 msgstr "Changer"
 
-#: styles/skim.lua:82
+#: styles/skim.lua:81
 msgid "Chapter %1 of %2"
 msgstr "Chapitre %1 sur %2"
 
@@ -577,7 +577,7 @@ msgstr ""
 msgid "Connected"
 msgstr "Connecté"
 
-#: views/booksheet.lua:366
+#: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
 msgstr ""
@@ -680,7 +680,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "décembre"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:847 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -801,7 +801,7 @@ msgstr "Modifier la série"
 msgid "Edit text"
 msgstr ""
 
-#: views/booksheet.lua:338
+#: views/booksheet.lua:322
 msgid "Empty"
 msgstr "Vide"
 
@@ -850,7 +850,7 @@ msgstr ""
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Tout ce que dessine l’extension, avec des données fictives. Balayez ← → pour tourner les pages ; touchez à l’extérieur ou sur la page pour quitter."
 
-#: views/power.lua:214
+#: views/power.lua:210
 #, koreader
 msgid "Exit"
 msgstr ""
@@ -910,7 +910,7 @@ msgstr "Filtrer et trier"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:172 views/grid.lua:50
+#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Terminé"
@@ -1168,7 +1168,7 @@ msgctxt "aire"
 msgid "June"
 msgstr "juin"
 
-#: views/power.lua:213
+#: views/power.lua:209
 #, koreader
 msgid "KOReader"
 msgstr ""
@@ -1318,12 +1318,12 @@ msgstr "mars"
 msgid "Margins"
 msgstr "Marges"
 
-#: views/booksheet.lua:421
+#: views/booksheet.lua:405
 #, koreader
 msgid "Mark"
 msgstr ""
 
-#: views/booksheet.lua:420
+#: views/booksheet.lua:404
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Marquer tous les livres de « %1 » comme en cours de lecture ?"
 
@@ -1343,11 +1343,11 @@ msgstr "Marquer toute la collection comme terminée"
 msgid "Mark entire collection as reading"
 msgstr "Marquer toute la collection comme en cours de lecture"
 
-#: views/booksheet.lua:394
+#: views/booksheet.lua:378
 msgid "Mark entire series as finished"
 msgstr "Marquer toute la série comme terminée"
 
-#: views/booksheet.lua:415
+#: views/booksheet.lua:399
 msgid "Mark entire series as reading"
 msgstr "Marquer toute la série comme en cours de lecture"
 
@@ -1398,7 +1398,7 @@ msgstr ""
 msgid "More"
 msgstr "Plus"
 
-#: views/booksheet.lua:249
+#: views/booksheet.lua:233
 msgid "More options…"
 msgstr "Plus d’options…"
 
@@ -1492,7 +1492,7 @@ msgstr "Suivant %1"
 msgid "Next batch of test widgets"
 msgstr "Lot suivant de widgets de test"
 
-#: styles/skim.lua:105
+#: styles/skim.lua:102
 #, koreader
 msgid "Next chapter"
 msgstr ""
@@ -1600,7 +1600,7 @@ msgstr "Aucun mot"
 msgid "Not rated"
 msgstr "Non noté"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:188 views/booksheet.lua:346
+#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "Non commencé"
 
@@ -1652,7 +1652,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:177 views/grid.lua:55
+#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "En attente"
@@ -1678,7 +1678,7 @@ msgstr ""
 msgid "Open series"
 msgstr "Ouvrir la série"
 
-#: views/booksheet.lua:382
+#: views/booksheet.lua:366
 msgid "Open series folder"
 msgstr "Ouvrir le dossier de la série"
 
@@ -1767,7 +1767,7 @@ msgstr ""
 msgid "Portuguese"
 msgstr ""
 
-#: views/power.lua:171
+#: views/power.lua:167
 #, koreader
 msgid "Power off"
 msgstr ""
@@ -1780,7 +1780,7 @@ msgstr "Précédent"
 msgid "Previous book"
 msgstr "Livre précédent"
 
-#: styles/skim.lua:102
+#: styles/skim.lua:99
 #, koreader
 msgid "Previous chapter"
 msgstr ""
@@ -1929,12 +1929,12 @@ msgstr "Retirer"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:583 views/grid.lua:497
+#: views/booksheet.lua:567 views/grid.lua:497
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Retirer de la collection"
 
-#: views/booksheet.lua:547 views/grid.lua:613
+#: views/booksheet.lua:531 views/grid.lua:613
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1967,7 +1967,7 @@ msgstr "Remplacer les widgets de l'accueil par le préréglage « %1 » ?"
 msgid "Reset"
 msgstr ""
 
-#: views/power.lua:212
+#: views/power.lua:208
 #, koreader
 msgid "Restart"
 msgstr ""
@@ -2074,7 +2074,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "septembre"
 
-#: dev/devtools.lua:527 views/booksheet.lua:306 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
+#: dev/devtools.lua:527 views/booksheet.lua:290 views/grid.lua:62 views/grid.lua:71 views/grid.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2153,7 +2153,7 @@ msgstr ""
 msgid "Skip"
 msgstr "Ignorer"
 
-#: views/power.lua:170
+#: views/power.lua:166
 msgctxt "aire"
 msgid "Sleep"
 msgstr "Veille"
@@ -2204,7 +2204,7 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "Couvertures et séries carrées"
 
-#: views/booksheet.lua:366 views/widgets.lua:570
+#: views/booksheet.lua:350 views/widgets.lua:570
 msgid "Start"
 msgstr "Commencer"
 
@@ -2232,7 +2232,7 @@ msgstr "Stockage"
 msgid "Swap tap and hold"
 msgstr "Inverser appui court et long"
 
-#: views/booksheet.lua:214
+#: views/booksheet.lua:198
 msgid "Synopsis"
 msgstr "Résumé"
 
@@ -2423,7 +2423,7 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:135 views/power.lua:162 views/update.lua:329 views/update.lua:483
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
 #, koreader
 msgid "Update"
 msgstr ""
@@ -2531,7 +2531,7 @@ msgstr "Vous n’avez encore aucun surlignage"
 msgid "You have not opened any book yet"
 msgstr "Vous n’avez encore ouvert aucun livre"
 
-#: views/power.lua:154 views/update.lua:294
+#: views/power.lua:150 views/update.lua:294
 msgid "You have version %1"
 msgstr "Vous avez la version %1"
 
@@ -2552,7 +2552,7 @@ msgstr ""
 msgid "and highlights"
 msgstr "et surlignages"
 
-#: views/booksheet.lua:350
+#: views/booksheet.lua:334
 msgid "at %1 %"
 msgstr "à %1 %"
 

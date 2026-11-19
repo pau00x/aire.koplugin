@@ -73,6 +73,8 @@ M.SHEET = {
     -- Contenido (common/sheet.lua: title, section, row, buttons, choices)
     ROW_H           = 44, -- alto de las filas (= BTN_H: misma zona táctil)
     TITLE_FONT      = 15, -- título de la hoja (negrita)
+    SUB_FONT        = 13, -- subtítulo de la hoja (gris; como el de las pantallas completas)
+    SUB_GAP         = 2,  -- entre el título y el subtítulo (y entre líneas del subtítulo)
     ROW_FONT        = 15, -- texto de las filas
     LABEL_FONT      = 11, -- etiqueta de sección (negrita, mayúsculas, gris)
     ICON            = 22, -- icono, casilla o círculo de una fila

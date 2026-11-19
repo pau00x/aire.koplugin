@@ -16,7 +16,6 @@ local GestureRange = require("ui/gesturerange")
 local HorizontalGroup = require("ui/widget/horizontalgroup")
 local HorizontalSpan = require("ui/widget/horizontalspan")
 local SkimToWidget = require("ui/widget/skimtowidget")
-local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
 local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
@@ -91,10 +90,8 @@ local function build(self)
     local next_ch = toc and toc:getNextChapter(self.curr_page)
     local content = VerticalGroup:new{
         align = "left",
-        TextWidget:new{ text = title, face = P.face(true, 17), fgcolor = P.BLACK, max_width = in_w, padding = 0 },
-        VerticalSpan:new{ width = S(2) },
-        TextWidget:new{ text = sub, face = P.face(false, 13), fgcolor = P.GRAY_DARK, max_width = in_w, padding = 0 },
-        VerticalSpan:new{ width = S(12) },
+        -- Cabecera común de las hojas (common/sheet.lua): capítulo y "Capítulo X de Y · pág."
+        package.loaded.aire_sheet.header(title, { sub }, in_w),
         self._aire_bar,
         VerticalSpan:new{ width = S(12) },
         HorizontalGroup:new{

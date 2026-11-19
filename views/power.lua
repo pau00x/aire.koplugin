@@ -111,15 +111,11 @@ return function(Aire, ctx)
         elseif E.update_aire then
             on_update = E.update_aire
         end
-        local names = VerticalGroup:new{
-            align = "left",
-            TextWidget:new{ text = self.version or "KOReader", face = face(true, 15), fgcolor = BLACK_C, padding = 0 },
-        }
-        if self.aire_version then
-            table.insert(names, VerticalSpan:new{ width = S(2) })
-            table.insert(names, TextWidget:new{ text = self.aire_version, face = face(false, 12),
-                fgcolor = Blitbuffer.COLOR_DARK_GRAY, padding = 0 })
-        end
+        -- Cabecera común de las hojas (common/sheet.lua): KOReader y, debajo, Aire;
+        -- el hueco lo pone la fila (a la derecha va "Actualizar")
+        local names = package.loaded.aire_sheet.header(self.version or "KOReader",
+            self.aire_version and { self.aire_version } or nil,
+            inner_w - S(120), { no_gap = true })
         local head_h = math.max(S(30), names:getSize().h)
         local head = OverlapGroup:new{
             dimen = Geom:new{ w = inner_w, h = head_h },
