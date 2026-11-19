@@ -322,17 +322,7 @@ do
             end
             if self.dict_frame then
                 self.dict_frame.radius = S_(B.SHEET_RADIUS or 14)
-                -- Lápiz de editar la palabra: el de Aire
-                local function findEdit(w, depth)
-                    if type(w) ~= "table" or depth > 8 then return end
-                    if w.icon == "edit" and w.setIcon then return w end
-                    for _k, c in ipairs(w) do
-                        local f = findEdit(c, depth + 1)
-                        if f then return f end
-                    end
-                end
-                local edit_btn = findEdit(self.dict_frame, 0)
-                if edit_btn then pcall(edit_btn.setIcon, edit_btn, "aire.edit") end
+                -- (El icono "edit" se resuelve a aire.edit en core/icons.lua)
                 -- Hueco bajo los botones (quedaban pegados al borde de la ventana)
                 local vg = self.dict_frame[1]
                 if type(vg) == "table" and vg.resetLayout and not vg._aire_bottom_gap then

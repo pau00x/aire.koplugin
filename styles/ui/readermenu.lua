@@ -48,6 +48,7 @@ do
         local BottomContainer = require("ui/widget/container/bottomcontainer")
 
         -- Nombre de cada pestaña (KOReader no lo tiene: solo icono)
+        -- Los iconos de pestaña (appbar.*) se resuelven en core/icons.lua.
         local TAB_TITLES = {
             ["appbar.rotation"] = _("Orientation"),
             ["appbar.crop"]     = _("Margins"),
@@ -56,19 +57,6 @@ do
             ["appbar.textsize"] = _("Text"),
             ["appbar.contrast"] = _("Contrast"),
             ["appbar.settings"] = _("More settings"),
-        }
-        -- Los mismos iconos que en el menú superior cuando existen; Contraste,
-        -- el de contraste de Aire (el del widget de modo nocturno), no el
-        -- círculo rayado de KOReader
-        local TAB_ICONS = {
-            ["appbar.settings"] = "aire.settings",
-            ["appbar.contrast"] = "aire.widget.contrast",
-            ["appbar.textsize"] = "aire.text", -- cuadrado con una "A" (icono de texto de Aire)
-            -- Mismo trazo y tamaño que los del menú superior (los de KOReader
-            -- se veían más grandes o más pequeños según el dibujo)
-            ["appbar.rotation"] = "aire.rotation",
-            ["appbar.crop"] = "aire.crop",
-            ["appbar.pageview"] = "aire.pageview",
         }
 
         -- Ejecutar fn creyendo que la pantalla mide w de ancho: ConfigOption
@@ -116,7 +104,7 @@ do
                 table.insert(tabs, HorizontalSpan:new{ width = edge + math.floor(extra / 2) })
                 for idx, ib in ipairs(items) do
                     local opt = options[idx] or {}
-                    local icon_name = TAB_ICONS[opt.icon] or opt.icon or ib.icon
+                    local icon_name = opt.icon or ib.icon
                     local active = (idx == self.panel_index)
                     if ib.image and ib.image.free then ib.image:free() end
                     local iw = IconWidget:new{ icon = icon_name, width = icon_sz, height = icon_sz, alpha = true }

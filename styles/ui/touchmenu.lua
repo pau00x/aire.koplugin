@@ -299,21 +299,11 @@ if CLEAN_TOUCH_MENU and not TouchMenu._clean_style_patched then
                 local pill_r = Screen:scaleBySize(10)
                 local vpad = Screen:scaleBySize(6)
                 local slot_h = pill_h + 2 * vpad
-                local ICON_MAP = {
-                    ["appbar.filebrowser"] = "aire.folder",
-                    ["appbar.settings"] = "aire.settings",
-                    ["appbar.tools"] = "aire.tools",
-                    ["appbar.search"] = "aire.search",
-                    ["appbar.menu"] = "aire.menu",
-                    ["appbar.typeset"] = "aire.typeset",
-                    ["appbar.contrast"] = "aire.typography",
-                    ["appbar.navigation"] = "aire.navigation",
-                }
-                -- En el lector, la pestaña que vuelve a la biblioteca (la de
-                -- KOReader con remember = false): icono de Librería si el libro se
-                -- abrió desde la Pantalla de inicio (modo Librería) y de carpeta si
-                -- se abrió desde el explorador. En el FileManager esa pestaña son
-                -- los ajustes del explorador y se queda con la carpeta.
+                -- Los reemplazos generales de appbar.* viven en core/icons.lua.
+                -- Aquí solo queda la excepción contextual del menú superior:
+                --   appbar.filebrowser con remember == false (volver a la biblioteca):
+                --   icono de Librería si el libro se abrió desde la Pantalla de inicio
+                --   (modo Librería) y de carpeta si se abrió desde el explorador.
                 local back_icon = "aire.folder"
                 local aire_cfg = G_reader_settings:readSetting("aire")
                 if type(aire_cfg) == "table" and aire_cfg.enabled ~= false
@@ -329,8 +319,6 @@ if CLEAN_TOUCH_MENU and not TouchMenu._clean_style_patched then
                     local icon_name = (ib.image and ib.image.icon) or ib.icon
                     if icon_name == "appbar.filebrowser" and tab and tab.remember == false then
                         icon_name = back_icon
-                    else
-                        icon_name = ICON_MAP[icon_name] or icon_name
                     end
                     if ib.image and ib.image.free then ib.image:free() end
                     local iw = IconWidget:new{ icon = icon_name, width = icon_sz, height = icon_sz, alpha = true }
