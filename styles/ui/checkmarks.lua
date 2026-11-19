@@ -128,23 +128,40 @@ if MODERN_CHECKMARKS and not CheckMark._modern_checkmarks then
         end
     end, TAG)
 
-    -- Botones con checked_func (p. ej. Leyendo / En pausa / Terminado en
-    -- booksheet.lua y menús de ButtonDialog): sustituye el "  ✓" Unicode por
-    -- el icono SVG aire.check.
+    -- Botones marcados con ✓ (tanto los de checked_func como los que pegan
+    -- "  ✓" al final del texto, p. ej. Leyendo / En pausa / Terminado en
+    -- filemanagerutil.genStatusButtonsRow): sustituye el ✓ Unicode por aire.check.
     if available["aire.check"] then
         local Button = require("ui/widget/button")
         local HorizontalGroup = require("ui/widget/horizontalgroup")
         local HorizontalSpan = require("ui/widget/horizontalspan")
+        local TRAILING_CHECK = "^(.-)%s+\u{2713}$"
         safeWrap(Button, "init", function(orig_Button_init, self)
-            if not (self.text and self.checked_func and self.checkmark == Button.checkmark) then
+            if type(self.text) ~= "string" then
                 return orig_Button_init(self)
             end
-            local ok_c, is_checked = pcall(self.checked_func)
-            local checked = ok_c and is_checked and true or false
-            local had_own = rawget(self, "checkmark")
-            self.checkmark = ""
+            local via_func = self.checked_func ~= nil and self.checkmark == Button.checkmark
+            local stripped = not via_func and self.text:match(TRAILING_CHECK) or nil
+            if not via_func and not stripped then
+                return orig_Button_init(self)
+            end
+            local checked
+            local orig_text = self.text
+            local had_own_cm = rawget(self, "checkmark")
+            if via_func then
+                local ok_c, is_checked = pcall(self.checked_func)
+                checked = ok_c and is_checked and true or false
+                self.checkmark = ""
+            else
+                checked = true
+                self.text = stripped
+            end
             local ok_init, err = pcall(orig_Button_init, self)
-            rawset(self, "checkmark", had_own)
+            if via_func then
+                rawset(self, "checkmark", had_own_cm)
+            else
+                self.text = orig_text
+            end
             if not ok_init then error(err) end
             if not (self.label_container and self.label_widget) then return end
             local lw_sz = self.label_widget:getSize()
