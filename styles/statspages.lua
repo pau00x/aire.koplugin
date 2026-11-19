@@ -143,7 +143,7 @@ local function buildCurrentStats(kv_pairs)
             local first_row = true
             for _i, o in ipairs(order) do
                 if not (o.id and used[o.id]) then
-                    local r = P.row(o.e._key, o.e[2], w, o.e.callback, { height = S(38) })
+                    local r = P.row(o.e._key, o.e[2], w, o.e.callback)
                     if first_row then
                         first_row = false
                     else

@@ -98,6 +98,7 @@ M.LIST = {
     META_GAP    = 4,   -- entre la etiqueta y el texto
     ICON        = 22,  -- icono o casilla a la izquierda / derecha
     ICON_GAP    = 10,  -- entre el icono y el texto
+    ROW_H       = 40,  -- alto de las filas clave / valor (common/list.lua: row)
 }
 
 local PAGER = {

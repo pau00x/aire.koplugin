@@ -277,6 +277,60 @@ function M.card(spec, w)
     return M.cardFrame(og, w, spec.h, { pad_h = pad, state = spec.state })
 end
 
+--===========================================================================
+-- row(r, w): fila clave / valor (alto LIST.ROW_H, línea fina debajo)
+--   key                  a la izquierda: gris (LIST.SUB) si hay valor; si no,
+--                        en negro (y negrita con chevron: abre otra página)
+--   key_main             la clave es el elemento (un libro…): en negro, normal
+--   value, strong        a la derecha (LIST.VALUE), negro; negrita si strong
+--   chevron              "›" a la derecha (abre algo); por defecto si hay
+--                        callback y no hay valor
+--   callback, hold_callback
+--   line                 false: sin la línea de debajo
+--===========================================================================
+function M.row(r, w)
+    local Geom = require("ui/geometry")
+    local LeftContainer = require("ui/widget/container/leftcontainer")
+    local OverlapGroup = require("ui/widget/overlapgroup")
+    local RightContainer = require("ui/widget/container/rightcontainer")
+    local TextWidget = require("ui/widget/textwidget")
+    local VerticalGroup = require("ui/widget/verticalgroup")
+    local L = LM()
+    local h = S(L.ROW_H)
+    local has_value = r.value ~= nil and tostring(r.value) ~= "" and tostring(r.value) ~= " "
+    local chevron = r.chevron
+    if chevron == nil then chevron = (r.callback ~= nil) and not has_value end
+    local right
+    if has_value then
+        right = TextWidget:new{ text = tostring(r.value), face = face(r.strong == true, L.VALUE),
+            fgcolor = Blitbuffer.COLOR_BLACK, max_width = math.floor(w * 0.65), padding = 0 }
+    elseif chevron then
+        right = TextWidget:new{ text = "›", face = face(false, L.TITLE),
+            fgcolor = Blitbuffer.COLOR_DARK_GRAY, padding = 0 }
+    end
+    local key_black = r.key_main or not has_value
+    local left = TextWidget:new{ text = tostring(r.key or ""),
+        face = face((not has_value) and chevron, L.SUB),
+        fgcolor = key_black and Blitbuffer.COLOR_BLACK or Blitbuffer.COLOR_DARK_GRAY,
+        max_width = math.max(S(40), w - (right and (right:getSize().w + S(12)) or 0)), padding = 0 }
+    local og = OverlapGroup:new{
+        dimen = Geom:new{ w = w, h = h },
+        LeftContainer:new{ dimen = Geom:new{ w = w, h = h }, left },
+    }
+    if right then table.insert(og, RightContainer:new{ dimen = Geom:new{ w = w, h = h }, right }) end
+    local vg = VerticalGroup:new{ align = "left", og }
+    if r.line ~= false then
+        local LineWidget = require("ui/widget/linewidget")
+        table.insert(vg, LineWidget:new{ dimen = Geom:new{ w = w, h = Size.line.thin },
+            background = Blitbuffer.COLOR_LIGHT_GRAY })
+    end
+    if not (r.callback or r.hold_callback) then return vg end
+    local AireUI = package.loaded.aire_ui
+    local ic = AireUI.tappable(vg, r.callback, r.hold_callback)
+    if not r.callback and ic.ges_events then ic.ges_events.AireTap = nil end
+    return ic
+end
+
 -- Tocar una tarjeta: gris un momento y después lo de KOReader (onMenuSelect)
 function M.onTapFlash(item, _arg, ges)
     if not item[1] or not item[1].dimen then return end

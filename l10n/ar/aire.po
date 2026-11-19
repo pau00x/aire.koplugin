@@ -76,7 +76,7 @@ msgstr[3] "%1 أيام"
 msgstr[4] "%1 يومًا"
 msgstr[5] "%1 يوم"
 
-#: styles/bookinfo.lua:222
+#: styles/bookinfo.lua:240
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "منذ %1 يوم"
@@ -86,7 +86,7 @@ msgstr[3] "منذ %1 أيام"
 msgstr[4] "منذ %1 يومًا"
 msgstr[5] "منذ %1 يوم"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:643
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 يوم قراءة"
@@ -116,7 +116,7 @@ msgstr[3] "%1 كتب منتهية"
 msgstr[4] "%1 كتابًا منتهيًا"
 msgstr[5] "%1 كتاب منتهٍ"
 
-#: styles/bookinfo.lua:229
+#: styles/bookinfo.lua:247
 msgid "%1 month ago"
 msgid_plural "%1 months ago"
 msgstr[0] "منذ %1 شهر"
@@ -146,11 +146,11 @@ msgstr[3] "%1 ص. مقروءة"
 msgstr[4] "%1 ص. مقروءة"
 msgstr[5] "%1 ص. مقروءة"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
+#: styles/bookinfo.lua:591 styles/bookinfo.lua:595 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 ص."
 
-#: views/stats.lua:635
+#: views/stats.lua:621
 msgid "%1 pp./h"
 msgstr "%1 ص./س"
 
@@ -174,7 +174,7 @@ msgstr[3] "%1 سلاسل"
 msgstr[4] "%1 سلسلة"
 msgstr[5] "%1 سلسلة"
 
-#: styles/bookinfo.lua:225
+#: styles/bookinfo.lua:243
 msgid "%1 week ago"
 msgid_plural "%1 weeks ago"
 msgstr[0] "منذ %1 أسبوع"
@@ -206,7 +206,7 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: styles/bookinfo.lua:941 styles/bookstatus.lua:63
+#: styles/bookinfo.lua:959 styles/bookstatus.lua:63
 msgid "%d of 5 stars"
 msgstr "%d من 5 نجوم"
 
@@ -214,11 +214,11 @@ msgstr "%d من 5 نجوم"
 msgid "+ Brightness"
 msgstr "+ الإضاءة"
 
-#: views/stats.lua:487
+#: views/stats.lua:478
 msgid "+%1 more"
 msgstr "+%1 أخرى"
 
-#: styles/bookinfo.lua:940 styles/bookstatus.lua:62
+#: styles/bookinfo.lua:958 styles/bookstatus.lua:62
 msgid "1 of 5 stars"
 msgstr "نجمة واحدة من 5"
 
@@ -325,7 +325,7 @@ msgstr "انتهت كلها"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:578
 msgid "Annual"
 msgstr "سنوي"
 
@@ -386,7 +386,7 @@ msgstr ""
 msgid "Average time per page"
 msgstr ""
 
-#: styles/bookinfo.lua:339
+#: styles/bookinfo.lua:357
 msgid "BOOK"
 msgstr "الكتاب"
 
@@ -394,7 +394,7 @@ msgstr "الكتاب"
 msgid "BOOKMARK"
 msgstr "علامة مرجعية"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Basque"
 msgstr ""
@@ -403,11 +403,11 @@ msgstr ""
 msgid "Battery"
 msgstr "البطارية"
 
-#: views/stats.lua:681
+#: views/stats.lua:661
 msgid "Best day"
 msgstr "أفضل يوم"
 
-#: views/stats.lua:684
+#: views/stats.lua:664
 msgid "Best month"
 msgstr "أفضل شهر"
 
@@ -535,7 +535,7 @@ msgstr ""
 msgid "Capture"
 msgstr "التقاط"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Catalan"
 msgstr ""
@@ -581,7 +581,7 @@ msgstr ""
 msgid "Check patches and plugins on startup"
 msgstr "فحص الرقع والملحقات عند البدء"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 msgid "Chinese"
 msgstr "الصينية"
 
@@ -685,7 +685,7 @@ msgstr "تم مسح مصغرات الأغلفة"
 msgid "Current page/Total pages"
 msgstr ""
 
-#: styles/bookinfo.lua:319
+#: styles/bookinfo.lua:337
 #, koreader
 msgid "Current page:"
 msgstr ""
@@ -699,11 +699,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "أقرأ الآن"
 
-#: views/stats.lua:655
+#: views/stats.lua:641
 msgid "DAILY RHYTHM"
 msgstr "الإيقاع اليومي"
 
-#: views/stats.lua:676
+#: views/stats.lua:656
 msgid "Daily average"
 msgstr "المتوسط اليومي"
 
@@ -719,7 +719,7 @@ msgstr "التاريخ"
 msgid "Date finished"
 msgstr "تاريخ الانتهاء"
 
-#: views/stats.lua:679
+#: views/stats.lua:659
 msgid "Day %1"
 msgstr "اليوم %1"
 
@@ -822,7 +822,7 @@ msgstr ""
 msgid "Downloading… %1 of %2"
 msgstr "جارٍ التنزيل… %1 من %2"
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Dutch"
 msgstr ""
@@ -848,7 +848,7 @@ msgstr ""
 msgid "Edit note"
 msgstr ""
 
-#: styles/bookinfo.lua:355
+#: styles/bookinfo.lua:373
 msgid "Edit series"
 msgstr "تحرير السلسلة"
 
@@ -883,7 +883,7 @@ msgstr "سلسلة فارغة"
 msgid "Enabled"
 msgstr ""
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "English"
 msgstr ""
@@ -911,7 +911,7 @@ msgstr "كل ما يرسمه الملحق، ببيانات تجريبية. اس�
 msgid "Exit"
 msgstr ""
 
-#: styles/bookinfo.lua:341 styles/bookinfo.lua:1016
+#: styles/bookinfo.lua:359 styles/bookinfo.lua:1034
 msgid "FILE"
 msgstr "الملف"
 
@@ -942,12 +942,12 @@ msgstr "فبراير"
 msgid "File browser"
 msgstr ""
 
-#: styles/bookinfo.lua:316
+#: styles/bookinfo.lua:334
 #, koreader
 msgid "File date:"
 msgstr ""
 
-#: styles/bookinfo.lua:313
+#: styles/bookinfo.lua:331
 #, koreader
 msgid "Filename:"
 msgstr ""
@@ -965,7 +965,7 @@ msgstr "تصفية وترتيب"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
+#: styles/bookinfo.lua:277 styles/bookinfo.lua:591 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "انتهى"
@@ -999,7 +999,7 @@ msgstr ""
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
-#: styles/bookinfo.lua:317
+#: styles/bookinfo.lua:335
 #, koreader
 msgid "Folder:"
 msgstr ""
@@ -1025,12 +1025,12 @@ msgstr "الخطوط"
 msgid "Forgot"
 msgstr "نسيت"
 
-#: styles/bookinfo.lua:314 styles/bookinfo.lua:502
+#: styles/bookinfo.lua:332 styles/bookinfo.lua:520
 #, koreader
 msgid "Format:"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "French"
 msgstr ""
@@ -1048,12 +1048,12 @@ msgstr "تحديث كامل للشاشة"
 msgid "Full screens"
 msgstr "الشاشات الكاملة"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Galician"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "German"
 msgstr ""
@@ -1093,7 +1093,7 @@ msgstr "شبكة: %1 أعمدة"
 msgid "HIGHLIGHT"
 msgstr "تظليل"
 
-#: views/stats.lua:663
+#: views/stats.lua:649
 msgid "HIGHLIGHTS"
 msgstr "أبرز النقاط"
 
@@ -1196,7 +1196,7 @@ msgstr ""
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "سيُستخدم بعد إعادة تشغيل KOReader. تُحفظ إعداداتك."
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Italian"
 msgstr ""
@@ -1206,7 +1206,7 @@ msgctxt "aire"
 msgid "January"
 msgstr "يناير"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Japanese"
 msgstr ""
@@ -1230,7 +1230,7 @@ msgstr ""
 msgid "KOReader engine (crengine)"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Korean"
 msgstr ""
@@ -1259,7 +1259,7 @@ msgstr "ساعة وتاريخ كبيران"
 msgid "Large · small · small inverted — swipe ← →, tap to exit"
 msgstr "كبيرة · صغيرة · صغيرة معكوسة — اسحب ← →، انقر للخروج"
 
-#: styles/bookinfo.lua:897
+#: styles/bookinfo.lua:915
 msgid "Last"
 msgstr "الأخيرة"
 
@@ -1279,7 +1279,7 @@ msgstr "آخر قراءة"
 msgid "Later"
 msgstr "لاحقًا"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Latin"
 msgstr ""
@@ -1349,11 +1349,11 @@ msgstr "تطابق"
 msgid "MATCH %d"
 msgstr "تطابق %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:641
 msgid "MONTHLY RHYTHM"
 msgstr "الإيقاع الشهري"
 
-#: views/stats.lua:693
+#: views/stats.lua:673
 msgid "MOST READ"
 msgstr "الأكثر قراءة"
 
@@ -1415,7 +1415,7 @@ msgstr "الذاكرة المستخدمة"
 msgid "Menu next to text"
 msgstr ""
 
-#: styles/bookinfo.lua:318
+#: styles/bookinfo.lua:336
 #, koreader
 msgid "Metadata:"
 msgstr ""
@@ -1433,7 +1433,7 @@ msgstr "دمج المجلدات"
 msgid "Mix series"
 msgstr "دمج السلاسل"
 
-#: views/stats.lua:590
+#: views/stats.lua:576
 msgid "Monthly"
 msgstr "شهري"
 
@@ -1474,7 +1474,7 @@ msgstr ""
 msgid "Multiple fields"
 msgstr ""
 
-#: styles/bookinfo.lua:367
+#: styles/bookinfo.lua:385
 #, koreader
 msgid "N/A"
 msgstr ""
@@ -1499,7 +1499,7 @@ msgstr "ملاحظة"
 msgid "Name"
 msgstr "الاسم"
 
-#: styles/bookinfo.lua:501
+#: styles/bookinfo.lua:519
 msgid "Name:"
 msgstr "الاسم:"
 
@@ -1512,7 +1512,7 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: styles/bookinfo.lua:571
+#: styles/bookinfo.lua:589
 msgctxt "aire"
 msgid "New"
 msgstr "جديد"
@@ -1616,7 +1616,7 @@ msgstr "لا يوجد كتاب تالٍ غير منتهٍ"
 msgid "No previous book"
 msgstr "لا يوجد كتاب سابق"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:612
 msgid "No reading activity in this period"
 msgstr "لا يوجد نشاط قراءة في هذه الفترة"
 
@@ -1645,11 +1645,11 @@ msgstr "لا توجد كتب لم تبدأ قراءتها"
 msgid "No vocabulary words"
 msgstr "لا توجد كلمات"
 
-#: styles/bookinfo.lua:939 styles/bookstatus.lua:61
+#: styles/bookinfo.lua:957 styles/bookstatus.lua:61
 msgid "Not rated"
 msgstr "بدون تقييم"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
+#: styles/bookinfo.lua:278 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "لم يبدأ"
 
@@ -1657,12 +1657,12 @@ msgstr "لم يبدأ"
 msgid "Note"
 msgstr ""
 
-#: styles/bookinfo.lua:322
+#: styles/bookinfo.lua:340
 #, koreader
 msgid "Notebook file:"
 msgstr ""
 
-#: styles/bookinfo.lua:896
+#: styles/bookinfo.lua:914
 msgctxt "aire"
 msgid "Notes"
 msgstr "الملاحظات"
@@ -1676,7 +1676,7 @@ msgstr "نوفمبر"
 msgid "Number"
 msgstr ""
 
-#: styles/bookinfo.lua:359
+#: styles/bookinfo.lua:377
 msgid "Number in series"
 msgstr "الرقم في السلسلة"
 
@@ -1700,7 +1700,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
+#: styles/bookinfo.lua:276 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "تمَّ تعليقُ قراءته"
@@ -1809,7 +1809,7 @@ msgstr ""
 msgid "Portrait"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Portuguese"
 msgstr ""
@@ -1861,11 +1861,11 @@ msgstr "اقتباس اليوم"
 msgid "RANDOM"
 msgstr "عشوائي"
 
-#: styles/bookinfo.lua:944 styles/bookstatus.lua:313
+#: styles/bookinfo.lua:962 styles/bookstatus.lua:313
 msgid "RATING"
 msgstr "التقييم"
 
-#: styles/bookinfo.lua:340
+#: styles/bookinfo.lua:358
 msgid "READING"
 msgstr "القراءة"
 
@@ -1877,7 +1877,7 @@ msgstr "حالة القراءة"
 msgid "RECAP"
 msgstr "الملخص"
 
-#: styles/bookinfo.lua:984 styles/bookstatus.lua:390
+#: styles/bookinfo.lua:1002 styles/bookstatus.lua:390
 msgid "REVIEW / NOTES"
 msgstr "المراجعة / الملاحظات"
 
@@ -1893,7 +1893,7 @@ msgstr "كتاب عشوائي"
 msgid "Rating and review"
 msgstr "التقييم والمراجعة"
 
-#: styles/bookinfo.lua:320
+#: styles/bookinfo.lua:338
 #, koreader
 msgid "Rating:"
 msgstr ""
@@ -1917,7 +1917,7 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:202 styles/bookinfo.lua:257 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
+#: dev/tests/regressions.lua:202 styles/bookinfo.lua:275 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "تتمُّ قراءته"
@@ -1939,7 +1939,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:553
+#: views/stats.lua:539
 msgid "Recap"
 msgstr "الملخص"
 
@@ -2040,7 +2040,7 @@ msgstr "أعد التشغيل الآن"
 msgid "Reverse sorting"
 msgstr ""
 
-#: styles/bookinfo.lua:321
+#: styles/bookinfo.lua:339
 #, koreader
 msgid "Review:"
 msgstr ""
@@ -2055,7 +2055,7 @@ msgstr ""
 msgid "Rotate"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Russian"
 msgstr ""
@@ -2124,7 +2124,7 @@ msgstr "سبتمبر"
 msgid "Series"
 msgstr ""
 
-#: styles/bookinfo.lua:358
+#: styles/bookinfo.lua:376
 msgid "Series name"
 msgstr "اسم السلسلة"
 
@@ -2189,7 +2189,7 @@ msgstr ""
 msgid "Show synopsis"
 msgstr "إظهار الملخص"
 
-#: styles/bookinfo.lua:315
+#: styles/bookinfo.lua:333
 #, koreader
 msgid "Size:"
 msgstr ""
@@ -2239,7 +2239,7 @@ msgstr "ترتيب المجموعات…"
 msgid "Sort files"
 msgstr "ترتيب الملفات"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Spanish"
 msgstr ""
@@ -2292,7 +2292,7 @@ msgstr ""
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:971 styles/bookinfo.lua:988 styles/bookstatus.lua:395
+#: dev/devtools.lua:971 styles/bookinfo.lua:1006 styles/bookstatus.lua:395
 msgid "Tap to add or edit your review of this book…"
 msgstr "انقر لإضافة مراجعتك لهذا الكتاب أو تحريرها…"
 
@@ -2399,7 +2399,7 @@ msgstr ""
 msgid "Time range statistics"
 msgstr ""
 
-#: styles/bookinfo.lua:895
+#: styles/bookinfo.lua:913
 msgid "Time read"
 msgstr "وقت القراءة"
 
@@ -2445,7 +2445,7 @@ msgstr "اليوم والتتابع"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:667
 msgid "Top author"
 msgstr "المؤلف الأكثر قراءة"
 
@@ -2467,7 +2467,7 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
 msgid "Update"
 msgstr "تحديث"
 
@@ -2642,7 +2642,7 @@ msgstr ""
 msgid "files"
 msgstr "الملفات"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:629 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "كتاب منتهٍ"
@@ -2684,7 +2684,7 @@ msgstr "أبدًا"
 msgid "night mode"
 msgstr "الوضع الليلي"
 
-#: styles/bookinfo.lua:264
+#: styles/bookinfo.lua:282
 msgid "now"
 msgstr "الآن"
 
@@ -2700,7 +2700,7 @@ msgstr "ص. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "ص. %1 من %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:621
 msgid "pages read"
 msgstr "صفحات مقروءة"
 
@@ -2708,7 +2708,7 @@ msgstr "صفحات مقروءة"
 msgid "port %1"
 msgstr "المنفذ %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:625
 msgid "reading time"
 msgstr "وقت القراءة"
 
@@ -2778,7 +2778,7 @@ msgstr "المؤقت"
 msgid "today"
 msgstr "اليوم"
 
-#: styles/bookinfo.lua:219
+#: styles/bookinfo.lua:237
 msgctxt "aire"
 msgid "today"
 msgstr "اليوم"
@@ -2791,7 +2791,7 @@ msgstr "اليوم · %1 ص."
 msgid "wi-fi"
 msgstr "Wi-Fi"
 
-#: styles/bookinfo.lua:220
+#: styles/bookinfo.lua:238
 msgctxt "aire"
 msgid "yesterday"
 msgstr "أمس"

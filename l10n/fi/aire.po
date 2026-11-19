@@ -56,13 +56,13 @@ msgid_plural "%1 days"
 msgstr[0] "%1 päivä"
 msgstr[1] "%1 päivää"
 
-#: styles/bookinfo.lua:222
+#: styles/bookinfo.lua:240
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 päivä sitten"
 msgstr[1] "%1 päivää sitten"
 
-#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:657
+#: styles/calendar.lua:237 views/stats.lua:303 views/stats.lua:643
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 lukupäivä"
@@ -80,7 +80,7 @@ msgid_plural "%1 finished books"
 msgstr[0] "%1 luettu kirja"
 msgstr[1] "%1 luettua kirjaa"
 
-#: styles/bookinfo.lua:229
+#: styles/bookinfo.lua:247
 msgid "%1 month ago"
 msgid_plural "%1 months ago"
 msgstr[0] "%1 kuukausi sitten"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 s. luettu"
 msgstr[1] "%1 s. luettu"
 
-#: styles/bookinfo.lua:573 styles/bookinfo.lua:577 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
+#: styles/bookinfo.lua:591 styles/bookinfo.lua:595 styles/calendar.lua:236 views/booksheet.lua:175 views/stats.lua:302
 msgid "%1 pp."
 msgstr "%1 s."
 
-#: views/stats.lua:635
+#: views/stats.lua:621
 msgid "%1 pp./h"
 msgstr "%1 s./h"
 
@@ -118,7 +118,7 @@ msgid_plural "%1 series"
 msgstr[0] "%1 sarja"
 msgstr[1] "%1 sarjaa"
 
-#: styles/bookinfo.lua:225
+#: styles/bookinfo.lua:243
 msgid "%1 week ago"
 msgid_plural "%1 weeks ago"
 msgstr[0] "%1 viikko sitten"
@@ -142,7 +142,7 @@ msgid_plural "%d books"
 msgstr[0] ""
 msgstr[1] ""
 
-#: styles/bookinfo.lua:941 styles/bookstatus.lua:63
+#: styles/bookinfo.lua:959 styles/bookstatus.lua:63
 msgid "%d of 5 stars"
 msgstr "%d / 5 tähteä"
 
@@ -150,11 +150,11 @@ msgstr "%d / 5 tähteä"
 msgid "+ Brightness"
 msgstr "+ Kirkkaus"
 
-#: views/stats.lua:487
+#: views/stats.lua:478
 msgid "+%1 more"
 msgstr "+%1 lisää"
 
-#: styles/bookinfo.lua:940 styles/bookstatus.lua:62
+#: styles/bookinfo.lua:958 styles/bookstatus.lua:62
 msgid "1 of 5 stars"
 msgstr "1 / 5 tähteä"
 
@@ -262,7 +262,7 @@ msgstr "Kaikki luettu"
 msgid "Always"
 msgstr ""
 
-#: views/stats.lua:592
+#: views/stats.lua:578
 msgid "Annual"
 msgstr "Vuosi"
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Average time per page"
 msgstr ""
 
-#: styles/bookinfo.lua:339
+#: styles/bookinfo.lua:357
 msgid "BOOK"
 msgstr "KIRJA"
 
@@ -331,7 +331,7 @@ msgstr "KIRJA"
 msgid "BOOKMARK"
 msgstr "KIRJANMERKKI"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Basque"
 msgstr ""
@@ -340,11 +340,11 @@ msgstr ""
 msgid "Battery"
 msgstr "Akku"
 
-#: views/stats.lua:681
+#: views/stats.lua:661
 msgid "Best day"
 msgstr "Paras päivä"
 
-#: views/stats.lua:684
+#: views/stats.lua:664
 msgid "Best month"
 msgstr "Paras kuukausi"
 
@@ -473,7 +473,7 @@ msgstr ""
 msgid "Capture"
 msgstr "Kaappaa"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Catalan"
 msgstr ""
@@ -518,7 +518,7 @@ msgstr "Tarkista päivitykset"
 msgid "Check patches and plugins on startup"
 msgstr "Tarkista korjaukset ja lisäosat käynnistettäessä"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 msgid "Chinese"
 msgstr "Kiina"
 
@@ -623,7 +623,7 @@ msgstr "Kansikuvien pienoiskuvat tyhjennetty"
 msgid "Current page/Total pages"
 msgstr ""
 
-#: styles/bookinfo.lua:319
+#: styles/bookinfo.lua:337
 #, koreader
 msgid "Current page:"
 msgstr ""
@@ -637,11 +637,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Luetaan nyt"
 
-#: views/stats.lua:655
+#: views/stats.lua:641
 msgid "DAILY RHYTHM"
 msgstr "PÄIVÄRYTMI"
 
-#: views/stats.lua:676
+#: views/stats.lua:656
 msgid "Daily average"
 msgstr "Päivän keskiarvo"
 
@@ -657,7 +657,7 @@ msgstr "Päivämäärä"
 msgid "Date finished"
 msgstr "Lopetuspäivä"
 
-#: views/stats.lua:679
+#: views/stats.lua:659
 msgid "Day %1"
 msgstr "Päivä %1"
 
@@ -761,7 +761,7 @@ msgstr ""
 msgid "Downloading… %1 of %2"
 msgstr "Ladataan… %1 / %2"
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Dutch"
 msgstr ""
@@ -787,7 +787,7 @@ msgstr ""
 msgid "Edit note"
 msgstr ""
 
-#: styles/bookinfo.lua:355
+#: styles/bookinfo.lua:373
 msgid "Edit series"
 msgstr "Muokkaa sarjaa"
 
@@ -822,7 +822,7 @@ msgstr "Tyhjä sarja"
 msgid "Enabled"
 msgstr ""
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "English"
 msgstr ""
@@ -850,7 +850,7 @@ msgstr "Kaikki, mitä lisäosa piirtää, esimerkkitiedoilla. Pyyhkäise ← →
 msgid "Exit"
 msgstr ""
 
-#: styles/bookinfo.lua:341 styles/bookinfo.lua:1016
+#: styles/bookinfo.lua:359 styles/bookinfo.lua:1034
 msgid "FILE"
 msgstr "TIEDOSTO"
 
@@ -882,12 +882,12 @@ msgstr "helmikuuta"
 msgid "File browser"
 msgstr ""
 
-#: styles/bookinfo.lua:316
+#: styles/bookinfo.lua:334
 #, koreader
 msgid "File date:"
 msgstr ""
 
-#: styles/bookinfo.lua:313
+#: styles/bookinfo.lua:331
 #, koreader
 msgid "Filename:"
 msgstr ""
@@ -905,7 +905,7 @@ msgstr "Suodata ja lajittele"
 msgid "Finished"
 msgstr ""
 
-#: styles/bookinfo.lua:259 styles/bookinfo.lua:573 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
+#: styles/bookinfo.lua:277 styles/bookinfo.lua:591 styles/bookstatus.lua:56 views/booksheet.lua:156 views/grid.lua:50
 msgctxt "aire"
 msgid "Finished"
 msgstr "Valmis"
@@ -938,7 +938,7 @@ msgstr ""
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
-#: styles/bookinfo.lua:317
+#: styles/bookinfo.lua:335
 #, koreader
 msgid "Folder:"
 msgstr ""
@@ -964,12 +964,12 @@ msgstr "Fontit"
 msgid "Forgot"
 msgstr "Unohdin"
 
-#: styles/bookinfo.lua:314 styles/bookinfo.lua:502
+#: styles/bookinfo.lua:332 styles/bookinfo.lua:520
 #, koreader
 msgid "Format:"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "French"
 msgstr ""
@@ -987,12 +987,12 @@ msgstr "Täysi päivitys"
 msgid "Full screens"
 msgstr "Koko näytön näkymät"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Galician"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "German"
 msgstr ""
@@ -1032,7 +1032,7 @@ msgstr "Ruudukko: %1 saraketta"
 msgid "HIGHLIGHT"
 msgstr "KOROSTUS"
 
-#: views/stats.lua:663
+#: views/stats.lua:649
 msgid "HIGHLIGHTS"
 msgstr "KOHOKOHDAT"
 
@@ -1135,7 +1135,7 @@ msgstr ""
 msgid "It will be used after restarting KOReader. Your settings are kept."
 msgstr "Otetaan käyttöön, kun KOReader käynnistetään uudelleen. Asetuksesi säilyvät."
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Italian"
 msgstr ""
@@ -1145,7 +1145,7 @@ msgctxt "aire"
 msgid "January"
 msgstr "tammikuuta"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Japanese"
 msgstr ""
@@ -1169,7 +1169,7 @@ msgstr ""
 msgid "KOReader engine (crengine)"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Korean"
 msgstr ""
@@ -1198,7 +1198,7 @@ msgstr "Suuri kello ja päivämäärä"
 msgid "Large · small · small inverted — swipe ← →, tap to exit"
 msgstr "Suuri · pieni · pieni käänteinen — pyyhkäise ← →, napauta poistuaksesi"
 
-#: styles/bookinfo.lua:897
+#: styles/bookinfo.lua:915
 msgid "Last"
 msgstr "Viimeksi"
 
@@ -1218,7 +1218,7 @@ msgstr "Viimeksi luettu"
 msgid "Later"
 msgstr "Myöhemmin"
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Latin"
 msgstr ""
@@ -1288,11 +1288,11 @@ msgstr "OSUMA"
 msgid "MATCH %d"
 msgstr "OSUMA %d"
 
-#: views/stats.lua:655
+#: views/stats.lua:641
 msgid "MONTHLY RHYTHM"
 msgstr "KUUKAUSIRYTMI"
 
-#: views/stats.lua:693
+#: views/stats.lua:673
 msgid "MOST READ"
 msgstr "LUETUIMMAT"
 
@@ -1354,7 +1354,7 @@ msgstr "Muistia käytetty"
 msgid "Menu next to text"
 msgstr ""
 
-#: styles/bookinfo.lua:318
+#: styles/bookinfo.lua:336
 #, koreader
 msgid "Metadata:"
 msgstr ""
@@ -1372,7 +1372,7 @@ msgstr "Sekoita kansiot"
 msgid "Mix series"
 msgstr "Sekoita sarjat"
 
-#: views/stats.lua:590
+#: views/stats.lua:576
 msgid "Monthly"
 msgstr "Kuukausi"
 
@@ -1413,7 +1413,7 @@ msgstr ""
 msgid "Multiple fields"
 msgstr ""
 
-#: styles/bookinfo.lua:367
+#: styles/bookinfo.lua:385
 #, koreader
 msgid "N/A"
 msgstr ""
@@ -1438,7 +1438,7 @@ msgstr "MUISTIINPANO"
 msgid "Name"
 msgstr "Nimi"
 
-#: styles/bookinfo.lua:501
+#: styles/bookinfo.lua:519
 msgid "Name:"
 msgstr "Nimi:"
 
@@ -1451,7 +1451,7 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: styles/bookinfo.lua:571
+#: styles/bookinfo.lua:589
 msgctxt "aire"
 msgid "New"
 msgstr "Uusi"
@@ -1556,7 +1556,7 @@ msgstr "Ei seuraavaa keskeneräistä kirjaa"
 msgid "No previous book"
 msgstr "Ei edellistä kirjaa"
 
-#: styles/statspages.lua:365 views/stats.lua:626
+#: styles/statspages.lua:365 views/stats.lua:612
 msgid "No reading activity in this period"
 msgstr "Ei lukemista tällä jaksolla"
 
@@ -1584,11 +1584,11 @@ msgstr "Ei aloittamattomia kirjoja"
 msgid "No vocabulary words"
 msgstr "Ei sanoja"
 
-#: styles/bookinfo.lua:939 styles/bookstatus.lua:61
+#: styles/bookinfo.lua:957 styles/bookstatus.lua:61
 msgid "Not rated"
 msgstr "Ei arvioitu"
 
-#: styles/bookinfo.lua:260 views/booksheet.lua:172 views/booksheet.lua:330
+#: styles/bookinfo.lua:278 views/booksheet.lua:172 views/booksheet.lua:330
 msgid "Not started"
 msgstr "Ei aloitettu"
 
@@ -1597,12 +1597,12 @@ msgstr "Ei aloitettu"
 msgid "Note"
 msgstr ""
 
-#: styles/bookinfo.lua:322
+#: styles/bookinfo.lua:340
 #, koreader
 msgid "Notebook file:"
 msgstr ""
 
-#: styles/bookinfo.lua:896
+#: styles/bookinfo.lua:914
 msgctxt "aire"
 msgid "Notes"
 msgstr "Muistiinpanot"
@@ -1616,7 +1616,7 @@ msgstr "marraskuuta"
 msgid "Number"
 msgstr ""
 
-#: styles/bookinfo.lua:359
+#: styles/bookinfo.lua:377
 msgid "Number in series"
 msgstr "Numero sarjassa"
 
@@ -1640,7 +1640,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: styles/bookinfo.lua:258 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
+#: styles/bookinfo.lua:276 styles/bookstatus.lua:55 views/booksheet.lua:161 views/grid.lua:55
 msgctxt "aire"
 msgid "On hold"
 msgstr "Pidossa"
@@ -1749,7 +1749,7 @@ msgstr ""
 msgid "Portrait"
 msgstr ""
 
-#: styles/bookinfo.lua:199
+#: styles/bookinfo.lua:217
 #, koreader
 msgid "Portuguese"
 msgstr ""
@@ -1802,11 +1802,11 @@ msgstr "Päivän lainaus"
 msgid "RANDOM"
 msgstr "SATUNNAINEN"
 
-#: styles/bookinfo.lua:944 styles/bookstatus.lua:313
+#: styles/bookinfo.lua:962 styles/bookstatus.lua:313
 msgid "RATING"
 msgstr "ARVIO"
 
-#: styles/bookinfo.lua:340
+#: styles/bookinfo.lua:358
 msgid "READING"
 msgstr "LUKEMINEN"
 
@@ -1818,7 +1818,7 @@ msgstr "LUKUTILA"
 msgid "RECAP"
 msgstr "YHTEENVETO"
 
-#: styles/bookinfo.lua:984 styles/bookstatus.lua:390
+#: styles/bookinfo.lua:1002 styles/bookstatus.lua:390
 msgid "REVIEW / NOTES"
 msgstr "ARVOSTELU / MUISTIINPANOT"
 
@@ -1834,7 +1834,7 @@ msgstr "Satunnainen kirja"
 msgid "Rating and review"
 msgstr "Arvio ja arvostelu"
 
-#: styles/bookinfo.lua:320
+#: styles/bookinfo.lua:338
 #, koreader
 msgid "Rating:"
 msgstr ""
@@ -1858,7 +1858,7 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:202 styles/bookinfo.lua:257 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
+#: dev/tests/regressions.lua:202 styles/bookinfo.lua:275 styles/bookstatus.lua:54 views/grid.lua:48 views/grid.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "Luetaan"
@@ -1880,7 +1880,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats.lua:553
+#: views/stats.lua:539
 msgid "Recap"
 msgstr "Yhteenveto"
 
@@ -1981,7 +1981,7 @@ msgstr "Käynnistä uudelleen nyt"
 msgid "Reverse sorting"
 msgstr ""
 
-#: styles/bookinfo.lua:321
+#: styles/bookinfo.lua:339
 #, koreader
 msgid "Review:"
 msgstr ""
@@ -1996,7 +1996,7 @@ msgstr ""
 msgid "Rotate"
 msgstr ""
 
-#: styles/bookinfo.lua:200
+#: styles/bookinfo.lua:218
 #, koreader
 msgid "Russian"
 msgstr ""
@@ -2064,7 +2064,7 @@ msgstr "syyskuuta"
 msgid "Series"
 msgstr ""
 
-#: styles/bookinfo.lua:358
+#: styles/bookinfo.lua:376
 msgid "Series name"
 msgstr "Sarjan nimi"
 
@@ -2127,7 +2127,7 @@ msgstr ""
 msgid "Show synopsis"
 msgstr "Näytä tiivistelmä"
 
-#: styles/bookinfo.lua:315
+#: styles/bookinfo.lua:333
 #, koreader
 msgid "Size:"
 msgstr ""
@@ -2178,7 +2178,7 @@ msgstr "Lajittele kokoelmat…"
 msgid "Sort files"
 msgstr "Lajittele tiedostot"
 
-#: styles/bookinfo.lua:198
+#: styles/bookinfo.lua:216
 #, koreader
 msgid "Spanish"
 msgstr ""
@@ -2231,7 +2231,7 @@ msgstr ""
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:971 styles/bookinfo.lua:988 styles/bookstatus.lua:395
+#: dev/devtools.lua:971 styles/bookinfo.lua:1006 styles/bookstatus.lua:395
 msgid "Tap to add or edit your review of this book…"
 msgstr "Lisää tai muokkaa arvosteluasi tästä kirjasta napauttamalla…"
 
@@ -2338,7 +2338,7 @@ msgstr ""
 msgid "Time range statistics"
 msgstr ""
 
-#: styles/bookinfo.lua:895
+#: styles/bookinfo.lua:913
 msgid "Time read"
 msgstr "Lukuaika"
 
@@ -2384,7 +2384,7 @@ msgstr "Tänään ja putki"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats.lua:687
+#: views/stats.lua:667
 msgid "Top author"
 msgstr "Luetuin kirjailija"
 
@@ -2406,7 +2406,7 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:483
+#: views/power.lua:131 views/power.lua:158 views/update.lua:329 views/update.lua:484
 msgid "Update"
 msgstr "Päivitä"
 
@@ -2573,7 +2573,7 @@ msgstr ""
 msgid "files"
 msgstr "tiedostoja"
 
-#: views/stats.lua:643 views/widgets.lua:423
+#: views/stats.lua:629 views/widgets.lua:423
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "luettu kirja"
@@ -2611,7 +2611,7 @@ msgstr "ei koskaan"
 msgid "night mode"
 msgstr "yötila"
 
-#: styles/bookinfo.lua:264
+#: styles/bookinfo.lua:282
 msgid "now"
 msgstr "nyt"
 
@@ -2627,7 +2627,7 @@ msgstr "s. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "s. %1 / %2"
 
-#: views/stats.lua:635
+#: views/stats.lua:621
 msgid "pages read"
 msgstr "luettua sivua"
 
@@ -2635,7 +2635,7 @@ msgstr "luettua sivua"
 msgid "port %1"
 msgstr "portti %1"
 
-#: views/stats.lua:639
+#: views/stats.lua:625
 msgid "reading time"
 msgstr "lukuaika"
 
@@ -2701,7 +2701,7 @@ msgstr "ajastin"
 msgid "today"
 msgstr "tänään"
 
-#: styles/bookinfo.lua:219
+#: styles/bookinfo.lua:237
 msgctxt "aire"
 msgid "today"
 msgstr "tänään"
@@ -2714,7 +2714,7 @@ msgstr "tänään · %1 s."
 msgid "wi-fi"
 msgstr "wi-fi"
 
-#: styles/bookinfo.lua:220
+#: styles/bookinfo.lua:238
 msgctxt "aire"
 msgid "yesterday"
 msgstr "eilen"
