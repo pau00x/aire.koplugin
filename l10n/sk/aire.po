@@ -178,10 +178,6 @@ msgstr[3] ""
 msgid "%d of 5 stars"
 msgstr "%d z 5 hviezdičiek"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "(aktuálne)"
-
 #: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ Jas"
@@ -343,7 +339,7 @@ msgstr "Automatické zbierky podľa žánru (kľúčového slova)"
 msgid "Automatic tests"
 msgstr "Automatické testy"
 
-#: views/grid.lua:903
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "Automatická: knihy tohto autora"
 
@@ -453,7 +449,7 @@ msgstr "Záložky a zvýraznenia"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:864
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "Knihy sa nevymažú, iba zbierka."
 
@@ -588,7 +584,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Poradie v zbierke"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1244
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -716,7 +712,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembra"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:865 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -742,7 +738,7 @@ msgstr "Vymazať minúty tohto dňa?"
 msgid "Delete minutes from this day"
 msgstr "Vymazať minúty z tohto dňa"
 
-#: views/grid.lua:863
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "Vymazať zbierku?"
 
@@ -750,7 +746,7 @@ msgstr "Vymazať zbierku?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:914
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "Vymazať…"
 
@@ -895,7 +891,7 @@ msgstr ""
 msgid "FILE"
 msgstr "SÚBOR"
 
-#: views/grid.lua:746
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -918,7 +914,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "februára"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -933,11 +929,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:731
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "Filter"
 
-#: dev/devtools.lua:659 views/grid.lua:730
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "Filter a zoradenie"
 
@@ -985,7 +981,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "Priečinky"
 
@@ -1059,7 +1055,7 @@ msgstr "Nastavené gestá: %1"
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "Hore"
 
@@ -1089,7 +1085,7 @@ msgstr "Ešte nenastal"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1245
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1110,7 +1106,7 @@ msgstr "Podržanie funguje ako ťuknutie"
 msgid "Hold to configure"
 msgstr "Podržaním nastavíte"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1277,7 +1273,7 @@ msgstr "Rozloženie"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1243
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "Knižnica"
 
@@ -1341,7 +1337,7 @@ msgstr "MESAČNÝ RYTMUS"
 msgid "MOST READ"
 msgstr "NAJČÍTANEJŠIE"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "Hlavné zobrazenie"
 
@@ -1363,7 +1359,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Označiť všetky knihy v „%1“ ako rozčítané?"
 
-#: views/grid.lua:951
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Označiť všetky knihy v zbierke „%1“ ako rozčítané?"
 
@@ -1371,11 +1367,11 @@ msgstr "Označiť všetky knihy v zbierke „%1“ ako rozčítané?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:949
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "Označiť celú zbierku ako dokončenú"
 
-#: views/grid.lua:950
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "Označiť celú zbierku ako rozčítanú"
 
@@ -1410,11 +1406,11 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Minimálny"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "Miešať priečinky"
 
-#: views/grid.lua:759
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "Miešať série"
 
@@ -1430,7 +1426,7 @@ msgstr "Mesačný súhrn"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "Viac"
 
@@ -1508,7 +1504,7 @@ msgstr "Nová"
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:905 views/grid.lua:918
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "Nová zbierka…"
 
@@ -1702,7 +1698,7 @@ msgstr "Len keď je Wi-Fi už zapnutá: Aire ju nikdy nezapína."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:948
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "Otvoriť zbierku"
 
@@ -1710,7 +1706,7 @@ msgstr "Otvoriť zbierku"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:948
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "Otvoriť sériu"
 
@@ -1990,7 +1986,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:912
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "Premenovať…"
 
@@ -2026,7 +2022,7 @@ msgstr "Reštartujte KOReader, aby ste ju mohli použiť. Vaše nastavenia zosta
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:753
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2051,7 +2047,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:749
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "ZORADIŤ PODĽA"
 
@@ -2084,7 +2080,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2202,7 +2198,7 @@ msgstr "Inteligentné"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "Zoradiť"
 
@@ -2214,20 +2210,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:731
+#: dev/devtools.lua:613 views/grid.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:883
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "Zoradiť zbierky"
 
-#: views/grid.lua:906 views/grid.lua:919
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "Zoradiť zbierky…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "Zoradiť súbory"
 
@@ -2248,7 +2244,7 @@ msgstr "Začať"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "Štatistiky"
 
@@ -2300,7 +2296,7 @@ msgstr "Ťuknutím zastavíte"
 msgid "Tap to view definition"
 msgstr "Ťuknutím zobrazíte definíciu"
 
-#: views/grid.lua:1146
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "Testovacia kniha"
 

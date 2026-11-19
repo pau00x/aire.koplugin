@@ -10,7 +10,6 @@ return function(Aire, ctx)
     -- Módulos y valores compartidos declarados aquí dentro: así no cuentan
     -- como upvalues de esta función (LuaJIT admite 60).
     local Blitbuffer = require("ffi/blitbuffer")
-    local ButtonDialog = require("ui/widget/buttondialog")
     local Device = require("device")
     local FileManager = require("apps/filemanager/filemanager")
     local FrameContainer = require("ui/widget/container/framecontainer")
@@ -21,7 +20,6 @@ return function(Aire, ctx)
     local InputContainer = require("ui/widget/container/inputcontainer")
     local Size = require("ui/size")
     local TextWidget = require("ui/widget/textwidget")
-    local UIManager = require("ui/uimanager")
     local _ = require("gettext")
     local Screen = Device.screen
     local S = ctx.S
@@ -240,28 +238,17 @@ return function(Aire, ctx)
     ---------------------------------------------------------------------------
     -- Acciones
     ---------------------------------------------------------------------------
+    -- Hoja para elegir (common/sheet.lua): el modo actual, relleno
     function Aire:showModeSelector()
-        local dialog
-        local function choose(mode)
-            UIManager:close(dialog)
-            if mode == "library" then
-                self:showHome()
-            else
-                self:showExplorer()
-            end
-        end
-        local function label(mode, text)
-            return config.mode == mode and (text .. "  " .. _("(current)")) or text
-        end
-        dialog = ButtonDialog:new{
+        package.loaded.aire_sheet.showChoices{
             title = _("Main view"),
-            title_align = "center",
-            buttons = {
-                {{ text = label("library", _("Library")), callback = function() choose("library") end }},
-                {{ text = label("explorer", _("File browser")), callback = function() choose("explorer") end }},
-            },
+            groups = { { items = {
+                { text = _("Library"), active = config.mode == "library", callback = function() self:showHome() end },
+                { text = _("File browser"), active = config.mode == "explorer", callback = function() self:showExplorer() end },
+            } } },
+            style = ctx.selStyle and ctx.selStyle() or "black",
+            lighten = ctx.lightened,
         }
-        UIManager:show(dialog)
     end
 
     function Aire:onNavTap(id)

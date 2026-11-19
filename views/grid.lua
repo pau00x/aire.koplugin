@@ -713,59 +713,41 @@ return function(Aire, ctx)
     end
 
     function Aire:showGridFilterSortMenu(filters, sorts)
-        -- Piezas comunes de las hojas (common/sheet.lua): título, secciones,
-        -- opciones para elegir (la elegida, rellena) y separador
-        local Sh = package.loaded.aire_sheet
-        local inner_w = package.loaded.aire_screen.sheetInnerWidth()
-        local style = ctx.selStyle and ctx.selStyle() or "black"
-        local copts = { columns = 2, style = style, lighten = ctx.lightened }
-        local dlg
-        local function pick(fn)
-            return function()
-                UIManager:close(dlg, "ui")
-                fn()
-            end
-        end
-        local content = VerticalGroup:new{ align = "left" }
-        local title = (filters and sorts) and _("Filter and sort")
-            or (filters and _("Filter") or _("Sort by"))
-        table.insert(content, Sh.title(title, inner_w))
-
-        local function addSection(heading, spec)
-            table.insert(content, Sh.section(heading, inner_w))
+        -- Hoja común para elegir (common/sheet.lua): la opción actual, rellena
+        local groups = {}
+        local function addGroup(heading, spec)
             local current = config[spec.key] or spec.default
-            local list = {}
+            local items = {}
             for _i, item in ipairs(spec.list) do
                 local id, key = item.id, spec.key
-                table.insert(list, { text = item.label, active = (item.id == current),
-                    callback = pick(function() self:setGridOption(key, id) end) })
+                table.insert(items, { text = item.label, active = (item.id == current),
+                    callback = function() self:setGridOption(key, id) end })
             end
-            table.insert(content, Sh.choices(list, inner_w, copts))
+            table.insert(groups, { heading = heading, items = items })
         end
-
-        if filters then addSection(_("FILTER"), filters) end
-        if filters and sorts then table.insert(content, Sh.separator(inner_w)) end
+        if filters then addGroup(_("FILTER"), filters) end
         if sorts then
-            addSection(_("SORT BY"), sorts)
+            addGroup(_("SORT BY"), sorts)
             local rev_key = sorts.key .. "_rev"
             local rev = config[rev_key] == true
             local extras = {
                 { text = _("Reverse sorting"), active = rev,
-                  callback = pick(function() self:setGridOption(rev_key, not rev) end) },
+                  callback = function() self:setGridOption(rev_key, not rev) end },
             }
             local mixed_key = sorts.mixed_key
             if mixed_key then
                 local mixed = config[mixed_key] ~= false
                 table.insert(extras, { text = _("Mix series"), active = mixed,
-                    callback = pick(function() self:setGridOption(mixed_key, not mixed) end) })
+                    callback = function() self:setGridOption(mixed_key, not mixed) end })
             end
-            table.insert(content, Sh.separator(inner_w))
-            table.insert(content, Sh.choices(extras, inner_w, copts))
+            table.insert(groups, { items = extras })
         end
-
-        -- Hoja común (common/sheet.lua): marco, tocar fuera / Atrás y refresco
-        dlg = Sh.Sheet:new{ content = content }
-        UIManager:show(dlg, "ui")
+        package.loaded.aire_sheet.showChoices{
+            title = (filters and sorts) and _("Filter and sort") or (filters and _("Filter") or _("Sort by")),
+            groups = groups,
+            style = ctx.selStyle and ctx.selStyle() or "black",
+            lighten = ctx.lightened,
+        }
     end
 
     function Aire:openGridGroup(key)

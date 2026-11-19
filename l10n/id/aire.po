@@ -130,10 +130,6 @@ msgstr[0] ""
 msgid "%d of 5 stars"
 msgstr "%d dari 5 bintang"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "(saat ini)"
-
 #: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ Kecerahan"
@@ -295,7 +291,7 @@ msgstr "Koleksi otomatis per genre (kata kunci)"
 msgid "Automatic tests"
 msgstr "Uji otomatis"
 
-#: views/grid.lua:903
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "Otomatis: buku oleh penulis ini"
 
@@ -405,7 +401,7 @@ msgstr "Markah dan sorotan"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:864
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "Buku tidak dihapus, hanya koleksinya."
 
@@ -539,7 +535,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Urutan dalam koleksi"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1244
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -667,7 +663,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "Desember"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:865 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -693,7 +689,7 @@ msgstr "Hapus menit untuk hari ini?"
 msgid "Delete minutes from this day"
 msgstr "Hapus menit dari hari ini"
 
-#: views/grid.lua:863
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "Hapus koleksi?"
 
@@ -701,7 +697,7 @@ msgstr "Hapus koleksi?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:914
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "Hapus…"
 
@@ -846,7 +842,7 @@ msgstr ""
 msgid "FILE"
 msgstr "BERKAS"
 
-#: views/grid.lua:746
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -869,7 +865,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "Februari"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -884,11 +880,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:731
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "Filter"
 
-#: dev/devtools.lua:659 views/grid.lua:730
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "Filter dan urutkan"
 
@@ -936,7 +932,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "Folder"
 
@@ -1010,7 +1006,7 @@ msgstr "Gestur diatur: %1"
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "Naik"
 
@@ -1040,7 +1036,7 @@ msgstr "Belum tiba"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1245
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1061,7 +1057,7 @@ msgstr "Tahan berfungsi sama seperti ketuk"
 msgid "Hold to configure"
 msgstr "Tahan untuk mengatur"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1227,7 +1223,7 @@ msgstr "Tata letak"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1243
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "Pustaka"
 
@@ -1291,7 +1287,7 @@ msgstr "RITME BULANAN"
 msgid "MOST READ"
 msgstr "PALING BANYAK DIBACA"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "Tampilan utama"
 
@@ -1313,7 +1309,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Tandai semua buku di \"%1\" sebagai dibaca?"
 
-#: views/grid.lua:951
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Tandai semua buku di koleksi \"%1\" sebagai dibaca?"
 
@@ -1321,11 +1317,11 @@ msgstr "Tandai semua buku di koleksi \"%1\" sebagai dibaca?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:949
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "Tandai seluruh koleksi sebagai selesai"
 
-#: views/grid.lua:950
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "Tandai seluruh koleksi sebagai dibaca"
 
@@ -1360,11 +1356,11 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Minimal"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "Campur folder"
 
-#: views/grid.lua:759
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "Campur seri"
 
@@ -1380,7 +1376,7 @@ msgstr "Rangkuman bulanan"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "Lainnya"
 
@@ -1458,7 +1454,7 @@ msgstr "Baru"
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:905 views/grid.lua:918
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "Koleksi baru…"
 
@@ -1652,7 +1648,7 @@ msgstr "Hanya saat Wi-Fi sudah menyala: Aire tidak pernah menyalakannya."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:948
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "Buka koleksi"
 
@@ -1660,7 +1656,7 @@ msgstr "Buka koleksi"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:948
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "Buka seri"
 
@@ -1940,7 +1936,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:912
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "Ubah nama…"
 
@@ -1975,7 +1971,7 @@ msgstr "Mulai ulang KOReader untuk menggunakannya. Pengaturan Anda tetap tersimp
 msgid "Restart now"
 msgstr "Mulai ulang sekarang"
 
-#: views/explorer.lua:103 views/grid.lua:753
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2000,7 +1996,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:749
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "URUTKAN BERDASARKAN"
 
@@ -2033,7 +2029,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2151,7 +2147,7 @@ msgstr "Cerdas"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "Urutkan"
 
@@ -2163,20 +2159,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:731
+#: dev/devtools.lua:613 views/grid.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:883
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "Urutkan koleksi"
 
-#: views/grid.lua:906 views/grid.lua:919
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "Urutkan koleksi…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "Urutkan berkas"
 
@@ -2197,7 +2193,7 @@ msgstr "Mulai"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "Statistik"
 
@@ -2249,7 +2245,7 @@ msgstr "Ketuk untuk berhenti"
 msgid "Tap to view definition"
 msgstr "Ketuk untuk melihat definisi"
 
-#: views/grid.lua:1146
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "Buku uji"
 

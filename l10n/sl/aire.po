@@ -178,10 +178,6 @@ msgstr[3] ""
 msgid "%d of 5 stars"
 msgstr "%d od 5 zvezdic"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "(trenutno)"
-
 #: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ Svetlost"
@@ -342,7 +338,7 @@ msgstr "Samodejne zbirke po žanru (ključni besedi)"
 msgid "Automatic tests"
 msgstr "Samodejni preizkusi"
 
-#: views/grid.lua:903
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "Samodejno: knjige tega avtorja"
 
@@ -452,7 +448,7 @@ msgstr "Zaznamki in poudarki"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:864
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "Knjige se ne izbrišejo, le zbirka."
 
@@ -587,7 +583,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Vrstni red v zbirki"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1244
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -715,7 +711,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembra"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:865 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -741,7 +737,7 @@ msgstr "Izbrišem minute za ta dan?"
 msgid "Delete minutes from this day"
 msgstr "Izbriši minute za ta dan"
 
-#: views/grid.lua:863
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "Izbrišem zbirko?"
 
@@ -749,7 +745,7 @@ msgstr "Izbrišem zbirko?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:914
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "Izbriši…"
 
@@ -894,7 +890,7 @@ msgstr ""
 msgid "FILE"
 msgstr "DATOTEKA"
 
-#: views/grid.lua:746
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -917,7 +913,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "februarja"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -932,11 +928,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:731
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "Filter"
 
-#: dev/devtools.lua:659 views/grid.lua:730
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "Filtriraj in razvrsti"
 
@@ -984,7 +980,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "Mape"
 
@@ -1058,7 +1054,7 @@ msgstr "Nastavljene kretnje: %1"
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "Gor"
 
@@ -1088,7 +1084,7 @@ msgstr "Še ni nastopil"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1245
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1109,7 +1105,7 @@ msgstr "Pridržanje deluje kot tap"
 msgid "Hold to configure"
 msgstr "Pridržite za nastavitve"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1276,7 +1272,7 @@ msgstr "Postavitev"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1243
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "Knjižnica"
 
@@ -1340,7 +1336,7 @@ msgstr "MESEČNI RITEM"
 msgid "MOST READ"
 msgstr "NAJBOLJ BRANO"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "Glavni pogled"
 
@@ -1361,7 +1357,7 @@ msgstr "Označi"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Označim vse knjige v »%1« kot v branju?"
 
-#: views/grid.lua:951
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Označim vse knjige v zbirki »%1« kot v branju?"
 
@@ -1369,11 +1365,11 @@ msgstr "Označim vse knjige v zbirki »%1« kot v branju?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:949
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "Označi celotno zbirko kot dokončano"
 
-#: views/grid.lua:950
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "Označi celotno zbirko kot v branju"
 
@@ -1408,11 +1404,11 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Minimalno"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "Mešaj mape"
 
-#: views/grid.lua:759
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "Mešaj serije"
 
@@ -1428,7 +1424,7 @@ msgstr "Mesečni povzetek"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "Več"
 
@@ -1505,7 +1501,7 @@ msgstr "Nova"
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:905 views/grid.lua:918
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "Nova zbirka…"
 
@@ -1699,7 +1695,7 @@ msgstr "Samo ko je Wi-Fi že vklopljen: Aire ga nikoli ne vklopi."
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:948
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "Odpri zbirko"
 
@@ -1707,7 +1703,7 @@ msgstr "Odpri zbirko"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:948
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "Odpri serijo"
 
@@ -1987,7 +1983,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:912
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "Preimenuj…"
 
@@ -2023,7 +2019,7 @@ msgstr "Znova zaženite KOReader, da jo uporabite. Vaše nastavitve se ohranijo.
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:753
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2048,7 +2044,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:749
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "RAZVRSTI PO"
 
@@ -2081,7 +2077,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2199,7 +2195,7 @@ msgstr "Pametno"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "Razvrsti"
 
@@ -2211,20 +2207,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:731
+#: dev/devtools.lua:613 views/grid.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:883
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "Razvrsti zbirke"
 
-#: views/grid.lua:906 views/grid.lua:919
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "Razvrsti zbirke…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "Razvrsti datoteke"
 
@@ -2245,7 +2241,7 @@ msgstr "Začni"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "Statistika"
 
@@ -2297,7 +2293,7 @@ msgstr "Tapnite za ustavitev"
 msgid "Tap to view definition"
 msgstr "Tapnite za ogled definicije"
 
-#: views/grid.lua:1146
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "Preizkusna knjiga"
 

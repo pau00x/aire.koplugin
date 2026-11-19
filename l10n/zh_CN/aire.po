@@ -130,10 +130,6 @@ msgstr[0] ""
 msgid "%d of 5 stars"
 msgstr "%d 星（满分 5 星）"
 
-#: views/dock.lua:254
-msgid "(current)"
-msgstr "（当前）"
-
 #: styles/ui/lightsheet.lua:160
 msgid "+ Brightness"
 msgstr "+ 亮度"
@@ -295,7 +291,7 @@ msgstr "按类型（关键词）自动生成书单"
 msgid "Automatic tests"
 msgstr "自动测试"
 
-#: views/grid.lua:903
+#: views/grid.lua:885
 msgid "Automatic: books by this author"
 msgstr "自动：该作者的书"
 
@@ -405,7 +401,7 @@ msgstr "书签和高亮"
 msgid "Books"
 msgstr ""
 
-#: views/grid.lua:864
+#: views/grid.lua:846
 msgid "Books are not deleted, only the collection."
 msgstr "只删除书单，不会删除书籍。"
 
@@ -540,7 +536,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "书单内顺序"
 
-#: views/dock.lua:40 views/grid.lua:76 views/grid.lua:1244
+#: views/dock.lua:38 views/grid.lua:76 views/grid.lua:1226
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -668,7 +664,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "12月"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:865 views/stats.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:242 views/grid.lua:847 views/stats.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -694,7 +690,7 @@ msgstr "删除这一天的阅读时长？"
 msgid "Delete minutes from this day"
 msgstr "删除这一天的阅读时长"
 
-#: views/grid.lua:863
+#: views/grid.lua:845
 msgid "Delete the collection?"
 msgstr "删除该书单？"
 
@@ -702,7 +698,7 @@ msgstr "删除该书单？"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid.lua:914
+#: views/grid.lua:896
 msgid "Delete…"
 msgstr "删除…"
 
@@ -847,7 +843,7 @@ msgstr ""
 msgid "FILE"
 msgstr "文件"
 
-#: views/grid.lua:746
+#: views/grid.lua:728
 msgid "FILTER"
 msgstr "筛选"
 
@@ -870,7 +866,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "2月"
 
-#: menu.lua:517 views/dock.lua:261
+#: menu.lua:517 views/dock.lua:247
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -885,11 +881,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid.lua:731
+#: views/grid.lua:746
 msgid "Filter"
 msgstr "筛选"
 
-#: dev/devtools.lua:659 views/grid.lua:730
+#: dev/devtools.lua:659 views/grid.lua:746
 msgid "Filter and sort"
 msgstr "筛选和排序"
 
@@ -937,7 +933,7 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:49 views/widgets.lua:557
+#: views/dock.lua:47 views/widgets.lua:557
 msgid "Folders"
 msgstr "文件夹"
 
@@ -1011,7 +1007,7 @@ msgstr "已设置的手势：%1"
 msgid "Go to bookmark"
 msgstr ""
 
-#: views/dock.lua:48
+#: views/dock.lua:46
 msgid "Go up"
 msgstr "上一级"
 
@@ -1041,7 +1037,7 @@ msgstr "还没到这一天"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:42 views/grid.lua:1245
+#: views/dock.lua:40 views/grid.lua:1227
 #, koreader
 msgid "History"
 msgstr ""
@@ -1062,7 +1058,7 @@ msgstr "长按与点击效果相同"
 msgid "Hold to configure"
 msgstr "长按进行设置"
 
-#: dev/devtools.lua:672 views/dock.lua:41 views/dock.lua:50 views/explorer.lua:136
+#: dev/devtools.lua:672 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
@@ -1229,7 +1225,7 @@ msgstr "布局"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:39 views/dock.lua:260 views/grid.lua:1243
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid.lua:1225
 msgid "Library"
 msgstr "书库"
 
@@ -1293,7 +1289,7 @@ msgstr "每月节奏"
 msgid "MOST READ"
 msgstr "最常阅读"
 
-#: views/dock.lua:257
+#: views/dock.lua:244
 msgid "Main view"
 msgstr "主视图"
 
@@ -1315,7 +1311,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "将“%1”中的所有书籍标记为在读？"
 
-#: views/grid.lua:951
+#: views/grid.lua:933
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "将书单“%1”中的所有书籍标记为在读？"
 
@@ -1323,11 +1319,11 @@ msgstr "将书单“%1”中的所有书籍标记为在读？"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid.lua:949
+#: views/grid.lua:931
 msgid "Mark entire collection as finished"
 msgstr "将整个书单标记为读完"
 
-#: views/grid.lua:950
+#: views/grid.lua:932
 msgid "Mark entire collection as reading"
 msgstr "将整个书单标记为在读"
 
@@ -1362,11 +1358,11 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "极简"
 
-#: views/explorer.lua:116
+#: views/explorer.lua:108
 msgid "Mix folders"
 msgstr "混合显示文件夹"
 
-#: views/grid.lua:759
+#: views/grid.lua:740
 msgid "Mix series"
 msgstr "混合显示丛书"
 
@@ -1382,7 +1378,7 @@ msgstr "月度回顾"
 msgid "Monthly recap (test data)"
 msgstr ""
 
-#: views/dock.lua:52
+#: views/dock.lua:50
 msgid "More"
 msgstr "更多"
 
@@ -1460,7 +1456,7 @@ msgstr "未读"
 msgid "New collection"
 msgstr ""
 
-#: views/grid.lua:905 views/grid.lua:918
+#: views/grid.lua:887 views/grid.lua:900
 msgid "New collection…"
 msgstr "新建书单…"
 
@@ -1654,7 +1650,7 @@ msgstr "仅在 Wi-Fi 已开启时：Aire 从不打开 Wi-Fi。"
 msgid "Open"
 msgstr ""
 
-#: views/grid.lua:948
+#: views/grid.lua:930
 msgid "Open collection"
 msgstr "打开书单"
 
@@ -1662,7 +1658,7 @@ msgstr "打开书单"
 msgid "Open library"
 msgstr ""
 
-#: views/grid.lua:948
+#: views/grid.lua:930
 msgid "Open series"
 msgstr "打开丛书"
 
@@ -1942,7 +1938,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid.lua:912
+#: views/grid.lua:894
 msgid "Rename…"
 msgstr "重命名…"
 
@@ -1978,7 +1974,7 @@ msgstr "重启 KOReader 后即可使用。你的设置会保留。"
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:103 views/grid.lua:753
+#: views/explorer.lua:104 views/grid.lua:734
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2003,7 +1999,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/grid.lua:749
+#: views/explorer.lua:113 views/grid.lua:730
 msgid "SORT BY"
 msgstr "排序依据"
 
@@ -2036,7 +2032,7 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:51 views/widgets.lua:527
+#: dev/devtools.lua:516 dev/devtools.lua:517 dev/devtools.lua:540 views/dock.lua:49 views/widgets.lua:527
 #, koreader
 msgid "Search"
 msgstr ""
@@ -2154,7 +2150,7 @@ msgstr "智能"
 msgid "Smart  (current)"
 msgstr ""
 
-#: views/explorer.lua:65
+#: views/explorer.lua:64
 msgid "Sort"
 msgstr "排序"
 
@@ -2166,20 +2162,20 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid.lua:731
+#: dev/devtools.lua:613 views/grid.lua:746
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid.lua:883
+#: dev/devtools.lua:825 views/grid.lua:865
 msgid "Sort collections"
 msgstr "书单排序"
 
-#: views/grid.lua:906 views/grid.lua:919
+#: views/grid.lua:888 views/grid.lua:901
 msgid "Sort collections…"
 msgstr "书单排序…"
 
-#: views/explorer.lua:129
+#: views/explorer.lua:112
 msgid "Sort files"
 msgstr "文件排序"
 
@@ -2200,7 +2196,7 @@ msgstr "开始"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:43 views/stats.lua:189
+#: views/dock.lua:41 views/stats.lua:189
 msgid "Stats"
 msgstr "统计"
 
@@ -2252,7 +2248,7 @@ msgstr "点击停止"
 msgid "Tap to view definition"
 msgstr "点击查看释义"
 
-#: views/grid.lua:1146
+#: views/grid.lua:1128
 msgid "Test book"
 msgstr "测试书籍"
 

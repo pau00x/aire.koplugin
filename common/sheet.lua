@@ -350,4 +350,39 @@ function M.row(r, w)
     return AireUI.tappable(og, r.callback, r.hold_callback)
 end
 
+--===========================================================================
+-- showChoices(spec): hoja para elegir (filtro, orden, modo…). La opción
+-- elegida va rellena; tocar una cierra la hoja y la aplica.
+--   spec.title
+--   spec.groups = { { heading = "ORDENAR POR" | nil, columns = 2,
+--                     items = { { text, active, callback } } }, … }
+--   (entre grupos, un separador)
+--   spec.style, spec.lighten   estilo de lo seleccionado (devtools)
+--===========================================================================
+function M.showChoices(spec)
+    local VerticalGroup = require("ui/widget/verticalgroup")
+    local inner = AireScreen.sheetInnerWidth()
+    local sheet
+    local content = VerticalGroup:new{ align = "left" }
+    if spec.title then table.insert(content, M.title(spec.title, inner)) end
+    for gi, g in ipairs(spec.groups or {}) do
+        if gi > 1 then table.insert(content, M.separator(inner)) end
+        if g.heading then table.insert(content, M.section(g.heading, inner)) end
+        local list = {}
+        for _i, it in ipairs(g.items or {}) do
+            local cb = it.callback
+            table.insert(list, { text = it.text, active = it.active, callback = function()
+                UIManager:close(sheet, "ui")
+                if cb then cb() end
+            end })
+        end
+        table.insert(content, M.choices(list, inner, {
+            columns = g.columns or 2, style = spec.style, lighten = spec.lighten,
+        }))
+    end
+    sheet = Sheet:new{ content = content }
+    UIManager:show(sheet, "ui")
+    return sheet
+end
+
 return M
