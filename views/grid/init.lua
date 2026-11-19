@@ -653,18 +653,23 @@ return function(Aire, ctx)
         self:startGridExtraction(missing or {})
     end
 
+    -- Libros ya mandados a analizar en esta sesión (no por FileManager): si
+    -- CoverBrowser no puede con uno (fichero roto, formato sin soporte), no se
+    -- vuelve a lanzar al volver de cada libro, y su fin de análisis no invalida
+    -- otra vez la caché de Librería (views/grid/library.lua).
+    local extract_tried = {}
+
     function Aire:startGridExtraction(missing)
         local BIM = getBIM()
         if not BIM or #missing == 0 then return end
-        self._gv_extract_tried = self._gv_extract_tried or {}
         local gw = Screen:getWidth() - 2 * S(ctx.SIDE_PAD)
         local cols = gridCols()
         local cell_w = math.floor((gw - (cols - 1) * S(10)) / cols)
         local specs = { max_cover_w = cell_w, max_cover_h = math.floor(cell_w * LISTS.COVER_RATIO) }
         local files = {}
         for _i, p in ipairs(missing) do
-            if not self._gv_extract_tried[p] then
-                self._gv_extract_tried[p] = true
+            if not extract_tried[p] then
+                extract_tried[p] = true
                 table.insert(files, { filepath = p, cover_specs = specs })
             end
         end
@@ -690,8 +695,46 @@ return function(Aire, ctx)
         UIManager:scheduleIn(2, self._gv_poll)
     end
 
+    -- Caché de sesión de Librería caducada: la próxima carga vuelve a escanear.
+    -- Si la pestaña Librería de este FileManager ya estaba cargada, se marca
+    -- para volver a leerla al construirla (getLibraryBooks, buildGridView).
     function Aire:invalidateLibraryCache()
         Library.invalidate()
+        local L = self._gv and self._gv.library
+        if L then L.loaded = false end
+    end
+
+    -- Metadatos cambiados (Información del libro, en el lector o el explorador):
+    -- KOReader lo avisa a todos los widgets. No se consume el evento.
+    function Aire:onBookMetadataChanged()
+        self:invalidateLibraryCache()
+    end
+
+    -- Borrar, renombrar o pegar (copiar / mover) desde el explorador de KOReader
+    -- o desde las fichas (FileManager.showDeleteFileDialog → deleteFile): pueden
+    -- cambiar subcarpetas, cuyo cambio no se ve en el mtime de la raíz.
+    do
+        local FileManager = require("apps/filemanager/filemanager")
+        if not FileManager._aire_library_hooked then
+            FileManager._aire_library_hooked = true
+            local function invalidateAfter(...)
+                pcall(function()
+                    local inst = Aire._active_instance
+                    if inst and inst.invalidateLibraryCache then
+                        inst:invalidateLibraryCache()
+                    else
+                        Library.invalidate()
+                    end
+                end)
+                return ...
+            end
+            for _i, name in ipairs({ "deleteFile", "deleteSelectedFiles", "renameFile", "pasteFileFromClipboard" }) do
+                local orig = FileManager[name]
+                if type(orig) == "function" then
+                    FileManager[name] = function(...) return invalidateAfter(orig(...)) end
+                end
+            end
+        end
     end
 
     -------------------------------------------------------------------------
@@ -1273,7 +1316,8 @@ return function(Aire, ctx)
     -- Al salir de las vistas de cuadrícula o cerrar el FileManager.
     -- keep_covers (ir a Inicio / Estadísticas): las portadas se quedan para
     -- que volver a la pestaña sea rápido; se liberan al cerrar el explorador
-    -- (abrir un libro) o al pasar de MAX_CACHED_COVERS.
+    -- (abrir un libro). Mientras tanto, la caché LRU (covers.lua) desaloja las
+    -- menos recientes al pasar de su límite.
     function Aire:closeGridViews(keep_covers)
         if self._gv_poll then UIManager:unschedule(self._gv_poll) end
         if self._gv then

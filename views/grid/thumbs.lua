@@ -29,7 +29,9 @@ if not ok_z then zstd = nil end
 local DIR = DataStorage:getDataDir() .. "/cache/aire-thumbs"
 local MAX_FILES = 600 -- al pasar de aquí se borran las más antiguas
 local TRIM_EVERY = 40 -- recortar tras N escrituras (evita recorrer la caché en cada prefetch)
-local puts_since_trim = 0
+-- Empieza "lleno": el primer maybeTrim() de cada sesión recorta. Si no, con
+-- sesiones de menos de TRIM_EVERY escrituras la caché crecería sin límite.
+local puts_since_trim = TRIM_EVERY
 
 local M = {}
 
