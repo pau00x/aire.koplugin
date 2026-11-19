@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "“%1” · %2 resultat"
@@ -106,7 +106,7 @@ msgstr "%1 s."
 msgid "%1 pp./h"
 msgstr "%1 s./t"
 
-#: styles/shortcuts.lua:145
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 gemt genvej"
@@ -128,11 +128,11 @@ msgstr[1] "for %1 uger siden"
 msgid "%1, %2 %3"
 msgstr "%1 %3. %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% af bogen"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% af bogen · %d s. tilbage i kapitlet"
 
@@ -182,7 +182,7 @@ msgstr "Der er en ny version"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "AKTIV SØGNING"
 
@@ -198,7 +198,7 @@ msgstr "Aktiv"
 msgid "Activity summary"
 msgstr "Aktivitetsoversigt"
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:103
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -274,7 +274,7 @@ msgstr "Årsoversigt"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -327,7 +327,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "BOG"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "BOGMÆRKE"
 
@@ -433,7 +433,7 @@ msgstr "Bundmenuer (ark)"
 msgid "CURRENT CHAPTER"
 msgstr "AKTUELT KAPITEL"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "AKTUELT KAPITEL · SIDE %d"
 
@@ -461,7 +461,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -526,7 +526,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Ryd miniaturer af omslag"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -774,7 +774,7 @@ msgstr "Rediger Hjem-widgets"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -783,7 +783,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Rediger serie"
 
-#: styles/bookmark.lua:307
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -801,7 +801,7 @@ msgstr "Ingen widgets"
 msgid "Empty collection"
 msgstr "Tom samling"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Tom mappe"
 
@@ -947,7 +947,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Skrifttyper"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 msgid "Forgot"
 msgstr "Glemt"
 
@@ -994,7 +994,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Indstillede bevægelser: %1"
 
-#: styles/bookmark.lua:332
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1003,7 +1003,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Op"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 msgid "Got it"
 msgstr "Forstået"
 
@@ -1011,7 +1011,7 @@ msgstr "Forstået"
 msgid "Grid: %1 columns"
 msgstr "Gitter: %1 kolonner"
 
-#: styles/bookmark.lua:38
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "MARKERING"
 
@@ -1259,11 +1259,11 @@ msgstr "Indlæser måned…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "MATCH"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "MATCH %d"
 
@@ -1409,7 +1409,7 @@ msgstr "NÆSTE"
 msgid "NEXT REVIEW"
 msgstr "NÆSTE GENNEMGANG"
 
-#: styles/bookmark.lua:37
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "NOTE"
 
@@ -1480,7 +1480,7 @@ msgstr "Ingen CoverBrowser-data"
 msgid "No book in progress"
 msgstr "Ingen bog i gang"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Ingen bøger matcher filteret"
 
@@ -1500,7 +1500,7 @@ msgstr "Ingen bøger i hjemmemappen"
 msgid "No books with this filter"
 msgstr "Ingen bøger med dette filter"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Intet kapitel"
 
@@ -1520,7 +1520,7 @@ msgstr "Ingen aktuel bog"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Ingen data: aktivér Statistik-pluginnet og læs lidt"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 msgid "No items"
 msgstr "Ingen elementer"
 
@@ -1544,7 +1544,7 @@ msgstr "Ingen læsesessioner denne måned"
 msgid "No rotation"
 msgstr "Ingen rotation"
 
-#: styles/shortcuts.lua:144
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Ingen gemte genveje"
 
@@ -1869,7 +1869,7 @@ msgstr ""
 msgid "Refresh"
 msgstr "Opdater"
 
-#: dev/devtools.lua:636 styles/bookmark.lua:320
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1879,7 +1879,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Fjern"
 
-#: styles/bookmark.lua:317
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1899,7 +1899,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:319
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2202,7 +2202,7 @@ msgstr "Tryk for at åbne biblioteket"
 msgid "Tap to stop"
 msgstr "Tryk for at stoppe"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Tryk for at se definitionen"
 
@@ -2258,7 +2258,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Den aktuelle bog er ikke en del af en serie"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Denne samling er tom"
 
@@ -2398,7 +2398,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Ordforrådsgennemgang"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Ordforrådsgennemgang · %1 ord"
@@ -2465,7 +2465,7 @@ msgstr "Du læste ikke den dag"
 msgid "You don't have any highlights yet"
 msgstr "Du har endnu ingen markeringer"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Du har ikke åbnet nogen bog endnu"
 

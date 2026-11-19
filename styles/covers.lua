@@ -353,7 +353,7 @@ local function patchCoverBrowser(plugin)
                 local orig_w = self.width
                 local orig_h = self.height
                 local pad_h = Screen:scaleBySize(SIDE)
-                local gap_b = orig_h >= Screen:scaleBySize(60) and Screen:scaleBySize(8) or Screen:scaleBySize(6)
+                local gap_b = Screen:scaleBySize(package.loaded.aire_screen.LIST.CARD_GAP) -- (hueco común de las listas)
                 local pad_in = Screen:scaleBySize(4)
                 local border = Size.border.thin
                 local card_w = math.max(Screen:scaleBySize(120), orig_w - 2 * pad_h)

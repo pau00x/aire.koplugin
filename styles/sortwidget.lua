@@ -54,14 +54,15 @@ if SortItemWidget and not SortItemWidget._aire_card then
             check_w = self.checkmark_widget:getSize().w
             table.insert(row, CenterContainer:new{ dimen = Geom:new{ w = check_w + S(8), h = inner_h }, self.checkmark_widget })
         else
-            table.insert(row, HorizontalSpan:new{ width = S(14) })
-            check_w = S(14) - S(8)
+            -- (relleno de las tarjetas de lista: common/screen.lua)
+            table.insert(row, HorizontalSpan:new{ width = S(package.loaded.aire_screen.LIST.CARD_PAD) })
+            check_w = S(package.loaded.aire_screen.LIST.CARD_PAD) - S(8)
         end
         table.insert(row, TextWidget:new{
             text = self.item.text,
             face = face(false, 15),
             fgcolor = inv and WHITE or (self.item.dim and GRAY_DARK or BLACK),
-            max_width = w - check_w - S(8) - S(14) - 2 * Size.border.thin,
+            max_width = w - check_w - S(8) - S(package.loaded.aire_screen.LIST.CARD_PAD) - 2 * Size.border.thin,
             padding = 0,
         })
         self[1] = FrameContainer:new{

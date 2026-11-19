@@ -108,7 +108,7 @@ local function patchItemClass(VocabItemWidget)
             and self.has_review_buttons)
         local card_w = self.width
         local card_h = self.height
-        local pad = S(11)
+        local pad = S(package.loaded.aire_screen.LIST.CARD_PAD) -- (tamaños de las tarjetas de lista)
         local in_w = card_w - 2 * pad - 2 * Size.border.thin
         local gap = S(8)
         local btn_w, btn_h = S(78), S(30)
@@ -119,17 +119,18 @@ local function patchItemClass(VocabItemWidget)
         local text_col = VerticalGroup:new{ align = "left" }
         if is_hero then
             table.insert(text_col, TextWidget:new{
-                text = _("NEXT REVIEW"), face = face(true, 10), fgcolor = GRAY_DARK,
+                text = _("NEXT REVIEW"), face = face(true, package.loaded.aire_screen.LIST.META), fgcolor = GRAY_DARK,
                 max_width = text_w, padding = 0,
             })
         end
         table.insert(text_col, TextWidget:new{
-            text = self.item.word or "", face = face(true, 15), fgcolor = BLACK,
+            -- (la palabra en normal: es un elemento final, como en las demás listas)
+            text = self.item.word or "", face = face(false, package.loaded.aire_screen.LIST.TITLE), fgcolor = BLACK,
             max_width = text_w, padding = 0,
         })
         table.insert(text_col, TextWidget:new{
             text = book_title ~= "" and book_title or _("Tap to view definition"),
-            face = face(false, 11), fgcolor = GRAY_DARK, max_width = text_w, padding = 0,
+            face = face(false, package.loaded.aire_screen.LIST.SUB), fgcolor = GRAY_DARK, max_width = text_w, padding = 0,
         })
 
         local inner_h = card_h - 2 * Size.border.thin

@@ -90,6 +90,14 @@ M.LIST = {
     CARD_RADIUS = 10,  -- esquinas de las tarjetas
     CARD_GAP    = 8,   -- hueco entre tarjetas
     CARD_MIN_W  = 120, -- ancho mínimo de una tarjeta
+    CARD_PAD    = 12,  -- relleno interior de la tarjeta
+    TITLE       = 15,  -- título (negrita si abre otra lista o es el actual)
+    SUB         = 13,  -- subtítulo (gris)
+    VALUE       = 13,  -- valor a la derecha (página, recuento…)
+    META        = 11,  -- etiqueta de arriba (negrita, mayúsculas, gris)
+    META_GAP    = 4,   -- entre la etiqueta y el texto
+    ICON        = 22,  -- icono o casilla a la izquierda / derecha
+    ICON_GAP    = 10,  -- entre el icono y el texto
 }
 
 local PAGER = {

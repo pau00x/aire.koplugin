@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "\"%1\" · %2 hasil"
@@ -94,7 +94,7 @@ msgstr "%1 hlm."
 msgid "%1 pp./h"
 msgstr "%1 hlm./jam"
 
-#: styles/shortcuts.lua:145
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 pintasan tersimpan"
@@ -113,11 +113,11 @@ msgstr[0] "%1 minggu lalu"
 msgid "%1, %2 %3"
 msgstr "%1, %3 %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% dari buku"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% dari buku · %d hlm. tersisa di bab ini"
 
@@ -166,7 +166,7 @@ msgstr "Ada versi baru"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "PENCARIAN AKTIF"
 
@@ -182,7 +182,7 @@ msgstr "Aktif"
 msgid "Activity summary"
 msgstr "Ringkasan aktivitas"
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:103
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -260,7 +260,7 @@ msgstr "Rangkuman tahunan"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -313,7 +313,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "BUKU"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "MARKAH"
 
@@ -423,7 +423,7 @@ msgstr "Menu bawah (lembar)"
 msgid "CURRENT CHAPTER"
 msgstr "BAB SAAT INI"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "BAB SAAT INI · HALAMAN %d"
 
@@ -451,7 +451,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -518,7 +518,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Hapus gambar mini sampul"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -770,7 +770,7 @@ msgstr "Sunting widget Beranda"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -779,7 +779,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Sunting seri"
 
-#: styles/bookmark.lua:307
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -797,7 +797,7 @@ msgstr "Tanpa widget"
 msgid "Empty collection"
 msgstr "Koleksi kosong"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Folder kosong"
 
@@ -949,7 +949,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Fon"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -1001,7 +1001,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Gestur diatur: %1"
 
-#: styles/bookmark.lua:332
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1010,7 +1010,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Naik"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1019,7 +1019,7 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Kisi: %1 kolom"
 
-#: styles/bookmark.lua:38
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "SOROTAN"
 
@@ -1271,11 +1271,11 @@ msgstr "Memuat bulan…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "HASIL"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "HASIL %d"
 
@@ -1422,7 +1422,7 @@ msgstr "BERIKUTNYA"
 msgid "NEXT REVIEW"
 msgstr "PENGULANGAN BERIKUTNYA"
 
-#: styles/bookmark.lua:37
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "CATATAN"
 
@@ -1496,7 +1496,7 @@ msgstr "Tidak ada data CoverBrowser"
 msgid "No book in progress"
 msgstr "Tidak ada buku yang sedang dibaca"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Tidak ada buku yang cocok dengan filter"
 
@@ -1516,7 +1516,7 @@ msgstr "Tidak ada buku di folder beranda"
 msgid "No books with this filter"
 msgstr "Tidak ada buku dengan filter ini"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Tanpa bab"
 
@@ -1536,7 +1536,7 @@ msgstr "Tidak ada buku saat ini"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Tidak ada data: aktifkan plugin Statistik dan baca sebentar"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1562,7 +1562,7 @@ msgstr "Tidak ada sesi membaca bulan ini"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:144
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Tidak ada pintasan tersimpan"
 
@@ -1896,7 +1896,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:320
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1906,7 +1906,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Hapus"
 
-#: styles/bookmark.lua:317
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1926,7 +1926,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:319
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2241,7 +2241,7 @@ msgstr "Ketuk untuk membuka pustaka"
 msgid "Tap to stop"
 msgstr "Ketuk untuk berhenti"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Ketuk untuk melihat definisi"
 
@@ -2298,7 +2298,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Buku saat ini bukan bagian dari seri"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Koleksi ini kosong"
 
@@ -2440,7 +2440,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Pengulangan kosakata"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Pengulangan kosakata · %1 kata"
@@ -2506,7 +2506,7 @@ msgstr "Anda tidak membaca hari itu"
 msgid "You don't have any highlights yet"
 msgstr "Anda belum punya sorotan"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Anda belum membuka buku apa pun"
 

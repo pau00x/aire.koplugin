@@ -15,7 +15,6 @@ local LeftContainer = require("ui/widget/container/leftcontainer")
 local OverlapGroup = require("ui/widget/overlapgroup")
 local ReaderBookmark = require("apps/reader/modules/readerbookmark")
 local RightContainer = require("ui/widget/container/rightcontainer")
-local Size = require("ui/size")
 local TextBoxWidget = require("ui/widget/textboxwidget")
 local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
@@ -26,7 +25,7 @@ local _ = require("gettext")
 local AireUI = package.loaded.aire_ui
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Bookmark"
-local S, face, BLACK, WHITE, GRAY_DARK, GRAY_CARD, GRAY_LINE = AireUI.S, AireUI.face, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_CARD, AireUI.GRAY_LINE
+local S, face, GRAY_DARK, GRAY_CARD = AireUI.S, AireUI.face, AireUI.GRAY_DARK, AireUI.GRAY_CARD
 
 if ReaderBookmark._aire_bm_styled then return end
 ReaderBookmark._aire_bm_styled = true
@@ -59,12 +58,12 @@ local function styleBookmarkItem(item, item_w, item_h, pad_h)
     local entry = item.entry
     if not entry or item._aire_bm_card_done then return end
     item._aire_bm_card_done = true
-
-    -- Ancho de la tarjeta y hueco de debajo: los comunes (common/list.lua)
-    local card_w, _card_max_h, gap_b = package.loaded.aire_list.geometry(item_w, item_h, pad_h, nil)
-    local max_card_h = math.max(S(44), item_h - gap_b)
-    local inner_pad = S(11)
-    local in_w = card_w - 2 * inner_pad - 2 * Size.border.thin
+    -- Tarjeta común (common/list.lua): TIPO · CAPÍTULO · FECHA arriba con la
+    -- página a la derecha, el subrayado (normal: es un elemento final) con el
+    -- alto que quepa y, si hay nota, su recuadro gris debajo (propio de aquí)
+    local Lst = package.loaded.aire_list
+    local L = package.loaded.aire_screen.LIST
+    local card_w, max_card_h, gap_b = Lst.geometry(item_w, item_h, pad_h)
 
     local btype = entry.type
     local type_lbl = TYPE_LABELS[btype] or (entry.note and TYPE_LABELS.note) or TYPE_LABELS.bookmark
@@ -73,101 +72,34 @@ local function styleBookmarkItem(item, item_w, item_h, pad_h)
     if type(entry.datetime) == "string" and entry.datetime ~= "" then
         table.insert(meta_parts, shortDate(entry.datetime))
     end
-
     local page_str = entry.mandatory and tostring(entry.mandatory) or ""
-    local page_w = page_str ~= "" and TextWidget:new{
-        text = page_str,
-        face = face(entry.bold, 12),
-        fgcolor = entry.bold and BLACK or GRAY_DARK,
-        padding = 0,
-    } or nil
-    local page_reserve = page_w and (page_w:getSize().w + S(8)) or 0
-    local meta_w = TextWidget:new{
-        text = table.concat(meta_parts, " · "),
-        face = face(true, 10),
-        fgcolor = GRAY_DARK,
-        max_width = math.max(S(60), in_w - page_reserve),
-        padding = 0,
-    }
-    local top_h = math.max(meta_w:getSize().h, page_w and page_w:getSize().h or 0)
-    local top_og = OverlapGroup:new{
-        dimen = Geom:new{ w = in_w, h = top_h },
-        LeftContainer:new{ dimen = Geom:new{ w = in_w, h = top_h }, meta_w },
-    }
-    if page_w then
-        table.insert(top_og, RightContainer:new{ dimen = Geom:new{ w = in_w, h = top_h }, page_w })
-    end
-
     -- Texto principal: el subrayado sin el icono ni la nota que KOReader le añade
     -- (entry.text); la nota va solo en el recuadro gris
     local main_txt = entry.text_orig
     if type(main_txt) ~= "string" or main_txt == "" then main_txt = entry.text or "" end
     local note_txt = type(entry.note) == "string" and entry.note ~= "" and entry.note or nil
 
-    local function textBox(text, fc, color, w, lines, bg)
-        local tb = TextBoxWidget:new{ text = text, face = fc, fgcolor = color, bgcolor = bg, width = w, padding = 0 }
-        local lh = tb.line_height_px or S(16)
-        if lines and tb:getSize().h > lines * lh then
-            tb:free()
-            tb = TextBoxWidget:new{
-                text = text, face = fc, fgcolor = color, bgcolor = bg, width = w, padding = 0,
-                height = lines * lh, height_overflow_show_ellipsis = true,
-            }
-        end
-        return tb, lh
-    end
-
-    -- Alto disponible bajo la cabecera, repartido: nota hasta 2 líneas, el resto para el subrayado
-    local body_h = max_card_h - 2 * inner_pad - 2 * Size.border.thin - top_h - S(4)
-    local note_box
-    if note_txt then
-        local note_pad = S(6)
-        local probe = TextBoxWidget:new{ text = "X", face = face(false, 12), width = in_w, padding = 0 }
-        local nlh = probe.line_height_px or S(16)
-        probe:free()
-        local note_lines = (body_h - S(6) - 2 * note_pad >= 4 * nlh) and 2 or 1
-        local note_tb = textBox(note_txt, face(false, 12), GRAY_DARK, in_w - 2 * note_pad, note_lines, GRAY_CARD)
-        note_box = FrameContainer:new{
-            width = in_w,
-            bordersize = 0,
-            background = GRAY_CARD,
-            radius = S(6),
-            padding = note_pad,
-            note_tb,
-        }
-        body_h = body_h - note_box:getSize().h - S(6)
-    end
-    local main_face = face(true, 13)
-    local probe = TextBoxWidget:new{ text = "X", face = main_face, width = in_w, padding = 0 }
-    local mlh = probe.line_height_px or S(18)
-    probe:free()
-    local main_tb = textBox(main_txt, main_face, entry.mandatory_dim and GRAY_DARK or BLACK, in_w,
-        math.max(1, math.floor(body_h / mlh)))
-
-    local body_vg = VerticalGroup:new{
-        align = "left",
-        top_og,
-        VerticalSpan:new{ width = S(4) },
-        main_tb,
-    }
-    if note_box then
-        table.insert(body_vg, VerticalSpan:new{ width = S(6) })
-        table.insert(body_vg, note_box)
-    end
-
-    local card = FrameContainer:new{
-        width = card_w,
-        bordersize = Size.border.thin,
-        color = GRAY_LINE,
-        background = WHITE,
-        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
-        padding = inner_pad,
-        body_vg,
-    }
-    local card_h = math.min(max_card_h, card:getSize().h)
-
-    -- La tarjeta en la fila, con su margen y el hueco de debajo (common/list.lua)
-    package.loaded.aire_list.place(item, card, item_w, pad_h, { gap = gap_b, fit = true, max_h = card_h })
+    local card = Lst.card({
+        meta = table.concat(meta_parts, " · "),
+        right = page_str ~= "" and { text = page_str, strong = entry.bold == true } or nil,
+        title = main_txt, title_lines = "fill", dim = entry.mandatory_dim,
+        body = note_txt and function(inner_w)
+            local note_pad = S(6)
+            local tb = TextBoxWidget:new{ text = note_txt, face = face(false, L.SUB), fgcolor = GRAY_DARK,
+                bgcolor = GRAY_CARD, width = inner_w - 2 * note_pad, padding = 0 }
+            local lh = tb.line_height_px or tb:getLineHeight()
+            if tb:getSize().h > 2 * lh then
+                tb:free()
+                tb = TextBoxWidget:new{ text = note_txt, face = face(false, L.SUB), fgcolor = GRAY_DARK,
+                    bgcolor = GRAY_CARD, width = inner_w - 2 * note_pad, padding = 0,
+                    height = 2 * lh, height_overflow_show_ellipsis = true }
+            end
+            return FrameContainer:new{ width = inner_w, bordersize = 0, background = GRAY_CARD,
+                radius = S(6), padding = note_pad, tb }
+        end or nil,
+        h = max_card_h, fit = true,
+    }, card_w)
+    Lst.place(item, card, item_w, pad_h, { gap = gap_b, fit = true, max_h = max_card_h })
 end
 
 safeWrap(ReaderBookmark, "onShowBookmark", function(orig_onShowBookmark, self, ...)

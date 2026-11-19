@@ -118,6 +118,165 @@ function M.place(item, card, item_w, pad_h, opts)
     item._aire_card = card
 end
 
+--===========================================================================
+-- card(spec, w): tarjeta estándar de una lista. Todo opcional salvo title.
+--   title, bold          título (LIST.TITLE); negrita si abre otra lista o es
+--                        el elemento actual
+--   title_lines          1 (por defecto) | n | "fill" (las que quepan en el alto,
+--                        como mucho title_max)
+--   dim                  título en gris
+--   sub, sub_lines       subtítulo en gris (LIST.SUB)
+--   meta                 etiqueta pequeña arriba (LIST.META, mayúsculas); con
+--                        ella, lo de la derecha va en su fila
+--   left  = { icon = "…" } | { check = bool [, radio = true] }
+--   right = { text = "…", strong = bool } | { check = bool }
+--   body  = function(inner_w) -> widget   (debajo del texto: la nota…)
+--   state = "current" | "selected" | nil  (gris claro, borde gris)
+--   h                    alto fijo (contenido centrado) o, con fit, el máximo
+--   fit                  el alto es el del contenido (hasta h)
+--===========================================================================
+local function face(bold, size) return package.loaded.aire_ui.face(bold, size) end
+
+local function accessory(a)
+    if not a then return nil end
+    local L = LM()
+    if a.icon or a.check ~= nil then
+        local IconWidget = require("ui/widget/iconwidget")
+        local icon = a.icon
+        if a.check ~= nil then
+            icon = a.radio and (a.check and "aire.radio.on" or "aire.radio.off")
+                or (a.check and "aire.checkbox.on" or "aire.checkbox.off")
+        end
+        return IconWidget:new{ icon = icon, width = S(L.ICON), height = S(L.ICON), alpha = true }
+    end
+    if a.text and a.text ~= "" then
+        local TextWidget = require("ui/widget/textwidget")
+        return TextWidget:new{ text = a.text, face = face(a.strong == true, L.VALUE),
+            fgcolor = a.strong and Blitbuffer.COLOR_BLACK or Blitbuffer.COLOR_DARK_GRAY, padding = 0 }
+    end
+end
+
+-- Texto en varias líneas (como mucho lines, con … si no cabe)
+local function textBox(text, fc, color, w, lines)
+    local TextBoxWidget = require("ui/widget/textboxwidget")
+    local tb = TextBoxWidget:new{ text = text, face = fc, fgcolor = color, width = w, padding = 0 }
+    local lh = tb.line_height_px or tb:getLineHeight()
+    if lines and tb:getSize().h > lines * lh then
+        tb:free()
+        tb = TextBoxWidget:new{ text = text, face = fc, fgcolor = color, width = w, padding = 0,
+            height = lines * lh, height_overflow_show_ellipsis = true }
+    end
+    return tb
+end
+
+local function lineHeight(fc, w)
+    local TextBoxWidget = require("ui/widget/textboxwidget")
+    local probe = TextBoxWidget:new{ text = "X", face = fc, width = w, padding = 0 }
+    local lh = probe.line_height_px or probe:getLineHeight()
+    probe:free()
+    return lh
+end
+
+function M.card(spec, w)
+    local HorizontalGroup = require("ui/widget/horizontalgroup")
+    local HorizontalSpan = require("ui/widget/horizontalspan")
+    local LeftContainer = require("ui/widget/container/leftcontainer")
+    local OverlapGroup = require("ui/widget/overlapgroup")
+    local RightContainer = require("ui/widget/container/rightcontainer")
+    local TextWidget = require("ui/widget/textwidget")
+    local VerticalGroup = require("ui/widget/verticalgroup")
+    local VerticalSpan = require("ui/widget/verticalspan")
+    local Geom = require("ui/geometry")
+    local L = LM()
+    local pad = S(L.CARD_PAD)
+    local border = Size.border.thin
+    local inner_w = w - 2 * (pad + border)
+    local left = accessory(spec.left)
+    local right = accessory(spec.right)
+    local lead = left and (left:getSize().w + S(L.ICON_GAP)) or 0
+    local title_face = face(spec.bold == true, L.TITLE)
+    local title_color = spec.dim and Blitbuffer.COLOR_DARK_GRAY or Blitbuffer.COLOR_BLACK
+
+    -- Etiqueta de arriba (y lo de la derecha en su fila)
+    local top
+    if spec.meta and spec.meta ~= "" then
+        local P = package.loaded.aire_pages
+        local meta_txt = P and P.upper and P.upper(spec.meta) or spec.meta:upper()
+        local rw = right and (right:getSize().w + S(8)) or 0
+        local meta_w = TextWidget:new{ text = meta_txt, face = face(true, L.META),
+            fgcolor = Blitbuffer.COLOR_DARK_GRAY, max_width = math.max(S(60), inner_w - rw), padding = 0 }
+        local th = math.max(meta_w:getSize().h, right and right:getSize().h or 0)
+        top = OverlapGroup:new{
+            dimen = Geom:new{ w = inner_w, h = th },
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = th }, meta_w },
+        }
+        if right then table.insert(top, RightContainer:new{ dimen = Geom:new{ w = inner_w, h = th }, right }) end
+        right = nil
+    end
+
+    local text_w = inner_w - lead - (right and (right:getSize().w + S(10)) or 0)
+    local body = spec.body and spec.body(inner_w) or nil
+
+    -- Título: una línea, n líneas o las que quepan en el alto
+    local lines = spec.title_lines or 1
+    -- (con "fill", siempre en un TextBoxWidget aunque quepa una línea: entiende
+    -- el formato de KOReader, p. ej. la palabra buscada en negrita)
+    local boxed = lines ~= 1
+    if lines == "fill" then
+        local used = 2 * (pad + border) + (top and (top:getSize().h + S(L.META_GAP)) or 0)
+            + (body and (body:getSize().h + S(6)) or 0)
+        lines = math.max(1, math.floor(((spec.h or S(200)) - used) / lineHeight(title_face, text_w)))
+        if spec.title_max then lines = math.min(lines, spec.title_max) end
+    end
+    local col = VerticalGroup:new{ align = "left" }
+    if not boxed then
+        table.insert(col, TextWidget:new{ text = spec.title or "", face = title_face, fgcolor = title_color,
+            max_width = math.max(S(40), text_w), padding = 0 })
+    else
+        table.insert(col, textBox(spec.title or "", title_face, title_color, math.max(S(40), text_w), lines))
+    end
+    if spec.sub and spec.sub ~= "" then
+        table.insert(col, VerticalSpan:new{ width = S(2) })
+        if (spec.sub_lines or 1) == 1 then
+            table.insert(col, TextWidget:new{ text = spec.sub, face = face(false, L.SUB),
+                fgcolor = Blitbuffer.COLOR_DARK_GRAY, max_width = math.max(S(40), text_w), padding = 0 })
+        else
+            table.insert(col, textBox(spec.sub, face(false, L.SUB), Blitbuffer.COLOR_DARK_GRAY,
+                math.max(S(40), text_w), spec.sub_lines))
+        end
+    end
+    local row = HorizontalGroup:new{ align = "center" }
+    if left then
+        table.insert(row, left)
+        table.insert(row, HorizontalSpan:new{ width = S(L.ICON_GAP) })
+    end
+    table.insert(row, col)
+
+    if spec.fit then
+        -- Alto del contenido: etiqueta, texto y lo de debajo, con el relleno alrededor
+        local vg = VerticalGroup:new{ align = "left" }
+        if top then
+            table.insert(vg, top)
+            table.insert(vg, VerticalSpan:new{ width = S(L.META_GAP) })
+        end
+        table.insert(vg, row)
+        if body then
+            table.insert(vg, VerticalSpan:new{ width = S(6) })
+            table.insert(vg, body)
+        end
+        return M.cardFrame(vg, w, nil, { pad = pad, state = spec.state })
+    end
+    -- Alto fijo: todo centrado en vertical; lo de la derecha, a la derecha
+    local inner_h = (spec.h or S(48)) - 2 * border
+    local og = OverlapGroup:new{
+        dimen = Geom:new{ w = inner_w, h = inner_h },
+        LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = inner_h },
+            top and VerticalGroup:new{ align = "left", top, VerticalSpan:new{ width = S(L.META_GAP) }, row } or row },
+    }
+    if right then table.insert(og, RightContainer:new{ dimen = Geom:new{ w = inner_w, h = inner_h }, right }) end
+    return M.cardFrame(og, w, spec.h, { pad_h = pad, state = spec.state })
+end
+
 -- Tocar una tarjeta: gris un momento y después lo de KOReader (onMenuSelect)
 function M.onTapFlash(item, _arg, ges)
     if not item[1] or not item[1].dimen then return end

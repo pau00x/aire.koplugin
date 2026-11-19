@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "«%1» · %2 супадзенне"
@@ -118,7 +118,7 @@ msgstr "%1 с."
 msgid "%1 pp./h"
 msgstr "%1 с./гадз"
 
-#: styles/shortcuts.lua:145
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 захаваны цетлік"
@@ -143,11 +143,11 @@ msgstr[2] "%1 тыдняў таму"
 msgid "%1, %2 %3"
 msgstr "%1, %3 %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% кнігі"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% кнігі · да канца раздзела %d с."
 
@@ -198,7 +198,7 @@ msgstr "Даступная новая версія"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "АКТЫЎНЫ ПОШУК"
 
@@ -214,7 +214,7 @@ msgstr "Актыўны"
 msgid "Activity summary"
 msgstr "Зводка актыўнасці"
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:103
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -290,7 +290,7 @@ msgstr "Вынікі года"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -343,7 +343,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "КНІГА"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "ЗАКЛАДКА"
 
@@ -452,7 +452,7 @@ msgstr "Ніжнія меню (панэлі)"
 msgid "CURRENT CHAPTER"
 msgstr "БЯГУЧЫ РАЗДЗЕЛ"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "БЯГУЧЫ РАЗДЗЕЛ · С. %d"
 
@@ -480,7 +480,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -547,7 +547,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Ачысціць мініяцюры вокладак"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -797,7 +797,7 @@ msgstr "Змяніць віджэты галоўнага экрана"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -806,7 +806,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Змяніць серыю"
 
-#: styles/bookmark.lua:307
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -824,7 +824,7 @@ msgstr "Без віджэтаў"
 msgid "Empty collection"
 msgstr "Калекцыя пустая"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Тэчка пустая"
 
@@ -973,7 +973,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Шрыфты"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -1024,7 +1024,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Наладжаныя жэсты: %1"
 
-#: styles/bookmark.lua:332
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1033,7 +1033,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Уверх"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1042,7 +1042,7 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Сетка: слупкоў — %1"
 
-#: styles/bookmark.lua:38
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "ВЫЛУЧЭННЕ"
 
@@ -1294,11 +1294,11 @@ msgstr "Загрузка месяца…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "СУПАДЗЕННЕ"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "СУПАДЗЕННЕ %d"
 
@@ -1445,7 +1445,7 @@ msgstr "НАСТУПНАЯ"
 msgid "NEXT REVIEW"
 msgstr "НАСТУПНАЕ ПАЎТАРЭННЕ"
 
-#: styles/bookmark.lua:37
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "НАТАТКА"
 
@@ -1517,7 +1517,7 @@ msgstr "Няма даных CoverBrowser"
 msgid "No book in progress"
 msgstr "Няма кнігі, якая чытаецца"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Ніводная кніга не адпавядае фільтру"
 
@@ -1537,7 +1537,7 @@ msgstr "У хатняй тэчцы няма кніг"
 msgid "No books with this filter"
 msgstr "Няма кніг з гэтым фільтрам"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Без раздзела"
 
@@ -1557,7 +1557,7 @@ msgstr "Няма бягучай кнігі"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Няма даных: уключыце модуль «Статыстыка» і крыху пачытайце"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 msgid "No items"
 msgstr "Няма элементаў"
 
@@ -1581,7 +1581,7 @@ msgstr "У гэтым месяцы не было сеансаў чытання"
 msgid "No rotation"
 msgstr "Без павароту"
 
-#: styles/shortcuts.lua:144
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Няма захаваных цетлікаў"
 
@@ -1907,7 +1907,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:320
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1917,7 +1917,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Прыбраць"
 
-#: styles/bookmark.lua:317
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1937,7 +1937,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:319
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2243,7 +2243,7 @@ msgstr "Націсніце, каб адкрыць бібліятэку"
 msgid "Tap to stop"
 msgstr "Націсніце, каб спыніць"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Націсніце, каб убачыць азначэнне"
 
@@ -2300,7 +2300,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Бягучая кніга не ўваходзіць у серыю"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Гэта калекцыя пустая"
 
@@ -2442,7 +2442,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Паўтарэнне слоў"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Паўтарэнне слоў · %1 слова"
@@ -2510,7 +2510,7 @@ msgstr "У гэты дзень вы не чыталі"
 msgid "You don't have any highlights yet"
 msgstr "У вас яшчэ няма вылучэнняў"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Вы яшчэ не адкрылі ніводнай кнігі"
 

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "\"%1\" · %2 kết quả"
@@ -94,7 +94,7 @@ msgstr "%1 tr."
 msgid "%1 pp./h"
 msgstr "%1 tr./giờ"
 
-#: styles/shortcuts.lua:145
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 lối tắt đã lưu"
@@ -113,11 +113,11 @@ msgstr[0] "%1 tuần trước"
 msgid "%1, %2 %3"
 msgstr "%1, %3 %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% cuốn sách"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% cuốn sách · còn %d tr. trong chương"
 
@@ -166,7 +166,7 @@ msgstr "Có phiên bản mới"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "TÌM KIẾM HIỆN TẠI"
 
@@ -182,7 +182,7 @@ msgstr "Đang bật"
 msgid "Activity summary"
 msgstr "Tóm tắt hoạt động"
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:103
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -260,7 +260,7 @@ msgstr "Tổng kết năm"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -313,7 +313,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "SÁCH"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "DẤU TRANG"
 
@@ -423,7 +423,7 @@ msgstr "Menu dưới (bảng)"
 msgid "CURRENT CHAPTER"
 msgstr "CHƯƠNG HIỆN TẠI"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "CHƯƠNG HIỆN TẠI · TRANG %d"
 
@@ -451,7 +451,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -519,7 +519,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Xóa ảnh thu nhỏ bìa sách"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -771,7 +771,7 @@ msgstr "Sửa widget Màn hình chính"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -780,7 +780,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Sửa series"
 
-#: styles/bookmark.lua:307
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -798,7 +798,7 @@ msgstr "Không có tiện ích"
 msgid "Empty collection"
 msgstr "Bộ sưu tập trống"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Thư mục trống"
 
@@ -950,7 +950,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Phông chữ"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -1002,7 +1002,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Cử chỉ đã đặt: %1"
 
-#: styles/bookmark.lua:332
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1011,7 +1011,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Lên trên"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Lưới: %1 cột"
 
-#: styles/bookmark.lua:38
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "ĐÁNH DẤU"
 
@@ -1273,11 +1273,11 @@ msgstr "Đang tải tháng…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "KẾT QUẢ"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "KẾT QUẢ %d"
 
@@ -1423,7 +1423,7 @@ msgstr "TIẾP THEO"
 msgid "NEXT REVIEW"
 msgstr "ÔN TẬP TIẾP THEO"
 
-#: styles/bookmark.lua:37
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "GHI CHÚ"
 
@@ -1496,7 +1496,7 @@ msgstr "Không có dữ liệu CoverBrowser"
 msgid "No book in progress"
 msgstr "Không có sách đang đọc"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Không có sách khớp với bộ lọc"
 
@@ -1516,7 +1516,7 @@ msgstr "Không có sách trong thư mục chính"
 msgid "No books with this filter"
 msgstr "Không có sách với bộ lọc này"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Không có chương"
 
@@ -1536,7 +1536,7 @@ msgstr "Không có sách hiện tại"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Không có dữ liệu: hãy bật tiện ích Thống kê và đọc một chút"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1562,7 +1562,7 @@ msgstr "Không có phiên đọc nào trong tháng này"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:144
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Không có lối tắt đã lưu"
 
@@ -1896,7 +1896,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:320
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1906,7 +1906,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Xóa"
 
-#: styles/bookmark.lua:317
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1926,7 +1926,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:319
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2242,7 +2242,7 @@ msgstr "Chạm để mở thư viện"
 msgid "Tap to stop"
 msgstr "Chạm để dừng"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Chạm để xem định nghĩa"
 
@@ -2299,7 +2299,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Sách hiện tại không thuộc series nào"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Bộ sưu tập này trống"
 
@@ -2442,7 +2442,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Ôn tập từ vựng"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Ôn tập từ vựng · %1 từ"
@@ -2508,7 +2508,7 @@ msgstr "Bạn không đọc vào ngày đó"
 msgid "You don't have any highlights yet"
 msgstr "Bạn chưa có điểm nổi bật nào"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Bạn chưa mở cuốn sách nào"
 

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "«%1» · %2 تطابق"
@@ -154,7 +154,7 @@ msgstr "%1 ص."
 msgid "%1 pp./h"
 msgstr "%1 ص./س"
 
-#: styles/shortcuts.lua:145
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 اختصار محفوظ"
@@ -188,11 +188,11 @@ msgstr[5] "منذ %1 أسبوع"
 msgid "%1, %2 %3"
 msgstr "%1، %3 %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% من الكتاب"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% من الكتاب · بقي %d ص. في الفصل"
 
@@ -246,7 +246,7 @@ msgstr "يتوفر إصدار جديد"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "البحث الحالي"
 
@@ -262,7 +262,7 @@ msgstr "يعمل"
 msgid "Activity summary"
 msgstr "ملخص النشاط"
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -271,7 +271,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:103
+#: styles/shortcuts.lua:53
 msgid "Add to folder shortcuts"
 msgstr "إضافة إلى اختصارات المجلدات"
 
@@ -337,7 +337,7 @@ msgstr "الملخص السنوي"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -390,7 +390,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "الكتاب"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "علامة مرجعية"
 
@@ -498,7 +498,7 @@ msgstr "القوائم السفلية (اللوحات)"
 msgid "CURRENT CHAPTER"
 msgstr "الفصل الحالي"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "الفصل الحالي · الصفحة %d"
 
@@ -526,7 +526,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -593,7 +593,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "مسح مصغرات الأغلفة"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -843,7 +843,7 @@ msgstr "تحرير أدوات الشاشة الرئيسية"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -852,7 +852,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "تحرير السلسلة"
 
-#: styles/bookmark.lua:307
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -870,7 +870,7 @@ msgstr "بدون أدوات"
 msgid "Empty collection"
 msgstr "مجموعة فارغة"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "مجلد فارغ"
 
@@ -1021,7 +1021,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "الخطوط"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 msgid "Forgot"
 msgstr "نسيت"
 
@@ -1072,7 +1072,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "الإيماءات المضبوطة: %1"
 
-#: styles/bookmark.lua:332
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1081,7 +1081,7 @@ msgstr ""
 msgid "Go up"
 msgstr "للأعلى"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 msgid "Got it"
 msgstr "فهمت"
 
@@ -1089,7 +1089,7 @@ msgstr "فهمت"
 msgid "Grid: %1 columns"
 msgstr "شبكة: %1 أعمدة"
 
-#: styles/bookmark.lua:38
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "تظليل"
 
@@ -1341,11 +1341,11 @@ msgstr "جارٍ تحميل الشهر…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "تطابق"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "تطابق %d"
 
@@ -1491,7 +1491,7 @@ msgstr "التالي"
 msgid "NEXT REVIEW"
 msgstr "المراجعة التالية"
 
-#: styles/bookmark.lua:37
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "ملاحظة"
 
@@ -1563,7 +1563,7 @@ msgstr "لا توجد بيانات CoverBrowser"
 msgid "No book in progress"
 msgstr "لا يوجد كتاب قيد القراءة"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "لا يوجد كتاب يطابق التصفية"
 
@@ -1583,7 +1583,7 @@ msgstr "لا توجد كتب في المجلد الرئيسي"
 msgid "No books with this filter"
 msgstr "لا توجد كتب بهذه التصفية"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "بدون فصل"
 
@@ -1603,7 +1603,7 @@ msgstr "لا يوجد كتاب حالي"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "لا توجد بيانات: فعّل ملحق الإحصاءات واقرأ قليلًا"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1629,7 +1629,7 @@ msgstr "لا توجد جلسات قراءة هذا الشهر"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:144
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "لا توجد اختصارات محفوظة"
 
@@ -1960,7 +1960,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:320
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1970,7 +1970,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "إزالة"
 
-#: styles/bookmark.lua:317
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1990,7 +1990,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:319
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2304,7 +2304,7 @@ msgstr "انقر لفتح المكتبة"
 msgid "Tap to stop"
 msgstr "انقر للإيقاف"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "انقر لعرض التعريف"
 
@@ -2361,7 +2361,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "الكتاب الحالي ليس جزءًا من سلسلة"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "هذه المجموعة فارغة"
 
@@ -2503,7 +2503,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "مراجعة المفردات"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "مراجعة المفردات · %1 كلمة"
@@ -2574,7 +2574,7 @@ msgstr "لم تقرأ في ذلك اليوم"
 msgid "You don't have any highlights yet"
 msgstr "ليس لديك أي تظليلات بعد"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "لم تفتح أي كتاب بعد"
 

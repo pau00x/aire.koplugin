@@ -14,21 +14,12 @@
 --]]
 
 local FileManagerCollection = require("apps/filemanager/filemanagercollection")
-local Font = require("ui/font")
-local FrameContainer = require("ui/widget/container/framecontainer")
-local Geom = require("ui/geometry")
-local IconWidget = require("ui/widget/iconwidget")
-local LeftContainer = require("ui/widget/container/leftcontainer")
 local Menu = require("ui/widget/menu")
-local OverlapGroup = require("ui/widget/overlapgroup")
-local RightContainer = require("ui/widget/container/rightcontainer")
-local Size = require("ui/size")
-local TextWidget = require("ui/widget/textwidget")
 local logger = require("logger")
 local safeWrap = package.loaded.aire_ui.safeWrap
 local TAG = "Aire/Collections"
 local AireUI = package.loaded.aire_ui
-local S, BLACK, WHITE, GRAY_DARK, GRAY_CARD, GRAY_BORDER, GRAY_LINE = AireUI.S, AireUI.BLACK, AireUI.WHITE, AireUI.GRAY_DARK, AireUI.GRAY_CARD, AireUI.GRAY_BORDER, AireUI.GRAY_LINE
+local S = AireUI.S
 
 if FileManagerCollection._aire_coll_styled then return end
 FileManagerCollection._aire_coll_styled = true
@@ -40,54 +31,25 @@ local function styleCollItem(item, item_w, item_h, pad_h, selected)
     local entry = item.entry
     if not entry or item._aire_coll_done then return end
     item._aire_coll_done = true
-
-    -- Ancho de la tarjeta y hueco de debajo: los comunes (common/list.lua)
-    local card_w, _card_max_h, gap_b = package.loaded.aire_list.geometry(item_w, item_h, pad_h)
-    local card_h = math.max(S(36), item_h - gap_b)
-    local inner_pad = S(14)
-    local in_w = card_w - 2 * inner_pad - 2 * Size.border.thin
-    local row_h = card_h - 2 * Size.border.thin
+    -- Tarjeta común (common/list.lua): nombre en negrita (abre una lista) y, a
+    -- la derecha, la casilla al elegir o el recuento; las elegidas, en gris
+    local Lst = package.loaded.aire_list
+    local card_w, card_h, gap_b = Lst.geometry(item_w, item_h, pad_h)
     local is_sel = selected ~= nil and selected[entry.name] ~= nil
-
     local right
     if selected then
-        local sz = S(24)
-        right = IconWidget:new{ icon = is_sel and "aire.checkbox.on" or "aire.checkbox.off",
-            width = sz, height = sz, alpha = true }
+        right = { check = is_sel }
     elseif entry.mandatory ~= nil and tostring(entry.mandatory) ~= "" then
-        right = TextWidget:new{ text = tostring(entry.mandatory), face = Font:getFace("cfont", 14),
-            fgcolor = GRAY_DARK, padding = 0 }
+        right = { text = tostring(entry.mandatory) }
     end
-    local right_w = right and (right:getSize().w + S(10)) or 0
-    local title = TextWidget:new{
-        text = entry.text or "",
-        face = Font:getFace("tfont", 15),
-        fgcolor = BLACK,
-        max_width = math.max(S(60), in_w - right_w),
-        padding = 0,
-    }
-    local og = OverlapGroup:new{
-        dimen = Geom:new{ w = in_w, h = row_h },
-        LeftContainer:new{ dimen = Geom:new{ w = in_w, h = row_h }, title },
-    }
-    if right then
-        table.insert(og, RightContainer:new{ dimen = Geom:new{ w = in_w, h = row_h }, right })
-    end
-    local card = FrameContainer:new{
-        width = card_w,
-        height = card_h,
-        bordersize = Size.border.thin,
-        color = is_sel and GRAY_BORDER or GRAY_LINE,
-        background = is_sel and GRAY_CARD or WHITE,
-        radius = S(package.loaded.aire_screen.LIST.CARD_RADIUS), -- (tarjeta de lista: common/screen.lua)
-        padding = 0,
-        padding_left = inner_pad,
-        padding_right = inner_pad,
-        og,
-    }
-    -- La tarjeta en la fila (common/list.lua); al tocarla, gris un momento
-    package.loaded.aire_list.place(item, card, item_w, pad_h, { gap = gap_b, item_h = item_h })
-    item.onTapSelect = package.loaded.aire_list.onTapFlash
+    local card = Lst.card({
+        title = entry.text or "", bold = true,
+        right = right,
+        state = is_sel and "selected" or nil,
+        h = card_h,
+    }, card_w)
+    Lst.place(item, card, item_w, pad_h, { gap = gap_b, item_h = item_h })
+    item.onTapSelect = Lst.onTapFlash
 end
 
 safeWrap(FileManagerCollection, "onShowCollList", function(orig_show, self, ...)

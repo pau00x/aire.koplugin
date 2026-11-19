@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n == 0 || n != 1 && n % 100 >= 1 && n % 100 <= 19) ? 1 : 2);\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "„%1” · %2 rezultat"
@@ -118,7 +118,7 @@ msgstr "%1 pag."
 msgid "%1 pp./h"
 msgstr "%1 pag./h"
 
-#: styles/shortcuts.lua:145
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 scurtătură salvată"
@@ -143,11 +143,11 @@ msgstr[2] "acum %1 de săptămâni"
 msgid "%1, %2 %3"
 msgstr "%1, %3 %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% din carte"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% din carte · %d pag. rămase în capitol"
 
@@ -198,7 +198,7 @@ msgstr "Este disponibilă o versiune nouă"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "CĂUTARE ACTIVĂ"
 
@@ -214,7 +214,7 @@ msgstr "Activ"
 msgid "Activity summary"
 msgstr "Rezumat activitate"
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:103
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -292,7 +292,7 @@ msgstr "Rezumat anual"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -345,7 +345,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "CARTE"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "SEMN DE CARTE"
 
@@ -455,7 +455,7 @@ msgstr "Meniuri de jos (panouri)"
 msgid "CURRENT CHAPTER"
 msgstr "CAPITOLUL CURENT"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "CAPITOLUL CURENT · PAG. %d"
 
@@ -483,7 +483,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -551,7 +551,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Șterge miniaturile copertelor"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -803,7 +803,7 @@ msgstr "Editează widgeturile Acasă"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -812,7 +812,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Editează seria"
 
-#: styles/bookmark.lua:307
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -830,7 +830,7 @@ msgstr "Fără widgeturi"
 msgid "Empty collection"
 msgstr "Colecție goală"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Dosar gol"
 
@@ -982,7 +982,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Fonturi"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -1034,7 +1034,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Gesturi setate: %1"
 
-#: styles/bookmark.lua:332
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1043,7 +1043,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Sus"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1052,7 +1052,7 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Grilă: %1 coloane"
 
-#: styles/bookmark.lua:38
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "EVIDENȚIERE"
 
@@ -1305,11 +1305,11 @@ msgstr "Se încarcă luna…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "POTRIVIRE"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "POTRIVIRE %d"
 
@@ -1456,7 +1456,7 @@ msgstr "URMĂTOR"
 msgid "NEXT REVIEW"
 msgstr "URMĂTOAREA RECAPITULARE"
 
-#: styles/bookmark.lua:37
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "NOTIȚĂ"
 
@@ -1530,7 +1530,7 @@ msgstr "Nu există date CoverBrowser"
 msgid "No book in progress"
 msgstr "Nicio carte în curs"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Nicio carte nu corespunde filtrului"
 
@@ -1550,7 +1550,7 @@ msgstr "Nicio carte în dosarul principal"
 msgid "No books with this filter"
 msgstr "Nicio carte cu acest filtru"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Fără capitol"
 
@@ -1570,7 +1570,7 @@ msgstr "Nicio carte curentă"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Fără date: activează plugin-ul Statistici și citește puțin"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1596,7 +1596,7 @@ msgstr "Nicio sesiune de citire luna aceasta"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:144
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Nicio scurtătură salvată"
 
@@ -1930,7 +1930,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:320
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1940,7 +1940,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Elimină"
 
-#: styles/bookmark.lua:317
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1960,7 +1960,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:319
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2276,7 +2276,7 @@ msgstr "Atinge pentru a deschide biblioteca"
 msgid "Tap to stop"
 msgstr "Atinge pentru a opri"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Atinge pentru a vedea definiția"
 
@@ -2333,7 +2333,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Cartea curentă nu face parte dintr-o serie"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Această colecție este goală"
 
@@ -2476,7 +2476,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Recapitulare vocabular"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Recapitulare vocabular · %1 cuvânt"
@@ -2544,7 +2544,7 @@ msgstr "În ziua aceea nu ai citit"
 msgid "You don't have any highlights yet"
 msgstr "Încă nu ai evidențieri"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Încă nu ai deschis nicio carte"
 

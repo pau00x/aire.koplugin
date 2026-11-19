@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "„%1” · %2 rezultat"
@@ -118,7 +118,7 @@ msgstr "%1 str."
 msgid "%1 pp./h"
 msgstr "%1 str./h"
 
-#: styles/shortcuts.lua:145
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 spremljeni prečac"
@@ -143,11 +143,11 @@ msgstr[2] "prije %1 tjedana"
 msgid "%1, %2 %3"
 msgstr "%1, %3. %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% knjige"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% knjige · %d str. do kraja poglavlja"
 
@@ -198,7 +198,7 @@ msgstr "Dostupna je nova verzija"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "AKTIVNO PRETRAŽIVANJE"
 
@@ -214,7 +214,7 @@ msgstr "Aktivno"
 msgid "Activity summary"
 msgstr "Sažetak aktivnosti"
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:103
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -290,7 +290,7 @@ msgstr "Godišnji pregled"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -343,7 +343,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "KNJIGA"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "STRANIČNIK"
 
@@ -452,7 +452,7 @@ msgstr "Donji izbornici (ploče)"
 msgid "CURRENT CHAPTER"
 msgstr "TRENUTNO POGLAVLJE"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "TRENUTNO POGLAVLJE · STRANICA %d"
 
@@ -480,7 +480,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -547,7 +547,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Obriši sličice naslovnica"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -799,7 +799,7 @@ msgstr "Uredi widgete početnog zaslona"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -808,7 +808,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Uredi serijal"
 
-#: styles/bookmark.lua:307
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -826,7 +826,7 @@ msgstr "Bez widgeta"
 msgid "Empty collection"
 msgstr "Prazna zbirka"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Prazna mapa"
 
@@ -978,7 +978,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Fontovi"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 #, koreader
 msgid "Forgot"
 msgstr ""
@@ -1030,7 +1030,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Postavljene geste: %1"
 
-#: styles/bookmark.lua:332
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1039,7 +1039,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Gore"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
 msgstr ""
@@ -1048,7 +1048,7 @@ msgstr ""
 msgid "Grid: %1 columns"
 msgstr "Rešetka: %1 stupca"
 
-#: styles/bookmark.lua:38
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "ISTICANJE"
 
@@ -1301,11 +1301,11 @@ msgstr "Učitavanje mjeseca…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "PODUDARANJE"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "PODUDARANJE %d"
 
@@ -1451,7 +1451,7 @@ msgstr "SLJEDEĆA"
 msgid "NEXT REVIEW"
 msgstr "SLJEDEĆE PONAVLJANJE"
 
-#: styles/bookmark.lua:37
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "BILJEŠKA"
 
@@ -1525,7 +1525,7 @@ msgstr "Nema podataka iz CoverBrowsera"
 msgid "No book in progress"
 msgstr "Nijedna knjiga nije u čitanju"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Nijedna knjiga ne odgovara filtru"
 
@@ -1545,7 +1545,7 @@ msgstr "Nema knjiga u početnoj mapi"
 msgid "No books with this filter"
 msgstr "Nema knjiga s ovim filtrom"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Bez poglavlja"
 
@@ -1565,7 +1565,7 @@ msgstr "Nema trenutne knjige"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Nema podataka: uključite dodatak Statistika i malo čitajte"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1591,7 +1591,7 @@ msgstr "Ovaj mjesec nema sesija čitanja"
 msgid "No rotation"
 msgstr ""
 
-#: styles/shortcuts.lua:144
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Nema spremljenih prečaca"
 
@@ -1925,7 +1925,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:320
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1935,7 +1935,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Ukloni"
 
-#: styles/bookmark.lua:317
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1955,7 +1955,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:319
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2271,7 +2271,7 @@ msgstr "Dodirnite za otvaranje knjižnice"
 msgid "Tap to stop"
 msgstr "Dodirnite za zaustavljanje"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Dodirnite za prikaz definicije"
 
@@ -2328,7 +2328,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Trenutna knjiga nije dio serijala"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Ova zbirka je prazna"
 
@@ -2470,7 +2470,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Ponavljanje rječnika"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Ponavljanje riječi · %1 riječ"
@@ -2538,7 +2538,7 @@ msgstr "Taj dan niste čitali"
 msgid "You don't have any highlights yet"
 msgstr "Još nemate isticanja"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Još niste otvorili nijednu knjigu"
 

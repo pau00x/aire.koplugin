@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: styles/search.lua:64
+#: styles/search.lua:59
 msgid "\"%1\" · %2 match"
 msgid_plural "\"%1\" · %2 matches"
 msgstr[0] "”%1” · %2 osuma"
@@ -106,7 +106,7 @@ msgstr "%1 s."
 msgid "%1 pp./h"
 msgstr "%1 s./h"
 
-#: styles/shortcuts.lua:145
+#: styles/shortcuts.lua:95
 msgid "%1 saved shortcut"
 msgid_plural "%1 saved shortcuts"
 msgstr[0] "%1 tallennettu pikakuvake"
@@ -128,11 +128,11 @@ msgstr[1] "%1 viikkoa sitten"
 msgid "%1, %2 %3"
 msgstr "%1 %3. %2"
 
-#: styles/toc.lua:49
+#: styles/toc.lua:45
 msgid "%d %% of book"
 msgstr "%d %% kirjasta"
 
-#: styles/toc.lua:48
+#: styles/toc.lua:44
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% kirjasta · %d s. jäljellä luvussa"
 
@@ -182,7 +182,7 @@ msgstr "Uusi versio on saatavilla"
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
-#: styles/search.lua:56
+#: styles/search.lua:51
 msgid "ACTIVE SEARCH"
 msgstr "AKTIIVINEN HAKU"
 
@@ -198,7 +198,7 @@ msgstr "Käynnissä"
 msgid "Activity summary"
 msgstr "Lukemisen yhteenveto"
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Add note"
 msgstr ""
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Add to collection…"
 msgstr ""
 
-#: styles/shortcuts.lua:103
+#: styles/shortcuts.lua:53
 #, koreader
 msgid "Add to folder shortcuts"
 msgstr ""
@@ -274,7 +274,7 @@ msgstr "Vuoden yhteenveto"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:121 styles/sortwidget.lua:132
+#: dev/devtools.lua:695 menu.lua:331 styles/sortwidget.lua:122 styles/sortwidget.lua:133
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -327,7 +327,7 @@ msgstr ""
 msgid "BOOK"
 msgstr "KIRJA"
 
-#: styles/bookmark.lua:39
+#: styles/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "KIRJANMERKKI"
 
@@ -436,7 +436,7 @@ msgstr "Alavalikot (arkit)"
 msgid "CURRENT CHAPTER"
 msgstr "NYKYINEN LUKU"
 
-#: styles/toc.lua:65
+#: styles/toc.lua:61
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "NYKYINEN LUKU · SIVU %d"
 
@@ -464,7 +464,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:126 views/stats.lua:416
+#: dev/devtools.lua:496 dev/devtools.lua:647 dev/devtools.lua:747 styles/sortwidget.lua:127 views/stats.lua:416
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -530,7 +530,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Tyhjennä kansikuvien pienoiskuvat"
 
-#: dev/devtools.lua:607 styles/sortwidget.lua:119 styles/sortwidget.lua:126 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:607 styles/sortwidget.lua:120 styles/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -782,7 +782,7 @@ msgstr "Muokkaa Koti-widgetejä"
 msgid "Edit metadata"
 msgstr ""
 
-#: styles/bookmark.lua:303
+#: styles/bookmark.lua:235
 #, koreader
 msgid "Edit note"
 msgstr ""
@@ -791,7 +791,7 @@ msgstr ""
 msgid "Edit series"
 msgstr "Muokkaa sarjaa"
 
-#: styles/bookmark.lua:307
+#: styles/bookmark.lua:239
 #, koreader
 msgid "Edit text"
 msgstr ""
@@ -809,7 +809,7 @@ msgstr "Ei pienoisohjelmia"
 msgid "Empty collection"
 msgstr "Tyhjä kokoelma"
 
-#: styles/ui/pagination.lua:109
+#: styles/ui/pagination.lua:102
 msgid "Empty folder"
 msgstr "Tyhjä kansio"
 
@@ -960,7 +960,7 @@ msgstr ""
 msgid "Fonts"
 msgstr "Fontit"
 
-#: styles/vocabbuilder.lua:153
+#: styles/vocabbuilder.lua:154
 msgid "Forgot"
 msgstr "Unohdin"
 
@@ -1011,7 +1011,7 @@ msgstr ""
 msgid "Gestures set: %1"
 msgstr "Asetetut eleet: %1"
 
-#: styles/bookmark.lua:332
+#: styles/bookmark.lua:264
 #, koreader
 msgid "Go to bookmark"
 msgstr ""
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Ylös"
 
-#: common/compat.lua:178 styles/vocabbuilder.lua:155
+#: common/compat.lua:178 styles/vocabbuilder.lua:156
 msgid "Got it"
 msgstr "Selvä"
 
@@ -1028,7 +1028,7 @@ msgstr "Selvä"
 msgid "Grid: %1 columns"
 msgstr "Ruudukko: %1 saraketta"
 
-#: styles/bookmark.lua:38
+#: styles/bookmark.lua:37
 msgid "HIGHLIGHT"
 msgstr "KOROSTUS"
 
@@ -1280,11 +1280,11 @@ msgstr "Ladataan kuukautta…"
 msgid "Long message"
 msgstr ""
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH"
 msgstr "OSUMA"
 
-#: styles/search.lua:109
+#: styles/search.lua:96
 msgid "MATCH %d"
 msgstr "OSUMA %d"
 
@@ -1430,7 +1430,7 @@ msgstr "SEURAAVA"
 msgid "NEXT REVIEW"
 msgstr "SEURAAVA KERTAUS"
 
-#: styles/bookmark.lua:37
+#: styles/bookmark.lua:36
 msgid "NOTE"
 msgstr "MUISTIINPANO"
 
@@ -1503,7 +1503,7 @@ msgstr "Ei CoverBrowser-tietoja"
 msgid "No book in progress"
 msgstr "Ei keskeneräistä kirjaa"
 
-#: styles/ui/pagination.lua:103
+#: styles/ui/pagination.lua:96
 msgid "No book matches the filter"
 msgstr "Mikään kirja ei vastaa suodatinta"
 
@@ -1523,7 +1523,7 @@ msgstr "Kotikansiossa ei ole kirjoja"
 msgid "No books with this filter"
 msgstr "Ei kirjoja tällä suodattimella"
 
-#: styles/bookmap.lua:89 styles/toc.lua:45
+#: styles/bookmap.lua:89 styles/toc.lua:41
 msgid "No chapter"
 msgstr "Ei lukua"
 
@@ -1543,7 +1543,7 @@ msgstr "Ei nykyistä kirjaa"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Ei tietoja: ota Tilastot-lisäosa käyttöön ja lue hetki"
 
-#: styles/ui/pagination.lua:111
+#: styles/ui/pagination.lua:104
 #, koreader
 msgid "No items"
 msgstr ""
@@ -1568,7 +1568,7 @@ msgstr "Ei lukuistuntoja tässä kuussa"
 msgid "No rotation"
 msgstr "Ei kiertoa"
 
-#: styles/shortcuts.lua:144
+#: styles/shortcuts.lua:94
 msgid "No saved shortcuts"
 msgstr "Ei tallennettuja pikakuvakkeita"
 
@@ -1901,7 +1901,7 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:636 styles/bookmark.lua:320
+#: dev/devtools.lua:636 styles/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -1911,7 +1911,7 @@ msgctxt "aire"
 msgid "Remove"
 msgstr "Poista"
 
-#: styles/bookmark.lua:317
+#: styles/bookmark.lua:249
 #, koreader
 msgid "Remove bookmark"
 msgstr ""
@@ -1931,7 +1931,7 @@ msgstr ""
 msgid "Remove from vocabulary builder"
 msgstr ""
 
-#: styles/bookmark.lua:319
+#: styles/bookmark.lua:251
 #, koreader
 msgid "Remove this bookmark?"
 msgstr ""
@@ -2243,7 +2243,7 @@ msgstr "Avaa kirjasto napauttamalla"
 msgid "Tap to stop"
 msgstr "Pysäytä napauttamalla"
 
-#: styles/vocabbuilder.lua:131
+#: styles/vocabbuilder.lua:132
 msgid "Tap to view definition"
 msgstr "Näytä määritelmä napauttamalla"
 
@@ -2300,7 +2300,7 @@ msgstr ""
 msgid "The current book is not part of a series"
 msgstr "Nykyinen kirja ei kuulu sarjaan"
 
-#: styles/ui/pagination.lua:107
+#: styles/ui/pagination.lua:100
 msgid "This collection is empty"
 msgstr "Tämä kokoelma on tyhjä"
 
@@ -2442,7 +2442,7 @@ msgstr ""
 msgid "Vocabulary review"
 msgstr "Sanaston kertaus"
 
-#: styles/vocabbuilder.lua:308
+#: styles/vocabbuilder.lua:309
 msgid "Vocabulary review · %1 word"
 msgid_plural "Vocabulary review · %1 words"
 msgstr[0] "Sanaston kertaus · %1 sana"
@@ -2509,7 +2509,7 @@ msgstr "Et lukenut sinä päivänä"
 msgid "You don't have any highlights yet"
 msgstr "Sinulla ei ole vielä korostuksia"
 
-#: styles/ui/pagination.lua:105
+#: styles/ui/pagination.lua:98
 msgid "You have not opened any book yet"
 msgstr "Et ole vielä avannut yhtään kirjaa"
 
