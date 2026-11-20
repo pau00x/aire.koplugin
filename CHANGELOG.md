@@ -4,9 +4,12 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-20
+
 ### Changed
 
 - **Unified icon set across KOReader**: replaced all active KOReader UI icons (navigation chevrons, stars, list/ToC controls, reading/progress markers, notices, Wi-Fi signal levels, and PDF/CRE layout icons) with matching Aire SVGs, and replaced the Unicode `✓` in checked buttons (such as the book status row) with Aire's SVG checkmark.
+- **Top notifications match Aire sheets**: quick toast notifications (frontlight toggles, gesture feedback…) keep their compact top position while using Aire's sheet radius, thin border, margins, padding and `cfont` 15 text.
 
 ### Internal
 

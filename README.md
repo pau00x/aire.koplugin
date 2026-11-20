@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version 0.4.0" src="https://img.shields.io/badge/version-0.4.0-informational">
+  <img alt="Version 0.5.0" src="https://img.shields.io/badge/version-0.5.0-informational">
   <img alt="Status: beta" src="https://img.shields.io/badge/status-beta-orange">
   <img alt="KOReader 2026.07+" src="https://img.shields.io/badge/KOReader-2026.07%2B-blue">
   <img alt="License: AGPL-3.0" src="https://img.shields.io/badge/license-AGPL--3.0-green">
