@@ -50,7 +50,7 @@ msgstr[1] "%1 закладки"
 msgstr[2] "%1 закладок"
 msgstr[3] "%1 закладки"
 
-#: views/grid/init.lua:491 views/grid/init.lua:492
+#: views/grid/init.lua:517 views/grid/init.lua:518
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 добірка"
@@ -90,7 +90,7 @@ msgstr[1] "прочитано: %1"
 msgstr[2] "прочитано: %1"
 msgstr[3] "прочитано: %1"
 
-#: views/grid/init.lua:574
+#: views/grid/init.lua:600
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 прочитана книга"
@@ -166,7 +166,7 @@ msgstr "%d %% книги"
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% книги · до кінця розділу %d с."
 
-#: dev/tests/regressions.lua:279 dev/tests/regressions.lua:280
+#: dev/tests/regressions.lua:308 dev/tests/regressions.lua:309
 msgid "%d book"
 msgid_plural "%d books"
 msgstr[0] ""
@@ -252,6 +252,11 @@ msgstr "Додати віджет"
 msgid "Advanced"
 msgstr "Додатково"
 
+#: core/genres.lua:103
+msgctxt "aire"
+msgid "Adventure"
+msgstr "Пригоди"
+
 #: _meta.lua:9
 msgid "Aire"
 msgstr "Aire"
@@ -291,7 +296,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Усі прочитано"
 
-#: views/grid/init.lua:576 views/widgets/catalog.lua:300
+#: views/grid/init.lua:602 views/widgets/catalog.lua:300
 #, koreader
 msgid "Always"
 msgstr ""
@@ -339,7 +344,7 @@ msgstr "Автоматичні добірки за жанром (ключови�
 msgid "Automatic tests"
 msgstr "Автоматичні тести"
 
-#: views/grid/init.lua:895
+#: views/grid/init.lua:964
 msgid "Automatic: books by this author"
 msgstr "Автоматична: книги цього автора"
 
@@ -381,6 +386,11 @@ msgstr "Найкращий день"
 #: views/stats/init.lua:664
 msgid "Best month"
 msgstr "Найкращий місяць"
+
+#: core/genres.lua:110
+msgctxt "aire"
+msgid "Biography"
+msgstr "Біографія"
 
 #: styles/filemanager/bookstatus.lua:182
 msgid "Book"
@@ -449,7 +459,7 @@ msgstr "Закладки й виділення"
 msgid "Books"
 msgstr ""
 
-#: views/grid/init.lua:856
+#: views/grid/init.lua:925
 msgid "Books are not deleted, only the collection."
 msgstr "Книги не видаляються, лише добірка."
 
@@ -466,6 +476,11 @@ msgstr ""
 #: menu.lua:94
 msgid "Bottom menus (sheets)"
 msgstr "Нижні меню (панелі)"
+
+#: core/genres.lua:116
+msgctxt "aire"
+msgid "Business"
+msgstr "Бізнес"
 
 #: styles/reader/bookmap.lua:105
 msgid "CURRENT CHAPTER"
@@ -559,6 +574,11 @@ msgstr ""
 msgid "Check patches and plugins on startup"
 msgstr "Перевіряти латки й модулі під час запуску"
 
+#: core/genres.lua:107
+msgctxt "aire"
+msgid "Children"
+msgstr "Дитяча"
+
 #: styles/filemanager/bookinfo.lua:218
 #, koreader
 msgid "Chinese"
@@ -567,6 +587,11 @@ msgstr ""
 #: dev/devtools.lua:821
 msgid "Classics"
 msgstr ""
+
+#: core/genres.lua:104
+msgctxt "aire"
+msgid "Classics"
+msgstr "Класика"
 
 #: menu.lua:560
 msgid "Clear cover thumbnails"
@@ -589,7 +614,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Порядок добірки"
 
-#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1194
+#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1263
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -601,6 +626,11 @@ msgstr ""
 #: views/grid/init.lua:76
 msgid "Collections order"
 msgstr "Порядок добірок"
+
+#: core/genres.lua:119
+msgctxt "aire"
+msgid "Comics"
+msgstr "Комікси"
 
 #: core/compat.lua:180
 msgid "Compatibility"
@@ -614,6 +644,11 @@ msgstr ""
 msgid "Connected"
 msgstr "Під'єднано"
 
+#: core/genres.lua:105
+msgctxt "aire"
+msgid "Contemporary"
+msgstr "Сучасна проза"
+
 #: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
@@ -623,7 +658,7 @@ msgstr ""
 msgid "Continue reading"
 msgstr ""
 
-#: styles/ui/readermenu.lua:57
+#: styles/ui/readermenu.lua:58
 #, koreader
 msgid "Contrast"
 msgstr ""
@@ -717,7 +752,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "грудня"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid/init.lua:857 views/stats/init.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -743,7 +778,7 @@ msgstr "Видалити хвилини за цей день?"
 msgid "Delete minutes from this day"
 msgstr "Видалити хвилини за цей день"
 
-#: views/grid/init.lua:855
+#: views/grid/init.lua:924
 msgid "Delete the collection?"
 msgstr "Видалити добірку?"
 
@@ -751,7 +786,7 @@ msgstr "Видалити добірку?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid/init.lua:906
+#: views/grid/init.lua:975
 msgid "Delete…"
 msgstr "Видалити…"
 
@@ -847,7 +882,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Без віджетів"
 
-#: views/grid/init.lua:468
+#: views/grid/init.lua:494
 msgid "Empty collection"
 msgstr "Добірка порожня"
 
@@ -896,7 +931,7 @@ msgstr ""
 msgid "FILE"
 msgstr "ФАЙЛ"
 
-#: views/grid/init.lua:738
+#: views/grid/init.lua:807
 msgid "FILTER"
 msgstr "ФІЛЬТР"
 
@@ -904,6 +939,11 @@ msgstr "ФІЛЬТР"
 #, koreader
 msgid "Fantasy"
 msgstr ""
+
+#: core/genres.lua:96
+msgctxt "aire"
+msgid "Fantasy"
+msgstr "Фентезі"
 
 #: views/widgets/catalog.lua:415
 msgid "Favorite folders"
@@ -934,11 +974,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid/init.lua:756
+#: views/grid/init.lua:825
 msgid "Filter"
 msgstr "Фільтр"
 
-#: dev/devtools.lua:659 views/grid/init.lua:756
+#: dev/devtools.lua:659 views/grid/init.lua:825
 msgid "Filter and sort"
 msgstr "Фільтр і сортування"
 
@@ -1094,16 +1134,26 @@ msgstr "Ще не настав"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:40 views/grid/init.lua:1195
+#: core/genres.lua:102
+msgctxt "aire"
+msgid "Historical"
+msgstr "Історична проза"
+
+#: views/dock.lua:40 views/grid/init.lua:1264
 #, koreader
 msgid "History"
 msgstr ""
+
+#: core/genres.lua:109
+msgctxt "aire"
+msgid "History"
+msgstr "Історія"
 
 #: dev/devtools.lua:813
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid/init.lua:612
+#: views/grid/init.lua:638
 msgid "History is empty"
 msgstr "Історія порожня"
 
@@ -1139,6 +1189,16 @@ msgstr "Віджети головного екрана"
 #: dev/devtools.lua:724
 msgid "Horizontal"
 msgstr ""
+
+#: core/genres.lua:100
+msgctxt "aire"
+msgid "Horror"
+msgstr "Жахи"
+
+#: core/genres.lua:108
+msgctxt "aire"
+msgid "Humor"
+msgstr "Гумор"
 
 #: dev/devtools.lua:862 styles/filemanager/imageviewer.lua:43
 msgid "Image"
@@ -1273,7 +1333,7 @@ msgstr ""
 msgid "Latin"
 msgstr ""
 
-#: styles/ui/readermenu.lua:55
+#: styles/ui/readermenu.lua:56
 msgid "Layout"
 msgstr "Макет"
 
@@ -1282,7 +1342,7 @@ msgstr "Макет"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid/init.lua:1193
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid/init.lua:1262
 msgid "Library"
 msgstr "Бібліотека"
 
@@ -1350,12 +1410,17 @@ msgstr "НАЙБІЛЬШЕ ЧИТАНІ"
 msgid "Main view"
 msgstr "Головний вигляд"
 
+#: core/genres.lua:120
+msgctxt "aire"
+msgid "Manga"
+msgstr "Манґа"
+
 #: views/topbar.lua:90
 msgctxt "aire"
 msgid "March"
 msgstr "березня"
 
-#: dev/devtools.lua:700 styles/ui/readermenu.lua:53
+#: dev/devtools.lua:700 styles/ui/readermenu.lua:54
 msgid "Margins"
 msgstr "Поля"
 
@@ -1368,7 +1433,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Позначити всі книги в «%1» як «Читаю»?"
 
-#: views/grid/init.lua:943
+#: views/grid/init.lua:1012
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Позначити всі книги добірки «%1» як «Читаю»?"
 
@@ -1376,11 +1441,11 @@ msgstr "Позначити всі книги добірки «%1» як «Чит
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid/init.lua:941
+#: views/grid/init.lua:1010
 msgid "Mark entire collection as finished"
 msgstr "Позначити всю добірку як прочитану"
 
-#: views/grid/init.lua:942
+#: views/grid/init.lua:1011
 msgid "Mark entire collection as reading"
 msgstr "Позначити всю добірку як «Читаю»"
 
@@ -1419,7 +1484,7 @@ msgstr "Мінімальний"
 msgid "Mix folders"
 msgstr "Змішувати теки"
 
-#: views/grid/init.lua:750
+#: views/grid/init.lua:819
 msgid "Mix series"
 msgstr "Змішувати серії"
 
@@ -1443,7 +1508,7 @@ msgstr "Більше"
 msgid "More options…"
 msgstr "Інші параметри…"
 
-#: styles/ui/readermenu.lua:58
+#: styles/ui/readermenu.lua:59
 msgid "More settings"
 msgstr "Інші налаштування"
 
@@ -1463,6 +1528,11 @@ msgstr ""
 #: dev/devtools.lua:522
 msgid "Multiple fields"
 msgstr ""
+
+#: core/genres.lua:98
+msgctxt "aire"
+msgid "Mystery"
+msgstr "Детектив"
 
 #: styles/filemanager/bookinfo.lua:385
 #, koreader
@@ -1508,12 +1578,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Новий"
 
-#: views/grid/init.lua:487
+#: views/grid/init.lua:513
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid/init.lua:897 views/grid/init.lua:910
+#: views/grid/init.lua:966 views/grid/init.lua:979
 msgid "New collection…"
 msgstr "Нова добірка…"
 
@@ -1559,11 +1629,11 @@ msgstr "Немає книги, що читається"
 msgid "No book matches the filter"
 msgstr "Жодна книга не відповідає фільтру"
 
-#: views/grid/init.lua:580
+#: views/grid/init.lua:606
 msgid "No books finished this month"
 msgstr "Цього місяця не прочитано жодної книги"
 
-#: views/grid/init.lua:580
+#: views/grid/init.lua:606
 msgid "No books finished this year"
 msgstr "Цього року не прочитано жодної книги"
 
@@ -1571,7 +1641,7 @@ msgstr "Цього року не прочитано жодної книги"
 msgid "No books in home folder"
 msgstr "У домашній теці немає книг"
 
-#: views/grid/init.lua:333 views/grid/init.lua:468 views/grid/init.lua:612
+#: views/grid/init.lua:333 views/grid/init.lua:494 views/grid/init.lua:638
 msgid "No books with this filter"
 msgstr "Немає книг із цим фільтром"
 
@@ -1579,11 +1649,11 @@ msgstr "Немає книг із цим фільтром"
 msgid "No chapter"
 msgstr "Без розділу"
 
-#: views/grid/init.lua:495
+#: views/grid/init.lua:521
 msgid "No collections"
 msgstr "Немає добірок"
 
-#: views/grid/init.lua:495
+#: views/grid/init.lua:521
 msgid "No collections with this filter"
 msgstr "Немає добірок із цим фільтром"
 
@@ -1637,6 +1707,11 @@ msgstr "Немає нерозпочатих книг"
 msgid "No vocabulary words"
 msgstr "Немає слів"
 
+#: core/genres.lua:117
+msgctxt "aire"
+msgid "Non-fiction"
+msgstr "Нон-фікшн"
+
 #: styles/filemanager/bookinfo.lua:957 styles/filemanager/bookstatus.lua:61
 msgid "Not rated"
 msgstr "Без оцінки"
@@ -1660,7 +1735,7 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Нотатки"
 
-#: styles/ui/floating.lua:389
+#: styles/ui/floating.lua:379
 msgid "Notice"
 msgstr "Сповіщення"
 
@@ -1677,7 +1752,7 @@ msgstr ""
 msgid "Number in series"
 msgstr "Номер у серії"
 
-#: dev/devtools.lua:497 dev/tests/regressions.lua:277 dev/tests/regressions.lua:278
+#: dev/devtools.lua:497 dev/tests/regressions.lua:306 dev/tests/regressions.lua:307
 #, koreader
 msgid "OK"
 msgstr ""
@@ -1711,7 +1786,7 @@ msgstr "Лише якщо Wi-Fi уже ввімкнено: Aire ніколи й�
 msgid "Open"
 msgstr ""
 
-#: views/grid/init.lua:940
+#: views/grid/init.lua:1009
 msgid "Open collection"
 msgstr "Відкрити добірку"
 
@@ -1719,7 +1794,7 @@ msgstr "Відкрити добірку"
 msgid "Open library"
 msgstr ""
 
-#: views/grid/init.lua:940
+#: views/grid/init.lua:1009
 msgid "Open series"
 msgstr "Відкрити серію"
 
@@ -1744,7 +1819,7 @@ msgstr ""
 msgid "Options menu"
 msgstr ""
 
-#: dev/devtools.lua:721 styles/ui/readermenu.lua:52
+#: dev/devtools.lua:721 styles/ui/readermenu.lua:53
 msgid "Orientation"
 msgstr "Орієнтація"
 
@@ -1775,7 +1850,7 @@ msgstr "С. %1 / %2"
 msgid "Page browser"
 msgstr ""
 
-#: styles/ui/readermenu.lua:54
+#: styles/ui/readermenu.lua:55
 msgid "Page fit"
 msgstr "За розміром сторінки"
 
@@ -1794,6 +1869,11 @@ msgstr ""
 msgid "Pages read today"
 msgstr ""
 
+#: core/genres.lua:113
+msgctxt "aire"
+msgid "Philosophy"
+msgstr "Філософія"
+
 #: dev/devtools.lua:639
 msgid "Plugin sheet (2 columns)"
 msgstr ""
@@ -1801,6 +1881,11 @@ msgstr ""
 #: dev/devtools.lua:627
 msgid "Plugin sheet (options)"
 msgstr ""
+
+#: core/genres.lua:118
+msgctxt "aire"
+msgid "Poetry"
+msgstr "Поезія"
 
 #: dev/devtools.lua:723
 #, koreader
@@ -1834,6 +1919,11 @@ msgstr ""
 #, koreader
 msgid "Progress"
 msgstr ""
+
+#: core/genres.lua:114
+msgctxt "aire"
+msgid "Psychology"
+msgstr "Психологія"
 
 #: dev/devtools.lua:556
 msgid "QR code"
@@ -1916,7 +2006,7 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:282 styles/filemanager/bookinfo.lua:275 styles/filemanager/bookstatus.lua:54 views/grid/init.lua:48 views/grid/init.lua:54
+#: dev/tests/regressions.lua:311 styles/filemanager/bookinfo.lua:275 styles/filemanager/bookstatus.lua:54 views/grid/init.lua:48 views/grid/init.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "Читаю"
@@ -1974,12 +2064,12 @@ msgstr "Вилучити"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:567 views/grid/init.lua:501
+#: views/booksheet.lua:567 views/grid/init.lua:527
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Вилучити з добірки"
 
-#: views/booksheet.lua:531 views/grid/init.lua:617
+#: views/booksheet.lua:531 views/grid/init.lua:643
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1999,7 +2089,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid/init.lua:904
+#: views/grid/init.lua:973
 msgid "Rename…"
 msgstr "Перейменувати…"
 
@@ -2035,7 +2125,7 @@ msgstr "Перезапустіть KOReader, щоб її використову�
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:104 views/grid/init.lua:744
+#: views/explorer.lua:104 views/grid/init.lua:813
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2050,6 +2140,11 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
+#: core/genres.lua:101
+msgctxt "aire"
+msgid "Romance"
+msgstr "Романтика"
+
 #: styles/filemanager/imageviewer.lua:100
 #, koreader
 msgid "Rotate"
@@ -2060,7 +2155,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/explorer.lua:113 views/grid/init.lua:740
+#: views/explorer.lua:113 views/grid/init.lua:809
 msgid "SORT BY"
 msgstr "СОРТУВАННЯ"
 
@@ -2084,9 +2179,19 @@ msgstr ""
 msgid "Saved"
 msgstr ""
 
+#: core/genres.lua:111
+msgctxt "aire"
+msgid "Science"
+msgstr "Наука"
+
 #: dev/devtools.lua:821 dev/devtools.lua:873
 msgid "Science Fiction"
 msgstr ""
+
+#: core/genres.lua:97
+msgctxt "aire"
+msgid "Science fiction"
+msgstr "Наукова фантастика"
 
 #: views/widgets/catalog.lua:354
 #, koreader
@@ -2113,6 +2218,11 @@ msgstr ""
 #: views/update_sheet.lua:307
 msgid "See all changes"
 msgstr "Усі зміни"
+
+#: core/genres.lua:115
+msgctxt "aire"
+msgid "Self-help"
+msgstr "Саморозвиток"
 
 #: views/topbar.lua:92
 msgctxt "aire"
@@ -2155,6 +2265,11 @@ msgstr ""
 #: dev/devtools.lua:508
 msgid "Short message"
 msgstr ""
+
+#: core/genres.lua:121
+msgctxt "aire"
+msgid "Short stories"
+msgstr "Оповідання"
 
 #: menu.lua:51
 #, koreader
@@ -2223,16 +2338,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid/init.lua:756
+#: dev/devtools.lua:613 views/grid/init.lua:825
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid/init.lua:875
+#: dev/devtools.lua:825 views/grid/init.lua:944
 msgid "Sort collections"
 msgstr "Сортування добірок"
 
-#: views/grid/init.lua:898 views/grid/init.lua:911
+#: views/grid/init.lua:967 views/grid/init.lua:980
 msgid "Sort collections…"
 msgstr "Сортувати добірки…"
 
@@ -2309,7 +2424,12 @@ msgstr "Торкніться, щоб зупинити"
 msgid "Tap to view definition"
 msgstr "Торкніться, щоб побачити визначення"
 
-#: views/grid/init.lua:1095
+#: core/genres.lua:112
+msgctxt "aire"
+msgid "Technology"
+msgstr "Технології"
+
+#: views/grid/init.lua:1164
 msgid "Test book"
 msgstr "Тестова книга"
 
@@ -2341,7 +2461,7 @@ msgstr "Тестові віджети (усі з даними)"
 msgid "Tests"
 msgstr "Тести"
 
-#: styles/ui/readermenu.lua:56
+#: styles/ui/readermenu.lua:57
 #, koreader
 msgid "Text"
 msgstr ""
@@ -2389,6 +2509,11 @@ msgstr "Цього тижня: %1"
 #: views/widgets/catalog.lua:300
 msgid "This year"
 msgstr "Цей рік"
+
+#: core/genres.lua:99
+msgctxt "aire"
+msgid "Thriller"
+msgstr "Трилер"
 
 #: dev/devtools.lua:713
 #, koreader
@@ -2501,7 +2626,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:463
+#: styles/ui/titlebar.lua:464
 msgid "Vocabulary review"
 msgstr "Повторення слів"
 
@@ -2582,9 +2707,14 @@ msgstr "Ви ще не відкрили жодної книги"
 msgid "You have version %1"
 msgstr "У вас версія %1"
 
-#: views/grid/init.lua:579
+#: views/grid/init.lua:605
 msgid "You haven't finished any books yet"
 msgstr "Ви ще не прочитали жодної книги"
+
+#: core/genres.lua:106
+msgctxt "aire"
+msgid "Young adult"
+msgstr "Підліткова"
 
 #: dev/devtools.lua:552
 msgid ""

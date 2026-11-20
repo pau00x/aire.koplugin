@@ -47,7 +47,7 @@ msgstr[0] "%1 semn de carte"
 msgstr[1] "%1 semne de carte"
 msgstr[2] "%1 de semne de carte"
 
-#: views/grid/init.lua:491 views/grid/init.lua:492
+#: views/grid/init.lua:517 views/grid/init.lua:518
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 colecție"
@@ -82,7 +82,7 @@ msgstr[0] "%1 finalizată"
 msgstr[1] "%1 finalizate"
 msgstr[2] "%1 finalizate"
 
-#: views/grid/init.lua:574
+#: views/grid/init.lua:600
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 carte finalizată"
@@ -151,7 +151,7 @@ msgstr "%d %% din carte"
 msgid "%d %% of book · %d pp. left in chapter"
 msgstr "%d %% din carte · %d pag. rămase în capitol"
 
-#: dev/tests/regressions.lua:279 dev/tests/regressions.lua:280
+#: dev/tests/regressions.lua:308 dev/tests/regressions.lua:309
 msgid "%d book"
 msgid_plural "%d books"
 msgstr[0] ""
@@ -236,6 +236,11 @@ msgstr "Adaugă widget"
 msgid "Advanced"
 msgstr "Avansat"
 
+#: core/genres.lua:103
+msgctxt "aire"
+msgid "Adventure"
+msgstr ""
+
 #: _meta.lua:9
 msgid "Aire"
 msgstr "Aire"
@@ -275,7 +280,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Toate finalizate"
 
-#: views/grid/init.lua:576 views/widgets/catalog.lua:300
+#: views/grid/init.lua:602 views/widgets/catalog.lua:300
 #, koreader
 msgid "Always"
 msgstr ""
@@ -323,7 +328,7 @@ msgstr "Colecții automate după gen (cuvânt cheie)"
 msgid "Automatic tests"
 msgstr "Teste automate"
 
-#: views/grid/init.lua:895
+#: views/grid/init.lua:964
 msgid "Automatic: books by this author"
 msgstr "Automată: cărți de acest autor"
 
@@ -365,6 +370,11 @@ msgstr "Cea mai bună zi"
 #: views/stats/init.lua:664
 msgid "Best month"
 msgstr "Cea mai bună lună"
+
+#: core/genres.lua:110
+msgctxt "aire"
+msgid "Biography"
+msgstr ""
 
 #: styles/filemanager/bookstatus.lua:182
 msgid "Book"
@@ -433,7 +443,7 @@ msgstr "Semne de carte și evidențieri"
 msgid "Books"
 msgstr ""
 
-#: views/grid/init.lua:856
+#: views/grid/init.lua:925
 msgid "Books are not deleted, only the collection."
 msgstr "Cărțile nu sunt șterse, doar colecția."
 
@@ -450,6 +460,11 @@ msgstr ""
 #: menu.lua:94
 msgid "Bottom menus (sheets)"
 msgstr "Meniuri de jos (panouri)"
+
+#: core/genres.lua:116
+msgctxt "aire"
+msgid "Business"
+msgstr ""
 
 #: styles/reader/bookmap.lua:105
 msgid "CURRENT CHAPTER"
@@ -543,12 +558,22 @@ msgstr ""
 msgid "Check patches and plugins on startup"
 msgstr "Verifică patch-uri și plugin-uri la pornire"
 
+#: core/genres.lua:107
+msgctxt "aire"
+msgid "Children"
+msgstr ""
+
 #: styles/filemanager/bookinfo.lua:218
 #, koreader
 msgid "Chinese"
 msgstr ""
 
 #: dev/devtools.lua:821
+msgid "Classics"
+msgstr ""
+
+#: core/genres.lua:104
+msgctxt "aire"
 msgid "Classics"
 msgstr ""
 
@@ -573,7 +598,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Ordinea colecției"
 
-#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1194
+#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1263
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -585,6 +610,11 @@ msgstr ""
 #: views/grid/init.lua:76
 msgid "Collections order"
 msgstr "Ordinea colecțiilor"
+
+#: core/genres.lua:119
+msgctxt "aire"
+msgid "Comics"
+msgstr ""
 
 #: core/compat.lua:180
 msgid "Compatibility"
@@ -598,6 +628,11 @@ msgstr ""
 msgid "Connected"
 msgstr "Conectat"
 
+#: core/genres.lua:105
+msgctxt "aire"
+msgid "Contemporary"
+msgstr ""
+
 #: views/booksheet.lua:350
 #, koreader
 msgid "Continue"
@@ -607,7 +642,7 @@ msgstr ""
 msgid "Continue reading"
 msgstr ""
 
-#: styles/ui/readermenu.lua:57
+#: styles/ui/readermenu.lua:58
 #, koreader
 msgid "Contrast"
 msgstr ""
@@ -701,7 +736,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembrie"
 
-#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid/init.lua:857 views/stats/init.lua:436
+#: dev/devtools.lua:656 dev/devtools.lua:735 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:436
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -727,7 +762,7 @@ msgstr "Ștergi minutele din această zi?"
 msgid "Delete minutes from this day"
 msgstr "Șterge minutele din această zi"
 
-#: views/grid/init.lua:855
+#: views/grid/init.lua:924
 msgid "Delete the collection?"
 msgstr "Ștergi colecția?"
 
@@ -735,7 +770,7 @@ msgstr "Ștergi colecția?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid/init.lua:906
+#: views/grid/init.lua:975
 msgid "Delete…"
 msgstr "Șterge…"
 
@@ -831,7 +866,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Fără widgeturi"
 
-#: views/grid/init.lua:468
+#: views/grid/init.lua:494
 msgid "Empty collection"
 msgstr "Colecție goală"
 
@@ -880,12 +915,17 @@ msgstr ""
 msgid "FILE"
 msgstr "FIȘIER"
 
-#: views/grid/init.lua:738
+#: views/grid/init.lua:807
 msgid "FILTER"
 msgstr "FILTRU"
 
 #: dev/devtools.lua:821 dev/devtools.lua:872
 #, koreader
+msgid "Fantasy"
+msgstr ""
+
+#: core/genres.lua:96
+msgctxt "aire"
 msgid "Fantasy"
 msgstr ""
 
@@ -918,11 +958,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid/init.lua:756
+#: views/grid/init.lua:825
 msgid "Filter"
 msgstr "Filtrează"
 
-#: dev/devtools.lua:659 views/grid/init.lua:756
+#: dev/devtools.lua:659 views/grid/init.lua:825
 msgid "Filter and sort"
 msgstr "Filtrează și ordonează"
 
@@ -1078,8 +1118,18 @@ msgstr "Încă nu a sosit"
 msgid "Highlight"
 msgstr ""
 
-#: views/dock.lua:40 views/grid/init.lua:1195
+#: core/genres.lua:102
+msgctxt "aire"
+msgid "Historical"
+msgstr ""
+
+#: views/dock.lua:40 views/grid/init.lua:1264
 #, koreader
+msgid "History"
+msgstr ""
+
+#: core/genres.lua:109
+msgctxt "aire"
 msgid "History"
 msgstr ""
 
@@ -1087,7 +1137,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid/init.lua:612
+#: views/grid/init.lua:638
 msgid "History is empty"
 msgstr "Istoricul este gol"
 
@@ -1122,6 +1172,16 @@ msgstr "Widgeturi Acasă"
 
 #: dev/devtools.lua:724
 msgid "Horizontal"
+msgstr ""
+
+#: core/genres.lua:100
+msgctxt "aire"
+msgid "Horror"
+msgstr ""
+
+#: core/genres.lua:108
+msgctxt "aire"
+msgid "Humor"
 msgstr ""
 
 #: dev/devtools.lua:862 styles/filemanager/imageviewer.lua:43
@@ -1257,7 +1317,7 @@ msgstr ""
 msgid "Latin"
 msgstr ""
 
-#: styles/ui/readermenu.lua:55
+#: styles/ui/readermenu.lua:56
 msgid "Layout"
 msgstr "Aspect"
 
@@ -1266,7 +1326,7 @@ msgstr "Aspect"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid/init.lua:1193
+#: dev/devtools.lua:673 views/dock.lua:37 views/dock.lua:246 views/grid/init.lua:1262
 msgid "Library"
 msgstr "Bibliotecă"
 
@@ -1334,12 +1394,17 @@ msgstr "CELE MAI CITITE"
 msgid "Main view"
 msgstr "Vizualizare principală"
 
+#: core/genres.lua:120
+msgctxt "aire"
+msgid "Manga"
+msgstr ""
+
 #: views/topbar.lua:90
 msgctxt "aire"
 msgid "March"
 msgstr "martie"
 
-#: dev/devtools.lua:700 styles/ui/readermenu.lua:53
+#: dev/devtools.lua:700 styles/ui/readermenu.lua:54
 msgid "Margins"
 msgstr "Margini"
 
@@ -1352,7 +1417,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Marchezi toate cărțile din „%1” ca în citire?"
 
-#: views/grid/init.lua:943
+#: views/grid/init.lua:1012
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Marchezi toate cărțile din colecția „%1” ca în citire?"
 
@@ -1360,11 +1425,11 @@ msgstr "Marchezi toate cărțile din colecția „%1” ca în citire?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid/init.lua:941
+#: views/grid/init.lua:1010
 msgid "Mark entire collection as finished"
 msgstr "Marchează toată colecția ca finalizată"
 
-#: views/grid/init.lua:942
+#: views/grid/init.lua:1011
 msgid "Mark entire collection as reading"
 msgstr "Marchează toată colecția ca în citire"
 
@@ -1403,7 +1468,7 @@ msgstr "Minimal"
 msgid "Mix folders"
 msgstr "Amestecă dosarele"
 
-#: views/grid/init.lua:750
+#: views/grid/init.lua:819
 msgid "Mix series"
 msgstr "Amestecă seriile"
 
@@ -1427,7 +1492,7 @@ msgstr "Mai mult"
 msgid "More options…"
 msgstr "Mai multe opțiuni…"
 
-#: styles/ui/readermenu.lua:58
+#: styles/ui/readermenu.lua:59
 msgid "More settings"
 msgstr "Mai multe setări"
 
@@ -1446,6 +1511,11 @@ msgstr ""
 
 #: dev/devtools.lua:522
 msgid "Multiple fields"
+msgstr ""
+
+#: core/genres.lua:98
+msgctxt "aire"
+msgid "Mystery"
 msgstr ""
 
 #: styles/filemanager/bookinfo.lua:385
@@ -1492,12 +1562,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nou"
 
-#: views/grid/init.lua:487
+#: views/grid/init.lua:513
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid/init.lua:897 views/grid/init.lua:910
+#: views/grid/init.lua:966 views/grid/init.lua:979
 msgid "New collection…"
 msgstr "Colecție nouă…"
 
@@ -1543,11 +1613,11 @@ msgstr "Nicio carte în curs"
 msgid "No book matches the filter"
 msgstr "Nicio carte nu corespunde filtrului"
 
-#: views/grid/init.lua:580
+#: views/grid/init.lua:606
 msgid "No books finished this month"
 msgstr "Nicio carte finalizată luna aceasta"
 
-#: views/grid/init.lua:580
+#: views/grid/init.lua:606
 msgid "No books finished this year"
 msgstr "Nicio carte finalizată anul acesta"
 
@@ -1555,7 +1625,7 @@ msgstr "Nicio carte finalizată anul acesta"
 msgid "No books in home folder"
 msgstr "Nicio carte în dosarul principal"
 
-#: views/grid/init.lua:333 views/grid/init.lua:468 views/grid/init.lua:612
+#: views/grid/init.lua:333 views/grid/init.lua:494 views/grid/init.lua:638
 msgid "No books with this filter"
 msgstr "Nicio carte cu acest filtru"
 
@@ -1563,11 +1633,11 @@ msgstr "Nicio carte cu acest filtru"
 msgid "No chapter"
 msgstr "Fără capitol"
 
-#: views/grid/init.lua:495
+#: views/grid/init.lua:521
 msgid "No collections"
 msgstr "Nicio colecție"
 
-#: views/grid/init.lua:495
+#: views/grid/init.lua:521
 msgid "No collections with this filter"
 msgstr "Nicio colecție cu acest filtru"
 
@@ -1621,6 +1691,11 @@ msgstr "Nicio carte neîncepută"
 msgid "No vocabulary words"
 msgstr "Niciun cuvânt"
 
+#: core/genres.lua:117
+msgctxt "aire"
+msgid "Non-fiction"
+msgstr ""
+
 #: styles/filemanager/bookinfo.lua:957 styles/filemanager/bookstatus.lua:61
 msgid "Not rated"
 msgstr "Fără evaluare"
@@ -1644,7 +1719,7 @@ msgctxt "aire"
 msgid "Notes"
 msgstr "Notițe"
 
-#: styles/ui/floating.lua:389
+#: styles/ui/floating.lua:379
 msgid "Notice"
 msgstr "Notificare"
 
@@ -1661,7 +1736,7 @@ msgstr ""
 msgid "Number in series"
 msgstr "Număr în serie"
 
-#: dev/devtools.lua:497 dev/tests/regressions.lua:277 dev/tests/regressions.lua:278
+#: dev/devtools.lua:497 dev/tests/regressions.lua:306 dev/tests/regressions.lua:307
 #, koreader
 msgid "OK"
 msgstr ""
@@ -1695,7 +1770,7 @@ msgstr "Doar cu Wi-Fi-ul deja pornit: Aire nu îl pornește niciodată."
 msgid "Open"
 msgstr ""
 
-#: views/grid/init.lua:940
+#: views/grid/init.lua:1009
 msgid "Open collection"
 msgstr "Deschide colecția"
 
@@ -1703,7 +1778,7 @@ msgstr "Deschide colecția"
 msgid "Open library"
 msgstr ""
 
-#: views/grid/init.lua:940
+#: views/grid/init.lua:1009
 msgid "Open series"
 msgstr "Deschide seria"
 
@@ -1728,7 +1803,7 @@ msgstr ""
 msgid "Options menu"
 msgstr ""
 
-#: dev/devtools.lua:721 styles/ui/readermenu.lua:52
+#: dev/devtools.lua:721 styles/ui/readermenu.lua:53
 msgid "Orientation"
 msgstr "Orientare"
 
@@ -1759,7 +1834,7 @@ msgstr "Pag. %1 / %2"
 msgid "Page browser"
 msgstr ""
 
-#: styles/ui/readermenu.lua:54
+#: styles/ui/readermenu.lua:55
 msgid "Page fit"
 msgstr "Potrivire pagină"
 
@@ -1778,12 +1853,22 @@ msgstr ""
 msgid "Pages read today"
 msgstr ""
 
+#: core/genres.lua:113
+msgctxt "aire"
+msgid "Philosophy"
+msgstr ""
+
 #: dev/devtools.lua:639
 msgid "Plugin sheet (2 columns)"
 msgstr ""
 
 #: dev/devtools.lua:627
 msgid "Plugin sheet (options)"
+msgstr ""
+
+#: core/genres.lua:118
+msgctxt "aire"
+msgid "Poetry"
 msgstr ""
 
 #: dev/devtools.lua:723
@@ -1817,6 +1902,11 @@ msgstr ""
 #: dev/devtools.lua:561 dev/devtools.lua:617 styles/plugins/statspages.lua:122 views/grid/init.lua:63 views/grid/init.lua:72
 #, koreader
 msgid "Progress"
+msgstr ""
+
+#: core/genres.lua:114
+msgctxt "aire"
+msgid "Psychology"
 msgstr ""
 
 #: dev/devtools.lua:556
@@ -1900,7 +1990,7 @@ msgstr ""
 msgid "Reading"
 msgstr ""
 
-#: dev/tests/regressions.lua:282 styles/filemanager/bookinfo.lua:275 styles/filemanager/bookstatus.lua:54 views/grid/init.lua:48 views/grid/init.lua:54
+#: dev/tests/regressions.lua:311 styles/filemanager/bookinfo.lua:275 styles/filemanager/bookstatus.lua:54 views/grid/init.lua:48 views/grid/init.lua:54
 msgctxt "aire"
 msgid "Reading"
 msgstr "În citire"
@@ -1958,12 +2048,12 @@ msgstr "Elimină"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:567 views/grid/init.lua:501
+#: views/booksheet.lua:567 views/grid/init.lua:527
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Elimină din colecție"
 
-#: views/booksheet.lua:531 views/grid/init.lua:617
+#: views/booksheet.lua:531 views/grid/init.lua:643
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -1983,7 +2073,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid/init.lua:904
+#: views/grid/init.lua:973
 msgid "Rename…"
 msgstr "Redenumește…"
 
@@ -2019,7 +2109,7 @@ msgstr "Repornește KOReader pentru a o folosi. Setările tale se păstrează."
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:104 views/grid/init.lua:744
+#: views/explorer.lua:104 views/grid/init.lua:813
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2034,6 +2124,11 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
+#: core/genres.lua:101
+msgctxt "aire"
+msgid "Romance"
+msgstr ""
+
 #: styles/filemanager/imageviewer.lua:100
 #, koreader
 msgid "Rotate"
@@ -2044,7 +2139,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/explorer.lua:113 views/grid/init.lua:740
+#: views/explorer.lua:113 views/grid/init.lua:809
 msgid "SORT BY"
 msgstr "ORDONEAZĂ DUPĂ"
 
@@ -2068,8 +2163,18 @@ msgstr ""
 msgid "Saved"
 msgstr ""
 
+#: core/genres.lua:111
+msgctxt "aire"
+msgid "Science"
+msgstr ""
+
 #: dev/devtools.lua:821 dev/devtools.lua:873
 msgid "Science Fiction"
+msgstr ""
+
+#: core/genres.lua:97
+msgctxt "aire"
+msgid "Science fiction"
 msgstr ""
 
 #: views/widgets/catalog.lua:354
@@ -2097,6 +2202,11 @@ msgstr ""
 #: views/update_sheet.lua:307
 msgid "See all changes"
 msgstr "Vezi toate noutățile"
+
+#: core/genres.lua:115
+msgctxt "aire"
+msgid "Self-help"
+msgstr ""
 
 #: views/topbar.lua:92
 msgctxt "aire"
@@ -2138,6 +2248,11 @@ msgstr ""
 
 #: dev/devtools.lua:508
 msgid "Short message"
+msgstr ""
+
+#: core/genres.lua:121
+msgctxt "aire"
+msgid "Short stories"
 msgstr ""
 
 #: menu.lua:51
@@ -2207,16 +2322,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:613 views/grid/init.lua:756
+#: dev/devtools.lua:613 views/grid/init.lua:825
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:825 views/grid/init.lua:875
+#: dev/devtools.lua:825 views/grid/init.lua:944
 msgid "Sort collections"
 msgstr "Ordonează colecțiile"
 
-#: views/grid/init.lua:898 views/grid/init.lua:911
+#: views/grid/init.lua:967 views/grid/init.lua:980
 msgid "Sort collections…"
 msgstr "Ordonează colecțiile…"
 
@@ -2293,7 +2408,12 @@ msgstr "Atinge pentru a opri"
 msgid "Tap to view definition"
 msgstr "Atinge pentru a vedea definiția"
 
-#: views/grid/init.lua:1095
+#: core/genres.lua:112
+msgctxt "aire"
+msgid "Technology"
+msgstr ""
+
+#: views/grid/init.lua:1164
 msgid "Test book"
 msgstr "Carte de test"
 
@@ -2325,7 +2445,7 @@ msgstr "Widgeturi de test (toate cu date)"
 msgid "Tests"
 msgstr "Teste"
 
-#: styles/ui/readermenu.lua:56
+#: styles/ui/readermenu.lua:57
 #, koreader
 msgid "Text"
 msgstr ""
@@ -2373,6 +2493,11 @@ msgstr "Săptămâna aceasta: %1"
 #: views/widgets/catalog.lua:300
 msgid "This year"
 msgstr "Anul acesta"
+
+#: core/genres.lua:99
+msgctxt "aire"
+msgid "Thriller"
+msgstr ""
 
 #: dev/devtools.lua:713
 #, koreader
@@ -2485,7 +2610,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:463
+#: styles/ui/titlebar.lua:464
 msgid "Vocabulary review"
 msgstr "Recapitulare vocabular"
 
@@ -2565,9 +2690,14 @@ msgstr "Încă nu ai deschis nicio carte"
 msgid "You have version %1"
 msgstr "Ai versiunea %1"
 
-#: views/grid/init.lua:579
+#: views/grid/init.lua:605
 msgid "You haven't finished any books yet"
 msgstr "Încă nu ai finalizat nicio carte"
+
+#: core/genres.lua:106
+msgctxt "aire"
+msgid "Young adult"
+msgstr ""
 
 #: dev/devtools.lua:552
 msgid ""
