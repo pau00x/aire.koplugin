@@ -1,8 +1,8 @@
 --[[
     aire.koplugin/views/stats/data.lua
     Datos de la pestaña Estadísticas (views/stats/init.lua): lectura de la base de
-    datos de KOReader (statistics.sqlite3), resúmenes, mes, día, recapitulación
-    y borrar estadísticas de un libro. Sin widgets.
+    datos de KOReader (statistics.sqlite3), resúmenes, mes, día, recapitulación,
+    géneros más leídos, hábitos horarios/semanales y caché de sesión. Sin widgets.
     state.FAKE: estadísticas de prueba (devtools.lua); lo fija el mixin.
 --]]
 
@@ -11,10 +11,26 @@ local DataStorage = require("datastorage")
 local lfs = require("libs/libkoreader-lfs")
 local logger = require("logger")
 local util = require("util")
-local _ = require("gettext")
 
 local DB_FILE = DataStorage:getSettingsDir() .. "/statistics.sqlite3"
+local BOOKINFO_DB = DataStorage:getSettingsDir() .. "/bookinfo_cache.sqlite3"
 local state = { FAKE = nil }
+
+-- Caché de sesión: se invalida sola si cambia statistics.sqlite3,
+-- bookinfo_cache.sqlite3, el día, el idioma o el modo de prueba.
+local cache = {
+    stats_key = nil, stats = nil,
+    kw_key = nil, kw_map = nil,
+    months = {},
+    recaps = {},
+}
+
+local function invalidateCache()
+    cache.stats_key, cache.stats = nil, nil
+    cache.kw_key, cache.kw_map = nil, nil
+    cache.months = {}
+    cache.recaps = {}
+end
 
 
 ---------------------------------------------------------------------------
@@ -28,9 +44,24 @@ local function fmtDuration(secs)
     return ("%d min"):format(m)
 end
 
+local function fmtDelta(pct)
+    if pct == nil then return nil end
+    if pct > 0 then return ("+%d%%"):format(pct) end
+    return ("%d%%"):format(pct)
+end
+
+local function calcSpeed(pages, secs)
+    if not secs or secs < 60 or not pages or pages <= 0 then return 0 end
+    return math.floor(pages / (secs / 3600) + 0.5)
+end
+
+local function calcDelta(cur, prev)
+    if not prev or prev <= 0 then return nil end
+    return math.floor(((cur or 0) - prev) / prev * 100 + 0.5)
+end
+
 -- Abre statistics.sqlite3, ejecuta fn(conn) y cierra SIEMPRE la conexión
 -- (también si fn falla: así no quedan la base ni sentencias abiertas).
--- conn:close() de ljsqlite3 cierra además las sentencias que queden.
 local function withDB(fn)
     local SQ3 = require("lua-ljsqlite3/init")
     local conn = SQ3.open(DB_FILE)
@@ -39,62 +70,434 @@ local function withDB(fn)
     if not ok then error(err, 0) end
 end
 
+-- Abre bookinfo_cache.sqlite3 en solo lectura para cruzar géneros (keywords)
+local function withBookinfoDB(fn)
+    if lfs.attributes(BOOKINFO_DB, "mode") ~= "file" then return false end
+    local SQ3 = require("lua-ljsqlite3/init")
+    local conn = SQ3.open(BOOKINFO_DB, "ro")
+    local ok, err = pcall(fn, conn)
+    pcall(conn.close, conn)
+    if not ok then error(err, 0) end
+    return true
+end
+
 local function dayStart(t)
     local d = os.date("*t", t)
     d.hour, d.min, d.sec = 0, 0, 0
     return os.time(d)
 end
 
+local function fileSig(path)
+    local attr = lfs.attributes(path)
+    if not attr or attr.mode ~= "file" then return "0:0" end
+    return tostring(attr.modification or 0) .. ":" .. tostring(attr.size or 0)
+end
+
+local function cacheKey(extra)
+    local lang = G_reader_settings and G_reader_settings:readSetting("language") or ""
+    local fake = state.FAKE and "1" or "0"
+    local day = os.date("%Y-%m-%d")
+    return table.concat({ fake, day, lang, fileSig(DB_FILE), fileSig(BOOKINFO_DB), extra or "" }, "|")
+end
+
+
 ---------------------------------------------------------------------------
--- Datos
+-- Géneros, autores y rachas
+---------------------------------------------------------------------------
+local function getGenresMod()
+    return package.loaded.aire_genres
+end
+
+-- Mapa title/authors normalizados -> keywords desde bookinfo_cache.sqlite3
+local function getBookKeywordsMap()
+    local key = fileSig(BOOKINFO_DB)
+    if cache.kw_key == key and cache.kw_map then return cache.kw_map end
+    local map = { by_ta = {}, by_t = {} }
+    local Genres = getGenresMod()
+    local norm = Genres and Genres.normalize or function(s) return (s or ""):lower():match("^%s*(.-)%s*$") or "" end
+    local akey = Genres and Genres.authorKey or norm
+
+    local ok, err = pcall(withBookinfoDB, function(conn)
+        local stmt = conn:prepare(
+            "SELECT title, authors, keywords FROM bookinfo "
+            .. "WHERE keywords IS NOT NULL AND keywords != '' AND (in_progress = 0 OR in_progress IS NULL)"
+        )
+        local row = stmt:step()
+        while row do
+            local title, authors, kw = row[1], row[2], row[3]
+            if title and title ~= "" and kw and kw ~= "" then
+                local tk = norm(title)
+                if tk ~= "" then
+                    if authors and authors ~= "" then
+                        local ak = akey(authors)
+                        if ak ~= "" then map.by_ta[tk .. "\0" .. ak] = kw end
+                    end
+                    if not map.by_t[tk] then map.by_t[tk] = kw end
+                end
+            end
+            row = stmt:step()
+        end
+        stmt:close()
+    end)
+    if not ok then logger.warn("Aire/Stats: error leyendo bookinfo_cache.sqlite3:", err) end
+
+    cache.kw_key, cache.kw_map = key, map
+    return map
+end
+
+local function lookupKeywords(kw_map, title, authors)
+    if not kw_map or not title or title == "" then return nil end
+    local Genres = getGenresMod()
+    local norm = Genres and Genres.normalize or function(s) return (s or ""):lower():match("^%s*(.-)%s*$") or "" end
+    local akey = Genres and Genres.authorKey or norm
+    local tk = norm(title)
+    if tk == "" then return nil end
+    if authors and authors ~= "" then
+        local ak = akey(authors)
+        if ak ~= "" and kw_map.by_ta[tk .. "\0" .. ak] then
+            return kw_map.by_ta[tk .. "\0" .. ak]
+        end
+    end
+    return kw_map.by_t[tk]
+end
+
+-- Calcula top géneros a partir de una lista de libros { title, authors, secs, pages }
+local function computeTopGenres(books_rows, kw_map, limit)
+    local Genres = getGenresMod()
+    if not Genres or not books_rows or #books_rows == 0 then return {} end
+    local by, list = {}, {}
+    local total_secs = 0
+    for _i, b in ipairs(books_rows) do
+        local kw = b.keywords or lookupKeywords(kw_map, b.title, b.authors)
+        if kw and kw ~= "" then
+            local extracted = Genres.extractGenres(kw)
+            if extracted and #extracted > 0 then
+                for _j, g in ipairs(extracted) do
+                    local entry = by[g.key]
+                    if not entry then
+                        entry = {
+                            key = g.key, label = g.label, canonical = g.canonical,
+                            secs = 0, pages = 0, books = 0,
+                        }
+                        by[g.key] = entry
+                        table.insert(list, entry)
+                    elseif not g.canonical then
+                        entry.label = Genres.betterLabel(entry.label, g.label)
+                    end
+                    entry.secs = entry.secs + (b.secs or 0)
+                    entry.pages = entry.pages + (b.pages or 0)
+                    entry.books = entry.books + 1
+                    total_secs = total_secs + (b.secs or 0)
+                end
+            end
+        end
+    end
+    table.sort(list, function(a, b)
+        if a.secs ~= b.secs then return a.secs > b.secs end
+        if a.books ~= b.books then return a.books > b.books end
+        return a.label < b.label
+    end)
+    local out = {}
+    local cap = math.min(limit or 5, #list)
+    for i = 1, cap do
+        local g = list[i]
+        table.insert(out, {
+            key = g.key,
+            label = g.label,
+            secs = g.secs,
+            pages = g.pages,
+            books = g.books,
+            pct = total_secs > 0 and math.floor(g.secs / total_secs * 100 + 0.5) or 0,
+        })
+    end
+    return out
+end
+
+-- Agrupa autores normalizados (sin separar por mayúsculas, tildes ni coautores en líneas)
+local function computeTopAuthor(books_rows)
+    if not books_rows or #books_rows == 0 then return nil end
+    local Genres = getGenresMod()
+    local by = {}
+    for _i, b in ipairs(books_rows) do
+        if b.authors and b.authors ~= "" then
+            local seen = {}
+            for raw in b.authors:gmatch("[^\n]+") do
+                local name = raw:match("^%s*(.-)%s*$")
+                if name and name ~= "" then
+                    local ak = Genres and Genres.authorKey(name) or name:lower()
+                    if ak ~= "" and not seen[ak] then
+                        seen[ak] = true
+                        local entry = by[ak]
+                        if not entry then
+                            entry = { name = name, secs = 0, books = 0 }
+                            by[ak] = entry
+                        elseif Genres then
+                            entry.name = Genres.betterLabel(entry.name, name)
+                        end
+                        entry.secs = entry.secs + (b.secs or 0)
+                        entry.books = entry.books + 1
+                    end
+                end
+            end
+        end
+    end
+    local best
+    for _k, entry in pairs(by) do
+        if not best or entry.secs > best.secs then best = entry end
+    end
+    return best
+end
+
+-- Mejor racha (días consecutivos) a partir de una lista ordenada de "YYYY-MM-DD"
+local function computeBestStreak(sorted_days)
+    local best, run, prev = 0, 0, nil
+    for _i, ds in ipairs(sorted_days) do
+        local y, m, d = ds:match("^(%d+)%-(%d+)%-(%d+)$")
+        if y then
+            local num = math.floor(os.time{
+                year = tonumber(y), month = tonumber(m), day = tonumber(d), hour = 12,
+            } / 86400 + 0.5)
+            if prev and num == prev + 1 then
+                run = run + 1
+            else
+                run = 1
+            end
+            if run > best then best = run end
+            prev = num
+        end
+    end
+    return best
+end
+
+
+---------------------------------------------------------------------------
+-- Consultas compartidas de hábitos y libros en un rango [t0, t1)
+---------------------------------------------------------------------------
+local SLOT_IDS = { "morning", "afternoon", "evening", "night" }
+
+-- Franjas horarias: morning (06-11), afternoon (12-17), evening (18-23), night (00-05)
+local function queryTimeSlots(conn, t0, t1)
+    local totals = { morning = 0, afternoon = 0, evening = 0, night = 0 }
+    local stmt = conn:prepare(
+        "SELECT CAST(strftime('%H', start_time, 'unixepoch', 'localtime') AS INTEGER) AS h, sum(duration) "
+        .. "FROM page_stat_data WHERE start_time >= ? AND start_time < ? GROUP BY h"
+    )
+    stmt:bind(t0, t1)
+    local row = stmt:step()
+    local grand = 0
+    while row do
+        local h = tonumber(row[1]) or 0
+        local secs = tonumber(row[2]) or 0
+        local id
+        if h >= 6 and h < 12 then id = "morning"
+        elseif h >= 12 and h < 18 then id = "afternoon"
+        elseif h >= 18 then id = "evening"
+        else id = "night" end
+        totals[id] = totals[id] + secs
+        grand = grand + secs
+        row = stmt:step()
+    end
+    stmt:close()
+
+    local slots, fav, fav_s = {}, nil, 0
+    for _i, id in ipairs(SLOT_IDS) do
+        local secs = totals[id]
+        if secs > fav_s then fav, fav_s = id, secs end
+        table.insert(slots, {
+            id = id,
+            secs = secs,
+            pct = grand > 0 and math.floor(secs / grand * 100 + 0.5) or 0,
+        })
+    end
+    return slots, fav
+end
+
+-- Distribución por día de la semana (1 = lunes .. 7 = domingo)
+local function queryWeekdays(conn, t0, t1)
+    local totals = { 0, 0, 0, 0, 0, 0, 0 }
+    local stmt = conn:prepare(
+        "SELECT CAST(strftime('%w', start_time, 'unixepoch', 'localtime') AS INTEGER) AS w, sum(duration) "
+        .. "FROM page_stat_data WHERE start_time >= ? AND start_time < ? GROUP BY w"
+    )
+    stmt:bind(t0, t1)
+    local row = stmt:step()
+    local grand = 0
+    while row do
+        local w = tonumber(row[1]) or 0 -- SQLite: 0=domingo .. 6=sábado
+        local idx = (w == 0) and 7 or w -- 1=lunes .. 7=domingo
+        local secs = tonumber(row[2]) or 0
+        totals[idx] = totals[idx] + secs
+        grand = grand + secs
+        row = stmt:step()
+    end
+    stmt:close()
+
+    local dayLetter = package.loaded.aire_ui and package.loaded.aire_ui.dayLetter
+    local days, fav, fav_s = {}, nil, 0
+    for i = 1, 7 do
+        local secs = totals[i]
+        if secs > fav_s then fav, fav_s = i, secs end
+        local lua_wday = (i % 7) + 1 -- 1=domingo, 2=lunes .. 7=sábado
+        table.insert(days, {
+            wday = i,
+            letter = dayLetter and dayLetter(lua_wday) or tostring(i),
+            secs = secs,
+            pct = grand > 0 and math.floor(secs / grand * 100 + 0.5) or 0,
+        })
+    end
+    return days, fav
+end
+
+-- Todos los libros leídos en [t0, t1), ordenados por tiempo descendente
+local function queryBooksInRange(conn, t0, t1)
+    local list = {}
+    local stmt = conn:prepare(
+        "SELECT p.id_book, book.title, book.authors, sum(p.duration) AS s, count(DISTINCT p.page) "
+        .. "FROM page_stat_data AS p JOIN book ON book.id = p.id_book "
+        .. "WHERE p.start_time >= ? AND p.start_time < ? GROUP BY p.id_book ORDER BY s DESC"
+    )
+    stmt:bind(t0, t1)
+    local row = stmt:step()
+    while row do
+        table.insert(list, {
+            id_book = tonumber(row[1]),
+            title = row[2] or "?",
+            authors = row[3],
+            secs = tonumber(row[4]) or 0,
+            pages = tonumber(row[5]) or 0,
+        })
+        row = stmt:step()
+    end
+    stmt:close()
+    return list
+end
+
+local function queryTotalSecs(conn, t0, t1)
+    local stmt = conn:prepare("SELECT sum(duration) FROM page_stat_data WHERE start_time >= ? AND start_time < ?")
+    stmt:bind(t0, t1)
+    local row = stmt:step()
+    local secs = row and tonumber(row[1]) or 0
+    stmt:close()
+    return secs
+end
+
+
+---------------------------------------------------------------------------
+-- Calendario: utilidades de meses/días (se definen aquí para usarlas en stats y recap)
+---------------------------------------------------------------------------
+local MONTHS, WEEKDAYS_LONG = {}, {}
+do
+    local dt = require("datetime")
+    for i, m in ipairs({ "January", "February", "March", "April", "May", "June", "July",
+                         "August", "September", "October", "November", "December" }) do
+        MONTHS[i] = dt.longMonthTranslation[m] or m
+    end
+    for i, d in ipairs(dt.weekDays) do
+        WEEKDAYS_LONG[i] = dt.shortDayOfWeekToLongTranslation[d] or d
+    end
+end
+
+local function monthRange(year, month)
+    local t0 = os.time{ year = year, month = month, day = 1, hour = 0 }
+    local ny, nm = year, month + 1
+    if nm > 12 then ny, nm = year + 1, 1 end
+    local t1 = os.time{ year = ny, month = nm, day = 1, hour = 0 }
+    local ndays = tonumber(os.date("%d", t1 - 12 * 3600))
+    return t0, t1, ndays
+end
+
+
+---------------------------------------------------------------------------
+-- Resumen principal (pestaña Estadísticas + widgets de inicio)
 ---------------------------------------------------------------------------
 local function loadStats()
+    local lastfile = G_reader_settings and G_reader_settings:readSetting("lastfile") or ""
+    local ckey = cacheKey("stats:" .. lastfile)
+    if cache.stats_key == ckey and cache.stats then
+        return cache.stats
+    end
+
+    local now = os.time()
+    local now_t = os.date("*t", now)
+    local today0 = dayStart(now)
     local st = {
         today_secs = 0, today_pages = 0,
-        week = {}, week_total = 0,
-        streak = 0,
-        month_secs = 0, month_pages = 0,
-        year_secs = 0, year_pages = 0,
+        week = {}, week_total = 0, prev_week_total = 0, week_delta_pct = nil,
+        streak = 0, best_streak = 0,
+        month_secs = 0, month_pages = 0, month_read_days = 0,
+        month_avg_secs = 0, month_speed = 0, prev_month_secs = 0, month_delta_pct = nil,
+        year_secs = 0, year_pages = 0, year_speed = 0,
         finished_year = 0,
+        top_genres = {},
+        time_slots = {}, fav_slot = nil,
+        weekdays = {}, fav_weekday = nil,
         current = nil,
+        year = os.date("%Y", now),
         ok = false,
     }
-    local now = os.time()
-    local today0 = dayStart(now)
+
     -- Días de la semana: de hace 6 días a hoy
     for i = 6, 0, -1 do
         local t = today0 - i * 86400 + 3600 * 12 -- mediodía, para no pisar cambios de hora
-        table.insert(st.week, { key = os.date("%Y-%m-%d", t), letter = package.loaded.aire_ui.dayLetter(os.date("*t", t).wday), secs = 0 })
+        table.insert(st.week, {
+            key = os.date("%Y-%m-%d", t),
+            letter = package.loaded.aire_ui.dayLetter(os.date("*t", t).wday),
+            secs = 0,
+        })
     end
 
     -- Pruebas: datos inventados (devtools.lua, opción "Estadísticas de prueba")
     if state.FAKE and state.FAKE.fakeStats then
-        st.year = os.date("%Y", now)
         local ok_f, res = pcall(state.FAKE.fakeStats, st)
-        if ok_f and res then return res end
+        if ok_f and res then
+            cache.stats_key, cache.stats = ckey, res
+            return res
+        end
         logger.warn("Aire/Stats: error en las estadísticas de prueba:", res)
     end
 
     if lfs.attributes(DB_FILE, "mode") == "file" then
+        local year_books
         local ok, err = pcall(withDB, function(conn)
-            -- Hoy y este mes: tiempo y páginas distintas
+            -- Hoy, este mes y este año: tiempo y páginas distintas
             local q_period = "SELECT count(*), sum(d) FROM (SELECT id_book, page, sum(duration) AS d "
                 .. "FROM page_stat_data WHERE start_time >= %d GROUP BY id_book, page)"
             local tp, ts = conn:rowexec(q_period:format(today0))
             st.today_pages, st.today_secs = tonumber(tp) or 0, tonumber(ts) or 0
-            local m = os.date("*t", now)
-            m.day, m.hour, m.min, m.sec = 1, 0, 0, 0
-            local mp, ms = conn:rowexec(q_period:format(os.time(m)))
+
+            local month0 = os.time{ year = now_t.year, month = now_t.month, day = 1, hour = 0 }
+            local mp, ms = conn:rowexec(q_period:format(month0))
             st.month_pages, st.month_secs = tonumber(mp) or 0, tonumber(ms) or 0
-            m.month = 1
-            local yp, ys = conn:rowexec(q_period:format(os.time(m)))
+
+            local year0 = os.time{ year = now_t.year, month = 1, day = 1, hour = 0 }
+            local yp, ys = conn:rowexec(q_period:format(year0))
             st.year_pages, st.year_secs = tonumber(yp) or 0, tonumber(ys) or 0
 
-            -- Últimos 7 días, por día
+            -- Días leídos este mes (para media diaria)
+            local mrd = conn:rowexec(string.format(
+                "SELECT count(DISTINCT date(start_time, 'unixepoch', 'localtime')) "
+                .. "FROM page_stat_data WHERE start_time >= %d AND duration > 0", month0))
+            st.month_read_days = tonumber(mrd) or 0
+            st.month_avg_secs = st.month_read_days > 0 and math.floor(st.month_secs / st.month_read_days) or 0
+            st.month_speed = calcSpeed(st.month_pages, st.month_secs)
+            st.year_speed = calcSpeed(st.year_pages, st.year_secs)
+
+            -- Comparativa mes anterior (mismos días transcurridos del mes anterior)
+            local py, pm = now_t.year, now_t.month - 1
+            if pm < 1 then py, pm = py - 1, 12 end
+            local pm0, pm1, p_ndays = monthRange(py, pm)
+            if now_t.day < p_ndays then
+                pm1 = os.time{ year = py, month = pm, day = now_t.day + 1, hour = 0 }
+            end
+            st.prev_month_secs = queryTotalSecs(conn, pm0, pm1)
+            st.month_delta_pct = calcDelta(st.month_secs, st.prev_month_secs)
+
+            -- Últimos 7 días, por día + semana anterior para comparativa
             local by_day = {}
+            local week0 = today0 - 6 * 86400
             local stmt = conn:prepare("SELECT date(start_time, 'unixepoch', 'localtime') AS day, sum(duration) "
                 .. "FROM page_stat_data WHERE start_time >= ? GROUP BY day")
-            stmt:bind(today0 - 6 * 86400)
+            stmt:bind(week0)
             local row = stmt:step()
             while row do
                 by_day[row[1]] = tonumber(row[2]) or 0
@@ -105,36 +508,52 @@ local function loadStats()
                 d.secs = by_day[d.key] or 0
                 st.week_total = st.week_total + d.secs
             end
+            st.prev_week_total = queryTotalSecs(conn, week0 - 7 * 86400, week0)
+            st.week_delta_pct = calcDelta(st.week_total, st.prev_week_total)
 
-            -- Racha: días seguidos con lectura, contando desde hoy (o desde ayer)
-            local days = {}
+            -- Racha actual y mejor racha histórica
+            local days_set, sorted_days = {}, {}
             stmt = conn:prepare("SELECT DISTINCT date(start_time, 'unixepoch', 'localtime') "
-                .. "FROM page_stat_data WHERE start_time >= ?")
-            stmt:bind(today0 - 400 * 86400)
+                .. "FROM page_stat_data WHERE duration > 0 ORDER BY 1 ASC")
             row = stmt:step()
             while row do
-                days[row[1]] = true
+                if row[1] then
+                    days_set[row[1]] = true
+                    table.insert(sorted_days, row[1])
+                end
                 row = stmt:step()
             end
             stmt:close()
             local t = today0 + 3600 * 12
-            if not days[os.date("%Y-%m-%d", t)] then t = t - 86400 end
-            while days[os.date("%Y-%m-%d", t)] do
+            if not days_set[os.date("%Y-%m-%d", t)] then t = t - 86400 end
+            while days_set[os.date("%Y-%m-%d", t)] do
                 st.streak = st.streak + 1
                 t = t - 86400
             end
+            st.best_streak = computeBestStreak(sorted_days)
+
+            -- Hábitos del año en curso (franjas horarias, días de la semana, géneros)
+            local now_end = now + 1
+            st.time_slots, st.fav_slot = queryTimeSlots(conn, year0, now_end)
+            st.weekdays, st.fav_weekday = queryWeekdays(conn, year0, now_end)
+            year_books = queryBooksInRange(conn, year0, now_end)
+            -- Si este año aún no hay lectura, caemos al histórico completo para hábitos/géneros
+            if #year_books == 0 then
+                st.time_slots, st.fav_slot = queryTimeSlots(conn, 0, now_end)
+                st.weekdays, st.fav_weekday = queryWeekdays(conn, 0, now_end)
+                year_books = queryBooksInRange(conn, 0, now_end)
+            end
 
             -- Libro actual: tiempo leído y velocidad en ese libro
-            local file = G_reader_settings:readSetting("lastfile")
-            if file and lfs.attributes(file, "mode") == "file" then
-                local md5 = util.partialMD5(file)
+            if lastfile ~= "" and lfs.attributes(lastfile, "mode") == "file" then
+                local md5 = util.partialMD5(lastfile)
                 if md5 then
                     local s2 = conn:prepare("SELECT total_read_time, total_read_pages FROM book WHERE md5 = ?")
                     s2:bind(md5)
                     local r2 = s2:step()
                     if r2 then
                         st.current = {
-                            file = file,
+                            file = lastfile,
                             read_secs = tonumber(r2[1]) or 0,
                             read_pages = tonumber(r2[2]) or 0,
                         }
@@ -145,13 +564,15 @@ local function loadStats()
         end)
         if ok then
             st.ok = true
+            if year_books and #year_books > 0 then
+                st.top_genres = computeTopGenres(year_books, getBookKeywordsMap(), 5)
+            end
         else
             logger.warn("Aire/Stats: error leyendo statistics.sqlite3:", err)
         end
     end
 
-    -- Los terminados del año los rellena countFinishedYear (una sola pasada)
-    st.year = os.date("%Y", now)
+    cache.stats_key, cache.stats = ckey, st
     return st
 end
 
@@ -174,36 +595,21 @@ local function historyFinishedYear(year)
     return n
 end
 
+
 ---------------------------------------------------------------------------
 -- Calendario: datos de un mes y de un día
 ---------------------------------------------------------------------------
--- Meses y días traducidos por KOReader (datetime.lua)
-local MONTHS, WEEKDAYS_LONG = {}, {}
-do
-    local dt = require("datetime")
-    for i, m in ipairs({ "January", "February", "March", "April", "May", "June", "July",
-                         "August", "September", "October", "November", "December" }) do
-        MONTHS[i] = dt.longMonthTranslation[m] or m
-    end
-    for i, d in ipairs(dt.weekDays) do
-        WEEKDAYS_LONG[i] = dt.shortDayOfWeekToLongTranslation[d] or d
-    end
-end
-
-local function monthRange(year, month)
-    local t0 = os.time{ year = year, month = month, day = 1, hour = 0 }
-    local ny, nm = year, month + 1
-    if nm > 12 then ny, nm = year + 1, 1 end
-    local t1 = os.time{ year = ny, month = nm, day = 1, hour = 0 }
-    local ndays = tonumber(os.date("%d", t1 - 12 * 3600))
-    return t0, t1, ndays
-end
-
 -- days[d] = { secs, pages }, más totales del mes
 local function loadMonth(year, month)
+    local ckey = cacheKey("m:" .. year .. ":" .. month)
+    if cache.months[ckey] then return cache.months[ckey] end
+
     if state.FAKE and state.FAKE.fakeMonth then
         local ok_f, fres = pcall(state.FAKE.fakeMonth, year, month)
-        if ok_f and fres then return fres end
+        if ok_f and fres then
+            cache.months[ckey] = fres
+            return fres
+        end
     end
     local res = { days = {}, secs = 0, pages = 0, read_days = 0, max = 0 }
     if lfs.attributes(DB_FILE, "mode") ~= "file" then return res end
@@ -230,10 +636,11 @@ local function loadMonth(year, month)
         stmt:close()
     end)
     if not ok then logger.warn("Aire/Stats: error leyendo el mes:", err) end
+    cache.months[ckey] = res
     return res
 end
 
--- Libros leídos un día: { title, secs, pages }, de más a menos tiempo
+-- Libros leídos un día: { id_book, title, secs, pages }, de más a menos tiempo
 local function loadDay(year, month, day)
     if state.FAKE and state.FAKE.fakeDay then
         local ok_f, flist = pcall(state.FAKE.fakeDay, year, month, day)
@@ -264,33 +671,62 @@ local function loadDay(year, month, day)
     return list
 end
 
--- Datos del recap mensual o anual
+
+---------------------------------------------------------------------------
+-- Recapitulación mensual o anual
+---------------------------------------------------------------------------
 local function loadRecap(self, mode, year, month)
+    local ckey = cacheKey("r:" .. mode .. ":" .. year .. ":" .. (month or 0))
+    if cache.recaps[ckey] then return cache.recaps[ckey] end
+
     if state.FAKE and state.FAKE.fakeRecap then
         local ok_f, fres = pcall(state.FAKE.fakeRecap, mode, year, month)
-        if ok_f and fres then return fres end
+        if ok_f and fres then
+            cache.recaps[ckey] = fres
+            return fres
+        end
     end
-    local t0, t1, ndays
+
+    local now = os.time()
+    local now_t = os.date("*t", now)
+    local t0, t1, ndays, pt0, pt1
     if mode == "month" then
         t0, t1, ndays = monthRange(year, month)
+        local py, pm = year, month - 1
+        if pm < 1 then py, pm = py - 1, 12 end
+        local p_ndays
+        pt0, pt1, p_ndays = monthRange(py, pm)
+        if year == now_t.year and month == now_t.month and now_t.day < p_ndays then
+            pt1 = os.time{ year = py, month = pm, day = now_t.day + 1, hour = 0 }
+        end
     else
         t0 = os.time{ year = year, month = 1, day = 1, hour = 0 }
         t1 = os.time{ year = year + 1, month = 1, day = 1, hour = 0 }
         ndays = math.floor((t1 - t0) / 86400 + 0.5)
+        pt0 = os.time{ year = year - 1, month = 1, day = 1, hour = 0 }
+        pt1 = (year == now_t.year) and (pt0 + math.max(0, now - t0)) or t0
     end
+
     local res = {
         mode = mode, year = year, month = month,
         total_secs = 0, total_pages = 0, read_days = 0, total_days = ndays,
+        avg_secs = 0, speed = 0, best_streak = 0,
+        prev_secs = 0, delta_pct = nil,
         bars = {}, best_day = nil, best_month = nil,
-        top_books = {}, top_author = nil, finished_books = {},
+        top_books = {}, top_author = nil, top_genres = {},
+        time_slots = {}, fav_slot = nil,
+        weekdays = {}, fav_weekday = nil,
+        finished_books = {},
     }
-    local by_day, by_month = {}, {}
+
+    local by_day, by_month, sorted_days = {}, {}, {}
+    local period_books = {}
     if lfs.attributes(DB_FILE, "mode") == "file" then
         local ok, err = pcall(withDB, function(conn)
             local stmt = conn:prepare("SELECT day, sum(d), count(*) FROM ("
                 .. "SELECT date(start_time, 'unixepoch', 'localtime') AS day, id_book, page, sum(duration) AS d "
                 .. "FROM page_stat_data WHERE start_time >= ? AND start_time < ? GROUP BY day, id_book, page"
-                .. ") GROUP BY day")
+                .. ") GROUP BY day ORDER BY day ASC")
             stmt:bind(t0, t1)
             local row = stmt:step()
             while row do
@@ -300,6 +736,7 @@ local function loadRecap(self, mode, year, month)
                     res.total_secs = res.total_secs + secs
                     res.total_pages = res.total_pages + pages
                     res.read_days = res.read_days + 1
+                    table.insert(sorted_days, day_str)
                     local ym_m, ym_d = day_str:match("^%d+%-(%d+)%-(%d+)$")
                     local m_num, d_num = tonumber(ym_m), tonumber(ym_d)
                     if m_num then by_month[m_num] = (by_month[m_num] or 0) + secs end
@@ -312,35 +749,25 @@ local function loadRecap(self, mode, year, month)
             end
             stmt:close()
 
-            local sb = conn:prepare("SELECT p.id_book, book.title, book.authors, sum(p.duration) AS s, count(DISTINCT p.page) "
-                .. "FROM page_stat_data AS p JOIN book ON book.id = p.id_book "
-                .. "WHERE p.start_time >= ? AND p.start_time < ? GROUP BY p.id_book ORDER BY s DESC LIMIT 3")
-            sb:bind(t0, t1)
-            local rb = sb:step()
-            while rb do
-                table.insert(res.top_books, {
-                    id_book = tonumber(rb[1]),
-                    title = rb[2] or "?",
-                    authors = rb[3],
-                    secs = tonumber(rb[4]) or 0,
-                    pages = tonumber(rb[5]) or 0,
-                })
-                rb = sb:step()
-            end
-            sb:close()
-
-            local sa = conn:prepare("SELECT book.authors, sum(p.duration) AS s "
-                .. "FROM page_stat_data AS p JOIN book ON book.id = p.id_book "
-                .. "WHERE p.start_time >= ? AND p.start_time < ? AND book.authors IS NOT NULL AND book.authors != '' "
-                .. "GROUP BY book.authors ORDER BY s DESC LIMIT 1")
-            sa:bind(t0, t1)
-            local ra = sa:step()
-            if ra and ra[1] and ra[1] ~= "" then
-                res.top_author = { name = ra[1]:gsub("\n", ", "), secs = tonumber(ra[2]) or 0 }
-            end
-            sa:close()
+            period_books = queryBooksInRange(conn, t0, t1)
+            res.prev_secs = queryTotalSecs(conn, pt0, pt1)
+            res.time_slots, res.fav_slot = queryTimeSlots(conn, t0, t1)
+            res.weekdays, res.fav_weekday = queryWeekdays(conn, t0, t1)
         end)
         if not ok then logger.warn("Aire/Stats: error leyendo el recap:", err) end
+    end
+
+    res.avg_secs = res.read_days > 0 and math.floor(res.total_secs / res.read_days) or 0
+    res.speed = calcSpeed(res.total_pages, res.total_secs)
+    res.best_streak = computeBestStreak(sorted_days)
+    res.delta_pct = calcDelta(res.total_secs, res.prev_secs)
+
+    for i = 1, math.min(3, #period_books) do
+        table.insert(res.top_books, period_books[i])
+    end
+    res.top_author = computeTopAuthor(period_books)
+    if #period_books > 0 then
+        res.top_genres = computeTopGenres(period_books, getBookKeywordsMap(), 5)
     end
 
     if mode == "month" then
@@ -372,9 +799,15 @@ local function loadRecap(self, mode, year, month)
         end
         table.sort(res.finished_books, function(a, b) return (a.mtime or 0) > (b.mtime or 0) end)
     end
+
+    cache.recaps[ckey] = res
     return res
 end
 
+
+---------------------------------------------------------------------------
+-- Borrar registros y terminados del año
+---------------------------------------------------------------------------
 -- Borrar registros de lectura de un libro (solo de un día o de todos)
 -- y restaurar su posición en ReadHistory según el último registro restante
 local function deleteBookStats(id_book, year, month, day)
@@ -429,6 +862,7 @@ local function deleteBookStats(id_book, year, month, day)
         logger.warn("Aire/Stats: error borrando registros:", err)
         return false
     end
+    invalidateCache()
     if md5 then
         pcall(function()
             local ReadHistory = require("readhistory")
@@ -472,7 +906,11 @@ end
 
 return {
     state = state,
+    invalidateCache = invalidateCache,
     fmtDuration = fmtDuration,
+    fmtDelta = fmtDelta,
+    calcSpeed = calcSpeed,
+    calcDelta = calcDelta,
     withDB = withDB,
     dayStart = dayStart,
     loadStats = loadStats,
