@@ -379,6 +379,8 @@ function Aire:apply()
             fm[1] = self:buildCalendarView()
         elseif self.view == "recap" and self.buildRecapView then
             fm[1] = self:buildRecapView()
+        elseif self.view == "habits" and self.buildHabitsView then
+            fm[1] = self:buildHabitsView()
         else
             self.view = "home"
             fm[1] = self:buildHome()
@@ -471,6 +473,7 @@ function Aire:buildViewSnapshot(view)
         if view == "home" then return self:buildHome() end
         if view == "stats" and self.buildStatsView then return self:buildStatsView() end
         if view == "calendar" and self.buildCalendarView then self._cal = nil; return self:buildCalendarView() end
+        if view == "habits" and self.buildHabitsView then return self:buildHabitsView() end
         if (view == "recap_month" or view == "recap_year") and self.buildRecapView then
             local now = os.date("*t")
             self._recap = { mode = view == "recap_year" and "year" or "month", year = now.year, month = now.month }

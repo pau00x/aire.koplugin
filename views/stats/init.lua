@@ -26,11 +26,13 @@ local _ = require("gettext")
 local STATS_DIR = (debug.getinfo(1, "S").source or ""):match("^@(.*)/[^/]*$") or "plugins/aire.koplugin/views/stats"
 -- Datos (base de datos, resúmenes) y gráficos (barras, calendario)
 local StatsData = dofile(STATS_DIR .. "/data.lua")
-local fmtDuration, loadStats, MONTHS, WEEKDAYS_LONG = StatsData.fmtDuration, StatsData.loadStats, StatsData.MONTHS, StatsData.WEEKDAYS_LONG
+local fmtDuration, fmtDelta, calcSpeed = StatsData.fmtDuration, StatsData.fmtDelta, StatsData.calcSpeed
+local loadStats, MONTHS, WEEKDAYS_LONG = StatsData.loadStats, StatsData.MONTHS, StatsData.WEEKDAYS_LONG
 local loadMonth, loadDay, loadRecap = StatsData.loadMonth, StatsData.loadDay, StatsData.loadRecap
 local deleteBookStats, countFinishedYear = StatsData.deleteBookStats, StatsData.countFinishedYear
 local Charts = dofile(STATS_DIR .. "/charts.lua")(StatsData)
-local WeekBars, RecapBars, CalendarGrid = Charts.WeekBars, Charts.RecapBars, Charts.CalendarGrid
+local WeekBars, HorizontalBars, WeekdayBars = Charts.WeekBars, Charts.HorizontalBars, Charts.WeekdayBars
+local RecapBars, CalendarGrid = Charts.RecapBars, Charts.CalendarGrid
 
 ---------------------------------------------------------------------------
 -- Mixin
@@ -78,17 +80,51 @@ return function(Aire, ctx)
         return TextWidget:new{ text = text, face = face(true, 12), fgcolor = GRAY_TEXT, padding = 0 }
     end
 
-    local function tile(w, big, small)
-        local pad = S(10)
-        local inner_w = w - 2 * Size.border.thin
-        local big_w = TextWidget:new{ text = big, face = face(true, 20), fgcolor = BLACK, max_width = inner_w - 2 * pad, padding = 0 }
-        local small_w = TextWidget:new{ text = small, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = inner_w - 2 * pad, padding = 0 }
-        local vg = VerticalGroup:new{
-            align = "center",
-            big_w,
-            VerticalSpan:new{ width = S(2) },
-            small_w,
+    local function sectionRow(w, left_text, right_w)
+        local lw = sectionLabel(left_text)
+        if not right_w then return lw end
+        local h = math.max(lw:getSize().h, right_w:getSize().h)
+        return OverlapGroup:new{
+            dimen = Geom:new{ w = w, h = h },
+            LeftContainer:new{ dimen = Geom:new{ w = w, h = h }, lw },
+            RightContainer:new{ dimen = Geom:new{ w = w, h = h }, right_w },
         }
+    end
+
+    local function deltaBadge(pct)
+        local txt = fmtDelta(pct)
+        if not txt then return nil end
+        return FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(5),
+            padding_top = S(1), padding_bottom = S(1),
+            padding_left = S(5), padding_right = S(5),
+            TextWidget:new{ text = txt, face = face(true, 11), fgcolor = BLACK, padding = 0 },
+        }
+    end
+
+    local function slotLabel(id)
+        if id == "morning" then return _("Morning")
+        elseif id == "afternoon" then return _("Afternoon")
+        elseif id == "evening" then return _("Evening")
+        elseif id == "night" then return _("Night") end
+        return ""
+    end
+
+    local function tile(w, big, small, icon)
+        local pad = S(9)
+        local inner_w = w - 2 * Size.border.thin
+        local big_w = TextWidget:new{ text = big, face = face(true, 18), fgcolor = BLACK, max_width = inner_w - 2 * pad, padding = 0 }
+        local small_w = TextWidget:new{ text = small, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = inner_w - 2 * pad, padding = 0 }
+        local vg = VerticalGroup:new{ align = "center" }
+        if icon then
+            table.insert(vg, IconWidget:new{ icon = icon, width = S(16), height = S(16), alpha = true })
+            table.insert(vg, VerticalSpan:new{ width = S(4) })
+        end
+        table.insert(vg, big_w)
+        table.insert(vg, VerticalSpan:new{ width = S(2) })
+        table.insert(vg, small_w)
         local h = vg:getSize().h + 2 * pad
         return FrameContainer:new{
             bordersize = Size.border.thin,
@@ -98,6 +134,32 @@ return function(Aire, ctx)
             width = w,
             height = h + 2 * Size.border.thin,
             CenterContainer:new{ dimen = Geom:new{ w = inner_w, h = h }, vg },
+        }
+    end
+
+    local function navCard(cw, card_title, card_sub)
+        local pad = S(10)
+        local chev = IconWidget:new{ icon = "chevron.right", width = S(16), height = S(16), alpha = true }
+        local inner_w = cw - 2 * (pad + Size.border.thin)
+        local text_w = inner_w - chev:getSize().w - S(6)
+        local tg = VerticalGroup:new{
+            align = "left",
+            TextWidget:new{ text = card_title, face = face(true, 14), fgcolor = BLACK, max_width = text_w, padding = 0 },
+            VerticalSpan:new{ width = S(2) },
+            TextWidget:new{ text = card_sub, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = text_w, padding = 0 },
+        }
+        local row_h = math.max(tg:getSize().h, chev:getSize().h)
+        return FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = pad,
+            width = cw,
+            OverlapGroup:new{
+                dimen = Geom:new{ w = inner_w, h = row_h },
+                LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = row_h }, tg },
+                RightContainer:new{ dimen = Geom:new{ w = inner_w, h = row_h }, chev },
+            },
         }
     end
 
@@ -118,7 +180,7 @@ return function(Aire, ctx)
         local pages = tonumber(info.pages) or tonumber(props.pages)
         local title = props.display_title or props.title or (file:match("([^/]+)$") or file)
 
-        -- Línea de tiempo: leído y estimación de lo que queda (velocidad en este libro)
+        -- Línea de tiempo: leído, estimación restante y velocidad en este libro
         local line = _("No stats for this book")
         if cur and cur.read_secs > 0 then
             line = fmtDuration(cur.read_secs)
@@ -126,10 +188,14 @@ return function(Aire, ctx)
                 local left = math.max(0, pages * (1 - pf)) * (cur.read_secs / cur.read_pages)
                 line = line .. " · " .. T(_("~%1 left"), fmtDuration(left))
             end
+            local speed = calcSpeed(cur.read_pages, cur.read_secs)
+            if speed > 0 then
+                line = line .. " · " .. T(_("%1 pp./h"), speed)
+            end
         end
 
         local pad = S(10)
-        local cover_h = S(70)
+        local cover_h = S(64)
         local cover
         local ok_bim, BIM = pcall(require, "bookinfomanager")
         if ok_bim and type(BIM) == "table" then
@@ -149,17 +215,28 @@ return function(Aire, ctx)
         end
         local cover_w = cover and cover:getSize().w or 0
         local col_w = w - 2 * (pad + Size.border.thin) - cover_w - (cover and S(12) or 0)
+        local pct_w = TextWidget:new{
+            text = ("%d%%"):format(math.floor(math.max(0, math.min(1, pf)) * 100 + 0.5)),
+            face = face(true, 11), fgcolor = GRAY_TEXT, padding = 0,
+        }
+        local bar_w = math.max(S(40), col_w - pct_w:getSize().w - S(8))
+        local prog_row = HorizontalGroup:new{
+            align = "center",
+            ProgressWidget:new{
+                width = bar_w, height = S(7), percentage = math.max(0, math.min(1, pf)),
+                fillcolor = Blitbuffer.COLOR_DARK_GRAY, bgcolor = Blitbuffer.COLOR_GRAY_D, bordersize = 0,
+                radius = S(4), margin_h = 0, margin_v = 0,
+            },
+            HorizontalSpan:new{ width = S(8) },
+            pct_w,
+        }
         local col = VerticalGroup:new{
             align = "left",
             TextWidget:new{ text = title, face = face(true, 15), fgcolor = BLACK, max_width = col_w, padding = 0 },
             VerticalSpan:new{ width = S(3) },
-            TextWidget:new{ text = line, face = face(false, 13), fgcolor = GRAY_TEXT, max_width = col_w, padding = 0 },
-            VerticalSpan:new{ width = S(8) },
-            ProgressWidget:new{
-                width = col_w, height = S(8), percentage = math.max(0, math.min(1, pf)),
-                fillcolor = Blitbuffer.COLOR_DARK_GRAY, bgcolor = Blitbuffer.COLOR_GRAY_D, bordersize = 0, -- sin borde
-                radius = S(4), margin_h = 0, margin_v = 0,
-            },
+            TextWidget:new{ text = line, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = col_w, padding = 0 },
+            VerticalSpan:new{ width = S(7) },
+            prog_row,
         }
         local row = HorizontalGroup:new{ align = "center" }
         if cover then
@@ -187,49 +264,62 @@ return function(Aire, ctx)
         local w = sw - 2 * side
 
         local content = self:buildScreenTop(w, { title = _("Stats") })
-        local sub_txt = st.ok
-            and T(_("This month · %1 · %2 pp."), fmtDuration(st.month_secs), st.month_pages)
-            or _("Activity summary")
+        local sub_txt
+        if st.ok then
+            sub_txt = T(_("This month · %1 · %2 pp."), fmtDuration(st.month_secs), st.month_pages)
+            local m_delta = fmtDelta(st.month_delta_pct)
+            if m_delta then sub_txt = sub_txt .. " · " .. m_delta end
+        else
+            sub_txt = _("Activity summary")
+        end
         -- Subtítulo común (ui/screen.lua); al tocarlo, el calendario
         local sub_row = package.loaded.aire_screen.subtitle(w, sub_txt)
         table.insert(content, tappable(sub_row, function() self:showCalendarView() end, nil, { h = 0, v = S(6) }))
-        table.insert(content, VerticalSpan:new{ width = S(12) })
+        table.insert(content, VerticalSpan:new{ width = S(10) })
 
         if not st.ok then
             table.insert(content, TextWidget:new{
                 text = _("No data: enable the Statistics plugin and read a bit"),
                 face = face(false, 14), fgcolor = GRAY_TEXT, max_width = w, padding = 0,
             })
-            table.insert(content, VerticalSpan:new{ width = S(14) })
+            table.insert(content, VerticalSpan:new{ width = S(12) })
         end
 
-        -- Casillas: hoy, racha, terminados
+        -- 3 casillas superiores (las únicas con icono): hoy, racha, terminados
         local tgap = S(10)
         local tw = math.floor((w - 2 * tgap) / 3)
         local today_small = T(_("today · %1 pp."), st.today_pages)
+        local streak_small = (st.best_streak and st.best_streak > 0)
+            and T(_("streak · max %1"), st.best_streak)
+            or _("streak")
         table.insert(content, HorizontalGroup:new{
             align = "top",
-            tappable(tile(tw, fmtDuration(st.today_secs), today_small), function() self:showCalendarView() end),
-            HorizontalSpan:new{ width = tgap },
-            tappable(tile(tw, T(N_("%1 day", "%1 days", st.streak), st.streak), _("streak")),
+            tappable(tile(tw, fmtDuration(st.today_secs), today_small, "aire.widget.timer"),
                 function() self:showCalendarView() end),
             HorizontalSpan:new{ width = tgap },
-            tappable(tile(w - 2 * (tw + tgap), tostring(st.finished_year), T(_("finished in %1"), st.year)),
+            tappable(tile(tw, T(N_("%1 day", "%1 days", st.streak), st.streak), streak_small, "aire.widget.flame"),
+                function() self:showCalendarView() end),
+            HorizontalSpan:new{ width = tgap },
+            tappable(tile(w - 2 * (tw + tgap), tostring(st.finished_year), T(_("finished in %1"), st.year), "aire.widget.done"),
                 function() if self.showGridView then self:showGridView("finished") end end),
         })
 
-        -- Últimos 7 días (tocar: calendario de KOReader)
-        table.insert(content, VerticalSpan:new{ width = S(20) })
-        table.insert(content, sectionLabel(_("LAST 7 DAYS") .. " · " .. fmtDuration(st.week_total)))
-        table.insert(content, VerticalSpan:new{ width = S(8) })
-        table.insert(content, tappable(WeekBars:new{ width = w, height = S(110), days = st.week }, function()
+        -- Últimos 7 días (con comparativa y línea de media diaria; tocar: calendario)
+        table.insert(content, VerticalSpan:new{ width = S(16) })
+        table.insert(content, sectionRow(w, _("LAST 7 DAYS") .. " · " .. fmtDuration(st.week_total), deltaBadge(st.week_delta_pct)))
+        table.insert(content, VerticalSpan:new{ width = S(6) })
+        local avg_7 = st.week_total > 0 and math.floor(st.week_total / 7) or 0
+        table.insert(content, tappable(WeekBars:new{
+            width = w, height = S(96), days = st.week,
+            avg_secs = avg_7, avg_label = avg_7 > 0 and T(_("avg %1"), fmtDuration(avg_7)) or nil,
+        }, function()
             self:showCalendarView()
         end))
 
         -- Leyendo ahora
-        table.insert(content, VerticalSpan:new{ width = S(20) })
+        table.insert(content, VerticalSpan:new{ width = S(16) })
         table.insert(content, sectionLabel(_("CURRENTLY READING")))
-        table.insert(content, VerticalSpan:new{ width = S(8) })
+        table.insert(content, VerticalSpan:new{ width = S(6) })
         local ok_cur, cur = pcall(self.buildStatsCurrent, self, w, st)
         if ok_cur then
             table.insert(content, cur)
@@ -237,50 +327,177 @@ return function(Aire, ctx)
             logger.warn("Aire/Stats: error en el libro actual:", cur)
         end
 
-        -- Recap mensual y anual
-        table.insert(content, VerticalSpan:new{ width = S(20) })
-        table.insert(content, sectionLabel(_("RECAP")))
+        -- Explorar: Géneros y hábitos + Recaps (tarjetas limpias sin iconos)
+        table.insert(content, VerticalSpan:new{ width = S(16) })
+        table.insert(content, sectionLabel(_("EXPLORE")))
+        table.insert(content, VerticalSpan:new{ width = S(6) })
+
+        local hab_parts = {}
+        if st.top_genres and #st.top_genres > 0 then
+            for i = 1, math.min(2, #st.top_genres) do
+                local g = st.top_genres[i]
+                table.insert(hab_parts, ("%s (%d%%)"):format(g.label, g.pct))
+            end
+        end
+        if st.fav_slot then
+            table.insert(hab_parts, slotLabel(st.fav_slot))
+        end
+        local hab_sub = #hab_parts > 0 and table.concat(hab_parts, " · ") or _("No reading habits yet")
+        table.insert(content, tappable(navCard(w, _("Genres & habits"), hab_sub), function()
+            self:showHabitsView()
+        end))
         table.insert(content, VerticalSpan:new{ width = S(8) })
+
         local rgap = S(10)
         local rw = math.floor((w - rgap) / 2)
-        local function recapCard(cw, card_title, card_sub)
-            local pad = S(10)
-            local chev = IconWidget:new{ icon = "chevron.right", width = S(16), height = S(16), alpha = true }
-            local inner_w = cw - 2 * (pad + Size.border.thin)
-            local text_w = inner_w - chev:getSize().w - S(6)
-            local tg = VerticalGroup:new{
-                align = "left",
-                TextWidget:new{ text = card_title, face = face(true, 14), fgcolor = BLACK, max_width = text_w, padding = 0 },
-                VerticalSpan:new{ width = S(2) },
-                TextWidget:new{ text = card_sub, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = text_w, padding = 0 },
-            }
-            local row_h = math.max(tg:getSize().h, chev:getSize().h)
-            return FrameContainer:new{
-                bordersize = Size.border.thin,
-                color = BLACK,
-                radius = S(10),
-                padding = pad,
-                width = cw,
-                OverlapGroup:new{
-                    dimen = Geom:new{ w = inner_w, h = row_h },
-                    LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = row_h }, tg },
-                    RightContainer:new{ dimen = Geom:new{ w = inner_w, h = row_h }, chev },
-                },
-            }
-        end
         local now_m = tonumber(os.date("%m"))
         local month_sub = st.ok and (MONTHS[now_m] .. " · " .. fmtDuration(st.month_secs)) or MONTHS[now_m]
         local year_sub = st.ok and (st.year .. " · " .. fmtDuration(st.year_secs)) or st.year
         table.insert(content, HorizontalGroup:new{
             align = "top",
-            tappable(recapCard(rw, _("Monthly recap"), month_sub), function() self:showRecapView("month") end),
+            tappable(navCard(rw, _("Monthly recap"), month_sub), function() self:showRecapView("month") end),
             HorizontalSpan:new{ width = rgap },
-            tappable(recapCard(w - rw - rgap, _("Annual recap"), year_sub), function() self:showRecapView("year") end),
+            tappable(navCard(w - rw - rgap, _("Annual recap"), year_sub), function() self:showRecapView("year") end),
         })
         content:resetLayout()
 
         local dock = self:buildNavBar(w)
         return package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
+    end
+
+    -------------------------------------------------------------------------
+    -- Géneros y hábitos (se abre desde la tarjeta en Estadísticas)
+    -------------------------------------------------------------------------
+    function Aire:buildHabitsView()
+        StatsData.state.FAKE = (config.demo_stats and self.getTestTools and self:getTestTools()) or nil
+        local st = loadStats()
+        local sw = Screen:getWidth()
+        local side = S(ctx.SIDE_PAD)
+        local w = sw - 2 * side
+
+        local content = self:buildScreenTop(w, {
+            title = _("Genres & habits"),
+            on_back = function() self:showStatsView() end,
+        })
+        local sub_parts = { st.year }
+        if st.year_speed and st.year_speed > 0 then
+            table.insert(sub_parts, T(_("%1 pp./h"), st.year_speed))
+        end
+        if st.best_streak and st.best_streak > 0 then
+            table.insert(sub_parts, T(_("Best streak: %1"),
+                T(N_("%1 day", "%1 days", st.best_streak), st.best_streak)))
+        end
+        table.insert(content, (package.loaded.aire_screen.subtitle(w, table.concat(sub_parts, " · "))))
+        table.insert(content, VerticalSpan:new{ width = S(14) })
+
+        -- Top 5 géneros más leídos
+        table.insert(content, sectionLabel(_("MOST READ GENRES")))
+        table.insert(content, VerticalSpan:new{ width = S(8) })
+        if st.top_genres and #st.top_genres > 0 then
+            local max_secs = st.top_genres[1].secs or 1
+            local items = {}
+            for _i, g in ipairs(st.top_genres) do
+                local books_txt = T(N_("%1 book", "%1 books", g.books), g.books)
+                table.insert(items, {
+                    label = g.label,
+                    detail = ("%d%% · %s · %s"):format(g.pct, fmtDuration(g.secs), books_txt),
+                    ratio = max_secs > 0 and (g.secs / max_secs) or 0,
+                })
+            end
+            table.insert(content, HorizontalBars:new{ width = w, items = items })
+        else
+            table.insert(content, TextWidget:new{
+                text = _("No genre metadata yet"),
+                face = face(false, 13), fgcolor = GRAY_TEXT, max_width = w, padding = 0,
+            })
+        end
+
+        -- Franja horaria (4 tarjetas limpias; la favorita en negro)
+        table.insert(content, VerticalSpan:new{ width = S(20) })
+        local fav_slot_w = nil
+        if st.fav_slot and st.time_slots then
+            for _i, s in ipairs(st.time_slots) do
+                if s.id == st.fav_slot and s.pct > 0 then
+                    fav_slot_w = TextWidget:new{
+                        text = ("%s (%d%%)"):format(slotLabel(s.id), s.pct),
+                        face = face(true, 12), fgcolor = BLACK, padding = 0,
+                    }
+                    break
+                end
+            end
+        end
+        table.insert(content, sectionRow(w, _("WHEN YOU READ"), fav_slot_w))
+        table.insert(content, VerticalSpan:new{ width = S(8) })
+        if st.time_slots and #st.time_slots == 4 then
+            local sgap = S(8)
+            local sw_card = math.floor((w - 3 * sgap) / 4)
+            local srow = HorizontalGroup:new{ align = "top" }
+            for i, s in ipairs(st.time_slots) do
+                if i > 1 then table.insert(srow, HorizontalSpan:new{ width = sgap }) end
+                local cw = (i == 4) and (w - 3 * (sw_card + sgap)) or sw_card
+                local active = (s.id == st.fav_slot and s.secs > 0)
+                local pad = S(8)
+                local inner_w = cw - 2 * Size.border.thin
+                local vg = VerticalGroup:new{
+                    align = "center",
+                    TextWidget:new{
+                        text = ("%d%%"):format(s.pct),
+                        face = face(true, 16), fgcolor = active and WHITE or BLACK,
+                        max_width = inner_w - 2 * pad, padding = 0,
+                    },
+                    VerticalSpan:new{ width = S(2) },
+                    TextWidget:new{
+                        text = slotLabel(s.id),
+                        face = face(false, 11), fgcolor = active and WHITE or GRAY_TEXT,
+                        max_width = inner_w - 2 * pad, padding = 0,
+                    },
+                }
+                local h = vg:getSize().h + 2 * pad
+                table.insert(srow, FrameContainer:new{
+                    bordersize = Size.border.thin,
+                    color = BLACK,
+                    background = active and BLACK or WHITE,
+                    radius = S(10),
+                    padding = 0,
+                    width = cw,
+                    height = h + 2 * Size.border.thin,
+                    CenterContainer:new{ dimen = Geom:new{ w = inner_w, h = h }, vg },
+                })
+            end
+            table.insert(content, srow)
+        end
+
+        -- Días de la semana (L-D)
+        table.insert(content, VerticalSpan:new{ width = S(20) })
+        local fav_wd_w = nil
+        if st.fav_weekday and st.weekdays and st.weekdays[st.fav_weekday] and st.weekdays[st.fav_weekday].secs > 0 then
+            local lua_wday = (st.fav_weekday % 7) + 1
+            local wd_name = WEEKDAYS_LONG[lua_wday] or ""
+            fav_wd_w = TextWidget:new{
+                text = ("%s (%d%%)"):format(wd_name, st.weekdays[st.fav_weekday].pct),
+                face = face(true, 12), fgcolor = BLACK, padding = 0,
+            }
+        end
+        table.insert(content, sectionRow(w, _("DAYS OF THE WEEK"), fav_wd_w))
+        table.insert(content, VerticalSpan:new{ width = S(8) })
+        if st.weekdays and #st.weekdays == 7 then
+            table.insert(content, WeekdayBars:new{
+                width = w, height = S(90), days = st.weekdays, fav = st.fav_weekday,
+            })
+        end
+        content:resetLayout()
+
+        local dock = self:buildNavBar(w)
+        return package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
+    end
+
+    function Aire:showHabitsView()
+        if self.closeGridViews then self:closeGridViews(true) end
+        config.mode = "library"
+        saveConfig()
+        self.view = "habits"
+        self:apply()
+        UIManager:setDirty(self.ui, "flashui")
     end
 
     -------------------------------------------------------------------------

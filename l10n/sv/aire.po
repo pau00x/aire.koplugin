@@ -50,7 +50,7 @@ msgid_plural "%1 collections"
 msgstr[0] "%1 samling"
 msgstr[1] "%1 samlingar"
 
-#: views/stats/init.lua:214
+#: views/stats/init.lua:300 views/stats/init.lua:388
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 dag"
@@ -62,7 +62,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "för %1 dag sedan"
 msgstr[1] "för %1 dagar sedan"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:303 views/stats/init.lua:643
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:520 views/stats/init.lua:860
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 läsdag"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 sida läst"
 msgstr[1] "%1 sidor lästa"
 
-#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:302
+#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:519
 msgid "%1 pp."
 msgstr "%1 s."
 
-#: views/stats/init.lua:621
+#: views/stats/init.lua:193 views/stats/init.lua:384 views/stats/init.lua:838
 msgid "%1 pp./h"
 msgstr "%1 s./h"
 
@@ -150,7 +150,7 @@ msgstr "%d av 5 stjärnor"
 msgid "+ Brightness"
 msgstr "+ Ljusstyrka"
 
-#: views/stats/init.lua:478
+#: views/stats/init.lua:695
 msgid "+%1 more"
 msgstr "+%1 till"
 
@@ -194,7 +194,7 @@ msgstr "TILLAGD"
 msgid "Active"
 msgstr "Aktiv"
 
-#: views/stats/init.lua:192
+#: views/stats/init.lua:273
 msgid "Activity summary"
 msgstr "Aktivitetsöversikt"
 
@@ -223,6 +223,10 @@ msgstr "Avancerat"
 #: core/genres.lua:103
 msgctxt "aire"
 msgid "Adventure"
+msgstr ""
+
+#: views/stats/init.lua:109
+msgid "Afternoon"
 msgstr ""
 
 #: _meta.lua:9
@@ -269,11 +273,11 @@ msgstr "Alla färdiga"
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:578
+#: views/stats/init.lua:795
 msgid "Annual"
 msgstr "Årlig"
 
-#: views/stats/init.lua:278
+#: views/stats/init.lua:360
 msgid "Annual recap"
 msgstr "Årssammanfattning"
 
@@ -281,7 +285,7 @@ msgstr "Årssammanfattning"
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:774 menu.lua:331 styles/filemanager/sortwidget.lua:122 styles/filemanager/sortwidget.lua:133
+#: dev/devtools.lua:774 menu.lua:331 styles/filemanager/sortwidget.lua:122 styles/filemanager/sortwidget.lua:135
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -352,13 +356,17 @@ msgstr ""
 msgid "Battery"
 msgstr "Batteri"
 
-#: views/stats/init.lua:661
+#: views/stats/init.lua:878
 msgid "Best day"
 msgstr "Bästa dag"
 
-#: views/stats/init.lua:664
+#: views/stats/init.lua:881
 msgid "Best month"
 msgstr "Bästa månad"
+
+#: views/stats/init.lua:387
+msgid "Best streak: %1"
+msgstr ""
 
 #: core/genres.lua:110
 msgctxt "aire"
@@ -467,11 +475,11 @@ msgstr "AKTUELLT KAPITEL · SIDA %d"
 msgid "CURRENT SESSION"
 msgstr "AKTUELL SESSION"
 
-#: views/home.lua:382 views/stats/init.lua:231
+#: views/home.lua:382 views/stats/init.lua:321
 msgid "CURRENTLY READING"
 msgstr "LÄSER NU"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:299
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:516
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -487,7 +495,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:127 views/stats/init.lua:416
+#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:633
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -570,7 +578,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "Rensa miniatyrbilder av omslag"
 
-#: dev/devtools.lua:686 styles/filemanager/sortwidget.lua:120 styles/filemanager/sortwidget.lua:127 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:686 styles/filemanager/sortwidget.lua:120 styles/filemanager/sortwidget.lua:129 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -687,11 +695,15 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Läser nu"
 
-#: views/stats/init.lua:641
+#: views/stats/init.lua:858
 msgid "DAILY RHYTHM"
 msgstr "DAGLIG RYTM"
 
-#: views/stats/init.lua:656
+#: views/stats/init.lua:481
+msgid "DAYS OF THE WEEK"
+msgstr ""
+
+#: views/stats/init.lua:873
 msgid "Daily average"
 msgstr "Dagligt snitt"
 
@@ -707,7 +719,7 @@ msgstr "Datum"
 msgid "Date finished"
 msgstr "Slutdatum"
 
-#: views/stats/init.lua:659
+#: views/stats/init.lua:876
 msgid "Day %1"
 msgstr "Dag %1"
 
@@ -725,16 +737,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "december"
 
-#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:436
+#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:653
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:447
+#: views/stats/init.lua:664
 msgid "Delete all book stats"
 msgstr "Ta bort all statistik för boken"
 
-#: views/stats/init.lua:451
+#: views/stats/init.lua:668
 msgid "Delete all stats?"
 msgstr "Ta bort all statistik?"
 
@@ -743,11 +755,11 @@ msgstr "Ta bort all statistik?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:434
+#: views/stats/init.lua:651
 msgid "Delete minutes for this day?"
 msgstr "Ta bort minuterna för den här dagen?"
 
-#: views/stats/init.lua:430
+#: views/stats/init.lua:647
 msgid "Delete minutes from this day"
 msgstr "Ta bort minuterna för den här dagen"
 
@@ -820,6 +832,10 @@ msgstr ""
 msgid "EDITING WIDGETS"
 msgstr "REDIGERAR WIDGETAR"
 
+#: views/stats/init.lua:332
+msgid "EXPLORE"
+msgstr ""
+
 #: dev/devtools.lua:604 dev/devtools.lua:851
 msgid "Edgedancer"
 msgstr ""
@@ -891,6 +907,10 @@ msgstr ""
 msgid "Estimated reading time left"
 msgstr ""
 
+#: views/stats/init.lua:110
+msgid "Evening"
+msgstr ""
+
 #: menu.lua:90
 msgid "Everything drawn by the plugin, with mock data. Swipe ← → to turn pages; tap outside or on the page to exit."
 msgstr "Allt som insticksmodulen ritar, med exempeldata. Svep ← → för att bläddra; tryck utanför eller på sidan för att avsluta."
@@ -932,7 +952,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "februari"
 
-#: menu.lua:566 views/dock.lua:247
+#: menu.lua:566 views/dock.lua:249
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -1053,6 +1073,10 @@ msgstr "Helskärmar"
 msgid "Galician"
 msgstr ""
 
+#: views/stats/init.lua:346 views/stats/init.lua:379
+msgid "Genres & habits"
+msgstr ""
+
 #: styles/filemanager/bookinfo.lua:217
 #, koreader
 msgid "German"
@@ -1094,11 +1118,11 @@ msgstr "Rutnät: %1 kolumner"
 msgid "HIGHLIGHT"
 msgstr "MARKERING"
 
-#: views/stats/init.lua:649
+#: views/stats/init.lua:866
 msgid "HIGHLIGHTS"
 msgstr "HÖJDPUNKTER"
 
-#: views/stats/init.lua:379
+#: views/stats/init.lua:596
 msgid "Hasn't arrived yet"
 msgstr "Har inte kommit än"
 
@@ -1260,7 +1284,7 @@ msgstr ""
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats/init.lua:223
+#: views/stats/init.lua:309
 msgid "LAST 7 DAYS"
 msgstr "SENASTE 7 DAGARNA"
 
@@ -1315,7 +1339,7 @@ msgstr "Layout"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:752 views/dock.lua:37 views/dock.lua:246 views/grid/init.lua:1262
+#: dev/devtools.lua:752 views/dock.lua:37 views/dock.lua:248 views/grid/init.lua:1262
 msgid "Library"
 msgstr "Bibliotek"
 
@@ -1371,15 +1395,19 @@ msgstr "TRÄFF"
 msgid "MATCH %d"
 msgstr "TRÄFF %d"
 
-#: views/stats/init.lua:641
+#: views/stats/init.lua:858
 msgid "MONTHLY RHYTHM"
 msgstr "MÅNATLIG RYTM"
 
-#: views/stats/init.lua:673
+#: views/stats/init.lua:890
 msgid "MOST READ"
 msgstr "MEST LÄSTA"
 
-#: views/dock.lua:244
+#: views/stats/init.lua:394
+msgid "MOST READ GENRES"
+msgstr ""
+
+#: views/dock.lua:246
 msgid "Main view"
 msgstr "Huvudvy"
 
@@ -1461,11 +1489,11 @@ msgstr "Blanda mappar"
 msgid "Mix series"
 msgstr "Blanda serier"
 
-#: views/stats/init.lua:576
+#: views/stats/init.lua:793
 msgid "Monthly"
 msgstr "Månatlig"
 
-#: views/stats/init.lua:276
+#: views/stats/init.lua:358
 msgid "Monthly recap"
 msgstr "Månadssammanfattning"
 
@@ -1487,6 +1515,10 @@ msgstr "Fler inställningar"
 
 #: dev/devtools.lua:620
 msgid "More…"
+msgstr ""
+
+#: views/stats/init.lua:108
+msgid "Morning"
 msgstr ""
 
 #: menu.lua:511
@@ -1585,6 +1617,11 @@ msgstr ""
 msgid "Next in series"
 msgstr "Nästa i serien"
 
+#: views/stats/init.lua:111
+#, koreader
+msgid "Night"
+msgstr ""
+
 #: views/widgets/catalog.lua:337
 #, koreader
 msgid "Night mode"
@@ -1594,7 +1631,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "Inga CoverBrowser-data"
 
-#: views/home.lua:251 views/stats/init.lua:108
+#: views/home.lua:251 views/stats/init.lua:170
 msgid "No book in progress"
 msgstr "Ingen pågående bok"
 
@@ -1634,9 +1671,13 @@ msgstr "Inga samlingar med detta filter"
 msgid "No current book"
 msgstr "Ingen aktuell bok"
 
-#: views/stats/init.lua:200
+#: views/stats/init.lua:282
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Ingen data: aktivera insticksmodulen Statistik och läs lite"
+
+#: views/stats/init.lua:410
+msgid "No genre metadata yet"
+msgstr ""
 
 #: styles/ui/pagination.lua:104
 #, koreader
@@ -1651,9 +1692,13 @@ msgstr "Ingen nästa oläst bok"
 msgid "No previous book"
 msgstr "Ingen föregående bok"
 
-#: styles/plugins/statspages.lua:347 views/stats/init.lua:612
+#: styles/plugins/statspages.lua:347 views/stats/init.lua:829
 msgid "No reading activity in this period"
 msgstr "Ingen läsaktivitet under perioden"
+
+#: views/stats/init.lua:345
+msgid "No reading habits yet"
+msgstr ""
 
 #: styles/plugins/calendar.lua:233
 msgid "No reading sessions this month"
@@ -1668,7 +1713,7 @@ msgstr ""
 msgid "No saved shortcuts"
 msgstr "Inga sparade genvägar"
 
-#: views/stats/init.lua:122
+#: views/stats/init.lua:184
 msgid "No stats for this book"
 msgstr "Ingen statistik för denna bok"
 
@@ -1935,10 +1980,6 @@ msgstr "LÄSNING"
 msgid "READING STATUS"
 msgstr "LÄSSTATUS"
 
-#: views/stats/init.lua:242
-msgid "RECAP"
-msgstr "SAMMANFATTNING"
-
 #: styles/filemanager/bookinfo.lua:1002 styles/filemanager/bookstatus.lua:390
 msgid "REVIEW / NOTES"
 msgstr "RECENSION / ANTECKNINGAR"
@@ -2001,7 +2042,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:539
+#: views/stats/init.lua:756
 msgid "Recap"
 msgstr "Sammanfattning"
 
@@ -2349,7 +2390,7 @@ msgstr "Starta"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:41 views/stats/init.lua:189
+#: views/dock.lua:41 views/stats/init.lua:266
 msgid "Stats"
 msgstr "Statistik"
 
@@ -2471,7 +2512,7 @@ msgstr "Den här kopian har mappen dev/ (tester). Den nya versionen har den inte
 msgid "This month"
 msgstr "Denna månad"
 
-#: views/stats/init.lua:191
+#: views/stats/init.lua:269
 msgid "This month · %1 · %2 pp."
 msgstr "Denna månad · %1 · %2 s."
 
@@ -2548,7 +2589,7 @@ msgstr "I dag och svit"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:667
+#: views/stats/init.lua:884
 msgid "Top author"
 msgstr "Mest läst författare"
 
@@ -2629,6 +2670,10 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "VECKOAKTIVITET"
 
+#: views/stats/init.lua:429
+msgid "WHEN YOU READ"
+msgstr ""
+
 #: dev/devtools.lua:812
 msgid "What do you want to do with this book?"
 msgstr ""
@@ -2670,7 +2715,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Du har redan den senaste versionen (%1)."
 
-#: views/stats/init.lua:379
+#: views/stats/init.lua:596
 msgid "You didn't read that day"
 msgstr "Du läste inte den dagen"
 
@@ -2712,6 +2757,10 @@ msgstr "och markeringar"
 msgid "at %1 %"
 msgstr "vid %1 %"
 
+#: views/stats/init.lua:314
+msgid "avg %1"
+msgstr ""
+
 #: styles/plugins/readerprogress.lua:159
 msgid "avg. / day"
 msgstr "snitt / dag"
@@ -2747,13 +2796,13 @@ msgstr ""
 msgid "files"
 msgstr "filer"
 
-#: views/stats/init.lua:629 views/widgets/catalog.lua:282
+#: views/stats/init.lua:846 views/widgets/catalog.lua:282
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "färdig bok"
 msgstr[1] "färdiga böcker"
 
-#: views/stats/init.lua:217
+#: views/stats/init.lua:303
 msgid "finished in %1"
 msgstr "färdiga under %1"
 
@@ -2803,7 +2852,7 @@ msgstr "s. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "s. %1 av %2"
 
-#: views/stats/init.lua:621
+#: views/stats/init.lua:838
 msgid "pages read"
 msgstr "lästa sidor"
 
@@ -2811,7 +2860,7 @@ msgstr "lästa sidor"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats/init.lua:625
+#: views/stats/init.lua:842
 msgid "reading time"
 msgstr "lästid"
 
@@ -2843,7 +2892,7 @@ msgstr "sök ord"
 msgid "shortcuts"
 msgstr "genvägar"
 
-#: views/stats/init.lua:214
+#: views/stats/init.lua:294
 msgid "streak"
 msgstr "svit"
 
@@ -2856,6 +2905,10 @@ msgid "streak %1 day"
 msgid_plural "streak %1 days"
 msgstr[0] "svit på %1 dag"
 msgstr[1] "svit på %1 dagar"
+
+#: views/stats/init.lua:293
+msgid "streak · max %1"
+msgstr ""
 
 #: core/compat.lua:26
 msgid "the plugin has its own status bar"
@@ -2882,7 +2935,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "i dag"
 
-#: styles/plugins/readerprogress.lua:157 views/stats/init.lua:209
+#: styles/plugins/readerprogress.lua:157 views/stats/init.lua:291
 msgid "today · %1 pp."
 msgstr "i dag · %1 s."
 
@@ -2895,7 +2948,7 @@ msgctxt "aire"
 msgid "yesterday"
 msgstr "i går"
 
-#: views/stats/init.lua:127
+#: views/stats/init.lua:189
 msgid "~%1 left"
 msgstr "~%1 kvar"
 
