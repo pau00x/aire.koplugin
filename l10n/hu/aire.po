@@ -50,7 +50,7 @@ msgid_plural "%1 collections"
 msgstr[0] "%1 gyűjtemény"
 msgstr[1] "%1 gyűjtemény"
 
-#: views/stats/init.lua:300 views/stats/init.lua:388
+#: views/stats/init.lua:333 views/stats/init.lua:421
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 nap"
@@ -62,7 +62,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "%1 napja"
 msgstr[1] "%1 napja"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:520 views/stats/init.lua:860
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:553 views/stats/init.lua:893
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 olvasási nap"
@@ -98,11 +98,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 old. elolvasva"
 msgstr[1] "%1 old. elolvasva"
 
-#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:519
+#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:324
 msgid "%1 pp."
 msgstr "%1 old."
 
-#: views/stats/init.lua:193 views/stats/init.lua:384 views/stats/init.lua:838
+#: views/stats/init.lua:226 views/stats/init.lua:417 views/stats/init.lua:871
 msgid "%1 pp./h"
 msgstr "%1 old./ó"
 
@@ -150,7 +150,7 @@ msgstr "%d / 5 csillag"
 msgid "+ Brightness"
 msgstr "+ Fényerő"
 
-#: views/stats/init.lua:695
+#: views/stats/init.lua:728
 msgid "+%1 more"
 msgstr "+%1 további"
 
@@ -194,7 +194,7 @@ msgstr "HOZZÁADVA"
 msgid "Active"
 msgstr "Aktív"
 
-#: views/stats/init.lua:273
+#: views/stats/init.lua:306
 msgid "Activity summary"
 msgstr "Tevékenység összegzése"
 
@@ -273,11 +273,11 @@ msgstr "Mind befejezve"
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:795
+#: views/stats/init.lua:828
 msgid "Annual"
 msgstr "Éves"
 
-#: views/stats/init.lua:360
+#: views/stats/init.lua:393
 msgid "Annual recap"
 msgstr "Éves összegzés"
 
@@ -356,15 +356,15 @@ msgstr ""
 msgid "Battery"
 msgstr "Akkumulátor"
 
-#: views/stats/init.lua:878
+#: views/stats/init.lua:911
 msgid "Best day"
 msgstr "Legjobb nap"
 
-#: views/stats/init.lua:881
+#: views/stats/init.lua:914
 msgid "Best month"
 msgstr "Legjobb hónap"
 
-#: views/stats/init.lua:387
+#: views/stats/init.lua:420
 msgid "Best streak: %1"
 msgstr ""
 
@@ -475,11 +475,11 @@ msgstr "AKTUÁLIS FEJEZET · %d. OLDAL"
 msgid "CURRENT SESSION"
 msgstr "AKTUÁLIS MUNKAMENET"
 
-#: views/home.lua:382 views/stats/init.lua:321
+#: views/home.lua:382 views/stats/init.lua:354
 msgid "CURRENTLY READING"
 msgstr "MOST OLVASOTT"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:516
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:549
 msgid "Calendar"
 msgstr "Naptár"
 
@@ -495,7 +495,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:633
+#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:666
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -695,15 +695,15 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Most olvasott"
 
-#: views/stats/init.lua:858
+#: views/stats/init.lua:891
 msgid "DAILY RHYTHM"
 msgstr "NAPI RITMUS"
 
-#: views/stats/init.lua:481
+#: views/stats/init.lua:514
 msgid "DAYS OF THE WEEK"
 msgstr ""
 
-#: views/stats/init.lua:873
+#: views/stats/init.lua:906
 msgid "Daily average"
 msgstr "Napi átlag"
 
@@ -719,7 +719,7 @@ msgstr "Dátum"
 msgid "Date finished"
 msgstr "Befejezés dátuma"
 
-#: views/stats/init.lua:876
+#: views/stats/init.lua:909
 msgid "Day %1"
 msgstr "%1. nap"
 
@@ -737,16 +737,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "december"
 
-#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:653
+#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:686
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:664
+#: views/stats/init.lua:697
 msgid "Delete all book stats"
 msgstr "A könyv összes statisztikájának törlése"
 
-#: views/stats/init.lua:668
+#: views/stats/init.lua:701
 msgid "Delete all stats?"
 msgstr "Törli az összes statisztikát?"
 
@@ -755,11 +755,11 @@ msgstr "Törli az összes statisztikát?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:651
+#: views/stats/init.lua:684
 msgid "Delete minutes for this day?"
 msgstr "Törli a nap perceit?"
 
-#: views/stats/init.lua:647
+#: views/stats/init.lua:680
 msgid "Delete minutes from this day"
 msgstr "A nap perceinek törlése"
 
@@ -832,7 +832,7 @@ msgstr ""
 msgid "EDITING WIDGETS"
 msgstr "WIDGETEK SZERKESZTÉSE"
 
-#: views/stats/init.lua:332
+#: views/stats/init.lua:365
 msgid "EXPLORE"
 msgstr ""
 
@@ -1073,7 +1073,7 @@ msgstr "Teljes képernyők"
 msgid "Galician"
 msgstr ""
 
-#: views/stats/init.lua:346 views/stats/init.lua:379
+#: views/stats/init.lua:379 views/stats/init.lua:412
 msgid "Genres & habits"
 msgstr ""
 
@@ -1118,11 +1118,11 @@ msgstr "Rács: %1 oszlop"
 msgid "HIGHLIGHT"
 msgstr "KIEMELÉS"
 
-#: views/stats/init.lua:866
+#: views/stats/init.lua:899
 msgid "HIGHLIGHTS"
 msgstr "FŐBB ADATOK"
 
-#: views/stats/init.lua:596
+#: views/stats/init.lua:629
 msgid "Hasn't arrived yet"
 msgstr "Még nem jött el"
 
@@ -1284,7 +1284,7 @@ msgstr ""
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats/init.lua:309
+#: views/stats/init.lua:342
 msgid "LAST 7 DAYS"
 msgstr "ELMÚLT 7 NAP"
 
@@ -1395,15 +1395,15 @@ msgstr "TALÁLAT"
 msgid "MATCH %d"
 msgstr "%d. TALÁLAT"
 
-#: views/stats/init.lua:858
+#: views/stats/init.lua:891
 msgid "MONTHLY RHYTHM"
 msgstr "HAVI RITMUS"
 
-#: views/stats/init.lua:890
+#: views/stats/init.lua:923
 msgid "MOST READ"
 msgstr "LEGTÖBBET OLVASOTT"
 
-#: views/stats/init.lua:394
+#: views/stats/init.lua:427
 msgid "MOST READ GENRES"
 msgstr ""
 
@@ -1489,11 +1489,11 @@ msgstr "Mappák keverése"
 msgid "Mix series"
 msgstr "Sorozatok keverése"
 
-#: views/stats/init.lua:793
+#: views/stats/init.lua:826
 msgid "Monthly"
 msgstr "Havi"
 
-#: views/stats/init.lua:358
+#: views/stats/init.lua:391
 msgid "Monthly recap"
 msgstr "Havi összegzés"
 
@@ -1631,7 +1631,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "Nincs CoverBrowser-adat"
 
-#: views/home.lua:251 views/stats/init.lua:170
+#: views/home.lua:251 views/stats/init.lua:203
 msgid "No book in progress"
 msgstr "Nincs folyamatban lévő könyv"
 
@@ -1671,11 +1671,11 @@ msgstr "Nincs gyűjtemény ezzel a szűrővel"
 msgid "No current book"
 msgstr "Nincs aktuális könyv"
 
-#: views/stats/init.lua:282
+#: views/stats/init.lua:315
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Nincs adat: kapcsolja be a Statisztika bővítményt, és olvasson egy kicsit"
 
-#: views/stats/init.lua:410
+#: views/stats/init.lua:443
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1692,11 +1692,11 @@ msgstr "Nincs következő befejezetlen könyv"
 msgid "No previous book"
 msgstr "Nincs előző könyv"
 
-#: styles/plugins/statspages.lua:347 views/stats/init.lua:829
+#: styles/plugins/statspages.lua:347 views/stats/init.lua:862
 msgid "No reading activity in this period"
 msgstr "Ebben az időszakban nem volt olvasás"
 
-#: views/stats/init.lua:345
+#: views/stats/init.lua:378
 msgid "No reading habits yet"
 msgstr ""
 
@@ -1713,7 +1713,7 @@ msgstr ""
 msgid "No saved shortcuts"
 msgstr "Nincsenek mentett hivatkozások"
 
-#: views/stats/init.lua:184
+#: views/stats/init.lua:217
 msgid "No stats for this book"
 msgstr "Nincs statisztika ehhez a könyvhöz"
 
@@ -2042,7 +2042,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:756
+#: views/stats/init.lua:789
 msgid "Recap"
 msgstr "Összegzés"
 
@@ -2390,7 +2390,7 @@ msgstr "Kezdés"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:41 views/stats/init.lua:266
+#: views/dock.lua:41 views/stats/init.lua:299
 msgid "Stats"
 msgstr "Statisztika"
 
@@ -2405,6 +2405,10 @@ msgstr ""
 #: dev/devtools.lua:724 views/widgets/catalog.lua:373
 msgid "Storage"
 msgstr "Tárhely"
+
+#: views/stats/init.lua:333
+msgid "Streak"
+msgstr ""
 
 #: views/widgets/picker.lua:266
 msgid "Swap tap and hold"
@@ -2512,7 +2516,7 @@ msgstr "Ebben a példányban van dev/ mappa (tesztek). Az új verzióban nincs b
 msgid "This month"
 msgstr "Ebben a hónapban"
 
-#: views/stats/init.lua:269
+#: views/stats/init.lua:302
 msgid "This month · %1 · %2 pp."
 msgstr "Ebben a hónapban · %1 · %2 old."
 
@@ -2575,7 +2579,7 @@ msgstr ""
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:721
+#: dev/devtools.lua:721 views/stats/init.lua:330
 #, koreader
 msgid "Today"
 msgstr ""
@@ -2589,7 +2593,7 @@ msgstr "Ma és széria"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:884
+#: views/stats/init.lua:917
 msgid "Top author"
 msgstr "Legolvasottabb szerző"
 
@@ -2670,7 +2674,7 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "HETI TEVÉKENYSÉG"
 
-#: views/stats/init.lua:429
+#: views/stats/init.lua:462
 msgid "WHEN YOU READ"
 msgstr ""
 
@@ -2715,7 +2719,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Már a legújabb verzió van meg (%1)."
 
-#: views/stats/init.lua:596
+#: views/stats/init.lua:629
 msgid "You didn't read that day"
 msgstr "Aznap nem olvasott"
 
@@ -2757,7 +2761,7 @@ msgstr "és kiemelések"
 msgid "at %1 %"
 msgstr "állás: %1 %"
 
-#: views/stats/init.lua:314
+#: views/stats/init.lua:347
 msgid "avg %1"
 msgstr ""
 
@@ -2796,19 +2800,24 @@ msgstr ""
 msgid "files"
 msgstr "fájlok"
 
-#: views/stats/init.lua:846 views/widgets/catalog.lua:282
+#: views/stats/init.lua:336
+#, koreader
+msgid "finished"
+msgstr ""
+
+#: views/stats/init.lua:879 views/widgets/catalog.lua:282
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "befejezett könyv"
 msgstr[1] "befejezett könyv"
 
-#: views/stats/init.lua:303
-msgid "finished in %1"
-msgstr "befejezve: %1"
-
 #: views/widgets/catalog.lua:377 views/widgets/catalog.lua:379
 msgid "free"
 msgstr "szabad"
+
+#: views/stats/init.lua:327
+msgid "in a row"
+msgstr ""
 
 #: views/widgets/catalog.lua:109
 msgid "in total"
@@ -2825,6 +2834,10 @@ msgstr "elmúlt 7 nap"
 #: views/widgets/catalog.lua:315
 msgid "light"
 msgstr "világítás"
+
+#: views/stats/init.lua:326
+msgid "max %1"
+msgstr ""
 
 #: views/update_sheet.lua:468
 #, koreader
@@ -2852,7 +2865,7 @@ msgstr "%1 / %2. old."
 msgid "p. %1 of %2"
 msgstr "%1 / %2. old."
 
-#: views/stats/init.lua:838
+#: views/stats/init.lua:871
 msgid "pages read"
 msgstr "olvasott oldal"
 
@@ -2860,7 +2873,7 @@ msgstr "olvasott oldal"
 msgid "port %1"
 msgstr "port: %1"
 
-#: views/stats/init.lua:842
+#: views/stats/init.lua:875
 msgid "reading time"
 msgstr "olvasási idő"
 
@@ -2892,10 +2905,6 @@ msgstr "szókeresés"
 msgid "shortcuts"
 msgstr "hivatkozások"
 
-#: views/stats/init.lua:294
-msgid "streak"
-msgstr "széria"
-
 #: views/widgets/catalog.lua:159
 msgid "streak %1"
 msgstr "széria: %1"
@@ -2905,10 +2914,6 @@ msgid "streak %1 day"
 msgid_plural "streak %1 days"
 msgstr[0] "%1 napos széria"
 msgstr[1] "%1 napos széria"
-
-#: views/stats/init.lua:293
-msgid "streak · max %1"
-msgstr ""
 
 #: core/compat.lua:26
 msgid "the plugin has its own status bar"
@@ -2935,7 +2940,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "ma"
 
-#: styles/plugins/readerprogress.lua:157 views/stats/init.lua:291
+#: styles/plugins/readerprogress.lua:157
 msgid "today · %1 pp."
 msgstr "ma · %1 old."
 
@@ -2948,7 +2953,7 @@ msgctxt "aire"
 msgid "yesterday"
 msgstr "tegnap"
 
-#: views/stats/init.lua:189
+#: views/stats/init.lua:222
 msgid "~%1 left"
 msgstr "kb. %1 van hátra"
 

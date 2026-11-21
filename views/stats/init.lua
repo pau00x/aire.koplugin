@@ -112,19 +112,52 @@ return function(Aire, ctx)
         return ""
     end
 
-    local function tile(w, big, small, icon)
-        local pad = S(9)
+    local function tile(w, big, small)
+        local pad = S(10)
         local inner_w = w - 2 * Size.border.thin
         local big_w = TextWidget:new{ text = big, face = face(true, 18), fgcolor = BLACK, max_width = inner_w - 2 * pad, padding = 0 }
         local small_w = TextWidget:new{ text = small, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = inner_w - 2 * pad, padding = 0 }
-        local vg = VerticalGroup:new{ align = "center" }
-        if icon then
-            table.insert(vg, IconWidget:new{ icon = icon, width = S(16), height = S(16), alpha = true })
-            table.insert(vg, VerticalSpan:new{ width = S(4) })
-        end
-        table.insert(vg, big_w)
-        table.insert(vg, VerticalSpan:new{ width = S(2) })
-        table.insert(vg, small_w)
+        local vg = VerticalGroup:new{
+            align = "center",
+            big_w,
+            VerticalSpan:new{ width = S(2) },
+            small_w,
+        }
+        local h = vg:getSize().h + 2 * pad
+        return FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = 0,
+            width = w,
+            height = h + 2 * Size.border.thin,
+            CenterContainer:new{ dimen = Geom:new{ w = inner_w, h = h }, vg },
+        }
+    end
+
+    -- Tarjeta KPI superior con icono en la misma línea que el título
+    local function kpiTile(w, icon, title, big, sub)
+        local pad = S(9)
+        local inner_w = w - 2 * Size.border.thin
+        local content_w = inner_w - 2 * pad
+        local ico_sz = S(13)
+        local head = HorizontalGroup:new{
+            align = "center",
+            IconWidget:new{ icon = icon, width = ico_sz, height = ico_sz, alpha = true },
+            HorizontalSpan:new{ width = S(4) },
+            TextWidget:new{
+                text = title, face = face(true, 12), fgcolor = GRAY_TEXT,
+                max_width = math.max(S(24), content_w - ico_sz - S(4)), padding = 0,
+            },
+        }
+        local vg = VerticalGroup:new{
+            align = "center",
+            head,
+            VerticalSpan:new{ width = S(4) },
+            TextWidget:new{ text = big, face = face(true, 18), fgcolor = BLACK, max_width = content_w, padding = 0 },
+            VerticalSpan:new{ width = S(2) },
+            TextWidget:new{ text = sub, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
+        }
         local h = vg:getSize().h + 2 * pad
         return FrameContainer:new{
             bordersize = Size.border.thin,
@@ -285,22 +318,22 @@ return function(Aire, ctx)
             table.insert(content, VerticalSpan:new{ width = S(12) })
         end
 
-        -- 3 casillas superiores (las únicas con icono): hoy, racha, terminados
+        -- 3 casillas superiores (las únicas con icono, en línea con el título): hoy, racha, terminados
         local tgap = S(10)
         local tw = math.floor((w - 2 * tgap) / 3)
-        local today_small = T(_("today · %1 pp."), st.today_pages)
-        local streak_small = (st.best_streak and st.best_streak > 0)
-            and T(_("streak · max %1"), st.best_streak)
-            or _("streak")
+        local today_sub = T(_("%1 pp."), st.today_pages)
+        local streak_sub = (st.best_streak and st.best_streak > 0)
+            and T(_("max %1"), st.best_streak)
+            or _("in a row")
         table.insert(content, HorizontalGroup:new{
             align = "top",
-            tappable(tile(tw, fmtDuration(st.today_secs), today_small, "aire.widget.timer"),
+            tappable(kpiTile(tw, "aire.widget.timer", _("Today"), fmtDuration(st.today_secs), today_sub),
                 function() self:showCalendarView() end),
             HorizontalSpan:new{ width = tgap },
-            tappable(tile(tw, T(N_("%1 day", "%1 days", st.streak), st.streak), streak_small, "aire.widget.flame"),
+            tappable(kpiTile(tw, "aire.widget.flame", _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub),
                 function() self:showCalendarView() end),
             HorizontalSpan:new{ width = tgap },
-            tappable(tile(w - 2 * (tw + tgap), tostring(st.finished_year), T(_("finished in %1"), st.year), "aire.widget.done"),
+            tappable(kpiTile(w - 2 * (tw + tgap), "aire.widget.done", st.year, tostring(st.finished_year), _("finished")),
                 function() if self.showGridView then self:showGridView("finished") end end),
         })
 

@@ -58,7 +58,7 @@ msgstr[1] "%1 אוספים"
 msgstr[2] "%1 אוספים"
 msgstr[3] "%1 אוספים"
 
-#: views/stats/init.lua:300 views/stats/init.lua:388
+#: views/stats/init.lua:333 views/stats/init.lua:421
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 יום"
@@ -74,7 +74,7 @@ msgstr[1] "לפני %1 ימים"
 msgstr[2] "לפני %1 ימים"
 msgstr[3] "לפני %1 ימים"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:520 views/stats/init.lua:860
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:553 views/stats/init.lua:893
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 יום קריאה"
@@ -122,11 +122,11 @@ msgstr[1] "%1 עמ' נקראו"
 msgstr[2] "%1 עמ' נקראו"
 msgstr[3] "%1 עמ' נקראו"
 
-#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:519
+#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:324
 msgid "%1 pp."
 msgstr "%1 עמ'"
 
-#: views/stats/init.lua:193 views/stats/init.lua:384 views/stats/init.lua:838
+#: views/stats/init.lua:226 views/stats/init.lua:417 views/stats/init.lua:871
 msgid "%1 pp./h"
 msgstr "%1 עמ'/שעה"
 
@@ -182,7 +182,7 @@ msgstr "%d מתוך 5 כוכבים"
 msgid "+ Brightness"
 msgstr "+ בהירות"
 
-#: views/stats/init.lua:695
+#: views/stats/init.lua:728
 msgid "+%1 more"
 msgstr "+%1 נוספים"
 
@@ -226,7 +226,7 @@ msgstr "נוסף"
 msgid "Active"
 msgstr "פעיל"
 
-#: views/stats/init.lua:273
+#: views/stats/init.lua:306
 msgid "Activity summary"
 msgstr "סיכום פעילות"
 
@@ -305,11 +305,11 @@ msgstr "כולם הושלמו"
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:795
+#: views/stats/init.lua:828
 msgid "Annual"
 msgstr "שנתי"
 
-#: views/stats/init.lua:360
+#: views/stats/init.lua:393
 msgid "Annual recap"
 msgstr "סיכום שנתי"
 
@@ -388,15 +388,15 @@ msgstr ""
 msgid "Battery"
 msgstr "סוללה"
 
-#: views/stats/init.lua:878
+#: views/stats/init.lua:911
 msgid "Best day"
 msgstr "היום הטוב ביותר"
 
-#: views/stats/init.lua:881
+#: views/stats/init.lua:914
 msgid "Best month"
 msgstr "החודש הטוב ביותר"
 
-#: views/stats/init.lua:387
+#: views/stats/init.lua:420
 msgid "Best streak: %1"
 msgstr ""
 
@@ -507,11 +507,11 @@ msgstr "הפרק הנוכחי · עמוד %d"
 msgid "CURRENT SESSION"
 msgstr "הפעלה נוכחית"
 
-#: views/home.lua:382 views/stats/init.lua:321
+#: views/home.lua:382 views/stats/init.lua:354
 msgid "CURRENTLY READING"
 msgstr "קורא כעת"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:516
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:549
 msgid "Calendar"
 msgstr "לוח שנה"
 
@@ -527,7 +527,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:633
+#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:666
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -727,15 +727,15 @@ msgstr ""
 msgid "Currently reading"
 msgstr "קורא כעת"
 
-#: views/stats/init.lua:858
+#: views/stats/init.lua:891
 msgid "DAILY RHYTHM"
 msgstr "קצב יומי"
 
-#: views/stats/init.lua:481
+#: views/stats/init.lua:514
 msgid "DAYS OF THE WEEK"
 msgstr ""
 
-#: views/stats/init.lua:873
+#: views/stats/init.lua:906
 msgid "Daily average"
 msgstr "ממוצע יומי"
 
@@ -751,7 +751,7 @@ msgstr "תאריך"
 msgid "Date finished"
 msgstr "תאריך סיום"
 
-#: views/stats/init.lua:876
+#: views/stats/init.lua:909
 msgid "Day %1"
 msgstr "יום %1"
 
@@ -769,16 +769,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "דצמבר"
 
-#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:653
+#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:686
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:664
+#: views/stats/init.lua:697
 msgid "Delete all book stats"
 msgstr "מחיקת כל הסטטיסטיקה של הספר"
 
-#: views/stats/init.lua:668
+#: views/stats/init.lua:701
 msgid "Delete all stats?"
 msgstr "למחוק את כל הסטטיסטיקה?"
 
@@ -787,11 +787,11 @@ msgstr "למחוק את כל הסטטיסטיקה?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:651
+#: views/stats/init.lua:684
 msgid "Delete minutes for this day?"
 msgstr "למחוק את הדקות של יום זה?"
 
-#: views/stats/init.lua:647
+#: views/stats/init.lua:680
 msgid "Delete minutes from this day"
 msgstr "מחיקת הדקות של יום זה"
 
@@ -864,7 +864,7 @@ msgstr ""
 msgid "EDITING WIDGETS"
 msgstr "עריכת וידג'טים"
 
-#: views/stats/init.lua:332
+#: views/stats/init.lua:365
 msgid "EXPLORE"
 msgstr ""
 
@@ -1105,7 +1105,7 @@ msgstr "מסכים מלאים"
 msgid "Galician"
 msgstr ""
 
-#: views/stats/init.lua:346 views/stats/init.lua:379
+#: views/stats/init.lua:379 views/stats/init.lua:412
 msgid "Genres & habits"
 msgstr ""
 
@@ -1150,11 +1150,11 @@ msgstr "רשת: %1 עמודות"
 msgid "HIGHLIGHT"
 msgstr "הבלטה"
 
-#: views/stats/init.lua:866
+#: views/stats/init.lua:899
 msgid "HIGHLIGHTS"
 msgstr "עיקרי הדברים"
 
-#: views/stats/init.lua:596
+#: views/stats/init.lua:629
 msgid "Hasn't arrived yet"
 msgstr "עדיין לא הגיע"
 
@@ -1316,7 +1316,7 @@ msgstr ""
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats/init.lua:309
+#: views/stats/init.lua:342
 msgid "LAST 7 DAYS"
 msgstr "7 הימים האחרונים"
 
@@ -1427,15 +1427,15 @@ msgstr "התאמה"
 msgid "MATCH %d"
 msgstr "התאמה %d"
 
-#: views/stats/init.lua:858
+#: views/stats/init.lua:891
 msgid "MONTHLY RHYTHM"
 msgstr "קצב חודשי"
 
-#: views/stats/init.lua:890
+#: views/stats/init.lua:923
 msgid "MOST READ"
 msgstr "הנקראים ביותר"
 
-#: views/stats/init.lua:394
+#: views/stats/init.lua:427
 msgid "MOST READ GENRES"
 msgstr ""
 
@@ -1521,11 +1521,11 @@ msgstr "ערבוב תיקיות"
 msgid "Mix series"
 msgstr "ערבוב סדרות"
 
-#: views/stats/init.lua:793
+#: views/stats/init.lua:826
 msgid "Monthly"
 msgstr "חודשי"
 
-#: views/stats/init.lua:358
+#: views/stats/init.lua:391
 msgid "Monthly recap"
 msgstr "סיכום חודשי"
 
@@ -1663,7 +1663,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "אין נתוני CoverBrowser"
 
-#: views/home.lua:251 views/stats/init.lua:170
+#: views/home.lua:251 views/stats/init.lua:203
 msgid "No book in progress"
 msgstr "אין ספר בקריאה"
 
@@ -1703,11 +1703,11 @@ msgstr "אין אוספים עם סינון זה"
 msgid "No current book"
 msgstr "אין ספר נוכחי"
 
-#: views/stats/init.lua:282
+#: views/stats/init.lua:315
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "אין נתונים: הפעילו את התוסף סטטיסטיקה וקראו מעט"
 
-#: views/stats/init.lua:410
+#: views/stats/init.lua:443
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1724,11 +1724,11 @@ msgstr "אין ספר הבא שלא הושלם"
 msgid "No previous book"
 msgstr "אין ספר קודם"
 
-#: styles/plugins/statspages.lua:347 views/stats/init.lua:829
+#: styles/plugins/statspages.lua:347 views/stats/init.lua:862
 msgid "No reading activity in this period"
 msgstr "אין פעילות קריאה בתקופה זו"
 
-#: views/stats/init.lua:345
+#: views/stats/init.lua:378
 msgid "No reading habits yet"
 msgstr ""
 
@@ -1745,7 +1745,7 @@ msgstr ""
 msgid "No saved shortcuts"
 msgstr "אין קיצורי דרך שמורים"
 
-#: views/stats/init.lua:184
+#: views/stats/init.lua:217
 msgid "No stats for this book"
 msgstr "אין סטטיסטיקה לספר זה"
 
@@ -2074,7 +2074,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:756
+#: views/stats/init.lua:789
 msgid "Recap"
 msgstr "סיכום"
 
@@ -2422,7 +2422,7 @@ msgstr "התחלה"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:41 views/stats/init.lua:266
+#: views/dock.lua:41 views/stats/init.lua:299
 msgid "Stats"
 msgstr "סטטיסטיקה"
 
@@ -2437,6 +2437,10 @@ msgstr ""
 #: dev/devtools.lua:724 views/widgets/catalog.lua:373
 msgid "Storage"
 msgstr "אחסון"
+
+#: views/stats/init.lua:333
+msgid "Streak"
+msgstr ""
 
 #: views/widgets/picker.lua:266
 msgid "Swap tap and hold"
@@ -2544,7 +2548,7 @@ msgstr "בעותק הזה יש תיקיית dev/ (בדיקות). הגרסה הח
 msgid "This month"
 msgstr "החודש"
 
-#: views/stats/init.lua:269
+#: views/stats/init.lua:302
 msgid "This month · %1 · %2 pp."
 msgstr "החודש · %1 · %2 עמ'"
 
@@ -2607,7 +2611,7 @@ msgstr ""
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:721
+#: dev/devtools.lua:721 views/stats/init.lua:330
 #, koreader
 msgid "Today"
 msgstr ""
@@ -2621,7 +2625,7 @@ msgstr "היום ורצף"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:884
+#: views/stats/init.lua:917
 msgid "Top author"
 msgstr "המחבר המוביל"
 
@@ -2704,7 +2708,7 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "פעילות שבועית"
 
-#: views/stats/init.lua:429
+#: views/stats/init.lua:462
 msgid "WHEN YOU READ"
 msgstr ""
 
@@ -2749,7 +2753,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "כבר יש לך את הגרסה האחרונה (%1)."
 
-#: views/stats/init.lua:596
+#: views/stats/init.lua:629
 msgid "You didn't read that day"
 msgstr "לא קראת באותו יום"
 
@@ -2791,7 +2795,7 @@ msgstr "והבלטות"
 msgid "at %1 %"
 msgstr "ב־%1 %"
 
-#: views/stats/init.lua:314
+#: views/stats/init.lua:347
 msgid "avg %1"
 msgstr ""
 
@@ -2832,7 +2836,12 @@ msgstr ""
 msgid "files"
 msgstr "קבצים"
 
-#: views/stats/init.lua:846 views/widgets/catalog.lua:282
+#: views/stats/init.lua:336
+#, koreader
+msgid "finished"
+msgstr ""
+
+#: views/stats/init.lua:879 views/widgets/catalog.lua:282
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "ספר שהושלם"
@@ -2840,13 +2849,13 @@ msgstr[1] "ספרים שהושלמו"
 msgstr[2] "ספרים שהושלמו"
 msgstr[3] "ספרים שהושלמו"
 
-#: views/stats/init.lua:303
-msgid "finished in %1"
-msgstr "הושלמו ב־%1"
-
 #: views/widgets/catalog.lua:377 views/widgets/catalog.lua:379
 msgid "free"
 msgstr "פנוי"
+
+#: views/stats/init.lua:327
+msgid "in a row"
+msgstr ""
 
 #: views/widgets/catalog.lua:109
 msgid "in total"
@@ -2863,6 +2872,10 @@ msgstr "7 ימים אחרונים"
 #: views/widgets/catalog.lua:315
 msgid "light"
 msgstr "תאורה"
+
+#: views/stats/init.lua:326
+msgid "max %1"
+msgstr ""
 
 #: views/update_sheet.lua:468
 #, koreader
@@ -2890,7 +2903,7 @@ msgstr "עמ' %1 / %2"
 msgid "p. %1 of %2"
 msgstr "עמ' %1 מתוך %2"
 
-#: views/stats/init.lua:838
+#: views/stats/init.lua:871
 msgid "pages read"
 msgstr "עמודים שנקראו"
 
@@ -2898,7 +2911,7 @@ msgstr "עמודים שנקראו"
 msgid "port %1"
 msgstr "פורט %1"
 
-#: views/stats/init.lua:842
+#: views/stats/init.lua:875
 msgid "reading time"
 msgstr "זמן קריאה"
 
@@ -2930,10 +2943,6 @@ msgstr "חיפוש מילה"
 msgid "shortcuts"
 msgstr "קיצורי דרך"
 
-#: views/stats/init.lua:294
-msgid "streak"
-msgstr "רצף"
-
 #: views/widgets/catalog.lua:159
 msgid "streak %1"
 msgstr "רצף %1"
@@ -2945,10 +2954,6 @@ msgstr[0] "רצף של %1 יום"
 msgstr[1] "רצף של %1 ימים"
 msgstr[2] "רצף של %1 ימים"
 msgstr[3] "רצף של %1 ימים"
-
-#: views/stats/init.lua:293
-msgid "streak · max %1"
-msgstr ""
 
 #: core/compat.lua:26
 msgid "the plugin has its own status bar"
@@ -2975,7 +2980,7 @@ msgctxt "aire"
 msgid "today"
 msgstr "היום"
 
-#: styles/plugins/readerprogress.lua:157 views/stats/init.lua:291
+#: styles/plugins/readerprogress.lua:157
 msgid "today · %1 pp."
 msgstr "היום · %1 עמ'"
 
@@ -2988,7 +2993,7 @@ msgctxt "aire"
 msgid "yesterday"
 msgstr "אתמול"
 
-#: views/stats/init.lua:189
+#: views/stats/init.lua:222
 msgid "~%1 left"
 msgstr "נותרו ~%1"
 
