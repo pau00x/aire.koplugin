@@ -339,6 +339,12 @@ return function(Aire, ctx)
     ---------------------------------------------------------------------------
     -- Comprobar (manual: con avisos; automática: en silencio salvo versión nueva)
     ---------------------------------------------------------------------------
+    local function refreshTopBar()
+        local fm = require("apps/filemanager/filemanager").instance
+        local aire = fm and fm.aire
+        if aire and aire.refreshHeader then aire:refreshHeader() end
+    end
+
     local function doCheck(manual)
         local Upd = getUpd()
         if not Upd then return end
@@ -359,12 +365,14 @@ return function(Aire, ctx)
             if #info.notes > 4000 then info.notes = info.notes:sub(1, 4000) end
             config.update_latest = info
             saveConfig()
+            refreshTopBar()
             if manual or config.update_skipped ~= info.version then
                 showNewVersion(info)
             end
         else
             config.update_latest = nil
             saveConfig()
+            refreshTopBar()
             if manual then
                 UIManager:show(InfoMessage:new{
                     aire_title = _("Update"),
@@ -506,7 +514,7 @@ return function(Aire, ctx)
         menuItem = menuItem,
         -- Pruebas: con una versión antigua simulada, la publicada cuenta como nueva
         fakeVersion = function() return fake_version end,
-        setFakeVersion = function(v) fake_version = v end,
+        setFakeVersion = function(v) fake_version = v; refreshTopBar() end,
         -- Tarjeta de la hoja de energía: directamente a instalar, salvo si hay
         -- dev/ (entonces la hoja con el aviso)
         start = function(info)

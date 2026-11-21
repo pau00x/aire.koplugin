@@ -341,9 +341,16 @@ return function(Aire, ctx)
         }
 
         -- 3) Barra superior
+        local function statusAvailable(key)
+            if key == "frontlight" then return Device:hasFrontlight() end
+            if key == "wifi" then return Device:hasWifiToggle() end
+            if key == "battery" then return Device:hasBattery() end
+            if key == "ssh" then return self.ui and self.ui.SSH ~= nil end
+            return true
+        end
         local topbar = {}
         for _i, key in ipairs(STATUS_ORDER) do
-            if key ~= "frontlight" or Device:hasFrontlight() then
+            if statusAvailable(key) then
                 table.insert(topbar, {
                     text = STATUS_LABELS[key],
                     checked_func = function() return config.status[key] end,
@@ -355,6 +362,48 @@ return function(Aire, ctx)
                 })
             end
         end
+        if #topbar > 0 then
+            topbar[#topbar].separator = true
+        end
+        table.insert(topbar, {
+            text = _("Arrange items"),
+            keep_menu_open = true,
+            callback = function()
+                local SortWidget = require("ui/widget/sortwidget")
+                local order = (type(config.status_order) == "table" and #config.status_order > 0)
+                    and config.status_order or STATUS_ORDER
+                local item_table, hidden = {}, {}
+                for _i, key in ipairs(order) do
+                    if key ~= "update" then
+                        if statusAvailable(key) then
+                            table.insert(item_table, {
+                                text = STATUS_LABELS[key] or key,
+                                key = key,
+                                dim = not config.status[key],
+                            })
+                        else
+                            table.insert(hidden, key)
+                        end
+                    end
+                end
+                UIManager:show(SortWidget:new{
+                    title = _("Arrange items"),
+                    item_table = item_table,
+                    callback = function()
+                        local next_order = {}
+                        for _i, it in ipairs(item_table) do
+                            table.insert(next_order, it.key)
+                        end
+                        for _i, key in ipairs(hidden) do
+                            table.insert(next_order, key)
+                        end
+                        config.status_order = next_order
+                        saveConfig()
+                        refresh()
+                    end,
+                })
+            end,
+        })
         menu_items.aire_topbar = {
             text = _("Top bar"),
             enabled_func = on_enabled,

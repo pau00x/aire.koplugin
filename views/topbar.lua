@@ -9,7 +9,6 @@
 return function(Aire, ctx)
     -- Módulos y valores compartidos declarados aquí dentro: así no cuentan
     -- como upvalues de esta función (LuaJIT admite 60).
-    local BD = require("ui/bidi")
     local CenterContainer = require("ui/widget/container/centercontainer")
     local Device = require("device")
     local FrameContainer = require("ui/widget/container/framecontainer")
@@ -29,55 +28,83 @@ return function(Aire, ctx)
     local BLACK = ctx.BLACK
     local WHITE = ctx.WHITE
     local GRAY_TEXT = ctx.GRAY_TEXT
-    local SEPARATOR = ctx.SEPARATOR
     local TOP_PAD = ctx.TOP_PAD
     local SIDE_PAD = ctx.SIDE_PAD
     local showPowerDialog = ctx.showPowerDialog
 
     -- Indicadores de la derecha de la barra superior, en este orden
-    local STATUS_ORDER = { "memory", "frontlight", "battery" }
+    local STATUS_ORDER = { "ssh", "memory", "wifi", "frontlight", "battery", "update" }
     local STATUS_LABELS = {
+        ssh        = _("SSH active"),
         memory     = _("Memory used"),
+        wifi       = _("Wi-Fi"),
         frontlight = _("Light level"),
         battery    = _("Battery"),
+        update     = _("Update indicator"),
     }
 
-    local function statusText(key)
-        if key == "memory" then
+    local AireScreen = package.loaded.aire_screen
+
+    local function statusItem(key)
+        if key == "ssh" then
+            local fm = require("apps/filemanager/filemanager").instance
+            local ssh = fm and fm.SSH
+            if ssh and ssh.isRunning and ssh:isRunning() then
+                return { kind = "icon", icon = "aire.status.ssh" }
+            end
+        elseif key == "memory" then
             local f = io.open("/proc/self/statm", "r")
             if not f then return nil end
             local _size, rss = f:read("*number", "*number")
             f:close()
             if not rss then return nil end
-            return ("%dM"):format(math.floor(rss * 4096 / 1024 / 1024 + 0.5))
+            return {
+                kind = "icon_text",
+                icon = "aire.status.memory",
+                text = ("%dM"):format(math.floor(rss * 4096 / 1024 / 1024 + 0.5)),
+            }
         elseif key == "wifi" then
-            return NetworkMgr:isWifiOn() and "" or nil
+            if NetworkMgr:isWifiOn() then
+                return { kind = "icon", icon = AireScreen.wifiStatusIcon() }
+            end
         elseif key == "frontlight" then
             if Device:hasFrontlight() then
                 local powerd = Device:getPowerDevice()
                 if powerd:isFrontlightOn() then
-                    return ("☼%d"):format(powerd:frontlightIntensity())
+                    return {
+                        kind = "icon_text",
+                        icon = "aire.status.sun",
+                        text = tostring(powerd:frontlightIntensity()),
+                    }
                 end
             end
         elseif key == "battery" then
             if Device:hasBattery() then
                 local powerd = Device:getPowerDevice()
                 local lvl = powerd:getCapacity()
-                local sym = powerd:getBatterySymbol(powerd:isCharged(), powerd:isCharging(), lvl)
-                return BD.wrap(sym) .. BD.wrap(lvl .. "%")
+                return {
+                    kind = "battery",
+                    level = lvl,
+                    charging = powerd:isCharging() == true,
+                    text = lvl .. "%",
+                }
             end
         end
     end
 
-    local function buildStatusString()
-        local parts = {}
-        for _i, key in ipairs(STATUS_ORDER) do
-            if config.status[key] then
-                local t = statusText(key)
-                if t and t ~= "" then table.insert(parts, t) end
+    local function buildStatusData()
+        local items = {}
+        local order = (type(config.status_order) == "table" and #config.status_order > 0)
+            and config.status_order or STATUS_ORDER
+        for _i, key in ipairs(order) do
+            if key ~= "update" and config.status[key] then
+                local it = statusItem(key)
+                if it then table.insert(items, it) end
             end
         end
-        return table.concat(parts, SEPARATOR)
+        local update_dot = config.status.update == true
+            and ctx.update ~= nil and ctx.update.available ~= nil and ctx.update.available() ~= nil
+        return { items = items, update_dot = update_dot }
     end
 
     local function clockString()
@@ -115,10 +142,9 @@ return function(Aire, ctx)
     end
 
     -- Datos de la barra de estado común (ui/screen.lua)
-    local AireScreen = package.loaded.aire_screen
     AireScreen.setStatusSource{
         clock = clockString,
-        status = buildStatusString,
+        data = buildStatusData,
         power = showPowerDialog,
         menu = showTopMenu,
     }
@@ -131,6 +157,7 @@ return function(Aire, ctx)
         self._top_clock_hidden = hide_clock
         self._status_w = parts.status
         self._status_group = parts.group
+        self._status_update = parts.update
         return bar
     end
 
@@ -203,10 +230,12 @@ return function(Aire, ctx)
     ---------------------------------------------------------------------------
     function Aire:refreshHeader()
         if not config.enabled or self._suspended or self._aire_closed or not self._status_w then return end
-        self._status_w:setText(buildStatusString())
-        if self._status_group then self._status_group:resetLayout() end
+        if self._status_update then
+            self._status_update()
+        elseif self._status_group then
+            self._status_group:resetLayout()
+        end
         if self._clock_w then self._clock_w:setText(clockString()) end
-        if self._top_clock_w and not self._top_clock_hidden then self._top_clock_w:setText(clockString()) end
         if self._date_w then self._date_w:setText(dateString()) end
         local UIManager = require("ui/uimanager")
         local top = UIManager.getTopmostVisibleWidget and UIManager:getTopmostVisibleWidget()
@@ -250,9 +279,10 @@ return function(Aire, ctx)
     end
     function Aire:onTimeFormatChanged() self:refreshHeader() end
     function Aire:onFrontlightStateChanged() refreshHeaderAndWidgets(self) end
-    -- Al cerrar el diálogo de luz (views/widgets/init.lua lo anuncia): actualizar los widgets
+    -- Al cerrar el diálogo de luz (views/widgets/init.lua lo anuncia): actualizar los widgets y la barra
     function Aire:onHomeWidgetsRefresh()
         if self.refreshWidgets then self:refreshWidgets() end
+        self:refreshHeader()
     end
 
     -- Para menu.lua (opciones de la barra superior)
