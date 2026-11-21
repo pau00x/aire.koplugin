@@ -500,10 +500,10 @@ return function(Aire, ctx)
         table.insert(content, tappable(hero_card, function() self:showCalendarView() end))
 
         -- 2. 3 CASILLAS KPI (las únicas con icono, en línea con el título + objetivos opcionales)
-        table.insert(content, VerticalSpan:new{ width = S(10) })
-        local tgap = S(8)
-        local tw = math.floor((w - 2 * tgap) / 3)
-        local tw3 = w - 2 * (tw + tgap)
+        local card_gap = S(10)
+        table.insert(content, VerticalSpan:new{ width = card_gap })
+        local tw = math.floor((w - 2 * card_gap) / 3)
+        local tw3 = w - 2 * (tw + card_gap)
         local today_prog = daily_goal > 0 and (st.today_secs / (daily_goal * 60)) or nil
         local today_sub = T(_("%1 pp."), st.today_pages)
         local streak_sub = (st.best_streak and st.best_streak > 0)
@@ -524,17 +524,17 @@ return function(Aire, ctx)
             tappable(kpiTile(tw, "aire.widget.timer", _("Today"), fmtDuration(st.today_secs), today_sub, today_prog, reserve_bar),
                 function() self:showCalendarView() end,
                 function() self:editDailyGoal() end),
-            HorizontalSpan:new{ width = tgap },
+            HorizontalSpan:new{ width = card_gap },
             tappable(kpiTile(tw, "aire.widget.flame", _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub, nil, reserve_bar),
                 function() self:showCalendarView() end),
-            HorizontalSpan:new{ width = tgap },
+            HorizontalSpan:new{ width = card_gap },
             tappable(kpiTile(tw3, "aire.widget.done", st.year, year_big, year_sub, year_prog, reserve_bar),
                 function() if self.showGridView then self:showGridView("finished") end end,
                 function() self:editYearlyGoal() end),
         })
 
         -- 3. LEYENDO AHORA
-        table.insert(content, VerticalSpan:new{ width = S(12) })
+        table.insert(content, VerticalSpan:new{ width = S(14) })
         table.insert(content, sectionLabel(_("CURRENTLY READING")))
         table.insert(content, VerticalSpan:new{ width = S(5) })
         local ok_cur, cur = pcall(self.buildStatsCurrent, self, w, st)
@@ -545,7 +545,7 @@ return function(Aire, ctx)
         end
 
         -- 4. EXPLORAR: Géneros y hábitos + Recaps (tarjetas limpias sin iconos)
-        table.insert(content, VerticalSpan:new{ width = S(12) })
+        table.insert(content, VerticalSpan:new{ width = S(14) })
         table.insert(content, sectionLabel(_("EXPLORE")))
         table.insert(content, VerticalSpan:new{ width = S(5) })
 
@@ -563,18 +563,17 @@ return function(Aire, ctx)
         table.insert(content, tappable(navCard(w, _("Genres & habits"), hab_sub), function()
             self:showHabitsView()
         end))
-        table.insert(content, VerticalSpan:new{ width = S(8) })
+        table.insert(content, VerticalSpan:new{ width = card_gap })
 
-        local rgap = S(8)
-        local rw = math.floor((w - rgap) / 2)
+        local rw = math.floor((w - card_gap) / 2)
         local now_m = tonumber(os.date("%m"))
         local month_sub = st.ok and (MONTHS[now_m] .. " · " .. fmtDuration(st.month_secs)) or MONTHS[now_m]
         local year_sub_recap = st.ok and (st.year .. " · " .. fmtDuration(st.year_secs)) or st.year
         table.insert(content, HorizontalGroup:new{
             align = "top",
             tappable(navCard(rw, _("Monthly recap"), month_sub), function() self:showRecapView("month") end),
-            HorizontalSpan:new{ width = rgap },
-            tappable(navCard(w - rw - rgap, _("Annual recap"), year_sub_recap), function() self:showRecapView("year") end),
+            HorizontalSpan:new{ width = card_gap },
+            tappable(navCard(w - rw - card_gap, _("Annual recap"), year_sub_recap), function() self:showRecapView("year") end),
         })
         content:resetLayout()
 
