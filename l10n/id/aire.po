@@ -36,7 +36,7 @@ msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 buku"
 
-#: views/stats/init.lua:344
+#: views/stats/init.lua:364
 msgid "%1 book/year"
 msgid_plural "%1 books/year"
 msgstr[0] ""
@@ -51,7 +51,7 @@ msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 koleksi"
 
-#: views/stats/init.lua:489 views/stats/init.lua:566
+#: views/stats/init.lua:528 views/stats/init.lua:605
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 hari"
@@ -61,7 +61,7 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1 hari lalu"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:698 views/stats/init.lua:1038
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:737 views/stats/init.lua:1077
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 hari membaca"
@@ -76,7 +76,7 @@ msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 buku selesai"
 
-#: views/stats/init.lua:343
+#: views/stats/init.lua:363
 msgid "%1 min/day"
 msgstr ""
 
@@ -95,11 +95,11 @@ msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "%1 hlm. dibaca"
 
-#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:469
+#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:508
 msgid "%1 pp."
 msgstr "%1 hlm."
 
-#: views/stats/init.lua:234 views/stats/init.lua:562 views/stats/init.lua:1016
+#: views/stats/init.lua:238 views/stats/init.lua:601 views/stats/init.lua:1055
 msgid "%1 pp./h"
 msgstr "%1 hlm./jam"
 
@@ -143,7 +143,7 @@ msgstr "%d dari 5 bintang"
 msgid "+ Brightness"
 msgstr "+ Kecerahan"
 
-#: views/stats/init.lua:873
+#: views/stats/init.lua:912
 msgid "+%1 more"
 msgstr "+%1 lagi"
 
@@ -187,7 +187,7 @@ msgstr "DITAMBAHKAN"
 msgid "Active"
 msgstr "Aktif"
 
-#: views/stats/init.lua:400
+#: views/stats/init.lua:439
 msgid "Activity summary"
 msgstr "Ringkasan aktivitas"
 
@@ -266,19 +266,19 @@ msgstr "Semua selesai"
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:973
+#: views/stats/init.lua:1012
 msgid "Annual"
 msgstr "Tahunan"
 
-#: views/stats/init.lua:358
+#: views/stats/init.lua:387
 msgid "Annual goal"
 msgstr ""
 
-#: views/stats/init.lua:321
+#: views/stats/init.lua:333
 msgid "Annual reading goal"
 msgstr ""
 
-#: views/stats/init.lua:538
+#: views/stats/init.lua:577
 msgid "Annual recap"
 msgstr "Rangkuman tahunan"
 
@@ -357,15 +357,15 @@ msgstr ""
 msgid "Battery"
 msgstr "Baterai"
 
-#: views/stats/init.lua:1056
+#: views/stats/init.lua:1095
 msgid "Best day"
 msgstr "Hari terbaik"
 
-#: views/stats/init.lua:1059
+#: views/stats/init.lua:1098
 msgid "Best month"
 msgstr "Bulan terbaik"
 
-#: views/stats/init.lua:565
+#: views/stats/init.lua:604
 msgid "Best streak: %1"
 msgstr ""
 
@@ -476,11 +476,11 @@ msgstr "BAB SAAT INI · HALAMAN %d"
 msgid "CURRENT SESSION"
 msgstr "SESI SAAT INI"
 
-#: views/home.lua:382 views/stats/init.lua:499
+#: views/home.lua:382 views/stats/init.lua:538
 msgid "CURRENTLY READING"
 msgstr "SEDANG DIBACA"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:694
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:733
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -496,7 +496,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:811
+#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:850
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -695,23 +695,23 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Sedang dibaca"
 
-#: views/stats/init.lua:1036
+#: views/stats/init.lua:1075
 msgid "DAILY RHYTHM"
 msgstr "RITME HARIAN"
 
-#: views/stats/init.lua:659
+#: views/stats/init.lua:698
 msgid "DAYS OF THE WEEK"
 msgstr ""
 
-#: views/stats/init.lua:1051
+#: views/stats/init.lua:1090
 msgid "Daily average"
 msgstr "Rata-rata harian"
 
-#: views/stats/init.lua:350
+#: views/stats/init.lua:367
 msgid "Daily goal"
 msgstr ""
 
-#: views/stats/init.lua:299
+#: views/stats/init.lua:303
 msgid "Daily reading goal"
 msgstr ""
 
@@ -727,7 +727,7 @@ msgstr "Tanggal"
 msgid "Date finished"
 msgstr "Tanggal selesai"
 
-#: views/stats/init.lua:1054
+#: views/stats/init.lua:1093
 msgid "Day %1"
 msgstr "Hari ke-%1"
 
@@ -745,16 +745,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "Desember"
 
-#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:831
+#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:870
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:842
+#: views/stats/init.lua:881
 msgid "Delete all book stats"
 msgstr "Hapus semua statistik buku"
 
-#: views/stats/init.lua:846
+#: views/stats/init.lua:885
 msgid "Delete all stats?"
 msgstr "Hapus semua statistik?"
 
@@ -763,11 +763,11 @@ msgstr "Hapus semua statistik?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:829
+#: views/stats/init.lua:868
 msgid "Delete minutes for this day?"
 msgstr "Hapus menit untuk hari ini?"
 
-#: views/stats/init.lua:825
+#: views/stats/init.lua:864
 msgid "Delete minutes from this day"
 msgstr "Hapus menit dari hari ini"
 
@@ -791,6 +791,11 @@ msgstr ""
 #: dev/devtools.lua:619 dev/devtools.lua:625 views/widgets/catalog.lua:394 views/widgets/catalog.lua:395
 #, koreader
 msgid "Dictionary"
+msgstr ""
+
+#: views/stats/init.lua:313 views/stats/init.lua:343 views/stats/init.lua:376 views/stats/init.lua:396
+#, koreader
+msgid "Disable"
 msgstr ""
 
 #: views/widgets/catalog.lua:340
@@ -840,7 +845,7 @@ msgstr ""
 msgid "EDITING WIDGETS"
 msgstr "MENYUNTING WIDGET"
 
-#: views/stats/init.lua:510
+#: views/stats/init.lua:549
 msgid "EXPLORE"
 msgstr ""
 
@@ -1001,8 +1006,8 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "Buku selesai berwarna abu-abu"
 
-#: views/stats/init.lua:322
-msgid "Finished books per year (0 to disable)."
+#: views/stats/init.lua:334
+msgid "Finished books per year."
 msgstr ""
 
 #: styles/filemanager/imageviewer.lua:99
@@ -1085,7 +1090,7 @@ msgstr "Layar penuh"
 msgid "Galician"
 msgstr ""
 
-#: views/stats/init.lua:524 views/stats/init.lua:557
+#: views/stats/init.lua:563 views/stats/init.lua:596
 msgid "Genres & habits"
 msgstr ""
 
@@ -1117,6 +1122,10 @@ msgstr ""
 msgid "Go up"
 msgstr "Naik"
 
+#: views/stats/init.lua:430
+msgid "Goals"
+msgstr ""
+
 #: core/compat.lua:176 styles/plugins/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
@@ -1130,11 +1139,11 @@ msgstr "Kisi: %1 kolom"
 msgid "HIGHLIGHT"
 msgstr "SOROTAN"
 
-#: views/stats/init.lua:1044
+#: views/stats/init.lua:1083
 msgid "HIGHLIGHTS"
 msgstr "SOROTAN"
 
-#: views/stats/init.lua:774
+#: views/stats/init.lua:813
 msgid "Hasn't arrived yet"
 msgstr "Belum tiba"
 
@@ -1296,7 +1305,7 @@ msgstr ""
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats/init.lua:420
+#: views/stats/init.lua:459
 msgid "LAST 7 DAYS"
 msgstr "7 HARI TERAKHIR"
 
@@ -1406,15 +1415,15 @@ msgstr "HASIL"
 msgid "MATCH %d"
 msgstr "HASIL %d"
 
-#: views/stats/init.lua:1036
+#: views/stats/init.lua:1075
 msgid "MONTHLY RHYTHM"
 msgstr "RITME BULANAN"
 
-#: views/stats/init.lua:1068
+#: views/stats/init.lua:1107
 msgid "MOST READ"
 msgstr "PALING BANYAK DIBACA"
 
-#: views/stats/init.lua:572
+#: views/stats/init.lua:611
 msgid "MOST READ GENRES"
 msgstr ""
 
@@ -1492,8 +1501,8 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Minimal"
 
-#: views/stats/init.lua:300
-msgid "Minutes per day (0 to disable)."
+#: views/stats/init.lua:304
+msgid "Minutes of reading per day."
 msgstr ""
 
 #: views/explorer.lua:108
@@ -1504,11 +1513,11 @@ msgstr "Campur folder"
 msgid "Mix series"
 msgstr "Campur seri"
 
-#: views/stats/init.lua:971
+#: views/stats/init.lua:1010
 msgid "Monthly"
 msgstr "Bulanan"
 
-#: views/stats/init.lua:536
+#: views/stats/init.lua:575
 msgid "Monthly recap"
 msgstr "Rangkuman bulanan"
 
@@ -1646,7 +1655,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "Tidak ada data CoverBrowser"
 
-#: views/home.lua:251 views/stats/init.lua:211
+#: views/home.lua:251 views/stats/init.lua:215
 msgid "No book in progress"
 msgstr "Tidak ada buku yang sedang dibaca"
 
@@ -1686,11 +1695,11 @@ msgstr "Tidak ada koleksi dengan filter ini"
 msgid "No current book"
 msgstr "Tidak ada buku saat ini"
 
-#: views/stats/init.lua:409
+#: views/stats/init.lua:448
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Tidak ada data: aktifkan plugin Statistik dan baca sebentar"
 
-#: views/stats/init.lua:588
+#: views/stats/init.lua:627
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1707,11 +1716,11 @@ msgstr "Tidak ada buku berikutnya yang belum selesai"
 msgid "No previous book"
 msgstr "Tidak ada buku sebelumnya"
 
-#: styles/plugins/statspages.lua:347 views/stats/init.lua:1007
+#: styles/plugins/statspages.lua:347 views/stats/init.lua:1046
 msgid "No reading activity in this period"
 msgstr "Tidak ada aktivitas membaca pada periode ini"
 
-#: views/stats/init.lua:523
+#: views/stats/init.lua:562
 msgid "No reading habits yet"
 msgstr ""
 
@@ -1728,7 +1737,7 @@ msgstr ""
 msgid "No saved shortcuts"
 msgstr "Tidak ada pintasan tersimpan"
 
-#: views/stats/init.lua:225
+#: views/stats/init.lua:229
 msgid "No stats for this book"
 msgstr "Tidak ada statistik untuk buku ini"
 
@@ -1795,7 +1804,7 @@ msgctxt "aire"
 msgid "October"
 msgstr "Oktober"
 
-#: styles/reader/footer.lua:102 views/stats/init.lua:343 views/stats/init.lua:344 views/widgets/catalog.lua:315 views/widgets/catalog.lua:316
+#: styles/reader/footer.lua:102 views/stats/init.lua:363 views/stats/init.lua:364 views/widgets/catalog.lua:315 views/widgets/catalog.lua:316
 #, koreader
 msgid "Off"
 msgstr ""
@@ -2040,7 +2049,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "Dibaca"
 
-#: views/stats/init.lua:347
+#: views/stats/init.lua:407
 msgid "Reading goals"
 msgstr ""
 
@@ -2061,7 +2070,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:934
+#: views/stats/init.lua:973
 msgid "Recap"
 msgstr "Rangkuman"
 
@@ -2205,7 +2214,7 @@ msgstr "SSH aktif"
 msgid "SSH server"
 msgstr ""
 
-#: dev/devtools.lua:599 dev/devtools.lua:602 dev/devtools.lua:789 views/stats/init.lua:307 views/stats/init.lua:329
+#: dev/devtools.lua:599 dev/devtools.lua:602 dev/devtools.lua:789 views/stats/init.lua:311 views/stats/init.lua:341
 #, koreader
 msgid "Save"
 msgstr ""
@@ -2408,7 +2417,7 @@ msgstr "Mulai"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:41 views/stats/init.lua:390
+#: views/dock.lua:41 views/stats/init.lua:429
 msgid "Stats"
 msgstr "Statistik"
 
@@ -2424,7 +2433,7 @@ msgstr ""
 msgid "Storage"
 msgstr "Penyimpanan"
 
-#: views/stats/init.lua:489
+#: views/stats/init.lua:528
 msgid "Streak"
 msgstr ""
 
@@ -2534,7 +2543,7 @@ msgstr "Salinan ini memiliki folder dev/ (pengujian). Versi baru tidak menyertak
 msgid "This month"
 msgstr "Bulan ini"
 
-#: views/stats/init.lua:396
+#: views/stats/init.lua:435
 msgid "This month · %1 · %2 pp."
 msgstr "Bulan ini · %1 · %2 hlm."
 
@@ -2597,7 +2606,7 @@ msgstr ""
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:721 views/stats/init.lua:485
+#: dev/devtools.lua:721 views/stats/init.lua:524
 msgid "Today"
 msgstr ""
 
@@ -2610,7 +2619,7 @@ msgstr "Hari ini dan runtunan"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:1062
+#: views/stats/init.lua:1101
 msgid "Top author"
 msgstr "Penulis teratas"
 
@@ -2690,7 +2699,7 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "AKTIVITAS MINGGUAN"
 
-#: views/stats/init.lua:607
+#: views/stats/init.lua:646
 msgid "WHEN YOU READ"
 msgstr ""
 
@@ -2735,7 +2744,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Anda sudah memiliki versi terbaru (%1)."
 
-#: views/stats/init.lua:774
+#: views/stats/init.lua:813
 msgid "You didn't read that day"
 msgstr "Anda tidak membaca hari itu"
 
@@ -2777,7 +2786,7 @@ msgstr "dan sorotan"
 msgid "at %1 %"
 msgstr "pada %1 %"
 
-#: views/stats/init.lua:442
+#: views/stats/init.lua:481
 msgid "avg %1"
 msgstr ""
 
@@ -2798,7 +2807,7 @@ msgid "book"
 msgid_plural "books"
 msgstr[0] "buku"
 
-#: views/stats/init.lua:328
+#: views/stats/init.lua:340
 msgid "books"
 msgstr ""
 
@@ -2819,12 +2828,12 @@ msgstr ""
 msgid "files"
 msgstr "berkas"
 
-#: views/stats/init.lua:479
+#: views/stats/init.lua:518
 #, koreader
 msgid "finished"
 msgstr ""
 
-#: views/stats/init.lua:1024 views/widgets/catalog.lua:282
+#: views/stats/init.lua:1063 views/widgets/catalog.lua:282
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "buku selesai"
@@ -2833,11 +2842,11 @@ msgstr[0] "buku selesai"
 msgid "free"
 msgstr "kosong"
 
-#: views/stats/init.lua:439
+#: views/stats/init.lua:478
 msgid "goal %1"
 msgstr ""
 
-#: views/stats/init.lua:472
+#: views/stats/init.lua:511
 msgid "in a row"
 msgstr ""
 
@@ -2857,11 +2866,11 @@ msgstr "7 hari terakhir"
 msgid "light"
 msgstr "lampu"
 
-#: views/stats/init.lua:471
+#: views/stats/init.lua:510
 msgid "max %1"
 msgstr ""
 
-#: views/stats/init.lua:306
+#: views/stats/init.lua:310
 msgid "min"
 msgstr ""
 
@@ -2891,7 +2900,7 @@ msgstr "hlm. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "hlm. %1 dari %2"
 
-#: views/stats/init.lua:1016
+#: views/stats/init.lua:1055
 msgid "pages read"
 msgstr "halaman dibaca"
 
@@ -2899,7 +2908,7 @@ msgstr "halaman dibaca"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats/init.lua:1020
+#: views/stats/init.lua:1059
 msgid "reading time"
 msgstr "waktu membaca"
 
@@ -2978,7 +2987,7 @@ msgctxt "aire"
 msgid "yesterday"
 msgstr "kemarin"
 
-#: views/stats/init.lua:230
+#: views/stats/init.lua:234
 msgid "~%1 left"
 msgstr "~%1 lagi"
 

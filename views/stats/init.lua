@@ -136,7 +136,7 @@ return function(Aire, ctx)
     end
 
     -- Tarjeta KPI superior con icono en la misma línea que el título y micro-barra opcional de objetivo
-    local function kpiTile(w, icon, title, big, sub, progress, min_h)
+    local function kpiTile(w, icon, title, big, sub, progress, reserve_bar)
         local pad = S(8)
         local inner_w = w - 2 * Size.border.thin
         local content_w = inner_w - 2 * pad
@@ -158,15 +158,19 @@ return function(Aire, ctx)
             VerticalSpan:new{ width = S(2) },
             TextWidget:new{ text = sub, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
         }
+        local bar_h = S(4)
+        local bar_gap = S(5)
         if progress ~= nil then
-            table.insert(vg, VerticalSpan:new{ width = S(5) })
+            table.insert(vg, VerticalSpan:new{ width = bar_gap })
             table.insert(vg, ProgressWidget:new{
-                width = content_w, height = S(4), percentage = math.max(0, math.min(1, progress)),
+                width = content_w, height = bar_h, percentage = math.max(0, math.min(1, progress)),
                 fillcolor = BLACK, bgcolor = Blitbuffer.COLOR_GRAY_D, bordersize = 0,
                 radius = S(2), margin_h = 0, margin_v = 0,
             })
+        elseif reserve_bar then
+            table.insert(vg, VerticalSpan:new{ width = bar_gap + bar_h })
         end
-        local h = math.max(vg:getSize().h + 2 * pad, min_h or 0)
+        local h = vg:getSize().h + 2 * pad
         return FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
@@ -297,16 +301,24 @@ return function(Aire, ctx)
         local cur = tonumber(config.stats_goal_daily_min) or 0
         UIManager:show(SpinWidget:new{
             title_text = _("Daily reading goal"),
-            info_text = _("Minutes per day (0 to disable)."),
-            value = cur,
-            value_min = 0,
+            info_text = _("Minutes of reading per day."),
+            value = cur > 0 and cur or 30,
+            value_min = 5,
             value_max = 240,
             value_step = 5,
             value_hold_step = 15,
             unit = _("min"),
             ok_text = _("Save"),
+            ok_always_enabled = true,
+            option_text = cur > 0 and _("Disable") or nil,
+            option_callback = cur > 0 and function()
+                config.stats_goal_daily_min = 0
+                saveConfig()
+                self:apply()
+                UIManager:setDirty(self.ui, "ui")
+            end or nil,
             callback = function(spin)
-                config.stats_goal_daily_min = math.max(0, math.floor(spin.value or 0))
+                config.stats_goal_daily_min = math.max(5, math.floor(spin.value or 30))
                 saveConfig()
                 self:apply()
                 UIManager:setDirty(self.ui, "ui")
@@ -319,16 +331,24 @@ return function(Aire, ctx)
         local cur = tonumber(config.stats_goal_yearly_books) or 0
         UIManager:show(SpinWidget:new{
             title_text = _("Annual reading goal"),
-            info_text = _("Finished books per year (0 to disable)."),
-            value = cur,
-            value_min = 0,
+            info_text = _("Finished books per year."),
+            value = cur > 0 and cur or 12,
+            value_min = 1,
             value_max = 200,
             value_step = 1,
             value_hold_step = 5,
             unit = _("books"),
             ok_text = _("Save"),
+            ok_always_enabled = true,
+            option_text = cur > 0 and _("Disable") or nil,
+            option_callback = cur > 0 and function()
+                config.stats_goal_yearly_books = 0
+                saveConfig()
+                self:apply()
+                UIManager:setDirty(self.ui, "ui")
+            end or nil,
             callback = function(spin)
-                config.stats_goal_yearly_books = math.max(0, math.floor(spin.value or 0))
+                config.stats_goal_yearly_books = math.max(1, math.floor(spin.value or 12))
                 saveConfig()
                 self:apply()
                 UIManager:setDirty(self.ui, "ui")
@@ -343,26 +363,49 @@ return function(Aire, ctx)
         local daily_val = daily > 0 and T(_("%1 min/day"), daily) or _("Off")
         local yearly_val = yearly > 0 and T(N_("%1 book/year", "%1 books/year", yearly), yearly) or _("Off")
         local dlg
+        local row_daily = {{
+            text = _("Daily goal") .. " · " .. daily_val,
+            align = "left",
+            callback = function()
+                UIManager:close(dlg)
+                self:editDailyGoal()
+            end,
+        }}
+        if daily > 0 then
+            table.insert(row_daily, {
+                text = _("Disable"),
+                callback = function()
+                    UIManager:close(dlg)
+                    config.stats_goal_daily_min = 0
+                    saveConfig()
+                    self:apply()
+                    UIManager:setDirty(self.ui, "ui")
+                end,
+            })
+        end
+        local row_yearly = {{
+            text = _("Annual goal") .. " · " .. yearly_val,
+            align = "left",
+            callback = function()
+                UIManager:close(dlg)
+                self:editYearlyGoal()
+            end,
+        }}
+        if yearly > 0 then
+            table.insert(row_yearly, {
+                text = _("Disable"),
+                callback = function()
+                    UIManager:close(dlg)
+                    config.stats_goal_yearly_books = 0
+                    saveConfig()
+                    self:apply()
+                    UIManager:setDirty(self.ui, "ui")
+                end,
+            })
+        end
         dlg = ButtonDialog:new{
             title = _("Reading goals"),
-            buttons = {
-                {{
-                    text = _("Daily goal") .. " · " .. daily_val,
-                    align = "left",
-                    callback = function()
-                        UIManager:close(dlg)
-                        self:editDailyGoal()
-                    end,
-                }},
-                {{
-                    text = _("Annual goal") .. " · " .. yearly_val,
-                    align = "left",
-                    callback = function()
-                        UIManager:close(dlg)
-                        self:editYearlyGoal()
-                    end,
-                }},
-            },
+            buttons = { row_daily, row_yearly },
         }
         UIManager:show(dlg)
     end
@@ -379,16 +422,12 @@ return function(Aire, ctx)
         local side = S(ctx.SIDE_PAD)
         local w = sw - 2 * side
 
-        -- Objetivos (en modo prueba, si ambos son 0, mostramos 30 min y 24 libros de ejemplo)
         local daily_goal = tonumber(config.stats_goal_daily_min) or 0
         local yearly_goal = tonumber(config.stats_goal_yearly_books) or 0
-        if config.demo_stats and daily_goal == 0 and yearly_goal == 0 then
-            daily_goal, yearly_goal = 30, 24
-        end
 
         local content = self:buildScreenTop(w, {
             title = _("Stats"),
-            menu_icon = "aire.edit",
+            menu_text = _("Goals"),
             on_menu = function() self:openGoalsMenu() end,
         })
         local sub_txt
@@ -478,18 +517,18 @@ return function(Aire, ctx)
             and ("%d%%"):format(math.floor(math.min(999, st.finished_year / yearly_goal * 100) + 0.5))
             or _("finished")
 
-        -- Misma altura para las 3 casillas aunque solo 1 o 2 tengan barra de objetivo
-        local kpi_min_h = (today_prog ~= nil or year_prog ~= nil) and S(78) or 0
+        -- Misma altura exacta para las 3 casillas si al menos una tiene barra de objetivo
+        local reserve_bar = (today_prog ~= nil or year_prog ~= nil)
         table.insert(content, HorizontalGroup:new{
             align = "top",
-            tappable(kpiTile(tw, "aire.widget.timer", _("Today"), fmtDuration(st.today_secs), today_sub, today_prog, kpi_min_h),
+            tappable(kpiTile(tw, "aire.widget.timer", _("Today"), fmtDuration(st.today_secs), today_sub, today_prog, reserve_bar),
                 function() self:showCalendarView() end,
                 function() self:editDailyGoal() end),
             HorizontalSpan:new{ width = tgap },
-            tappable(kpiTile(tw, "aire.widget.flame", _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub, nil, kpi_min_h),
+            tappable(kpiTile(tw, "aire.widget.flame", _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub, nil, reserve_bar),
                 function() self:showCalendarView() end),
             HorizontalSpan:new{ width = tgap },
-            tappable(kpiTile(tw3, "aire.widget.done", st.year, year_big, year_sub, year_prog, kpi_min_h),
+            tappable(kpiTile(tw3, "aire.widget.done", st.year, year_big, year_sub, year_prog, reserve_bar),
                 function() if self.showGridView then self:showGridView("finished") end end,
                 function() self:editYearlyGoal() end),
         })

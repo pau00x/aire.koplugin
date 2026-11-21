@@ -38,7 +38,7 @@ msgid_plural "%1 books"
 msgstr[0] "%1 libro"
 msgstr[1] "%1 libros"
 
-#: views/stats/init.lua:344
+#: views/stats/init.lua:364
 msgid "%1 book/year"
 msgid_plural "%1 books/year"
 msgstr[0] ""
@@ -56,7 +56,7 @@ msgid_plural "%1 collections"
 msgstr[0] "%1 colección"
 msgstr[1] "%1 coleccións"
 
-#: views/stats/init.lua:489 views/stats/init.lua:566
+#: views/stats/init.lua:528 views/stats/init.lua:605
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 día"
@@ -68,7 +68,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "hai %1 día"
 msgstr[1] "hai %1 días"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:698 views/stats/init.lua:1038
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:737 views/stats/init.lua:1077
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 día lendo"
@@ -86,7 +86,7 @@ msgid_plural "%1 finished books"
 msgstr[0] "%1 libro rematado"
 msgstr[1] "%1 libros rematados"
 
-#: views/stats/init.lua:343
+#: views/stats/init.lua:363
 msgid "%1 min/day"
 msgstr ""
 
@@ -108,11 +108,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 páx. lida"
 msgstr[1] "%1 páx. lidas"
 
-#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:469
+#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:508
 msgid "%1 pp."
 msgstr "%1 páx."
 
-#: views/stats/init.lua:234 views/stats/init.lua:562 views/stats/init.lua:1016
+#: views/stats/init.lua:238 views/stats/init.lua:601 views/stats/init.lua:1055
 msgid "%1 pp./h"
 msgstr "%1 páx./h"
 
@@ -160,7 +160,7 @@ msgstr "%d de 5 estrelas"
 msgid "+ Brightness"
 msgstr "+ Intensidade"
 
-#: views/stats/init.lua:873
+#: views/stats/init.lua:912
 msgid "+%1 more"
 msgstr "+%1 máis"
 
@@ -204,7 +204,7 @@ msgstr "ENGADIDO"
 msgid "Active"
 msgstr "Activo"
 
-#: views/stats/init.lua:400
+#: views/stats/init.lua:439
 msgid "Activity summary"
 msgstr "Resumo de actividade"
 
@@ -283,19 +283,19 @@ msgstr "Todos rematados"
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:973
+#: views/stats/init.lua:1012
 msgid "Annual"
 msgstr "Anual"
 
-#: views/stats/init.lua:358
+#: views/stats/init.lua:387
 msgid "Annual goal"
 msgstr ""
 
-#: views/stats/init.lua:321
+#: views/stats/init.lua:333
 msgid "Annual reading goal"
 msgstr ""
 
-#: views/stats/init.lua:538
+#: views/stats/init.lua:577
 msgid "Annual recap"
 msgstr "Resumo anual"
 
@@ -374,15 +374,15 @@ msgstr ""
 msgid "Battery"
 msgstr "Batería"
 
-#: views/stats/init.lua:1056
+#: views/stats/init.lua:1095
 msgid "Best day"
 msgstr "Mellor día"
 
-#: views/stats/init.lua:1059
+#: views/stats/init.lua:1098
 msgid "Best month"
 msgstr "Mellor mes"
 
-#: views/stats/init.lua:565
+#: views/stats/init.lua:604
 msgid "Best streak: %1"
 msgstr ""
 
@@ -493,11 +493,11 @@ msgstr "CAPÍTULO ACTUAL · PÁX. %d"
 msgid "CURRENT SESSION"
 msgstr "SESIÓN ACTUAL"
 
-#: views/home.lua:382 views/stats/init.lua:499
+#: views/home.lua:382 views/stats/init.lua:538
 msgid "CURRENTLY READING"
 msgstr "LENDO AGORA"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:694
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:733
 msgid "Calendar"
 msgstr "Calendario"
 
@@ -513,7 +513,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:811
+#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:850
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -713,23 +713,23 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Lendo agora"
 
-#: views/stats/init.lua:1036
+#: views/stats/init.lua:1075
 msgid "DAILY RHYTHM"
 msgstr "RITMO DIARIO"
 
-#: views/stats/init.lua:659
+#: views/stats/init.lua:698
 msgid "DAYS OF THE WEEK"
 msgstr ""
 
-#: views/stats/init.lua:1051
+#: views/stats/init.lua:1090
 msgid "Daily average"
 msgstr "Media diaria"
 
-#: views/stats/init.lua:350
+#: views/stats/init.lua:367
 msgid "Daily goal"
 msgstr ""
 
-#: views/stats/init.lua:299
+#: views/stats/init.lua:303
 msgid "Daily reading goal"
 msgstr ""
 
@@ -745,7 +745,7 @@ msgstr "Data"
 msgid "Date finished"
 msgstr "Data de remate"
 
-#: views/stats/init.lua:1054
+#: views/stats/init.lua:1093
 msgid "Day %1"
 msgstr "Día %1"
 
@@ -763,16 +763,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "decembro"
 
-#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:831
+#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:870
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:842
+#: views/stats/init.lua:881
 msgid "Delete all book stats"
 msgstr "Borrar todas as estatísticas do libro"
 
-#: views/stats/init.lua:846
+#: views/stats/init.lua:885
 msgid "Delete all stats?"
 msgstr "Borrar todas as estatísticas?"
 
@@ -781,11 +781,11 @@ msgstr "Borrar todas as estatísticas?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:829
+#: views/stats/init.lua:868
 msgid "Delete minutes for this day?"
 msgstr "Borrar os minutos deste día?"
 
-#: views/stats/init.lua:825
+#: views/stats/init.lua:864
 msgid "Delete minutes from this day"
 msgstr "Borrar os minutos deste día"
 
@@ -809,6 +809,11 @@ msgstr ""
 #: dev/devtools.lua:619 dev/devtools.lua:625 views/widgets/catalog.lua:394 views/widgets/catalog.lua:395
 #, koreader
 msgid "Dictionary"
+msgstr ""
+
+#: views/stats/init.lua:313 views/stats/init.lua:343 views/stats/init.lua:376 views/stats/init.lua:396
+#, koreader
+msgid "Disable"
 msgstr ""
 
 #: views/widgets/catalog.lua:340
@@ -858,7 +863,7 @@ msgstr ""
 msgid "EDITING WIDGETS"
 msgstr "EDITANDO WIDGETS"
 
-#: views/stats/init.lua:510
+#: views/stats/init.lua:549
 msgid "EXPLORE"
 msgstr ""
 
@@ -1019,8 +1024,8 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "Libros rematados en gris"
 
-#: views/stats/init.lua:322
-msgid "Finished books per year (0 to disable)."
+#: views/stats/init.lua:334
+msgid "Finished books per year."
 msgstr ""
 
 #: styles/filemanager/imageviewer.lua:99
@@ -1103,7 +1108,7 @@ msgstr "Pantallas completas"
 msgid "Galician"
 msgstr ""
 
-#: views/stats/init.lua:524 views/stats/init.lua:557
+#: views/stats/init.lua:563 views/stats/init.lua:596
 msgid "Genres & habits"
 msgstr ""
 
@@ -1135,6 +1140,10 @@ msgstr ""
 msgid "Go up"
 msgstr "Subir"
 
+#: views/stats/init.lua:430
+msgid "Goals"
+msgstr ""
+
 #: core/compat.lua:176 styles/plugins/vocabbuilder.lua:156
 #, koreader
 msgid "Got it"
@@ -1148,11 +1157,11 @@ msgstr "Grella: %1 columnas"
 msgid "HIGHLIGHT"
 msgstr "DESTACADO"
 
-#: views/stats/init.lua:1044
+#: views/stats/init.lua:1083
 msgid "HIGHLIGHTS"
 msgstr "FITOS"
 
-#: views/stats/init.lua:774
+#: views/stats/init.lua:813
 msgid "Hasn't arrived yet"
 msgstr "Aínda non chegou"
 
@@ -1314,7 +1323,7 @@ msgstr ""
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats/init.lua:420
+#: views/stats/init.lua:459
 msgid "LAST 7 DAYS"
 msgstr "ÚLTIMOS 7 DÍAS"
 
@@ -1425,15 +1434,15 @@ msgstr "COINCIDENCIA"
 msgid "MATCH %d"
 msgstr "COINCIDENCIA %d"
 
-#: views/stats/init.lua:1036
+#: views/stats/init.lua:1075
 msgid "MONTHLY RHYTHM"
 msgstr "RITMO MENSUAL"
 
-#: views/stats/init.lua:1068
+#: views/stats/init.lua:1107
 msgid "MOST READ"
 msgstr "MÁIS LIDOS"
 
-#: views/stats/init.lua:572
+#: views/stats/init.lua:611
 msgid "MOST READ GENRES"
 msgstr ""
 
@@ -1511,8 +1520,8 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Mínimo"
 
-#: views/stats/init.lua:300
-msgid "Minutes per day (0 to disable)."
+#: views/stats/init.lua:304
+msgid "Minutes of reading per day."
 msgstr ""
 
 #: views/explorer.lua:108
@@ -1523,11 +1532,11 @@ msgstr "Mesturar cartafoles"
 msgid "Mix series"
 msgstr "Mesturar series"
 
-#: views/stats/init.lua:971
+#: views/stats/init.lua:1010
 msgid "Monthly"
 msgstr "Mensual"
 
-#: views/stats/init.lua:536
+#: views/stats/init.lua:575
 msgid "Monthly recap"
 msgstr "Resumo mensual"
 
@@ -1665,7 +1674,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "Sen datos de CoverBrowser"
 
-#: views/home.lua:251 views/stats/init.lua:211
+#: views/home.lua:251 views/stats/init.lua:215
 msgid "No book in progress"
 msgstr "Ningún libro en curso"
 
@@ -1705,11 +1714,11 @@ msgstr "Ningunha colección con este filtro"
 msgid "No current book"
 msgstr "Non hai libro actual"
 
-#: views/stats/init.lua:409
+#: views/stats/init.lua:448
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Sen datos: activa o engadido Estatísticas e le un pouco"
 
-#: views/stats/init.lua:588
+#: views/stats/init.lua:627
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1726,11 +1735,11 @@ msgstr "Non hai seguinte libro sen rematar"
 msgid "No previous book"
 msgstr "Non hai libro anterior"
 
-#: styles/plugins/statspages.lua:347 views/stats/init.lua:1007
+#: styles/plugins/statspages.lua:347 views/stats/init.lua:1046
 msgid "No reading activity in this period"
 msgstr "Sen actividade de lectura neste período"
 
-#: views/stats/init.lua:523
+#: views/stats/init.lua:562
 msgid "No reading habits yet"
 msgstr ""
 
@@ -1747,7 +1756,7 @@ msgstr ""
 msgid "No saved shortcuts"
 msgstr "Ningún atallo gardado"
 
-#: views/stats/init.lua:225
+#: views/stats/init.lua:229
 msgid "No stats for this book"
 msgstr "Sen estatísticas deste libro"
 
@@ -1814,7 +1823,7 @@ msgctxt "aire"
 msgid "October"
 msgstr "outubro"
 
-#: styles/reader/footer.lua:102 views/stats/init.lua:343 views/stats/init.lua:344 views/widgets/catalog.lua:315 views/widgets/catalog.lua:316
+#: styles/reader/footer.lua:102 views/stats/init.lua:363 views/stats/init.lua:364 views/widgets/catalog.lua:315 views/widgets/catalog.lua:316
 #, koreader
 msgid "Off"
 msgstr ""
@@ -2059,7 +2068,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "A ler"
 
-#: views/stats/init.lua:347
+#: views/stats/init.lua:407
 msgid "Reading goals"
 msgstr ""
 
@@ -2080,7 +2089,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:934
+#: views/stats/init.lua:973
 msgid "Recap"
 msgstr "Resumo"
 
@@ -2225,7 +2234,7 @@ msgstr "SSH activo"
 msgid "SSH server"
 msgstr ""
 
-#: dev/devtools.lua:599 dev/devtools.lua:602 dev/devtools.lua:789 views/stats/init.lua:307 views/stats/init.lua:329
+#: dev/devtools.lua:599 dev/devtools.lua:602 dev/devtools.lua:789 views/stats/init.lua:311 views/stats/init.lua:341
 #, koreader
 msgid "Save"
 msgstr ""
@@ -2428,7 +2437,7 @@ msgstr "Comezar"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:41 views/stats/init.lua:390
+#: views/dock.lua:41 views/stats/init.lua:429
 msgid "Stats"
 msgstr "Estatísticas"
 
@@ -2444,7 +2453,7 @@ msgstr ""
 msgid "Storage"
 msgstr "Almacenamento"
 
-#: views/stats/init.lua:489
+#: views/stats/init.lua:528
 msgid "Streak"
 msgstr ""
 
@@ -2554,7 +2563,7 @@ msgstr "Esta copia ten o cartafol dev/ (probas). A versión nova non o trae, as�
 msgid "This month"
 msgstr "Este mes"
 
-#: views/stats/init.lua:396
+#: views/stats/init.lua:435
 msgid "This month · %1 · %2 pp."
 msgstr "Este mes · %1 · %2 páx."
 
@@ -2617,7 +2626,7 @@ msgstr ""
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:721 views/stats/init.lua:485
+#: dev/devtools.lua:721 views/stats/init.lua:524
 #, koreader
 msgid "Today"
 msgstr ""
@@ -2631,7 +2640,7 @@ msgstr "Hoxe e racha"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:1062
+#: views/stats/init.lua:1101
 msgid "Top author"
 msgstr "Autor máis lido"
 
@@ -2712,7 +2721,7 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "ACTIVIDADE SEMANAL"
 
-#: views/stats/init.lua:607
+#: views/stats/init.lua:646
 msgid "WHEN YOU READ"
 msgstr ""
 
@@ -2757,7 +2766,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Xa tes a última versión (%1)."
 
-#: views/stats/init.lua:774
+#: views/stats/init.lua:813
 msgid "You didn't read that day"
 msgstr "Ese día non liches"
 
@@ -2799,7 +2808,7 @@ msgstr "e destacados"
 msgid "at %1 %"
 msgstr "ao %1 %"
 
-#: views/stats/init.lua:442
+#: views/stats/init.lua:481
 msgid "avg %1"
 msgstr ""
 
@@ -2821,7 +2830,7 @@ msgid_plural "books"
 msgstr[0] "libro"
 msgstr[1] "libros"
 
-#: views/stats/init.lua:328
+#: views/stats/init.lua:340
 msgid "books"
 msgstr ""
 
@@ -2842,12 +2851,12 @@ msgstr ""
 msgid "files"
 msgstr "ficheiros"
 
-#: views/stats/init.lua:479
+#: views/stats/init.lua:518
 #, koreader
 msgid "finished"
 msgstr ""
 
-#: views/stats/init.lua:1024 views/widgets/catalog.lua:282
+#: views/stats/init.lua:1063 views/widgets/catalog.lua:282
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "libro rematado"
@@ -2857,11 +2866,11 @@ msgstr[1] "libros rematados"
 msgid "free"
 msgstr "libres"
 
-#: views/stats/init.lua:439
+#: views/stats/init.lua:478
 msgid "goal %1"
 msgstr ""
 
-#: views/stats/init.lua:472
+#: views/stats/init.lua:511
 msgid "in a row"
 msgstr ""
 
@@ -2881,11 +2890,11 @@ msgstr "últimos 7 días"
 msgid "light"
 msgstr "luz"
 
-#: views/stats/init.lua:471
+#: views/stats/init.lua:510
 msgid "max %1"
 msgstr ""
 
-#: views/stats/init.lua:306
+#: views/stats/init.lua:310
 msgid "min"
 msgstr ""
 
@@ -2915,7 +2924,7 @@ msgstr "páx. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "páx. %1 de %2"
 
-#: views/stats/init.lua:1016
+#: views/stats/init.lua:1055
 msgid "pages read"
 msgstr "páxinas lidas"
 
@@ -2923,7 +2932,7 @@ msgstr "páxinas lidas"
 msgid "port %1"
 msgstr "porto %1"
 
-#: views/stats/init.lua:1020
+#: views/stats/init.lua:1059
 msgid "reading time"
 msgstr "tempo lendo"
 
@@ -3003,7 +3012,7 @@ msgctxt "aire"
 msgid "yesterday"
 msgstr "onte"
 
-#: views/stats/init.lua:230
+#: views/stats/init.lua:234
 msgid "~%1 left"
 msgstr "quedan ~%1"
 
