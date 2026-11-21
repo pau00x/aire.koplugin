@@ -61,6 +61,9 @@ if plugin_dir then
         Icons.register(plugin_dir)
         package.loaded.aire_icons = Icons
     end)
+    pcall(function()
+        package.loaded.aire_genres = dofile(plugin_dir .. "/core/genres.lua")
+    end)
     -- Piezas comunes (medidas, letra, colores, zonas pulsables, envoltorios
     -- seguros): todos los módulos las toman de package.loaded.aire_ui, la
     -- estructura de las pantallas completas (medidas, puntos de página) de

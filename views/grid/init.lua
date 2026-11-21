@@ -385,23 +385,35 @@ return function(Aire, ctx)
                     return copy
                 end
 
+                local Genres = package.loaded.aire_genres
+
                 if config.coll_auto_author ~= false then
-                    local by, names = {}, {}
+                    local by, labels, keys = {}, {}, {}
                     for _i, b in ipairs(all_books) do
                         if b.author and b.author ~= "" then
-                            if not by[b.author] then by[b.author] = {}; table.insert(names, b.author) end
-                            table.insert(by[b.author], copyBook(b))
+                            local ak = Genres and Genres.authorKey(b.author) or b.author
+                            if ak ~= "" then
+                                if not by[ak] then
+                                    by[ak] = {}
+                                    labels[ak] = b.author
+                                    table.insert(keys, ak)
+                                elseif Genres then
+                                    labels[ak] = Genres.betterLabel(labels[ak], b.author)
+                                end
+                                table.insert(by[ak], copyBook(b))
+                            end
                         end
                     end
-                    table.sort(names, function(a, b) return lowerKey(a) < lowerKey(b) end)
+                    table.sort(keys, function(a, b) return lowerKey(labels[a]) < lowerKey(labels[b]) end)
                     local n = 0
-                    for _i, author in ipairs(names) do
-                        local books = by[author]
+                    for _i, ak in ipairs(keys) do
+                        local books = by[ak]
                         if #books >= LISTS.AUTO.MIN then
                             n = n + 1
+                            local author = labels[ak]
                             sortEntries(books, "title")
                             table.insert(groups, {
-                                is_group = true, auto = true, key = LISTS.AUTO.AUTHOR .. author, title = author,
+                                is_group = true, auto = true, key = LISTS.AUTO.AUTHOR .. ak, title = author,
                                 sort_title = author, books = books, order = 100000 + n, mtime = 0,
                                 rank = groupRank(books),
                             })
@@ -413,27 +425,41 @@ return function(Aire, ctx)
                     local by, labels, keys = {}, {}, {}
                     for _i, b in ipairs(all_books) do
                         if b.keywords and b.keywords ~= "" then
-                            local book_seen = {}
-                            local sep = b.keywords:find("\n", 1, true) and "[^\n]+" or "[^,;]+"
-                            for raw in b.keywords:gmatch(sep) do
-                                local kw = raw:match("^%s*(.-)%s*$")
-                                kw = kw and (kw:match("^(.-)%s*%-%-") or kw)
-                                if kw and kw ~= "" then
-                                    local lk = kw:lower()
-                                    if not book_seen[lk] then
-                                        book_seen[lk] = true
-                                        if not by[lk] then
-                                            by[lk] = {}
-                                            labels[lk] = kw
-                                            table.insert(keys, lk)
+                            local extracted = Genres and Genres.extractGenres(b.keywords) or nil
+                            if extracted then
+                                for _j, g in ipairs(extracted) do
+                                    if not by[g.key] then
+                                        by[g.key] = {}
+                                        labels[g.key] = g.label
+                                        table.insert(keys, g.key)
+                                    elseif not g.canonical then
+                                        labels[g.key] = Genres.betterLabel(labels[g.key], g.label)
+                                    end
+                                    table.insert(by[g.key], copyBook(b))
+                                end
+                            else
+                                local book_seen = {}
+                                local sep = b.keywords:find("\n", 1, true) and "[^\n]+" or "[^,;]+"
+                                for raw in b.keywords:gmatch(sep) do
+                                    local kw = raw:match("^%s*(.-)%s*$")
+                                    kw = kw and (kw:match("^(.-)%s*%-%-") or kw)
+                                    if kw and kw ~= "" then
+                                        local lk = kw:lower()
+                                        if not book_seen[lk] then
+                                            book_seen[lk] = true
+                                            if not by[lk] then
+                                                by[lk] = {}
+                                                labels[lk] = kw
+                                                table.insert(keys, lk)
+                                            end
+                                            table.insert(by[lk], copyBook(b))
                                         end
-                                        table.insert(by[lk], copyBook(b))
                                     end
                                 end
                             end
                         end
                     end
-                    table.sort(keys)
+                    table.sort(keys, function(a, b) return lowerKey(labels[a]) < lowerKey(labels[b]) end)
                     local n = 0
                     for _i, lk in ipairs(keys) do
                         local books = by[lk]
@@ -442,7 +468,7 @@ return function(Aire, ctx)
                             local genre = labels[lk]
                             sortEntries(books, "title")
                             table.insert(groups, {
-                                is_group = true, auto = true, key = LISTS.AUTO.GENRE .. genre, title = genre,
+                                is_group = true, auto = true, key = LISTS.AUTO.GENRE .. lk, title = genre,
                                 sort_title = genre, books = books, order = 200000 + n, mtime = 0,
                                 rank = groupRank(books),
                             })
