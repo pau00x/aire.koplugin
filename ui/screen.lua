@@ -236,19 +236,263 @@ function M.pagerFooter(pager, has_dock)
 end
 
 --===========================================================================
--- Barra de estado: hora a la izquierda; indicadores y botón de energía a la
--- derecha. Tocar la zona de la izquierda o deslizar hacia abajo abre el
--- menú superior de KOReader.
---   setStatusSource{ clock = fn, status = fn, power = fn, menu = fn }
+-- Barra de estado: hora a la izquierda; indicadores (iconos propios) y botón
+-- de energía (con punto de actualización opcional) a la derecha. Tocar la
+-- zona de la izquierda o deslizar hacia abajo abre el menú superior.
+--   setStatusSource{ clock = fn, data = fn, power = fn, menu = fn }
 --   statusBar(w, { hide_clock = bool }) -> widget, parts
 --     parts.clock / parts.status / parts.group (widgets vivos)
---     parts.update()  vuelve a leer la hora y los indicadores
+--     parts.update()  vuelve a leer la hora, los indicadores y el aviso
 --===========================================================================
 local status_src = {}
 function M.setStatusSource(src) status_src = src or {} end
 
 local function emptyGeom() return Geom:new{ x = 0, y = 0, w = 0, h = 0 } end
 local function call(fn) if fn then return fn() end end
+
+-- Píldora horizontal de batería dibujada en Blitbuffer: contorno fino redondeado
+-- (acorde al resto de iconos de Aire), porcentaje centrado dentro, relleno
+-- proporcional invertido (estilo iOS) y rayo a la derecha al cargar.
+local BatteryGlyph = WidgetContainer:extend{
+    level = 0,
+    charging = false,
+    height = nil,
+}
+
+function BatteryGlyph:init()
+    local S, face = AireUI.S, AireUI.face
+    local bh = self.height or S(14)
+    local thin = math.max(1, Size.border.thin)
+    self._body_h = bh
+    self._body_w = math.max(S(24), math.floor(bh * 1.85 + 0.5))
+    self._nub_gap = thin
+    self._nub_w = math.max(1, math.floor(S(1.2) + 0.5))
+    self._nub_h = math.max(3, math.floor(bh * 0.4 + 0.5))
+    local pct = math.max(0, math.min(100, math.floor((tonumber(self.level) or 0) + 0.5)))
+    self._pct = pct
+    local unit = math.max(1, S(1))
+    local font_pt = math.max(10, math.floor((bh / unit) * 0.90 + 0.5))
+    if pct >= 100 then font_pt = math.max(9, font_pt - 2) end
+    self._label = TextWidget:new{
+        text = tostring(pct),
+        face = face(false, font_pt),
+        fgcolor = Blitbuffer.COLOR_BLACK,
+        padding = 0,
+    }
+    local total_w = self._body_w + self._nub_gap + self._nub_w
+    if self.charging then
+        local bolt_h = math.max(S(8), math.floor(bh * 0.8 + 0.5))
+        local bolt_w = math.max(S(6), math.floor(bolt_h * 0.75 + 0.5))
+        self._bolt_gap = math.max(1, S(2))
+        self._bolt = IconWidget:new{ icon = "aire.status.bolt", width = bolt_w, height = bolt_h, alpha = true }
+        total_w = total_w + self._bolt_gap + bolt_w
+    end
+    self.dimen = Geom:new{ x = 0, y = 0, w = total_w, h = bh }
+end
+
+function BatteryGlyph:getSize()
+    return self.dimen
+end
+
+function BatteryGlyph:paintTo(bb, x, y)
+    local S = AireUI.S
+    self.dimen.x, self.dimen.y = x, y
+    local bw, bh = self._body_w, self._body_h
+    local r = math.max(2, math.floor(bh * 0.25 + 0.5))
+    -- Mismo grosor fino que las tarjetas, el botón de energía y los iconos de Aire
+    local t = math.max(1, Size.border.thin)
+    local pad = t + math.max(2, math.floor(S(1.2) + 0.5))
+    local max_fw = math.max(0, bw - 2 * pad)
+    local fh = math.max(2, bh - 2 * pad)
+    local inner_r = math.max(1, math.min(math.floor(fh / 2), r - pad + 1))
+
+    -- Cuerpo fino redondeado + interior blanco + relleno proporcional en gris claro
+    bb:paintRoundedRect(x, y, bw, bh, Blitbuffer.COLOR_BLACK, r)
+    bb:paintRoundedRect(x + t, y + t, bw - 2 * t, bh - 2 * t, Blitbuffer.COLOR_WHITE, math.max(0, r - t))
+    if self._pct > 0 and max_fw > 0 then
+        local fw = math.max(math.min(max_fw, inner_r * 2 + 1), math.floor(max_fw * self._pct / 100 + 0.5))
+        bb:paintRoundedRect(x + pad, y + pad, fw, fh, Blitbuffer.COLOR_GRAY_B, math.min(inner_r, math.floor(fw / 2)))
+    end
+    -- Número siempre en negro puro, centrado ópticamente por altura de cifras
+    if self._label then
+        local ls = self._label:getSize()
+        local bl = self._label.getBaseline and self._label:getBaseline()
+        local ty = bl and (y + math.floor(bh / 2 - bl * 0.665 + 0.5)) or (y + math.floor((bh - ls.h) / 2))
+        self._label:paintTo(bb, x + math.floor((bw - ls.w) / 2), ty)
+    end
+    -- Borne derecho
+    local ny = y + math.floor((bh - self._nub_h) / 2)
+    bb:paintRoundedRect(x + bw + self._nub_gap, ny, self._nub_w, self._nub_h,
+        Blitbuffer.COLOR_BLACK, math.max(1, math.floor(self._nub_w / 2)))
+    -- Rayo junto al borne mientras carga (sin tapar el número)
+    if self._bolt then
+        local bs = self._bolt:getSize()
+        local bx = x + bw + self._nub_gap + self._nub_w + (self._bolt_gap or 0)
+        self._bolt:paintTo(bb, bx, y + math.floor((bh - bs.h) / 2))
+    end
+end
+
+function BatteryGlyph:free()
+    if self._label then
+        self._label:free()
+        self._label = nil
+    end
+    if self._bolt then
+        self._bolt:free()
+        self._bolt = nil
+    end
+end
+M.BatteryGlyph = BatteryGlyph
+
+-- Intensidad de señal Wi-Fi (0..100) sin bloquear ni lanzar escaneos:
+-- /proc/net/wireless → Kindle LIPC → wpa_supplicant / respaldo 100.
+local function wifiSignalQuality()
+    local NetworkMgr = require("ui/network/manager")
+    if not NetworkMgr:isConnected() then return 0 end
+    local f = io.open("/proc/net/wireless", "r")
+    if f then
+        local content = f:read("*a")
+        f:close()
+        if content then
+            for line in content:gmatch("[^\n]+") do
+                local link, level = line:match("^%s*[%w%-]+:%s+%x+%s+(%-?%d+)%.?%s+(%-?%d+)%.?")
+                if link and level then
+                    local lvl = tonumber(level)
+                    local lnk = tonumber(link)
+                    if lvl and lvl < 0 then
+                        return math.max(1, math.min(100, math.floor((lvl + 90) * 2 + 0.5)))
+                    elseif lnk and lnk > 0 then
+                        return math.max(1, math.min(100, math.floor(lnk * 100 / 70 + 0.5)))
+                    end
+                end
+            end
+        end
+    end
+    local ok_l, lipc = pcall(require, "liblipclua")
+    if ok_l and lipc then
+        local ok_h, h = pcall(lipc.init, "com.github.koreader.aire")
+        if ok_h and h then
+            local ok_s, s = pcall(h.get_string_property, h, "com.lab126.wifid", "signalStrength")
+            pcall(h.close, h)
+            if ok_s and type(s) == "string" then
+                local cur, tot = s:match("(%d+)%s*/%s*(%d+)")
+                cur, tot = tonumber(cur), tonumber(tot)
+                if cur and tot and tot > 0 then
+                    return math.max(0, math.min(100, math.floor(cur * 100 / tot + 0.5)))
+                end
+            end
+        end
+    end
+    if NetworkMgr.getCurrentNetwork then
+        local ok_n, nw = pcall(NetworkMgr.getCurrentNetwork, NetworkMgr)
+        if ok_n and type(nw) == "table" and tonumber(nw.signal_quality) then
+            return math.max(0, math.min(100, tonumber(nw.signal_quality)))
+        end
+    end
+    return 100
+end
+
+function M.wifiStatusIcon()
+    local q = wifiSignalQuality()
+    if q <= 0 then
+        return "aire.status.wifi.0"
+    elseif q <= 35 then
+        return "aire.status.wifi.33"
+    elseif q <= 70 then
+        return "aire.status.wifi.66"
+    end
+    return "aire.status.wifi.100"
+end
+
+-- Envoltorio del botón de energía que pinta un punto negro discreto (con halo
+-- blanco) en la esquina superior derecha cuando hay actualización disponible.
+local PowerBadge = WidgetContainer:extend{
+    show_dot = false,
+}
+
+function PowerBadge:getSize()
+    return self[1] and self[1]:getSize() or emptyGeom()
+end
+
+function PowerBadge:paintTo(bb, x, y)
+    local child = self[1]
+    if not child then return end
+    child:paintTo(bb, x, y)
+    local sz = child:getSize()
+    self.dimen = Geom:new{ x = x, y = y, w = sz.w, h = sz.h }
+    if self.show_dot then
+        local S = AireUI.S
+        local d = math.max(6, S(7))
+        local halo = math.max(2, S(2))
+        local od = d + 2 * halo
+        local cx = x + sz.w - math.floor(d / 2) + S(1)
+        local cy = y + math.floor(d / 2) - S(1)
+        bb:paintRoundedRect(cx - math.floor(od / 2), cy - math.floor(od / 2), od, od,
+            Blitbuffer.COLOR_WHITE, math.floor(od / 2))
+        bb:paintRoundedRect(cx - math.floor(d / 2), cy - math.floor(d / 2), d, d,
+            Blitbuffer.COLOR_BLACK, math.floor(d / 2))
+    end
+end
+
+-- Grupo de indicadores de estado (iconos vectoriales + texto limpio sin puntos).
+-- Solo reconstruye los hijos cuando cambia la firma de los datos.
+local StatusCluster = WidgetContainer:extend{}
+
+local function statusSignature(items)
+    if type(items) ~= "table" or #items == 0 then return "" end
+    local parts = {}
+    for _i, it in ipairs(items) do
+        if it.kind == "battery" then
+            table.insert(parts, "b:" .. tostring(it.level) .. ":" .. (it.charging and "1" or "0") .. ":" .. tostring(it.text or ""))
+        else
+            table.insert(parts, tostring(it.kind) .. ":" .. tostring(it.icon or "") .. ":" .. tostring(it.text or ""))
+        end
+    end
+    return table.concat(parts, "|")
+end
+
+function StatusCluster:init()
+    self._sig = nil
+    self:setData(self.initial_data)
+    self.initial_data = nil
+end
+
+function StatusCluster:setData(data)
+    local items = type(data) == "table" and data.items or nil
+    local sig = statusSignature(items)
+    if sig == self._sig then return false end
+    self._sig = sig
+    if self[1] then self[1]:free() end
+    local S, face = AireUI.S, AireUI.face
+    local row = HorizontalGroup:new{ align = "center" }
+    local icon_sz = S(16)
+    local item_gap = S(11)
+    if type(items) == "table" then
+        for i, it in ipairs(items) do
+            if i > 1 then
+                table.insert(row, HorizontalSpan:new{ width = item_gap })
+            end
+            if it.kind == "icon" then
+                table.insert(row, IconWidget:new{ icon = it.icon, width = icon_sz, height = icon_sz, alpha = true })
+            elseif it.kind == "icon_text" then
+                table.insert(row, HorizontalGroup:new{
+                    align = "center",
+                    IconWidget:new{ icon = it.icon, width = icon_sz, height = icon_sz, alpha = true },
+                    HorizontalSpan:new{ width = S(4) },
+                    TextWidget:new{ text = it.text or "", face = face(false, 13), fgcolor = Blitbuffer.COLOR_BLACK, padding = 0 },
+                })
+            elseif it.kind == "battery" then
+                table.insert(row, BatteryGlyph:new{ level = it.level, charging = it.charging })
+            end
+        end
+    end
+    self[1] = row
+    return true
+end
+
+function StatusCluster:getSize()
+    return self[1] and self[1]:getSize() or emptyGeom()
+end
 
 function M.statusBar(w, opts)
     opts = opts or {}
@@ -262,13 +506,11 @@ function M.statusBar(w, opts)
         background = Blitbuffer.COLOR_WHITE,
         clk,
     }
-    local st = TextWidget:new{
-        text = call(status_src.status) or "",
-        face = face(false, 14), fgcolor = Blitbuffer.COLOR_BLACK, padding = 0,
-    }
+    local initial = call(status_src.data)
+    local st = StatusCluster:new{ initial_data = initial }
     local power_size = S(38)
     local inner = power_size - 2 * Size.border.thin
-    local power = AireUI.tappable(FrameContainer:new{
+    local power_btn = AireUI.tappable(FrameContainer:new{
         bordersize = Size.border.thin,
         color = Blitbuffer.COLOR_BLACK,
         radius = S(8),
@@ -277,9 +519,13 @@ function M.statusBar(w, opts)
         height = power_size,
         CenterContainer:new{
             dimen = Geom:new{ w = inner, h = inner },
-            IconWidget:new{ icon = "aire.power", width = S(24), height = S(24), alpha = true },
+            IconWidget:new{ icon = "aire.power", width = S(22), height = S(22), alpha = true },
         },
     }, function() call(status_src.power) end, nil, S(8))
+    local power = PowerBadge:new{
+        show_dot = type(initial) == "table" and initial.update_dot == true,
+        power_btn,
+    }
     local group = HorizontalGroup:new{ align = "center", st, HorizontalSpan:new{ width = S(12) }, power }
     local h = math.max(power_size, clk_box:getSize().h)
     local bar = InputContainer:new{
@@ -317,7 +563,9 @@ function M.statusBar(w, opts)
     local parts = { clock = clk, status = st, group = group, clock_hidden = opts.hide_clock }
     function parts.update()
         if not parts.clock_hidden then clk:setText(call(status_src.clock) or "") end
-        st:setText(call(status_src.status) or "")
+        local data = call(status_src.data)
+        st:setData(data)
+        power.show_dot = type(data) == "table" and data.update_dot == true
         group:resetLayout()
     end
     return bar, parts

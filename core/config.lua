@@ -10,7 +10,8 @@ local DEFAULTS = {
     enabled = true,
     mode = "library",        -- "library" (esta pantalla) | "explorer" (FileManager normal)
     big_clock = true,
-    status = { memory = false, wifi = true, frontlight = false, battery = true },
+    status = { ssh = true, memory = false, wifi = true, frontlight = false, battery = true, update = true },
+    status_order = { "ssh", "memory", "wifi", "frontlight", "battery" },
 }
 
 local function loadConfig()
@@ -49,6 +50,23 @@ local function loadConfig()
     local st = type(saved.status) == "table" and saved.status or {}
     for k, def in pairs(DEFAULTS.status) do
         if type(st[k]) == "boolean" then cfg.status[k] = st[k] else cfg.status[k] = def end
+    end
+    -- Orden de los iconos de la barra superior (conserva claves válidas y añade las nuevas)
+    local valid_order, seen_order = {}, {}
+    for _i, k in ipairs(DEFAULTS.status_order) do valid_order[k] = true end
+    cfg.status_order = {}
+    if type(saved.status_order) == "table" then
+        for _i, k in ipairs(saved.status_order) do
+            if valid_order[k] and not seen_order[k] then
+                seen_order[k] = true
+                table.insert(cfg.status_order, k)
+            end
+        end
+    end
+    for _i, k in ipairs(DEFAULTS.status_order) do
+        if not seen_order[k] then
+            table.insert(cfg.status_order, k)
+        end
     end
     -- Widgets de Inicio: qué hay en cada hueco ("fila:pos" = id) y combinación de cada fila
     -- home_widgets["fila:columna"] = { id, span, invert, swap, hold_tap, period }

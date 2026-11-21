@@ -155,7 +155,7 @@ return function(Aire, ctx)
         -- Medir sin pisar los widgets vivos (reloj, estado, ruta) de la vista
         -- actual: se construyen copias y se restauran las referencias
         local saved = {}
-        local KEYS = { "_explorer_can_up", "_path_w", "_status_group", "_status_w", "_top_clock_hidden", "_top_clock_w" }
+        local KEYS = { "_explorer_can_up", "_path_w", "_status_group", "_status_update", "_status_w", "_top_clock_hidden", "_top_clock_w" }
         for _i, k in ipairs(KEYS) do saved[k] = self[k] end
         local top, dock = self:buildTopArea(sw), self:buildNavBar(sw - 2 * S(SIDE_PAD))
         local h = top:getSize().h + package.loaded.aire_screen.dockReserve(dock)
