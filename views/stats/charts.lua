@@ -72,11 +72,12 @@ function WeekBars:paintTo(bb, x, y)
     local base_y = y + top_pad + chart_h
     local max = 0
     for _i, d in ipairs(self.days) do if d.secs > max then max = d.secs end end
+    if self.avg_secs and self.avg_secs > max then max = self.avg_secs end
     local bar_r = Screen:scaleBySize(3)
     local stub_h = Screen:scaleBySize(2)
 
-    -- Línea discontinua de media diaria (detrás de las barras)
-    if self.avg_secs and self.avg_secs > 0 and max > 0 and self.avg_secs < max then
+    -- Línea discontinua de referencia (media diaria o meta diaria) detrás de las barras
+    if self.avg_secs and self.avg_secs > 0 and max > 0 then
         local avg_h = math.floor(chart_h * self.avg_secs / max)
         local ay = base_y - avg_h
         local dash = Screen:scaleBySize(4)
@@ -102,8 +103,8 @@ function WeekBars:paintTo(bb, x, y)
         self.labels[i]:paintTo(bb, bx + math.floor((bw - ls.w) / 2), base_y + label_gap)
     end
 
-    -- Etiqueta de la media (encima de la línea, a la derecha, con fondo blanco limpio)
-    if self.avg_widget and self.avg_secs and self.avg_secs > 0 and max > 0 and self.avg_secs < max then
+    -- Etiqueta de la línea de referencia (encima, a la derecha, con fondo blanco limpio)
+    if self.avg_widget and self.avg_secs and self.avg_secs > 0 and max > 0 then
         local avg_h = math.floor(chart_h * self.avg_secs / max)
         local as = self.avg_widget:getSize()
         local pad_x = Screen:scaleBySize(4)

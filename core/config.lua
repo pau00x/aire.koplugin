@@ -45,6 +45,8 @@ local function loadConfig()
         fin_filter = type(saved.fin_filter) == "string" and saved.fin_filter or "year",
         fin_sort = type(saved.fin_sort) == "string" and saved.fin_sort or "recent",
         fin_sort_rev = saved.fin_sort_rev == true,
+        stats_goal_daily_min = math.max(0, math.floor(tonumber(saved.stats_goal_daily_min) or 0)),
+        stats_goal_yearly_books = math.max(0, math.floor(tonumber(saved.stats_goal_yearly_books) or 0)),
         status = {},
     }
     local st = type(saved.status) == "table" and saved.status or {}

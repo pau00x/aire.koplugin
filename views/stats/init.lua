@@ -135,9 +135,9 @@ return function(Aire, ctx)
         }
     end
 
-    -- Tarjeta KPI superior con icono en la misma línea que el título
-    local function kpiTile(w, icon, title, big, sub)
-        local pad = S(9)
+    -- Tarjeta KPI superior con icono en la misma línea que el título y micro-barra opcional de objetivo
+    local function kpiTile(w, icon, title, big, sub, progress, min_h)
+        local pad = S(8)
         local inner_w = w - 2 * Size.border.thin
         local content_w = inner_w - 2 * pad
         local ico_sz = S(13)
@@ -146,19 +146,27 @@ return function(Aire, ctx)
             IconWidget:new{ icon = icon, width = ico_sz, height = ico_sz, alpha = true },
             HorizontalSpan:new{ width = S(4) },
             TextWidget:new{
-                text = title, face = face(true, 12), fgcolor = GRAY_TEXT,
+                text = title, face = face(true, 11), fgcolor = GRAY_TEXT,
                 max_width = math.max(S(24), content_w - ico_sz - S(4)), padding = 0,
             },
         }
         local vg = VerticalGroup:new{
             align = "center",
             head,
-            VerticalSpan:new{ width = S(4) },
-            TextWidget:new{ text = big, face = face(true, 18), fgcolor = BLACK, max_width = content_w, padding = 0 },
+            VerticalSpan:new{ width = S(3) },
+            TextWidget:new{ text = big, face = face(true, 17), fgcolor = BLACK, max_width = content_w, padding = 0 },
             VerticalSpan:new{ width = S(2) },
             TextWidget:new{ text = sub, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
         }
-        local h = vg:getSize().h + 2 * pad
+        if progress ~= nil then
+            table.insert(vg, VerticalSpan:new{ width = S(5) })
+            table.insert(vg, ProgressWidget:new{
+                width = content_w, height = S(4), percentage = math.max(0, math.min(1, progress)),
+                fillcolor = BLACK, bgcolor = Blitbuffer.COLOR_GRAY_D, bordersize = 0,
+                radius = S(2), margin_h = 0, margin_v = 0,
+            })
+        end
+        local h = math.max(vg:getSize().h + 2 * pad, min_h or 0)
         return FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
@@ -227,8 +235,8 @@ return function(Aire, ctx)
             end
         end
 
-        local pad = S(10)
-        local cover_h = S(64)
+        local pad = S(9)
+        local cover_h = S(54)
         local cover
         local ok_bim, BIM = pcall(require, "bookinfomanager")
         if ok_bim and type(BIM) == "table" then
@@ -284,6 +292,81 @@ return function(Aire, ctx)
         }, function() filemanagerutil.openFile(self.ui, file) end)
     end
 
+    function Aire:editDailyGoal()
+        local SpinWidget = require("ui/widget/spinwidget")
+        local cur = tonumber(config.stats_goal_daily_min) or 0
+        UIManager:show(SpinWidget:new{
+            title_text = _("Daily reading goal"),
+            info_text = _("Minutes per day (0 to disable)."),
+            value = cur,
+            value_min = 0,
+            value_max = 240,
+            value_step = 5,
+            value_hold_step = 15,
+            unit = _("min"),
+            ok_text = _("Save"),
+            callback = function(spin)
+                config.stats_goal_daily_min = math.max(0, math.floor(spin.value or 0))
+                saveConfig()
+                self:apply()
+                UIManager:setDirty(self.ui, "ui")
+            end,
+        })
+    end
+
+    function Aire:editYearlyGoal()
+        local SpinWidget = require("ui/widget/spinwidget")
+        local cur = tonumber(config.stats_goal_yearly_books) or 0
+        UIManager:show(SpinWidget:new{
+            title_text = _("Annual reading goal"),
+            info_text = _("Finished books per year (0 to disable)."),
+            value = cur,
+            value_min = 0,
+            value_max = 200,
+            value_step = 1,
+            value_hold_step = 5,
+            unit = _("books"),
+            ok_text = _("Save"),
+            callback = function(spin)
+                config.stats_goal_yearly_books = math.max(0, math.floor(spin.value or 0))
+                saveConfig()
+                self:apply()
+                UIManager:setDirty(self.ui, "ui")
+            end,
+        })
+    end
+
+    function Aire:openGoalsMenu()
+        local ButtonDialog = require("ui/widget/buttondialog")
+        local daily = tonumber(config.stats_goal_daily_min) or 0
+        local yearly = tonumber(config.stats_goal_yearly_books) or 0
+        local daily_val = daily > 0 and T(_("%1 min/day"), daily) or _("Off")
+        local yearly_val = yearly > 0 and T(N_("%1 book/year", "%1 books/year", yearly), yearly) or _("Off")
+        local dlg
+        dlg = ButtonDialog:new{
+            title = _("Reading goals"),
+            buttons = {
+                {{
+                    text = _("Daily goal") .. " · " .. daily_val,
+                    align = "left",
+                    callback = function()
+                        UIManager:close(dlg)
+                        self:editDailyGoal()
+                    end,
+                }},
+                {{
+                    text = _("Annual goal") .. " · " .. yearly_val,
+                    align = "left",
+                    callback = function()
+                        UIManager:close(dlg)
+                        self:editYearlyGoal()
+                    end,
+                }},
+            },
+        }
+        UIManager:show(dlg)
+    end
+
     function Aire:buildStatsView()
         if self._stats_cover then
             pcall(self._stats_cover.free, self._stats_cover)
@@ -296,7 +379,18 @@ return function(Aire, ctx)
         local side = S(ctx.SIDE_PAD)
         local w = sw - 2 * side
 
-        local content = self:buildScreenTop(w, { title = _("Stats") })
+        -- Objetivos (en modo prueba, si ambos son 0, mostramos 30 min y 24 libros de ejemplo)
+        local daily_goal = tonumber(config.stats_goal_daily_min) or 0
+        local yearly_goal = tonumber(config.stats_goal_yearly_books) or 0
+        if config.demo_stats and daily_goal == 0 and yearly_goal == 0 then
+            daily_goal, yearly_goal = 30, 24
+        end
+
+        local content = self:buildScreenTop(w, {
+            title = _("Stats"),
+            menu_icon = "aire.edit",
+            on_menu = function() self:openGoalsMenu() end,
+        })
         local sub_txt
         if st.ok then
             sub_txt = T(_("This month · %1 · %2 pp."), fmtDuration(st.month_secs), st.month_pages)
@@ -315,44 +409,95 @@ return function(Aire, ctx)
                 text = _("No data: enable the Statistics plugin and read a bit"),
                 face = face(false, 14), fgcolor = GRAY_TEXT, max_width = w, padding = 0,
             })
-            table.insert(content, VerticalSpan:new{ width = S(12) })
+            table.insert(content, VerticalSpan:new{ width = S(10) })
         end
 
-        -- 3 casillas superiores (las únicas con icono, en línea con el título): hoy, racha, terminados
-        local tgap = S(10)
+        -- 1. HERO SEMANA ARRIBA (tarjeta protagonista con total, delta y gráfico 7 días)
+        local hpad = S(10)
+        local h_inner = w - 2 * (hpad + Size.border.thin)
+        local hero_left = VerticalGroup:new{
+            align = "left",
+            sectionLabel(_("LAST 7 DAYS")),
+            VerticalSpan:new{ width = S(2) },
+            TextWidget:new{ text = fmtDuration(st.week_total), face = face(true, 20), fgcolor = BLACK, padding = 0 },
+        }
+        local badge = deltaBadge(st.week_delta_pct)
+        local hero_head
+        if badge then
+            local hh = math.max(hero_left:getSize().h, badge:getSize().h)
+            hero_head = OverlapGroup:new{
+                dimen = Geom:new{ w = h_inner, h = hh },
+                LeftContainer:new{ dimen = Geom:new{ w = h_inner, h = hh }, hero_left },
+                RightContainer:new{ dimen = Geom:new{ w = h_inner, h = hh }, badge },
+            }
+        else
+            hero_head = hero_left
+        end
+        local ref_secs, ref_label
+        if daily_goal > 0 then
+            ref_secs = daily_goal * 60
+            ref_label = T(_("goal %1"), fmtDuration(ref_secs))
+        elseif st.week_total > 0 then
+            ref_secs = math.floor(st.week_total / 7)
+            ref_label = T(_("avg %1"), fmtDuration(ref_secs))
+        end
+        local hero_body = VerticalGroup:new{
+            align = "left",
+            hero_head,
+            VerticalSpan:new{ width = S(6) },
+            WeekBars:new{
+                width = h_inner, height = S(82), days = st.week,
+                avg_secs = ref_secs, avg_label = ref_label,
+            },
+        }
+        local hero_card = FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = hpad,
+            width = w,
+            hero_body,
+        }
+        table.insert(content, tappable(hero_card, function() self:showCalendarView() end))
+
+        -- 2. 3 CASILLAS KPI (las únicas con icono, en línea con el título + objetivos opcionales)
+        table.insert(content, VerticalSpan:new{ width = S(10) })
+        local tgap = S(8)
         local tw = math.floor((w - 2 * tgap) / 3)
+        local tw3 = w - 2 * (tw + tgap)
+        local today_prog = daily_goal > 0 and (st.today_secs / (daily_goal * 60)) or nil
         local today_sub = T(_("%1 pp."), st.today_pages)
         local streak_sub = (st.best_streak and st.best_streak > 0)
             and T(_("max %1"), st.best_streak)
             or _("in a row")
+        local year_big = yearly_goal > 0
+            and ("%d / %d"):format(st.finished_year, yearly_goal)
+            or tostring(st.finished_year)
+        local year_prog = yearly_goal > 0 and (st.finished_year / yearly_goal) or nil
+        local year_sub = yearly_goal > 0
+            and ("%d%%"):format(math.floor(math.min(999, st.finished_year / yearly_goal * 100) + 0.5))
+            or _("finished")
+
+        -- Misma altura para las 3 casillas aunque solo 1 o 2 tengan barra de objetivo
+        local kpi_min_h = (today_prog ~= nil or year_prog ~= nil) and S(78) or 0
         table.insert(content, HorizontalGroup:new{
             align = "top",
-            tappable(kpiTile(tw, "aire.widget.timer", _("Today"), fmtDuration(st.today_secs), today_sub),
+            tappable(kpiTile(tw, "aire.widget.timer", _("Today"), fmtDuration(st.today_secs), today_sub, today_prog, kpi_min_h),
+                function() self:showCalendarView() end,
+                function() self:editDailyGoal() end),
+            HorizontalSpan:new{ width = tgap },
+            tappable(kpiTile(tw, "aire.widget.flame", _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub, nil, kpi_min_h),
                 function() self:showCalendarView() end),
             HorizontalSpan:new{ width = tgap },
-            tappable(kpiTile(tw, "aire.widget.flame", _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub),
-                function() self:showCalendarView() end),
-            HorizontalSpan:new{ width = tgap },
-            tappable(kpiTile(w - 2 * (tw + tgap), "aire.widget.done", st.year, tostring(st.finished_year), _("finished")),
-                function() if self.showGridView then self:showGridView("finished") end end),
+            tappable(kpiTile(tw3, "aire.widget.done", st.year, year_big, year_sub, year_prog, kpi_min_h),
+                function() if self.showGridView then self:showGridView("finished") end end,
+                function() self:editYearlyGoal() end),
         })
 
-        -- Últimos 7 días (con comparativa y línea de media diaria; tocar: calendario)
-        table.insert(content, VerticalSpan:new{ width = S(16) })
-        table.insert(content, sectionRow(w, _("LAST 7 DAYS") .. " · " .. fmtDuration(st.week_total), deltaBadge(st.week_delta_pct)))
-        table.insert(content, VerticalSpan:new{ width = S(6) })
-        local avg_7 = st.week_total > 0 and math.floor(st.week_total / 7) or 0
-        table.insert(content, tappable(WeekBars:new{
-            width = w, height = S(96), days = st.week,
-            avg_secs = avg_7, avg_label = avg_7 > 0 and T(_("avg %1"), fmtDuration(avg_7)) or nil,
-        }, function()
-            self:showCalendarView()
-        end))
-
-        -- Leyendo ahora
-        table.insert(content, VerticalSpan:new{ width = S(16) })
+        -- 3. LEYENDO AHORA
+        table.insert(content, VerticalSpan:new{ width = S(12) })
         table.insert(content, sectionLabel(_("CURRENTLY READING")))
-        table.insert(content, VerticalSpan:new{ width = S(6) })
+        table.insert(content, VerticalSpan:new{ width = S(5) })
         local ok_cur, cur = pcall(self.buildStatsCurrent, self, w, st)
         if ok_cur then
             table.insert(content, cur)
@@ -360,10 +505,10 @@ return function(Aire, ctx)
             logger.warn("Aire/Stats: error en el libro actual:", cur)
         end
 
-        -- Explorar: Géneros y hábitos + Recaps (tarjetas limpias sin iconos)
-        table.insert(content, VerticalSpan:new{ width = S(16) })
+        -- 4. EXPLORAR: Géneros y hábitos + Recaps (tarjetas limpias sin iconos)
+        table.insert(content, VerticalSpan:new{ width = S(12) })
         table.insert(content, sectionLabel(_("EXPLORE")))
-        table.insert(content, VerticalSpan:new{ width = S(6) })
+        table.insert(content, VerticalSpan:new{ width = S(5) })
 
         local hab_parts = {}
         if st.top_genres and #st.top_genres > 0 then
@@ -381,16 +526,16 @@ return function(Aire, ctx)
         end))
         table.insert(content, VerticalSpan:new{ width = S(8) })
 
-        local rgap = S(10)
+        local rgap = S(8)
         local rw = math.floor((w - rgap) / 2)
         local now_m = tonumber(os.date("%m"))
         local month_sub = st.ok and (MONTHS[now_m] .. " · " .. fmtDuration(st.month_secs)) or MONTHS[now_m]
-        local year_sub = st.ok and (st.year .. " · " .. fmtDuration(st.year_secs)) or st.year
+        local year_sub_recap = st.ok and (st.year .. " · " .. fmtDuration(st.year_secs)) or st.year
         table.insert(content, HorizontalGroup:new{
             align = "top",
             tappable(navCard(rw, _("Monthly recap"), month_sub), function() self:showRecapView("month") end),
             HorizontalSpan:new{ width = rgap },
-            tappable(navCard(w - rw - rgap, _("Annual recap"), year_sub), function() self:showRecapView("year") end),
+            tappable(navCard(w - rw - rgap, _("Annual recap"), year_sub_recap), function() self:showRecapView("year") end),
         })
         content:resetLayout()
 
