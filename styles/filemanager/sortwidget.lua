@@ -122,13 +122,15 @@ local function buildFooter(sw)
             pill(sw, hw, _("Apply"), nil, true, true, tapBtn(sw.footer_ok)),
         }
     else
+        local up_enabled = marked and (fu and fu.enabled ~= false) or false
+        local down_enabled = marked and (ld and ld.enabled ~= false) or false
         row = HorizontalGroup:new{
             align = "center",
             pill(sw, bw, marked and _("Cancel") or _("Close"), nil, false, true, tapBtn(sw.footer_cancel)),
             HorizontalSpan:new{ width = gap },
-            pill(sw, bw, nil, marked and "move.up" or "chevron.first", false, fu and fu.enabled ~= false, tapBtn(fu)),
+            pill(sw, bw, nil, "move.up", false, up_enabled, tapBtn(fu)),
             HorizontalSpan:new{ width = gap },
-            pill(sw, bw, nil, marked and "move.down" or "chevron.last", false, ld and ld.enabled ~= false, tapBtn(ld)),
+            pill(sw, bw, nil, "move.down", false, down_enabled, tapBtn(ld)),
             HorizontalSpan:new{ width = gap },
             pill(sw, bw, _("Apply"), nil, true, true, tapBtn(sw.footer_ok)),
         }
@@ -191,5 +193,23 @@ safeWrap(SortWidget, "_populateItems", function(orig, self, ...)
     placeFooter(self)
     return unpack(res)
 end, TAG)
+
+-- Menú ≡ de SortWidget ("Ordenar de la A a la Z"…): como hoja inferior de
+-- Aire en lugar de popup flotante anclado al icono.
+if type(SortWidget.onShowWidgetMenu) == "function" then
+    local ButtonDialog = require("ui/widget/buttondialog")
+    safeWrap(SortWidget, "onShowWidgetMenu", function(orig, self, ...)
+        return AireUI.withTemporaryNew(ButtonDialog, function(base_new, cls, o)
+            if type(o) == "table" then
+                o.anchor = nil
+                o.shrink_unneeded_width = nil
+                if not o.title or o.title == "" then
+                    o.title = self.title
+                end
+            end
+            return base_new(cls, o)
+        end, orig, self, ...)
+    end, TAG)
+end
 
 logger.dbg("Aire/SortWidget: aplicado desde el plugin")
