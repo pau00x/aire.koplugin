@@ -1193,27 +1193,75 @@ return function(Aire, ctx)
         }
     end
 
-    -- Tarjeta individual de hito (2 columnas o ancho completo)
+    -- Tarjeta individual de hito: etiqueta izq, dato dcha, valor principal en negrita debajo (2 líneas compactas)
     local function hitCard(cw, label, main_val, sub_val)
         local pad = S(9)
         local inner_w = cw - 2 * (pad + Size.border.thin)
+        local sub_w = (sub_val and sub_val ~= "")
+            and TextWidget:new{ text = sub_val, face = face(false, 11), fgcolor = GRAY_TEXT, padding = 0 }
+            or nil
+        local lbl_max = math.max(S(30), inner_w - (sub_w and (sub_w:getSize().w + S(6)) or 0))
+        local lbl_w = TextWidget:new{ text = label, face = face(true, 11), fgcolor = GRAY_TEXT, max_width = lbl_max, padding = 0 }
+        local head
+        if sub_w then
+            local hh = math.max(lbl_w:getSize().h, sub_w:getSize().h)
+            head = OverlapGroup:new{
+                dimen = Geom:new{ w = inner_w, h = hh },
+                LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = hh }, lbl_w },
+                RightContainer:new{ dimen = Geom:new{ w = inner_w, h = hh }, sub_w },
+            }
+        else
+            head = lbl_w
+        end
         local vg = VerticalGroup:new{
             align = "left",
-            TextWidget:new{ text = label, face = face(true, 11), fgcolor = GRAY_TEXT, max_width = inner_w, padding = 0 },
-            VerticalSpan:new{ width = S(2) },
-            TextWidget:new{ text = main_val, face = face(true, 14), fgcolor = BLACK, max_width = inner_w, padding = 0 },
+            head,
+            VerticalSpan:new{ width = S(3) },
+            TextWidget:new{ text = main_val, face = face(true, 15), fgcolor = BLACK, max_width = inner_w, padding = 0 },
         }
-        if sub_val and sub_val ~= "" then
-            table.insert(vg, VerticalSpan:new{ width = S(1) })
-            table.insert(vg, TextWidget:new{ text = sub_val, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = inner_w, padding = 0 })
-        end
         return FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
             radius = S(10),
             padding = pad,
             width = cw,
-            vg,
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = vg:getSize().h }, vg },
+        }
+    end
+
+    local function buildTopBooksCard(w, books, max_shown)
+        if not books or #books == 0 or max_shown <= 0 then return nil end
+        local mpad = S(9)
+        local m_inner = w - 2 * (mpad + Size.border.thin)
+        local mvg = VerticalGroup:new{
+            align = "left",
+            sectionLabel(_("MOST READ")),
+            VerticalSpan:new{ width = S(4) },
+        }
+        local shown = math.min(max_shown, #books)
+        for i = 1, shown do
+            local b = books[i]
+            local val_w = TextWidget:new{ text = fmtDuration(b.secs), face = face(false, 12), fgcolor = GRAY_TEXT, padding = 0 }
+            local key_max = math.max(S(60), m_inner - val_w:getSize().w - S(10))
+            local key_w = TextWidget:new{
+                text = ("%d. %s"):format(i, b.title), face = face(false, 13), fgcolor = BLACK,
+                max_width = key_max, padding = 0,
+            }
+            local rh = math.max(key_w:getSize().h, val_w:getSize().h)
+            if i > 1 then table.insert(mvg, VerticalSpan:new{ width = S(4) }) end
+            table.insert(mvg, OverlapGroup:new{
+                dimen = Geom:new{ w = m_inner, h = rh },
+                LeftContainer:new{ dimen = Geom:new{ w = m_inner, h = rh }, key_w },
+                RightContainer:new{ dimen = Geom:new{ w = m_inner, h = rh }, val_w },
+            })
+        end
+        return FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = mpad,
+            width = w,
+            LeftContainer:new{ dimen = Geom:new{ w = m_inner, h = mvg:getSize().h }, mvg },
         }
     end
 
@@ -1288,45 +1336,8 @@ return function(Aire, ctx)
             end
         end
 
-        -- Tarjeta "Más leídos" (en todos los modos: Mensual, Anual y Todo el tiempo)
-        local top_card = nil
-        if #recap.top_books > 0 then
-            local mpad = S(9)
-            local m_inner = w - 2 * (mpad + Size.border.thin)
-            local mvg = VerticalGroup:new{
-                align = "left",
-                sectionLabel(_("MOST READ")),
-                VerticalSpan:new{ width = S(4) },
-            }
-            local shown = math.min(3, #recap.top_books)
-            for i = 1, shown do
-                local b = recap.top_books[i]
-                local val_w = TextWidget:new{ text = fmtDuration(b.secs), face = face(false, 12), fgcolor = GRAY_TEXT, padding = 0 }
-                local key_max = math.max(S(60), m_inner - val_w:getSize().w - S(10))
-                local key_w = TextWidget:new{
-                    text = ("%d. %s"):format(i, b.title), face = face(false, 13), fgcolor = BLACK,
-                    max_width = key_max, padding = 0,
-                }
-                local rh = math.max(key_w:getSize().h, val_w:getSize().h)
-                if i > 1 then table.insert(mvg, VerticalSpan:new{ width = S(5) }) end
-                table.insert(mvg, OverlapGroup:new{
-                    dimen = Geom:new{ w = m_inner, h = rh },
-                    LeftContainer:new{ dimen = Geom:new{ w = m_inner, h = rh }, key_w },
-                    RightContainer:new{ dimen = Geom:new{ w = m_inner, h = rh }, val_w },
-                })
-            end
-            top_card = FrameContainer:new{
-                bordersize = Size.border.thin,
-                color = BLACK,
-                radius = S(10),
-                padding = mpad,
-                width = w,
-                mvg,
-            }
-        end
-
-        -- Tarjeta de ritmo (altura dinámica de barras para que Hitos + Más leídos quepan siempre)
-        local rpad = S(10)
+        -- Tarjeta de ritmo + Tarjeta "Más leídos": garantizamos que TODO quepa encima del paginador y dock
+        local rpad = S(9)
         local r_inner = w - 2 * (rpad + Size.border.thin)
         local rhythm_lbl
         if mode == "month" then
@@ -1349,24 +1360,38 @@ return function(Aire, ctx)
         end
         local rl_w = sectionLabel(rhythm_lbl)
         content:resetLayout()
-        local used_now = content:getSize().h + kpi_row:getSize().h + card_gap
-        if #hits > 0 then used_now = used_now + hits_vg:getSize().h + card_gap end
-        if top_card then used_now = used_now + top_card:getSize().h + card_gap end
+        local base_h = content:getSize().h + kpi_row:getSize().h + card_gap
+        if #hits > 0 then base_h = base_h + hits_vg:getSize().h + card_gap end
         local r_chrome = 2 * (rpad + Size.border.thin) + rl_w:getSize().h + S(6)
-        local free_bars = avail_bottom - used_now - r_chrome
-        local bars_h = math.max(S(50), math.min(S(82), free_bars))
+
+        -- Probar 3 libros, luego 2, luego 1 en "Más leídos" para no pisar jamás el paginador
+        local top_card = nil
+        local free_bars = avail_bottom - base_h - r_chrome
+        if #recap.top_books > 0 then
+            for try_n = math.min(3, #recap.top_books), 1, -1 do
+                local cand = buildTopBooksCard(w, recap.top_books, try_n)
+                local rem = avail_bottom - (base_h + cand:getSize().h + card_gap) - r_chrome
+                if rem >= S(46) or try_n == 1 then
+                    top_card = cand
+                    free_bars = rem
+                    break
+                end
+            end
+        end
+        local bars_h = math.max(S(42), math.min(S(82), free_bars))
+        local rvg = VerticalGroup:new{
+            align = "left",
+            rl_w,
+            VerticalSpan:new{ width = S(6) },
+            RecapBars:new{ width = r_inner, height = bars_h, bars = recap.bars },
+        }
         local rhythm_card = FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
             radius = S(10),
             padding = rpad,
             width = w,
-            VerticalGroup:new{
-                align = "left",
-                rl_w,
-                VerticalSpan:new{ width = S(6) },
-                RecapBars:new{ width = r_inner, height = bars_h, bars = recap.bars },
-            },
+            LeftContainer:new{ dimen = Geom:new{ w = r_inner, h = rvg:getSize().h }, rvg },
         }
 
         table.insert(content, kpi_row)
@@ -1382,7 +1407,7 @@ return function(Aire, ctx)
         end
     end
 
-    local function appendRecapPage2(content, w, recap)
+    local function appendRecapPage2(content, w, recap, avail_bottom)
         local card_gap = S(10)
         local pad = S(10)
         local inner_w = w - 2 * (pad + Size.border.thin)
@@ -1411,17 +1436,16 @@ return function(Aire, ctx)
                 face = face(false, 13), fgcolor = GRAY_TEXT, max_width = inner_w, padding = 0,
             })
         end
-        table.insert(content, FrameContainer:new{
+        local genres_card = FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
             radius = S(10),
             padding = pad,
             width = w,
-            g_vg,
-        })
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = g_vg:getSize().h }, g_vg },
+        }
 
-        -- 2. Cuándo lees (4 franjas horarias limpias; la favorita en negro)
-        table.insert(content, VerticalSpan:new{ width = card_gap })
+        -- 2. Tarjeta Cuándo lees (cabecera + 4 franjas horarias dentro de tarjeta)
         local fav_slot_w = nil
         if recap.fav_slot and recap.time_slots then
             for _i, s in ipairs(recap.time_slots) do
@@ -1434,29 +1458,32 @@ return function(Aire, ctx)
                 end
             end
         end
-        table.insert(content, sectionRow(w, _("WHEN YOU READ"), fav_slot_w))
-        table.insert(content, VerticalSpan:new{ width = S(6) })
+        local slots_vg = VerticalGroup:new{
+            align = "left",
+            sectionRow(inner_w, _("WHEN YOU READ"), fav_slot_w),
+            VerticalSpan:new{ width = S(8) },
+        }
         if recap.time_slots and #recap.time_slots == 4 then
-            local sgap = S(8)
-            local sw_card = math.floor((w - 3 * sgap) / 4)
+            local sgap = S(6)
+            local sw_card = math.floor((inner_w - 3 * sgap) / 4)
             local srow = HorizontalGroup:new{ align = "top" }
             for i, s in ipairs(recap.time_slots) do
                 if i > 1 then table.insert(srow, HorizontalSpan:new{ width = sgap }) end
-                local cw = (i == 4) and (w - 3 * (sw_card + sgap)) or sw_card
+                local cw = (i == 4) and (inner_w - 3 * (sw_card + sgap)) or sw_card
                 local active = (s.id == recap.fav_slot and s.secs > 0)
-                local spad = S(8)
+                local spad = S(6)
                 local s_inner = cw - 2 * Size.border.thin
                 local vg = VerticalGroup:new{
                     align = "center",
                     TextWidget:new{
                         text = ("%d%%"):format(s.pct),
-                        face = face(true, 15), fgcolor = active and WHITE or BLACK,
+                        face = face(true, 14), fgcolor = active and WHITE or BLACK,
                         max_width = s_inner - 2 * spad, padding = 0,
                     },
                     VerticalSpan:new{ width = S(2) },
                     TextWidget:new{
                         text = slotLabel(s.id),
-                        face = face(false, 11), fgcolor = active and WHITE or GRAY_TEXT,
+                        face = face(false, 10), fgcolor = active and WHITE or GRAY_TEXT,
                         max_width = s_inner - 2 * spad, padding = 0,
                     },
                 }
@@ -1465,18 +1492,25 @@ return function(Aire, ctx)
                     bordersize = Size.border.thin,
                     color = BLACK,
                     background = active and BLACK or WHITE,
-                    radius = S(10),
+                    radius = S(8),
                     padding = 0,
                     width = cw,
                     height = h + 2 * Size.border.thin,
                     CenterContainer:new{ dimen = Geom:new{ w = s_inner, h = h }, vg },
                 })
             end
-            table.insert(content, srow)
+            table.insert(slots_vg, srow)
         end
+        local slots_card = FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = pad,
+            width = w,
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = slots_vg:getSize().h }, slots_vg },
+        }
 
-        -- 3. Tarjeta Días de la semana (L-D, en tarjeta como los otros gráficos de barras)
-        table.insert(content, VerticalSpan:new{ width = card_gap })
+        -- 3. Tarjeta Días de la semana (altura dinámica para no pisar jamás el paginador)
         local fav_wd_w = nil
         if recap.fav_weekday and recap.weekdays and recap.weekdays[recap.fav_weekday] and recap.weekdays[recap.fav_weekday].secs > 0 then
             local lua_wday = (recap.fav_weekday % 7) + 1
@@ -1486,24 +1520,35 @@ return function(Aire, ctx)
                 face = face(true, 12), fgcolor = BLACK, padding = 0,
             }
         end
+        local wd_head = sectionRow(inner_w, _("DAYS OF THE WEEK"), fav_wd_w)
+        content:resetLayout()
+        local used_p2 = content:getSize().h + genres_card:getSize().h + card_gap + slots_card:getSize().h + card_gap
+        local wd_chrome = 2 * (pad + Size.border.thin) + wd_head:getSize().h + S(8)
+        local wd_h = math.max(S(54), math.min(S(88), avail_bottom - used_p2 - wd_chrome))
         local wd_vg = VerticalGroup:new{
             align = "left",
-            sectionRow(inner_w, _("DAYS OF THE WEEK"), fav_wd_w),
+            wd_head,
             VerticalSpan:new{ width = S(8) },
         }
         if recap.weekdays and #recap.weekdays == 7 then
             table.insert(wd_vg, WeekdayBars:new{
-                width = inner_w, height = S(78), days = recap.weekdays, fav = recap.fav_weekday,
+                width = inner_w, height = wd_h, days = recap.weekdays, fav = recap.fav_weekday,
             })
         end
-        table.insert(content, FrameContainer:new{
+        local wd_card = FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
             radius = S(10),
             padding = pad,
             width = w,
-            wd_vg,
-        })
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = wd_vg:getSize().h }, wd_vg },
+        }
+
+        table.insert(content, genres_card)
+        table.insert(content, VerticalSpan:new{ width = card_gap })
+        table.insert(content, slots_card)
+        table.insert(content, VerticalSpan:new{ width = card_gap })
+        table.insert(content, wd_card)
     end
 
     function Aire:buildRecapView()
@@ -1636,7 +1681,7 @@ return function(Aire, ctx)
             if rpage == 1 then
                 appendRecapPage1(self, content, w, recap, mode, avail_bottom)
             else
-                appendRecapPage2(content, w, recap)
+                appendRecapPage2(content, w, recap, avail_bottom)
             end
             content:resetLayout()
             local pad_before_pager = math.max(S(6), avail_bottom - content:getSize().h)
