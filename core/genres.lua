@@ -47,13 +47,16 @@ end
 function M.normalize(s)
     if type(s) ~= "string" or s == "" then return "" end
     local out = stripDiacritics(s)
+    -- Quitar punto volado catalán (l·l -> ll) y comillas/apóstrofes tipográficos
+    out = out:gsub("\194\183", "")
+    out = out:gsub("\226\128[\152\153]", " ")
     if utf8proc and utf8proc.lowercase then
         local ok, low = pcall(utf8proc.lowercase, out)
         if ok and type(low) == "string" then out = low end
     else
         out = out:lower()
     end
-    out = out:gsub("[_%-–—]+", " ")
+    out = out:gsub("[_%-–—']+", " ")
     out = out:gsub("[%s]+", " ")
     return out:match("^%s*(.-)%s*$") or ""
 end
@@ -127,58 +130,72 @@ local ALIAS_GROUPS = {
         "fantasy", "fantasia", "fantastique", "fantastico", "fantastica",
         "high fantasy", "epic fantasy", "urban fantasy", "dark fantasy",
         "sword and sorcery", "fantasia epica", "fantasia urbana", "fantasia oscura",
+        "fantasia fosca", "magic", "magia", "mythology", "mitologia",
         "fantazy", "фэнтези", "фантастика",
     },
     scifi = {
         "science fiction", "sci fi", "scifi", "sf", "ciencia ficcion", "ciencia ficcio",
         "fantascienza", "ficcao cientifica", "dystopia", "dystopian", "distopia",
         "cyberpunk", "space opera", "steampunk", "post apocalyptic", "postapocaliptica",
+        "speculative fiction", "ficcion especulativa", "ficcio especulativa",
+        "hard science fiction", "time travel", "viajes en el tiempo", "alternate history",
         "научная фантастика",
     },
     mystery = {
-        "mystery", "misterio", "mystere", "detective", "policiaca", "policiaco",
-        "novela negra", "crime", "crime fiction", "crimen", "policier", "roman policier",
-        "krimi", "kriminalroman", "giallo", "noir", "whodunit", "детектив",
+        "mystery", "misterio", "misteri", "mystere", "detective", "detective fiction",
+        "policiaca", "policiaco", "novela policiaca", "novella policiaca",
+        "novela negra", "novella negra", "crime", "crime fiction", "crimen", "crim",
+        "policier", "roman policier", "krimi", "kriminalroman", "giallo", "noir",
+        "whodunit", "cozy mystery", "true crime", "детектив",
     },
     thriller = {
-        "thriller", "suspense", "suspenso", "psychological thriller", "thriller psicologico",
-        "espionage", "espionaje", "spy", "action thriller", "триллер",
+        "thriller", "thrillers", "suspense", "suspenso", "suspens",
+        "psychological thriller", "thriller psicologico", "thriller psicologic",
+        "espionage", "espionaje", "espionatge", "spy", "action thriller",
+        "crime thriller", "intriga", "триллер",
     },
     horror = {
-        "horror", "terror", "miedo", "horreur", "horrore", "gothic", "gotica", "gotico",
-        "supernatural", "sobrenatural", "ghosts", "fantasmas", "ужасы",
+        "horror", "terror", "miedo", "por", "horreur", "horrore", "gothic", "gotica", "gotico",
+        "gotic", "supernatural", "sobrenatural", "ghosts", "fantasmas", "fantasmes", "ужасы",
     },
     romance = {
-        "romance", "romantica", "romantico", "novela romantica", "love", "amor",
-        "liebesroman", "romanzo rosa", "romantasy", "роман",
+        "romance", "romantica", "romantico", "romantic", "novela romantica", "novella romantica",
+        "historical romance", "contemporary romance", "paranormal romance",
+        "love", "amor", "liebesroman", "romanzo rosa", "romantasy", "роман",
     },
     historical = {
-        "historical", "historical fiction", "historica", "novela historica",
+        "historical", "historical fiction", "historica", "historic",
+        "novela historica", "novella historica", "ficcion historica", "ficcio historica",
         "roman historique", "historischer roman", "storico", "romanzo storico",
         "ficcao historica", "war", "guerra",
     },
     adventure = {
-        "adventure", "aventura", "aventuras", "aventure", "abenteuer", "avventura",
-        "action", "accion", "action and adventure", "accion y aventura", "приключения",
+        "adventure", "adventures", "aventura", "aventuras", "aventures",
+        "aventure", "abenteuer", "avventura", "action", "accion", "accio",
+        "action and adventure", "accion y aventura", "accio i aventura", "приключения",
     },
     classics = {
         "classic", "classics", "clasico", "clasicos", "classique", "classiques",
-        "klassiker", "classici", "classicos", "literatura clasica", "classic literature",
-        "классика",
+        "klassiker", "classici", "classicos", "literatura clasica", "literatura classica",
+        "classic literature", "классика",
     },
     contemporary = {
-        "contemporary", "contemporanea", "contemporaneo", "literary", "literary fiction",
-        "ficcion literaria", "narrativa", "narrativa contemporanea", "drama",
-        "modern fiction", "ficcion contemporanea",
+        "contemporary", "contemporanea", "contemporaneo", "contemporania", "contemporani",
+        "literary", "literary fiction", "ficcion literaria", "ficcio literaria",
+        "narrativa", "narrativa contemporanea", "narrativa contemporania", "drama",
+        "modern fiction", "ficcion contemporanea", "ficcio contemporania",
+        "coming of age", "bildungsroman",
     },
     young_adult = {
-        "young adult", "ya", "juvenil", "juvenile", "adolescente", "adolescentes",
-        "teen", "teens", "jeunesse", "jugendbuch", "ragazzi", "literatura juvenil",
+        "young adult", "young adult fiction", "ya", "juvenil", "juvenile",
+        "adolescente", "adolescentes", "adolescents", "teen", "teens",
+        "jeunesse", "jugendbuch", "ragazzi", "literatura juvenil",
     },
     children = {
-        "children", "childrens", "children s", "childrens fiction", "kids",
-        "infantil", "literatura infantil", "ninos", "kinderbuch", "enfants", "bambini",
-        "middle grade", "fairy tales", "cuentos infantiles",
+        "children", "childrens", "children s", "childrens fiction", "children s books",
+        "kids", "infantil", "literatura infantil", "ninos", "nens", "kinderbuch",
+        "enfants", "bambini", "middle grade", "fairy tales", "fairy tale",
+        "cuentos infantiles", "contes infantils",
     },
     humor = {
         "humor", "humour", "comedy", "comedia", "satire", "satira", "parody", "parodia",
@@ -189,58 +206,71 @@ local ALIAS_GROUPS = {
         "historia universal", "ancient history", "modern history", "история",
     },
     biography = {
-        "biography", "biografia", "biographies", "biografias", "autobiography",
-        "autobiografia", "memoir", "memoirs", "memorias", "biographie", "biografie",
-        "diaries", "diarios", "биография",
+        "biography", "biografia", "biographies", "biografias", "biografies",
+        "autobiography", "autobiografia", "memoir", "memoirs", "memorias", "memories",
+        "biographie", "biografie", "diaries", "diarios", "diaris", "биография",
     },
     science = {
-        "science", "ciencia", "divulgacion", "divulgacion cientifica", "popular science",
-        "physics", "fisica", "biology", "biologia", "astronomy", "astronomia",
-        "mathematics", "matematicas", "nature", "naturaleza", "chemistry", "quimica",
-        "wissenschaft", "scienza", "наука",
+        "science", "ciencia", "divulgacion", "divulgacion cientifica", "divulgacio",
+        "divulgacio cientifica", "popular science", "physics", "fisica",
+        "biology", "biologia", "astronomy", "astronomia", "mathematics", "matematicas",
+        "matematiques", "nature", "naturaleza", "natura", "chemistry", "quimica",
+        "medicine", "medicina", "wissenschaft", "scienza", "наука",
     },
     technology = {
-        "technology", "tecnologia", "computing", "computers", "informatica",
-        "programming", "programacion", "software", "tech", "ai", "artificial intelligence",
-        "inteligencia artificial", "engineering", "ingenieria", "computer science",
+        "technology", "tecnologia", "computing", "computers", "computer", "informatica",
+        "programming", "programacion", "programacio", "software", "tech",
+        "ai", "artificial intelligence", "inteligencia artificial", "intelligencia artificial",
+        "engineering", "ingenieria", "enginyeria", "computer science",
+        "data science", "machine learning",
     },
     philosophy = {
         "philosophy", "filosofia", "philosophie", "ethics", "etica",
-        "stoicism", "estoicismo", "metaphysics", "философия",
+        "stoicism", "estoicismo", "estoicisme", "metaphysics", "metafisica",
+        "religion", "religio", "spirituality", "espiritualidad", "espiritualitat",
+        "философия",
     },
     psychology = {
         "psychology", "psicologia", "psychologie", "psychologia", "neuroscience",
         "neurociencia", "cognitive science", "psychiatry", "psiquiatria", "психология",
     },
     self_help = {
-        "self help", "autoayuda", "desarrollo personal", "personal development",
-        "personal growth", "crecimiento personal", "productivity", "productividad",
-        "habits", "habitos", "mindfulness", "self improvement", "ratgeber",
+        "self help", "autoayuda", "autoajuda", "desarrollo personal", "desenvolupament personal",
+        "personal development", "personal growth", "crecimiento personal", "creixement personal",
+        "productivity", "productividad", "productivitat", "habits", "habitos",
+        "mindfulness", "self improvement", "health", "salud", "salut", "wellness", "ratgeber",
     },
     business = {
-        "business", "negocios", "economics", "economia", "finance", "finanzas",
-        "management", "gestion", "leadership", "liderazgo", "marketing",
-        "entrepreneurship", "emprendimiento", "wirtschaft",
+        "business", "negocios", "negocis", "economics", "economia", "finance", "finanzas",
+        "finances", "personal finance", "management", "gestion", "gestio",
+        "leadership", "liderazgo", "lideratge", "marketing",
+        "entrepreneurship", "emprendimiento", "emprenedoria", "wirtschaft",
     },
     non_fiction = {
-        "non fiction", "nonfiction", "no ficcion", "ensayo", "ensayos", "essay", "essays",
-        "politics", "politica", "sociology", "sociologia", "journalism", "periodismo",
-        "society", "sociedad", "culture", "cultura", "sachbuch", "saggistica",
+        "non fiction", "nonfiction", "no ficcion", "no ficcio", "ensayo", "ensayos",
+        "assaig", "assajos", "essay", "essays", "politics", "politica",
+        "sociology", "sociologia", "journalism", "periodismo", "periodisme",
+        "society", "sociedad", "societat", "culture", "cultura",
+        "travel", "viajes", "viatges", "art", "arte", "music", "musica",
+        "cooking", "cocina", "cuina", "gastronomia", "sachbuch", "saggistica",
     },
     poetry = {
-        "poetry", "poesia", "poems", "poemas", "poesie", "lyrik", "verse", "verso", "поэзия",
+        "poetry", "poesia", "poems", "poemas", "poemes", "poesie", "lyrik",
+        "verse", "verso", "vers", "поэзия",
     },
     comics = {
         "comics", "comic", "graphic novel", "graphic novels", "novela grafica",
-        "bande dessinee", "bd", "fumetti", "tebeo", "tebeos", "comic book", "superheroes",
+        "novella grafica", "bande dessinee", "bd", "fumetti", "tebeo", "tebeos",
+        "comic book", "superheroes", "superherois",
     },
     manga = {
         "manga", "manhwa", "manhua", "shonen", "seinen", "shojo", "josei", "light novel",
         "манга",
     },
     short_stories = {
-        "short stories", "short story", "relatos", "relato", "cuentos", "cuento",
-        "antologia", "anthology", "nouvelles", "kurzgeschichten", "racconti", "рассказы",
+        "short stories", "short story", "relatos", "relato", "relats", "relat",
+        "cuentos", "cuento", "contes", "conte", "antologia", "anthology",
+        "nouvelles", "kurzgeschichten", "racconti", "рассказы",
     },
 }
 
@@ -253,13 +283,18 @@ end
 
 -- Etiquetas genéricas/ruido que se descartan si el libro tiene algún género real
 local NOISE = {
-    ["fiction"] = true, ["ficcion"] = true, ["general"] = true,
-    ["novel"] = true, ["novela"] = true, ["roman"] = true,
+    ["fiction"] = true, ["ficcion"] = true, ["ficcio"] = true, ["general"] = true,
+    ["general fiction"] = true, ["adult fiction"] = true,
+    ["novel"] = true, ["novela"] = true, ["novella"] = true, ["roman"] = true,
     ["book"] = true, ["books"] = true, ["libro"] = true, ["libros"] = true,
+    ["llibre"] = true, ["llibres"] = true,
     ["ebook"] = true, ["ebooks"] = true, ["epub"] = true,
     ["literature"] = true, ["literatura"] = true,
-    ["spanish"] = true, ["espanol"] = true, ["english"] = true, ["ingles"] = true,
-    ["french"] = true, ["german"] = true, ["italian"] = true, ["portuguese"] = true,
+    ["spanish"] = true, ["espanol"] = true, ["espanyol"] = true, ["castella"] = true,
+    ["catalan"] = true, ["catala"] = true,
+    ["english"] = true, ["ingles"] = true, ["angles"] = true,
+    ["french"] = true, ["frances"] = true, ["german"] = true, ["alemany"] = true,
+    ["italian"] = true, ["italia"] = true, ["portuguese"] = true, ["portugues"] = true,
 }
 
 local function cleanSegment(raw)
@@ -328,7 +363,21 @@ function M.extractGenres(keywords)
                 end
             end
         else
-            addResolved(M.resolveGenre(raw))
+            local resolved = M.resolveGenre(raw)
+            if resolved and not resolved.canonical and raw:find("&", 1, true) then
+                -- Etiquetas compuestas tipo "Mystery & Thriller" o "Science Fiction & Fantasy"
+                local any_canon = false
+                for part in raw:gmatch("[^&]+") do
+                    local pg = M.resolveGenre(part)
+                    if pg and pg.canonical then
+                        addResolved(pg)
+                        any_canon = true
+                    end
+                end
+                if not any_canon then addResolved(resolved) end
+            else
+                addResolved(resolved)
+            end
         end
     end
 
