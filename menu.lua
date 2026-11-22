@@ -680,16 +680,6 @@ return function(Aire, ctx)
                             self:apply()
                             UIManager:setDirty(self.ui, "ui")
                         end,
-                    },
-                    {
-                        text = "Polilla de prueba (Estadísticas)",
-                        checked_func = function() return config.demo_moth end,
-                        callback = function()
-                            config.demo_moth = not config.demo_moth
-                            saveConfig()
-                            self:apply()
-                            UIManager:setDirty(self.ui, "ui")
-                        end,
                         separator = true,
                     },
                     {

@@ -179,31 +179,19 @@ return function(Aire, ctx)
     end
 
     -- Tarjeta grande del bento (columna izquierda): Racha protagonista igualada a la altura de la columna derecha
-    local function bentoStreakCard(cw, ch, title, big, sub, moth_path)
-        local pad = S(6)
+    local function bentoStreakCard(cw, ch, title, big, sub)
+        local pad = S(12)
         local inner_w = cw - 2 * Size.border.thin
         local inner_h = ch - 2 * Size.border.thin
         local content_w = inner_w - 2 * pad
-        local vg = VerticalGroup:new{ align = "center" }
-        if moth_path and lfs.attributes(moth_path, "mode") == "file" then
-            local img_h = math.max(S(74), inner_h - S(50))
-            table.insert(vg, ImageWidget:new{
-                file = moth_path,
-                width = content_w,
-                height = img_h,
-                scale_factor = 0,
-            })
-            table.insert(vg, VerticalSpan:new{ width = S(2) })
-            table.insert(vg, TextWidget:new{ text = big, face = face(true, 19), fgcolor = BLACK, max_width = content_w, padding = 0 })
-            table.insert(vg, VerticalSpan:new{ width = S(1) })
-            table.insert(vg, TextWidget:new{ text = sub, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 })
-        else
-            table.insert(vg, TextWidget:new{ text = title, face = face(true, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 })
-            table.insert(vg, VerticalSpan:new{ width = S(6) })
-            table.insert(vg, TextWidget:new{ text = big, face = face(true, 26), fgcolor = BLACK, max_width = content_w, padding = 0 })
-            table.insert(vg, VerticalSpan:new{ width = S(4) })
-            table.insert(vg, TextWidget:new{ text = sub, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 })
-        end
+        local vg = VerticalGroup:new{
+            align = "center",
+            TextWidget:new{ text = title, face = face(true, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
+            VerticalSpan:new{ width = S(6) },
+            TextWidget:new{ text = big, face = face(true, 26), fgcolor = BLACK, max_width = content_w, padding = 0 },
+            VerticalSpan:new{ width = S(4) },
+            TextWidget:new{ text = sub, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
+        }
         return FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
@@ -612,9 +600,8 @@ return function(Aire, ctx)
         local streak_sub = (st.best_streak and st.best_streak > 0)
             and T(_("max %1"), st.best_streak)
             or _("in a row")
-        local moth_path = config.demo_moth and (STATS_DIR:gsub("/views/stats$", "") .. "/dev/moth_preview.jpg") or nil
         local streak_card = tappable(
-            bentoStreakCard(left_w, bento_h, _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub, moth_path),
+            bentoStreakCard(left_w, bento_h, _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub),
             function() self:showCalendarView() end
         )
         local bento_block = HorizontalGroup:new{
