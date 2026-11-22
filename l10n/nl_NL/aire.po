@@ -32,7 +32,7 @@ msgstr "%1 % (in de wacht)"
 msgid "%1 % read"
 msgstr "%1 % gelezen"
 
-#: styles/plugins/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid/init.lua:321 views/grid/init.lua:326
+#: styles/plugins/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:300 views/grid/init.lua:321 views/grid/init.lua:326
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 boek"
@@ -50,7 +50,7 @@ msgid_plural "%1 bookmarks"
 msgstr[0] "%1 bladwijzer"
 msgstr[1] "%1 bladwijzers"
 
-#: views/grid/init.lua:517 views/grid/init.lua:518
+#: views/grid/init.lua:548 views/grid/init.lua:549
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 collectie"
@@ -74,13 +74,13 @@ msgid_plural "%1 days reading"
 msgstr[0] "%1 dag gelezen"
 msgstr[1] "%1 dagen gelezen"
 
-#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid/init.lua:323
+#: views/booksheet.lua:328 views/grid/books.lua:300 views/grid/init.lua:323
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 gelezen"
 msgstr[1] "%1 gelezen"
 
-#: views/grid/init.lua:600
+#: views/grid/init.lua:631
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 gelezen boek"
@@ -186,7 +186,7 @@ msgstr "1 van 5 sterren"
 msgid "12 of 30"
 msgstr ""
 
-#: menu.lua:416 menu.lua:542
+#: menu.lua:416 menu.lua:550
 msgid "3 columns (large covers)"
 msgstr "3 kolommen (grote omslagen)"
 
@@ -194,7 +194,7 @@ msgstr "3 kolommen (grote omslagen)"
 msgid "3-button confirmation"
 msgstr ""
 
-#: menu.lua:416 menu.lua:542
+#: menu.lua:416 menu.lua:550
 msgid "4 columns"
 msgstr "4 kolommen"
 
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Add widget"
 msgstr "Widget toevoegen"
 
-#: menu.lua:744
+#: menu.lua:752
 msgid "Advanced"
 msgstr "Geavanceerd"
 
@@ -274,7 +274,7 @@ msgstr "Aire %1 beschikbaar"
 msgid "Aire %1 installed"
 msgstr "Aire %1 geïnstalleerd"
 
-#: menu.lua:718 menu.lua:734
+#: menu.lua:726 menu.lua:742
 msgid "Aire warnings (crash.log)"
 msgstr "Aire-waarschuwingen (crash.log)"
 
@@ -300,7 +300,7 @@ msgstr "Alles gelezen"
 msgid "All time"
 msgstr ""
 
-#: views/grid/init.lua:602 views/widgets/catalog.lua:300
+#: views/grid/init.lua:633 views/widgets/catalog.lua:300
 #, koreader
 msgid "Always"
 msgstr ""
@@ -353,11 +353,15 @@ msgstr "Automatische collecties per auteur"
 msgid "Automatic collections by genre (keyword)"
 msgstr "Automatische collecties per genre (trefwoord)"
 
-#: menu.lua:629
+#: menu.lua:502
+msgid "Automatic collections by language"
+msgstr ""
+
+#: menu.lua:637
 msgid "Automatic tests"
 msgstr "Automatische tests"
 
-#: views/grid/init.lua:964
+#: views/grid/init.lua:995
 msgid "Automatic: books by this author"
 msgstr "Automatisch: boeken van deze auteur"
 
@@ -488,7 +492,7 @@ msgstr "Bladwijzers en markeringen"
 msgid "Books"
 msgstr ""
 
-#: views/grid/init.lua:925
+#: views/grid/init.lua:956
 msgid "Books are not deleted, only the collection."
 msgstr "De boeken worden niet verwijderd, alleen de collectie."
 
@@ -599,7 +603,7 @@ msgstr "Elke week controleren"
 msgid "Check for updates"
 msgstr ""
 
-#: menu.lua:601
+#: menu.lua:609
 msgid "Check patches and plugins on startup"
 msgstr "Patches en plugins controleren bij opstarten"
 
@@ -622,7 +626,7 @@ msgctxt "aire"
 msgid "Classics"
 msgstr "Klassiekers"
 
-#: menu.lua:609
+#: menu.lua:617
 msgid "Clear cover thumbnails"
 msgstr "Omslagminiaturen wissen"
 
@@ -643,7 +647,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Collectievolgorde"
 
-#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1263
+#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1294
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -720,7 +724,7 @@ msgstr "Kan database niet lezen"
 msgid "Count: %1"
 msgstr "Tellen: %1"
 
-#: menu.lua:618
+#: menu.lua:626
 msgid "Cover thumbnails cleared"
 msgstr "Omslagminiaturen gewist"
 
@@ -793,7 +797,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "december"
 
-#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:1080
+#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:957 views/stats/init.lua:1080
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -819,7 +823,7 @@ msgstr "Minuten van deze dag verwijderen?"
 msgid "Delete minutes from this day"
 msgstr "Minuten van deze dag verwijderen"
 
-#: views/grid/init.lua:924
+#: views/grid/init.lua:955
 msgid "Delete the collection?"
 msgstr "Collectie verwijderen?"
 
@@ -827,7 +831,7 @@ msgstr "Collectie verwijderen?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid/init.lua:975
+#: views/grid/init.lua:1006
 msgid "Delete…"
 msgstr "Verwijderen…"
 
@@ -858,7 +862,7 @@ msgstr "Uitgeschakeld wegens incompatibiliteit met het startscherm:"
 msgid "Disabled option"
 msgstr ""
 
-#: menu.lua:587
+#: menu.lua:595
 msgid "Dock"
 msgstr "Dock"
 
@@ -928,7 +932,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Geen widgets"
 
-#: views/grid/init.lua:494
+#: views/grid/init.lua:525
 msgid "Empty collection"
 msgstr "Lege collectie"
 
@@ -982,7 +986,7 @@ msgstr ""
 msgid "FILE"
 msgstr "BESTAND"
 
-#: views/grid/init.lua:807
+#: views/grid/init.lua:838
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -1010,7 +1014,12 @@ msgctxt "aire"
 msgid "February"
 msgstr "februari"
 
-#: menu.lua:566 views/dock.lua:250
+#: core/genres.lua:288
+msgctxt "aire"
+msgid "Fiction"
+msgstr ""
+
+#: menu.lua:574 views/dock.lua:250
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -1025,11 +1034,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid/init.lua:825
+#: views/grid/init.lua:856
 msgid "Filter"
 msgstr "Filter"
 
-#: dev/devtools.lua:789 views/grid/init.lua:825
+#: dev/devtools.lua:789 views/grid/init.lua:856
 msgid "Filter and sort"
 msgstr "Filteren en sorteren"
 
@@ -1047,7 +1056,7 @@ msgstr "Gelezen"
 msgid "Finished (test data)"
 msgstr ""
 
-#: views/grid/init.lua:599 views/stats/init.lua:593 views/widgets/catalog.lua:275
+#: views/grid/init.lua:630 views/stats/init.lua:593 views/widgets/catalog.lua:275
 msgid "Finished books"
 msgstr ""
 
@@ -1180,7 +1189,7 @@ msgstr ""
 msgid "Got it"
 msgstr ""
 
-#: menu.lua:433 menu.lua:577
+#: menu.lua:433 menu.lua:585
 msgid "Grid: %1 columns"
 msgstr "Raster: %1 kolommen"
 
@@ -1202,7 +1211,7 @@ msgctxt "aire"
 msgid "Historical"
 msgstr "Historisch"
 
-#: views/dock.lua:40 views/grid/init.lua:1264
+#: views/dock.lua:40 views/grid/init.lua:1295
 #, koreader
 msgid "History"
 msgstr ""
@@ -1216,7 +1225,7 @@ msgstr "Geschiedenis"
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid/init.lua:638
+#: views/grid/init.lua:669
 msgid "History is empty"
 msgstr "Geschiedenis is leeg"
 
@@ -1278,6 +1287,10 @@ msgstr "In Collecties verschijnt een collectie voor elke auteur met 2 of meer bo
 #: menu.lua:495
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "In Collecties verschijnt een collectie voor elk trefwoord met 2 of meer boeken. Ze worden automatisch bijgewerkt en niet opgeslagen in de KOReader-collecties."
+
+#: menu.lua:503
+msgid "In Collections, a collection appears for each language with 2 or more books. They update automatically and are not saved in KOReader collections."
+msgstr ""
 
 #: views/update_sheet.lua:457
 msgid "Include beta versions"
@@ -1354,7 +1367,7 @@ msgstr ""
 msgid "LAST 7 DAYS"
 msgstr "LAATSTE 7 DAGEN"
 
-#: menu.lua:591
+#: menu.lua:599
 msgid "Labels under icons"
 msgstr "Labels onder pictogrammen"
 
@@ -1405,7 +1418,7 @@ msgstr "Indeling"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:803 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1262
+#: dev/devtools.lua:803 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1293
 msgid "Library"
 msgstr "Bibliotheek"
 
@@ -1421,7 +1434,7 @@ msgstr "Bibliotheek en omslagen"
 msgid "Library is empty"
 msgstr "Bibliotheek is leeg"
 
-#: menu.lua:610
+#: menu.lua:618
 msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
 msgstr "Bibliotheek, Collecties en Geschiedenis bewaren kleine kopieën van de omslagen om sneller te openen. Wis ze als een omslag niet wordt bijgewerkt."
 
@@ -1433,15 +1446,15 @@ msgstr "Licht"
 msgid "Light level"
 msgstr "Lichtniveau"
 
-#: menu.lua:512
+#: menu.lua:520
 msgid "List with covers"
 msgstr "Lijst met omslagen"
 
-#: menu.lua:514
+#: menu.lua:522
 msgid "List with filenames"
 msgstr "Lijst met bestandsnamen"
 
-#: menu.lua:513
+#: menu.lua:521
 msgid "List without covers"
 msgstr "Lijst zonder omslagen"
 
@@ -1499,7 +1512,7 @@ msgstr "Markeren"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Alle boeken in “%1” markeren als aan het lezen?"
 
-#: views/grid/init.lua:1012
+#: views/grid/init.lua:1043
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Alle boeken in collectie “%1” markeren als aan het lezen?"
 
@@ -1507,11 +1520,11 @@ msgstr "Alle boeken in collectie “%1” markeren als aan het lezen?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid/init.lua:1010
+#: views/grid/init.lua:1041
 msgid "Mark entire collection as finished"
 msgstr "Hele collectie markeren als gelezen"
 
-#: views/grid/init.lua:1011
+#: views/grid/init.lua:1042
 msgid "Mark entire collection as reading"
 msgstr "Hele collectie markeren als aan het lezen"
 
@@ -1554,7 +1567,7 @@ msgstr ""
 msgid "Mix folders"
 msgstr "Mappen mengen"
 
-#: views/grid/init.lua:819
+#: views/grid/init.lua:850
 msgid "Mix series"
 msgstr "Series mengen"
 
@@ -1587,7 +1600,7 @@ msgctxt "aire"
 msgid "Morning"
 msgstr ""
 
-#: menu.lua:511
+#: menu.lua:519
 msgid "Mosaic with covers"
 msgstr "Mozaïek met omslagen"
 
@@ -1649,12 +1662,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nieuw"
 
-#: views/grid/init.lua:513
+#: views/grid/init.lua:544
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid/init.lua:966 views/grid/init.lua:979
+#: views/grid/init.lua:997 views/grid/init.lua:1010
 msgid "New collection…"
 msgstr "Nieuwe collectie…"
 
@@ -1670,7 +1683,7 @@ msgstr "Volgende"
 msgid "Next %1"
 msgstr "Volgende %1"
 
-#: menu.lua:664
+#: menu.lua:672
 msgid "Next batch of test widgets"
 msgstr "Volgende reeks testwidgets"
 
@@ -1705,11 +1718,11 @@ msgstr "Geen boek aan het lezen"
 msgid "No book matches the filter"
 msgstr "Geen boek voldoet aan het filter"
 
-#: views/grid/init.lua:606
+#: views/grid/init.lua:637
 msgid "No books finished this month"
 msgstr "Deze maand geen boeken gelezen"
 
-#: views/grid/init.lua:606
+#: views/grid/init.lua:637
 msgid "No books finished this year"
 msgstr "Dit jaar geen boeken gelezen"
 
@@ -1717,7 +1730,7 @@ msgstr "Dit jaar geen boeken gelezen"
 msgid "No books in home folder"
 msgstr "Geen boeken in de thuismap"
 
-#: views/grid/init.lua:333 views/grid/init.lua:494 views/grid/init.lua:638
+#: views/grid/init.lua:333 views/grid/init.lua:525 views/grid/init.lua:669
 msgid "No books with this filter"
 msgstr "Geen boeken met dit filter"
 
@@ -1725,11 +1738,11 @@ msgstr "Geen boeken met dit filter"
 msgid "No chapter"
 msgstr "Geen hoofdstuk"
 
-#: views/grid/init.lua:521
+#: views/grid/init.lua:552
 msgid "No collections"
 msgstr "Geen collecties"
 
-#: views/grid/init.lua:521
+#: views/grid/init.lua:552
 msgid "No collections with this filter"
 msgstr "Geen collecties met dit filter"
 
@@ -1819,6 +1832,11 @@ msgstr "Aantekeningen"
 msgid "Notice"
 msgstr "Melding"
 
+#: core/genres.lua:287
+msgctxt "aire"
+msgid "Novel"
+msgstr ""
+
 #: views/topbar.lua:120
 msgctxt "aire"
 msgid "November"
@@ -1866,7 +1884,7 @@ msgstr "Alleen als wifi al aan staat: Aire zet het nooit aan."
 msgid "Open"
 msgstr ""
 
-#: views/grid/init.lua:1009
+#: views/grid/init.lua:1040
 msgid "Open collection"
 msgstr "Collectie openen"
 
@@ -1874,7 +1892,7 @@ msgstr "Collectie openen"
 msgid "Open library"
 msgstr ""
 
-#: views/grid/init.lua:1009
+#: views/grid/init.lua:1040
 msgid "Open series"
 msgstr "Serie openen"
 
@@ -2149,12 +2167,12 @@ msgstr "Verwijderen"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:567 views/grid/init.lua:527
+#: views/booksheet.lua:567 views/grid/init.lua:558
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Uit collectie verwijderen"
 
-#: views/booksheet.lua:531 views/grid/init.lua:643
+#: views/booksheet.lua:531 views/grid/init.lua:674
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -2174,7 +2192,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid/init.lua:973
+#: views/grid/init.lua:1004
 msgid "Rename…"
 msgstr "Naam wijzigen…"
 
@@ -2210,7 +2228,7 @@ msgstr "Herstart KOReader om haar te gebruiken. Je instellingen blijven bewaard.
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:104 views/grid/init.lua:813
+#: views/explorer.lua:104 views/grid/init.lua:844
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2240,7 +2258,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/explorer.lua:113 views/grid/init.lua:809
+#: views/explorer.lua:113 views/grid/init.lua:840
 msgid "SORT BY"
 msgstr "SORTEREN OP"
 
@@ -2374,7 +2392,7 @@ msgstr ""
 msgid "Show collection mark"
 msgstr ""
 
-#: menu.lua:686
+#: menu.lua:694
 msgid "Show dimensions of each book / series"
 msgstr "Afmetingen van elk boek / elke serie tonen"
 
@@ -2431,16 +2449,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:743 views/grid/init.lua:825
+#: dev/devtools.lua:743 views/grid/init.lua:856
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:955 views/grid/init.lua:944
+#: dev/devtools.lua:955 views/grid/init.lua:975
 msgid "Sort collections"
 msgstr "Collecties sorteren"
 
-#: views/grid/init.lua:967 views/grid/init.lua:980
+#: views/grid/init.lua:998 views/grid/init.lua:1011
 msgid "Sort collections…"
 msgstr "Collecties sorteren…"
 
@@ -2530,11 +2548,11 @@ msgctxt "aire"
 msgid "Technology"
 msgstr "Technologie"
 
-#: views/grid/init.lua:1164
+#: views/grid/init.lua:1195
 msgid "Test book"
 msgstr "Testboek"
 
-#: menu.lua:642
+#: menu.lua:650
 msgid "Test data (pagination)"
 msgstr "Testgegevens (paginering)"
 
@@ -2546,7 +2564,7 @@ msgstr ""
 msgid "Test galleries"
 msgstr "Testgalerijen"
 
-#: menu.lua:675
+#: menu.lua:683
 msgid "Test stats"
 msgstr "Teststatistieken"
 
@@ -2554,11 +2572,11 @@ msgstr "Teststatistieken"
 msgid "Test synopsis for the full-screen text viewer."
 msgstr ""
 
-#: menu.lua:654
+#: menu.lua:662
 msgid "Test widgets (all with data)"
 msgstr "Testwidgets (alle met gegevens)"
 
-#: menu.lua:626
+#: menu.lua:634
 msgid "Tests"
 msgstr "Tests"
 
@@ -2719,7 +2737,7 @@ msgstr "Update-indicator"
 msgid "Updating Aire"
 msgstr "Aire wordt bijgewerkt"
 
-#: menu.lua:570
+#: menu.lua:578
 msgid "View mode"
 msgstr "Weergavemodus"
 
@@ -2761,7 +2779,7 @@ msgstr ""
 msgid "What do you want to do with this book?"
 msgstr ""
 
-#: menu.lua:602
+#: menu.lua:610
 msgid "When opening KOReader, warns about new patches and plugins and disables those incompatible with Aire."
 msgstr "Waarschuwt bij het openen van KOReader voor nieuwe patches en plugins en schakelt de met Aire incompatibele uit."
 
@@ -2814,7 +2832,7 @@ msgstr "Je hebt nog geen boek geopend"
 msgid "You have version %1"
 msgstr "Je hebt versie %1"
 
-#: views/grid/init.lua:605
+#: views/grid/init.lua:636
 msgid "You haven't finished any books yet"
 msgstr "Je hebt nog geen boeken uitgelezen"
 

@@ -31,7 +31,7 @@ msgstr "%1 % (tunda)"
 msgid "%1 % read"
 msgstr "%1 % dibaca"
 
-#: styles/plugins/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:297 views/grid/init.lua:321 views/grid/init.lua:326
+#: styles/plugins/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:300 views/grid/init.lua:321 views/grid/init.lua:326
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 buku"
@@ -46,7 +46,7 @@ msgid "%1 bookmark"
 msgid_plural "%1 bookmarks"
 msgstr[0] "%1 markah"
 
-#: views/grid/init.lua:517 views/grid/init.lua:518
+#: views/grid/init.lua:548 views/grid/init.lua:549
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 koleksi"
@@ -66,12 +66,12 @@ msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 hari membaca"
 
-#: views/booksheet.lua:328 views/grid/books.lua:297 views/grid/init.lua:323
+#: views/booksheet.lua:328 views/grid/books.lua:300 views/grid/init.lua:323
 msgid "%1 finished"
 msgid_plural "%1 finished"
 msgstr[0] "%1 selesai"
 
-#: views/grid/init.lua:600
+#: views/grid/init.lua:631
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 buku selesai"
@@ -168,7 +168,7 @@ msgstr "1 dari 5 bintang"
 msgid "12 of 30"
 msgstr ""
 
-#: menu.lua:416 menu.lua:542
+#: menu.lua:416 menu.lua:550
 msgid "3 columns (large covers)"
 msgstr "3 kolom (sampul besar)"
 
@@ -176,7 +176,7 @@ msgstr "3 kolom (sampul besar)"
 msgid "3-button confirmation"
 msgstr ""
 
-#: menu.lua:416 menu.lua:542
+#: menu.lua:416 menu.lua:550
 msgid "4 columns"
 msgstr "4 kolom"
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Add widget"
 msgstr "Tambah widget"
 
-#: menu.lua:744
+#: menu.lua:752
 msgid "Advanced"
 msgstr "Lanjutan"
 
@@ -256,7 +256,7 @@ msgstr "Aire %1 tersedia"
 msgid "Aire %1 installed"
 msgstr "Aire %1 terpasang"
 
-#: menu.lua:718 menu.lua:734
+#: menu.lua:726 menu.lua:742
 msgid "Aire warnings (crash.log)"
 msgstr "Peringatan Aire (crash.log)"
 
@@ -283,7 +283,7 @@ msgstr "Semua selesai"
 msgid "All time"
 msgstr ""
 
-#: views/grid/init.lua:602 views/widgets/catalog.lua:300
+#: views/grid/init.lua:633 views/widgets/catalog.lua:300
 #, koreader
 msgid "Always"
 msgstr ""
@@ -336,11 +336,15 @@ msgstr "Koleksi otomatis per penulis"
 msgid "Automatic collections by genre (keyword)"
 msgstr "Koleksi otomatis per genre (kata kunci)"
 
-#: menu.lua:629
+#: menu.lua:502
+msgid "Automatic collections by language"
+msgstr ""
+
+#: menu.lua:637
 msgid "Automatic tests"
 msgstr "Uji otomatis"
 
-#: views/grid/init.lua:964
+#: views/grid/init.lua:995
 msgid "Automatic: books by this author"
 msgstr "Otomatis: buku oleh penulis ini"
 
@@ -471,7 +475,7 @@ msgstr "Markah dan sorotan"
 msgid "Books"
 msgstr ""
 
-#: views/grid/init.lua:925
+#: views/grid/init.lua:956
 msgid "Books are not deleted, only the collection."
 msgstr "Buku tidak dihapus, hanya koleksinya."
 
@@ -582,7 +586,7 @@ msgstr "Periksa setiap minggu"
 msgid "Check for updates"
 msgstr ""
 
-#: menu.lua:601
+#: menu.lua:609
 msgid "Check patches and plugins on startup"
 msgstr "Periksa patch dan plugin saat mulai"
 
@@ -604,7 +608,7 @@ msgctxt "aire"
 msgid "Classics"
 msgstr ""
 
-#: menu.lua:609
+#: menu.lua:617
 msgid "Clear cover thumbnails"
 msgstr "Hapus gambar mini sampul"
 
@@ -625,7 +629,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Urutan dalam koleksi"
 
-#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1263
+#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1294
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -702,7 +706,7 @@ msgstr "Tidak dapat membaca basis data"
 msgid "Count: %1"
 msgstr "Hitung: %1"
 
-#: menu.lua:618
+#: menu.lua:626
 msgid "Cover thumbnails cleared"
 msgstr "Gambar mini sampul dihapus"
 
@@ -775,7 +779,7 @@ msgctxt "aire"
 msgid "December"
 msgstr "Desember"
 
-#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:1080
+#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:957 views/stats/init.lua:1080
 #, koreader
 msgid "Delete"
 msgstr ""
@@ -801,7 +805,7 @@ msgstr "Hapus menit untuk hari ini?"
 msgid "Delete minutes from this day"
 msgstr "Hapus menit dari hari ini"
 
-#: views/grid/init.lua:924
+#: views/grid/init.lua:955
 msgid "Delete the collection?"
 msgstr "Hapus koleksi?"
 
@@ -809,7 +813,7 @@ msgstr "Hapus koleksi?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid/init.lua:975
+#: views/grid/init.lua:1006
 msgid "Delete…"
 msgstr "Hapus…"
 
@@ -840,7 +844,7 @@ msgstr "Dinonaktifkan karena tidak kompatibel dengan Layar Beranda:"
 msgid "Disabled option"
 msgstr ""
 
-#: menu.lua:587
+#: menu.lua:595
 msgid "Dock"
 msgstr "Dok"
 
@@ -910,7 +914,7 @@ msgctxt "aire"
 msgid "Empty"
 msgstr "Tanpa widget"
 
-#: views/grid/init.lua:494
+#: views/grid/init.lua:525
 msgid "Empty collection"
 msgstr "Koleksi kosong"
 
@@ -964,7 +968,7 @@ msgstr ""
 msgid "FILE"
 msgstr "BERKAS"
 
-#: views/grid/init.lua:807
+#: views/grid/init.lua:838
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -992,7 +996,12 @@ msgctxt "aire"
 msgid "February"
 msgstr "Februari"
 
-#: menu.lua:566 views/dock.lua:250
+#: core/genres.lua:288
+msgctxt "aire"
+msgid "Fiction"
+msgstr ""
+
+#: menu.lua:574 views/dock.lua:250
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -1007,11 +1016,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid/init.lua:825
+#: views/grid/init.lua:856
 msgid "Filter"
 msgstr "Filter"
 
-#: dev/devtools.lua:789 views/grid/init.lua:825
+#: dev/devtools.lua:789 views/grid/init.lua:856
 msgid "Filter and sort"
 msgstr "Filter dan urutkan"
 
@@ -1029,7 +1038,7 @@ msgstr "Selesai"
 msgid "Finished (test data)"
 msgstr ""
 
-#: views/grid/init.lua:599 views/stats/init.lua:593 views/widgets/catalog.lua:275
+#: views/grid/init.lua:630 views/stats/init.lua:593 views/widgets/catalog.lua:275
 msgid "Finished books"
 msgstr ""
 
@@ -1162,7 +1171,7 @@ msgstr ""
 msgid "Got it"
 msgstr ""
 
-#: menu.lua:433 menu.lua:577
+#: menu.lua:433 menu.lua:585
 msgid "Grid: %1 columns"
 msgstr "Kisi: %1 kolom"
 
@@ -1184,7 +1193,7 @@ msgctxt "aire"
 msgid "Historical"
 msgstr ""
 
-#: views/dock.lua:40 views/grid/init.lua:1264
+#: views/dock.lua:40 views/grid/init.lua:1295
 #, koreader
 msgid "History"
 msgstr ""
@@ -1198,7 +1207,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid/init.lua:638
+#: views/grid/init.lua:669
 msgid "History is empty"
 msgstr "Riwayat kosong"
 
@@ -1260,6 +1269,10 @@ msgstr "Di Koleksi, muncul satu koleksi untuk setiap penulis dengan 2 buku atau 
 #: menu.lua:495
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Di Koleksi, muncul satu koleksi untuk setiap kata kunci dengan 2 buku atau lebih. Koleksi ini diperbarui otomatis dan tidak disimpan di koleksi KOReader."
+
+#: menu.lua:503
+msgid "In Collections, a collection appears for each language with 2 or more books. They update automatically and are not saved in KOReader collections."
+msgstr ""
 
 #: views/update_sheet.lua:457
 msgid "Include beta versions"
@@ -1336,7 +1349,7 @@ msgstr ""
 msgid "LAST 7 DAYS"
 msgstr "7 HARI TERAKHIR"
 
-#: menu.lua:591
+#: menu.lua:599
 msgid "Labels under icons"
 msgstr "Label di bawah ikon"
 
@@ -1386,7 +1399,7 @@ msgstr "Tata letak"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:803 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1262
+#: dev/devtools.lua:803 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1293
 msgid "Library"
 msgstr "Pustaka"
 
@@ -1402,7 +1415,7 @@ msgstr "Pustaka dan sampul"
 msgid "Library is empty"
 msgstr "Pustaka kosong"
 
-#: menu.lua:610
+#: menu.lua:618
 msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
 msgstr "Perpustakaan, Koleksi, dan Riwayat menyimpan salinan kecil sampul agar terbuka lebih cepat. Hapus jika sampul tidak diperbarui."
 
@@ -1414,15 +1427,15 @@ msgstr "Lampu"
 msgid "Light level"
 msgstr "Tingkat lampu"
 
-#: menu.lua:512
+#: menu.lua:520
 msgid "List with covers"
 msgstr "Daftar dengan sampul"
 
-#: menu.lua:514
+#: menu.lua:522
 msgid "List with filenames"
 msgstr "Daftar dengan nama berkas"
 
-#: menu.lua:513
+#: menu.lua:521
 msgid "List without covers"
 msgstr "Daftar tanpa sampul"
 
@@ -1481,7 +1494,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Tandai semua buku di \"%1\" sebagai dibaca?"
 
-#: views/grid/init.lua:1012
+#: views/grid/init.lua:1043
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Tandai semua buku di koleksi \"%1\" sebagai dibaca?"
 
@@ -1489,11 +1502,11 @@ msgstr "Tandai semua buku di koleksi \"%1\" sebagai dibaca?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid/init.lua:1010
+#: views/grid/init.lua:1041
 msgid "Mark entire collection as finished"
 msgstr "Tandai seluruh koleksi sebagai selesai"
 
-#: views/grid/init.lua:1011
+#: views/grid/init.lua:1042
 msgid "Mark entire collection as reading"
 msgstr "Tandai seluruh koleksi sebagai dibaca"
 
@@ -1536,7 +1549,7 @@ msgstr ""
 msgid "Mix folders"
 msgstr "Campur folder"
 
-#: views/grid/init.lua:819
+#: views/grid/init.lua:850
 msgid "Mix series"
 msgstr "Campur seri"
 
@@ -1569,7 +1582,7 @@ msgctxt "aire"
 msgid "Morning"
 msgstr ""
 
-#: menu.lua:511
+#: menu.lua:519
 msgid "Mosaic with covers"
 msgstr "Mosaik dengan sampul"
 
@@ -1631,12 +1644,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Baru"
 
-#: views/grid/init.lua:513
+#: views/grid/init.lua:544
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid/init.lua:966 views/grid/init.lua:979
+#: views/grid/init.lua:997 views/grid/init.lua:1010
 msgid "New collection…"
 msgstr "Koleksi baru…"
 
@@ -1652,7 +1665,7 @@ msgstr "Berikutnya"
 msgid "Next %1"
 msgstr "Berikutnya %1"
 
-#: menu.lua:664
+#: menu.lua:672
 msgid "Next batch of test widgets"
 msgstr "Kumpulan widget uji berikutnya"
 
@@ -1687,11 +1700,11 @@ msgstr "Tidak ada buku yang sedang dibaca"
 msgid "No book matches the filter"
 msgstr "Tidak ada buku yang cocok dengan filter"
 
-#: views/grid/init.lua:606
+#: views/grid/init.lua:637
 msgid "No books finished this month"
 msgstr "Tidak ada buku selesai bulan ini"
 
-#: views/grid/init.lua:606
+#: views/grid/init.lua:637
 msgid "No books finished this year"
 msgstr "Tidak ada buku selesai tahun ini"
 
@@ -1699,7 +1712,7 @@ msgstr "Tidak ada buku selesai tahun ini"
 msgid "No books in home folder"
 msgstr "Tidak ada buku di folder beranda"
 
-#: views/grid/init.lua:333 views/grid/init.lua:494 views/grid/init.lua:638
+#: views/grid/init.lua:333 views/grid/init.lua:525 views/grid/init.lua:669
 msgid "No books with this filter"
 msgstr "Tidak ada buku dengan filter ini"
 
@@ -1707,11 +1720,11 @@ msgstr "Tidak ada buku dengan filter ini"
 msgid "No chapter"
 msgstr "Tanpa bab"
 
-#: views/grid/init.lua:521
+#: views/grid/init.lua:552
 msgid "No collections"
 msgstr "Tidak ada koleksi"
 
-#: views/grid/init.lua:521
+#: views/grid/init.lua:552
 msgid "No collections with this filter"
 msgstr "Tidak ada koleksi dengan filter ini"
 
@@ -1801,6 +1814,11 @@ msgstr "Catatan"
 msgid "Notice"
 msgstr "Pemberitahuan"
 
+#: core/genres.lua:287
+msgctxt "aire"
+msgid "Novel"
+msgstr ""
+
 #: views/topbar.lua:120
 msgctxt "aire"
 msgid "November"
@@ -1848,7 +1866,7 @@ msgstr "Hanya saat Wi-Fi sudah menyala: Aire tidak pernah menyalakannya."
 msgid "Open"
 msgstr ""
 
-#: views/grid/init.lua:1009
+#: views/grid/init.lua:1040
 msgid "Open collection"
 msgstr "Buka koleksi"
 
@@ -1856,7 +1874,7 @@ msgstr "Buka koleksi"
 msgid "Open library"
 msgstr ""
 
-#: views/grid/init.lua:1009
+#: views/grid/init.lua:1040
 msgid "Open series"
 msgstr "Buka seri"
 
@@ -2131,12 +2149,12 @@ msgstr "Hapus"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:567 views/grid/init.lua:527
+#: views/booksheet.lua:567 views/grid/init.lua:558
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Hapus dari koleksi"
 
-#: views/booksheet.lua:531 views/grid/init.lua:643
+#: views/booksheet.lua:531 views/grid/init.lua:674
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -2156,7 +2174,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid/init.lua:973
+#: views/grid/init.lua:1004
 msgid "Rename…"
 msgstr "Ubah nama…"
 
@@ -2191,7 +2209,7 @@ msgstr "Mulai ulang KOReader untuk menggunakannya. Pengaturan Anda tetap tersimp
 msgid "Restart now"
 msgstr "Mulai ulang sekarang"
 
-#: views/explorer.lua:104 views/grid/init.lua:813
+#: views/explorer.lua:104 views/grid/init.lua:844
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2221,7 +2239,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/explorer.lua:113 views/grid/init.lua:809
+#: views/explorer.lua:113 views/grid/init.lua:840
 msgid "SORT BY"
 msgstr "URUTKAN BERDASARKAN"
 
@@ -2355,7 +2373,7 @@ msgstr ""
 msgid "Show collection mark"
 msgstr ""
 
-#: menu.lua:686
+#: menu.lua:694
 msgid "Show dimensions of each book / series"
 msgstr "Tampilkan dimensi setiap buku / seri"
 
@@ -2412,16 +2430,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:743 views/grid/init.lua:825
+#: dev/devtools.lua:743 views/grid/init.lua:856
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:955 views/grid/init.lua:944
+#: dev/devtools.lua:955 views/grid/init.lua:975
 msgid "Sort collections"
 msgstr "Urutkan koleksi"
 
-#: views/grid/init.lua:967 views/grid/init.lua:980
+#: views/grid/init.lua:998 views/grid/init.lua:1011
 msgid "Sort collections…"
 msgstr "Urutkan koleksi…"
 
@@ -2511,11 +2529,11 @@ msgctxt "aire"
 msgid "Technology"
 msgstr ""
 
-#: views/grid/init.lua:1164
+#: views/grid/init.lua:1195
 msgid "Test book"
 msgstr "Buku uji"
 
-#: menu.lua:642
+#: menu.lua:650
 msgid "Test data (pagination)"
 msgstr "Data uji (paginasi)"
 
@@ -2527,7 +2545,7 @@ msgstr ""
 msgid "Test galleries"
 msgstr "Galeri uji"
 
-#: menu.lua:675
+#: menu.lua:683
 msgid "Test stats"
 msgstr "Statistik uji"
 
@@ -2535,11 +2553,11 @@ msgstr "Statistik uji"
 msgid "Test synopsis for the full-screen text viewer."
 msgstr ""
 
-#: menu.lua:654
+#: menu.lua:662
 msgid "Test widgets (all with data)"
 msgstr "Widget uji (semua dengan data)"
 
-#: menu.lua:626
+#: menu.lua:634
 msgid "Tests"
 msgstr "Pengujian"
 
@@ -2699,7 +2717,7 @@ msgstr "Indikator pembaruan"
 msgid "Updating Aire"
 msgstr "Memperbarui Aire"
 
-#: menu.lua:570
+#: menu.lua:578
 msgid "View mode"
 msgstr "Mode tampilan"
 
@@ -2740,7 +2758,7 @@ msgstr ""
 msgid "What do you want to do with this book?"
 msgstr ""
 
-#: menu.lua:602
+#: menu.lua:610
 msgid "When opening KOReader, warns about new patches and plugins and disables those incompatible with Aire."
 msgstr "Saat membuka KOReader, memberi tahu tentang patch dan plugin baru serta menonaktifkan yang tidak kompatibel dengan Aire."
 
@@ -2793,7 +2811,7 @@ msgstr "Anda belum membuka buku apa pun"
 msgid "You have version %1"
 msgstr "Versi Anda %1"
 
-#: views/grid/init.lua:605
+#: views/grid/init.lua:636
 msgid "You haven't finished any books yet"
 msgstr "Anda belum menyelesaikan buku apa pun"
 

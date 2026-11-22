@@ -365,7 +365,7 @@ return function(Aire, ctx)
             sortEntries(groups, "manual") -- mismo orden que la lista de colecciones de KOReader
             -- Automáticas por autor y por género (palabra clave): se calculan
             -- cada vez desde la Librería y no se guardan en KOReader.
-            if config.coll_auto_author ~= false or config.coll_auto_genre then
+            if config.coll_auto_author ~= false or config.coll_auto_genre or config.coll_auto_lang then
                 local lib_books, lib_groups = self:getLibraryBooks()
                 local all_books, seen_all = {}, {}
                 local function collectBook(b)
@@ -470,6 +470,37 @@ return function(Aire, ctx)
                             table.insert(groups, {
                                 is_group = true, auto = true, key = LISTS.AUTO.GENRE .. lk, title = genre,
                                 sort_title = genre, books = books, order = 200000 + n, mtime = 0,
+                                rank = groupRank(books),
+                            })
+                        end
+                    end
+                end
+
+                if config.coll_auto_lang and Genres and Genres.extractLanguages then
+                    local by, labels, keys = {}, {}, {}
+                    for _i, b in ipairs(all_books) do
+                        if b.language and b.language ~= "" then
+                            for _j, lang in ipairs(Genres.extractLanguages(b.language)) do
+                                if not by[lang.key] then
+                                    by[lang.key] = {}
+                                    labels[lang.key] = lang.label
+                                    table.insert(keys, lang.key)
+                                end
+                                table.insert(by[lang.key], copyBook(b))
+                            end
+                        end
+                    end
+                    table.sort(keys, function(a, b) return lowerKey(labels[a]) < lowerKey(labels[b]) end)
+                    local n = 0
+                    for _i, lk in ipairs(keys) do
+                        local books = by[lk]
+                        if #books >= LISTS.AUTO.MIN then
+                            n = n + 1
+                            local lang_label = labels[lk]
+                            sortEntries(books, "title")
+                            table.insert(groups, {
+                                is_group = true, auto = true, key = LISTS.AUTO.LANG .. lk, title = lang_label,
+                                sort_title = lang_label, books = books, order = 300000 + n, mtime = 0,
                                 rank = groupRank(books),
                             })
                         end

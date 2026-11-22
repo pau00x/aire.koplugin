@@ -59,8 +59,8 @@ local function loadMetadataUnder(BIM, root)
     local stmt
     local ok, err = pcall(function()
         BIM:openDbConnection()
-        -- (keywords: las colecciones automáticas por género salen de aquí)
-        local sql = "SELECT directory, filename, title, authors, series, series_index, ignore_meta, keywords FROM bookinfo"
+        -- (keywords y language: las colecciones automáticas por género e idioma salen de aquí)
+        local sql = "SELECT directory, filename, title, authors, series, series_index, ignore_meta, keywords, language FROM bookinfo"
         if root then
             -- instr y no LIKE: en LIKE "_" y "%" son comodines (carpetas como
             -- "mis_libros" casaban con otras) y además no distingue mayúsculas
@@ -76,7 +76,7 @@ local function loadMetadataUnder(BIM, root)
                 meta[dir .. fname] = {
                     title = row[3], authors = row[4], series = row[5],
                     series_index = tonumber(row[6]), ignore_meta = row[7] == "Y",
-                    keywords = row[8],
+                    keywords = row[8], language = row[9],
                 }
             end
             row = stmt:step()
@@ -96,7 +96,7 @@ local function metaFor(BIM, path)
     return {
         title = bi.title, authors = bi.authors, series = bi.series,
         series_index = tonumber(bi.series_index), ignore_meta = bi.ignore_meta == "Y",
-        keywords = bi.keywords,
+        keywords = bi.keywords, language = bi.language,
     }
 end
 
@@ -128,6 +128,7 @@ local function makeBook(path, m, mtime)
         sort_title = title,
         author = firstAuthor(m and m.authors),
         keywords = (m and m.keywords and m.keywords ~= "") and m.keywords or nil,
+        language = (m and m.language and m.language ~= "") and m.language or nil,
         series = (m and m.series and m.series ~= "") and m.series or nil,
         series_index = m and m.series_index,
         status = status,
@@ -136,11 +137,13 @@ local function makeBook(path, m, mtime)
     }
 end
 
--- Colecciones automáticas por autor y por género (palabra clave)
-local AUTO = { MIN = 2, AUTHOR = "\1autor:", GENRE = "\1genero:" }
+-- Colecciones automáticas por autor, género e idioma
+local AUTO = { MIN = 2, AUTHOR = "\1autor:", GENRE = "\1genero:", LANG = "\1idioma:" }
 local function isAutoKey(key)
     return type(key) == "string"
-        and (key:sub(1, #AUTO.AUTHOR) == AUTO.AUTHOR or key:sub(1, #AUTO.GENRE) == AUTO.GENRE)
+        and (key:sub(1, #AUTO.AUTHOR) == AUTO.AUTHOR
+            or key:sub(1, #AUTO.GENRE) == AUTO.GENRE
+            or key:sub(1, #AUTO.LANG) == AUTO.LANG)
 end
 
 local function groupRank(books)
