@@ -498,6 +498,14 @@ return function(Aire, ctx)
                         if self.reloadGridView then pcall(self.reloadGridView, self, "collections") end
                     end),
                 },
+                {
+                    text = _("Automatic collections by language"),
+                    help_text = _("In Collections, a collection appears for each language with 2 or more books. They update automatically and are not saved in KOReader collections."),
+                    checked_func = function() return config.coll_auto_lang end,
+                    callback = toggle("coll_auto_lang", function()
+                        if self.reloadGridView then pcall(self.reloadGridView, self, "collections") end
+                    end),
+                },
             },
         }
 

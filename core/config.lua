@@ -39,6 +39,7 @@ local function loadConfig()
         coll_list_sort_rev = saved.coll_list_sort_rev == true,
         coll_auto_author = saved.coll_auto_author ~= false, -- colecciones automáticas por autor (sí por defecto)
         coll_auto_genre = saved.coll_auto_genre == true,   -- colecciones automáticas por género (palabra clave)
+        coll_auto_lang = saved.coll_auto_lang == true,     -- colecciones automáticas por idioma
         hist_filter = type(saved.hist_filter) == "string" and saved.hist_filter or "all",
         hist_sort = type(saved.hist_sort) == "string" and saved.hist_sort or "recent",
         hist_sort_rev = saved.hist_sort_rev == true,
