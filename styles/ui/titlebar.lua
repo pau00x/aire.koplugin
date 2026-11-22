@@ -118,7 +118,6 @@ if CLEAN_POPUPS_AND_TITLES and not TitleBar._clean_line_patched then
                         self.right_icon_hold_callback()
                     end or nil,
                     tap_left = side, -- el margen izquierdo también vuelve atrás
-                    tap_v = 0,
                 })
                 self._aire_title_w = parts.title
                 self._aire_right_icon_w = parts.menu_icon

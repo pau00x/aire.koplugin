@@ -521,7 +521,7 @@ function M.statusBar(w, opts)
             dimen = Geom:new{ w = inner, h = inner },
             IconWidget:new{ icon = "aire.power", width = S(22), height = S(22), alpha = true },
         },
-    }, function() call(status_src.power) end, nil, S(8))
+    }, function() call(status_src.power) end, nil, { h = S(8), v = S(4) })
     local power = PowerBadge:new{
         show_dot = type(initial) == "table" and initial.update_dot == true,
         power_btn,
@@ -556,7 +556,7 @@ function M.statusBar(w, opts)
         } },
     }
     bar.onAireTopMenuTap = function() call(status_src.menu) return true end
-    bar.onAireSwipeMenu = function(_self, ges)
+    bar.onAireSwipeMenu = function(_self, _args, ges)
         if ges and ges.direction == "south" then call(status_src.menu) return true end
         return false
     end
@@ -593,12 +593,15 @@ function M.menuIcon(icon)
 end
 
 -- Zona pulsable con margen extra alrededor (iconos y botones de la derecha)
-local function rightTappable(widget, on_tap, on_hold, eh, ev)
+local function rightTappable(widget, on_tap, on_hold, eh_left, eh_right, ev_top, ev_bottom)
     local ic = InputContainer:new{ widget }
     local range = function()
         local d = ic.dimen
         if not d then return emptyGeom() end
-        return Geom:new{ x = d.x - eh, y = d.y - ev, w = d.w + 2 * eh, h = d.h + 2 * ev }
+        return Geom:new{
+            x = d.x - eh_left, y = d.y - ev_top,
+            w = d.w + eh_left + eh_right, h = d.h + ev_top + ev_bottom,
+        }
     end
     ic.ges_events = { AireRightTap = { GestureRange:new{ ges = "tap", range = range } } }
     ic.onAireRightTap = function()
@@ -620,15 +623,16 @@ function M.header(w, opts)
     local S, face = AireUI.S, AireUI.face
     local MT = M.METRICS
     local icon_sz = S(MT.ICON)
+    local side_pad = S(MT.SIDE)
     local parts = {}
 
-    -- Derecha: icono (subpágina) o botón con texto (sección)
+    -- Derecha: icono (subpágina) o botón con texto (sección); llega hasta el borde derecho
     local right, menu_reserve = nil, 0
     if opts.menu_icon then
         local icon_w = IconWidget:new{ icon = M.menuIcon(opts.menu_icon), width = icon_sz, height = icon_sz, alpha = true }
         parts.menu_icon = icon_w
-        right = rightTappable(icon_w, opts.on_menu, opts.on_menu_hold, S(8), S(8))
-        menu_reserve = icon_sz + S(10)
+        right = rightTappable(icon_w, opts.on_menu, opts.on_menu_hold, S(10), side_pad, S(6), S(10))
+        menu_reserve = icon_sz + S(12)
     elseif opts.menu_text then
         local btn = FrameContainer:new{
             bordersize = 0, padding = 0, padding_left = S(8), padding_top = S(4), padding_bottom = S(4),
@@ -640,7 +644,7 @@ function M.header(w, opts)
                 IconWidget:new{ icon = "aire.chevron.down", width = S(16), height = S(16), alpha = true },
             },
         }
-        right = rightTappable(btn, opts.on_menu, opts.on_menu_hold, S(8), S(10))
+        right = rightTappable(btn, opts.on_menu, opts.on_menu_hold, S(8), side_pad, S(6), S(10))
         menu_reserve = btn:getSize().w + S(10)
     end
 
@@ -676,8 +680,9 @@ function M.header(w, opts)
     }
     local widget = frame
     if opts.on_back then
-        local tap_left = opts.tap_left or 0
-        local tap_v = opts.tap_v or S(8)
+        local tap_left = opts.tap_left ~= nil and opts.tap_left or side_pad
+        local tap_top = opts.tap_v ~= nil and opts.tap_v or S(8)
+        local tap_bottom = opts.tap_v ~= nil and opts.tap_v or S(10)
         local ic = InputContainer:new{ frame }
         ic.ges_events = {
             AireBackTap = { GestureRange:new{
@@ -685,8 +690,8 @@ function M.header(w, opts)
                 range = function()
                     local d = ic.dimen
                     if not d then return emptyGeom() end
-                    return Geom:new{ x = d.x - tap_left, y = d.y - tap_v,
-                        w = tap_left + w - menu_reserve, h = d.h + 2 * tap_v }
+                    return Geom:new{ x = math.max(0, d.x - tap_left), y = math.max(0, d.y - tap_top),
+                        w = tap_left + w - menu_reserve, h = d.h + tap_top + tap_bottom }
                 end,
             } },
         }
