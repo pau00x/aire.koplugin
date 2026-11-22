@@ -135,50 +135,65 @@ return function(Aire, ctx)
         }
     end
 
-    -- Tarjeta KPI superior con icono en la misma línea que el título y micro-barra opcional de objetivo
-    local function kpiTile(w, icon, title, big, sub, progress, reserve_bar)
-        local pad = S(8)
-        local inner_w = w - 2 * Size.border.thin
-        local content_w = inner_w - 2 * pad
-        local ico_sz = S(13)
-        local head = HorizontalGroup:new{
-            align = "center",
-            IconWidget:new{ icon = icon, width = ico_sz, height = ico_sz, alpha = true },
-            HorizontalSpan:new{ width = S(4) },
-            TextWidget:new{
-                text = title, face = face(true, 11), fgcolor = GRAY_TEXT,
-                max_width = math.max(S(24), content_w - ico_sz - S(4)), padding = 0,
-            },
+    -- Tarjeta pequeña del bento (columna derecha): título izq, detalle dcha, cifra grande y barra opcional
+    local function bentoSmallCard(cw, title, big, right_sub, progress)
+        local pad = S(10)
+        local inner_w = cw - 2 * (pad + Size.border.thin)
+        local sub_w = TextWidget:new{ text = right_sub or "", face = face(false, 11), fgcolor = GRAY_TEXT, padding = 0 }
+        local ttl_max = math.max(S(30), inner_w - sub_w:getSize().w - S(6))
+        local ttl_w = TextWidget:new{ text = title, face = face(true, 11), fgcolor = GRAY_TEXT, max_width = ttl_max, padding = 0 }
+        local head_h = math.max(ttl_w:getSize().h, sub_w:getSize().h)
+        local head = OverlapGroup:new{
+            dimen = Geom:new{ w = inner_w, h = head_h },
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = head_h }, ttl_w },
+            RightContainer:new{ dimen = Geom:new{ w = inner_w, h = head_h }, sub_w },
         }
         local vg = VerticalGroup:new{
-            align = "center",
+            align = "left",
             head,
-            VerticalSpan:new{ width = S(3) },
-            TextWidget:new{ text = big, face = face(true, 17), fgcolor = BLACK, max_width = content_w, padding = 0 },
-            VerticalSpan:new{ width = S(2) },
-            TextWidget:new{ text = sub, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
+            VerticalSpan:new{ width = S(4) },
+            TextWidget:new{ text = big, face = face(true, 18), fgcolor = BLACK, max_width = inner_w, padding = 0 },
         }
-        local bar_h = S(4)
-        local bar_gap = S(5)
         if progress ~= nil then
-            table.insert(vg, VerticalSpan:new{ width = bar_gap })
+            table.insert(vg, VerticalSpan:new{ width = S(6) })
             table.insert(vg, ProgressWidget:new{
-                width = content_w, height = bar_h, percentage = math.max(0, math.min(1, progress)),
+                width = inner_w, height = S(4), percentage = math.max(0, math.min(1, progress)),
                 fillcolor = BLACK, bgcolor = Blitbuffer.COLOR_GRAY_D, bordersize = 0,
                 radius = S(2), margin_h = 0, margin_v = 0,
             })
-        elseif reserve_bar then
-            table.insert(vg, VerticalSpan:new{ width = bar_gap + bar_h })
         end
-        local h = vg:getSize().h + 2 * pad
+        return FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = pad,
+            width = cw,
+            vg,
+        }
+    end
+
+    -- Tarjeta grande del bento (columna izquierda): Racha protagonista igualada a la altura de la columna derecha
+    local function bentoStreakCard(cw, ch, title, big, sub)
+        local pad = S(12)
+        local inner_w = cw - 2 * Size.border.thin
+        local inner_h = ch - 2 * Size.border.thin
+        local content_w = inner_w - 2 * pad
+        local vg = VerticalGroup:new{
+            align = "center",
+            TextWidget:new{ text = title, face = face(true, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
+            VerticalSpan:new{ width = S(6) },
+            TextWidget:new{ text = big, face = face(true, 26), fgcolor = BLACK, max_width = content_w, padding = 0 },
+            VerticalSpan:new{ width = S(4) },
+            TextWidget:new{ text = sub, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
+        }
         return FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
             radius = S(10),
             padding = 0,
-            width = w,
-            height = h + 2 * Size.border.thin,
-            CenterContainer:new{ dimen = Geom:new{ w = inner_w, h = h }, vg },
+            width = cw,
+            height = ch,
+            CenterContainer:new{ dimen = Geom:new{ w = inner_w, h = inner_h }, vg },
         }
     end
 
@@ -451,7 +466,54 @@ return function(Aire, ctx)
             table.insert(content, VerticalSpan:new{ width = S(10) })
         end
 
-        -- 1. HERO SEMANA ARRIBA (tarjeta protagonista con total, delta y gráfico 7 días)
+        local card_gap = S(10)
+
+        -- 1. BENTO ASIMÉTRICO (sin iconos): Racha grande a la izquierda | Hoy + 2026 apiladas a la derecha
+        local left_w = math.floor((w - card_gap) / 2)
+        local right_w = w - left_w - card_gap
+        local today_prog = daily_goal > 0 and (st.today_secs / (daily_goal * 60)) or nil
+        local today_sub = T(_("%1 pp."), st.today_pages)
+        local year_big = yearly_goal > 0
+            and ("%d / %d"):format(st.finished_year, yearly_goal)
+            or tostring(st.finished_year)
+        local year_prog = yearly_goal > 0 and (st.finished_year / yearly_goal) or nil
+        local year_sub = yearly_goal > 0
+            and ("%d%%"):format(math.floor(math.min(999, st.finished_year / yearly_goal * 100) + 0.5))
+            or _("finished")
+
+        local today_card = tappable(
+            bentoSmallCard(right_w, _("Today"), fmtDuration(st.today_secs), today_sub, today_prog),
+            function() self:showCalendarView() end,
+            function() self:editDailyGoal() end
+        )
+        local year_card = tappable(
+            bentoSmallCard(right_w, st.year, year_big, year_sub, year_prog),
+            function() if self.showGridView then self:showGridView("finished") end end,
+            function() self:editYearlyGoal() end
+        )
+        local right_col = VerticalGroup:new{
+            align = "left",
+            today_card,
+            VerticalSpan:new{ width = card_gap },
+            year_card,
+        }
+        local bento_h = right_col:getSize().h
+        local streak_sub = (st.best_streak and st.best_streak > 0)
+            and T(_("max %1"), st.best_streak)
+            or _("in a row")
+        local streak_card = tappable(
+            bentoStreakCard(left_w, bento_h, _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub),
+            function() self:showCalendarView() end
+        )
+        table.insert(content, HorizontalGroup:new{
+            align = "top",
+            streak_card,
+            HorizontalSpan:new{ width = card_gap },
+            right_col,
+        })
+
+        -- 2. TARJETA ÚLTIMOS 7 DÍAS (total, delta y gráfico con línea de meta o media)
+        table.insert(content, VerticalSpan:new{ width = card_gap })
         local hpad = S(10)
         local h_inner = w - 2 * (hpad + Size.border.thin)
         local hero_left = VerticalGroup:new{
@@ -483,9 +545,9 @@ return function(Aire, ctx)
         local hero_body = VerticalGroup:new{
             align = "left",
             hero_head,
-            VerticalSpan:new{ width = S(6) },
+            VerticalSpan:new{ width = S(8) },
             WeekBars:new{
-                width = h_inner, height = S(82), days = st.week,
+                width = h_inner, height = S(106), days = st.week,
                 avg_secs = ref_secs, avg_label = ref_label,
             },
         }
@@ -499,55 +561,10 @@ return function(Aire, ctx)
         }
         table.insert(content, tappable(hero_card, function() self:showCalendarView() end))
 
-        -- 2. 3 CASILLAS KPI (las únicas con icono, en línea con el título + objetivos opcionales)
-        local card_gap = S(10)
-        table.insert(content, VerticalSpan:new{ width = card_gap })
-        local tw = math.floor((w - 2 * card_gap) / 3)
-        local tw3 = w - 2 * (tw + card_gap)
-        local today_prog = daily_goal > 0 and (st.today_secs / (daily_goal * 60)) or nil
-        local today_sub = T(_("%1 pp."), st.today_pages)
-        local streak_sub = (st.best_streak and st.best_streak > 0)
-            and T(_("max %1"), st.best_streak)
-            or _("in a row")
-        local year_big = yearly_goal > 0
-            and ("%d / %d"):format(st.finished_year, yearly_goal)
-            or tostring(st.finished_year)
-        local year_prog = yearly_goal > 0 and (st.finished_year / yearly_goal) or nil
-        local year_sub = yearly_goal > 0
-            and ("%d%%"):format(math.floor(math.min(999, st.finished_year / yearly_goal * 100) + 0.5))
-            or _("finished")
-
-        -- Misma altura exacta para las 3 casillas si al menos una tiene barra de objetivo
-        local reserve_bar = (today_prog ~= nil or year_prog ~= nil)
-        table.insert(content, HorizontalGroup:new{
-            align = "top",
-            tappable(kpiTile(tw, "aire.widget.timer", _("Today"), fmtDuration(st.today_secs), today_sub, today_prog, reserve_bar),
-                function() self:showCalendarView() end,
-                function() self:editDailyGoal() end),
-            HorizontalSpan:new{ width = card_gap },
-            tappable(kpiTile(tw, "aire.widget.flame", _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub, nil, reserve_bar),
-                function() self:showCalendarView() end),
-            HorizontalSpan:new{ width = card_gap },
-            tappable(kpiTile(tw3, "aire.widget.done", st.year, year_big, year_sub, year_prog, reserve_bar),
-                function() if self.showGridView then self:showGridView("finished") end end,
-                function() self:editYearlyGoal() end),
-        })
-
-        -- 3. LEYENDO AHORA
-        table.insert(content, VerticalSpan:new{ width = S(14) })
-        table.insert(content, sectionLabel(_("CURRENTLY READING")))
-        table.insert(content, VerticalSpan:new{ width = S(5) })
-        local ok_cur, cur = pcall(self.buildStatsCurrent, self, w, st)
-        if ok_cur then
-            table.insert(content, cur)
-        else
-            logger.warn("Aire/Stats: error en el libro actual:", cur)
-        end
-
-        -- 4. EXPLORAR: Géneros y hábitos + Recaps (tarjetas limpias sin iconos)
+        -- 3. EXPLORAR: Géneros y hábitos + Recaps (tarjetas limpias sin iconos)
         table.insert(content, VerticalSpan:new{ width = S(14) })
         table.insert(content, sectionLabel(_("EXPLORE")))
-        table.insert(content, VerticalSpan:new{ width = S(5) })
+        table.insert(content, VerticalSpan:new{ width = S(6) })
 
         local hab_parts = {}
         if st.top_genres and #st.top_genres > 0 then
