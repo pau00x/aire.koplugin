@@ -596,7 +596,7 @@ return function(Aire, ctx)
             sortEntries(entries, config.fin_sort or "recent", config.fin_sort_rev == true)
             return {
                 entries = entries,
-                back = { title = C_("aire", "Finished"), action = function() self:showStatsView() end },
+                back = { title = _("Finished books"), action = function() self:showStatsView() end },
                 counts = T(N_("%1 finished book", "%1 finished books", #entries), #entries),
                 filters = { list = { { id = "month", label = require("datetime").longMonthTranslation[({ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" })[month]] }, { id = "year", label = year },
                                      { id = "all", label = _("Always") } },

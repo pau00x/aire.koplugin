@@ -560,7 +560,7 @@ return function(Aire, ctx)
             function() self:editDailyGoal() end
         )
         local year_card = tappable(
-            bentoSmallCard(right_w, C_("aire", "Finished"), year_big, st.year, year_prog),
+            bentoSmallCard(right_w, _("Finished books"), year_big, st.year, year_prog),
             function() if self.showGridView then self:showGridView("finished") end end,
             function() self:editYearlyGoal() end
         )
@@ -635,11 +635,11 @@ return function(Aire, ctx)
         }
         table.insert(content, tappable(hero_card, function() self:showCalendarView() end))
 
-        -- 3. EMPEZADOS (título dentro de la tarjeta; tocar abre la lista de todos los empezados)
+        -- 3. LIBROS EMPEZADOS (título dentro de la tarjeta; tocar abre la lista de todos los empezados)
         table.insert(content, VerticalSpan:new{ width = card_gap })
         local lead_book = in_prog[1] or st.current
         local ok_cur, cur = pcall(self.buildBookStatCard, self, w, lead_book, {
-            header_title = _("IN PROGRESS"),
+            header_title = _("STARTED BOOKS"),
             count = #in_prog,
             cover_h = 46,
             on_tap = function() self:showInProgressView() end,
@@ -650,25 +650,8 @@ return function(Aire, ctx)
             logger.warn("Aire/Stats: error en Empezados:", cur)
         end
 
-        -- 4. GÉNEROS Y HÁBITOS + RECAPS (sin titulillo "Explorar", tarjetas limpias con card_gap)
+        -- 4. RECAPS: Mensual, Anual y Todo el tiempo (géneros y hábitos irán dentro de los resúmenes)
         table.insert(content, VerticalSpan:new{ width = card_gap })
-
-        local hab_parts = {}
-        if st.top_genres and #st.top_genres > 0 then
-            for i = 1, math.min(2, #st.top_genres) do
-                local g = st.top_genres[i]
-                table.insert(hab_parts, ("%s (%d%%)"):format(g.label, g.pct))
-            end
-        end
-        if st.fav_slot then
-            table.insert(hab_parts, slotLabel(st.fav_slot))
-        end
-        local hab_sub = #hab_parts > 0 and table.concat(hab_parts, " · ") or _("No reading habits yet")
-        table.insert(content, tappable(navCard(w, _("Genres & habits"), hab_sub), function()
-            self:showHabitsView()
-        end))
-        table.insert(content, VerticalSpan:new{ width = card_gap })
-
         local rw = math.floor((w - card_gap) / 2)
         local now_m = tonumber(os.date("%m"))
         local month_sub = st.ok and (MONTHS[now_m] .. " · " .. fmtDuration(st.month_secs)) or MONTHS[now_m]
@@ -679,6 +662,12 @@ return function(Aire, ctx)
             HorizontalSpan:new{ width = card_gap },
             tappable(navCard(w - rw - card_gap, _("Annual recap"), year_sub_recap), function() self:showRecapView("year") end),
         })
+        table.insert(content, VerticalSpan:new{ width = card_gap })
+        local all_sub = st.ok and (fmtDuration(st.all_secs or 0) .. " · " .. T(_("%1 pp."), st.all_pages or 0))
+            or _("All-time summary")
+        table.insert(content, tappable(navCard(w, _("All-time recap"), all_sub), function()
+            self:showRecapView("all")
+        end))
         content:resetLayout()
 
         local dock = self:buildNavBar(w)
@@ -1064,7 +1053,7 @@ return function(Aire, ctx)
         local now = os.date("*t")
         self._recap = self._recap or { mode = "month", year = now.year, month = now.month }
         local R = self._recap
-        local mode = R.mode == "year" and "year" or "month"
+        local mode = (R.mode == "year" or R.mode == "all") and R.mode or "month"
         StatsData.state.FAKE = (config.demo_stats and self.getTestTools and self:getTestTools()) or nil
         local sw, sh = Screen:getWidth(), Screen:getHeight()
         local side = S(ctx.SIDE_PAD)
@@ -1077,9 +1066,9 @@ return function(Aire, ctx)
             gap_after = package.loaded.aire_screen.METRICS.CONTENT_GAP,
         })
 
-        -- Selector Mensual / Anual
+        -- Selector Mensual / Anual / Todo
         local tab_gap = S(8)
-        local tab_w = math.floor((w - tab_gap) / 2)
+        local tab_w = math.floor((w - 2 * tab_gap) / 3)
         local tab_h = S(34)
         local function modeTab(tw, label, m)
             local active = mode == m
@@ -1095,7 +1084,7 @@ return function(Aire, ctx)
                     dimen = Geom:new{ w = tw - 2 * Size.border.thin, h = tab_h - 2 * Size.border.thin },
                     TextWidget:new{
                         text = label,
-                        face = face(active, 14),
+                        face = face(active, 13),
                         fgcolor = active and WHITE or BLACK,
                         padding = 0,
                     },
@@ -1112,30 +1101,39 @@ return function(Aire, ctx)
             align = "center",
             modeTab(tab_w, _("Monthly"), "month"),
             HorizontalSpan:new{ width = tab_gap },
-            modeTab(w - tab_w - tab_gap, _("Annual"), "year"),
+            modeTab(tab_w, _("Annual"), "year"),
+            HorizontalSpan:new{ width = tab_gap },
+            modeTab(w - 2 * (tab_w + tab_gap), _("All time"), "all"),
         })
         table.insert(content, VerticalSpan:new{ width = S(10) })
 
-        -- Navegador de periodo (‹ Noviembre 2026 › / ‹ 2026 ›)
-        local is_current = (mode == "year" and R.year == now.year)
-            or (mode == "month" and R.year == now.year and R.month == now.month)
+        -- Navegador de periodo (‹ Noviembre 2026 › / ‹ 2026 ›); en "Todo" solo el título
         local nav_h = S(36)
-        local function arrow(icon, enabled, delta)
-            local iw = IconWidget:new{ icon = icon, width = S(24), height = S(24), alpha = true, dim = not enabled }
-            local box = CenterContainer:new{ dimen = Geom:new{ w = S(24), h = nav_h }, iw }
-            if not enabled then return box end
-            return tappable(box, function() self:recapStep(delta) end, nil, { h = S(14), v = S(6) })
-        end
-        local period_title = mode == "month" and (MONTHS[R.month] .. " " .. R.year) or tostring(R.year)
-        table.insert(content, OverlapGroup:new{
-            dimen = Geom:new{ w = w, h = nav_h },
-            LeftContainer:new{ dimen = Geom:new{ w = w, h = nav_h }, arrow("chevron.left", true, -1) },
-            CenterContainer:new{
+        if mode == "all" then
+            table.insert(content, CenterContainer:new{
                 dimen = Geom:new{ w = w, h = nav_h },
-                TextWidget:new{ text = period_title, face = face(true, 17), fgcolor = BLACK, padding = 0 },
-            },
-            RightContainer:new{ dimen = Geom:new{ w = w, h = nav_h }, arrow("chevron.right", not is_current, 1) },
-        })
+                TextWidget:new{ text = _("All time"), face = face(true, 17), fgcolor = BLACK, padding = 0 },
+            })
+        else
+            local is_current = (mode == "year" and R.year == now.year)
+                or (mode == "month" and R.year == now.year and R.month == now.month)
+            local function arrow(icon, enabled, delta)
+                local iw = IconWidget:new{ icon = icon, width = S(24), height = S(24), alpha = true, dim = not enabled }
+                local box = CenterContainer:new{ dimen = Geom:new{ w = S(24), h = nav_h }, iw }
+                if not enabled then return box end
+                return tappable(box, function() self:recapStep(delta) end, nil, { h = S(14), v = S(6) })
+            end
+            local period_title = mode == "month" and (MONTHS[R.month] .. " " .. R.year) or tostring(R.year)
+            table.insert(content, OverlapGroup:new{
+                dimen = Geom:new{ w = w, h = nav_h },
+                LeftContainer:new{ dimen = Geom:new{ w = w, h = nav_h }, arrow("chevron.left", true, -1) },
+                CenterContainer:new{
+                    dimen = Geom:new{ w = w, h = nav_h },
+                    TextWidget:new{ text = period_title, face = face(true, 17), fgcolor = BLACK, padding = 0 },
+                },
+                RightContainer:new{ dimen = Geom:new{ w = w, h = nav_h }, arrow("chevron.right", not is_current, 1) },
+            })
+        end
         table.insert(content, VerticalSpan:new{ width = S(10) })
 
         local dock = self:buildNavBar(w)
@@ -1246,7 +1244,7 @@ return function(Aire, ctx)
 
     function Aire:recapStep(delta)
         local R = self._recap
-        if not R then return end
+        if not R or R.mode == "all" then return end
         local now = os.date("*t")
         if R.mode == "year" then
             local y = R.year + delta
@@ -1265,12 +1263,23 @@ return function(Aire, ctx)
     function Aire:showRecapView(mode)
         if self.closeGridViews then self:closeGridViews(true) end
         local now = os.date("*t")
-        self._recap = { mode = mode == "year" and "year" or "month", year = now.year, month = now.month }
+        local m = (mode == "year" or mode == "all") and mode or "month"
+        self._recap = { mode = m, year = now.year, month = now.month }
         config.mode = "library"
         saveConfig()
         self.view = "recap"
         self:apply()
         UIManager:setDirty(self.ui, "flashui")
+    end
+
+    -- Para el widget "Libros empezados" de Inicio: lista con { path, title }
+    function Aire:getInProgressBooks()
+        local raw = loadInProgressBooks()
+        local out = {}
+        for _i, b in ipairs(raw) do
+            table.insert(out, { path = b.file, read_secs = b.read_secs, read_pages = b.read_pages })
+        end
+        return out
     end
 
     -- Para los widgets de Inicio: hoy, racha, terminados del año…
@@ -1305,11 +1314,11 @@ return function(Aire, ctx)
         local w = sw - 2 * side
 
         local content = self:buildScreenTop(w, {
-            title = _("In progress"),
+            title = _("Started books"),
             on_back = function() self:showStatsView() end,
         })
         table.insert(content, (package.loaded.aire_screen.subtitle(w,
-            T(N_("%1 book in progress", "%1 books in progress", #list), #list))))
+            T(N_("%1 started book", "%1 started books", #list), #list))))
         table.insert(content, VerticalSpan:new{ width = S(12) })
 
         local dock = self:buildNavBar(w)
