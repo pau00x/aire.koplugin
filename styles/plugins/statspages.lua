@@ -84,6 +84,21 @@ local CUR = {
     avg_page = _("Average time per page"),
 }
 
+-- Tarjeta unificada estilo Estadísticas / Recap (blanca con borde fino negro y ancho exacto)
+local function statsCard(P, vg, w, pad)
+    local p = pad or P.S(10)
+    local in_w = math.max(10, w - 2 * (p + Size.border.thin))
+    return FrameContainer:new{
+        bordersize = Size.border.thin,
+        color = P.BLACK,
+        background = P.WHITE,
+        radius = P.S(10),
+        padding = p,
+        width = w,
+        LeftContainer:new{ dimen = Geom:new{ w = in_w, h = vg:getSize().h }, vg },
+    }
+end
+
 local function buildCurrentStats(kv_pairs)
     local P = getP()
     local S = P.S
@@ -108,49 +123,100 @@ local function buildCurrentStats(kv_pairs)
         in_reader = true,
         build = function(_page, w, h)
             local widgets = {}
-            -- Progreso
+            local pad = S(10)
+            local gap = S(10)
+            local in_w = w - 2 * (pad + Size.border.thin)
+
+            -- 1. Tarjeta Progreso (blanca, borde fino negro, % a la derecha)
             local cur = by.current and tostring(by.current[2]) or ""
             local pct = tonumber(cur:match("%((%d+)%%%)")) or 0
             local pages_txt = cur:gsub("%s*%(.-%)%s*$", "")
             local fin = by.finish or by.finished
             local fin_txt = fin and tostring(fin[2]):gsub("^%s*%(.-%)%s*", "") or nil
-            local in_w = P.cardInner(w)
-            local sub = pages_txt
-            if fin_txt and fin_txt ~= "" then sub = sub .. " · " .. fin_txt end
-            table.insert(widgets, P.tappable(P.card(VerticalGroup:new{
+            local p_lbl = P.label(_("Progress"))
+            local p_pct = TextWidget:new{ text = pct .. " %", face = P.face(true, 18), fgcolor = P.BLACK, padding = 0 }
+            local ph = math.max(p_lbl:getSize().h, p_pct:getSize().h)
+            local prog_head = OverlapGroup:new{
+                dimen = Geom:new{ w = in_w, h = ph },
+                LeftContainer:new{ dimen = Geom:new{ w = in_w, h = ph }, p_lbl },
+                RightContainer:new{ dimen = Geom:new{ w = in_w, h = ph }, p_pct },
+            }
+            local prog_foot
+            if fin_txt and fin_txt ~= "" then
+                local pl = TextWidget:new{ text = pages_txt, face = P.face(false, 12), fgcolor = P.GRAY_DARK, padding = 0 }
+                local pr = TextWidget:new{ text = fin_txt, face = P.face(false, 12), fgcolor = P.GRAY_DARK,
+                    max_width = math.max(S(60), in_w - pl:getSize().w - S(10)), padding = 0 }
+                local fh = math.max(pl:getSize().h, pr:getSize().h)
+                prog_foot = OverlapGroup:new{
+                    dimen = Geom:new{ w = in_w, h = fh },
+                    LeftContainer:new{ dimen = Geom:new{ w = in_w, h = fh }, pl },
+                    RightContainer:new{ dimen = Geom:new{ w = in_w, h = fh }, pr },
+                }
+            else
+                prog_foot = TextWidget:new{ text = pages_txt, face = P.face(false, 12), fgcolor = P.GRAY_DARK, max_width = in_w, padding = 0 }
+            end
+            local prog_vg = VerticalGroup:new{
                 align = "left",
-                P.label(_("Progress")),
-                VerticalSpan:new{ width = S(4) },
-                TextWidget:new{ text = pct .. " %", face = P.face(true, 22), fgcolor = P.BLACK, padding = 0 },
+                prog_head,
                 VerticalSpan:new{ width = S(6) },
                 P.bar(in_w, pct / 100, S(7)),
                 VerticalSpan:new{ width = S(6) },
-                TextWidget:new{ text = sub, face = P.face(false, 12), fgcolor = P.GRAY_DARK, max_width = in_w, padding = 0 },
-            }, w, { gray = true }), fin and fin.callback))
-            -- 4 casillas
-            local gap = S(P.GAP)
+                prog_foot,
+            }
+            local prog_card = P.tappable(statsCard(P, prog_vg, w, pad), fin and fin.callback)
+            prog_card._aire_gap = gap
+            table.insert(widgets, prog_card)
+
+            -- 2. 4 casillas KPI 2x2 (estilo Hitos de Recap)
             local tw = math.floor((w - gap) / 2)
-            local function tile(id)
+            local tw2 = w - tw - gap
+            local function kpiTile(id, cw)
                 local e = by[id]
-                return P.tile(e and e[2] or "—", e and e._key or CUR[id], tw, e and e.callback)
+                local t_in = math.max(10, cw - 2 * (pad + Size.border.thin))
+                local vg = VerticalGroup:new{
+                    align = "left",
+                    TextWidget:new{ text = e and e._key or CUR[id], face = P.face(true, 11), fgcolor = P.GRAY_DARK, max_width = t_in, padding = 0 },
+                    VerticalSpan:new{ width = S(4) },
+                    TextWidget:new{ text = tostring(e and e[2] or "—"), face = P.face(true, 16), fgcolor = P.BLACK, max_width = t_in, padding = 0 },
+                }
+                return P.tappable(statsCard(P, vg, cw, pad), e and e.callback)
             end
-            table.insert(widgets, HorizontalGroup:new{ align = "top", tile("read_time"), HorizontalSpan:new{ width = gap }, tile("avg_page") })
-            table.insert(widgets, HorizontalGroup:new{ align = "top", tile("days"), HorizontalSpan:new{ width = gap }, tile("today_pages") })
-            -- Resto, en filas
+            local r1 = HorizontalGroup:new{ align = "top", kpiTile("read_time", tw), HorizontalSpan:new{ width = gap }, kpiTile("avg_page", tw2) }
+            r1._aire_gap = gap
+            local r2 = HorizontalGroup:new{ align = "top", kpiTile("days", tw), HorizontalSpan:new{ width = gap }, kpiTile("today_pages", tw2) }
+            r2._aire_gap = gap
+            table.insert(widgets, r1)
+            table.insert(widgets, r2)
+
+            -- 3. Resto de métricas agrupadas en tarjeta DETALLES
             local used = { current = true, read_time = true, avg_page = true, days = true, today_pages = true,
                 finish = true, finished = true }
-            -- (una a una: si no, todas juntas pasaban a la página siguiente)
-            local first_row = true
+            local rest = {}
             for _i, o in ipairs(order) do
-                if not (o.id and used[o.id]) then
-                    local r = P.row(o.e._key, o.e[2], w, o.e.callback)
-                    if first_row then
-                        first_row = false
-                    else
-                        r._aire_gap = 0
-                    end
-                    table.insert(widgets, r)
+                if not (o.id and used[o.id]) then table.insert(rest, o.e) end
+            end
+            if #rest > 0 then
+                local det_vg = VerticalGroup:new{
+                    align = "left",
+                    P.label(_("DETAILS")),
+                    VerticalSpan:new{ width = S(6) },
+                }
+                for idx, e in ipairs(rest) do
+                    if idx > 1 then table.insert(det_vg, P.line(in_w)) end
+                    local val_w = TextWidget:new{ text = tostring(e[2] or ""), face = P.face(true, 13), fgcolor = P.BLACK, padding = 0 }
+                    local key_w = TextWidget:new{ text = tostring(e._key or ""), face = P.face(false, 13), fgcolor = P.GRAY_DARK,
+                        max_width = math.max(S(60), in_w - val_w:getSize().w - S(12)), padding = 0 }
+                    local rh = math.max(key_w:getSize().h, val_w:getSize().h) + S(12)
+                    local row_w = OverlapGroup:new{
+                        dimen = Geom:new{ w = in_w, h = rh },
+                        LeftContainer:new{ dimen = Geom:new{ w = in_w, h = rh }, key_w },
+                        RightContainer:new{ dimen = Geom:new{ w = in_w, h = rh }, val_w },
+                    }
+                    table.insert(det_vg, P.tappable(row_w, e.callback))
                 end
+                local det_card = statsCard(P, det_vg, w, pad)
+                det_card._aire_gap = gap
+                table.insert(widgets, det_card)
             end
             return P.packPages(widgets, h)
         end,
@@ -296,14 +362,45 @@ local function showTimeline(stats, day_offset)
     for _i, b in ipairs(books) do total = total + (tonumber(b.duration) or 0) end
     local date_txt = datetime.secondsToDate(day_ts, true)
 
+    local sub_txt = fmtDuration(total)
+    if #books > 0 then
+        sub_txt = sub_txt .. " · " .. T(N_("%1 book", "%1 books", #books), #books)
+    end
     local page
     page = P.Page:new{
-        title = (day_offset or 0) == 0 and _("Today's timeline") or date_txt,
-        subtitle = ((day_offset or 0) == 0 and date_txt .. " · " or "") .. fmtDuration(total),
+        title = _("Today's timeline"),
+        subtitle = sub_txt,
         build = function(_pg, w, h)
             local widgets = {}
+            local pad = S(10)
+            local gap = S(10)
+            local in_w = w - 2 * (pad + Size.border.thin)
             local colors = {}
             for i, b in ipairs(books) do colors[b.book_id] = shade(i) end
+
+            -- 1. Navegador de fecha arriba (idéntico a Calendario y Resumen)
+            local nav_h = S(32)
+            local function navArrow(icon, enabled, delta)
+                local iw = IconWidget:new{ icon = icon, width = S(22), height = S(22), alpha = true, dim = not enabled }
+                local box = CenterContainer:new{ dimen = Geom:new{ w = S(24), h = nav_h }, iw }
+                if not enabled then return box end
+                return P.tappable(box, function()
+                    page:onClose()
+                    showTimeline(stats, (day_offset or 0) + delta)
+                end)
+            end
+            local nav_row = OverlapGroup:new{
+                dimen = Geom:new{ w = w, h = nav_h },
+                LeftContainer:new{ dimen = Geom:new{ w = w, h = nav_h }, navArrow("chevron.left", true, -1) },
+                CenterContainer:new{
+                    dimen = Geom:new{ w = w, h = nav_h },
+                    TextWidget:new{ text = date_txt, face = P.face(true, 16), fgcolor = P.BLACK, padding = 0 },
+                },
+                RightContainer:new{ dimen = Geom:new{ w = w, h = nav_h }, navArrow("chevron.right", (day_offset or 0) < 0, 1) },
+            }
+            nav_row._aire_gap = gap
+            table.insert(widgets, nav_row)
+
             -- Horas seguidas, de la primera a la última con lectura
             local by_hour, first_h, last_h = {}, nil, nil
             for hr = 0, 23 do
@@ -323,42 +420,21 @@ local function showTimeline(stats, day_offset)
                     last_h = hr
                 end
             end
-            -- (las filas se montan al final: su alto depende de lo que quede libre)
-            local build_rows
-            if first_h then
-              build_rows = function(hh)
-                local label_w = S(56)
-                local track_w = w - label_w
-                local rows = VerticalGroup:new{ align = "left" }
-                for hr = first_h, last_h do
-                    local lbl = string.format("%02d:%02d", (hr + start_h) % 24, start_m)
-                    table.insert(rows, HorizontalGroup:new{
-                        align = "center",
-                        LeftContainer:new{ dimen = Geom:new{ w = label_w, h = hh },
-                            TextWidget:new{ text = lbl, face = P.face(false, 13),
-                                fgcolor = by_hour[hr] and P.BLACK or P.GRAY_DARK, padding = 0 } },
-                        HourTrack:new{ width = track_w, height = hh, spans = by_hour[hr] or {} },
-                    })
-                end
-                return rows
-              end
-            else
-                table.insert(widgets, CenterContainer:new{ dimen = Geom:new{ w = w, h = S(160) },
-                    TextWidget:new{ text = _("No reading activity in this period"), face = P.face(false, 14),
-                        fgcolor = P.GRAY_DARK, padding = 0 } })
-            end
-            -- Libros del día: leyenda en una tarjeta (tono, título, tiempo)
+
+            -- 3. Libros del día: tarjeta leyenda (la montamos antes para medir el espacio libre)
+            local legend_card
             if #books > 0 then
-                local in_w = P.cardInner(w)
-                local list = VerticalGroup:new{ align = "left" }
+                local list = VerticalGroup:new{
+                    align = "left",
+                    P.label(_("BOOKS TODAY")),
+                    VerticalSpan:new{ width = S(4) },
+                }
                 for i, b in ipairs(books) do
                     local sq = S(14)
                     local Sq = Widget:extend{}
                     local color = shade(i)
                     function Sq:getSize() return Geom:new{ w = sq, h = sq } end
                     function Sq:paintTo(bb, x, y) bb:paintRoundedRect(x, y, sq, sq, color, math.floor(sq / 3)) end
-                    -- Como las filas de datos (ui/list.lua): el libro en
-                    -- normal (es un dato) y su tiempo, en filas de LIST.ROW_H
                     local LIST = package.loaded.aire_screen.LIST
                     local tm = TextWidget:new{ text = tostring(b[2] or ""), face = P.face(false, LIST.VALUE),
                         fgcolor = P.GRAY_DARK, padding = 0 }
@@ -374,38 +450,48 @@ local function showTimeline(stats, day_offset)
                         RightContainer:new{ dimen = Geom:new{ w = in_w, h = lh }, tm },
                     })
                 end
-                table.insert(widgets, P.card(list, w))
+                legend_card = statsCard(P, list, w, pad)
+                legend_card._aire_gap = gap
             end
-            -- Cambiar de día (flechas como iconos)
-            local bw = math.floor((w - S(P.GAP)) / 2)
-            local function navBtn(icon, on_tap, disabled)
-                local bh = S(48)
-                local frame = FrameContainer:new{
-                    width = bw, height = bh, bordersize = Size.border.thin,
-                    color = Blitbuffer.COLOR_GRAY, background = P.WHITE, radius = S(10), padding = 0,
-                    CenterContainer:new{ dimen = Geom:new{ w = bw - 2 * Size.border.thin, h = bh - 2 * Size.border.thin },
-                        IconWidget:new{ icon = icon, width = S(28), height = S(28), alpha = true,
-                            dim = disabled or nil } },
-                }
-                if disabled then return frame end
-                return P.tappable(frame, on_tap)
-            end
-            table.insert(widgets, HorizontalGroup:new{
-                align = "center",
-                navBtn("chevron.left", function() page:onClose(); showTimeline(stats, (day_offset or 0) - 1) end),
-                HorizontalSpan:new{ width = S(P.GAP) },
-                navBtn("chevron.right", function() page:onClose(); showTimeline(stats, (day_offset or 0) + 1) end,
-                    (day_offset or 0) >= 0),
-            })
-            if build_rows then
-                -- Filas de 40 si caben; si no, más bajas (mín. 24) para que la
-                -- leyenda y las flechas sigan en la misma página
-                local others = 0
-                for _i, wd in ipairs(widgets) do others = others + wd:getSize().h + S(P.GAP) end
+
+            -- 2. Tarjeta Actividad por horas (altura dinámica para que quepa todo en 1 página)
+            if first_h then
+                local act_lbl = P.label(_("HOURLY ACTIVITY"))
+                local used_h = nav_h + gap + (legend_card and (legend_card:getSize().h + gap) or 0)
+                    + 2 * (pad + Size.border.thin) + act_lbl:getSize().h + S(8)
                 local n = last_h - first_h + 1
-                local hh = math.max(S(24), math.min(S(40), math.floor((h - others) / n)))
-                table.insert(widgets, 1, build_rows(hh))
+                local hh = math.max(S(24), math.min(S(36), math.floor((h - used_h) / n)))
+                local label_w = S(52)
+                local track_w = in_w - label_w
+                local act_vg = VerticalGroup:new{
+                    align = "left",
+                    act_lbl,
+                    VerticalSpan:new{ width = S(8) },
+                }
+                for hr = first_h, last_h do
+                    local lbl = string.format("%02d:%02d", (hr + start_h) % 24, start_m)
+                    table.insert(act_vg, HorizontalGroup:new{
+                        align = "center",
+                        LeftContainer:new{ dimen = Geom:new{ w = label_w, h = hh },
+                            TextWidget:new{ text = lbl, face = P.face(false, 13),
+                                fgcolor = by_hour[hr] and P.BLACK or P.GRAY_DARK, padding = 0 } },
+                        HourTrack:new{ width = track_w, height = hh, spans = by_hour[hr] or {} },
+                    })
+                end
+                local act_card = statsCard(P, act_vg, w, pad)
+                act_card._aire_gap = gap
+                table.insert(widgets, act_card)
+            else
+                local empty_vg = CenterContainer:new{
+                    dimen = Geom:new{ w = in_w, h = S(120) },
+                    TextWidget:new{ text = _("No reading activity in this period"), face = P.face(false, 14),
+                        fgcolor = P.GRAY_DARK, padding = 0 },
+                }
+                local empty_card = statsCard(P, empty_vg, w, pad)
+                empty_card._aire_gap = gap
+                table.insert(widgets, empty_card)
             end
+            if legend_card then table.insert(widgets, legend_card) end
             return P.packPages(widgets, h)
         end,
     }
