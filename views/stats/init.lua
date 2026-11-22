@@ -68,6 +68,7 @@ return function(Aire, ctx)
     local logger = require("logger")
     local _ = require("gettext")
     local N_ = _.ngettext
+    local C_ = _.pgettext
     local T = require("ffi/util").template
     local Screen = require("device").screen
     local BLACK = Blitbuffer.COLOR_BLACK
@@ -135,7 +136,8 @@ return function(Aire, ctx)
         }
     end
 
-    -- Tarjeta pequeña del bento (columna derecha): título izq, detalle dcha, cifra grande y barra opcional
+    -- Tarjeta pequeña del bento (columna derecha): título izq, detalle dcha, cifra grande
+    -- Siempre reserva el hueco de la barra de objetivo para que el alto sea idéntico con o sin objetivo
     local function bentoSmallCard(cw, title, big, right_sub, progress)
         local pad = S(10)
         local inner_w = cw - 2 * (pad + Size.border.thin)
@@ -148,6 +150,7 @@ return function(Aire, ctx)
             LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = head_h }, ttl_w },
             RightContainer:new{ dimen = Geom:new{ w = inner_w, h = head_h }, sub_w },
         }
+        local bar_gap, bar_h = S(6), S(4)
         local vg = VerticalGroup:new{
             align = "left",
             head,
@@ -155,12 +158,14 @@ return function(Aire, ctx)
             TextWidget:new{ text = big, face = face(true, 18), fgcolor = BLACK, max_width = inner_w, padding = 0 },
         }
         if progress ~= nil then
-            table.insert(vg, VerticalSpan:new{ width = S(6) })
+            table.insert(vg, VerticalSpan:new{ width = bar_gap })
             table.insert(vg, ProgressWidget:new{
-                width = inner_w, height = S(4), percentage = math.max(0, math.min(1, progress)),
+                width = inner_w, height = bar_h, percentage = math.max(0, math.min(1, progress)),
                 fillcolor = BLACK, bgcolor = Blitbuffer.COLOR_GRAY_D, bordersize = 0,
                 radius = S(2), margin_h = 0, margin_v = 0,
             })
+        else
+            table.insert(vg, VerticalSpan:new{ width = bar_gap + bar_h })
         end
         return FrameContainer:new{
             bordersize = Size.border.thin,
@@ -174,23 +179,22 @@ return function(Aire, ctx)
 
     -- Tarjeta grande del bento (columna izquierda): Racha protagonista igualada a la altura de la columna derecha
     local function bentoStreakCard(cw, ch, title, big, sub, moth_path)
-        local pad = S(10)
+        local pad = S(6)
         local inner_w = cw - 2 * Size.border.thin
         local inner_h = ch - 2 * Size.border.thin
         local content_w = inner_w - 2 * pad
         local vg = VerticalGroup:new{ align = "center" }
         if moth_path and lfs.attributes(moth_path, "mode") == "file" then
-            local img_h = math.max(S(46), math.min(S(76), inner_h - S(58)))
-            local img_w = math.min(content_w, math.floor(img_h * 1.35))
+            local img_h = math.max(S(74), inner_h - S(50))
             table.insert(vg, ImageWidget:new{
                 file = moth_path,
-                width = img_w,
+                width = content_w,
                 height = img_h,
                 scale_factor = 0,
             })
-            table.insert(vg, VerticalSpan:new{ width = S(4) })
-            table.insert(vg, TextWidget:new{ text = big, face = face(true, 20), fgcolor = BLACK, max_width = content_w, padding = 0 })
             table.insert(vg, VerticalSpan:new{ width = S(2) })
+            table.insert(vg, TextWidget:new{ text = big, face = face(true, 19), fgcolor = BLACK, max_width = content_w, padding = 0 })
+            table.insert(vg, VerticalSpan:new{ width = S(1) })
             table.insert(vg, TextWidget:new{ text = sub, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 })
         else
             table.insert(vg, TextWidget:new{ text = title, face = face(true, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 })
@@ -391,39 +395,62 @@ return function(Aire, ctx)
         local daily_val = daily > 0 and T(_("%1 min/day"), daily) or _("Off")
         local yearly_val = yearly > 0 and T(N_("%1 book/year", "%1 books/year", yearly), yearly) or _("Off")
         local sheet = Sh.Sheet:new{ full_refresh = false }
+        local function goalCard(inner_w, label, val_txt, on_tap, on_hold)
+            local pad = S(12)
+            local content_w = inner_w - 2 * (pad + Size.border.thin)
+            local chev = IconWidget:new{ icon = "chevron.right", width = S(16), height = S(16), alpha = true }
+            local val_w = TextWidget:new{ text = val_txt, face = face(false, 14), fgcolor = GRAY_TEXT, padding = 0 }
+            local right_grp = HorizontalGroup:new{
+                align = "center",
+                val_w,
+                HorizontalSpan:new{ width = S(6) },
+                chev,
+            }
+            local lbl_max = math.max(S(60), content_w - right_grp:getSize().w - S(10))
+            local lbl_w = TextWidget:new{ text = label, face = face(true, 15), fgcolor = BLACK, max_width = lbl_max, padding = 0 }
+            local row_h = math.max(lbl_w:getSize().h, right_grp:getSize().h)
+            return tappable(FrameContainer:new{
+                bordersize = Size.border.thin,
+                color = BLACK,
+                radius = S(10),
+                padding = pad,
+                width = inner_w,
+                OverlapGroup:new{
+                    dimen = Geom:new{ w = content_w, h = row_h },
+                    LeftContainer:new{ dimen = Geom:new{ w = content_w, h = row_h }, lbl_w },
+                    RightContainer:new{ dimen = Geom:new{ w = content_w, h = row_h }, right_grp },
+                },
+            }, on_tap, on_hold)
+        end
         sheet:setContent(function(inner_w)
             local vg = VerticalGroup:new{ align = "left" }
             table.insert(vg, Sh.title(_("Reading goals"), inner_w))
-            table.insert(vg, Sh.row({
-                text = _("Daily goal"),
-                value = daily_val,
-                callback = function()
+            table.insert(vg, VerticalSpan:new{ width = S(6) })
+            table.insert(vg, goalCard(inner_w, _("Daily goal"), daily_val,
+                function()
                     UIManager:close(sheet)
                     self:editDailyGoal()
                 end,
-                hold_callback = daily > 0 and function()
+                daily > 0 and function()
                     UIManager:close(sheet)
                     config.stats_goal_daily_min = 0
                     saveConfig()
                     self:apply()
                     UIManager:setDirty(self.ui, "ui")
-                end or nil,
-            }, inner_w))
-            table.insert(vg, Sh.row({
-                text = _("Annual goal"),
-                value = yearly_val,
-                callback = function()
+                end or nil))
+            table.insert(vg, VerticalSpan:new{ width = S(10) })
+            table.insert(vg, goalCard(inner_w, _("Annual goal"), yearly_val,
+                function()
                     UIManager:close(sheet)
                     self:editYearlyGoal()
                 end,
-                hold_callback = yearly > 0 and function()
+                yearly > 0 and function()
                     UIManager:close(sheet)
                     config.stats_goal_yearly_books = 0
                     saveConfig()
                     self:apply()
                     UIManager:setDirty(self.ui, "ui")
-                end or nil,
-            }, inner_w))
+                end or nil))
             return vg
         end)
         UIManager:show(sheet)
@@ -488,7 +515,7 @@ return function(Aire, ctx)
             function() self:editDailyGoal() end
         )
         local year_card = tappable(
-            bentoSmallCard(right_w, _("Finished"), year_big, st.year, year_prog),
+            bentoSmallCard(right_w, C_("aire", "Finished"), year_big, st.year, year_prog),
             function() if self.showGridView then self:showGridView("finished") end end,
             function() self:editYearlyGoal() end
         )
