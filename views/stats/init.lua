@@ -1386,16 +1386,6 @@ return function(Aire, ctx)
         UIManager:setDirty(self.ui, "flashui")
     end
 
-    -- Para el widget "Libros empezados" de Inicio: lista con { path, title }
-    function Aire:getInProgressBooks()
-        local raw = loadInProgressBooks()
-        local out = {}
-        for _i, b in ipairs(raw) do
-            table.insert(out, { path = b.file, read_secs = b.read_secs, read_pages = b.read_pages })
-        end
-        return out
-    end
-
     -- Para los widgets de Inicio: hoy, racha, terminados del año…
     function Aire:getQuickStats()
         StatsData.state.FAKE = (config.demo_stats and self.getTestTools and self:getTestTools()) or nil

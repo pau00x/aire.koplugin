@@ -305,25 +305,6 @@ return function(deps)
         end,
     })
 
-    -- 8b) Libros empezados (como Libros terminados, sin configuración de periodo)
-    def("started", {
-        title = _("Started books"), icon = "aire.book.opened",
-        data = function(self)
-            local list = self.getInProgressBooks and self:getInProgressBooks() or {}
-            local n = #list
-            local covers = {}
-            for i = 1, math.min(2, n) do covers[i] = list[i] end
-            return { value = tostring(n), label = N_("started book", "started books", n), covers = covers }
-        end,
-        tap = function(self)
-            if self.showInProgressView then self:showInProgressView()
-            elseif self.showStatsView then self:showStatsView() end
-        end,
-        hold = function(self)
-            if self.showStatsView then self:showStatsView() end
-        end,
-    })
-
     -- 9) Luz
     def("light", {
         title = _("Light"), icon = "aire.widget.sun",
