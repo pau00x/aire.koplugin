@@ -804,7 +804,7 @@ return function(Aire, ctx)
 
         local content = self:buildScreenTop(w, {
             title = _("Genres & habits"),
-            on_back = function() self:showStatsView() end,
+            on_back = function() self:goBack(function() self:showStatsView() end) end,
         })
         local sub_parts = { st.year }
         if st.year_speed and st.year_speed > 0 then
@@ -919,6 +919,7 @@ return function(Aire, ctx)
     end
 
     function Aire:showHabitsView()
+        if self.pushBack then self:pushBack("habits") end
         if self.closeGridViews then self:closeGridViews(true) end
         config.mode = "library"
         saveConfig()
@@ -940,7 +941,10 @@ return function(Aire, ctx)
         local w = sw - 2 * side
         local data = loadMonth(C.year, C.month)
 
-        local content = self:buildScreenTop(w, { title = _("Calendar"), on_back = function() self:showStatsView() end })
+        local content = self:buildScreenTop(w, {
+            title = _("Calendar"),
+            on_back = function() self:goBack(function() self:showStatsView() end) end,
+        })
         -- Subtítulo en la fila común (ui/screen.lua)
         table.insert(content, (package.loaded.aire_screen.subtitle(w, fmtDuration(data.secs) .. " · "
             .. T(_("%1 pp."), data.pages) .. " · "
@@ -1155,8 +1159,9 @@ return function(Aire, ctx)
         UIManager:setDirty(self.ui, "ui")
     end
 
-    function Aire:showCalendarView()
-        self._cal = nil -- abrir siempre en el mes actual, con hoy seleccionado
+    function Aire:showCalendarView(saved_state)
+        if self.pushBack then self:pushBack("calendar") end
+        self._cal = saved_state or nil -- abrir en el mes actual salvo al volver atrás
         config.mode = "library"
         saveConfig()
         self.view = "calendar"
@@ -1560,7 +1565,7 @@ return function(Aire, ctx)
 
         local content = self:buildScreenTop(w, {
             title = _("Recap"),
-            on_back = function() self:showStatsView() end,
+            on_back = function() self:goBack(function() self:showStatsView() end) end,
             menu_icon = "aire.widget.camera",
             on_menu = function()
                 UIManager:nextTick(function()
@@ -1744,11 +1749,21 @@ return function(Aire, ctx)
         UIManager:setDirty(self.ui, "ui")
     end
 
-    function Aire:showRecapView(mode)
+    function Aire:showRecapView(mode, saved_state)
+        if self.pushBack then self:pushBack("recap") end
         if self.closeGridViews then self:closeGridViews(true) end
         local now = os.date("*t")
-        local m = (mode == "year" or mode == "all") and mode or "month"
-        self._recap = { mode = m, year = now.year, month = now.month, page = 1 }
+        if saved_state then
+            self._recap = {
+                mode = (saved_state.mode == "year" or saved_state.mode == "all") and saved_state.mode or "month",
+                year = saved_state.year or now.year,
+                month = saved_state.month or now.month,
+                page = (saved_state.page == 2) and 2 or 1,
+            }
+        else
+            local m = (mode == "year" or mode == "all") and mode or "month"
+            self._recap = { mode = m, year = now.year, month = now.month, page = 1 }
+        end
         config.mode = "library"
         saveConfig()
         self.view = "recap"
@@ -1769,6 +1784,7 @@ return function(Aire, ctx)
     end
 
     function Aire:showStatsView()
+        if not self._restoring_back and self.clearBackStack then self:clearBackStack() end
         if self.closeGridViews then self:closeGridViews(true) end
         config.mode = "library"
         saveConfig()
@@ -1789,7 +1805,7 @@ return function(Aire, ctx)
 
         local content = self:buildScreenTop(w, {
             title = _("Started books"),
-            on_back = function() self:showStatsView() end,
+            on_back = function() self:goBack(function() self:showStatsView() end) end,
         })
         table.insert(content, (package.loaded.aire_screen.subtitle(w,
             T(N_("%1 started book", "%1 started books", #list), #list))))
@@ -1844,9 +1860,10 @@ return function(Aire, ctx)
         return package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
     end
 
-    function Aire:showInProgressView()
+    function Aire:showInProgressView(saved_state)
+        if self.pushBack then self:pushBack("in_progress") end
         if self.closeGridViews then self:closeGridViews(true) end
-        self._inprog_page = 1
+        self._inprog_page = (saved_state and saved_state.page) or 1
         config.mode = "library"
         saveConfig()
         self.view = "in_progress"

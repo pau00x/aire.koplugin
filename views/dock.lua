@@ -257,8 +257,10 @@ return function(Aire, ctx)
     function Aire:onNavTap(id)
         local fm = self.ui
         if id == "home" then
+            self:clearBackStack()
             if not self:isHomeVisible() then self:showHome() end
         elseif id == "library" or id == "collections" or id == "history" then
+            self:clearBackStack()
             self:showGridView(id)
         elseif id == "fm_up" then
             if fm.file_chooser and fm.file_chooser.onFolderUp then fm.file_chooser:onFolderUp() end
@@ -271,6 +273,7 @@ return function(Aire, ctx)
         elseif id == "fm_plus" then
             fm:onShowPlusMenu()
         elseif id == "stats" then
+            self:clearBackStack()
             if self.showStatsView then self:showStatsView() end
         end
     end

@@ -627,7 +627,7 @@ return function(Aire, ctx)
             sortEntries(entries, config.fin_sort or "recent", config.fin_sort_rev == true)
             return {
                 entries = entries,
-                back = { title = _("Finished books"), action = function() self:showStatsView() end },
+                back = { title = _("Finished books"), action = function() self:goBack(function() self:showStatsView() end) end },
                 counts = T(N_("%1 finished book", "%1 finished books", #entries), #entries),
                 filters = { list = { { id = "month", label = require("datetime").longMonthTranslation[({ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" })[month]] }, { id = "year", label = year },
                                      { id = "all", label = _("Always") } },
@@ -1345,8 +1345,13 @@ return function(Aire, ctx)
         return view
     end
 
-    -- Abrir una pestaña de cuadrícula desde el dock
+    -- Abrir una pestaña de cuadrícula desde el dock (o subvista "finished")
     function Aire:showGridView(kind)
+        if kind == "finished" then
+            if self.pushBack then self:pushBack("finished") end
+        elseif not self._restoring_back and self.clearBackStack then
+            self:clearBackStack()
+        end
         local L = state(self, kind)
         if self.view ~= kind then
             if self.view == "stats" and self.closeStatsView then self:closeStatsView() end
