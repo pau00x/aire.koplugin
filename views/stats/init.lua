@@ -504,9 +504,10 @@ return function(Aire, ctx)
     end
 
     -- Tarjeta compacta de Recap para fila de 3 columnas (Mensual | Anual | Total)
-    local function recapMiniCard(cw, card_title, card_sub)
-        local pad = S(9)
-        local inner_w = cw - 2 * (pad + Size.border.thin)
+    local function recapMiniCard(cw, card_title, card_sub, extra_h)
+        local pad_h = S(9)
+        local pad_v = S(9) + math.floor((extra_h or 0) / 2)
+        local inner_w = cw - 2 * (pad_h + Size.border.thin)
         local chev = IconWidget:new{ icon = "chevron.right", width = S(14), height = S(14), alpha = true }
         local ttl_max = math.max(S(30), inner_w - chev:getSize().w - S(4))
         local ttl_w = TextWidget:new{ text = card_title, face = face(true, 13), fgcolor = BLACK, max_width = ttl_max, padding = 0 }
@@ -526,7 +527,10 @@ return function(Aire, ctx)
             bordersize = Size.border.thin,
             color = BLACK,
             radius = S(10),
-            padding = pad,
+            padding_left = pad_h,
+            padding_right = pad_h,
+            padding_top = pad_v,
+            padding_bottom = pad_v,
             width = cw,
             vg,
         }
@@ -640,16 +644,19 @@ return function(Aire, ctx)
         local month_sub = st.ok and fmtDuration(st.month_secs) or MONTHS[now_m]
         local year_sub_recap = st.ok and fmtDuration(st.year_secs) or st.year
         local all_sub = st.ok and fmtDuration(st.all_secs or 0) or _("All time")
-        local recaps_block = HorizontalGroup:new{
-            align = "top",
-            tappable(recapMiniCard(rw, _("Monthly"), month_sub), function() self:showRecapView("month") end),
-            HorizontalSpan:new{ width = card_gap },
-            tappable(recapMiniCard(rw, _("Annual"), year_sub_recap), function() self:showRecapView("year") end),
-            HorizontalSpan:new{ width = card_gap },
-            tappable(recapMiniCard(rw3, _("All time"), all_sub), function() self:showRecapView("all") end),
-        }
+        local function buildRecapsBlock(extra_h)
+            return HorizontalGroup:new{
+                align = "top",
+                tappable(recapMiniCard(rw, _("Monthly"), month_sub, extra_h), function() self:showRecapView("month") end),
+                HorizontalSpan:new{ width = card_gap },
+                tappable(recapMiniCard(rw, _("Annual"), year_sub_recap, extra_h), function() self:showRecapView("year") end),
+                HorizontalSpan:new{ width = card_gap },
+                tappable(recapMiniCard(rw3, _("All time"), all_sub, extra_h), function() self:showRecapView("all") end),
+            }
+        end
+        local recaps_block = buildRecapsBlock(0)
 
-        -- 2. TARJETA ÚLTIMOS 7 DÍAS: altura dinámica del gráfico para aprovechar el hueco sin pisar el dock
+        -- 2. TARJETA ÚLTIMOS 7 DÍAS: altura dinámica del gráfico; el sobrante se reparte a los Recaps
         local hpad = S(10)
         local h_inner = w - 2 * (hpad + Size.border.thin)
         local hero_left = VerticalGroup:new{
@@ -685,7 +692,13 @@ return function(Aire, ctx)
         local free_for_bars = avail_h - other_h - week_chrome_h
         local min_bars_h = S(58)
         local fits_one_page = free_for_bars >= min_bars_h
-        local bars_h = fits_one_page and math.min(S(108), free_for_bars) or S(82)
+        local bars_h = fits_one_page and math.min(S(112), free_for_bars) or S(82)
+        if fits_one_page and free_for_bars > bars_h then
+            local extra_recap = math.min(S(44), free_for_bars - bars_h)
+            if extra_recap >= S(4) then
+                recaps_block = buildRecapsBlock(extra_recap)
+            end
+        end
 
         local hero_body = VerticalGroup:new{
             align = "left",
