@@ -158,9 +158,12 @@ return function(Aire, ctx)
                 local meta = NAV_META[id]
                 table.insert(items, { id = id, icon = meta.icon, label = meta.label })
             end
-            -- Terminados y Calendario se abren desde Estadísticas: marcar esa pestaña
+            -- Terminados, Calendario, Recap, Hábitos y Empezados se abren desde Estadísticas: marcar esa pestaña
             local active = self.view
-            if active == "finished" or active == "calendar" then active = "stats" end
+            if active == "finished" or active == "calendar" or active == "recap"
+                or active == "habits" or active == "in_progress" then
+                active = "stats"
+            end
             return items, active
         end
         -- Home marcado cuando el explorador está en la carpeta de inicio

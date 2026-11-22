@@ -270,9 +270,9 @@ return function(deps)
         end,
     })
 
-    -- 8) Terminados (periodo configurable: mes / año / siempre)
+    -- 8) Libros terminados (periodo configurable: mes / año / siempre)
     def("finished", {
-        title = C_("aire", "Finished"), icon = "aire.widget.done",
+        title = _("Finished books"), icon = "aire.widget.done",
         data = function(self, opts)
             local period = opts.period or "year"
             local list = finishedBooks(self, period)
@@ -290,7 +290,7 @@ return function(deps)
         hold = function(self, d, opts)
             local period = opts.period or "year"
             if self.showRecapView then
-                self:showRecapView(period == "month" and "month" or "year")
+                self:showRecapView(period == "month" and "month" or (period == "all" and "all" or "year"))
             elseif self.showStatsView then
                 self:showStatsView()
             end

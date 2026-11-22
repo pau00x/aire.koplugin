@@ -1,7 +1,8 @@
 --[[
     aire.koplugin/views/stats/charts.lua
     Gráficos de la pestaña Estadísticas (views/stats/init.lua): barras de la semana,
-    barras de la recapitulación y la cuadrícula del calendario del mes.
+    barras horizontales (géneros), barras por día de la semana, barras de la
+    recapitulación y la cuadrícula del calendario del mes.
     Uso: dofile(".../charts.lua")(Data)  (Data = views/stats/data.lua ya cargado)
 --]]
 
@@ -19,13 +20,28 @@ local BLACK = Blitbuffer.COLOR_BLACK
 local WHITE = Blitbuffer.COLOR_WHITE
 local GRAY_TEXT = Blitbuffer.COLOR_DARK_GRAY
 
+-- Pinta una barra vertical con esquinas superiores redondeadas y base recta
+local function paintTopRoundedBar(bb, x, y, w, h, color, r)
+    if h <= 0 or w <= 0 then return end
+    r = math.min(r or 0, math.floor(w / 2), math.floor(h / 2))
+    if r >= 2 and h > r then
+        bb:paintRoundedRect(x, y, w, h, color, r)
+        bb:paintRect(x, y + h - r, w, r, color)
+    else
+        bb:paintRect(x, y, w, h, color)
+    end
+end
+
 return function(Data)
 local monthRange = Data.monthRange
 
 ---------------------------------------------------------------------------
--- Barras de la semana
+-- Barras de la semana (con línea de media diaria opcional)
 ---------------------------------------------------------------------------
-local WeekBars = Widget:extend{ width = nil, height = nil, days = nil }
+local WeekBars = Widget:extend{
+    width = nil, height = nil, days = nil,
+    avg_secs = nil, avg_label = nil,
+}
 
 function WeekBars:init()
     self.labels = {}
@@ -36,6 +52,12 @@ function WeekBars:init()
         }
     end
     self.label_h = self.labels[1]:getSize().h
+    if self.avg_label and self.avg_secs and self.avg_secs > 0 then
+        self.avg_widget = TextWidget:new{
+            text = self.avg_label, face = Font:getFace("cfont", 10),
+            fgcolor = GRAY_TEXT, padding = 0,
+        }
+    end
 end
 
 function WeekBars:getSize() return Geom:new{ w = self.width, h = self.height } end
@@ -44,25 +66,179 @@ function WeekBars:paintTo(bb, x, y)
     local n = #self.days
     local gap = Screen:scaleBySize(10)
     local bw = math.floor((self.width - (n - 1) * gap) / n)
-    local label_gap = Screen:scaleBySize(4)
-    local chart_h = self.height - self.label_h - label_gap
-    local base_y = y + chart_h
+    local label_gap = Screen:scaleBySize(5)
+    local top_pad = self.avg_widget and Screen:scaleBySize(4) or 0
+    local chart_h = self.height - self.label_h - label_gap - top_pad
+    local base_y = y + top_pad + chart_h
     local max = 0
     for _i, d in ipairs(self.days) do if d.secs > max then max = d.secs end end
+    if self.avg_secs and self.avg_secs > max then max = self.avg_secs end
+    local bar_r = Screen:scaleBySize(3)
+    local stub_h = Screen:scaleBySize(2)
+
+    -- Línea discontinua de referencia (media diaria o meta diaria) detrás de las barras
+    if self.avg_secs and self.avg_secs > 0 and max > 0 then
+        local avg_h = math.floor(chart_h * self.avg_secs / max)
+        local ay = base_y - avg_h
+        local dash = Screen:scaleBySize(4)
+        local step = dash * 2
+        local dx = x
+        while dx < x + self.width do
+            local dw = math.min(dash, x + self.width - dx)
+            bb:paintRect(dx, ay, dw, Size.line.thin, Blitbuffer.COLOR_GRAY)
+            dx = dx + step
+        end
+    end
+
     for i, d in ipairs(self.days) do
         local bx = x + (i - 1) * (bw + gap)
         if d.secs > 0 and max > 0 then
-            local h = math.max(Screen:scaleBySize(3), math.floor(chart_h * d.secs / max))
-            bb:paintRect(bx, base_y - h, bw, h, BLACK)
+            local h = math.max(Screen:scaleBySize(4), math.floor(chart_h * d.secs / max))
+            local col = (i == n) and BLACK or Blitbuffer.COLOR_DARK_GRAY
+            paintTopRoundedBar(bb, bx, base_y - h, bw, h, col, bar_r)
+        else
+            bb:paintRect(bx, base_y - stub_h, bw, stub_h, Blitbuffer.COLOR_GRAY_D)
         end
         local ls = self.labels[i]:getSize()
         self.labels[i]:paintTo(bb, bx + math.floor((bw - ls.w) / 2), base_y + label_gap)
     end
-    -- línea base
+
+    -- Etiqueta de la línea de referencia (encima, a la derecha, con fondo blanco limpio)
+    if self.avg_widget and self.avg_secs and self.avg_secs > 0 and max > 0 then
+        local avg_h = math.floor(chart_h * self.avg_secs / max)
+        local as = self.avg_widget:getSize()
+        local pad_x = Screen:scaleBySize(4)
+        local ax = x + self.width - as.w - pad_x
+        local ay = math.max(y, base_y - avg_h - as.h - Screen:scaleBySize(2))
+        bb:paintRect(ax - pad_x, ay, as.w + 2 * pad_x, as.h, WHITE)
+        self.avg_widget:paintTo(bb, ax, ay)
+    end
+
+    -- Línea base
     bb:paintRect(x, base_y, self.width, Size.border.thin, BLACK)
 end
 
 function WeekBars:free()
+    for _i, l in ipairs(self.labels or {}) do l:free() end
+    if self.avg_widget then self.avg_widget:free() end
+end
+
+---------------------------------------------------------------------------
+-- Barras horizontales (géneros más leídos, reutilizable en Hábitos y Recaps)
+---------------------------------------------------------------------------
+local HorizontalBars = Widget:extend{
+    width = nil, items = nil, compact = false,
+}
+
+function HorizontalBars:init()
+    self.rows = {}
+    local f_lbl = self.compact and 12 or 13
+    local f_det = self.compact and 11 or 12
+    self.bar_h = Screen:scaleBySize(self.compact and 5 or 7)
+    self.bar_gap = Screen:scaleBySize(self.compact and 3 or 4)
+    self.row_gap = Screen:scaleBySize(self.compact and 7 or 10)
+    local total_h = 0
+    for i, item in ipairs(self.items or {}) do
+        local det_w = TextWidget:new{
+            text = item.detail or "", face = Font:getFace("cfont", f_det),
+            fgcolor = GRAY_TEXT, padding = 0,
+        }
+        local lbl_max = math.max(Screen:scaleBySize(60), self.width - det_w:getSize().w - Screen:scaleBySize(10))
+        local lbl_w = TextWidget:new{
+            text = item.label or "", face = Font:getFace("tfont", f_lbl),
+            fgcolor = BLACK, max_width = lbl_max, padding = 0,
+        }
+        local text_h = math.max(lbl_w:getSize().h, det_w:getSize().h)
+        local row_h = text_h + self.bar_gap + self.bar_h
+        table.insert(self.rows, {
+            lbl = lbl_w, det = det_w, text_h = text_h, row_h = row_h,
+            ratio = math.max(0, math.min(1, item.ratio or 0)),
+            rank = i,
+        })
+        total_h = total_h + row_h + (i > 1 and self.row_gap or 0)
+    end
+    self.height = total_h
+end
+
+function HorizontalBars:getSize() return Geom:new{ w = self.width, h = self.height } end
+
+function HorizontalBars:paintTo(bb, x, y)
+    local cy = y
+    local r = math.floor(self.bar_h / 2)
+    for _i, row in ipairs(self.rows) do
+        row.lbl:paintTo(bb, x, cy)
+        local ds = row.det:getSize()
+        row.det:paintTo(bb, x + self.width - ds.w, cy + math.floor((row.text_h - ds.h) / 2))
+        local by = cy + row.text_h + self.bar_gap
+        bb:paintRoundedRect(x, by, self.width, self.bar_h, Blitbuffer.COLOR_GRAY_D, r)
+        local fill_w = math.max(row.ratio > 0 and self.bar_h or 0, math.floor(self.width * row.ratio))
+        if fill_w > 0 then
+            local col = row.rank == 1 and BLACK
+                or (row.rank <= 3 and Blitbuffer.COLOR_DARK_GRAY or Blitbuffer.COLOR_GRAY)
+            bb:paintRoundedRect(x, by, fill_w, self.bar_h, col, r)
+        end
+        cy = cy + row.row_h + self.row_gap
+    end
+end
+
+function HorizontalBars:free()
+    for _i, row in ipairs(self.rows or {}) do
+        row.lbl:free()
+        row.det:free()
+    end
+end
+
+---------------------------------------------------------------------------
+-- Barras por día de la semana (L-D, destacando el día favorito)
+---------------------------------------------------------------------------
+local WeekdayBars = Widget:extend{
+    width = nil, height = nil, days = nil, fav = nil,
+}
+
+function WeekdayBars:init()
+    self.labels = {}
+    for i, d in ipairs(self.days or {}) do
+        local is_fav = (d.wday == self.fav)
+        self.labels[i] = TextWidget:new{
+            text = d.letter or "",
+            face = Font:getFace(is_fav and "tfont" or "cfont", 12),
+            fgcolor = is_fav and BLACK or GRAY_TEXT,
+            padding = 0,
+        }
+    end
+    self.label_h = self.labels[1] and self.labels[1]:getSize().h or Screen:scaleBySize(14)
+end
+
+function WeekdayBars:getSize() return Geom:new{ w = self.width, h = self.height } end
+
+function WeekdayBars:paintTo(bb, x, y)
+    local n = #(self.days or {})
+    if n == 0 then return end
+    local gap = Screen:scaleBySize(10)
+    local bw = math.floor((self.width - (n - 1) * gap) / n)
+    local label_gap = Screen:scaleBySize(5)
+    local chart_h = self.height - self.label_h - label_gap
+    local base_y = y + chart_h
+    local max = 0
+    for _i, d in ipairs(self.days) do if d.secs > max then max = d.secs end end
+    local bar_r = Screen:scaleBySize(3)
+    local stub_h = Screen:scaleBySize(2)
+    for i, d in ipairs(self.days) do
+        local bx = x + (i - 1) * (bw + gap)
+        if d.secs > 0 and max > 0 then
+            local h = math.max(Screen:scaleBySize(4), math.floor(chart_h * d.secs / max))
+            local col = (d.wday == self.fav) and BLACK or Blitbuffer.COLOR_DARK_GRAY
+            paintTopRoundedBar(bb, bx, base_y - h, bw, h, col, bar_r)
+        else
+            bb:paintRect(bx, base_y - stub_h, bw, stub_h, Blitbuffer.COLOR_GRAY_D)
+        end
+        local ls = self.labels[i]:getSize()
+        self.labels[i]:paintTo(bb, bx + math.floor((bw - ls.w) / 2), base_y + label_gap)
+    end
+    bb:paintRect(x, base_y, self.width, Size.border.thin, BLACK)
+end
+
+function WeekdayBars:free()
     for _i, l in ipairs(self.labels or {}) do l:free() end
 end
 
@@ -102,11 +278,13 @@ function RecapBars:paintTo(bb, x, y)
     local base_y = y + chart_h
     local max = 0
     for _i, b in ipairs(self.bars) do if b.secs > max then max = b.secs end end
+    local bar_r = n > 15 and Screen:scaleBySize(1) or Screen:scaleBySize(3)
     for i, b in ipairs(self.bars) do
         local bx = start_x + (i - 1) * (bw + gap)
         if b.secs > 0 and max > 0 then
             local h = math.max(Screen:scaleBySize(3), math.floor(chart_h * b.secs / max))
-            bb:paintRect(bx, base_y - h, bw, h, b.highlight and BLACK or Blitbuffer.COLOR_DARK_GRAY)
+            paintTopRoundedBar(bb, bx, base_y - h, bw, h,
+                b.highlight and BLACK or Blitbuffer.COLOR_DARK_GRAY, bar_r)
         end
         local lw = self.labels[i]
         if lw then
@@ -236,5 +414,11 @@ function CalendarGrid:free()
 end
 
 
-return { WeekBars = WeekBars, RecapBars = RecapBars, CalendarGrid = CalendarGrid }
+return {
+    WeekBars = WeekBars,
+    HorizontalBars = HorizontalBars,
+    WeekdayBars = WeekdayBars,
+    RecapBars = RecapBars,
+    CalendarGrid = CalendarGrid,
+}
 end

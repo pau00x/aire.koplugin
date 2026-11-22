@@ -427,6 +427,7 @@ local function loadStats()
         month_secs = 0, month_pages = 0, month_read_days = 0,
         month_avg_secs = 0, month_speed = 0, prev_month_secs = 0, month_delta_pct = nil,
         year_secs = 0, year_pages = 0, year_speed = 0,
+        all_secs = 0, all_pages = 0,
         finished_year = 0,
         top_genres = {},
         time_slots = {}, fav_slot = nil,
@@ -472,6 +473,9 @@ local function loadStats()
             local year0 = os.time{ year = now_t.year, month = 1, day = 1, hour = 0 }
             local yp, ys = conn:rowexec(q_period:format(year0))
             st.year_pages, st.year_secs = tonumber(yp) or 0, tonumber(ys) or 0
+
+            local ap, as_ = conn:rowexec(q_period:format(0))
+            st.all_pages, st.all_secs = tonumber(ap) or 0, tonumber(as_) or 0
 
             -- Días leídos este mes (para media diaria)
             local mrd = conn:rowexec(string.format(
@@ -690,7 +694,9 @@ local function loadRecap(self, mode, year, month)
     local now = os.time()
     local now_t = os.date("*t", now)
     local t0, t1, ndays, pt0, pt1
-    if mode == "month" then
+    if mode == "all" then
+        t0, t1, ndays = 0, now + 1, 0
+    elseif mode == "month" then
         t0, t1, ndays = monthRange(year, month)
         local py, pm = year, month - 1
         if pm < 1 then py, pm = py - 1, 12 end
@@ -712,14 +718,14 @@ local function loadRecap(self, mode, year, month)
         total_secs = 0, total_pages = 0, read_days = 0, total_days = ndays,
         avg_secs = 0, speed = 0, best_streak = 0,
         prev_secs = 0, delta_pct = nil,
-        bars = {}, best_day = nil, best_month = nil,
+        bars = {}, best_day = nil, best_month = nil, best_year = nil,
         top_books = {}, top_author = nil, top_genres = {},
         time_slots = {}, fav_slot = nil,
         weekdays = {}, fav_weekday = nil,
         finished_books = {},
     }
 
-    local by_day, by_month, sorted_days = {}, {}, {}
+    local by_day, by_month, by_year, sorted_days = {}, {}, {}, {}
     local period_books = {}
     if lfs.attributes(DB_FILE, "mode") == "file" then
         local ok, err = pcall(withDB, function(conn)
@@ -737,12 +743,13 @@ local function loadRecap(self, mode, year, month)
                     res.total_pages = res.total_pages + pages
                     res.read_days = res.read_days + 1
                     table.insert(sorted_days, day_str)
-                    local ym_m, ym_d = day_str:match("^%d+%-(%d+)%-(%d+)$")
-                    local m_num, d_num = tonumber(ym_m), tonumber(ym_d)
+                    local ym_y, ym_m, ym_d = day_str:match("^(%d+)%-(%d+)%-(%d+)$")
+                    local y_num, m_num, d_num = tonumber(ym_y), tonumber(ym_m), tonumber(ym_d)
+                    if y_num then by_year[y_num] = (by_year[y_num] or 0) + secs end
                     if m_num then by_month[m_num] = (by_month[m_num] or 0) + secs end
                     if d_num then by_day[d_num] = (by_day[d_num] or 0) + secs end
                     if not res.best_day or secs > res.best_day.secs then
-                        res.best_day = { month = m_num, day = d_num, secs = secs }
+                        res.best_day = { year = y_num, month = m_num, day = d_num, secs = secs }
                     end
                 end
                 row = stmt:step()
@@ -750,7 +757,9 @@ local function loadRecap(self, mode, year, month)
             stmt:close()
 
             period_books = queryBooksInRange(conn, t0, t1)
-            res.prev_secs = queryTotalSecs(conn, pt0, pt1)
+            if pt0 and pt1 then
+                res.prev_secs = queryTotalSecs(conn, pt0, pt1)
+            end
             res.time_slots, res.fav_slot = queryTimeSlots(conn, t0, t1)
             res.weekdays, res.fav_weekday = queryWeekdays(conn, t0, t1)
         end)
@@ -760,7 +769,7 @@ local function loadRecap(self, mode, year, month)
     res.avg_secs = res.read_days > 0 and math.floor(res.total_secs / res.read_days) or 0
     res.speed = calcSpeed(res.total_pages, res.total_secs)
     res.best_streak = computeBestStreak(sorted_days)
-    res.delta_pct = calcDelta(res.total_secs, res.prev_secs)
+    res.delta_pct = (pt0 and pt1) and calcDelta(res.total_secs, res.prev_secs) or nil
 
     for i = 1, math.min(3, #period_books) do
         table.insert(res.top_books, period_books[i])
@@ -770,7 +779,32 @@ local function loadRecap(self, mode, year, month)
         res.top_genres = computeTopGenres(period_books, getBookKeywordsMap(), 5)
     end
 
-    if mode == "month" then
+    if mode == "all" then
+        local years = {}
+        local best_y, best_s = nil, 0
+        for y, s in pairs(by_year) do
+            table.insert(years, y)
+            if s > best_s then best_y, best_s = y, s end
+        end
+        table.sort(years)
+        if best_y then res.best_year = { year = best_y, secs = best_s } end
+        if #years > 1 then
+            for _i, y in ipairs(years) do
+                table.insert(res.bars, { label = tostring(y), secs = by_year[y] or 0, highlight = (y == best_y) })
+            end
+        else
+            local best_m, best_ms = nil, 0
+            for m = 1, 12 do
+                local s = by_month[m] or 0
+                if s > best_ms then best_m, best_ms = m, s end
+            end
+            if best_m then res.best_month = { month = best_m, secs = best_ms } end
+            for m = 1, 12 do
+                local initial = (MONTHS[m] or ""):match("[%z\1-\127\194-\244][\128-\191]*") or tostring(m)
+                table.insert(res.bars, { label = initial:upper(), secs = by_month[m] or 0, highlight = (m == best_m) })
+            end
+        end
+    elseif mode == "month" then
         local best_d = res.best_day and res.best_day.day
         for d = 1, ndays do
             local lbl = (d == 1 or d % 5 == 0 or d == ndays) and tostring(d) or ""
@@ -793,7 +827,8 @@ local function loadRecap(self, mode, year, month)
     if self.getFinishedBooks then ok_fb, books = pcall(self.getFinishedBooks, self) end
     if ok_fb and type(books) == "table" then
         for _i, b in ipairs(books) do
-            if tonumber(b.finished_year) == year and (mode == "year" or tonumber(b.finished_month) == month) then
+            if mode == "all"
+                or (tonumber(b.finished_year) == year and (mode == "year" or tonumber(b.finished_month) == month)) then
                 table.insert(res.finished_books, b)
             end
         end
@@ -904,6 +939,52 @@ local function countFinishedYear(self, st)
 end
 
 
+-- Libros empezados (estado "reading" en ReadHistory), más tiempo y páginas desde statistics.sqlite3
+local function loadInProgressBooks()
+    local list = {}
+    local seen = {}
+    local ok_h, ReadHistory = pcall(require, "readhistory")
+    if ok_h and ReadHistory and ReadHistory.hist then
+        for _i, item in ipairs(ReadHistory.hist) do
+            local f = item and not item.dim and item.file
+            if f and not seen[f] and lfs.attributes(f, "mode") == "file" then
+                if BookList.getBookStatus(f) == "reading" then
+                    seen[f] = true
+                    table.insert(list, { file = f, read_secs = 0, read_pages = 0 })
+                    if #list >= 24 then break end
+                end
+            end
+        end
+    end
+    -- Si no salió ninguno pero hay lastfile activo sin terminar, incluirlo
+    if #list == 0 then
+        local lf = G_reader_settings and G_reader_settings:readSetting("lastfile")
+        if lf and lfs.attributes(lf, "mode") == "file" and BookList.getBookStatus(lf) ~= "complete" then
+            table.insert(list, { file = lf, read_secs = 0, read_pages = 0 })
+        end
+    end
+    if #list > 0 and lfs.attributes(DB_FILE, "mode") == "file" then
+        pcall(withDB, function(conn)
+            local stmt = conn:prepare("SELECT total_read_time, total_read_pages FROM book WHERE md5 = ?")
+            for _i, b in ipairs(list) do
+                local ok_m, md5 = pcall(util.partialMD5, b.file)
+                if ok_m and md5 then
+                    stmt:reset()
+                    stmt:bind(md5)
+                    local r = stmt:step()
+                    if r then
+                        b.read_secs = tonumber(r[1]) or 0
+                        b.read_pages = tonumber(r[2]) or 0
+                    end
+                end
+            end
+            stmt:close()
+        end)
+    end
+    return list
+end
+
+
 return {
     state = state,
     invalidateCache = invalidateCache,
@@ -914,6 +995,7 @@ return {
     withDB = withDB,
     dayStart = dayStart,
     loadStats = loadStats,
+    loadInProgressBooks = loadInProgressBooks,
     historyFinishedYear = historyFinishedYear,
     MONTHS = MONTHS,
     WEEKDAYS_LONG = WEEKDAYS_LONG,
