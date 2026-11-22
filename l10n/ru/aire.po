@@ -34,7 +34,7 @@ msgstr "%1 % (отложено)"
 msgid "%1 % read"
 msgstr "%1 % прочитано"
 
-#: styles/plugins/statspages.lua:240 views/booksheet.lua:322 views/grid/books.lua:300 views/grid/init.lua:321 views/grid/init.lua:326
+#: styles/plugins/statspages.lua:306 styles/plugins/statspages.lua:367 views/booksheet.lua:322 views/grid/books.lua:300 views/grid/init.lua:321
 msgid "%1 book"
 msgid_plural "%1 books"
 msgstr[0] "%1 книга"
@@ -66,7 +66,7 @@ msgstr[1] "%1 подборки"
 msgstr[2] "%1 подборок"
 msgstr[3] "%1 подборки"
 
-#: views/stats/init.lua:608 views/stats/init.lua:815 views/stats/init.lua:1317
+#: views/stats/init.lua:608 views/stats/init.lua:815 views/stats/init.lua:1322
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 день"
@@ -82,7 +82,7 @@ msgstr[1] "%1 дня назад"
 msgstr[2] "%1 дней назад"
 msgstr[3] "%1 дня назад"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:947 views/stats/init.lua:1585
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:951 views/stats/init.lua:1590
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 день чтения"
@@ -118,9 +118,17 @@ msgstr[1] "%1 месяца назад"
 msgstr[2] "%1 месяцев назад"
 msgstr[3] "%1 месяца назад"
 
-#: views/stats/init.lua:1590
+#: views/stats/init.lua:1595
 msgid "%1 of %2 days reading"
 msgstr ""
+
+#: styles/plugins/readerprogress.lua:184
+msgid "%1 page"
+msgid_plural "%1 pages"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: styles/reader/bookmap.lua:98
 msgid "%1 page left"
@@ -130,7 +138,7 @@ msgstr[1] "Осталось %1 стр."
 msgstr[2] "Осталось %1 стр."
 msgstr[3] "Осталось %1 стр."
 
-#: styles/plugins/readerprogress.lua:175
+#: styles/plugins/readerprogress.lua:218
 msgid "%1 page read"
 msgid_plural "%1 pages read"
 msgstr[0] "прочитана %1 стр."
@@ -142,7 +150,7 @@ msgstr[3] "прочитано %1 стр."
 msgid "%1 pp."
 msgstr "%1 стр."
 
-#: views/stats/init.lua:302 views/stats/init.lua:811 views/stats/init.lua:1273 views/stats/init.lua:1587
+#: styles/plugins/readerprogress.lua:205 views/stats/init.lua:302 views/stats/init.lua:811 views/stats/init.lua:1278 views/stats/init.lua:1592
 msgid "%1 pp./h"
 msgstr "%1 стр./ч"
 
@@ -162,7 +170,7 @@ msgstr[1] "%1 серии"
 msgstr[2] "%1 серий"
 msgstr[3] "%1 серии"
 
-#: views/stats/init.lua:1795
+#: views/stats/init.lua:1811
 msgid "%1 started book"
 msgid_plural "%1 started books"
 msgstr[0] ""
@@ -182,7 +190,11 @@ msgstr[3] "%1 недели назад"
 msgid "%1, %2 %3"
 msgstr "%1, %3 %2"
 
-#: views/stats/init.lua:1277
+#: styles/plugins/readerprogress.lua:186
+msgid "%1/7 days"
+msgstr ""
+
+#: views/stats/init.lua:1282
 msgid "%1/day"
 msgstr ""
 
@@ -210,7 +222,7 @@ msgstr "%d из 5 звёзд"
 msgid "+ Brightness"
 msgstr "+ Яркость"
 
-#: views/stats/init.lua:1122
+#: views/stats/init.lua:1126
 msgid "+%1 more"
 msgstr "+ещё %1"
 
@@ -234,6 +246,10 @@ msgstr ""
 msgid "4 columns"
 msgstr "4 столбца"
 
+#: styles/plugins/readerprogress.lua:185
+msgid "7 days"
+msgstr ""
+
 #: views/update_sheet.lua:293
 msgid "A new version is available"
 msgstr "Доступна новая версия"
@@ -250,7 +266,7 @@ msgstr "АКТИВНЫЙ ПОИСК"
 msgid "ADDED"
 msgstr "ДОБАВЛЕНО"
 
-#: views/stats/init.lua:1354
+#: views/stats/init.lua:1359
 msgid "ANNUAL RHYTHM"
 msgstr ""
 
@@ -324,7 +340,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: styles/plugins/statspages.lua:240 styles/plugins/statspages.lua:243
+#: styles/plugins/statspages.lua:306 styles/plugins/statspages.lua:309
 #, koreader
 msgid "All books"
 msgstr ""
@@ -333,7 +349,7 @@ msgstr ""
 msgid "All finished"
 msgstr "Все завершены"
 
-#: views/stats/init.lua:637 views/stats/init.lua:645 views/stats/init.lua:1582 views/stats/init.lua:1635 views/stats/init.lua:1644
+#: views/stats/init.lua:637 views/stats/init.lua:645 views/stats/init.lua:1587 views/stats/init.lua:1640 views/stats/init.lua:1649
 msgid "All time"
 msgstr ""
 
@@ -342,7 +358,7 @@ msgstr ""
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:643 views/stats/init.lua:1633
+#: views/stats/init.lua:643 views/stats/init.lua:1638
 msgid "Annual"
 msgstr "За год"
 
@@ -416,6 +432,10 @@ msgstr ""
 msgid "Average time per page"
 msgstr ""
 
+#: styles/plugins/readerprogress.lua:188
+msgid "Avg. / day"
+msgstr ""
+
 #: styles/filemanager/bookinfo.lua:357
 msgid "BOOK"
 msgstr "КНИГА"
@@ -423,6 +443,10 @@ msgstr "КНИГА"
 #: styles/reader/bookmark.lua:38
 msgid "BOOKMARK"
 msgstr "ЗАКЛАДКА"
+
+#: styles/plugins/statspages.lua:429
+msgid "BOOKS TODAY"
+msgstr ""
 
 #: styles/filemanager/bookinfo.lua:216
 #, koreader
@@ -433,15 +457,15 @@ msgstr ""
 msgid "Battery"
 msgstr "Батарея"
 
-#: views/stats/init.lua:1314
+#: views/stats/init.lua:1319
 msgid "Best day"
 msgstr "Лучший день"
 
-#: views/stats/init.lua:1297
+#: views/stats/init.lua:1302
 msgid "Best month"
 msgstr "Лучший месяц"
 
-#: views/stats/init.lua:1317
+#: views/stats/init.lua:1322
 msgid "Best streak"
 msgstr ""
 
@@ -449,11 +473,11 @@ msgstr ""
 msgid "Best streak: %1"
 msgstr ""
 
-#: views/stats/init.lua:1303
+#: views/stats/init.lua:1308
 msgid "Best week"
 msgstr ""
 
-#: views/stats/init.lua:1295
+#: views/stats/init.lua:1300
 msgid "Best year"
 msgstr ""
 
@@ -533,12 +557,12 @@ msgstr ""
 msgid "Books are not deleted, only the collection."
 msgstr "Книги не удаляются, только подборка."
 
-#: styles/plugins/statspages.lua:248 styles/plugins/statspages.lua:249
+#: styles/plugins/statspages.lua:314 styles/plugins/statspages.lua:315
 #, koreader
 msgid "Books by month"
 msgstr ""
 
-#: styles/plugins/statspages.lua:245 styles/plugins/statspages.lua:246
+#: styles/plugins/statspages.lua:311 styles/plugins/statspages.lua:312
 #, koreader
 msgid "Books by week"
 msgstr ""
@@ -560,7 +584,7 @@ msgstr "ТЕКУЩАЯ ГЛАВА"
 msgid "CURRENT CHAPTER · PAGE %d"
 msgstr "ТЕКУЩАЯ ГЛАВА · СТР. %d"
 
-#: styles/plugins/readerprogress.lua:172
+#: styles/plugins/readerprogress.lua:202
 msgid "CURRENT SESSION"
 msgstr "ТЕКУЩИЙ СЕАНС"
 
@@ -568,7 +592,7 @@ msgstr "ТЕКУЩИЙ СЕАНС"
 msgid "CURRENTLY READING"
 msgstr "СЕЙЧАС ЧИТАЮ"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:943
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:945
 msgid "Calendar"
 msgstr "Календарь"
 
@@ -584,7 +608,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:626 dev/devtools.lua:777 dev/devtools.lua:877 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:1060
+#: dev/devtools.lua:626 dev/devtools.lua:777 dev/devtools.lua:877 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:1064
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -775,7 +799,7 @@ msgstr ""
 msgid "Current page:"
 msgstr ""
 
-#: styles/plugins/statspages.lua:106 styles/plugins/statspages.lua:427
+#: styles/plugins/statspages.lua:121 styles/plugins/statspages.lua:513
 #, koreader
 msgid "Current statistics"
 msgstr ""
@@ -784,12 +808,16 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Сейчас читаю"
 
-#: views/stats/init.lua:1350
+#: views/stats/init.lua:1355
 msgid "DAILY RHYTHM"
 msgstr "РИТМ ПО ДНЯМ"
 
-#: views/stats/init.lua:908 views/stats/init.lua:1518
+#: views/stats/init.lua:908 views/stats/init.lua:1523
 msgid "DAYS OF THE WEEK"
+msgstr ""
+
+#: styles/plugins/statspages.lua:201
+msgid "DETAILS"
 msgstr ""
 
 #: views/stats/init.lua:468
@@ -812,11 +840,11 @@ msgstr "Дата"
 msgid "Date finished"
 msgstr "Дата завершения"
 
-#: views/stats/init.lua:1301 views/stats/init.lua:1308
+#: views/stats/init.lua:1306 views/stats/init.lua:1313
 msgid "Day %1"
 msgstr "День %1"
 
-#: views/stats/init.lua:1302
+#: views/stats/init.lua:1307
 msgid "Days %1–%2"
 msgstr ""
 
@@ -834,16 +862,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "декабря"
 
-#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:957 views/stats/init.lua:1080
+#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:957 views/stats/init.lua:1084
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:1091
+#: views/stats/init.lua:1095
 msgid "Delete all book stats"
 msgstr "Удалить всю статистику книги"
 
-#: views/stats/init.lua:1095
+#: views/stats/init.lua:1099
 msgid "Delete all stats?"
 msgstr "Удалить всю статистику?"
 
@@ -852,11 +880,11 @@ msgstr "Удалить всю статистику?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:1078
+#: views/stats/init.lua:1082
 msgid "Delete minutes for this day?"
 msgstr "Удалить минуты за этот день?"
 
-#: views/stats/init.lua:1074
+#: views/stats/init.lua:1078
 msgid "Delete minutes from this day"
 msgstr "Удалить минуты за этот день"
 
@@ -1234,7 +1262,11 @@ msgstr "Сетка: столбцов — %1"
 msgid "HIGHLIGHT"
 msgstr "ВЫДЕЛЕНИЕ"
 
-#: views/stats/init.lua:1023
+#: styles/plugins/statspages.lua:459
+msgid "HOURLY ACTIVITY"
+msgstr ""
+
+#: views/stats/init.lua:1027
 msgid "Hasn't arrived yet"
 msgstr "Ещё не наступил"
 
@@ -1424,9 +1456,9 @@ msgstr "Большой · малый · малый инвертированны�
 msgid "Last"
 msgstr "Последнее"
 
-#: styles/plugins/readerprogress.lua:127
-msgid "Last 7 days summary"
-msgstr "Сводка за последние 7 дней"
+#: styles/plugins/readerprogress.lua:152
+msgid "Last 7 days · %1"
+msgstr ""
 
 #: views/update_sheet.lua:469
 msgid "Last check: %1"
@@ -1511,15 +1543,15 @@ msgstr "СОВПАДЕНИЕ"
 msgid "MATCH %d"
 msgstr "СОВПАДЕНИЕ %d"
 
-#: views/stats/init.lua:1352
+#: views/stats/init.lua:1357
 msgid "MONTHLY RHYTHM"
 msgstr "РИТМ ПО МЕСЯЦАМ"
 
-#: views/stats/init.lua:1238
+#: views/stats/init.lua:1243
 msgid "MOST READ BOOKS"
 msgstr ""
 
-#: views/stats/init.lua:821 views/stats/init.lua:1413
+#: views/stats/init.lua:821 views/stats/init.lua:1418
 msgid "MOST READ GENRES"
 msgstr ""
 
@@ -1609,7 +1641,7 @@ msgstr "Смешивать папки"
 msgid "Mix series"
 msgstr "Смешивать серии"
 
-#: views/stats/init.lua:641 views/stats/init.lua:1631
+#: views/stats/init.lua:641 views/stats/init.lua:1636
 msgid "Monthly"
 msgstr "За месяц"
 
@@ -1748,7 +1780,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "Нет данных CoverBrowser"
 
-#: views/home.lua:251 views/stats/init.lua:273 views/stats/init.lua:1804
+#: views/home.lua:251 views/stats/init.lua:273 views/stats/init.lua:1820
 msgid "No book in progress"
 msgstr "Нет читаемой книги"
 
@@ -1792,7 +1824,7 @@ msgstr "Нет текущей книги"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Нет данных: включите плагин «Статистика» и немного почитайте"
 
-#: views/stats/init.lua:837 views/stats/init.lua:1430
+#: views/stats/init.lua:837 views/stats/init.lua:1435
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1809,7 +1841,7 @@ msgstr "Нет следующей незавершённой книги"
 msgid "No previous book"
 msgstr "Нет предыдущей книги"
 
-#: styles/plugins/statspages.lua:347 views/stats/init.lua:1678
+#: styles/plugins/statspages.lua:487 views/stats/init.lua:1683
 msgid "No reading activity in this period"
 msgstr "За этот период чтения не было"
 
@@ -1990,7 +2022,7 @@ msgstr ""
 msgid "Page fit"
 msgstr "По размеру страницы"
 
-#: views/stats/init.lua:1279
+#: views/stats/init.lua:1284
 #, koreader
 msgid "Pages"
 msgstr ""
@@ -2056,7 +2088,7 @@ msgstr "Предыдущая книга"
 msgid "Previous chapter"
 msgstr ""
 
-#: dev/devtools.lua:691 dev/devtools.lua:747 styles/plugins/statspages.lua:122 views/grid/init.lua:63 views/grid/init.lua:72
+#: dev/devtools.lua:691 dev/devtools.lua:747 styles/plugins/statspages.lua:136 views/grid/init.lua:63 views/grid/init.lua:72
 #, koreader
 msgid "Progress"
 msgstr ""
@@ -2152,7 +2184,7 @@ msgstr "Читаю"
 msgid "Reading goals"
 msgstr ""
 
-#: styles/plugins/readerprogress.lua:126
+#: styles/plugins/readerprogress.lua:151
 #, koreader
 msgid "Reading progress"
 msgstr ""
@@ -2169,7 +2201,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:1562
+#: views/stats/init.lua:1567
 msgid "Recap"
 msgstr "Итоги"
 
@@ -2521,7 +2553,7 @@ msgstr "Начать"
 msgid "Started"
 msgstr ""
 
-#: views/stats/init.lua:1791
+#: views/stats/init.lua:1807
 msgid "Started books"
 msgstr ""
 
@@ -2655,11 +2687,11 @@ msgstr "Этот месяц"
 msgid "This month · %1 · %2 pp."
 msgstr "Этот месяц · %1 · %2 стр."
 
-#: styles/plugins/statspages.lua:248
+#: styles/plugins/statspages.lua:314
 msgid "This month: %1"
 msgstr "В этом месяце: %1"
 
-#: styles/plugins/statspages.lua:245
+#: styles/plugins/statspages.lua:311
 msgid "This week: %1"
 msgstr "На этой неделе: %1"
 
@@ -2672,12 +2704,12 @@ msgctxt "aire"
 msgid "Thriller"
 msgstr "Триллер"
 
-#: dev/devtools.lua:843 views/stats/init.lua:1277
+#: dev/devtools.lua:843 views/stats/init.lua:1282
 #, koreader
 msgid "Time"
 msgstr ""
 
-#: styles/plugins/statspages.lua:231
+#: styles/plugins/statspages.lua:297
 #, koreader
 msgid "Time range statistics"
 msgstr ""
@@ -2714,7 +2746,7 @@ msgstr ""
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:772 views/stats/init.lua:588
+#: dev/devtools.lua:772 styles/plugins/readerprogress.lua:183 views/stats/init.lua:588
 #, koreader
 msgid "Today"
 msgstr ""
@@ -2723,12 +2755,12 @@ msgstr ""
 msgid "Today and streak"
 msgstr "Сегодня и дни подряд"
 
-#: styles/plugins/statspages.lua:301
+#: styles/plugins/statspages.lua:371
 #, koreader
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:1320
+#: views/stats/init.lua:1325
 msgid "Top author"
 msgstr "Любимый автор"
 
@@ -2787,7 +2819,7 @@ msgstr ""
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
-#: styles/ui/titlebar.lua:464
+#: styles/ui/titlebar.lua:463
 msgid "Vocabulary review"
 msgstr "Повторение слов"
 
@@ -2807,11 +2839,11 @@ msgstr ""
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
-#: styles/plugins/readerprogress.lua:195
+#: styles/plugins/readerprogress.lua:239
 msgid "WEEKLY ACTIVITY"
 msgstr "АКТИВНОСТЬ ЗА НЕДЕЛЮ"
 
-#: views/stats/init.lua:856 views/stats/init.lua:1458
+#: views/stats/init.lua:856 views/stats/init.lua:1463
 msgid "WHEN YOU READ"
 msgstr ""
 
@@ -2856,7 +2888,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "У вас уже последняя версия (%1)."
 
-#: views/stats/init.lua:1023
+#: views/stats/init.lua:1027
 msgid "You didn't read that day"
 msgstr "В этот день вы не читали"
 
@@ -2902,9 +2934,9 @@ msgstr "на %1 %"
 msgid "avg %1"
 msgstr ""
 
-#: styles/plugins/readerprogress.lua:159
-msgid "avg. / day"
-msgstr "в среднем / день"
+#: styles/plugins/readerprogress.lua:242
+msgid "avg. %1"
+msgstr ""
 
 #: views/widgets/catalog.lua:365
 msgid "battery"
@@ -2914,7 +2946,7 @@ msgstr "батарея"
 msgid "beta"
 msgstr "бета"
 
-#: views/stats/init.lua:1282 views/widgets/catalog.lua:262
+#: views/stats/init.lua:1287 views/widgets/catalog.lua:262
 msgid "book"
 msgid_plural "books"
 msgstr[0] "книга"
@@ -2929,6 +2961,10 @@ msgstr ""
 #: core/compat.lua:32 core/compat.lua:34 core/compat.lua:35 core/compat.lua:36 core/compat.lua:37
 msgid "conflicts with plugin covers"
 msgstr "конфликтует с обложками плагина"
+
+#: styles/plugins/readerprogress.lua:187
+msgid "daily avg."
+msgstr ""
 
 #: dev/devtools.lua:679 dev/devtools.lua:681
 msgid "ephemeral"
@@ -2955,11 +2991,11 @@ msgstr[3] "завершённой книги"
 msgid "free"
 msgstr "свободно"
 
-#: views/stats/init.lua:674
+#: styles/plugins/readerprogress.lua:187 styles/plugins/readerprogress.lua:242 views/stats/init.lua:674
 msgid "goal %1"
 msgstr ""
 
-#: views/stats/init.lua:606 views/stats/init.lua:1317
+#: views/stats/init.lua:606 views/stats/init.lua:1322
 msgid "in a row"
 msgstr ""
 
@@ -2970,10 +3006,6 @@ msgstr "всего"
 #: core/compat.lua:27 core/compat.lua:28 core/compat.lua:29 core/compat.lua:30 core/compat.lua:31
 msgid "included in Aire"
 msgstr "встроено в Aire"
-
-#: styles/plugins/readerprogress.lua:158
-msgid "last 7 days"
-msgstr "последние 7 дней"
 
 #: views/widgets/catalog.lua:315
 msgid "light"
@@ -3013,7 +3045,7 @@ msgstr "стр. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "стр. %1 из %2"
 
-#: views/stats/init.lua:1273
+#: views/stats/init.lua:1278
 msgid "pages read"
 msgstr "прочитано страниц"
 
@@ -3085,10 +3117,6 @@ msgstr "сегодня"
 msgctxt "aire"
 msgid "today"
 msgstr "сегодня"
-
-#: styles/plugins/readerprogress.lua:157
-msgid "today · %1 pp."
-msgstr "сегодня · %1 стр."
 
 #: views/widgets/catalog.lua:329
 msgid "wi-fi"
