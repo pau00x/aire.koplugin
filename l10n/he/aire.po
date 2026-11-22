@@ -42,7 +42,7 @@ msgstr[1] "%1 ספרים"
 msgstr[2] "%1 ספרים"
 msgstr[3] "%1 ספרים"
 
-#: views/stats/init.lua:443
+#: views/stats/init.lua:433
 msgid "%1 book/year"
 msgid_plural "%1 books/year"
 msgstr[0] ""
@@ -66,7 +66,7 @@ msgstr[1] "%1 אוספים"
 msgstr[2] "%1 אוספים"
 msgstr[3] "%1 אוספים"
 
-#: views/stats/init.lua:579 views/stats/init.lua:697
+#: views/stats/init.lua:608 views/stats/init.lua:815 views/stats/init.lua:1280
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 יום"
@@ -82,7 +82,7 @@ msgstr[1] "לפני %1 ימים"
 msgstr[2] "לפני %1 ימים"
 msgstr[3] "לפני %1 ימים"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:829 views/stats/init.lua:1178
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:947 views/stats/init.lua:1437
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 יום קריאה"
@@ -106,7 +106,7 @@ msgstr[1] "%1 ספרים שהושלמו"
 msgstr[2] "%1 ספרים שהושלמו"
 msgstr[3] "%1 ספרים שהושלמו"
 
-#: views/stats/init.lua:442
+#: views/stats/init.lua:432
 msgid "%1 min/day"
 msgstr ""
 
@@ -117,6 +117,10 @@ msgstr[0] "לפני %1 חודש"
 msgstr[1] "לפני %1 חודשים"
 msgstr[2] "לפני %1 חודשים"
 msgstr[3] "לפני %1 חודשים"
+
+#: views/stats/init.lua:1442
+msgid "%1 of %2 days reading"
+msgstr ""
 
 #: styles/reader/bookmap.lua:98
 msgid "%1 page left"
@@ -134,11 +138,11 @@ msgstr[1] "%1 עמ' נקראו"
 msgstr[2] "%1 עמ' נקראו"
 msgstr[3] "%1 עמ' נקראו"
 
-#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:551
+#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:581
 msgid "%1 pp."
 msgstr "%1 עמ'"
 
-#: views/stats/init.lua:314 views/stats/init.lua:693 views/stats/init.lua:1156
+#: views/stats/init.lua:302 views/stats/init.lua:811 views/stats/init.lua:1201 views/stats/init.lua:1439
 msgid "%1 pp./h"
 msgstr "%1 עמ'/שעה"
 
@@ -158,7 +162,7 @@ msgstr[1] "%1 סדרות"
 msgstr[2] "%1 סדרות"
 msgstr[3] "%1 סדרות"
 
-#: views/stats/init.lua:1321
+#: views/stats/init.lua:1642
 msgid "%1 started book"
 msgid_plural "%1 started books"
 msgstr[0] ""
@@ -177,6 +181,10 @@ msgstr[3] "לפני %1 שבועות"
 #: views/topbar.lua:128
 msgid "%1, %2 %3"
 msgstr "%1, %3 ב%2"
+
+#: views/stats/init.lua:1205
+msgid "%1/day"
+msgstr ""
 
 #: styles/reader/toc.lua:45
 msgid "%d %% of book"
@@ -202,7 +210,7 @@ msgstr "%d מתוך 5 כוכבים"
 msgid "+ Brightness"
 msgstr "+ בהירות"
 
-#: views/stats/init.lua:1004
+#: views/stats/init.lua:1122
 msgid "+%1 more"
 msgstr "+%1 נוספים"
 
@@ -210,7 +218,7 @@ msgstr "+%1 נוספים"
 msgid "1 of 5 stars"
 msgstr "כוכב אחד מתוך 5"
 
-#: dev/devtools.lua:643
+#: dev/devtools.lua:665
 msgid "12 of 30"
 msgstr ""
 
@@ -218,7 +226,7 @@ msgstr ""
 msgid "3 columns (large covers)"
 msgstr "3 עמודות (כריכות גדולות)"
 
-#: dev/devtools.lua:811
+#: dev/devtools.lua:833
 msgid "3-button confirmation"
 msgstr ""
 
@@ -230,7 +238,7 @@ msgstr "4 עמודות"
 msgid "A new version is available"
 msgstr "יש גרסה חדשה"
 
-#: dev/devtools.lua:1044
+#: dev/devtools.lua:1066
 msgid "A very entertaining short story within the Archive."
 msgstr ""
 
@@ -242,11 +250,15 @@ msgstr "חיפוש פעיל"
 msgid "ADDED"
 msgstr "נוסף"
 
-#: views/widgets/catalog.lua:475
+#: views/stats/init.lua:1236
+msgid "ANNUAL RHYTHM"
+msgstr ""
+
+#: views/widgets/catalog.lua:456
 msgid "Active"
 msgstr "פעיל"
 
-#: views/stats/init.lua:530
+#: views/stats/init.lua:555
 msgid "Activity summary"
 msgstr "סיכום פעילות"
 
@@ -255,7 +267,7 @@ msgstr "סיכום פעילות"
 msgid "Add note"
 msgstr ""
 
-#: dev/devtools.lua:684
+#: dev/devtools.lua:706
 msgid "Add to collection…"
 msgstr ""
 
@@ -264,11 +276,11 @@ msgstr ""
 msgid "Add to folder shortcuts"
 msgstr ""
 
-#: dev/devtools.lua:720 views/widgets/picker.lua:214
+#: dev/devtools.lua:742 views/widgets/picker.lua:214
 msgid "Add widget"
 msgstr "הוספת וידג'ט"
 
-#: menu.lua:754
+#: menu.lua:744
 msgid "Advanced"
 msgstr "מתקדם"
 
@@ -297,16 +309,16 @@ msgstr "Aire %1 זמינה"
 msgid "Aire %1 installed"
 msgstr "Aire %1 הותקנה"
 
-#: menu.lua:728 menu.lua:744
+#: menu.lua:718 menu.lua:734
 msgid "Aire warnings (crash.log)"
 msgstr "אזהרות Aire (crash.log)"
 
-#: dev/devtools.lua:796
+#: dev/devtools.lua:818
 #, koreader
 msgid "Alarm"
 msgstr ""
 
-#: dev/devtools.lua:742 views/grid/init.lua:47 views/grid/init.lua:53
+#: dev/devtools.lua:764 views/grid/init.lua:47 views/grid/init.lua:53
 #, koreader
 msgid "All"
 msgstr ""
@@ -320,16 +332,8 @@ msgstr ""
 msgid "All finished"
 msgstr "כולם הושלמו"
 
-#: views/stats/init.lua:1106 views/stats/init.lua:1115
+#: views/stats/init.lua:637 views/stats/init.lua:645 views/stats/init.lua:1434 views/stats/init.lua:1487
 msgid "All time"
-msgstr ""
-
-#: views/stats/init.lua:668
-msgid "All-time recap"
-msgstr ""
-
-#: views/stats/init.lua:667
-msgid "All-time summary"
 msgstr ""
 
 #: views/grid/init.lua:602 views/widgets/catalog.lua:300
@@ -337,27 +341,23 @@ msgstr ""
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:1104
+#: views/stats/init.lua:643 views/stats/init.lua:1485
 msgid "Annual"
 msgstr "שנתי"
 
-#: views/stats/init.lua:489
+#: views/stats/init.lua:481
 msgid "Annual goal"
 msgstr ""
 
-#: views/stats/init.lua:412
+#: views/stats/init.lua:400
 msgid "Annual reading goal"
 msgstr ""
 
-#: views/stats/init.lua:663
-msgid "Annual recap"
-msgstr "סיכום שנתי"
-
-#: dev/devtools.lua:896
+#: dev/devtools.lua:918
 msgid "Annual recap (test data)"
 msgstr ""
 
-#: dev/devtools.lua:775 menu.lua:331 styles/filemanager/sortwidget.lua:122 styles/filemanager/sortwidget.lua:135
+#: dev/devtools.lua:797 menu.lua:331 styles/filemanager/sortwidget.lua:122 styles/filemanager/sortwidget.lua:135
 #, koreader
 msgid "Apply"
 msgstr ""
@@ -377,7 +377,7 @@ msgctxt "aire"
 msgid "August"
 msgstr "אוגוסט"
 
-#: dev/devtools.lua:606 dev/devtools.lua:696 dev/devtools.lua:746 dev/devtools.lua:912 views/grid/init.lua:61
+#: dev/devtools.lua:628 dev/devtools.lua:718 dev/devtools.lua:768 dev/devtools.lua:934 views/grid/init.lua:61
 msgid "Author"
 msgstr "מחבר"
 
@@ -397,7 +397,7 @@ msgstr "בדיקות אוטומטיות"
 msgid "Automatic: books by this author"
 msgstr "אוטומטי: ספרים של מחבר זה"
 
-#: dev/devtools.lua:915
+#: dev/devtools.lua:937
 msgid "Average speed"
 msgstr ""
 
@@ -424,20 +424,40 @@ msgstr "סימנייה"
 msgid "Basque"
 msgstr ""
 
-#: dev/devtools.lua:725 views/topbar.lua:42 views/widgets/catalog.lua:380
+#: dev/devtools.lua:747 views/topbar.lua:42 views/widgets/catalog.lua:361
 msgid "Battery"
 msgstr "סוללה"
 
-#: views/stats/init.lua:1196
+#: views/stats/init.lua:1277
 msgid "Best day"
 msgstr "היום הטוב ביותר"
 
-#: views/stats/init.lua:1199
+#: views/stats/init.lua:1228
+msgid "Best day: Day %1"
+msgstr ""
+
+#: views/stats/init.lua:1266
 msgid "Best month"
 msgstr "החודש הטוב ביותר"
 
-#: views/stats/init.lua:696
+#: views/stats/init.lua:1233 views/stats/init.lua:1240
+msgid "Best month: %1"
+msgstr ""
+
+#: views/stats/init.lua:1280
+msgid "Best streak"
+msgstr ""
+
+#: views/stats/init.lua:814
 msgid "Best streak: %1"
+msgstr ""
+
+#: views/stats/init.lua:1264
+msgid "Best year"
+msgstr ""
+
+#: views/stats/init.lua:1238
+msgid "Best year: %1"
 msgstr ""
 
 #: core/genres.lua:110
@@ -449,12 +469,12 @@ msgstr ""
 msgid "Book"
 msgstr "ספר"
 
-#: dev/devtools.lua:686 dev/devtools.lua:921
+#: dev/devtools.lua:708 dev/devtools.lua:943
 #, koreader
 msgid "Book information"
 msgstr ""
 
-#: dev/devtools.lua:1053 styles/reader/bookmap.lua:259
+#: dev/devtools.lua:1075 styles/reader/bookmap.lua:259
 #, koreader
 msgid "Book map"
 msgstr ""
@@ -464,7 +484,7 @@ msgstr ""
 msgid "Book marked as finished"
 msgstr ""
 
-#: dev/devtools.lua:701
+#: dev/devtools.lua:723
 msgid "Book sheet"
 msgstr ""
 
@@ -473,7 +493,7 @@ msgstr ""
 msgid "Book start date"
 msgstr ""
 
-#: dev/devtools.lua:910
+#: dev/devtools.lua:932
 msgid "Book stats"
 msgstr ""
 
@@ -482,32 +502,32 @@ msgstr ""
 msgid "Book status"
 msgstr ""
 
-#: dev/devtools.lua:1046
+#: dev/devtools.lua:1068
 msgid "Book status (empty)"
 msgstr ""
 
-#: dev/devtools.lua:1039
+#: dev/devtools.lua:1061
 msgid "Book status (with data)"
 msgstr ""
 
-#: views/widgets/catalog.lua:428
+#: views/widgets/catalog.lua:409
 #, koreader
 msgid "Bookmarks"
 msgstr ""
 
-#: dev/devtools.lua:1086
+#: dev/devtools.lua:1108
 msgid "Bookmarks (empty)"
 msgstr ""
 
-#: dev/devtools.lua:1069
+#: dev/devtools.lua:1091
 msgid "Bookmarks (with data)"
 msgstr ""
 
-#: views/widgets/catalog.lua:427
+#: views/widgets/catalog.lua:408
 msgid "Bookmarks and highlights"
 msgstr "סימניות והבלטות"
 
-#: dev/devtools.lua:951
+#: dev/devtools.lua:973
 #, koreader
 msgid "Books"
 msgstr ""
@@ -551,28 +571,28 @@ msgstr "הפעלה נוכחית"
 msgid "CURRENTLY READING"
 msgstr "קורא כעת"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:825
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:943
 msgid "Calendar"
 msgstr "לוח שנה"
 
-#: dev/devtools.lua:986
+#: dev/devtools.lua:1008
 msgid "Calendar (empty)"
 msgstr ""
 
-#: dev/devtools.lua:897
+#: dev/devtools.lua:919
 msgid "Calendar (test data)"
 msgstr ""
 
-#: dev/devtools.lua:967
+#: dev/devtools.lua:989
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:576 dev/devtools.lua:727 dev/devtools.lua:827 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:942
+#: dev/devtools.lua:598 dev/devtools.lua:749 dev/devtools.lua:849 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:1060
 #, koreader
 msgid "Cancel"
 msgstr ""
 
-#: views/widgets/catalog.lua:374
+#: views/widgets/catalog.lua:355
 msgid "Capture"
 msgstr "צילום"
 
@@ -594,23 +614,23 @@ msgstr ""
 msgid "Chapter %1 of %2"
 msgstr "פרק %1 מתוך %2"
 
-#: dev/devtools.lua:1075
+#: dev/devtools.lua:1097
 msgid "Chapter 1"
 msgstr ""
 
-#: dev/devtools.lua:1077
+#: dev/devtools.lua:1099
 msgid "Chapter 7"
 msgstr ""
 
-#: dev/devtools.lua:1079
+#: dev/devtools.lua:1101
 msgid "Chapter 8"
 msgstr ""
 
-#: views/widgets/catalog.lua:385
+#: views/widgets/catalog.lua:366
 msgid "Charged"
 msgstr "טעונה"
 
-#: views/widgets/catalog.lua:385
+#: views/widgets/catalog.lua:366
 msgid "Charging"
 msgstr "בטעינה"
 
@@ -637,7 +657,7 @@ msgstr ""
 msgid "Chinese"
 msgstr ""
 
-#: dev/devtools.lua:901
+#: dev/devtools.lua:923
 msgid "Classics"
 msgstr ""
 
@@ -650,7 +670,7 @@ msgstr ""
 msgid "Clear cover thumbnails"
 msgstr "ניקוי תמונות ממוזערות של כריכות"
 
-#: dev/devtools.lua:687 styles/filemanager/sortwidget.lua:120 styles/filemanager/sortwidget.lua:129 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
+#: dev/devtools.lua:709 styles/filemanager/sortwidget.lua:120 styles/filemanager/sortwidget.lua:129 styles/ui/sheets.lua:140 styles/ui/sheets.lua:881
 #, koreader
 msgid "Close"
 msgstr ""
@@ -659,7 +679,7 @@ msgstr ""
 msgid "Collection"
 msgstr "אוסף"
 
-#: dev/devtools.lua:600
+#: dev/devtools.lua:622
 msgid "Collection name"
 msgstr ""
 
@@ -672,7 +692,7 @@ msgstr "סדר האוסף"
 msgid "Collections"
 msgstr ""
 
-#: dev/devtools.lua:892
+#: dev/devtools.lua:914
 msgid "Collections (test data)"
 msgstr ""
 
@@ -689,11 +709,11 @@ msgstr ""
 msgid "Compatibility"
 msgstr "תאימות"
 
-#: dev/devtools.lua:733
+#: dev/devtools.lua:755
 msgid "Confirmation"
 msgstr ""
 
-#: views/widgets/catalog.lua:348
+#: views/widgets/catalog.lua:329
 msgid "Connected"
 msgstr "מחובר"
 
@@ -707,7 +727,7 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: dev/devtools.lua:683
+#: dev/devtools.lua:705
 msgid "Continue reading"
 msgstr ""
 
@@ -716,7 +736,7 @@ msgstr ""
 msgid "Contrast"
 msgstr ""
 
-#: dev/devtools.lua:619
+#: dev/devtools.lua:641
 #, koreader
 msgid "Copy"
 msgstr ""
@@ -725,7 +745,7 @@ msgstr ""
 msgid "Could not check for updates. Try again later."
 msgstr "לא ניתן היה לבדוק אם יש עדכונים. נסו שוב מאוחר יותר."
 
-#: dev/devtools.lua:593
+#: dev/devtools.lua:615
 msgid ""
 "Could not connect to the network.\n"
 "\n"
@@ -767,43 +787,39 @@ msgstr ""
 msgid "Currently reading"
 msgstr "קורא כעת"
 
-#: views/stats/init.lua:1176
+#: views/stats/init.lua:1226
 msgid "DAILY RHYTHM"
 msgstr "קצב יומי"
 
-#: views/stats/init.lua:790
+#: views/stats/init.lua:908 views/stats/init.lua:1400
 msgid "DAYS OF THE WEEK"
 msgstr ""
 
-#: views/stats/init.lua:1191
-msgid "Daily average"
-msgstr "ממוצע יומי"
-
-#: views/stats/init.lua:476
+#: views/stats/init.lua:468
 msgid "Daily goal"
 msgstr ""
 
-#: views/stats/init.lua:382
+#: views/stats/init.lua:370
 msgid "Daily reading goal"
 msgstr ""
 
-#: dev/devtools.lua:908
+#: dev/devtools.lua:930
 msgid "Data page"
 msgstr ""
 
-#: dev/devtools.lua:786 views/grid/init.lua:81
+#: dev/devtools.lua:808 views/grid/init.lua:81
 msgid "Date"
 msgstr "תאריך"
 
-#: dev/devtools.lua:789 views/grid/init.lua:81
+#: dev/devtools.lua:811 views/grid/init.lua:81
 msgid "Date finished"
 msgstr "תאריך סיום"
 
-#: views/stats/init.lua:1194
+#: views/stats/init.lua:1271
 msgid "Day %1"
 msgstr "יום %1"
 
-#: dev/devtools.lua:915
+#: dev/devtools.lua:937
 msgid "Days reading"
 msgstr ""
 
@@ -817,16 +833,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "דצמבר"
 
-#: dev/devtools.lua:736 dev/devtools.lua:815 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:962
+#: dev/devtools.lua:758 dev/devtools.lua:837 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:1080
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:973
+#: views/stats/init.lua:1091
 msgid "Delete all book stats"
 msgstr "מחיקת כל הסטטיסטיקה של הספר"
 
-#: views/stats/init.lua:977
+#: views/stats/init.lua:1095
 msgid "Delete all stats?"
 msgstr "למחוק את כל הסטטיסטיקה?"
 
@@ -835,11 +851,11 @@ msgstr "למחוק את כל הסטטיסטיקה?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:960
+#: views/stats/init.lua:1078
 msgid "Delete minutes for this day?"
 msgstr "למחוק את הדקות של יום זה?"
 
-#: views/stats/init.lua:956
+#: views/stats/init.lua:1074
 msgid "Delete minutes from this day"
 msgstr "מחיקת הדקות של יום זה"
 
@@ -847,7 +863,7 @@ msgstr "מחיקת הדקות של יום זה"
 msgid "Delete the collection?"
 msgstr "למחוק את האוסף?"
 
-#: dev/devtools.lua:735
+#: dev/devtools.lua:757
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
@@ -860,17 +876,17 @@ msgstr "מחיקה…"
 msgid "Description"
 msgstr ""
 
-#: dev/devtools.lua:620 dev/devtools.lua:626 views/widgets/catalog.lua:413 views/widgets/catalog.lua:414
+#: dev/devtools.lua:642 dev/devtools.lua:648 views/widgets/catalog.lua:394 views/widgets/catalog.lua:395
 #, koreader
 msgid "Dictionary"
 msgstr ""
 
-#: views/stats/init.lua:392 views/stats/init.lua:422
+#: views/stats/init.lua:380 views/stats/init.lua:410
 #, koreader
 msgid "Disable"
 msgstr ""
 
-#: views/widgets/catalog.lua:359
+#: views/stats/init.lua:432 views/stats/init.lua:433 views/widgets/catalog.lua:340
 msgid "Disabled"
 msgstr "כבוי"
 
@@ -878,7 +894,7 @@ msgstr "כבוי"
 msgid "Disabled due to incompatibility with the Home screen:"
 msgstr "הושבתו עקב חוסר תאימות למסך הבית:"
 
-#: dev/devtools.lua:713
+#: dev/devtools.lua:735
 msgid "Disabled option"
 msgstr ""
 
@@ -886,16 +902,16 @@ msgstr ""
 msgid "Dock"
 msgstr "סרגל תחתון"
 
-#: dev/devtools.lua:954
+#: dev/devtools.lua:976
 msgid "Documents"
 msgstr ""
 
-#: dev/devtools.lua:717 views/home.lua:217 views/widgets/init.lua:376 views/widgets/picker.lua:282
+#: dev/devtools.lua:739 views/home.lua:217 views/widgets/init.lua:376 views/widgets/picker.lua:282
 #, koreader
 msgid "Done"
 msgstr ""
 
-#: dev/devtools.lua:643
+#: dev/devtools.lua:665
 msgid "Downloading covers"
 msgstr ""
 
@@ -917,7 +933,7 @@ msgstr ""
 msgid "EDITING WIDGETS"
 msgstr "עריכת וידג'טים"
 
-#: dev/devtools.lua:605 dev/devtools.lua:852
+#: dev/devtools.lua:627 dev/devtools.lua:874
 msgid "Edgedancer"
 msgstr ""
 
@@ -925,7 +941,7 @@ msgstr ""
 msgid "Edit Home widgets"
 msgstr "עריכת וידג'טים של מסך הבית"
 
-#: dev/devtools.lua:603
+#: dev/devtools.lua:625
 msgid "Edit metadata"
 msgstr ""
 
@@ -964,7 +980,7 @@ msgstr "תיקייה ריקה"
 msgid "Empty series"
 msgstr "סדרה ריקה"
 
-#: views/widgets/catalog.lua:359
+#: views/widgets/catalog.lua:340
 #, koreader
 msgid "Enabled"
 msgstr ""
@@ -974,7 +990,7 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: dev/devtools.lua:600
+#: dev/devtools.lua:622
 msgid "Epic fantasy"
 msgstr ""
 
@@ -1009,7 +1025,7 @@ msgstr "קובץ"
 msgid "FILTER"
 msgstr "סינון"
 
-#: dev/devtools.lua:901 dev/devtools.lua:952
+#: dev/devtools.lua:923 dev/devtools.lua:974
 #, koreader
 msgid "Fantasy"
 msgstr ""
@@ -1019,11 +1035,11 @@ msgctxt "aire"
 msgid "Fantasy"
 msgstr ""
 
-#: views/widgets/catalog.lua:434
+#: views/widgets/catalog.lua:415
 msgid "Favorite folders"
 msgstr "תיקיות מועדפות"
 
-#: dev/devtools.lua:901 views/grid/init.lua:345 views/widgets/catalog.lua:252
+#: dev/devtools.lua:923 views/grid/init.lua:345 views/widgets/catalog.lua:252
 #, koreader
 msgid "Favorites"
 msgstr ""
@@ -1052,11 +1068,11 @@ msgstr ""
 msgid "Filter"
 msgstr "סינון"
 
-#: dev/devtools.lua:739 views/grid/init.lua:825
+#: dev/devtools.lua:761 views/grid/init.lua:825
 msgid "Filter and sort"
 msgstr "סינון ומיון"
 
-#: dev/devtools.lua:743
+#: dev/devtools.lua:765
 #, koreader
 msgid "Finished"
 msgstr ""
@@ -1066,11 +1082,11 @@ msgctxt "aire"
 msgid "Finished"
 msgstr "הושלם"
 
-#: dev/devtools.lua:898
+#: dev/devtools.lua:920
 msgid "Finished (test data)"
 msgstr ""
 
-#: views/grid/init.lua:599 views/stats/init.lua:563 views/widgets/catalog.lua:275
+#: views/grid/init.lua:599 views/stats/init.lua:593 views/widgets/catalog.lua:275
 msgid "Finished books"
 msgstr ""
 
@@ -1078,7 +1094,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "ספרים שהושלמו באפור"
 
-#: views/stats/init.lua:413
+#: views/stats/init.lua:401
 msgid "Finished books per year."
 msgstr ""
 
@@ -1095,11 +1111,11 @@ msgstr "חלונות צפים"
 msgid "Folded corner on started books"
 msgstr "פינה מקופלת בספרים שהתחילו"
 
-#: dev/devtools.lua:959
+#: dev/devtools.lua:981
 msgid "Folder shortcuts (empty)"
 msgstr ""
 
-#: dev/devtools.lua:946
+#: dev/devtools.lua:968
 msgid "Folder shortcuts (with data)"
 msgstr ""
 
@@ -1108,11 +1124,11 @@ msgstr ""
 msgid "Folder:"
 msgstr ""
 
-#: views/dock.lua:47 views/widgets/catalog.lua:435
+#: views/dock.lua:47 views/widgets/catalog.lua:416
 msgid "Folders"
 msgstr "תיקיות"
 
-#: dev/devtools.lua:759
+#: dev/devtools.lua:781
 msgid "Font (status bar)"
 msgstr ""
 
@@ -1120,7 +1136,7 @@ msgstr ""
 msgid "Font file"
 msgstr "קובץ גופן"
 
-#: dev/devtools.lua:773
+#: dev/devtools.lua:795
 #, koreader
 msgid "Font size"
 msgstr ""
@@ -1149,7 +1165,7 @@ msgstr ""
 msgid "Frontlight"
 msgstr ""
 
-#: views/widgets/catalog.lua:366
+#: views/widgets/catalog.lua:347
 msgid "Full refresh"
 msgstr "רענון מלא"
 
@@ -1162,7 +1178,7 @@ msgstr "מסכים מלאים"
 msgid "Galician"
 msgstr ""
 
-#: views/stats/init.lua:688
+#: views/stats/init.lua:806
 msgid "Genres & habits"
 msgstr ""
 
@@ -1194,7 +1210,7 @@ msgstr ""
 msgid "Go up"
 msgstr "למעלה"
 
-#: views/stats/init.lua:521
+#: views/stats/init.lua:546
 msgid "Goals"
 msgstr ""
 
@@ -1211,15 +1227,15 @@ msgstr "רשת: %1 עמודות"
 msgid "HIGHLIGHT"
 msgstr "הבלטה"
 
-#: views/stats/init.lua:1184
+#: views/stats/init.lua:1260
 msgid "HIGHLIGHTS"
 msgstr "עיקרי הדברים"
 
-#: views/stats/init.lua:905
+#: views/stats/init.lua:1023
 msgid "Hasn't arrived yet"
 msgstr "עדיין לא הגיע"
 
-#: dev/devtools.lua:619
+#: dev/devtools.lua:641
 #, koreader
 msgid "Highlight"
 msgstr ""
@@ -1239,7 +1255,7 @@ msgctxt "aire"
 msgid "History"
 msgstr ""
 
-#: dev/devtools.lua:893
+#: dev/devtools.lua:915
 msgid "History (test data)"
 msgstr ""
 
@@ -1251,16 +1267,16 @@ msgstr "ההיסטוריה ריקה"
 msgid "Hold does the same as tap"
 msgstr "לחיצה ארוכה פועלת כמו הקשה"
 
-#: views/widgets/catalog.lua:448
+#: views/widgets/catalog.lua:429
 msgid "Hold to configure"
 msgstr "לחיצה ארוכה להגדרה"
 
-#: dev/devtools.lua:752 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
+#: dev/devtools.lua:774 views/dock.lua:39 views/dock.lua:48 views/explorer.lua:119
 #, koreader
 msgid "Home"
 msgstr ""
 
-#: dev/devtools.lua:890
+#: dev/devtools.lua:912
 msgid "Home (test data)"
 msgstr ""
 
@@ -1276,7 +1292,7 @@ msgstr "מסך בית עם הספר הנוכחי, וידג'טים, ספרייה,
 msgid "Home widgets"
 msgstr "וידג'טים של מסך הבית"
 
-#: dev/devtools.lua:804
+#: dev/devtools.lua:826
 msgid "Horizontal"
 msgstr ""
 
@@ -1290,11 +1306,11 @@ msgctxt "aire"
 msgid "Humor"
 msgstr ""
 
-#: dev/devtools.lua:942 styles/filemanager/imageviewer.lua:43
+#: dev/devtools.lua:964 styles/filemanager/imageviewer.lua:43
 msgid "Image"
 msgstr "תמונה"
 
-#: dev/devtools.lua:925
+#: dev/devtools.lua:947
 msgid "Image / cover viewer"
 msgstr ""
 
@@ -1318,15 +1334,15 @@ msgstr "גרסה מותקנת: %1"
 msgid "Installing…"
 msgstr "מתקין…"
 
-#: dev/devtools.lua:711 views/home.lua:212 views/widgets/picker.lua:252
+#: dev/devtools.lua:733 views/home.lua:212 views/widgets/picker.lua:252
 msgid "Inverted colors"
 msgstr "צבעים הפוכים"
 
-#: dev/devtools.lua:806
+#: dev/devtools.lua:828
 msgid "Inverted horizontal"
 msgstr ""
 
-#: dev/devtools.lua:805
+#: dev/devtools.lua:827
 msgid "Inverted portrait"
 msgstr ""
 
@@ -1364,7 +1380,7 @@ msgstr "יוני"
 msgid "KOReader"
 msgstr ""
 
-#: dev/devtools.lua:824
+#: dev/devtools.lua:846
 msgid "KOReader engine (crengine)"
 msgstr ""
 
@@ -1373,11 +1389,11 @@ msgstr ""
 msgid "Korean"
 msgstr ""
 
-#: dev/devtools.lua:673
+#: dev/devtools.lua:695
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats/init.lua:595
+#: views/stats/init.lua:655
 msgid "LAST 7 DAYS"
 msgstr "7 הימים האחרונים"
 
@@ -1409,7 +1425,7 @@ msgstr "סיכום 7 הימים האחרונים"
 msgid "Last check: %1"
 msgstr "בדיקה אחרונה: %1"
 
-#: dev/devtools.lua:917 views/grid/init.lua:87
+#: dev/devtools.lua:939 views/grid/init.lua:87
 msgid "Last read"
 msgstr "נקרא לאחרונה"
 
@@ -1427,16 +1443,16 @@ msgstr ""
 msgid "Layout"
 msgstr "פריסה"
 
-#: dev/devtools.lua:781
+#: dev/devtools.lua:803
 #, koreader
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:753 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1262
+#: dev/devtools.lua:775 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1262
 msgid "Library"
 msgstr "ספרייה"
 
-#: dev/devtools.lua:891
+#: dev/devtools.lua:913
 msgid "Library (test data)"
 msgstr ""
 
@@ -1452,7 +1468,7 @@ msgstr "הספרייה ריקה"
 msgid "Library, Collections and History keep small copies of the covers to open faster. Clear them if a cover does not update."
 msgstr "הספרייה, האוספים וההיסטוריה שומרים עותקים קטנים של הכריכות כדי להיפתח מהר יותר. נקו אותם אם כריכה לא מתעדכנת."
 
-#: dev/devtools.lua:724 dev/devtools.lua:768 views/widgets/catalog.lua:329
+#: dev/devtools.lua:746 dev/devtools.lua:790 views/widgets/catalog.lua:310
 msgid "Light"
 msgstr "תאורה"
 
@@ -1476,7 +1492,7 @@ msgstr "רשימה בלי כריכות"
 msgid "Loading month…"
 msgstr "טוען חודש…"
 
-#: dev/devtools.lua:591
+#: dev/devtools.lua:613
 msgid "Long message"
 msgstr ""
 
@@ -1488,15 +1504,15 @@ msgstr "התאמה"
 msgid "MATCH %d"
 msgstr "התאמה %d"
 
-#: views/stats/init.lua:1176
+#: views/stats/init.lua:1231
 msgid "MONTHLY RHYTHM"
 msgstr "קצב חודשי"
 
-#: views/stats/init.lua:1208
+#: views/stats/init.lua:1293 views/stats/init.lua:1298
 msgid "MOST READ"
 msgstr "הנקראים ביותר"
 
-#: views/stats/init.lua:703
+#: views/stats/init.lua:821 views/stats/init.lua:1313
 msgid "MOST READ GENRES"
 msgstr ""
 
@@ -1514,7 +1530,7 @@ msgctxt "aire"
 msgid "March"
 msgstr "מרץ"
 
-#: dev/devtools.lua:780 styles/ui/readermenu.lua:54
+#: dev/devtools.lua:802 styles/ui/readermenu.lua:54
 msgid "Margins"
 msgstr "שוליים"
 
@@ -1531,7 +1547,7 @@ msgstr "לסמן את כל הספרים ב\"%1\" כבקריאה?"
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "לסמן את כל הספרים באוסף \"%1\" כבקריאה?"
 
-#: dev/devtools.lua:684
+#: dev/devtools.lua:706
 msgid "Mark as read"
 msgstr ""
 
@@ -1560,7 +1576,7 @@ msgstr "מאי"
 msgid "Memory used"
 msgstr "זיכרון בשימוש"
 
-#: dev/devtools.lua:610
+#: dev/devtools.lua:632
 msgid "Menu next to text"
 msgstr ""
 
@@ -1574,7 +1590,7 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "מינימלי"
 
-#: views/stats/init.lua:383
+#: views/stats/init.lua:371
 msgid "Minutes of reading per day."
 msgstr ""
 
@@ -1586,15 +1602,11 @@ msgstr "ערבוב תיקיות"
 msgid "Mix series"
 msgstr "ערבוב סדרות"
 
-#: views/stats/init.lua:1102
+#: views/stats/init.lua:641 views/stats/init.lua:1483
 msgid "Monthly"
 msgstr "חודשי"
 
-#: views/stats/init.lua:661
-msgid "Monthly recap"
-msgstr "סיכום חודשי"
-
-#: dev/devtools.lua:895
+#: dev/devtools.lua:917
 msgid "Monthly recap (test data)"
 msgstr ""
 
@@ -1610,7 +1622,7 @@ msgstr "אפשרויות נוספות…"
 msgid "More settings"
 msgstr "הגדרות נוספות"
 
-#: dev/devtools.lua:621
+#: dev/devtools.lua:643
 msgid "More…"
 msgstr ""
 
@@ -1622,12 +1634,12 @@ msgstr ""
 msgid "Mosaic with covers"
 msgstr "פסיפס עם כריכות"
 
-#: dev/devtools.lua:816
+#: dev/devtools.lua:838
 #, koreader
 msgid "Move"
 msgstr ""
 
-#: dev/devtools.lua:602
+#: dev/devtools.lua:624
 msgid "Multiple fields"
 msgstr ""
 
@@ -1666,11 +1678,11 @@ msgstr ""
 msgid "Name:"
 msgstr "שם:"
 
-#: dev/devtools.lua:755
+#: dev/devtools.lua:777
 msgid "Neighbor"
 msgstr ""
 
-#: dev/devtools.lua:743 views/grid/init.lua:49 views/widgets/catalog.lua:231 views/widgets/catalog.lua:232
+#: dev/devtools.lua:765 views/grid/init.lua:49 views/widgets/catalog.lua:231 views/widgets/catalog.lua:232
 #, koreader
 msgid "New"
 msgstr ""
@@ -1710,7 +1722,7 @@ msgstr "קבוצת וידג'טים לבדיקה הבאה"
 msgid "Next chapter"
 msgstr ""
 
-#: dev/devtools.lua:722 views/widgets/catalog.lua:167
+#: dev/devtools.lua:744 views/widgets/catalog.lua:167
 msgid "Next in series"
 msgstr "הבא בסדרה"
 
@@ -1719,7 +1731,7 @@ msgstr "הבא בסדרה"
 msgid "Night"
 msgstr ""
 
-#: views/widgets/catalog.lua:356
+#: views/widgets/catalog.lua:337
 #, koreader
 msgid "Night mode"
 msgstr ""
@@ -1728,7 +1740,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "אין נתוני CoverBrowser"
 
-#: views/home.lua:251 views/stats/init.lua:285 views/stats/init.lua:1330
+#: views/home.lua:251 views/stats/init.lua:273 views/stats/init.lua:1651
 msgid "No book in progress"
 msgstr "אין ספר בקריאה"
 
@@ -1768,11 +1780,11 @@ msgstr "אין אוספים עם סינון זה"
 msgid "No current book"
 msgstr "אין ספר נוכחי"
 
-#: views/stats/init.lua:539
+#: views/stats/init.lua:564
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "אין נתונים: הפעילו את התוסף סטטיסטיקה וקראו מעט"
 
-#: views/stats/init.lua:719
+#: views/stats/init.lua:837 views/stats/init.lua:1329
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1789,7 +1801,7 @@ msgstr "אין ספר הבא שלא הושלם"
 msgid "No previous book"
 msgstr "אין ספר קודם"
 
-#: styles/plugins/statspages.lua:347 views/stats/init.lua:1147
+#: styles/plugins/statspages.lua:347 views/stats/init.lua:1525
 msgid "No reading activity in this period"
 msgstr "אין פעילות קריאה בתקופה זו"
 
@@ -1806,7 +1818,7 @@ msgstr ""
 msgid "No saved shortcuts"
 msgstr "אין קיצורי דרך שמורים"
 
-#: views/stats/init.lua:305
+#: views/stats/init.lua:293
 msgid "No stats for this book"
 msgstr "אין סטטיסטיקה לספר זה"
 
@@ -1831,7 +1843,7 @@ msgstr "לא דורג"
 msgid "Not started"
 msgstr "לא התחיל"
 
-#: dev/devtools.lua:619
+#: dev/devtools.lua:641
 #, koreader
 msgid "Note"
 msgstr ""
@@ -1855,7 +1867,7 @@ msgctxt "aire"
 msgid "November"
 msgstr "נובמבר"
 
-#: dev/devtools.lua:771
+#: dev/devtools.lua:793
 msgid "Number"
 msgstr ""
 
@@ -1863,7 +1875,7 @@ msgstr ""
 msgid "Number in series"
 msgstr "מספר בסדרה"
 
-#: dev/devtools.lua:577 dev/tests/regressions.lua:306 dev/tests/regressions.lua:307
+#: dev/devtools.lua:599 dev/tests/regressions.lua:306 dev/tests/regressions.lua:307
 #, koreader
 msgid "OK"
 msgstr ""
@@ -1873,12 +1885,12 @@ msgctxt "aire"
 msgid "October"
 msgstr "אוקטובר"
 
-#: styles/reader/footer.lua:102 views/stats/init.lua:442 views/stats/init.lua:443 views/widgets/catalog.lua:334 views/widgets/catalog.lua:335
+#: styles/reader/footer.lua:102 views/widgets/catalog.lua:315 views/widgets/catalog.lua:316 views/widgets/catalog.lua:329 views/widgets/catalog.lua:456
 #, koreader
 msgid "Off"
 msgstr ""
 
-#: dev/devtools.lua:729 views/widgets/catalog.lua:335 views/widgets/catalog.lua:348
+#: dev/devtools.lua:751 views/widgets/catalog.lua:316 views/widgets/catalog.lua:329
 #, koreader
 msgid "On"
 msgstr ""
@@ -1892,7 +1904,7 @@ msgstr "בהמתנה"
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "רק כשה-Wi-Fi כבר דלוק: Aire אף פעם לא מדליקה אותו."
 
-#: dev/devtools.lua:828
+#: dev/devtools.lua:850
 #, koreader
 msgid "Open"
 msgstr ""
@@ -1901,7 +1913,7 @@ msgstr ""
 msgid "Open collection"
 msgstr "פתיחת האוסף"
 
-#: dev/devtools.lua:714
+#: dev/devtools.lua:736
 msgid "Open library"
 msgstr ""
 
@@ -1913,7 +1925,7 @@ msgstr "פתיחת הסדרה"
 msgid "Open series folder"
 msgstr "פתיחת תיקיית הסדרה"
 
-#: dev/devtools.lua:820 dev/devtools.lua:822
+#: dev/devtools.lua:842 dev/devtools.lua:844
 #, koreader
 msgid "Open with…"
 msgstr ""
@@ -1922,15 +1934,15 @@ msgstr ""
 msgid "Opening \"%1\"…"
 msgstr "פותח את \"%1\"…"
 
-#: dev/devtools.lua:799
+#: dev/devtools.lua:821
 msgid "Options list"
 msgstr ""
 
-#: dev/devtools.lua:679
+#: dev/devtools.lua:701
 msgid "Options menu"
 msgstr ""
 
-#: dev/devtools.lua:801 styles/ui/readermenu.lua:53
+#: dev/devtools.lua:823 styles/ui/readermenu.lua:53
 msgid "Orientation"
 msgstr "כיוון"
 
@@ -1943,7 +1955,7 @@ msgstr ""
 msgid "Otherwise, the current book card is black with white text."
 msgstr "אחרת, כרטיס הספר הנוכחי שחור עם טקסט לבן."
 
-#: dev/devtools.lua:825
+#: dev/devtools.lua:847
 msgid "PDF engine (MuPDF)"
 msgstr ""
 
@@ -1956,7 +1968,7 @@ msgctxt "aire"
 msgid "Page %1 / %2"
 msgstr "עמוד %1 / %2"
 
-#: dev/devtools.lua:1056 styles/reader/pagebrowser.lua:279
+#: dev/devtools.lua:1078 styles/reader/pagebrowser.lua:279
 #, koreader
 msgid "Page browser"
 msgstr ""
@@ -1965,7 +1977,12 @@ msgstr ""
 msgid "Page fit"
 msgstr "התאמה לעמוד"
 
-#: dev/devtools.lua:914 styles/plugins/statspages.lua:83
+#: views/stats/init.lua:1207
+#, koreader
+msgid "Pages"
+msgstr ""
+
+#: dev/devtools.lua:936 styles/plugins/statspages.lua:83
 #, koreader
 msgid "Pages read"
 msgstr ""
@@ -1985,11 +2002,11 @@ msgctxt "aire"
 msgid "Philosophy"
 msgstr ""
 
-#: dev/devtools.lua:719
+#: dev/devtools.lua:741
 msgid "Plugin sheet (2 columns)"
 msgstr ""
 
-#: dev/devtools.lua:707
+#: dev/devtools.lua:729
 msgid "Plugin sheet (options)"
 msgstr ""
 
@@ -1998,7 +2015,7 @@ msgctxt "aire"
 msgid "Poetry"
 msgstr ""
 
-#: dev/devtools.lua:803
+#: dev/devtools.lua:825
 #, koreader
 msgid "Portrait"
 msgstr ""
@@ -2026,7 +2043,7 @@ msgstr "ספר קודם"
 msgid "Previous chapter"
 msgstr ""
 
-#: dev/devtools.lua:641 dev/devtools.lua:697 styles/plugins/statspages.lua:122 views/grid/init.lua:63 views/grid/init.lua:72
+#: dev/devtools.lua:663 dev/devtools.lua:719 styles/plugins/statspages.lua:122 views/grid/init.lua:63 views/grid/init.lua:72
 #, koreader
 msgid "Progress"
 msgstr ""
@@ -2036,7 +2053,7 @@ msgctxt "aire"
 msgid "Psychology"
 msgstr ""
 
-#: dev/devtools.lua:636
+#: dev/devtools.lua:658
 msgid "QR code"
 msgstr ""
 
@@ -2049,7 +2066,7 @@ msgctxt "aire"
 msgid "Quick actions"
 msgstr "פעולות מהירות"
 
-#: dev/devtools.lua:723
+#: dev/devtools.lua:745
 msgid "Quote"
 msgstr ""
 
@@ -2081,7 +2098,7 @@ msgstr "סקירה / הערות"
 msgid "Random"
 msgstr "אקראי"
 
-#: dev/devtools.lua:723 views/widgets/catalog.lua:203
+#: dev/devtools.lua:745 views/widgets/catalog.lua:203
 msgid "Random book"
 msgstr "ספר אקראי"
 
@@ -2094,7 +2111,7 @@ msgstr "דירוג וסקירה"
 msgid "Rating:"
 msgstr ""
 
-#: views/widgets/catalog.lua:441
+#: views/widgets/catalog.lua:422
 #, koreader
 msgid "Read timer"
 msgstr ""
@@ -2104,11 +2121,11 @@ msgstr ""
 msgid "Reader"
 msgstr ""
 
-#: dev/devtools.lua:764
+#: dev/devtools.lua:786
 msgid "Reader bottom menu"
 msgstr ""
 
-#: dev/devtools.lua:742
+#: dev/devtools.lua:764
 #, koreader
 msgid "Reading"
 msgstr ""
@@ -2118,7 +2135,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "בקריאה"
 
-#: views/stats/init.lua:474
+#: views/stats/init.lua:467
 msgid "Reading goals"
 msgstr ""
 
@@ -2127,40 +2144,40 @@ msgstr ""
 msgid "Reading progress"
 msgstr ""
 
-#: dev/devtools.lua:996
+#: dev/devtools.lua:1018
 msgid "Reading progress (empty)"
 msgstr ""
 
-#: dev/devtools.lua:993
+#: dev/devtools.lua:1015
 msgid "Reading progress (with data)"
 msgstr ""
 
-#: dev/devtools.lua:914
+#: dev/devtools.lua:936
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:1065
+#: views/stats/init.lua:1422
 msgid "Recap"
 msgstr "סיכום"
 
-#: dev/devtools.lua:746 views/grid/init.lua:64
+#: dev/devtools.lua:768 views/grid/init.lua:64
 msgid "Recent"
 msgstr "אחרונים"
 
-#: dev/devtools.lua:697 views/grid/init.lua:64 views/widgets/catalog.lua:224
+#: dev/devtools.lua:719 views/grid/init.lua:64 views/widgets/catalog.lua:224
 msgid "Recently added"
 msgstr "נוספו לאחרונה"
 
-#: dev/devtools.lua:696
+#: dev/devtools.lua:718
 msgid "Recently read"
 msgstr ""
 
-#: views/widgets/catalog.lua:367
+#: views/widgets/catalog.lua:348
 #, koreader
 msgid "Refresh"
 msgstr ""
 
-#: dev/devtools.lua:716 styles/reader/bookmark.lua:252
+#: dev/devtools.lua:738 styles/reader/bookmark.lua:252
 #, koreader
 msgid "Remove"
 msgstr ""
@@ -2195,7 +2212,7 @@ msgstr ""
 msgid "Remove this bookmark?"
 msgstr ""
 
-#: dev/devtools.lua:599
+#: dev/devtools.lua:621
 #, koreader
 msgid "Rename"
 msgstr ""
@@ -2208,7 +2225,7 @@ msgstr "שינוי שם…"
 msgid "Replace the Home widgets with the \"%1\" preset?"
 msgstr "להחליף את הווידג׳טים בדף הבית בערכה „%1”?"
 
-#: dev/devtools.lua:686
+#: dev/devtools.lua:708
 #, koreader
 msgid "Reset"
 msgstr ""
@@ -2246,7 +2263,7 @@ msgstr ""
 msgid "Review:"
 msgstr ""
 
-#: dev/devtools.lua:782
+#: dev/devtools.lua:804
 #, koreader
 msgid "Right"
 msgstr ""
@@ -2270,7 +2287,7 @@ msgstr ""
 msgid "SORT BY"
 msgstr "מיון לפי"
 
-#: views/widgets/catalog.lua:475
+#: views/widgets/catalog.lua:456
 #, koreader
 msgid "SSH"
 msgstr ""
@@ -2279,21 +2296,21 @@ msgstr ""
 msgid "SSH active"
 msgstr "SSH פעיל"
 
-#: views/widgets/catalog.lua:470 views/widgets/catalog.lua:496
+#: views/widgets/catalog.lua:451 views/widgets/catalog.lua:477
 #, koreader
 msgid "SSH server"
 msgstr ""
 
-#: views/stats/init.lua:642
+#: views/stats/init.lua:621
 msgid "STARTED BOOKS"
 msgstr ""
 
-#: dev/devtools.lua:600 dev/devtools.lua:603 dev/devtools.lua:790 views/stats/init.lua:390 views/stats/init.lua:420
+#: dev/devtools.lua:622 dev/devtools.lua:625 dev/devtools.lua:812 views/stats/init.lua:378 views/stats/init.lua:408
 #, koreader
 msgid "Save"
 msgstr ""
 
-#: dev/devtools.lua:589
+#: dev/devtools.lua:611
 #, koreader
 msgid "Saved"
 msgstr ""
@@ -2303,7 +2320,7 @@ msgctxt "aire"
 msgid "Science"
 msgstr ""
 
-#: dev/devtools.lua:901 dev/devtools.lua:953
+#: dev/devtools.lua:923 dev/devtools.lua:975
 msgid "Science Fiction"
 msgstr ""
 
@@ -2312,25 +2329,25 @@ msgctxt "aire"
 msgid "Science fiction"
 msgstr ""
 
-#: views/widgets/catalog.lua:373
+#: views/widgets/catalog.lua:354
 #, koreader
 msgid "Screenshot"
 msgstr ""
 
-#: dev/devtools.lua:596 dev/devtools.lua:597 dev/devtools.lua:620 views/dock.lua:49 views/widgets/catalog.lua:405
+#: dev/devtools.lua:618 dev/devtools.lua:619 dev/devtools.lua:642 views/dock.lua:49 views/widgets/catalog.lua:386
 #, koreader
 msgid "Search"
 msgstr ""
 
-#: dev/devtools.lua:597
+#: dev/devtools.lua:619
 msgid "Search library"
 msgstr ""
 
-#: dev/devtools.lua:1112
+#: dev/devtools.lua:1134
 msgid "Search results (empty)"
 msgstr ""
 
-#: dev/devtools.lua:1095
+#: dev/devtools.lua:1117
 msgid "Search results (with data)"
 msgstr ""
 
@@ -2348,7 +2365,7 @@ msgctxt "aire"
 msgid "September"
 msgstr "ספטמבר"
 
-#: dev/devtools.lua:607 views/booksheet.lua:290 views/grid/init.lua:62 views/grid/init.lua:71 views/grid/init.lua:84
+#: dev/devtools.lua:629 views/booksheet.lua:290 views/grid/init.lua:62 views/grid/init.lua:71 views/grid/init.lua:84
 #, koreader
 msgid "Series"
 msgstr ""
@@ -2361,7 +2378,7 @@ msgstr "שם הסדרה"
 msgid "Series number on covers"
 msgstr "מספר בסדרה על הכריכות"
 
-#: dev/devtools.lua:796
+#: dev/devtools.lua:818
 #, koreader
 msgid "Set alarm"
 msgstr ""
@@ -2376,12 +2393,12 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: dev/devtools.lua:621
+#: dev/devtools.lua:643
 #, koreader
 msgid "Share"
 msgstr ""
 
-#: dev/devtools.lua:588
+#: dev/devtools.lua:610
 msgid "Short message"
 msgstr ""
 
@@ -2400,7 +2417,7 @@ msgstr ""
 msgid "Show collection mark"
 msgstr ""
 
-#: menu.lua:696
+#: menu.lua:686
 msgid "Show dimensions of each book / series"
 msgstr "הצגת המידות של כל ספר / סדרה"
 
@@ -2419,7 +2436,7 @@ msgstr ""
 msgid "Show progress in mosaic mode"
 msgstr ""
 
-#: dev/devtools.lua:712 views/home.lua:214
+#: dev/devtools.lua:734 views/home.lua:214
 msgid "Show synopsis"
 msgstr "הצגת תקציר"
 
@@ -2437,11 +2454,11 @@ msgctxt "aire"
 msgid "Sleep"
 msgstr "שינה"
 
-#: dev/devtools.lua:745 views/grid/init.lua:59 views/grid/init.lua:68 views/grid/init.lua:77
+#: dev/devtools.lua:767 views/grid/init.lua:59 views/grid/init.lua:68 views/grid/init.lua:77
 msgid "Smart"
 msgstr "חכם"
 
-#: dev/devtools.lua:695
+#: dev/devtools.lua:717
 msgid "Smart  (current)"
 msgstr ""
 
@@ -2449,20 +2466,20 @@ msgstr ""
 msgid "Sort"
 msgstr "מיון"
 
-#: dev/devtools.lua:691
+#: dev/devtools.lua:713
 msgid "Sort (2 columns)"
 msgstr ""
 
-#: dev/devtools.lua:899
+#: dev/devtools.lua:921
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:693 views/grid/init.lua:825
+#: dev/devtools.lua:715 views/grid/init.lua:825
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:905 views/grid/init.lua:944
+#: dev/devtools.lua:927 views/grid/init.lua:944
 msgid "Sort collections"
 msgstr "מיון אוספים"
 
@@ -2483,35 +2500,35 @@ msgstr ""
 msgid "Square covers and series"
 msgstr "כריכות וסדרות מרובעות"
 
-#: views/booksheet.lua:350 views/widgets/catalog.lua:448
+#: views/booksheet.lua:350 views/widgets/catalog.lua:429
 msgid "Start"
 msgstr "התחלה"
 
-#: dev/devtools.lua:917
+#: dev/devtools.lua:939
 msgid "Started"
 msgstr ""
 
-#: views/stats/init.lua:1317 views/widgets/catalog.lua:310
+#: views/stats/init.lua:1638
 msgid "Started books"
 msgstr ""
 
-#: views/dock.lua:41 views/stats/init.lua:520
+#: views/dock.lua:41 views/stats/init.lua:545
 msgid "Stats"
 msgstr "סטטיסטיקה"
 
-#: dev/devtools.lua:894
+#: dev/devtools.lua:916
 msgid "Stats (test data)"
 msgstr ""
 
-#: dev/devtools.lua:761
+#: dev/devtools.lua:783
 msgid "Status bar font"
 msgstr ""
 
-#: dev/devtools.lua:725 views/widgets/catalog.lua:392
+#: dev/devtools.lua:747 views/widgets/catalog.lua:373
 msgid "Storage"
 msgstr "אחסון"
 
-#: views/stats/init.lua:579
+#: views/stats/init.lua:608
 msgid "Streak"
 msgstr ""
 
@@ -2527,15 +2544,15 @@ msgstr "תקציר"
 msgid "Synopsis on card"
 msgstr "תקציר בכרטיס"
 
-#: dev/devtools.lua:1062
+#: dev/devtools.lua:1084
 msgid "Table of contents (empty)"
 msgstr ""
 
-#: dev/devtools.lua:1059
+#: dev/devtools.lua:1081
 msgid "Table of contents (with data)"
 msgstr ""
 
-#: dev/devtools.lua:1051 styles/filemanager/bookinfo.lua:1006 styles/filemanager/bookstatus.lua:395
+#: dev/devtools.lua:1073 styles/filemanager/bookinfo.lua:1006 styles/filemanager/bookstatus.lua:395
 msgid "Tap to add or edit your review of this book…"
 msgstr "הקישו כדי להוסיף או לערוך את הסקירה שלכם על ספר זה…"
 
@@ -2543,7 +2560,7 @@ msgstr "הקישו כדי להוסיף או לערוך את הסקירה שלכ�
 msgid "Tap to open the library"
 msgstr "הקישו לפתיחת הספרייה"
 
-#: views/widgets/catalog.lua:446
+#: views/widgets/catalog.lua:427
 msgid "Tap to stop"
 msgstr "הקישו לעצירה"
 
@@ -2564,7 +2581,7 @@ msgstr "ספר בדיקה"
 msgid "Test data (pagination)"
 msgstr "נתוני בדיקה (עימוד)"
 
-#: dev/devtools.lua:631
+#: dev/devtools.lua:653
 msgid "Test dictionary"
 msgstr ""
 
@@ -2576,7 +2593,7 @@ msgstr "גלריות בדיקה"
 msgid "Test stats"
 msgstr "סטטיסטיקת בדיקה"
 
-#: dev/devtools.lua:860
+#: dev/devtools.lua:882
 msgid "Test synopsis for the full-screen text viewer."
 msgstr ""
 
@@ -2593,15 +2610,15 @@ msgstr "בדיקות"
 msgid "Text"
 msgstr ""
 
-#: dev/devtools.lua:831
+#: dev/devtools.lua:853
 msgid "Text viewer (synopsis)"
 msgstr ""
 
-#: dev/devtools.lua:663
+#: dev/devtools.lua:685
 msgid "The Name of the Wind"
 msgstr ""
 
-#: dev/devtools.lua:607
+#: dev/devtools.lua:629
 msgid "The Stormlight Archive"
 msgstr ""
 
@@ -2621,7 +2638,7 @@ msgstr "בעותק הזה יש תיקיית dev/ (בדיקות). הגרסה הח
 msgid "This month"
 msgstr "החודש"
 
-#: views/stats/init.lua:526
+#: views/stats/init.lua:551
 msgid "This month · %1 · %2 pp."
 msgstr "החודש · %1 · %2 עמ'"
 
@@ -2642,7 +2659,7 @@ msgctxt "aire"
 msgid "Thriller"
 msgstr ""
 
-#: dev/devtools.lua:793
+#: dev/devtools.lua:815 views/stats/init.lua:1205
 #, koreader
 msgid "Time"
 msgstr ""
@@ -2671,20 +2688,20 @@ msgstr ""
 msgid "Time spent reading today"
 msgstr ""
 
-#: dev/devtools.lua:605 dev/devtools.lua:695 dev/devtools.lua:745 dev/devtools.lua:912 views/grid/init.lua:60
+#: dev/devtools.lua:627 dev/devtools.lua:717 dev/devtools.lua:767 dev/devtools.lua:934 views/grid/init.lua:60
 #, koreader
 msgid "Title"
 msgstr ""
 
-#: dev/devtools.lua:597
+#: dev/devtools.lua:619
 msgid "Title, author or series"
 msgstr ""
 
-#: dev/devtools.lua:901
+#: dev/devtools.lua:923
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:722 views/stats/init.lua:558
+#: dev/devtools.lua:744 views/stats/init.lua:588
 #, koreader
 msgid "Today"
 msgstr ""
@@ -2698,7 +2715,7 @@ msgstr "היום ורצף"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:1202
+#: views/stats/init.lua:1283
 msgid "Top author"
 msgstr "המחבר המוביל"
 
@@ -2711,12 +2728,12 @@ msgstr "סרגל עליון"
 msgid "Total time spent on this book"
 msgstr ""
 
-#: dev/devtools.lua:621
+#: dev/devtools.lua:643
 #, koreader
 msgid "Translate"
 msgstr ""
 
-#: dev/devtools.lua:778
+#: dev/devtools.lua:800
 msgid "Two numbers (margins)"
 msgstr ""
 
@@ -2749,11 +2766,11 @@ msgstr "Aire מתעדכנת"
 msgid "View mode"
 msgstr "מצב תצוגה"
 
-#: dev/devtools.lua:1024
+#: dev/devtools.lua:1046
 msgid "Vocabulary builder (empty)"
 msgstr ""
 
-#: dev/devtools.lua:1003
+#: dev/devtools.lua:1025
 msgid "Vocabulary builder (with data)"
 msgstr ""
 
@@ -2769,11 +2786,11 @@ msgstr[1] "חזרה על אוצר מילים · %1 מילים"
 msgstr[2] "חזרה על אוצר מילים · %1 מילים"
 msgstr[3] "חזרה על אוצר מילים · %1 מילים"
 
-#: dev/devtools.lua:1020
+#: dev/devtools.lua:1042
 msgid "Vocabulary review · %d words"
 msgstr ""
 
-#: dev/devtools.lua:1035
+#: dev/devtools.lua:1057
 msgid "Vocabulary review · 0 words"
 msgstr ""
 
@@ -2781,11 +2798,11 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "פעילות שבועית"
 
-#: views/stats/init.lua:738
+#: views/stats/init.lua:856 views/stats/init.lua:1348
 msgid "WHEN YOU READ"
 msgstr ""
 
-#: dev/devtools.lua:813
+#: dev/devtools.lua:835
 msgid "What do you want to do with this book?"
 msgstr ""
 
@@ -2797,11 +2814,11 @@ msgstr "בפתיחת KOReader, מתריע על טלאים ותוספים חדש�
 msgid "White corner: reading. Gray corner: on hold."
 msgstr "פינה לבנה: בקריאה. פינה אפורה: בהמתנה."
 
-#: dev/devtools.lua:724 views/topbar.lua:40 views/widgets/catalog.lua:343
+#: dev/devtools.lua:746 views/topbar.lua:40 views/widgets/catalog.lua:324
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: dev/devtools.lua:749
+#: dev/devtools.lua:771
 msgid "Wi-Fi networks"
 msgstr ""
 
@@ -2817,7 +2834,7 @@ msgstr "ערכות וידג׳טים"
 msgid "Widgets %1–%2"
 msgstr "וידג'טים %1–%2"
 
-#: dev/devtools.lua:620 views/widgets/catalog.lua:420 views/widgets/catalog.lua:421
+#: dev/devtools.lua:642 views/widgets/catalog.lua:401 views/widgets/catalog.lua:402
 #, koreader
 msgid "Wikipedia"
 msgstr ""
@@ -2826,7 +2843,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "כבר יש לך את הגרסה האחרונה (%1)."
 
-#: views/stats/init.lua:905
+#: views/stats/init.lua:1023
 msgid "You didn't read that day"
 msgstr "לא קראת באותו יום"
 
@@ -2851,7 +2868,7 @@ msgctxt "aire"
 msgid "Young adult"
 msgstr ""
 
-#: dev/devtools.lua:632
+#: dev/devtools.lua:654
 msgid ""
 "adj. Lasting for a short time.\n"
 "\n"
@@ -2860,7 +2877,7 @@ msgid ""
 "Synonyms: brief, fleeting, passing, transitory."
 msgstr ""
 
-#: views/widgets/catalog.lua:428 views/widgets/catalog.lua:428
+#: views/widgets/catalog.lua:409 views/widgets/catalog.lua:409
 msgid "and highlights"
 msgstr "והבלטות"
 
@@ -2868,7 +2885,7 @@ msgstr "והבלטות"
 msgid "at %1 %"
 msgstr "ב־%1 %"
 
-#: views/stats/init.lua:617
+#: views/stats/init.lua:677
 msgid "avg %1"
 msgstr ""
 
@@ -2876,7 +2893,7 @@ msgstr ""
 msgid "avg. / day"
 msgstr "ממוצע / יום"
 
-#: views/widgets/catalog.lua:384
+#: views/widgets/catalog.lua:365
 msgid "battery"
 msgstr "סוללה"
 
@@ -2884,7 +2901,7 @@ msgstr "סוללה"
 msgid "beta"
 msgstr "בטא"
 
-#: views/widgets/catalog.lua:262
+#: views/stats/init.lua:1210 views/widgets/catalog.lua:262
 msgid "book"
 msgid_plural "books"
 msgstr[0] "ספר"
@@ -2892,7 +2909,7 @@ msgstr[1] "ספרים"
 msgstr[2] "ספרים"
 msgstr[3] "ספרים"
 
-#: views/stats/init.lua:419
+#: views/stats/init.lua:407
 msgid "books"
 msgstr ""
 
@@ -2900,7 +2917,7 @@ msgstr ""
 msgid "conflicts with plugin covers"
 msgstr "מתנגש עם הכריכות של התוסף"
 
-#: dev/devtools.lua:629 dev/devtools.lua:631
+#: dev/devtools.lua:651 dev/devtools.lua:653
 msgid "ephemeral"
 msgstr ""
 
@@ -2909,11 +2926,11 @@ msgstr ""
 msgid "favorites"
 msgstr ""
 
-#: views/widgets/catalog.lua:406
+#: views/widgets/catalog.lua:387
 msgid "files"
 msgstr "קבצים"
 
-#: views/stats/init.lua:1164 views/widgets/catalog.lua:282
+#: views/widgets/catalog.lua:282
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "ספר שהושלם"
@@ -2921,15 +2938,15 @@ msgstr[1] "ספרים שהושלמו"
 msgstr[2] "ספרים שהושלמו"
 msgstr[3] "ספרים שהושלמו"
 
-#: views/widgets/catalog.lua:396 views/widgets/catalog.lua:398
+#: views/widgets/catalog.lua:377 views/widgets/catalog.lua:379
 msgid "free"
 msgstr "פנוי"
 
-#: views/stats/init.lua:614
+#: views/stats/init.lua:674
 msgid "goal %1"
 msgstr ""
 
-#: views/stats/init.lua:576
+#: views/stats/init.lua:606
 msgid "in a row"
 msgstr ""
 
@@ -2945,15 +2962,15 @@ msgstr "כלול ב-Aire"
 msgid "last 7 days"
 msgstr "7 ימים אחרונים"
 
-#: views/widgets/catalog.lua:334
+#: views/widgets/catalog.lua:315
 msgid "light"
 msgstr "תאורה"
 
-#: views/stats/init.lua:575
+#: views/stats/init.lua:605
 msgid "max %1"
 msgstr ""
 
-#: views/stats/init.lua:389
+#: views/stats/init.lua:377
 msgid "min"
 msgstr ""
 
@@ -2962,7 +2979,7 @@ msgstr ""
 msgid "never"
 msgstr ""
 
-#: views/widgets/catalog.lua:359
+#: views/widgets/catalog.lua:340
 #, koreader
 msgid "night mode"
 msgstr ""
@@ -2971,7 +2988,7 @@ msgstr ""
 msgid "now"
 msgstr "עכשיו"
 
-#: views/widgets/catalog.lua:399
+#: views/widgets/catalog.lua:380
 msgid "of %1"
 msgstr "מתוך %1"
 
@@ -2983,17 +3000,13 @@ msgstr "עמ' %1 / %2"
 msgid "p. %1 of %2"
 msgstr "עמ' %1 מתוך %2"
 
-#: views/stats/init.lua:1156
+#: views/stats/init.lua:1201
 msgid "pages read"
 msgstr "עמודים שנקראו"
 
-#: views/widgets/catalog.lua:476
+#: views/widgets/catalog.lua:457
 msgid "port %1"
 msgstr "פורט %1"
-
-#: views/stats/init.lua:1160
-msgid "reading time"
-msgstr "זמן קריאה"
 
 #: core/compat.lua:43
 msgid "replaces the file browser and covers"
@@ -3007,29 +3020,21 @@ msgstr "מחליף את הכריכות של דפדפן הקבצים"
 msgid "replaces the home screen"
 msgstr "מחליף את מסך הבית"
 
-#: views/widgets/catalog.lua:367 views/widgets/catalog.lua:374
+#: views/widgets/catalog.lua:348 views/widgets/catalog.lua:355
 msgid "screen"
 msgstr "מסך"
 
-#: views/widgets/catalog.lua:421
+#: views/widgets/catalog.lua:402
 msgid "search"
 msgstr "חיפוש"
 
-#: views/widgets/catalog.lua:414
+#: views/widgets/catalog.lua:395
 msgid "search word"
 msgstr "חיפוש מילה"
 
-#: views/widgets/catalog.lua:435 views/widgets/catalog.lua:435
+#: views/widgets/catalog.lua:416 views/widgets/catalog.lua:416
 msgid "shortcuts"
 msgstr "קיצורי דרך"
-
-#: views/widgets/catalog.lua:316
-msgid "started book"
-msgid_plural "started books"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: views/widgets/catalog.lua:159
 msgid "streak %1"
@@ -3055,7 +3060,7 @@ msgstr "החודש"
 msgid "this year"
 msgstr "השנה"
 
-#: views/widgets/catalog.lua:446 views/widgets/catalog.lua:448
+#: views/widgets/catalog.lua:427 views/widgets/catalog.lua:429
 msgid "timer"
 msgstr "טיימר"
 
@@ -3072,7 +3077,7 @@ msgstr "היום"
 msgid "today · %1 pp."
 msgstr "היום · %1 עמ'"
 
-#: views/widgets/catalog.lua:348
+#: views/widgets/catalog.lua:329
 msgid "wi-fi"
 msgstr "wi-fi"
 
@@ -3081,7 +3086,7 @@ msgctxt "aire"
 msgid "yesterday"
 msgstr "אתמול"
 
-#: views/stats/init.lua:310
+#: views/stats/init.lua:298
 msgid "~%1 left"
 msgstr "נותרו ~%1"
 
