@@ -136,8 +136,21 @@ return function(Aire, ctx)
         local ReaderUI = require("apps/reader/readerui")
         local fm = require("apps/filemanager/filemanager").instance
         local host = (ReaderUI and ReaderUI.instance) or fm
-        if host and host.menu and host.menu.onShowMenu then
-            host.menu:onShowMenu()
+        local m = host and host.menu
+        if m and m.onShowMenu then
+            -- Si ya había un menú superior abierto (p. ej. debajo de una pantalla
+            -- completa), cerrarlo antes para no dejarlo huérfano en UIManager.
+            if m.menu_container then
+                if m.onCloseReaderMenu then
+                    m:onCloseReaderMenu()
+                elseif m.onCloseFileManagerMenu then
+                    m:onCloseFileManagerMenu()
+                else
+                    UIManager:close(m.menu_container)
+                    m.menu_container = nil
+                end
+            end
+            m:onShowMenu()
         end
     end
 

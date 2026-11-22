@@ -542,9 +542,18 @@ if CLEAN_TOUCH_MENU and not TouchMenu._clean_style_patched then
         end
     end, TAG)
 
+    safeWrap(TouchMenu, "closeMenu", function(orig_close, self, ...)
+        local res = orig_close and orig_close(self, ...)
+        local UIManager = require("ui/uimanager")
+        if self.show_parent and UIManager:isWidgetShown(self.show_parent) then
+            UIManager:close(self.show_parent)
+        end
+        return res
+    end, TAG)
+
     safeWrap(TouchMenu, "onTapCloseAllMenus", function(orig_TouchMenu_onTapClose, self, arg, ges_ev)
         local d = (self.menu_frame and self.menu_frame.dimen and liveRect(self.menu_frame)) or self.dimen
-        if ges_ev and ges_ev.pos and d and ges_ev.pos:notIntersectWith(d) then
+        if ges_ev and ges_ev.pos and (not d or ges_ev.pos:notIntersectWith(d)) then
             self:closeMenu()
             return true
         end
