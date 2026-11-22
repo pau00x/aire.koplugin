@@ -299,6 +299,23 @@ function Aire:init()
                 return res
             end
         end
+        -- Con Aire activo, el menú superior solo se abre desde nuestra barra de
+        -- estado (AireTopMenuTap / AireSwipeMenu): desactivamos DTAP_ZONE_MENU
+        -- (12,5% / 20%) de FileManagerMenu para que no robe toques a "‹ Atrás".
+        local orig_tap_menu = menu.onTapShowMenu
+        if orig_tap_menu then
+            menu.onTapShowMenu = function(m, ges, ...)
+                if config.enabled and not plugin._aire_closed then return false end
+                return orig_tap_menu(m, ges, ...)
+            end
+        end
+        local orig_swipe_menu = menu.onSwipeShowMenu
+        if orig_swipe_menu then
+            menu.onSwipeShowMenu = function(m, ges, ...)
+                if config.enabled and not plugin._aire_closed then return false end
+                return orig_swipe_menu(m, ges, ...)
+            end
+        end
     end
 end
 
