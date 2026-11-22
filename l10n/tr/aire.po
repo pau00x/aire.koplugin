@@ -38,7 +38,13 @@ msgid_plural "%1 books"
 msgstr[0] "%1 kitap"
 msgstr[1] "%1 kitap"
 
-#: views/stats/init.lua:364
+#: views/stats/init.lua:1312
+msgid "%1 book in progress"
+msgid_plural "%1 books in progress"
+msgstr[0] ""
+msgstr[1] ""
+
+#: views/stats/init.lua:443
 msgid "%1 book/year"
 msgid_plural "%1 books/year"
 msgstr[0] ""
@@ -56,7 +62,7 @@ msgid_plural "%1 collections"
 msgstr[0] "%1 derme"
 msgstr[1] "%1 derme"
 
-#: views/stats/init.lua:528 views/stats/init.lua:605
+#: views/stats/init.lua:579 views/stats/init.lua:708
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 gün"
@@ -68,7 +74,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "%1 gün önce"
 msgstr[1] "%1 gün önce"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:737 views/stats/init.lua:1077
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:840 views/stats/init.lua:1180
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 gün okuma"
@@ -86,7 +92,7 @@ msgid_plural "%1 finished books"
 msgstr[0] "%1 tamamlanan kitap"
 msgstr[1] "%1 tamamlanan kitap"
 
-#: views/stats/init.lua:363
+#: views/stats/init.lua:442
 msgid "%1 min/day"
 msgstr ""
 
@@ -108,11 +114,11 @@ msgid_plural "%1 pages read"
 msgstr[0] "%1 s. okundu"
 msgstr[1] "%1 s. okundu"
 
-#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:508
+#: styles/filemanager/bookinfo.lua:591 styles/filemanager/bookinfo.lua:595 styles/plugins/calendar.lua:236 views/booksheet.lua:175 views/stats/init.lua:551
 msgid "%1 pp."
 msgstr "%1 s."
 
-#: views/stats/init.lua:238 views/stats/init.lua:601 views/stats/init.lua:1055
+#: views/stats/init.lua:314 views/stats/init.lua:704 views/stats/init.lua:1158
 msgid "%1 pp./h"
 msgstr "%1 s./sa"
 
@@ -160,7 +166,7 @@ msgstr "5 üzerinden %d yıldız"
 msgid "+ Brightness"
 msgstr "+ Parlaklık"
 
-#: views/stats/init.lua:912
+#: views/stats/init.lua:1015
 msgid "+%1 more"
 msgstr "+%1 daha"
 
@@ -204,7 +210,7 @@ msgstr "EKLENDİ"
 msgid "Active"
 msgstr "Etkin"
 
-#: views/stats/init.lua:439
+#: views/stats/init.lua:530
 msgid "Activity summary"
 msgstr "Etkinlik özeti"
 
@@ -226,7 +232,7 @@ msgstr ""
 msgid "Add widget"
 msgstr "Widget ekle"
 
-#: menu.lua:744
+#: menu.lua:754
 msgid "Advanced"
 msgstr "Gelişmiş"
 
@@ -235,7 +241,7 @@ msgctxt "aire"
 msgid "Adventure"
 msgstr ""
 
-#: views/stats/init.lua:109
+#: views/stats/init.lua:111
 msgid "Afternoon"
 msgstr ""
 
@@ -255,7 +261,7 @@ msgstr "Aire %1 kullanılabilir"
 msgid "Aire %1 installed"
 msgstr "Aire %1 yüklendi"
 
-#: menu.lua:718 menu.lua:734
+#: menu.lua:728 menu.lua:744
 msgid "Aire warnings (crash.log)"
 msgstr "Aire uyarıları (crash.log)"
 
@@ -282,19 +288,19 @@ msgstr "Tümü tamamlandı"
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:1012
+#: views/stats/init.lua:1115
 msgid "Annual"
 msgstr "Yıllık"
 
-#: views/stats/init.lua:387
+#: views/stats/init.lua:489
 msgid "Annual goal"
 msgstr ""
 
-#: views/stats/init.lua:333
+#: views/stats/init.lua:412
 msgid "Annual reading goal"
 msgstr ""
 
-#: views/stats/init.lua:577
+#: views/stats/init.lua:680
 msgid "Annual recap"
 msgstr "Yıllık özet"
 
@@ -373,15 +379,15 @@ msgstr ""
 msgid "Battery"
 msgstr "Pil"
 
-#: views/stats/init.lua:1095
+#: views/stats/init.lua:1198
 msgid "Best day"
 msgstr "En iyi gün"
 
-#: views/stats/init.lua:1098
+#: views/stats/init.lua:1201
 msgid "Best month"
 msgstr "En iyi ay"
 
-#: views/stats/init.lua:604
+#: views/stats/init.lua:707
 msgid "Best streak: %1"
 msgstr ""
 
@@ -492,11 +498,11 @@ msgstr "GEÇERLİ BÖLÜM · SAYFA %d"
 msgid "CURRENT SESSION"
 msgstr "GEÇERLİ OTURUM"
 
-#: views/home.lua:382 views/stats/init.lua:538
+#: views/home.lua:382
 msgid "CURRENTLY READING"
 msgstr "ŞU AN OKUNAN"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:733
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:836
 msgid "Calendar"
 msgstr "Takvim"
 
@@ -512,7 +518,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:850
+#: dev/devtools.lua:575 dev/devtools.lua:726 dev/devtools.lua:826 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:953
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -712,23 +718,23 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Şu an okunan"
 
-#: views/stats/init.lua:1075
+#: views/stats/init.lua:1178
 msgid "DAILY RHYTHM"
 msgstr "GÜNLÜK RİTİM"
 
-#: views/stats/init.lua:698
+#: views/stats/init.lua:801
 msgid "DAYS OF THE WEEK"
 msgstr ""
 
-#: views/stats/init.lua:1090
+#: views/stats/init.lua:1193
 msgid "Daily average"
 msgstr "Günlük ortalama"
 
-#: views/stats/init.lua:367
+#: views/stats/init.lua:476
 msgid "Daily goal"
 msgstr ""
 
-#: views/stats/init.lua:303
+#: views/stats/init.lua:382
 msgid "Daily reading goal"
 msgstr ""
 
@@ -744,7 +750,7 @@ msgstr "Tarih"
 msgid "Date finished"
 msgstr "Bitirme tarihi"
 
-#: views/stats/init.lua:1093
+#: views/stats/init.lua:1196
 msgid "Day %1"
 msgstr "%1. gün"
 
@@ -762,16 +768,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "Aralık"
 
-#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:870
+#: dev/devtools.lua:735 dev/devtools.lua:814 views/booksheet.lua:226 views/grid/init.lua:926 views/stats/init.lua:973
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:881
+#: views/stats/init.lua:984
 msgid "Delete all book stats"
 msgstr "Tüm kitap istatistiklerini sil"
 
-#: views/stats/init.lua:885
+#: views/stats/init.lua:988
 msgid "Delete all stats?"
 msgstr "Tüm istatistikler silinsin mi?"
 
@@ -780,11 +786,11 @@ msgstr "Tüm istatistikler silinsin mi?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:868
+#: views/stats/init.lua:971
 msgid "Delete minutes for this day?"
 msgstr "Bu günün dakikaları silinsin mi?"
 
-#: views/stats/init.lua:864
+#: views/stats/init.lua:967
 msgid "Delete minutes from this day"
 msgstr "Bu günün dakikalarını sil"
 
@@ -810,7 +816,7 @@ msgstr ""
 msgid "Dictionary"
 msgstr ""
 
-#: views/stats/init.lua:313 views/stats/init.lua:343 views/stats/init.lua:376 views/stats/init.lua:396
+#: views/stats/init.lua:392 views/stats/init.lua:422
 #, koreader
 msgid "Disable"
 msgstr ""
@@ -861,10 +867,6 @@ msgstr ""
 #: views/widgets/init.lua:380
 msgid "EDITING WIDGETS"
 msgstr "WIDGET'LARI DÜZENLEME"
-
-#: views/stats/init.lua:549
-msgid "EXPLORE"
-msgstr ""
 
 #: dev/devtools.lua:604 dev/devtools.lua:851
 msgid "Edgedancer"
@@ -937,7 +939,7 @@ msgstr ""
 msgid "Estimated reading time left"
 msgstr ""
 
-#: views/stats/init.lua:110
+#: views/stats/init.lua:112
 msgid "Evening"
 msgstr ""
 
@@ -982,7 +984,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "Şubat"
 
-#: menu.lua:566 views/dock.lua:249
+#: menu.lua:566 views/dock.lua:250
 #, koreader
 msgid "File browser"
 msgstr ""
@@ -1023,7 +1025,7 @@ msgstr ""
 msgid "Finished books in gray"
 msgstr "Tamamlanan kitaplar gri"
 
-#: views/stats/init.lua:334
+#: views/stats/init.lua:413
 msgid "Finished books per year."
 msgstr ""
 
@@ -1107,7 +1109,7 @@ msgstr "Tam ekranlar"
 msgid "Galician"
 msgstr ""
 
-#: views/stats/init.lua:563 views/stats/init.lua:596
+#: views/stats/init.lua:667 views/stats/init.lua:699
 msgid "Genres & habits"
 msgstr ""
 
@@ -1139,7 +1141,7 @@ msgstr ""
 msgid "Go up"
 msgstr "Yukarı"
 
-#: views/stats/init.lua:430
+#: views/stats/init.lua:521
 msgid "Goals"
 msgstr ""
 
@@ -1156,11 +1158,11 @@ msgstr "Izgara: %1 sütun"
 msgid "HIGHLIGHT"
 msgstr "VURGU"
 
-#: views/stats/init.lua:1083
+#: views/stats/init.lua:1186
 msgid "HIGHLIGHTS"
 msgstr "ÖNE ÇIKANLAR"
 
-#: views/stats/init.lua:813
+#: views/stats/init.lua:916
 msgid "Hasn't arrived yet"
 msgstr "Henüz gelmedi"
 
@@ -1235,6 +1237,10 @@ msgctxt "aire"
 msgid "Humor"
 msgstr ""
 
+#: views/stats/init.lua:642
+msgid "IN PROGRESS"
+msgstr ""
+
 #: dev/devtools.lua:941 styles/filemanager/imageviewer.lua:43
 msgid "Image"
 msgstr "Görsel"
@@ -1250,6 +1256,10 @@ msgstr "Dermeler'de, 2 veya daha fazla kitabı olan her yazar için bir derme g�
 #: menu.lua:495
 msgid "In Collections, a collection appears for each keyword with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr "Dermeler'de, 2 veya daha fazla kitabı olan her anahtar sözcük için bir derme görünür. Otomatik olarak güncellenir ve KOReader dermelerine kaydedilmez."
+
+#: views/stats/init.lua:1308
+msgid "In progress"
+msgstr ""
 
 #: views/update_sheet.lua:457
 msgid "Include beta versions"
@@ -1322,7 +1332,7 @@ msgstr ""
 msgid "Kvothe, now an innkeeper under another name, tells his story: his childhood in a troupe of performers, his years in the streets of Tarbean, and his arrival at the University, where he wants to learn the magic of names."
 msgstr ""
 
-#: views/stats/init.lua:459
+#: views/stats/init.lua:595
 msgid "LAST 7 DAYS"
 msgstr "SON 7 GÜN"
 
@@ -1377,7 +1387,7 @@ msgstr "Düzen"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:752 views/dock.lua:37 views/dock.lua:248 views/grid/init.lua:1262
+#: dev/devtools.lua:752 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1262
 msgid "Library"
 msgstr "Kitaplık"
 
@@ -1433,19 +1443,19 @@ msgstr "EŞLEŞME"
 msgid "MATCH %d"
 msgstr "EŞLEŞME %d"
 
-#: views/stats/init.lua:1075
+#: views/stats/init.lua:1178
 msgid "MONTHLY RHYTHM"
 msgstr "AYLIK RİTİM"
 
-#: views/stats/init.lua:1107
+#: views/stats/init.lua:1210
 msgid "MOST READ"
 msgstr "EN ÇOK OKUNANLAR"
 
-#: views/stats/init.lua:611
+#: views/stats/init.lua:714
 msgid "MOST READ GENRES"
 msgstr ""
 
-#: views/dock.lua:246
+#: views/dock.lua:247
 msgid "Main view"
 msgstr "Ana görünüm"
 
@@ -1518,7 +1528,7 @@ msgctxt "aire"
 msgid "Minimal"
 msgstr "Sade"
 
-#: views/stats/init.lua:304
+#: views/stats/init.lua:383
 msgid "Minutes of reading per day."
 msgstr ""
 
@@ -1530,11 +1540,11 @@ msgstr "Klasörleri karıştır"
 msgid "Mix series"
 msgstr "Dizileri karıştır"
 
-#: views/stats/init.lua:1010
+#: views/stats/init.lua:1113
 msgid "Monthly"
 msgstr "Aylık"
 
-#: views/stats/init.lua:575
+#: views/stats/init.lua:678
 msgid "Monthly recap"
 msgstr "Aylık özet"
 
@@ -1558,7 +1568,7 @@ msgstr "Diğer ayarlar"
 msgid "More…"
 msgstr ""
 
-#: views/stats/init.lua:108
+#: views/stats/init.lua:110
 msgid "Morning"
 msgstr ""
 
@@ -1658,7 +1668,7 @@ msgstr ""
 msgid "Next in series"
 msgstr "Dizideki sonraki"
 
-#: views/stats/init.lua:111
+#: views/stats/init.lua:113
 #, koreader
 msgid "Night"
 msgstr ""
@@ -1672,7 +1682,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "CoverBrowser verisi yok"
 
-#: views/home.lua:251 views/stats/init.lua:215
+#: views/home.lua:251 views/stats/init.lua:285 views/stats/init.lua:1321
 msgid "No book in progress"
 msgstr "Devam eden kitap yok"
 
@@ -1712,11 +1722,11 @@ msgstr "Bu filtreyle derme yok"
 msgid "No current book"
 msgstr "Geçerli kitap yok"
 
-#: views/stats/init.lua:448
+#: views/stats/init.lua:539
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Veri yok: İstatistikler eklentisini etkinleştirin ve biraz okuyun"
 
-#: views/stats/init.lua:627
+#: views/stats/init.lua:730
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1733,11 +1743,11 @@ msgstr "Tamamlanmamış sonraki kitap yok"
 msgid "No previous book"
 msgstr "Önceki kitap yok"
 
-#: styles/plugins/statspages.lua:347 views/stats/init.lua:1046
+#: styles/plugins/statspages.lua:347 views/stats/init.lua:1149
 msgid "No reading activity in this period"
 msgstr "Bu dönemde okuma etkinliği yok"
 
-#: views/stats/init.lua:562
+#: views/stats/init.lua:666
 msgid "No reading habits yet"
 msgstr ""
 
@@ -1754,7 +1764,7 @@ msgstr ""
 msgid "No saved shortcuts"
 msgstr "Kayıtlı kısayol yok"
 
-#: views/stats/init.lua:229
+#: views/stats/init.lua:305
 msgid "No stats for this book"
 msgstr "Bu kitap için istatistik yok"
 
@@ -1821,7 +1831,7 @@ msgctxt "aire"
 msgid "October"
 msgstr "Ekim"
 
-#: styles/reader/footer.lua:102 views/stats/init.lua:363 views/stats/init.lua:364 views/widgets/catalog.lua:315 views/widgets/catalog.lua:316
+#: styles/reader/footer.lua:102 views/stats/init.lua:442 views/stats/init.lua:443 views/widgets/catalog.lua:315 views/widgets/catalog.lua:316
 #, koreader
 msgid "Off"
 msgstr ""
@@ -2066,7 +2076,7 @@ msgctxt "aire"
 msgid "Reading"
 msgstr "Okunuyor"
 
-#: views/stats/init.lua:407
+#: views/stats/init.lua:474
 msgid "Reading goals"
 msgstr ""
 
@@ -2087,7 +2097,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:973
+#: views/stats/init.lua:1076
 msgid "Recap"
 msgstr "Özet"
 
@@ -2232,7 +2242,7 @@ msgstr "SSH etkin"
 msgid "SSH server"
 msgstr ""
 
-#: dev/devtools.lua:599 dev/devtools.lua:602 dev/devtools.lua:789 views/stats/init.lua:311 views/stats/init.lua:341
+#: dev/devtools.lua:599 dev/devtools.lua:602 dev/devtools.lua:789 views/stats/init.lua:390 views/stats/init.lua:420
 #, koreader
 msgid "Save"
 msgstr ""
@@ -2344,7 +2354,7 @@ msgstr ""
 msgid "Show collection mark"
 msgstr ""
 
-#: menu.lua:686
+#: menu.lua:696
 msgid "Show dimensions of each book / series"
 msgstr "Her kitabın / dizinin boyutlarını göster"
 
@@ -2435,7 +2445,7 @@ msgstr "Başla"
 msgid "Started"
 msgstr ""
 
-#: views/dock.lua:41 views/stats/init.lua:429
+#: views/dock.lua:41 views/stats/init.lua:520
 msgid "Stats"
 msgstr "İstatistik"
 
@@ -2451,7 +2461,7 @@ msgstr ""
 msgid "Storage"
 msgstr "Depolama"
 
-#: views/stats/init.lua:528
+#: views/stats/init.lua:579
 msgid "Streak"
 msgstr ""
 
@@ -2561,7 +2571,7 @@ msgstr "Bu kopyada dev/ klasörü (testler) var. Yeni sürümde yok, bu yüzden 
 msgid "This month"
 msgstr "Bu ay"
 
-#: views/stats/init.lua:435
+#: views/stats/init.lua:526
 msgid "This month · %1 · %2 pp."
 msgstr "Bu ay · %1 · %2 s."
 
@@ -2624,7 +2634,7 @@ msgstr ""
 msgid "To read"
 msgstr ""
 
-#: dev/devtools.lua:721 views/stats/init.lua:524
+#: dev/devtools.lua:721 views/stats/init.lua:558
 #, koreader
 msgid "Today"
 msgstr ""
@@ -2638,7 +2648,7 @@ msgstr "Bugün ve seri"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:1101
+#: views/stats/init.lua:1204
 msgid "Top author"
 msgstr "En çok okunan yazar"
 
@@ -2719,7 +2729,7 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "HAFTALIK ETKİNLİK"
 
-#: views/stats/init.lua:646
+#: views/stats/init.lua:749
 msgid "WHEN YOU READ"
 msgstr ""
 
@@ -2764,7 +2774,7 @@ msgstr ""
 msgid "You already have the latest version (%1)."
 msgstr "Zaten en son sürüme sahipsin (%1)."
 
-#: views/stats/init.lua:813
+#: views/stats/init.lua:916
 msgid "You didn't read that day"
 msgstr "O gün okumadınız"
 
@@ -2806,7 +2816,7 @@ msgstr "ve vurgular"
 msgid "at %1 %"
 msgstr "okunan: %1 %"
 
-#: views/stats/init.lua:481
+#: views/stats/init.lua:617
 msgid "avg %1"
 msgstr ""
 
@@ -2828,7 +2838,7 @@ msgid_plural "books"
 msgstr[0] "kitap"
 msgstr[1] "kitap"
 
-#: views/stats/init.lua:340
+#: views/stats/init.lua:419
 msgid "books"
 msgstr ""
 
@@ -2849,12 +2859,7 @@ msgstr ""
 msgid "files"
 msgstr "dosyalar"
 
-#: views/stats/init.lua:518
-#, koreader
-msgid "finished"
-msgstr ""
-
-#: views/stats/init.lua:1063 views/widgets/catalog.lua:282
+#: views/stats/init.lua:1166 views/widgets/catalog.lua:282
 msgid "finished book"
 msgid_plural "finished books"
 msgstr[0] "tamamlanan kitap"
@@ -2864,11 +2869,11 @@ msgstr[1] "tamamlanan kitap"
 msgid "free"
 msgstr "boş"
 
-#: views/stats/init.lua:478
+#: views/stats/init.lua:614
 msgid "goal %1"
 msgstr ""
 
-#: views/stats/init.lua:511
+#: views/stats/init.lua:576
 msgid "in a row"
 msgstr ""
 
@@ -2888,11 +2893,11 @@ msgstr "son 7 gün"
 msgid "light"
 msgstr "ışık"
 
-#: views/stats/init.lua:510
+#: views/stats/init.lua:575
 msgid "max %1"
 msgstr ""
 
-#: views/stats/init.lua:310
+#: views/stats/init.lua:389
 msgid "min"
 msgstr ""
 
@@ -2922,7 +2927,7 @@ msgstr "s. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "s. %1 / %2"
 
-#: views/stats/init.lua:1055
+#: views/stats/init.lua:1158
 msgid "pages read"
 msgstr "okunan sayfa"
 
@@ -2930,7 +2935,7 @@ msgstr "okunan sayfa"
 msgid "port %1"
 msgstr "port %1"
 
-#: views/stats/init.lua:1059
+#: views/stats/init.lua:1162
 msgid "reading time"
 msgstr "okuma süresi"
 
@@ -3010,7 +3015,7 @@ msgctxt "aire"
 msgid "yesterday"
 msgstr "dün"
 
-#: views/stats/init.lua:234
+#: views/stats/init.lua:310
 msgid "~%1 left"
 msgstr "~%1 kaldı"
 

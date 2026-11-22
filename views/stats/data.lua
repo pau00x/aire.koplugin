@@ -904,6 +904,52 @@ local function countFinishedYear(self, st)
 end
 
 
+-- Libros empezados (estado "reading" en ReadHistory), más tiempo y páginas desde statistics.sqlite3
+local function loadInProgressBooks()
+    local list = {}
+    local seen = {}
+    local ok_h, ReadHistory = pcall(require, "readhistory")
+    if ok_h and ReadHistory and ReadHistory.hist then
+        for _i, item in ipairs(ReadHistory.hist) do
+            local f = item and not item.dim and item.file
+            if f and not seen[f] and lfs.attributes(f, "mode") == "file" then
+                if BookList.getBookStatus(f) == "reading" then
+                    seen[f] = true
+                    table.insert(list, { file = f, read_secs = 0, read_pages = 0 })
+                    if #list >= 24 then break end
+                end
+            end
+        end
+    end
+    -- Si no salió ninguno pero hay lastfile activo sin terminar, incluirlo
+    if #list == 0 then
+        local lf = G_reader_settings and G_reader_settings:readSetting("lastfile")
+        if lf and lfs.attributes(lf, "mode") == "file" and BookList.getBookStatus(lf) ~= "complete" then
+            table.insert(list, { file = lf, read_secs = 0, read_pages = 0 })
+        end
+    end
+    if #list > 0 and lfs.attributes(DB_FILE, "mode") == "file" then
+        pcall(withDB, function(conn)
+            local stmt = conn:prepare("SELECT total_read_time, total_read_pages FROM book WHERE md5 = ?")
+            for _i, b in ipairs(list) do
+                local ok_m, md5 = pcall(util.partialMD5, b.file)
+                if ok_m and md5 then
+                    stmt:reset()
+                    stmt:bind(md5)
+                    local r = stmt:step()
+                    if r then
+                        b.read_secs = tonumber(r[1]) or 0
+                        b.read_pages = tonumber(r[2]) or 0
+                    end
+                end
+            end
+            stmt:close()
+        end)
+    end
+    return list
+end
+
+
 return {
     state = state,
     invalidateCache = invalidateCache,
@@ -914,6 +960,7 @@ return {
     withDB = withDB,
     dayStart = dayStart,
     loadStats = loadStats,
+    loadInProgressBooks = loadInProgressBooks,
     historyFinishedYear = historyFinishedYear,
     MONTHS = MONTHS,
     WEEKDAYS_LONG = WEEKDAYS_LONG,

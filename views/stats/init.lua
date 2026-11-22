@@ -27,7 +27,8 @@ local STATS_DIR = (debug.getinfo(1, "S").source or ""):match("^@(.*)/[^/]*$") or
 -- Datos (base de datos, resúmenes) y gráficos (barras, calendario)
 local StatsData = dofile(STATS_DIR .. "/data.lua")
 local fmtDuration, fmtDelta, calcSpeed = StatsData.fmtDuration, StatsData.fmtDelta, StatsData.calcSpeed
-local loadStats, MONTHS, WEEKDAYS_LONG = StatsData.loadStats, StatsData.MONTHS, StatsData.WEEKDAYS_LONG
+local loadStats, loadInProgressBooks = StatsData.loadStats, StatsData.loadInProgressBooks
+local MONTHS, WEEKDAYS_LONG = StatsData.MONTHS, StatsData.WEEKDAYS_LONG
 local loadMonth, loadDay, loadRecap = StatsData.loadMonth, StatsData.loadDay, StatsData.loadRecap
 local deleteBookStats, countFinishedYear = StatsData.deleteBookStats, StatsData.countFinishedYear
 local Charts = dofile(STATS_DIR .. "/charts.lua")(StatsData)
@@ -136,8 +137,8 @@ return function(Aire, ctx)
         }
     end
 
-    -- Tarjeta pequeña del bento (columna derecha): título izq, detalle dcha, cifra grande
-    -- Siempre reserva el hueco de la barra de objetivo para que el alto sea idéntico con o sin objetivo
+    -- Tarjeta pequeña del bento (columna derecha): título izq, detalle dcha, cifra grande.
+    -- Alto fijo (igual con o sin objetivo); sin objetivo, centra el contenido en vertical.
     local function bentoSmallCard(cw, title, big, right_sub, progress)
         local pad = S(10)
         local inner_w = cw - 2 * (pad + Size.border.thin)
@@ -150,12 +151,14 @@ return function(Aire, ctx)
             LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = head_h }, ttl_w },
             RightContainer:new{ dimen = Geom:new{ w = inner_w, h = head_h }, sub_w },
         }
+        local big_w = TextWidget:new{ text = big, face = face(true, 18), fgcolor = BLACK, max_width = inner_w, padding = 0 }
         local bar_gap, bar_h = S(6), S(4)
+        local fixed_inner_h = head_h + S(4) + big_w:getSize().h + bar_gap + bar_h
         local vg = VerticalGroup:new{
             align = "left",
             head,
             VerticalSpan:new{ width = S(4) },
-            TextWidget:new{ text = big, face = face(true, 18), fgcolor = BLACK, max_width = inner_w, padding = 0 },
+            big_w,
         }
         if progress ~= nil then
             table.insert(vg, VerticalSpan:new{ width = bar_gap })
@@ -164,8 +167,6 @@ return function(Aire, ctx)
                 fillcolor = BLACK, bgcolor = Blitbuffer.COLOR_GRAY_D, bordersize = 0,
                 radius = S(2), margin_h = 0, margin_v = 0,
             })
-        else
-            table.insert(vg, VerticalSpan:new{ width = bar_gap + bar_h })
         end
         return FrameContainer:new{
             bordersize = Size.border.thin,
@@ -173,7 +174,7 @@ return function(Aire, ctx)
             radius = S(10),
             padding = pad,
             width = cw,
-            vg,
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = fixed_inner_h }, vg },
         }
     end
 
@@ -240,12 +241,56 @@ return function(Aire, ctx)
         }
     end
 
-    function Aire:buildStatsCurrent(w, st)
-        local cur = st.current
-        local file = cur and cur.file or G_reader_settings:readSetting("lastfile")
-        if not file or lfs.attributes(file, "mode") ~= "file" then
-            return TextWidget:new{ text = _("No book in progress"), face = face(false, 14), fgcolor = GRAY_TEXT, padding = 0 }
+    local function freeStatsCovers(self)
+        if self._stats_cover then
+            pcall(self._stats_cover.free, self._stats_cover)
+            self._stats_cover = nil
         end
+        if self._stats_covers then
+            for _i, bb in ipairs(self._stats_covers) do pcall(bb.free, bb) end
+            self._stats_covers = nil
+        end
+    end
+
+    -- Tarjeta de libro empezado (reutilizada en Estadísticas con cabecera "EMPEZADOS" y en la vista Empezados)
+    function Aire:buildBookStatCard(w, item, opts)
+        opts = opts or {}
+        local file = item and item.file
+        local pad = S(9)
+        local inner_w = w - 2 * (pad + Size.border.thin)
+        local body_vg = VerticalGroup:new{ align = "left" }
+
+        if opts.header_title then
+            local chev = IconWidget:new{ icon = "chevron.right", width = S(14), height = S(14), alpha = true }
+            local right_grp = HorizontalGroup:new{ align = "center" }
+            if opts.count and opts.count > 0 then
+                table.insert(right_grp, TextWidget:new{
+                    text = tostring(opts.count), face = face(false, 11), fgcolor = GRAY_TEXT, padding = 0,
+                })
+                table.insert(right_grp, HorizontalSpan:new{ width = S(3) })
+            end
+            table.insert(right_grp, chev)
+            local lbl_w = sectionLabel(opts.header_title)
+            local hh = math.max(lbl_w:getSize().h, right_grp:getSize().h)
+            table.insert(body_vg, OverlapGroup:new{
+                dimen = Geom:new{ w = inner_w, h = hh },
+                LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = hh }, lbl_w },
+                RightContainer:new{ dimen = Geom:new{ w = inner_w, h = hh }, right_grp },
+            })
+            table.insert(body_vg, VerticalSpan:new{ width = S(6) })
+        end
+
+        if not file or lfs.attributes(file, "mode") ~= "file" then
+            table.insert(body_vg, TextWidget:new{
+                text = _("No book in progress"), face = face(false, 13), fgcolor = GRAY_TEXT,
+                max_width = inner_w, padding = 0,
+            })
+            return FrameContainer:new{
+                bordersize = Size.border.thin, color = BLACK, radius = S(10), padding = pad,
+                width = w, body_vg,
+            }
+        end
+
         local props = {}
         if self.ui.bookinfo then
             local ok, p = pcall(self.ui.bookinfo.getDocProps, self.ui.bookinfo, file, nil, true)
@@ -257,32 +302,31 @@ return function(Aire, ctx)
         local pages = tonumber(info.pages) or tonumber(props.pages)
         local title = props.display_title or props.title or (file:match("([^/]+)$") or file)
 
-        -- Línea de tiempo: leído, estimación restante y velocidad en este libro
         local line = _("No stats for this book")
-        if cur and cur.read_secs > 0 then
-            line = fmtDuration(cur.read_secs)
-            if pages and pages > 0 and cur.read_pages > 0 and pf < 1 then
-                local left = math.max(0, pages * (1 - pf)) * (cur.read_secs / cur.read_pages)
+        if item.read_secs and item.read_secs > 0 then
+            line = fmtDuration(item.read_secs)
+            if pages and pages > 0 and item.read_pages and item.read_pages > 0 and pf < 1 then
+                local left = math.max(0, pages * (1 - pf)) * (item.read_secs / item.read_pages)
                 line = line .. " · " .. T(_("~%1 left"), fmtDuration(left))
             end
-            local speed = calcSpeed(cur.read_pages, cur.read_secs)
+            local speed = calcSpeed(item.read_pages, item.read_secs)
             if speed > 0 then
                 line = line .. " · " .. T(_("%1 pp./h"), speed)
             end
         end
 
-        local pad = S(9)
-        local cover_h = S(54)
+        local cover_h = S(opts.cover_h or 48)
         local cover
         local ok_bim, BIM = pcall(require, "bookinfomanager")
         if ok_bim and type(BIM) == "table" then
             local ok_bi, bi = pcall(BIM.getBookInfo, BIM, file, true)
             if ok_bi and bi and bi.has_cover and bi.cover_bb then
-                self._stats_cover = bi.cover_bb
+                self._stats_covers = self._stats_covers or {}
+                table.insert(self._stats_covers, bi.cover_bb)
                 local rounded = config and config.rounded_covers == true
                 cover = FrameContainer:new{
                     bordersize = Size.border.thin, color = BLACK, padding = 0, margin = 0,
-                    radius = rounded and S(6) or 0, _aire_clip_corners = rounded,
+                    radius = rounded and S(5) or 0, _aire_clip_corners = rounded,
                     ImageWidget:new{
                         image = bi.cover_bb, image_disposable = false,
                         scale_factor = math.min(cover_h / bi.cover_bb:getHeight(), (cover_h * 0.75) / bi.cover_bb:getWidth()),
@@ -291,7 +335,7 @@ return function(Aire, ctx)
             end
         end
         local cover_w = cover and cover:getSize().w or 0
-        local col_w = w - 2 * (pad + Size.border.thin) - cover_w - (cover and S(12) or 0)
+        local col_w = inner_w - cover_w - (cover and S(10) or 0)
         local pct_w = TextWidget:new{
             text = ("%d%%"):format(math.floor(math.max(0, math.min(1, pf)) * 100 + 0.5)),
             face = face(true, 11), fgcolor = GRAY_TEXT, padding = 0,
@@ -300,32 +344,35 @@ return function(Aire, ctx)
         local prog_row = HorizontalGroup:new{
             align = "center",
             ProgressWidget:new{
-                width = bar_w, height = S(7), percentage = math.max(0, math.min(1, pf)),
+                width = bar_w, height = S(6), percentage = math.max(0, math.min(1, pf)),
                 fillcolor = Blitbuffer.COLOR_DARK_GRAY, bgcolor = Blitbuffer.COLOR_GRAY_D, bordersize = 0,
-                radius = S(4), margin_h = 0, margin_v = 0,
+                radius = S(3), margin_h = 0, margin_v = 0,
             },
             HorizontalSpan:new{ width = S(8) },
             pct_w,
         }
         local col = VerticalGroup:new{
             align = "left",
-            TextWidget:new{ text = title, face = face(true, 15), fgcolor = BLACK, max_width = col_w, padding = 0 },
-            VerticalSpan:new{ width = S(3) },
+            TextWidget:new{ text = title, face = face(true, 14), fgcolor = BLACK, max_width = col_w, padding = 0 },
+            VerticalSpan:new{ width = S(2) },
             TextWidget:new{ text = line, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = col_w, padding = 0 },
-            VerticalSpan:new{ width = S(7) },
+            VerticalSpan:new{ width = S(6) },
             prog_row,
         }
         local row = HorizontalGroup:new{ align = "center" }
         if cover then
             table.insert(row, cover)
-            table.insert(row, HorizontalSpan:new{ width = S(12) })
+            table.insert(row, HorizontalSpan:new{ width = S(10) })
         end
         table.insert(row, col)
-        return tappable(FrameContainer:new{
+        table.insert(body_vg, LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = row:getSize().h }, row })
+
+        local card = FrameContainer:new{
             bordersize = Size.border.thin, color = BLACK, radius = S(10), padding = pad,
-            width = w,
-            LeftContainer:new{ dimen = Geom:new{ w = w - 2 * (pad + Size.border.thin), h = row:getSize().h }, row },
-        }, function() filemanagerutil.openFile(self.ui, file) end)
+            width = w, body_vg,
+        }
+        local on_tap = opts.on_tap or function() filemanagerutil.openFile(self.ui, file) end
+        return tappable(card, on_tap)
     end
 
     function Aire:editDailyGoal()
@@ -457,13 +504,11 @@ return function(Aire, ctx)
     end
 
     function Aire:buildStatsView()
-        if self._stats_cover then
-            pcall(self._stats_cover.free, self._stats_cover)
-            self._stats_cover = nil
-        end
+        freeStatsCovers(self)
         StatsData.state.FAKE = (config.demo_stats and self.getTestTools and self:getTestTools()) or nil
         local st = loadStats()
         countFinishedYear(self, st)
+        local in_prog = loadInProgressBooks()
         local sw = Screen:getWidth()
         local side = S(ctx.SIDE_PAD)
         local w = sw - 2 * side
@@ -574,9 +619,9 @@ return function(Aire, ctx)
         local hero_body = VerticalGroup:new{
             align = "left",
             hero_head,
-            VerticalSpan:new{ width = S(8) },
+            VerticalSpan:new{ width = S(6) },
             WeekBars:new{
-                width = h_inner, height = S(106), days = st.week,
+                width = h_inner, height = S(78), days = st.week,
                 avg_secs = ref_secs, avg_label = ref_label,
             },
         }
@@ -590,10 +635,23 @@ return function(Aire, ctx)
         }
         table.insert(content, tappable(hero_card, function() self:showCalendarView() end))
 
-        -- 3. EXPLORAR: Géneros y hábitos + Recaps (tarjetas limpias sin iconos)
-        table.insert(content, VerticalSpan:new{ width = S(14) })
-        table.insert(content, sectionLabel(_("EXPLORE")))
-        table.insert(content, VerticalSpan:new{ width = S(6) })
+        -- 3. EMPEZADOS (título dentro de la tarjeta; tocar abre la lista de todos los empezados)
+        table.insert(content, VerticalSpan:new{ width = card_gap })
+        local lead_book = in_prog[1] or st.current
+        local ok_cur, cur = pcall(self.buildBookStatCard, self, w, lead_book, {
+            header_title = _("IN PROGRESS"),
+            count = #in_prog,
+            cover_h = 46,
+            on_tap = function() self:showInProgressView() end,
+        })
+        if ok_cur then
+            table.insert(content, cur)
+        else
+            logger.warn("Aire/Stats: error en Empezados:", cur)
+        end
+
+        -- 4. GÉNEROS Y HÁBITOS + RECAPS (sin titulillo "Explorar", tarjetas limpias con card_gap)
+        table.insert(content, VerticalSpan:new{ width = card_gap })
 
         local hab_parts = {}
         if st.top_genres and #st.top_genres > 0 then
@@ -1236,10 +1294,84 @@ return function(Aire, ctx)
         UIManager:setDirty(self.ui, "flashui")
     end
 
-    function Aire:closeStatsView()
-        if self._stats_cover then
-            pcall(self._stats_cover.free, self._stats_cover)
-            self._stats_cover = nil
+    -------------------------------------------------------------------------
+    -- Empezados (lista completa de libros en curso con sus estadísticas)
+    -------------------------------------------------------------------------
+    function Aire:buildInProgressView()
+        freeStatsCovers(self)
+        local list = loadInProgressBooks()
+        local sw, sh = Screen:getWidth(), Screen:getHeight()
+        local side = S(ctx.SIDE_PAD)
+        local w = sw - 2 * side
+
+        local content = self:buildScreenTop(w, {
+            title = _("In progress"),
+            on_back = function() self:showStatsView() end,
+        })
+        table.insert(content, (package.loaded.aire_screen.subtitle(w,
+            T(N_("%1 book in progress", "%1 books in progress", #list), #list))))
+        table.insert(content, VerticalSpan:new{ width = S(12) })
+
+        local dock = self:buildNavBar(w)
+        local dock_area = package.loaded.aire_screen.dockReserve(dock)
+        local gap = S(10)
+
+        if #list == 0 then
+            table.insert(content, TextWidget:new{
+                text = _("No book in progress"),
+                face = face(false, 14), fgcolor = GRAY_TEXT, max_width = w, padding = 0,
+            })
+        else
+            -- Paginación sencilla según los que quepan encima del dock
+            local per_page = math.max(1, math.floor((sh - dock_area - content:getSize().h - S(36)) / S(92)))
+            local pages = math.max(1, math.ceil(#list / per_page))
+            local page = math.max(1, math.min(pages, self._inprog_page or 1))
+            self._inprog_page = page
+            local first = (page - 1) * per_page + 1
+            local last = math.min(#list, first + per_page - 1)
+            for i = first, last do
+                if i > first then table.insert(content, VerticalSpan:new{ width = gap }) end
+                local ok_c, card = pcall(self.buildBookStatCard, self, w, list[i], { cover_h = 56 })
+                if ok_c then table.insert(content, card) end
+            end
+            if pages > 1 then
+                table.insert(content, VerticalSpan:new{ width = S(12) })
+                local function pbtn(icon, enabled, delta)
+                    local iw = IconWidget:new{ icon = icon, width = S(22), height = S(22), alpha = true, dim = not enabled }
+                    local box = CenterContainer:new{ dimen = Geom:new{ w = S(32), h = S(32) }, iw }
+                    if not enabled then return box end
+                    return tappable(box, function()
+                        self._inprog_page = page + delta
+                        self:apply()
+                        UIManager:setDirty(self.ui, "ui")
+                    end, nil, { h = S(10), v = S(6) })
+                end
+                table.insert(content, OverlapGroup:new{
+                    dimen = Geom:new{ w = w, h = S(32) },
+                    LeftContainer:new{ dimen = Geom:new{ w = w, h = S(32) }, pbtn("chevron.left", page > 1, -1) },
+                    CenterContainer:new{
+                        dimen = Geom:new{ w = w, h = S(32) },
+                        TextWidget:new{ text = ("%d / %d"):format(page, pages), face = face(true, 13), fgcolor = GRAY_TEXT, padding = 0 },
+                    },
+                    RightContainer:new{ dimen = Geom:new{ w = w, h = S(32) }, pbtn("chevron.right", page < pages, 1) },
+                })
+            end
         end
+        content:resetLayout()
+        return package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
+    end
+
+    function Aire:showInProgressView()
+        if self.closeGridViews then self:closeGridViews(true) end
+        self._inprog_page = 1
+        config.mode = "library"
+        saveConfig()
+        self.view = "in_progress"
+        self:apply()
+        UIManager:setDirty(self.ui, "flashui")
+    end
+
+    function Aire:closeStatsView()
+        freeStatsCovers(self)
     end
 end

@@ -381,6 +381,8 @@ function Aire:apply()
             fm[1] = self:buildRecapView()
         elseif self.view == "habits" and self.buildHabitsView then
             fm[1] = self:buildHabitsView()
+        elseif self.view == "in_progress" and self.buildInProgressView then
+            fm[1] = self:buildInProgressView()
         else
             self.view = "home"
             fm[1] = self:buildHome()
