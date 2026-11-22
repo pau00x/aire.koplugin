@@ -26,7 +26,7 @@ PLUGIN = Path(__file__).resolve().parent.parent
 
 SKIP_DIRS = {"scripts", "docs", ".github", "__pycache__", ".git", ".vscode"}
 SKIP_ROOT_FILES = {".gitignore", ".luarc.json", "CONTRIBUTING.md"}
-DEV_KEEP_SUFFIXES = {".lua", ".epub"}
+DEV_KEEP_SUFFIXES = {".lua", ".epub", ".jpg", ".png"}
 
 
 def wanted(rel: Path, with_dev: bool) -> bool:

@@ -24,6 +24,7 @@ local function loadConfig()
         demo = saved.demo == true,               -- devtools.lua: datos falsos en las vistas
         debug_sizes = saved.debug_sizes == true, -- devtools.lua: medidas encima de cada celda
         demo_stats = saved.demo_stats == true,   -- devtools.lua: estadísticas inventadas
+        demo_moth = saved.demo_moth == true,     -- devtools.lua: vista previa de mascota polilla en Racha
         sel_style = type(saved.sel_style) == "string" and saved.sel_style or "black", -- devtools.lua
         demo_widgets = saved.demo_widgets == true,          -- devtools.lua: widgets de prueba
         demo_widgets_offset = tonumber(saved.demo_widgets_offset) or 0,

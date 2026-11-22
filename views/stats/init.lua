@@ -173,19 +173,32 @@ return function(Aire, ctx)
     end
 
     -- Tarjeta grande del bento (columna izquierda): Racha protagonista igualada a la altura de la columna derecha
-    local function bentoStreakCard(cw, ch, title, big, sub)
-        local pad = S(12)
+    local function bentoStreakCard(cw, ch, title, big, sub, moth_path)
+        local pad = S(10)
         local inner_w = cw - 2 * Size.border.thin
         local inner_h = ch - 2 * Size.border.thin
         local content_w = inner_w - 2 * pad
-        local vg = VerticalGroup:new{
-            align = "center",
-            TextWidget:new{ text = title, face = face(true, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
-            VerticalSpan:new{ width = S(6) },
-            TextWidget:new{ text = big, face = face(true, 26), fgcolor = BLACK, max_width = content_w, padding = 0 },
-            VerticalSpan:new{ width = S(4) },
-            TextWidget:new{ text = sub, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 },
-        }
+        local vg = VerticalGroup:new{ align = "center" }
+        if moth_path and lfs.attributes(moth_path, "mode") == "file" then
+            local img_h = math.max(S(46), math.min(S(76), inner_h - S(58)))
+            local img_w = math.min(content_w, math.floor(img_h * 1.35))
+            table.insert(vg, ImageWidget:new{
+                file = moth_path,
+                width = img_w,
+                height = img_h,
+                scale_factor = 0,
+            })
+            table.insert(vg, VerticalSpan:new{ width = S(4) })
+            table.insert(vg, TextWidget:new{ text = big, face = face(true, 20), fgcolor = BLACK, max_width = content_w, padding = 0 })
+            table.insert(vg, VerticalSpan:new{ width = S(2) })
+            table.insert(vg, TextWidget:new{ text = sub, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 })
+        else
+            table.insert(vg, TextWidget:new{ text = title, face = face(true, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 })
+            table.insert(vg, VerticalSpan:new{ width = S(6) })
+            table.insert(vg, TextWidget:new{ text = big, face = face(true, 26), fgcolor = BLACK, max_width = content_w, padding = 0 })
+            table.insert(vg, VerticalSpan:new{ width = S(4) })
+            table.insert(vg, TextWidget:new{ text = sub, face = face(false, 12), fgcolor = GRAY_TEXT, max_width = content_w, padding = 0 })
+        end
         return FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
@@ -372,57 +385,48 @@ return function(Aire, ctx)
     end
 
     function Aire:openGoalsMenu()
-        local ButtonDialog = require("ui/widget/buttondialog")
+        local Sh = package.loaded.aire_sheet
         local daily = tonumber(config.stats_goal_daily_min) or 0
         local yearly = tonumber(config.stats_goal_yearly_books) or 0
         local daily_val = daily > 0 and T(_("%1 min/day"), daily) or _("Off")
         local yearly_val = yearly > 0 and T(N_("%1 book/year", "%1 books/year", yearly), yearly) or _("Off")
-        local dlg
-        local row_daily = {{
-            text = _("Daily goal") .. " · " .. daily_val,
-            align = "left",
-            callback = function()
-                UIManager:close(dlg)
-                self:editDailyGoal()
-            end,
-        }}
-        if daily > 0 then
-            table.insert(row_daily, {
-                text = _("Disable"),
+        local sheet = Sh.Sheet:new{ full_refresh = false }
+        sheet:setContent(function(inner_w)
+            local vg = VerticalGroup:new{ align = "left" }
+            table.insert(vg, Sh.title(_("Reading goals"), inner_w))
+            table.insert(vg, Sh.row({
+                text = _("Daily goal"),
+                value = daily_val,
                 callback = function()
-                    UIManager:close(dlg)
+                    UIManager:close(sheet)
+                    self:editDailyGoal()
+                end,
+                hold_callback = daily > 0 and function()
+                    UIManager:close(sheet)
                     config.stats_goal_daily_min = 0
                     saveConfig()
                     self:apply()
                     UIManager:setDirty(self.ui, "ui")
-                end,
-            })
-        end
-        local row_yearly = {{
-            text = _("Annual goal") .. " · " .. yearly_val,
-            align = "left",
-            callback = function()
-                UIManager:close(dlg)
-                self:editYearlyGoal()
-            end,
-        }}
-        if yearly > 0 then
-            table.insert(row_yearly, {
-                text = _("Disable"),
+                end or nil,
+            }, inner_w))
+            table.insert(vg, Sh.row({
+                text = _("Annual goal"),
+                value = yearly_val,
                 callback = function()
-                    UIManager:close(dlg)
+                    UIManager:close(sheet)
+                    self:editYearlyGoal()
+                end,
+                hold_callback = yearly > 0 and function()
+                    UIManager:close(sheet)
                     config.stats_goal_yearly_books = 0
                     saveConfig()
                     self:apply()
                     UIManager:setDirty(self.ui, "ui")
-                end,
-            })
-        end
-        dlg = ButtonDialog:new{
-            title = _("Reading goals"),
-            buttons = { row_daily, row_yearly },
-        }
-        UIManager:show(dlg)
+                end or nil,
+            }, inner_w))
+            return vg
+        end)
+        UIManager:show(sheet)
     end
 
     function Aire:buildStatsView()
@@ -477,9 +481,6 @@ return function(Aire, ctx)
             and ("%d / %d"):format(st.finished_year, yearly_goal)
             or tostring(st.finished_year)
         local year_prog = yearly_goal > 0 and (st.finished_year / yearly_goal) or nil
-        local year_sub = yearly_goal > 0
-            and ("%d%%"):format(math.floor(math.min(999, st.finished_year / yearly_goal * 100) + 0.5))
-            or _("finished")
 
         local today_card = tappable(
             bentoSmallCard(right_w, _("Today"), fmtDuration(st.today_secs), today_sub, today_prog),
@@ -487,7 +488,7 @@ return function(Aire, ctx)
             function() self:editDailyGoal() end
         )
         local year_card = tappable(
-            bentoSmallCard(right_w, st.year, year_big, year_sub, year_prog),
+            bentoSmallCard(right_w, _("Finished"), year_big, st.year, year_prog),
             function() if self.showGridView then self:showGridView("finished") end end,
             function() self:editYearlyGoal() end
         )
@@ -501,8 +502,9 @@ return function(Aire, ctx)
         local streak_sub = (st.best_streak and st.best_streak > 0)
             and T(_("max %1"), st.best_streak)
             or _("in a row")
+        local moth_path = config.demo_moth and (STATS_DIR:gsub("/views/stats$", "") .. "/dev/moth_preview.jpg") or nil
         local streak_card = tappable(
-            bentoStreakCard(left_w, bento_h, _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub),
+            bentoStreakCard(left_w, bento_h, _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub, moth_path),
             function() self:showCalendarView() end
         )
         table.insert(content, HorizontalGroup:new{
