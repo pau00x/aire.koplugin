@@ -718,7 +718,7 @@ local function loadRecap(self, mode, year, month)
         total_secs = 0, total_pages = 0, read_days = 0, total_days = ndays,
         avg_secs = 0, speed = 0, best_streak = 0,
         prev_secs = 0, delta_pct = nil,
-        bars = {}, best_day = nil, best_month = nil, best_year = nil,
+        bars = {}, best_day = nil, best_week = nil, best_month = nil, best_year = nil,
         top_books = {}, top_author = nil, top_genres = {},
         time_slots = {}, fav_slot = nil,
         weekdays = {}, fav_weekday = nil,
@@ -806,9 +806,25 @@ local function loadRecap(self, mode, year, month)
         end
     elseif mode == "month" then
         local best_d = res.best_day and res.best_day.day
+        -- Mejor semana natural (lunes–domingo dentro del mes)
+        local cur_start, cur_end, cur_secs = 1, 1, 0
+        local bw_start, bw_end, bw_secs = nil, nil, 0
         for d = 1, ndays do
+            local s = by_day[d] or 0
+            local wday = tonumber(os.date("%w", os.time{ year = year, month = month, day = d, hour = 12 }))
+            if d > 1 and wday == 1 then
+                if cur_secs > bw_secs then bw_start, bw_end, bw_secs = cur_start, cur_end, cur_secs end
+                cur_start, cur_end, cur_secs = d, d, s
+            else
+                cur_end = d
+                cur_secs = cur_secs + s
+            end
             local lbl = (d == 1 or d % 5 == 0 or d == ndays) and tostring(d) or ""
-            table.insert(res.bars, { label = lbl, secs = by_day[d] or 0, highlight = (d == best_d) })
+            table.insert(res.bars, { label = lbl, secs = s, highlight = (d == best_d) })
+        end
+        if cur_secs > bw_secs then bw_start, bw_end, bw_secs = cur_start, cur_end, cur_secs end
+        if bw_start and bw_secs > 0 then
+            res.best_week = { start_day = bw_start, end_day = bw_end, secs = bw_secs }
         end
     else
         local best_m, best_s = nil, 0

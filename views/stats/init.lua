@@ -107,10 +107,10 @@ return function(Aire, ctx)
     end
 
     local function slotLabel(id)
-        if id == "morning" then return _("Morning")
-        elseif id == "afternoon" then return _("Afternoon")
-        elseif id == "evening" then return _("Evening")
-        elseif id == "night" then return _("Night") end
+        if id == "morning" then return C_("aire", "Morning")
+        elseif id == "afternoon" then return C_("aire", "Afternoon")
+        elseif id == "evening" then return C_("aire", "Evening")
+        elseif id == "night" then return C_("aire", "Night") end
         return ""
     end
 
@@ -1235,7 +1235,7 @@ return function(Aire, ctx)
         local m_inner = w - 2 * (mpad + Size.border.thin)
         local mvg = VerticalGroup:new{
             align = "left",
-            sectionLabel(_("MOST READ")),
+            sectionLabel(_("MOST READ BOOKS")),
             VerticalSpan:new{ width = S(4) },
         }
         local shown = math.min(max_shown, #books)
@@ -1289,12 +1289,18 @@ return function(Aire, ctx)
                 end),
         }
 
-        -- Hitos en tarjetas individuales (2x2 o fila de 2 + fila ancha)
+        -- Hitos en tarjetas individuales (2x2 en todos los modos)
         local hits = {}
         if mode == "all" and recap.best_year then
             table.insert(hits, { _("Best year"), tostring(recap.best_year.year), fmtDuration(recap.best_year.secs) })
         elseif mode == "year" and recap.best_month then
             table.insert(hits, { _("Best month"), MONTHS[recap.best_month.month] or "", fmtDuration(recap.best_month.secs) })
+        elseif mode == "month" and recap.best_week then
+            local bw = recap.best_week
+            local bw_lbl = bw.start_day == bw.end_day
+                and T(_("Day %1"), bw.start_day)
+                or T(_("Days %1–%2"), bw.start_day, bw.end_day)
+            table.insert(hits, { _("Best week"), bw_lbl, fmtDuration(bw.secs) })
         end
         if recap.best_day and recap.best_day.day then
             local bd_lbl
@@ -1342,21 +1348,10 @@ return function(Aire, ctx)
         local rhythm_lbl
         if mode == "month" then
             rhythm_lbl = _("DAILY RHYTHM")
-            if recap.best_day and recap.best_day.day then
-                rhythm_lbl = rhythm_lbl .. " · " .. T(_("Best day: Day %1"), recap.best_day.day)
-            end
         elseif mode == "year" then
             rhythm_lbl = _("MONTHLY RHYTHM")
-            if recap.best_month and MONTHS[recap.best_month.month] then
-                rhythm_lbl = rhythm_lbl .. " · " .. T(_("Best month: %1"), MONTHS[recap.best_month.month])
-            end
         else
             rhythm_lbl = _("ANNUAL RHYTHM")
-            if recap.best_year and recap.best_year.year then
-                rhythm_lbl = rhythm_lbl .. " · " .. T(_("Best year: %1"), tostring(recap.best_year.year))
-            elseif recap.best_month and MONTHS[recap.best_month.month] then
-                rhythm_lbl = rhythm_lbl .. " · " .. T(_("Best month: %1"), MONTHS[recap.best_month.month])
-            end
         end
         local rl_w = sectionLabel(rhythm_lbl)
         content:resetLayout()
@@ -1568,8 +1563,16 @@ return function(Aire, ctx)
             on_back = function() self:showStatsView() end,
             menu_icon = "aire.widget.camera",
             on_menu = function()
-                local Event = require("ui/event")
-                UIManager:broadcastEvent(Event:new("Screenshot"))
+                UIManager:nextTick(function()
+                    local sc = self.ui and self.ui.screenshot
+                    if not sc then
+                        local Screenshoter = require("ui/widget/screenshoter")
+                        sc = Screenshoter:new{ ui = self.ui }
+                    end
+                    if sc and sc.onScreenshot then
+                        sc:onScreenshot()
+                    end
+                end)
             end,
         })
 
