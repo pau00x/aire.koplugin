@@ -503,13 +503,42 @@ return function(Aire, ctx)
         UIManager:show(sheet)
     end
 
+    -- Tarjeta compacta de Recap para fila de 3 columnas (Mensual | Anual | Total)
+    local function recapMiniCard(cw, card_title, card_sub)
+        local pad = S(9)
+        local inner_w = cw - 2 * (pad + Size.border.thin)
+        local chev = IconWidget:new{ icon = "chevron.right", width = S(14), height = S(14), alpha = true }
+        local ttl_max = math.max(S(30), inner_w - chev:getSize().w - S(4))
+        local ttl_w = TextWidget:new{ text = card_title, face = face(true, 13), fgcolor = BLACK, max_width = ttl_max, padding = 0 }
+        local top_h = math.max(ttl_w:getSize().h, chev:getSize().h)
+        local top_row = OverlapGroup:new{
+            dimen = Geom:new{ w = inner_w, h = top_h },
+            LeftContainer:new{ dimen = Geom:new{ w = inner_w, h = top_h }, ttl_w },
+            RightContainer:new{ dimen = Geom:new{ w = inner_w, h = top_h }, chev },
+        }
+        local vg = VerticalGroup:new{
+            align = "left",
+            top_row,
+            VerticalSpan:new{ width = S(3) },
+            TextWidget:new{ text = card_sub, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = inner_w, padding = 0 },
+        }
+        return FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = pad,
+            width = cw,
+            vg,
+        }
+    end
+
     function Aire:buildStatsView()
         freeStatsCovers(self)
         StatsData.state.FAKE = (config.demo_stats and self.getTestTools and self:getTestTools()) or nil
         local st = loadStats()
         countFinishedYear(self, st)
         local in_prog = loadInProgressBooks()
-        local sw = Screen:getWidth()
+        local sw, sh = Screen:getWidth(), Screen:getHeight()
         local side = S(ctx.SIDE_PAD)
         local w = sw - 2 * side
 
@@ -541,10 +570,15 @@ return function(Aire, ctx)
             })
             table.insert(content, VerticalSpan:new{ width = S(10) })
         end
+        content:resetLayout()
+        local header_h = content:getSize().h
 
+        local dock = self:buildNavBar(w)
+        local dock_area = package.loaded.aire_screen.dockReserve(dock)
+        local avail_h = sh - dock_area - header_h - S(8)
         local card_gap = S(10)
 
-        -- 1. BENTO ASIMÉTRICO (sin iconos): Racha grande a la izquierda | Hoy + 2026 apiladas a la derecha
+        -- 1. BENTO ASIMÉTRICO (sin iconos): Racha grande a la izquierda | Hoy + Libros terminados a la derecha
         local left_w = math.floor((w - card_gap) / 2)
         local right_w = w - left_w - card_gap
         local today_prog = daily_goal > 0 and (st.today_secs / (daily_goal * 60)) or nil
@@ -579,22 +613,50 @@ return function(Aire, ctx)
             bentoStreakCard(left_w, bento_h, _("Streak"), T(N_("%1 day", "%1 days", st.streak), st.streak), streak_sub, moth_path),
             function() self:showCalendarView() end
         )
-        table.insert(content, HorizontalGroup:new{
+        local bento_block = HorizontalGroup:new{
             align = "top",
             streak_card,
             HorizontalSpan:new{ width = card_gap },
             right_col,
-        })
+        }
 
-        -- 2. TARJETA ÚLTIMOS 7 DÍAS (total, delta y gráfico con línea de meta o media)
-        table.insert(content, VerticalSpan:new{ width = card_gap })
+        -- 3. LIBROS EMPEZADOS (título dentro de la tarjeta; tocar abre la lista de todos los empezados)
+        local lead_book = in_prog[1] or st.current
+        local ok_cur, started_block = pcall(self.buildBookStatCard, self, w, lead_book, {
+            header_title = _("STARTED BOOKS"),
+            count = #in_prog,
+            cover_h = 46,
+            on_tap = function() self:showInProgressView() end,
+        })
+        if not ok_cur then
+            logger.warn("Aire/Stats: error en Empezados:", started_block)
+            started_block = nil
+        end
+
+        -- 4. RECAPS EN 1 SOLA FILA (Mensual | Anual | Todo el tiempo)
+        local rw = math.floor((w - 2 * card_gap) / 3)
+        local rw3 = w - 2 * (rw + card_gap)
+        local now_m = tonumber(os.date("%m"))
+        local month_sub = st.ok and fmtDuration(st.month_secs) or MONTHS[now_m]
+        local year_sub_recap = st.ok and fmtDuration(st.year_secs) or st.year
+        local all_sub = st.ok and fmtDuration(st.all_secs or 0) or _("All time")
+        local recaps_block = HorizontalGroup:new{
+            align = "top",
+            tappable(recapMiniCard(rw, _("Monthly"), month_sub), function() self:showRecapView("month") end),
+            HorizontalSpan:new{ width = card_gap },
+            tappable(recapMiniCard(rw, _("Annual"), year_sub_recap), function() self:showRecapView("year") end),
+            HorizontalSpan:new{ width = card_gap },
+            tappable(recapMiniCard(rw3, _("All time"), all_sub), function() self:showRecapView("all") end),
+        }
+
+        -- 2. TARJETA ÚLTIMOS 7 DÍAS: altura dinámica del gráfico para aprovechar el hueco sin pisar el dock
         local hpad = S(10)
         local h_inner = w - 2 * (hpad + Size.border.thin)
         local hero_left = VerticalGroup:new{
             align = "left",
             sectionLabel(_("LAST 7 DAYS")),
             VerticalSpan:new{ width = S(2) },
-            TextWidget:new{ text = fmtDuration(st.week_total), face = face(true, 20), fgcolor = BLACK, padding = 0 },
+            TextWidget:new{ text = fmtDuration(st.week_total), face = face(true, 19), fgcolor = BLACK, padding = 0 },
         }
         local badge = deltaBadge(st.week_delta_pct)
         local hero_head
@@ -616,62 +678,114 @@ return function(Aire, ctx)
             ref_secs = math.floor(st.week_total / 7)
             ref_label = T(_("avg %1"), fmtDuration(ref_secs))
         end
+
+        local other_h = bento_block:getSize().h + recaps_block:getSize().h + card_gap
+        if started_block then other_h = other_h + started_block:getSize().h + card_gap end
+        local week_chrome_h = 2 * (hpad + Size.border.thin) + hero_head:getSize().h + S(6) + card_gap
+        local free_for_bars = avail_h - other_h - week_chrome_h
+        local min_bars_h = S(58)
+        local fits_one_page = free_for_bars >= min_bars_h
+        local bars_h = fits_one_page and math.min(S(108), free_for_bars) or S(82)
+
         local hero_body = VerticalGroup:new{
             align = "left",
             hero_head,
             VerticalSpan:new{ width = S(6) },
             WeekBars:new{
-                width = h_inner, height = S(78), days = st.week,
+                width = h_inner, height = bars_h, days = st.week,
                 avg_secs = ref_secs, avg_label = ref_label,
             },
         }
-        local hero_card = FrameContainer:new{
+        local week_block = tappable(FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
             radius = S(10),
             padding = hpad,
             width = w,
             hero_body,
-        }
-        table.insert(content, tappable(hero_card, function() self:showCalendarView() end))
+        }, function() self:showCalendarView() end)
 
-        -- 3. LIBROS EMPEZADOS (título dentro de la tarjeta; tocar abre la lista de todos los empezados)
-        table.insert(content, VerticalSpan:new{ width = card_gap })
-        local lead_book = in_prog[1] or st.current
-        local ok_cur, cur = pcall(self.buildBookStatCard, self, w, lead_book, {
-            header_title = _("STARTED BOOKS"),
-            count = #in_prog,
-            cover_h = 46,
-            on_tap = function() self:showInProgressView() end,
-        })
-        if ok_cur then
-            table.insert(content, cur)
-        else
-            logger.warn("Aire/Stats: error en Empezados:", cur)
+        -- Lista ordenada de bloques
+        local blocks = { bento_block, week_block }
+        if started_block then table.insert(blocks, started_block) end
+        table.insert(blocks, recaps_block)
+
+        if fits_one_page then
+            self._stats_page = 1
+            for i, blk in ipairs(blocks) do
+                if i > 1 then table.insert(content, VerticalSpan:new{ width = card_gap }) end
+                table.insert(content, blk)
+            end
+            content:resetLayout()
+            return package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
         end
 
-        -- 4. RECAPS: Mensual, Anual y Todo el tiempo (géneros y hábitos irán dentro de los resúmenes)
-        table.insert(content, VerticalSpan:new{ width = card_gap })
-        local rw = math.floor((w - card_gap) / 2)
-        local now_m = tonumber(os.date("%m"))
-        local month_sub = st.ok and (MONTHS[now_m] .. " · " .. fmtDuration(st.month_secs)) or MONTHS[now_m]
-        local year_sub_recap = st.ok and (st.year .. " · " .. fmtDuration(st.year_secs)) or st.year
-        table.insert(content, HorizontalGroup:new{
-            align = "top",
-            tappable(navCard(rw, _("Monthly recap"), month_sub), function() self:showRecapView("month") end),
-            HorizontalSpan:new{ width = card_gap },
-            tappable(navCard(w - rw - card_gap, _("Annual recap"), year_sub_recap), function() self:showRecapView("year") end),
-        })
-        table.insert(content, VerticalSpan:new{ width = card_gap })
-        local all_sub = st.ok and (fmtDuration(st.all_secs or 0) .. " · " .. T(_("%1 pp."), st.all_pages or 0))
-            or _("All-time summary")
-        table.insert(content, tappable(navCard(w, _("All-time recap"), all_sub), function()
-            self:showRecapView("all")
-        end))
+        -- Respaldo para pantallas pequeñas / modo horizontal: paginación automática sin pisar el dock
+        local pager_h = S(32)
+        local page_budget = math.max(S(120), avail_h - pager_h - S(8))
+        local pages = { {} }
+        local cur_h = 0
+        for _i, blk in ipairs(blocks) do
+            local bh = blk:getSize().h
+            local cur_p = pages[#pages]
+            local add_h = (#cur_p > 0 and card_gap or 0) + bh
+            if #cur_p > 0 and cur_h + add_h > page_budget then
+                table.insert(pages, { blk })
+                cur_h = bh
+            else
+                table.insert(cur_p, blk)
+                cur_h = cur_h + add_h
+            end
+        end
+        local npages = #pages
+        local page = math.max(1, math.min(npages, self._stats_page or 1))
+        self._stats_page = page
+        for i, blk in ipairs(pages[page]) do
+            if i > 1 then table.insert(content, VerticalSpan:new{ width = card_gap }) end
+            table.insert(content, blk)
+        end
+        if npages > 1 then
+            table.insert(content, VerticalSpan:new{ width = S(8) })
+            local function pbtn(icon, enabled, delta)
+                local iw = IconWidget:new{ icon = icon, width = S(22), height = S(22), alpha = true, dim = not enabled }
+                local box = CenterContainer:new{ dimen = Geom:new{ w = S(32), h = pager_h }, iw }
+                if not enabled then return box end
+                return tappable(box, function()
+                    self._stats_page = page + delta
+                    self:apply()
+                    UIManager:setDirty(self.ui, "ui")
+                end, nil, { h = S(10), v = S(6) })
+            end
+            table.insert(content, OverlapGroup:new{
+                dimen = Geom:new{ w = w, h = pager_h },
+                LeftContainer:new{ dimen = Geom:new{ w = w, h = pager_h }, pbtn("chevron.left", page > 1, -1) },
+                CenterContainer:new{
+                    dimen = Geom:new{ w = w, h = pager_h },
+                    TextWidget:new{ text = ("%d / %d"):format(page, npages), face = face(true, 13), fgcolor = GRAY_TEXT, padding = 0 },
+                },
+                RightContainer:new{ dimen = Geom:new{ w = w, h = pager_h }, pbtn("chevron.right", page < npages, 1) },
+            })
+        end
         content:resetLayout()
-
-        local dock = self:buildNavBar(w)
-        return package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
+        local body = package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
+        local ic = InputContainer:new{ dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }, body }
+        ic.ges_events = { AireSwipe = { GestureRange:new{ ges = "swipe", range = function() return ic.dimen end } } }
+        ic.onAireSwipe = function(_self, ges)
+            local dir = ges and ges.direction
+            if dir == "west" and page < npages then
+                self._stats_page = page + 1
+                self:apply()
+                UIManager:setDirty(self.ui, "ui")
+                return true
+            elseif dir == "east" and page > 1 then
+                self._stats_page = page - 1
+                self:apply()
+                UIManager:setDirty(self.ui, "ui")
+                return true
+            end
+            return false
+        end
+        return ic
     end
 
     -------------------------------------------------------------------------
