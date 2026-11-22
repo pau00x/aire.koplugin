@@ -398,7 +398,75 @@ function Aire:apply()
     if config.enabled then self:scheduleTick() else self:unscheduleTick() end
 end
 
+-- Pila de navegación contextual compartida para subvistas (Recap, Calendario, Terminados, Empezados…)
+function Aire:clearBackStack()
+    self._back_stack = nil
+end
+
+function Aire:pushBack(target_view)
+    if self._restoring_back or not self.view or self.view == target_view then return end
+    local entry = { view = self.view }
+    if self.view == "recap" and self._recap then
+        local R = self._recap
+        entry.state = { mode = R.mode, year = R.year, month = R.month, page = R.page }
+    elseif self.view == "calendar" and self._cal then
+        local C = self._cal
+        entry.state = { year = C.year, month = C.month, day = C.day }
+    elseif self.view == "in_progress" then
+        entry.state = { page = self._inprog_page }
+    end
+    self._back_stack = self._back_stack or {}
+    local top = self._back_stack[#self._back_stack]
+    if not top or top.view ~= entry.view then
+        table.insert(self._back_stack, entry)
+        if #self._back_stack > 16 then table.remove(self._back_stack, 1) end
+    else
+        self._back_stack[#self._back_stack] = entry
+    end
+end
+
+function Aire:goBack(fallback)
+    local stack = self._back_stack
+    local entry = stack and table.remove(stack)
+    if not entry then
+        if type(fallback) == "function" then
+            fallback()
+        elseif self.showStatsView then
+            self:showStatsView()
+        else
+            self:showHome()
+        end
+        return
+    end
+    self._restoring_back = true
+    local ok, err = pcall(function()
+        local v = entry.view
+        if v == "home" then
+            self:showHome()
+        elseif v == "stats" and self.showStatsView then
+            self:showStatsView()
+        elseif v == "recap" and self.showRecapView then
+            self:showRecapView(entry.state and entry.state.mode, entry.state)
+        elseif v == "calendar" and self.showCalendarView then
+            self:showCalendarView(entry.state)
+        elseif v == "in_progress" and self.showInProgressView then
+            self:showInProgressView(entry.state)
+        elseif v == "habits" and self.showHabitsView then
+            self:showHabitsView()
+        elseif self.isGridView and self:isGridView(v) and self.showGridView then
+            self:showGridView(v)
+        elseif type(fallback) == "function" then
+            fallback()
+        else
+            self:showHome()
+        end
+    end)
+    self._restoring_back = nil
+    if not ok then logger.warn("Aire/Nav: error volviendo atrás:", err) end
+end
+
 function Aire:showHome()
+    if not self._restoring_back then self:clearBackStack() end
     if self.view ~= "home" then
         self._w_random = nil
         -- Desde otra pestaña pueden haber cambiado estados, historial o
@@ -426,6 +494,7 @@ function Aire:showFiles(go_home_dir)
 end
 
 function Aire:showExplorer()
+    self:clearBackStack()
     if self.closeGridViews then self:closeGridViews() end
     if config.mode ~= "explorer" then
         config.mode = "explorer"
