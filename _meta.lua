@@ -8,6 +8,6 @@ end
 return {
     fullname = _("Aire"),
     -- Versión de Aire (única fuente: main.lua la lee de aquí y la escribe en el log)
-    version = "0.5.0",
+    version = "0.6.0",
     description = _("Home screen with the current book, widgets, library, collections, history and stats, and a bottom navigation bar."),
 }

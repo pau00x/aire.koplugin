@@ -4,6 +4,29 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-11-22
+
+### Added
+
+- **Reading goals**: configure optional daily reading time and yearly finished-books goals from the Statistics header (*Goals* button), reflected across the Bento cards and the 7-day chart's dashed reference line.
+- **2-page Recaps (Monthly, Annual, All time)**: Page 1 shows KPIs, Daily/Monthly/Annual rhythm bars, individual 2×2 milestone cards (*Best week / month / year*, *Best day*, *Best streak*, *Top author*) and *Most read books*; Page 2 shows *Most read genres*, *When you read* time slots and *Days of the week*. Includes a top-right camera button to capture a screenshot directly.
+- **Started books view**: tapping the *Started books* card in Statistics opens a dedicated list of in-progress books with reading stats.
+- **Automatic collections by language**: optional toggle in Collections settings that normalizes ISO/text language metadata into KOReader's UI language.
+- **Contextual back navigation**: shared back stack across subviews (*Recap*, *Calendar*, *Finished books*, *Started books*) so Back returns to the exact origin screen and state.
+
+### Changed
+
+- **Redesigned Statistics screen**: asymmetric Bento layout (tall *Streak* card paired with *Today* and *Finished books*), dynamic-height *Last 7 days* bar chart with comparison badge and dashed goal/average reference line, *Started books* card, and 3-column Recaps row.
+- **Unified in-reader statistics**: aligned *Reading progress*, *Current statistics*, and *Today's timeline* with the white-card / thin-black-border language of Statistics & Recaps, including a top date navigator in Timeline and dashed daily goal/average line in 7-day bars.
+- **Genre & author normalization**: 26 canonical localized genres with multilingual aliases (including Catalan and `&`-joined compound tags), discarding pure noise tags (`ebook`, language names…) while localizing broad fallbacks (*Novel* / *Fiction*).
+- **Top status bar & reader footer polish**: redesigned status bar icons, cleaner `SortWidget` controls, and improved top-bar / `‹ Back` touch zones (disabling KOReader's `DTAP_ZONE_MENU` behind Aire views).
+
+### Fixed
+
+- Fixed top menu becoming unclosable by tapping outside after returning from a fullscreen page opened from the top menu.
+- Fixed swipe gestures on Recaps and the top status bar.
+- Added session caching for Statistics and Recap queries keyed by database mtime/size and active language.
+
 ## [0.5.0] - 2026-11-20
 
 ### Changed
