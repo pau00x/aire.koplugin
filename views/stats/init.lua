@@ -444,7 +444,7 @@ return function(Aire, ctx)
                 chev,
             }
             local lbl_max = math.max(S(60), content_w - right_grp:getSize().w - S(10))
-            local lbl_w = TextWidget:new{ text = label, face = face(true, SH.ROW_FONT), fgcolor = BLACK, max_width = lbl_max, padding = 0 }
+            local lbl_w = TextWidget:new{ text = label, face = face(false, SH.BTN_FONT), fgcolor = BLACK, max_width = lbl_max, padding = 0 }
             local inner_h = math.max(S(SH.BTN_H) - 2 * Size.border.thin, math.max(lbl_w:getSize().h, right_grp:getSize().h) + S(16))
             return tappable(FrameContainer:new{
                 bordersize = Size.border.thin,
