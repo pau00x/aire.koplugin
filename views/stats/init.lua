@@ -429,8 +429,8 @@ return function(Aire, ctx)
         local LS = package.loaded.aire_screen.LIST
         local daily = tonumber(config.stats_goal_daily_min) or 0
         local yearly = tonumber(config.stats_goal_yearly_books) or 0
-        local daily_val = daily > 0 and T(_("%1 min/day"), daily) or _("Off")
-        local yearly_val = yearly > 0 and T(N_("%1 book/year", "%1 books/year", yearly), yearly) or _("Off")
+        local daily_val = daily > 0 and T(_("%1 min/day"), daily) or _("Disabled")
+        local yearly_val = yearly > 0 and T(N_("%1 book/year", "%1 books/year", yearly), yearly) or _("Disabled")
         local sheet = Sh.Sheet:new{ full_refresh = false }
         local function goalCard(inner_w, label, val_txt, on_tap, on_hold)
             local pad_h = S(LS.CARD_PAD)
