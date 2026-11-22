@@ -774,7 +774,7 @@ return function(Aire, ctx)
         local body = package.loaded.aire_screen.root(HorizontalGroup:new{ HorizontalSpan:new{ width = side }, content }, dock)
         local ic = InputContainer:new{ dimen = Geom:new{ x = 0, y = 0, w = sw, h = sh }, body }
         ic.ges_events = { AireSwipe = { GestureRange:new{ ges = "swipe", range = function() return ic.dimen end } } }
-        ic.onAireSwipe = function(_self, ges)
+        ic.onAireSwipe = function(_self, _args, ges)
             local dir = ges and ges.direction
             if dir == "west" and page < npages then
                 self._stats_page = page + 1
@@ -1193,6 +1193,30 @@ return function(Aire, ctx)
         }
     end
 
+    -- Tarjeta individual de hito (2 columnas o ancho completo)
+    local function hitCard(cw, label, main_val, sub_val)
+        local pad = S(9)
+        local inner_w = cw - 2 * (pad + Size.border.thin)
+        local vg = VerticalGroup:new{
+            align = "left",
+            TextWidget:new{ text = label, face = face(true, 11), fgcolor = GRAY_TEXT, max_width = inner_w, padding = 0 },
+            VerticalSpan:new{ width = S(2) },
+            TextWidget:new{ text = main_val, face = face(true, 14), fgcolor = BLACK, max_width = inner_w, padding = 0 },
+        }
+        if sub_val and sub_val ~= "" then
+            table.insert(vg, VerticalSpan:new{ width = S(1) })
+            table.insert(vg, TextWidget:new{ text = sub_val, face = face(false, 11), fgcolor = GRAY_TEXT, max_width = inner_w, padding = 0 })
+        end
+        return FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = pad,
+            width = cw,
+            vg,
+        }
+    end
+
     local function appendRecapPage1(self, content, w, recap, mode, avail_bottom)
         local card_gap = S(10)
         local tw = math.floor((w - 2 * card_gap) / 3)
@@ -1200,7 +1224,7 @@ return function(Aire, ctx)
         local speed = recap.speed or calcSpeed(recap.total_pages, recap.total_secs)
         local pages_sub = speed > 0 and T(_("%1 pp./h"), speed) or _("pages read")
         local fin_n = #recap.finished_books
-        table.insert(content, HorizontalGroup:new{
+        local kpi_row = HorizontalGroup:new{
             align = "top",
             recapKpiTile(tw, _("Time"), fmtDuration(recap.total_secs), T(_("%1/day"), fmtDuration(avg_secs))),
             HorizontalSpan:new{ width = card_gap },
@@ -1215,10 +1239,93 @@ return function(Aire, ctx)
                         self:showGridView("finished")
                     end
                 end),
-        })
+        }
 
-        -- Tarjeta de ritmo (coherente: Ritmo diario / Ritmo mensual / Ritmo anual)
-        table.insert(content, VerticalSpan:new{ width = card_gap })
+        -- Hitos en tarjetas individuales (2x2 o fila de 2 + fila ancha)
+        local hits = {}
+        if mode == "all" and recap.best_year then
+            table.insert(hits, { _("Best year"), tostring(recap.best_year.year), fmtDuration(recap.best_year.secs) })
+        elseif mode == "year" and recap.best_month then
+            table.insert(hits, { _("Best month"), MONTHS[recap.best_month.month] or "", fmtDuration(recap.best_month.secs) })
+        end
+        if recap.best_day and recap.best_day.day then
+            local bd_lbl
+            if mode == "month" then
+                bd_lbl = T(_("Day %1"), recap.best_day.day)
+            elseif mode == "all" and recap.best_day.year then
+                bd_lbl = ("%d %s %d"):format(recap.best_day.day, MONTHS[recap.best_day.month] or "", recap.best_day.year)
+            else
+                bd_lbl = ("%d %s"):format(recap.best_day.day, MONTHS[recap.best_day.month] or "")
+            end
+            table.insert(hits, { _("Best day"), bd_lbl, fmtDuration(recap.best_day.secs) })
+        end
+        if recap.best_streak and recap.best_streak > 0 then
+            table.insert(hits, { _("Best streak"), T(N_("%1 day", "%1 days", recap.best_streak), recap.best_streak), _("in a row") })
+        end
+        if recap.top_author then
+            table.insert(hits, { _("Top author"), recap.top_author.name, fmtDuration(recap.top_author.secs) })
+        end
+
+        local hits_vg = VerticalGroup:new{ align = "left" }
+        local hw = math.floor((w - card_gap) / 2)
+        local hw2 = w - hw - card_gap
+        local idx = 1
+        while idx <= #hits do
+            if idx > 1 then table.insert(hits_vg, VerticalSpan:new{ width = card_gap }) end
+            if idx == #hits then
+                local h1 = hits[idx]
+                table.insert(hits_vg, hitCard(w, h1[1], h1[2], h1[3]))
+                idx = idx + 1
+            else
+                local h1, h2 = hits[idx], hits[idx + 1]
+                table.insert(hits_vg, HorizontalGroup:new{
+                    align = "top",
+                    hitCard(hw, h1[1], h1[2], h1[3]),
+                    HorizontalSpan:new{ width = card_gap },
+                    hitCard(hw2, h2[1], h2[2], h2[3]),
+                })
+                idx = idx + 2
+            end
+        end
+
+        -- Tarjeta "Más leídos" (en todos los modos: Mensual, Anual y Todo el tiempo)
+        local top_card = nil
+        if #recap.top_books > 0 then
+            local mpad = S(9)
+            local m_inner = w - 2 * (mpad + Size.border.thin)
+            local mvg = VerticalGroup:new{
+                align = "left",
+                sectionLabel(_("MOST READ")),
+                VerticalSpan:new{ width = S(4) },
+            }
+            local shown = math.min(3, #recap.top_books)
+            for i = 1, shown do
+                local b = recap.top_books[i]
+                local val_w = TextWidget:new{ text = fmtDuration(b.secs), face = face(false, 12), fgcolor = GRAY_TEXT, padding = 0 }
+                local key_max = math.max(S(60), m_inner - val_w:getSize().w - S(10))
+                local key_w = TextWidget:new{
+                    text = ("%d. %s"):format(i, b.title), face = face(false, 13), fgcolor = BLACK,
+                    max_width = key_max, padding = 0,
+                }
+                local rh = math.max(key_w:getSize().h, val_w:getSize().h)
+                if i > 1 then table.insert(mvg, VerticalSpan:new{ width = S(5) }) end
+                table.insert(mvg, OverlapGroup:new{
+                    dimen = Geom:new{ w = m_inner, h = rh },
+                    LeftContainer:new{ dimen = Geom:new{ w = m_inner, h = rh }, key_w },
+                    RightContainer:new{ dimen = Geom:new{ w = m_inner, h = rh }, val_w },
+                })
+            end
+            top_card = FrameContainer:new{
+                bordersize = Size.border.thin,
+                color = BLACK,
+                radius = S(10),
+                padding = mpad,
+                width = w,
+                mvg,
+            }
+        end
+
+        -- Tarjeta de ritmo (altura dinámica de barras para que Hitos + Más leídos quepan siempre)
         local rpad = S(10)
         local r_inner = w - 2 * (rpad + Size.border.thin)
         local rhythm_lbl
@@ -1240,78 +1347,52 @@ return function(Aire, ctx)
                 rhythm_lbl = rhythm_lbl .. " · " .. T(_("Best month: %1"), MONTHS[recap.best_month.month])
             end
         end
-        local rhythm_body = VerticalGroup:new{
-            align = "left",
-            sectionLabel(rhythm_lbl),
-            VerticalSpan:new{ width = S(6) },
-            RecapBars:new{ width = r_inner, height = S(74), bars = recap.bars },
-        }
-        table.insert(content, FrameContainer:new{
+        local rl_w = sectionLabel(rhythm_lbl)
+        content:resetLayout()
+        local used_now = content:getSize().h + kpi_row:getSize().h + card_gap
+        if #hits > 0 then used_now = used_now + hits_vg:getSize().h + card_gap end
+        if top_card then used_now = used_now + top_card:getSize().h + card_gap end
+        local r_chrome = 2 * (rpad + Size.border.thin) + rl_w:getSize().h + S(6)
+        local free_bars = avail_bottom - used_now - r_chrome
+        local bars_h = math.max(S(50), math.min(S(82), free_bars))
+        local rhythm_card = FrameContainer:new{
             bordersize = Size.border.thin,
             color = BLACK,
             radius = S(10),
             padding = rpad,
             width = w,
-            rhythm_body,
-        })
+            VerticalGroup:new{
+                align = "left",
+                rl_w,
+                VerticalSpan:new{ width = S(6) },
+                RecapBars:new{ width = r_inner, height = bars_h, bars = recap.bars },
+            },
+        }
 
-        -- Hitos del periodo (coherente: Mejor mes/año + Mejor día en todos + Mejor racha + Autor)
-        table.insert(content, VerticalSpan:new{ width = S(14) })
-        table.insert(content, sectionLabel(_("HIGHLIGHTS")))
-        table.insert(content, VerticalSpan:new{ width = S(4) })
-        local hits = {}
-        if mode == "all" and recap.best_year then
-            table.insert(hits, { _("Best year"), tostring(recap.best_year.year) .. " · " .. fmtDuration(recap.best_year.secs) })
-        elseif mode == "year" and recap.best_month then
-            table.insert(hits, { _("Best month"), (MONTHS[recap.best_month.month] or "") .. " · " .. fmtDuration(recap.best_month.secs) })
+        table.insert(content, kpi_row)
+        table.insert(content, VerticalSpan:new{ width = card_gap })
+        table.insert(content, rhythm_card)
+        if #hits > 0 then
+            table.insert(content, VerticalSpan:new{ width = card_gap })
+            table.insert(content, hits_vg)
         end
-        if recap.best_day and recap.best_day.day then
-            local bd_lbl
-            if mode == "month" then
-                bd_lbl = T(_("Day %1"), recap.best_day.day)
-            elseif mode == "all" and recap.best_day.year then
-                bd_lbl = ("%d %s %d"):format(recap.best_day.day, MONTHS[recap.best_day.month] or "", recap.best_day.year)
-            else
-                bd_lbl = ("%d %s"):format(recap.best_day.day, MONTHS[recap.best_day.month] or "")
-            end
-            table.insert(hits, { _("Best day"), bd_lbl .. " · " .. fmtDuration(recap.best_day.secs) })
-        end
-        if recap.best_streak and recap.best_streak > 0 then
-            table.insert(hits, { _("Best streak"), T(N_("%1 day", "%1 days", recap.best_streak), recap.best_streak) })
-        end
-        if recap.top_author then
-            table.insert(hits, { _("Top author"), recap.top_author.name .. " · " .. fmtDuration(recap.top_author.secs) })
-        end
-        for i, h in ipairs(hits) do
-            table.insert(content, package.loaded.aire_list.row({ key = h[1], value = h[2], line = i < #hits }, w))
-        end
-
-        -- Libros más leídos (solo los que quepan con holgura encima del paginador y el dock)
-        if #recap.top_books > 0 then
-            content:resetLayout()
-            local row_h = S(package.loaded.aire_screen.LIST.ROW_H) + Size.line.thin
-            local head_h = S(14) + sectionLabel(_("MOST READ")):getSize().h + S(4)
-            local fit = math.max(0, math.floor((avail_bottom - content:getSize().h - head_h) / row_h))
-            local shown = math.min(#recap.top_books, fit)
-            if shown > 0 then
-                table.insert(content, VerticalSpan:new{ width = S(14) })
-                table.insert(content, sectionLabel(_("MOST READ")))
-                table.insert(content, VerticalSpan:new{ width = S(4) })
-                for i = 1, shown do
-                    local b = recap.top_books[i]
-                    table.insert(content, package.loaded.aire_list.row({
-                        key = ("%d. %s"):format(i, b.title), key_main = true,
-                        value = fmtDuration(b.secs), line = i < shown,
-                    }, w))
-                end
-            end
+        if top_card then
+            table.insert(content, VerticalSpan:new{ width = card_gap })
+            table.insert(content, top_card)
         end
     end
 
     local function appendRecapPage2(content, w, recap)
-        -- 1. Géneros más leídos (Top 5 normalizados en el idioma de KOReader)
-        table.insert(content, sectionLabel(_("MOST READ GENRES")))
-        table.insert(content, VerticalSpan:new{ width = S(8) })
+        local card_gap = S(10)
+        local pad = S(10)
+        local inner_w = w - 2 * (pad + Size.border.thin)
+
+        -- 1. Tarjeta Géneros más leídos (Top 5 normalizados en el idioma de KOReader)
+        local g_vg = VerticalGroup:new{
+            align = "left",
+            sectionLabel(_("MOST READ GENRES")),
+            VerticalSpan:new{ width = S(8) },
+        }
         if recap.top_genres and #recap.top_genres > 0 then
             local max_secs = recap.top_genres[1].secs or 1
             local items = {}
@@ -1323,16 +1404,24 @@ return function(Aire, ctx)
                     ratio = max_secs > 0 and (g.secs / max_secs) or 0,
                 })
             end
-            table.insert(content, HorizontalBars:new{ width = w, items = items })
+            table.insert(g_vg, HorizontalBars:new{ width = inner_w, items = items, compact = true })
         else
-            table.insert(content, TextWidget:new{
+            table.insert(g_vg, TextWidget:new{
                 text = _("No genre metadata yet"),
-                face = face(false, 13), fgcolor = GRAY_TEXT, max_width = w, padding = 0,
+                face = face(false, 13), fgcolor = GRAY_TEXT, max_width = inner_w, padding = 0,
             })
         end
+        table.insert(content, FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = pad,
+            width = w,
+            g_vg,
+        })
 
         -- 2. Cuándo lees (4 franjas horarias limpias; la favorita en negro)
-        table.insert(content, VerticalSpan:new{ width = S(18) })
+        table.insert(content, VerticalSpan:new{ width = card_gap })
         local fav_slot_w = nil
         if recap.fav_slot and recap.time_slots then
             for _i, s in ipairs(recap.time_slots) do
@@ -1346,7 +1435,7 @@ return function(Aire, ctx)
             end
         end
         table.insert(content, sectionRow(w, _("WHEN YOU READ"), fav_slot_w))
-        table.insert(content, VerticalSpan:new{ width = S(8) })
+        table.insert(content, VerticalSpan:new{ width = S(6) })
         if recap.time_slots and #recap.time_slots == 4 then
             local sgap = S(8)
             local sw_card = math.floor((w - 3 * sgap) / 4)
@@ -1355,23 +1444,23 @@ return function(Aire, ctx)
                 if i > 1 then table.insert(srow, HorizontalSpan:new{ width = sgap }) end
                 local cw = (i == 4) and (w - 3 * (sw_card + sgap)) or sw_card
                 local active = (s.id == recap.fav_slot and s.secs > 0)
-                local pad = S(8)
-                local inner_w = cw - 2 * Size.border.thin
+                local spad = S(8)
+                local s_inner = cw - 2 * Size.border.thin
                 local vg = VerticalGroup:new{
                     align = "center",
                     TextWidget:new{
                         text = ("%d%%"):format(s.pct),
-                        face = face(true, 16), fgcolor = active and WHITE or BLACK,
-                        max_width = inner_w - 2 * pad, padding = 0,
+                        face = face(true, 15), fgcolor = active and WHITE or BLACK,
+                        max_width = s_inner - 2 * spad, padding = 0,
                     },
                     VerticalSpan:new{ width = S(2) },
                     TextWidget:new{
                         text = slotLabel(s.id),
                         face = face(false, 11), fgcolor = active and WHITE or GRAY_TEXT,
-                        max_width = inner_w - 2 * pad, padding = 0,
+                        max_width = s_inner - 2 * spad, padding = 0,
                     },
                 }
-                local h = vg:getSize().h + 2 * pad
+                local h = vg:getSize().h + 2 * spad
                 table.insert(srow, FrameContainer:new{
                     bordersize = Size.border.thin,
                     color = BLACK,
@@ -1380,14 +1469,14 @@ return function(Aire, ctx)
                     padding = 0,
                     width = cw,
                     height = h + 2 * Size.border.thin,
-                    CenterContainer:new{ dimen = Geom:new{ w = inner_w, h = h }, vg },
+                    CenterContainer:new{ dimen = Geom:new{ w = s_inner, h = h }, vg },
                 })
             end
             table.insert(content, srow)
         end
 
-        -- 3. Días de la semana (L-D)
-        table.insert(content, VerticalSpan:new{ width = S(18) })
+        -- 3. Tarjeta Días de la semana (L-D, en tarjeta como los otros gráficos de barras)
+        table.insert(content, VerticalSpan:new{ width = card_gap })
         local fav_wd_w = nil
         if recap.fav_weekday and recap.weekdays and recap.weekdays[recap.fav_weekday] and recap.weekdays[recap.fav_weekday].secs > 0 then
             local lua_wday = (recap.fav_weekday % 7) + 1
@@ -1397,13 +1486,24 @@ return function(Aire, ctx)
                 face = face(true, 12), fgcolor = BLACK, padding = 0,
             }
         end
-        table.insert(content, sectionRow(w, _("DAYS OF THE WEEK"), fav_wd_w))
-        table.insert(content, VerticalSpan:new{ width = S(8) })
+        local wd_vg = VerticalGroup:new{
+            align = "left",
+            sectionRow(inner_w, _("DAYS OF THE WEEK"), fav_wd_w),
+            VerticalSpan:new{ width = S(8) },
+        }
         if recap.weekdays and #recap.weekdays == 7 then
-            table.insert(content, WeekdayBars:new{
-                width = w, height = S(84), days = recap.weekdays, fav = recap.fav_weekday,
+            table.insert(wd_vg, WeekdayBars:new{
+                width = inner_w, height = S(78), days = recap.weekdays, fav = recap.fav_weekday,
             })
         end
+        table.insert(content, FrameContainer:new{
+            bordersize = Size.border.thin,
+            color = BLACK,
+            radius = S(10),
+            padding = pad,
+            width = w,
+            wd_vg,
+        })
     end
 
     function Aire:buildRecapView()
@@ -1488,9 +1588,14 @@ return function(Aire, ctx)
         })
         table.insert(content, VerticalSpan:new{ width = S(8) })
 
-        -- Navegador de periodo (‹ Noviembre 2026 › / ‹ 2026 ›); en "Todo" no hace falta
-        if mode ~= "all" then
-            local nav_h = S(32)
+        -- Navegador de periodo (‹ Noviembre 2026 › / ‹ 2026 › / Todo el tiempo centrado)
+        local nav_h = S(32)
+        if mode == "all" then
+            table.insert(content, CenterContainer:new{
+                dimen = Geom:new{ w = w, h = nav_h },
+                TextWidget:new{ text = _("All time"), face = face(true, 16), fgcolor = BLACK, padding = 0 },
+            })
+        else
             local is_current = (mode == "year" and R.year == now.year)
                 or (mode == "month" and R.year == now.year and R.month == now.month)
             local function arrow(icon, enabled, delta)
@@ -1509,8 +1614,8 @@ return function(Aire, ctx)
                 },
                 RightContainer:new{ dimen = Geom:new{ w = w, h = nav_h }, arrow("chevron.right", not is_current, 1) },
             })
-            table.insert(content, VerticalSpan:new{ width = S(8) })
         end
+        table.insert(content, VerticalSpan:new{ width = S(8) })
 
         local dock = self:buildNavBar(w)
         local dock_area = package.loaded.aire_screen.dockReserve(dock)
@@ -1554,7 +1659,7 @@ return function(Aire, ctx)
         ic.ges_events = {
             AireSwipe = { GestureRange:new{ ges = "swipe", range = function() return ic.dimen end } },
         }
-        ic.onAireSwipe = function(_self, ges)
+        ic.onAireSwipe = function(_self, _args, ges)
             local dir = ges and ges.direction
             if not has_data then return false end
             if dir == "west" and rpage == 1 then
