@@ -425,16 +425,18 @@ return function(Aire, ctx)
 
     function Aire:openGoalsMenu()
         local Sh = package.loaded.aire_sheet
+        local SH = package.loaded.aire_screen.SHEET
+        local LS = package.loaded.aire_screen.LIST
         local daily = tonumber(config.stats_goal_daily_min) or 0
         local yearly = tonumber(config.stats_goal_yearly_books) or 0
         local daily_val = daily > 0 and T(_("%1 min/day"), daily) or _("Off")
         local yearly_val = yearly > 0 and T(N_("%1 book/year", "%1 books/year", yearly), yearly) or _("Off")
         local sheet = Sh.Sheet:new{ full_refresh = false }
         local function goalCard(inner_w, label, val_txt, on_tap, on_hold)
-            local pad = S(12)
-            local content_w = inner_w - 2 * (pad + Size.border.thin)
+            local pad_h = S(LS.CARD_PAD)
+            local content_w = inner_w - 2 * (pad_h + Size.border.thin)
             local chev = IconWidget:new{ icon = "chevron.right", width = S(16), height = S(16), alpha = true }
-            local val_w = TextWidget:new{ text = val_txt, face = face(false, 14), fgcolor = GRAY_TEXT, padding = 0 }
+            local val_w = TextWidget:new{ text = val_txt, face = face(false, LS.VALUE), fgcolor = GRAY_TEXT, padding = 0 }
             local right_grp = HorizontalGroup:new{
                 align = "center",
                 val_w,
@@ -442,25 +444,27 @@ return function(Aire, ctx)
                 chev,
             }
             local lbl_max = math.max(S(60), content_w - right_grp:getSize().w - S(10))
-            local lbl_w = TextWidget:new{ text = label, face = face(true, 15), fgcolor = BLACK, max_width = lbl_max, padding = 0 }
-            local row_h = math.max(lbl_w:getSize().h, right_grp:getSize().h)
+            local lbl_w = TextWidget:new{ text = label, face = face(true, SH.ROW_FONT), fgcolor = BLACK, max_width = lbl_max, padding = 0 }
+            local inner_h = math.max(S(SH.BTN_H) - 2 * Size.border.thin, math.max(lbl_w:getSize().h, right_grp:getSize().h) + S(16))
             return tappable(FrameContainer:new{
                 bordersize = Size.border.thin,
                 color = BLACK,
-                radius = S(10),
-                padding = pad,
+                radius = S(SH.BTN_RADIUS),
+                padding_left = pad_h,
+                padding_right = pad_h,
+                padding_top = 0,
+                padding_bottom = 0,
                 width = inner_w,
                 OverlapGroup:new{
-                    dimen = Geom:new{ w = content_w, h = row_h },
-                    LeftContainer:new{ dimen = Geom:new{ w = content_w, h = row_h }, lbl_w },
-                    RightContainer:new{ dimen = Geom:new{ w = content_w, h = row_h }, right_grp },
+                    dimen = Geom:new{ w = content_w, h = inner_h },
+                    LeftContainer:new{ dimen = Geom:new{ w = content_w, h = inner_h }, lbl_w },
+                    RightContainer:new{ dimen = Geom:new{ w = content_w, h = inner_h }, right_grp },
                 },
             }, on_tap, on_hold)
         end
         sheet:setContent(function(inner_w)
             local vg = VerticalGroup:new{ align = "left" }
             table.insert(vg, Sh.title(_("Reading goals"), inner_w))
-            table.insert(vg, VerticalSpan:new{ width = S(6) })
             table.insert(vg, goalCard(inner_w, _("Daily goal"), daily_val,
                 function()
                     UIManager:close(sheet)
@@ -473,7 +477,7 @@ return function(Aire, ctx)
                     self:apply()
                     UIManager:setDirty(self.ui, "ui")
                 end or nil))
-            table.insert(vg, VerticalSpan:new{ width = S(10) })
+            table.insert(vg, VerticalSpan:new{ width = S(SH.BTN_GAP) })
             table.insert(vg, goalCard(inner_w, _("Annual goal"), yearly_val,
                 function()
                     UIManager:close(sheet)
