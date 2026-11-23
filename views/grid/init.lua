@@ -541,12 +541,15 @@ return function(Aire, ctx)
                 end
             end
             sortEntries(entries, config.coll_list_sort or "manual", config.coll_list_sort_rev == true)
-            table.insert(entries, 1, { is_action = true, action = "new_collection", title = _("New collection") })
+            local n_entries = #entries
+            if filter == "all" or n_entries > 0 then
+                table.insert(entries, 1, { is_action = true, action = "new_collection", title = _("New collection") })
+            end
             return {
                 entries = entries,
                 counts = filter == "all"
                     and (T(N_("%1 collection", "%1 collections", #L.groups), #L.groups) .. " · " .. T(N_("%1 book", "%1 books", total), total))
-                    or T(N_("%1 collection", "%1 collections", #entries), #entries),
+                    or T(N_("%1 collection", "%1 collections", n_entries), n_entries),
                 filters = { list = LISTS.FILTERS_BOOKS, key = "coll_list_filter" },
                 sorts = { list = LISTS.SORTS_COLL_LIST, key = "coll_list_sort", default = "manual" },
                 empty = filter == "all" and _("No collections") or _("No collections with this filter"),
@@ -991,8 +994,16 @@ return function(Aire, ctx)
         if group.fake then return end
         local is_default = group.key == RC().default_collection_name -- Favoritos: no se renombra ni borra
         if group.auto then
+            local auto_label = _("Automatic: books by this author")
+            if type(group.key) == "string" then
+                if group.key:sub(1, #LISTS.AUTO.GENRE) == LISTS.AUTO.GENRE then
+                    auto_label = _("Automatic: books in this genre")
+                elseif group.key:sub(1, #LISTS.AUTO.LANG) == LISTS.AUTO.LANG then
+                    auto_label = _("Automatic: books in this language")
+                end
+            end
             return self:showGroupStatusSheet(group, {
-                { { text = _("Automatic: books by this author"), enabled = false } },
+                { { text = auto_label, enabled = false } },
                 {
                     { text = _("New collection…"), callback = function() self:newCollection() end },
                     { text = _("Sort collections…"), callback = function() self:sortCollections() end },
