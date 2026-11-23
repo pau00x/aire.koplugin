@@ -1,7 +1,7 @@
 """
 Copia de Aire lista para el Kindle: solo lo que KOReader usa.
 
-    python scripts/kindle_copy.py              -> ../device-ready/aire.koplugin
+    python scripts/kindle_copy.py              -> ../dist/aire.koplugin
     python scripts/kindle_copy.py --out RUTA   -> RUTA/aire.koplugin
     python scripts/kindle_copy.py --no-dev     -> sin dev/ (sin tests ni devtools)
     python scripts/kindle_copy.py --zip        -> además, aire-<versión>.zip de publicación
@@ -46,7 +46,7 @@ def wanted(rel: Path, with_dev: bool) -> bool:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(PLUGIN.parent / "device-ready"))
+    ap.add_argument("--out", default=str(PLUGIN.parent / "dist"))
     ap.add_argument("--no-dev", action="store_true")
     ap.add_argument("--zip", action="store_true")
     a = ap.parse_args()

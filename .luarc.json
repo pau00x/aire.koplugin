@@ -1,6 +1,6 @@
 {
   "workspace": {
-    "library": ["./koreader/frontend"],
+    "library": ["./koreader/frontend", "../koreader/frontend"],
     "ignoreDir": [".vscode", ".git", "l10n", "icons"]
   },
   "runtime": {
