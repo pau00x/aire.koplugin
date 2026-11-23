@@ -47,7 +47,7 @@ local function fmtDur(secs)
 end
 
 local function readDailyGoalSecs()
-    local saved = G_reader_settings:readSetting("aire_home")
+    local saved = G_reader_settings:readSetting("aire")
     local mins = type(saved) == "table" and tonumber(saved.stats_goal_daily_min) or 0
     return (mins and mins > 0) and math.floor(mins * 60) or 0
 end
