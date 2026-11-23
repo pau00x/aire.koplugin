@@ -179,11 +179,18 @@ return function(Aire, ctx)
             UIManager:forceRePaint()
         end
         return sheet, function(got, total)
-            local pct = (total and total > 0) and math.min(1, got / total) or 0
-            local step = math.floor(pct * 10)
-            if step == last then return end
-            last = step
-            set(pct, T(_("Downloading… %1 of %2"), friendlySize(got), friendlySize(total)))
+            if total and total > 0 then
+                local pct = math.min(1, got / total)
+                local step = math.floor(pct * 10)
+                if step == last then return end
+                last = step
+                set(pct, T(_("Downloading… %1 of %2"), friendlySize(got), friendlySize(total)))
+            else
+                local step = math.floor((got or 0) / 65536)
+                if step == last then return end
+                last = step
+                set(0, friendlySize(got or 0))
+            end
         end, function(text) set(1, text) end
     end
 
@@ -192,13 +199,21 @@ return function(Aire, ctx)
             local Upd = getUpd()
             if not Upd then return end
             local sheet, on_progress, set_label = showProgress(info)
-            local path, err = Upd.download(info, on_progress)
-            local ok
-            if path then
-                set_label(_("Installing…"))
-                ok, err = Upd.install(path, info)
-            end
+            local ok, err
+            local ok_run, run_err = pcall(function()
+                local path, derr = Upd.download(info, on_progress)
+                if path then
+                    set_label(_("Installing…"))
+                    ok, err = Upd.install(path, info)
+                else
+                    err = derr
+                end
+            end)
             UIManager:close(sheet)
+            if not ok_run then
+                ok = false
+                err = run_err
+            end
             if ok then
                 installed_pending = info.version
                 config.update_latest = nil
@@ -362,7 +377,16 @@ return function(Aire, ctx)
         end
         if Upd.isNewer(info.version, installedVersion()) and installed_pending ~= info.version then
             -- Se guarda sin el texto entero si es muy largo (va en settings.reader.lua)
-            if #info.notes > 4000 then info.notes = info.notes:sub(1, 4000) end
+            if #info.notes > 4000 then
+                local cut = 4000
+                while cut > 0 do
+                    local b = info.notes:byte(cut)
+                    if not b or b < 0x80 or b >= 0xC0 then break end
+                    cut = cut - 1
+                end
+                if cut > 0 and info.notes:byte(cut) >= 0xC0 then cut = cut - 1 end
+                info.notes = info.notes:sub(1, cut)
+            end
             config.update_latest = info
             saveConfig()
             refreshTopBar()
