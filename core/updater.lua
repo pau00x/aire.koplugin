@@ -116,9 +116,9 @@ end
 -- Última release publicada (con zip aire-*.zip). include_beta: también las pre-releases.
 -- info = { version, tag, date, prerelease, notes, url, size, asset }
 function M.fetchLatest(include_beta)
-    local ltn12 = require("ltn12")
+    local socketutil = require("socketutil")
     local chunks = {}
-    local ok, err = request(M.API_URL, ltn12.sink.table(chunks), 15, 30)
+    local ok, err = request(M.API_URL, socketutil.table_sink(chunks), 15, 30)
     if not ok then return nil, err end
     local ok_json, list = pcall(function() return require("rapidjson").decode(table.concat(chunks)) end)
     if not ok_json or type(list) ~= "table" then return nil, "bad json" end
@@ -145,6 +145,7 @@ function M.fetchLatest(include_beta)
                     url = asset.browser_download_url,
                     size = tonumber(asset.size) or 0,
                     asset = asset.name,
+                    sha256 = type(asset.digest) == "string" and asset.digest:match("^sha256:([0-9a-fA-F]+)$") or nil,
                 }
             end
         end
@@ -223,10 +224,17 @@ function M.download(info, on_progress)
     os.remove(path)
     local fh = io.open(path, "wb")
     if not fh then return nil, "cannot write " .. path end
+    local hasher
+    if type(info.sha256) == "string" and #info.sha256 == 64 then
+        local ok_sha, sha2 = pcall(require, "ffi/sha2")
+        if ok_sha and sha2 and sha2.sha256 then hasher = sha2.sha256() end
+    end
     local got = 0
     local sink = function(chunk, err)
         if chunk then
-            fh:write(chunk)
+            local ok_w, werr = fh:write(chunk)
+            if not ok_w then return nil, werr or "write error" end
+            if hasher then hasher(chunk) end
             got = got + #chunk
             if on_progress then pcall(on_progress, got, info.size) end
         else
@@ -243,6 +251,13 @@ function M.download(info, on_progress)
     if info.size and info.size > 0 and lfs.attributes(path, "size") ~= info.size then
         os.remove(path)
         return nil, "size mismatch"
+    end
+    if hasher and info.sha256 then
+        local digest = hasher()
+        if type(digest) ~= "string" or digest:lower() ~= info.sha256:lower() then
+            os.remove(path)
+            return nil, "sha256 mismatch"
+        end
     end
     return path
 end
