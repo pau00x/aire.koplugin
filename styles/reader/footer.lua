@@ -209,11 +209,21 @@ local function appendPlain(row, text_widgets, chunk, face, bold, soft_bar)
     end
 end
 
+local wifi_icon_cache = { icon = "", at = 0 }
+local function cachedWifiStatusIcon()
+    local now = os.time()
+    if wifi_icon_cache.icon == "" or (now - wifi_icon_cache.at) >= 10 then
+        wifi_icon_cache.icon = AireScreen.wifiStatusIcon()
+        wifi_icon_cache.at = now
+    end
+    return wifi_icon_cache.icon
+end
+
 function AireFooterText:_rebuild()
     local text = type(self.text) == "string" and self.text or ""
     local sep_mode = self.footer and self.footer.settings and self.footer.settings.items_separator or ""
     local soft_bar = sep_mode == "bar"
-    local wifi_icon = text:find("\1W\2", 1, true) and AireScreen.wifiStatusIcon() or ""
+    local wifi_icon = text:find("\1W\2", 1, true) and cachedWifiStatusIcon() or ""
     local key = text .. "\0" .. tostring(self.max_width or "") .. "\0" .. tostring(sep_mode) .. "\0" .. wifi_icon
     if key == self._built_key then return end
     self._built_key = key
@@ -311,6 +321,12 @@ function AireFooterText:_rebuild()
 
     self[1] = row
     self.height = row:getSize().h
+end
+
+function AireFooterText:setContent(text, max_w)
+    self.text = text or ""
+    if max_w ~= nil then self.max_width = max_w end
+    self:_rebuild()
 end
 
 function AireFooterText:setText(text)
@@ -448,10 +464,10 @@ local function newFooterText(footer, text)
     return w
 end
 
-local function installFooterWidget(footer)
+local function installFooterWidget(footer, force)
     if not footer or not footer.text_container then return end
     local cur = footer.footer_text
-    if not (cur and cur._aire_footer_text) then
+    if force or not (cur and cur._aire_footer_text) then
         local cur_text = cur and cur.text or ""
         if cur and cur.free then cur:free() end
         local w = newFooterText(footer, cur_text)
@@ -460,15 +476,20 @@ local function installFooterWidget(footer)
     end
     if footer._aire_left_box then
         local lcur = footer._aire_left_text
-        local ltext = lcur and lcur.text or ""
-        if lcur and lcur.free then lcur:free() end
-        local lw = newFooterText(footer, ltext)
-        footer._aire_left_text = lw
-        footer._aire_left_box[1] = lw
+        if force or not (lcur and lcur._aire_footer_text) then
+            local ltext = lcur and lcur.text or ""
+            if lcur and lcur.free then lcur:free() end
+            local lw = newFooterText(footer, ltext)
+            footer._aire_left_text = lw
+            footer._aire_left_box[1] = lw
+        end
     end
 end
 
 local function installSplitContainer(footer)
+    if footer and footer._aire_left_text and footer._aire_left_text.free then
+        footer._aire_left_text:free()
+    end
     if not footer or not footer.horizontal_group or not isSplitMode(footer) then
         footer._aire_left_box = nil
         footer._aire_left_text = nil
@@ -514,8 +535,7 @@ local function applySplitLayout(footer)
     local gap = S(10)
 
     -- 1) Derecha (progreso + hora + batería): ancho completo sin truncar salvo extremo
-    footer.footer_text:setMaxWidth(math.floor(avail * 0.65))
-    footer.footer_text:setText(right_str)
+    footer.footer_text:setContent(right_str, math.floor(avail * 0.65))
     local right_w = right_str ~= "" and footer.footer_text:getSize().w or 0
     local right_gap = right_w > 0 and gap or 0
 
@@ -523,8 +543,7 @@ local function applySplitLayout(footer)
     local min_bar = math.max(S(32), math.floor(avail * (footer.settings.progress_bar_min_width_pct or 20) / 100))
     local left_gap = left_str ~= "" and gap or 0
     local max_left = math.max(S(36), avail - right_w - right_gap - left_gap - min_bar)
-    footer._aire_left_text:setMaxWidth(max_left)
-    footer._aire_left_text:setText(left_str)
+    footer._aire_left_text:setContent(left_str, max_left)
     local left_w = left_str ~= "" and footer._aire_left_text:getSize().w or 0
     if left_w == 0 then left_gap = 0 end
 
@@ -554,14 +573,14 @@ end, TAG)
 
 safeWrap(ReaderFooter, "updateFooterContainer", function(orig, self, ...)
     local res = orig(self, ...)
-    installFooterWidget(self)
     installSplitContainer(self)
+    installFooterWidget(self)
     return res
 end, TAG)
 
 safeWrap(ReaderFooter, "updateFooterFont", function(orig, self, ...)
     local res = orig(self, ...)
-    installFooterWidget(self)
+    installFooterWidget(self, true)
     return res
 end, TAG)
 
