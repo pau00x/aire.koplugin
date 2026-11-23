@@ -4,6 +4,25 @@ All notable changes to Aire are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+### Fixed
+
+- **In-reader daily reading goal**: `ReaderProgress` now reads `stats_goal_daily_min` from the `"aire"` settings key (fixing a `0.6.0` regression where the daily goal line and label did not appear).
+- **UTF-8 genre & author normalization**: replaced en-dash/em-dash (`–`/`—`) outside the Lua byte class in `core/genres.lua` so Cyrillic, Greek, and other multi-byte UTF-8 tags are no longer corrupted; removed the duplicate Russian `"роман"` alias from `romance` so it resolves to `novel`.
+- **DST-safe streaks and 7-day boundaries**: `computeBestStreak` now uses timezone-independent civil day numbers (preventing streak breaks across DST transitions in UTC+0) and `loadStats` computes 7-day boundaries with local calendar midnight.
+- **Filtered Collections & automatic collection labels**: fixed off-by-one collection count and missing empty state when a filter is active, and display accurate hold-sheet labels for automatic genre and language collections.
+- **Recap → Finished books**: `finished_books` in Recap now stays fresh when books are marked finished outside the reader, and tapping the Recap *Finished* tile filters by the viewed historical period without overwriting the user's saved `fin_filter`.
+- **Updater robustness**: SemVer pre-release tags now compare numeric segments properly (`beta.10 > beta.2`); the update progress sheet is guarded with `pcall` so it cannot get stuck on error; `fetchLatest` enforces `socketutil.table_sink` timeouts; `download` checks write errors and optionally verifies SHA-256 digests via `ffi/sha2`; release notes truncate cleanly on UTF-8 boundaries.
+
+### Changed
+
+- **E-ink performance & memory**: avoided double `_rebuild()` and added a 10 s Wi-Fi icon cache in the reader footer; cached resolved icon paths in `core/icons.lua` (unifying `.svg`/`.png` user overrides); `Page:goPage` now switches prebuilt pages without re-running `build()`; stats cover buffers and discarded widgets are freed consistently when leaving any stats subview.
+- **Translations**: completed Spanish (`es`) and Catalan (`ca`) catalogs for all `0.6.0` strings and new automatic-collection labels.
+
+### Internal
+
+- Updated `.luarc.json` (`../koreader/frontend`) and `scripts/kindle_copy.py` default output to `../dist`.
+- Optimized `scripts/l10n.py compile` (single `extract_strings()` pass), added `en_GB` English-fallback handling in `check`, and added a pre-release `lualint.py` + `l10n.py check --strict=es,ca` gate to `scripts/kindle_copy.py --zip` (bypassable with `--force`).
+
 ## [0.6.0] - 2026-11-22
 
 ### Added
