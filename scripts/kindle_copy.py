@@ -17,12 +17,14 @@ La carpeta de salida se vacía antes de copiar.
 import argparse
 import re
 import shutil
+import subprocess
 import sys
 import zipfile
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8")
 PLUGIN = Path(__file__).resolve().parent.parent
+STRICT_L10N_LANGS = "es,ca"
 
 SKIP_DIRS = {"scripts", "docs", ".github", "__pycache__", ".git", ".vscode"}
 SKIP_ROOT_FILES = {".gitignore", ".luarc.json", "CONTRIBUTING.md"}
@@ -44,12 +46,40 @@ def wanted(rel: Path, with_dev: bool) -> bool:
     return True
 
 
+def run_release_checks():
+    lua_files = sorted(
+        str(p) for p in PLUGIN.rglob("*.lua")
+        if "dev" not in p.relative_to(PLUGIN).parts
+        and "koreader" not in p.relative_to(PLUGIN).parts
+    )
+    lint = subprocess.run(
+        [sys.executable, str(PLUGIN / "scripts" / "lualint.py"), *lua_files],
+        capture_output=True, text=True, encoding="utf-8",
+    )
+    if lint.returncode != 0:
+        print(lint.stdout, end="")
+        print(lint.stderr, end="", file=sys.stderr)
+        sys.exit("Release bloqueada: lualint.py encontró errores (usa --force para omitir).")
+
+    l10n = subprocess.run(
+        [sys.executable, str(PLUGIN / "scripts" / "l10n.py"), "check", f"--strict={STRICT_L10N_LANGS}"],
+        capture_output=True, text=True, encoding="utf-8",
+    )
+    if l10n.returncode != 0:
+        print(l10n.stdout, end="")
+        print(l10n.stderr, end="", file=sys.stderr)
+        sys.exit(f"Release bloqueada: l10n.py check falló en {STRICT_L10N_LANGS} o en placeholders/overrides (usa --force para omitir).")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(PLUGIN.parent / "dist"))
     ap.add_argument("--no-dev", action="store_true")
     ap.add_argument("--zip", action="store_true")
+    ap.add_argument("--force", action="store_true", help="Omitir comprobaciones previas de release (--zip)")
     a = ap.parse_args()
+    if a.zip and not a.force:
+        run_release_checks()
     dest = Path(a.out).resolve() / PLUGIN.name
     if PLUGIN in dest.parents or dest == PLUGIN:
         sys.exit("La salida no puede estar dentro del plugin")
