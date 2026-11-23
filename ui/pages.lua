@@ -232,7 +232,32 @@ function Page:_dock()
     return package.loaded.aire_screen.fullscreenDock(self)
 end
 
+function Page:_freePages()
+    if self._page_slot then self._page_slot[1] = nil end
+    if self[1] and self[1].free then self[1]:free() end
+    self[1] = nil
+    if self.pages then
+        for _i, p in ipairs(self.pages) do
+            if p and p.free then p:free() end
+        end
+    end
+    self.pages = nil
+    self._page_slot = nil
+    self._fill_span = nil
+    self._body = nil
+end
+
+function Page:_mountPage(first)
+    local cur_page = self.pages[self.page_no]
+    self._page_slot[1] = cur_page
+    self._page_slot.dimen = nil
+    self._fill_span.width = math.max(0, self.content_h - cur_page:getSize().h) + self._dots_gap
+    self._body:resetLayout()
+    if not first then UIManager:setDirty(self, "ui") end
+end
+
 function Page:refresh(first)
+    self:_freePages()
     local sw, sh = Screen:getWidth(), Screen:getHeight()
     local TitleBar = require("ui/widget/titlebar")
     self.title_bar = TitleBar:new{
@@ -253,7 +278,7 @@ function Page:refresh(first)
     -- Abajo, como en la Librería: hueco, puntos y el dock (o el margen inferior)
     local bottom = dock and dock_h or S(METRICS.DOTS_BOTTOM)
     local content_h = sh - self.title_bar:getHeight() - top_gap - dots_gap - dots_h - bottom
-    self.content_w, self.content_h = w, content_h
+    self.content_w, self.content_h, self._dots_gap = w, content_h, dots_gap
     local ok, pages = pcall(self.build, self, w, content_h)
     if not ok then
         require("logger").warn("Aire/Pages:", self.title, pages)
@@ -262,26 +287,27 @@ function Page:refresh(first)
     self.pages = pages or {}
     if #self.pages == 0 then self.pages = { VerticalGroup:new{} } end
     self.page_no = math.max(1, math.min(self.page_no or 1, #self.pages))
-    local DotPager = require("ui/widget/menu")._aire_dot_pager_cls
+    local Pager = package.loaded.aire_screen.Pager
     local dots
-    if DotPager and #self.pages > 1 then
-        dots = DotPager:new{ height = dots_h, get_state = function() return self.page_no, #self.pages end }
+    if Pager and #self.pages > 1 then
+        dots = Pager:new{ height = dots_h, get_state = function() return self.page_no, #self.pages end }
     end
     -- El contenido ocupa siempre content_h (los puntos, abajo del todo)
     local cur_page = self.pages[self.page_no]
-    local fill = math.max(0, content_h - cur_page:getSize().h)
-    local body = VerticalGroup:new{
+    self._page_slot = FrameContainer:new{
+        bordersize = 0, padding = 0, padding_left = side, padding_right = side,
+        cur_page,
+    }
+    self._fill_span = VerticalSpan:new{ width = math.max(0, content_h - cur_page:getSize().h) + dots_gap }
+    self._body = VerticalGroup:new{
         align = "left",
         self.title_bar,
         VerticalSpan:new{ width = top_gap },
-        FrameContainer:new{
-            bordersize = 0, padding = 0, padding_left = side, padding_right = side,
-            cur_page,
-        },
-        VerticalSpan:new{ width = fill + dots_gap },
+        self._page_slot,
+        self._fill_span,
         CenterContainer:new{ dimen = Geom:new{ w = sw, h = dots_h }, dots or VerticalSpan:new{ width = 0 } },
     }
-    self[1] = package.loaded.aire_screen.root(body, dock)
+    self[1] = package.loaded.aire_screen.root(self._body, dock)
     if not first then UIManager:setDirty(self, "ui") end
 end
 
@@ -293,9 +319,13 @@ function Page:paintTo(bb, x, y)
 end
 
 function Page:goPage(n)
-    if n < 1 or n > #self.pages or n == self.page_no then return end
+    if not self.pages or n < 1 or n > #self.pages or n == self.page_no then return end
     self.page_no = n
-    self:refresh()
+    if self._page_slot and self._fill_span and self._body then
+        self:_mountPage(false)
+    else
+        self:refresh()
+    end
 end
 
 function Page:onAireSwipe(_arg, ges)
@@ -313,6 +343,12 @@ function Page:onClose()
 end
 
 function Page:onCloseWidget()
+    if self.pages then
+        local active = self._page_slot and self._page_slot[1]
+        for _i, p in ipairs(self.pages) do
+            if p and p ~= active and p.free then p:free() end
+        end
+    end
     UIManager:setDirty(nil, "flashui")
 end
 
