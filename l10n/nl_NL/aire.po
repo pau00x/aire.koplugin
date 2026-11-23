@@ -50,13 +50,13 @@ msgid_plural "%1 bookmarks"
 msgstr[0] "%1 bladwijzer"
 msgstr[1] "%1 bladwijzers"
 
-#: views/grid/init.lua:548 views/grid/init.lua:549
+#: views/grid/init.lua:551 views/grid/init.lua:552
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 collectie"
 msgstr[1] "%1 collecties"
 
-#: views/stats/init.lua:608 views/stats/init.lua:815 views/stats/init.lua:1322
+#: views/stats/init.lua:608 views/stats/init.lua:823 views/stats/init.lua:1330
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 dag"
@@ -68,7 +68,7 @@ msgid_plural "%1 days ago"
 msgstr[0] "%1 dag geleden"
 msgstr[1] "%1 dagen geleden"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:951 views/stats/init.lua:1590
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:960 views/stats/init.lua:1601
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 dag gelezen"
@@ -80,7 +80,7 @@ msgid_plural "%1 finished"
 msgstr[0] "%1 gelezen"
 msgstr[1] "%1 gelezen"
 
-#: views/grid/init.lua:631
+#: views/grid/init.lua:643
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 gelezen boek"
@@ -96,7 +96,7 @@ msgid_plural "%1 months ago"
 msgstr[0] "%1 maand geleden"
 msgstr[1] "%1 maanden geleden"
 
-#: views/stats/init.lua:1595
+#: views/stats/init.lua:1606
 msgid "%1 of %2 days reading"
 msgstr ""
 
@@ -122,7 +122,7 @@ msgstr[1] "%1 pagina's gelezen"
 msgid "%1 pp."
 msgstr "%1 blz."
 
-#: styles/plugins/readerprogress.lua:205 views/stats/init.lua:302 views/stats/init.lua:811 views/stats/init.lua:1278 views/stats/init.lua:1592
+#: styles/plugins/readerprogress.lua:205 views/stats/init.lua:302 views/stats/init.lua:819 views/stats/init.lua:1288 views/stats/init.lua:1603
 msgid "%1 pp./h"
 msgstr "%1 blz./u"
 
@@ -138,7 +138,7 @@ msgid_plural "%1 series"
 msgstr[0] "%1 serie"
 msgstr[1] "%1 series"
 
-#: views/stats/init.lua:1811
+#: views/stats/init.lua:1822
 msgid "%1 started book"
 msgid_plural "%1 started books"
 msgstr[0] ""
@@ -158,7 +158,7 @@ msgstr "%1 %3 %2"
 msgid "%1/7 days"
 msgstr ""
 
-#: views/stats/init.lua:1282
+#: views/stats/init.lua:1292
 msgid "%1/day"
 msgstr ""
 
@@ -184,7 +184,7 @@ msgstr "%d van 5 sterren"
 msgid "+ Brightness"
 msgstr "+ Helderheid"
 
-#: views/stats/init.lua:1126
+#: views/stats/init.lua:1135
 msgid "+%1 more"
 msgstr "+%1 meer"
 
@@ -212,7 +212,7 @@ msgstr "4 kolommen"
 msgid "7 days"
 msgstr ""
 
-#: views/update_sheet.lua:293
+#: views/update_sheet.lua:308
 msgid "A new version is available"
 msgstr "Er is een nieuwe versie beschikbaar"
 
@@ -228,7 +228,7 @@ msgstr "ACTIEVE ZOEKOPDRACHT"
 msgid "ADDED"
 msgstr "TOEGEVOEGD"
 
-#: views/stats/init.lua:1359
+#: views/stats/init.lua:1367
 msgid "ANNUAL RHYTHM"
 msgstr ""
 
@@ -262,7 +262,7 @@ msgstr "Widget toevoegen"
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: core/genres.lua:106
+#: core/genres.lua:107
 msgctxt "aire"
 msgid "Adventure"
 msgstr "Avontuur"
@@ -276,11 +276,11 @@ msgstr ""
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update_sheet.lua:229 views/update_sheet.lua:286
+#: views/update_sheet.lua:244 views/update_sheet.lua:301
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update_sheet.lua:499
+#: views/power.lua:147 views/update_sheet.lua:523
 msgid "Aire %1 available"
 msgstr "Aire %1 beschikbaar"
 
@@ -310,16 +310,16 @@ msgstr ""
 msgid "All finished"
 msgstr "Alles gelezen"
 
-#: views/stats/init.lua:637 views/stats/init.lua:645 views/stats/init.lua:1587 views/stats/init.lua:1640 views/stats/init.lua:1649
+#: views/grid/init.lua:637 views/stats/init.lua:637 views/stats/init.lua:645 views/stats/init.lua:1598 views/stats/init.lua:1651
 msgid "All time"
 msgstr ""
 
-#: views/grid/init.lua:633 views/widgets/catalog.lua:300
+#: views/grid/init.lua:645 views/widgets/catalog.lua:300
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:643 views/stats/init.lua:1638
+#: views/stats/init.lua:643 views/stats/init.lua:1649
 msgid "Annual"
 msgstr "Jaarlijks"
 
@@ -375,9 +375,17 @@ msgstr ""
 msgid "Automatic tests"
 msgstr "Automatische tests"
 
-#: views/grid/init.lua:995
+#: views/grid/init.lua:1006
 msgid "Automatic: books by this author"
 msgstr "Automatisch: boeken van deze auteur"
+
+#: views/grid/init.lua:1009
+msgid "Automatic: books in this genre"
+msgstr ""
+
+#: views/grid/init.lua:1011
+msgid "Automatic: books in this language"
+msgstr ""
 
 #: dev/devtools.lua:965
 msgid "Average speed"
@@ -418,31 +426,31 @@ msgstr ""
 msgid "Battery"
 msgstr "Batterij"
 
-#: views/stats/init.lua:1319
+#: views/stats/init.lua:1327
 msgid "Best day"
 msgstr "Beste dag"
 
-#: views/stats/init.lua:1302
+#: views/stats/init.lua:1310
 msgid "Best month"
 msgstr "Beste maand"
 
-#: views/stats/init.lua:1322
+#: views/stats/init.lua:1330
 msgid "Best streak"
 msgstr ""
 
-#: views/stats/init.lua:814
+#: views/stats/init.lua:822
 msgid "Best streak: %1"
 msgstr ""
 
-#: views/stats/init.lua:1308
+#: views/stats/init.lua:1316
 msgid "Best week"
 msgstr ""
 
-#: views/stats/init.lua:1300
+#: views/stats/init.lua:1308
 msgid "Best year"
 msgstr ""
 
-#: core/genres.lua:113
+#: core/genres.lua:114
 msgctxt "aire"
 msgid "Biography"
 msgstr "Biografie"
@@ -514,7 +522,7 @@ msgstr "Bladwijzers en markeringen"
 msgid "Books"
 msgstr ""
 
-#: views/grid/init.lua:956
+#: views/grid/init.lua:968
 msgid "Books are not deleted, only the collection."
 msgstr "De boeken worden niet verwijderd, alleen de collectie."
 
@@ -532,7 +540,7 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "Onderste menu's (panelen)"
 
-#: core/genres.lua:119
+#: core/genres.lua:120
 msgctxt "aire"
 msgid "Business"
 msgstr "Zakelijk"
@@ -553,7 +561,7 @@ msgstr "HUIDIGE SESSIE"
 msgid "CURRENTLY READING"
 msgstr "NU AAN HET LEZEN"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:945
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:954
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -569,7 +577,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:626 dev/devtools.lua:777 dev/devtools.lua:877 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:1064
+#: dev/devtools.lua:626 dev/devtools.lua:777 dev/devtools.lua:877 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:1073
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -616,11 +624,11 @@ msgstr "Opgeladen"
 msgid "Charging"
 msgstr "Opladen"
 
-#: views/update_sheet.lua:448
+#: views/update_sheet.lua:472
 msgid "Check every week"
 msgstr "Elke week controleren"
 
-#: views/update_sheet.lua:441
+#: views/update_sheet.lua:465
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -629,7 +637,7 @@ msgstr ""
 msgid "Check patches and plugins on startup"
 msgstr "Patches en plugins controleren bij opstarten"
 
-#: core/genres.lua:110
+#: core/genres.lua:111
 msgctxt "aire"
 msgid "Children"
 msgstr "Kinderboeken"
@@ -643,7 +651,7 @@ msgstr ""
 msgid "Classics"
 msgstr ""
 
-#: core/genres.lua:107
+#: core/genres.lua:108
 msgctxt "aire"
 msgid "Classics"
 msgstr "Klassiekers"
@@ -669,7 +677,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Collectievolgorde"
 
-#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1294
+#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1314
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -682,7 +690,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "Volgorde van collecties"
 
-#: core/genres.lua:122
+#: core/genres.lua:123
 msgctxt "aire"
 msgid "Comics"
 msgstr "Strips"
@@ -699,7 +707,7 @@ msgstr ""
 msgid "Connected"
 msgstr "Verbonden"
 
-#: core/genres.lua:108
+#: core/genres.lua:109
 msgctxt "aire"
 msgid "Contemporary"
 msgstr "Hedendaags"
@@ -723,7 +731,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update_sheet.lua:357
+#: views/update_sheet.lua:372
 msgid "Could not check for updates. Try again later."
 msgstr "Kon niet op updates controleren. Probeer het later opnieuw."
 
@@ -734,7 +742,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update_sheet.lua:212
+#: views/update_sheet.lua:227
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Kon de update niet installeren. Aire %1 blijft geïnstalleerd."
 
@@ -769,11 +777,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Nu aan het lezen"
 
-#: views/stats/init.lua:1355
+#: views/stats/init.lua:1363
 msgid "DAILY RHYTHM"
 msgstr "DAGRITME"
 
-#: views/stats/init.lua:908 views/stats/init.lua:1523
+#: views/stats/init.lua:916 views/stats/init.lua:1533
 msgid "DAYS OF THE WEEK"
 msgstr ""
 
@@ -801,11 +809,11 @@ msgstr "Datum"
 msgid "Date finished"
 msgstr "Datum uitgelezen"
 
-#: views/stats/init.lua:1306 views/stats/init.lua:1313
+#: views/stats/init.lua:1314 views/stats/init.lua:1321
 msgid "Day %1"
 msgstr "Dag %1"
 
-#: views/stats/init.lua:1307
+#: views/stats/init.lua:1315
 msgid "Days %1–%2"
 msgstr ""
 
@@ -823,16 +831,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "december"
 
-#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:957 views/stats/init.lua:1084
+#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:969 views/stats/init.lua:1093
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:1095
+#: views/stats/init.lua:1104
 msgid "Delete all book stats"
 msgstr "Alle boekstatistieken verwijderen"
 
-#: views/stats/init.lua:1099
+#: views/stats/init.lua:1108
 msgid "Delete all stats?"
 msgstr "Alle statistieken verwijderen?"
 
@@ -841,15 +849,15 @@ msgstr "Alle statistieken verwijderen?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:1082
+#: views/stats/init.lua:1091
 msgid "Delete minutes for this day?"
 msgstr "Minuten van deze dag verwijderen?"
 
-#: views/stats/init.lua:1078
+#: views/stats/init.lua:1087
 msgid "Delete minutes from this day"
 msgstr "Minuten van deze dag verwijderen"
 
-#: views/grid/init.lua:955
+#: views/grid/init.lua:967
 msgid "Delete the collection?"
 msgstr "Collectie verwijderen?"
 
@@ -857,7 +865,7 @@ msgstr "Collectie verwijderen?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid/init.lua:1006
+#: views/grid/init.lua:1026
 msgid "Delete…"
 msgstr "Verwijderen…"
 
@@ -910,7 +918,7 @@ msgstr ""
 msgid "Downloading…"
 msgstr ""
 
-#: views/update_sheet.lua:186
+#: views/update_sheet.lua:187
 msgid "Downloading… %1 of %2"
 msgstr "Downloaden… %1 van %2"
 
@@ -1012,7 +1020,7 @@ msgstr ""
 msgid "FILE"
 msgstr "BESTAND"
 
-#: views/grid/init.lua:838
+#: views/grid/init.lua:850
 msgid "FILTER"
 msgstr "FILTER"
 
@@ -1021,7 +1029,7 @@ msgstr "FILTER"
 msgid "Fantasy"
 msgstr ""
 
-#: core/genres.lua:99
+#: core/genres.lua:100
 msgctxt "aire"
 msgid "Fantasy"
 msgstr "Fantasy"
@@ -1040,7 +1048,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "februari"
 
-#: core/genres.lua:288
+#: core/genres.lua:289
 msgctxt "aire"
 msgid "Fiction"
 msgstr ""
@@ -1060,11 +1068,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid/init.lua:856
+#: views/grid/init.lua:868
 msgid "Filter"
 msgstr "Filter"
 
-#: dev/devtools.lua:789 views/grid/init.lua:856
+#: dev/devtools.lua:789 views/grid/init.lua:868
 msgid "Filter and sort"
 msgstr "Filteren en sorteren"
 
@@ -1082,7 +1090,7 @@ msgstr "Gelezen"
 msgid "Finished (test data)"
 msgstr ""
 
-#: views/grid/init.lua:630 views/stats/init.lua:593 views/widgets/catalog.lua:275
+#: views/grid/init.lua:634 views/stats/init.lua:593 views/widgets/catalog.lua:275
 msgid "Finished books"
 msgstr ""
 
@@ -1174,7 +1182,7 @@ msgstr "Volledige schermen"
 msgid "Galician"
 msgstr ""
 
-#: views/stats/init.lua:806
+#: views/stats/init.lua:814
 msgid "Genres & habits"
 msgstr ""
 
@@ -1227,7 +1235,7 @@ msgstr "MARKERING"
 msgid "HOURLY ACTIVITY"
 msgstr ""
 
-#: views/stats/init.lua:1027
+#: views/stats/init.lua:1036
 msgid "Hasn't arrived yet"
 msgstr "Nog niet aangebroken"
 
@@ -1236,17 +1244,17 @@ msgstr "Nog niet aangebroken"
 msgid "Highlight"
 msgstr ""
 
-#: core/genres.lua:105
+#: core/genres.lua:106
 msgctxt "aire"
 msgid "Historical"
 msgstr "Historisch"
 
-#: views/dock.lua:40 views/grid/init.lua:1295
+#: views/dock.lua:40 views/grid/init.lua:1315
 #, koreader
 msgid "History"
 msgstr ""
 
-#: core/genres.lua:112
+#: core/genres.lua:113
 msgctxt "aire"
 msgid "History"
 msgstr "Geschiedenis"
@@ -1255,7 +1263,7 @@ msgstr "Geschiedenis"
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid/init.lua:669
+#: views/grid/init.lua:681
 msgid "History is empty"
 msgstr "Geschiedenis is leeg"
 
@@ -1292,12 +1300,12 @@ msgstr "Startschermwidgets"
 msgid "Horizontal"
 msgstr ""
 
-#: core/genres.lua:103
+#: core/genres.lua:104
 msgctxt "aire"
 msgid "Horror"
 msgstr "Horror"
 
-#: core/genres.lua:111
+#: core/genres.lua:112
 msgctxt "aire"
 msgid "Humor"
 msgstr "Humor"
@@ -1322,15 +1330,15 @@ msgstr "In Collecties verschijnt een collectie voor elk trefwoord met 2 of meer 
 msgid "In Collections, a collection appears for each language with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr ""
 
-#: views/update_sheet.lua:457
+#: views/update_sheet.lua:481
 msgid "Include beta versions"
 msgstr "Bètaversies meenemen"
 
-#: views/update_sheet.lua:476
+#: views/update_sheet.lua:500
 msgid "Installed version: %1"
 msgstr "Geïnstalleerde versie: %1"
 
-#: views/update_sheet.lua:198
+#: views/update_sheet.lua:206
 msgid "Installing…"
 msgstr "Installeren…"
 
@@ -1421,7 +1429,7 @@ msgstr "Laatst"
 msgid "Last 7 days · %1"
 msgstr ""
 
-#: views/update_sheet.lua:469
+#: views/update_sheet.lua:493
 msgid "Last check: %1"
 msgstr "Laatste controle: %1"
 
@@ -1429,7 +1437,7 @@ msgstr "Laatste controle: %1"
 msgid "Last read"
 msgstr "Laatst gelezen"
 
-#: core/compat.lua:168 views/update_sheet.lua:132 views/update_sheet.lua:329
+#: core/compat.lua:168 views/update_sheet.lua:132 views/update_sheet.lua:344
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1448,7 +1456,7 @@ msgstr "Indeling"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:803 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1293
+#: dev/devtools.lua:803 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1313
 msgid "Library"
 msgstr "Bibliotheek"
 
@@ -1504,15 +1512,15 @@ msgstr "RESULTAAT"
 msgid "MATCH %d"
 msgstr "RESULTAAT %d"
 
-#: views/stats/init.lua:1357
+#: views/stats/init.lua:1365
 msgid "MONTHLY RHYTHM"
 msgstr "MAANDRITME"
 
-#: views/stats/init.lua:1243
+#: views/stats/init.lua:1253
 msgid "MOST READ BOOKS"
 msgstr ""
 
-#: views/stats/init.lua:821 views/stats/init.lua:1418
+#: views/stats/init.lua:829 views/stats/init.lua:1428
 msgid "MOST READ GENRES"
 msgstr ""
 
@@ -1520,7 +1528,7 @@ msgstr ""
 msgid "Main view"
 msgstr "Hoofdweergave"
 
-#: core/genres.lua:123
+#: core/genres.lua:124
 msgctxt "aire"
 msgid "Manga"
 msgstr "Manga"
@@ -1542,7 +1550,7 @@ msgstr "Markeren"
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Alle boeken in “%1” markeren als aan het lezen?"
 
-#: views/grid/init.lua:1043
+#: views/grid/init.lua:1063
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Alle boeken in collectie “%1” markeren als aan het lezen?"
 
@@ -1550,11 +1558,11 @@ msgstr "Alle boeken in collectie “%1” markeren als aan het lezen?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid/init.lua:1041
+#: views/grid/init.lua:1061
 msgid "Mark entire collection as finished"
 msgstr "Hele collectie markeren als gelezen"
 
-#: views/grid/init.lua:1042
+#: views/grid/init.lua:1062
 msgid "Mark entire collection as reading"
 msgstr "Hele collectie markeren als aan het lezen"
 
@@ -1597,11 +1605,11 @@ msgstr ""
 msgid "Mix folders"
 msgstr "Mappen mengen"
 
-#: views/grid/init.lua:850
+#: views/grid/init.lua:862
 msgid "Mix series"
 msgstr "Series mengen"
 
-#: views/stats/init.lua:641 views/stats/init.lua:1636
+#: views/stats/init.lua:641 views/stats/init.lua:1647
 msgid "Monthly"
 msgstr "Maandelijks"
 
@@ -1643,7 +1651,7 @@ msgstr ""
 msgid "Multiple fields"
 msgstr ""
 
-#: core/genres.lua:101
+#: core/genres.lua:102
 msgctxt "aire"
 msgid "Mystery"
 msgstr "Detective"
@@ -1692,12 +1700,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nieuw"
 
-#: views/grid/init.lua:544
+#: views/grid/init.lua:546
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid/init.lua:997 views/grid/init.lua:1010
+#: views/grid/init.lua:1017 views/grid/init.lua:1030
 msgid "New collection…"
 msgstr "Nieuwe collectie…"
 
@@ -1740,7 +1748,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "Geen CoverBrowser-gegevens"
 
-#: views/home.lua:251 views/stats/init.lua:273 views/stats/init.lua:1820
+#: views/home.lua:251 views/stats/init.lua:273 views/stats/init.lua:1831
 msgid "No book in progress"
 msgstr "Geen boek aan het lezen"
 
@@ -1748,11 +1756,11 @@ msgstr "Geen boek aan het lezen"
 msgid "No book matches the filter"
 msgstr "Geen boek voldoet aan het filter"
 
-#: views/grid/init.lua:637
+#: views/grid/init.lua:649
 msgid "No books finished this month"
 msgstr "Deze maand geen boeken gelezen"
 
-#: views/grid/init.lua:637
+#: views/grid/init.lua:649
 msgid "No books finished this year"
 msgstr "Dit jaar geen boeken gelezen"
 
@@ -1760,7 +1768,7 @@ msgstr "Dit jaar geen boeken gelezen"
 msgid "No books in home folder"
 msgstr "Geen boeken in de thuismap"
 
-#: views/grid/init.lua:333 views/grid/init.lua:525 views/grid/init.lua:669
+#: views/grid/init.lua:333 views/grid/init.lua:525 views/grid/init.lua:681
 msgid "No books with this filter"
 msgstr "Geen boeken met dit filter"
 
@@ -1768,11 +1776,11 @@ msgstr "Geen boeken met dit filter"
 msgid "No chapter"
 msgstr "Geen hoofdstuk"
 
-#: views/grid/init.lua:552
+#: views/grid/init.lua:555
 msgid "No collections"
 msgstr "Geen collecties"
 
-#: views/grid/init.lua:552
+#: views/grid/init.lua:555
 msgid "No collections with this filter"
 msgstr "Geen collecties met dit filter"
 
@@ -1784,7 +1792,7 @@ msgstr "Geen huidig boek"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Geen gegevens: schakel de plugin Statistieken in en lees wat"
 
-#: views/stats/init.lua:837 views/stats/init.lua:1435
+#: views/stats/init.lua:845 views/stats/init.lua:1445
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1801,7 +1809,7 @@ msgstr "Geen volgend ongelezen boek"
 msgid "No previous book"
 msgstr "Geen vorig boek"
 
-#: styles/plugins/statspages.lua:487 views/stats/init.lua:1683
+#: styles/plugins/statspages.lua:487 views/stats/init.lua:1694
 msgid "No reading activity in this period"
 msgstr "Geen leesactiviteit in deze periode"
 
@@ -1830,7 +1838,7 @@ msgstr "Geen niet-begonnen boeken"
 msgid "No vocabulary words"
 msgstr "Geen woorden"
 
-#: core/genres.lua:120
+#: core/genres.lua:121
 msgctxt "aire"
 msgid "Non-fiction"
 msgstr "Non-fictie"
@@ -1862,7 +1870,7 @@ msgstr "Aantekeningen"
 msgid "Notice"
 msgstr "Melding"
 
-#: core/genres.lua:287
+#: core/genres.lua:288
 msgctxt "aire"
 msgid "Novel"
 msgstr ""
@@ -1905,7 +1913,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "In de wacht"
 
-#: views/update_sheet.lua:449
+#: views/update_sheet.lua:473
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Alleen als wifi al aan staat: Aire zet het nooit aan."
 
@@ -1914,7 +1922,7 @@ msgstr "Alleen als wifi al aan staat: Aire zet het nooit aan."
 msgid "Open"
 msgstr ""
 
-#: views/grid/init.lua:1040
+#: views/grid/init.lua:1060
 msgid "Open collection"
 msgstr "Collectie openen"
 
@@ -1922,7 +1930,7 @@ msgstr "Collectie openen"
 msgid "Open library"
 msgstr ""
 
-#: views/grid/init.lua:1040
+#: views/grid/init.lua:1060
 msgid "Open series"
 msgstr "Serie openen"
 
@@ -1982,7 +1990,7 @@ msgstr ""
 msgid "Page fit"
 msgstr "Pagina-aanpassing"
 
-#: views/stats/init.lua:1284
+#: views/stats/init.lua:1294
 #, koreader
 msgid "Pages"
 msgstr ""
@@ -2002,7 +2010,7 @@ msgstr ""
 msgid "Pages read today"
 msgstr ""
 
-#: core/genres.lua:116
+#: core/genres.lua:117
 msgctxt "aire"
 msgid "Philosophy"
 msgstr "Filosofie"
@@ -2015,7 +2023,7 @@ msgstr ""
 msgid "Plugin sheet (options)"
 msgstr ""
 
-#: core/genres.lua:121
+#: core/genres.lua:122
 msgctxt "aire"
 msgid "Poetry"
 msgstr "Poëzie"
@@ -2053,7 +2061,7 @@ msgstr ""
 msgid "Progress"
 msgstr ""
 
-#: core/genres.lua:117
+#: core/genres.lua:118
 msgctxt "aire"
 msgid "Psychology"
 msgstr "Psychologie"
@@ -2161,7 +2169,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:1567
+#: views/stats/init.lua:1578
 msgid "Recap"
 msgstr "Overzicht"
 
@@ -2197,12 +2205,12 @@ msgstr "Verwijderen"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:567 views/grid/init.lua:558
+#: views/booksheet.lua:567 views/grid/init.lua:561
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Uit collectie verwijderen"
 
-#: views/booksheet.lua:531 views/grid/init.lua:674
+#: views/booksheet.lua:531 views/grid/init.lua:686
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -2222,7 +2230,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid/init.lua:1004
+#: views/grid/init.lua:1024
 msgid "Rename…"
 msgstr "Naam wijzigen…"
 
@@ -2258,7 +2266,7 @@ msgstr "Herstart KOReader om haar te gebruiken. Je instellingen blijven bewaard.
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:104 views/grid/init.lua:844
+#: views/explorer.lua:104 views/grid/init.lua:856
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2273,7 +2281,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: core/genres.lua:104
+#: core/genres.lua:105
 msgctxt "aire"
 msgid "Romance"
 msgstr "Romantiek"
@@ -2288,7 +2296,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/explorer.lua:113 views/grid/init.lua:840
+#: views/explorer.lua:113 views/grid/init.lua:852
 msgid "SORT BY"
 msgstr "SORTEREN OP"
 
@@ -2320,7 +2328,7 @@ msgstr ""
 msgid "Saved"
 msgstr ""
 
-#: core/genres.lua:114
+#: core/genres.lua:115
 msgctxt "aire"
 msgid "Science"
 msgstr "Wetenschap"
@@ -2329,7 +2337,7 @@ msgstr "Wetenschap"
 msgid "Science Fiction"
 msgstr ""
 
-#: core/genres.lua:100
+#: core/genres.lua:101
 msgctxt "aire"
 msgid "Science fiction"
 msgstr "Sciencefiction"
@@ -2356,11 +2364,11 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update_sheet.lua:307
+#: views/update_sheet.lua:322
 msgid "See all changes"
 msgstr "Alle wijzigingen bekijken"
 
-#: core/genres.lua:118
+#: core/genres.lua:119
 msgctxt "aire"
 msgid "Self-help"
 msgstr "Zelfhulp"
@@ -2393,7 +2401,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update_sheet.lua:445
+#: views/update_sheet.lua:469
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2407,7 +2415,7 @@ msgstr ""
 msgid "Short message"
 msgstr ""
 
-#: core/genres.lua:124
+#: core/genres.lua:125
 msgctxt "aire"
 msgid "Short stories"
 msgstr "Korte verhalen"
@@ -2450,7 +2458,7 @@ msgstr "Samenvatting tonen"
 msgid "Size:"
 msgstr ""
 
-#: views/update_sheet.lua:324
+#: views/update_sheet.lua:339
 msgid "Skip"
 msgstr "Overslaan"
 
@@ -2479,16 +2487,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:743 views/grid/init.lua:856
+#: dev/devtools.lua:743 views/grid/init.lua:868
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:955 views/grid/init.lua:975
+#: dev/devtools.lua:955 views/grid/init.lua:987
 msgid "Sort collections"
 msgstr "Collecties sorteren"
 
-#: views/grid/init.lua:998 views/grid/init.lua:1011
+#: views/grid/init.lua:1018 views/grid/init.lua:1031
 msgid "Sort collections…"
 msgstr "Collecties sorteren…"
 
@@ -2513,7 +2521,7 @@ msgstr "Starten"
 msgid "Started"
 msgstr ""
 
-#: views/stats/init.lua:1807
+#: views/stats/init.lua:1818
 msgid "Started books"
 msgstr ""
 
@@ -2573,12 +2581,12 @@ msgstr "Tik om te stoppen"
 msgid "Tap to view definition"
 msgstr "Tik om definitie te bekijken"
 
-#: core/genres.lua:115
+#: core/genres.lua:116
 msgctxt "aire"
 msgid "Technology"
 msgstr "Technologie"
 
-#: views/grid/init.lua:1195
+#: views/grid/init.lua:1215
 msgid "Test book"
 msgstr "Testboek"
 
@@ -2635,7 +2643,7 @@ msgstr "Het huidige boek maakt geen deel uit van een serie"
 msgid "This collection is empty"
 msgstr "Deze collectie is leeg"
 
-#: views/update_sheet.lua:319
+#: views/update_sheet.lua:334
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Deze kopie heeft de map dev/ (tests). De nieuwe versie bevat die niet, dus wordt hij verwijderd."
 
@@ -2659,12 +2667,12 @@ msgstr "Deze week: %1"
 msgid "This year"
 msgstr "Dit jaar"
 
-#: core/genres.lua:102
+#: core/genres.lua:103
 msgctxt "aire"
 msgid "Thriller"
 msgstr "Thriller"
 
-#: dev/devtools.lua:843 views/stats/init.lua:1282
+#: dev/devtools.lua:843 views/stats/init.lua:1292
 #, koreader
 msgid "Time"
 msgstr ""
@@ -2720,7 +2728,7 @@ msgstr "Vandaag en reeks"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:1325
+#: views/stats/init.lua:1333
 msgid "Top author"
 msgstr "Meest gelezen auteur"
 
@@ -2742,16 +2750,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update_sheet.lua:211 views/update_sheet.lua:330 views/update_sheet.lua:357
+#: views/power.lua:131 views/power.lua:158 views/update_sheet.lua:226 views/update_sheet.lua:345 views/update_sheet.lua:372
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update_sheet.lua:436
+#: views/update_sheet.lua:460
 msgid "Update Aire"
 msgstr "Aire bijwerken"
 
-#: views/update_sheet.lua:436
+#: views/update_sheet.lua:460
 msgid "Update Aire (%1 available)"
 msgstr "Aire bijwerken (%1 beschikbaar)"
 
@@ -2801,7 +2809,7 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "WEKELIJKSE ACTIVITEIT"
 
-#: views/stats/init.lua:856 views/stats/init.lua:1463
+#: views/stats/init.lua:864 views/stats/init.lua:1473
 msgid "WHEN YOU READ"
 msgstr ""
 
@@ -2842,11 +2850,11 @@ msgstr "Widgets %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update_sheet.lua:379
+#: views/update_sheet.lua:403
 msgid "You already have the latest version (%1)."
 msgstr "Je hebt al de nieuwste versie (%1)."
 
-#: views/stats/init.lua:1027
+#: views/stats/init.lua:1036
 msgid "You didn't read that day"
 msgstr "Je hebt die dag niet gelezen"
 
@@ -2858,15 +2866,15 @@ msgstr "Je hebt nog geen markeringen"
 msgid "You have not opened any book yet"
 msgstr "Je hebt nog geen boek geopend"
 
-#: views/power.lua:150 views/update_sheet.lua:295
+#: views/power.lua:150 views/update_sheet.lua:310
 msgid "You have version %1"
 msgstr "Je hebt versie %1"
 
-#: views/grid/init.lua:636
+#: views/grid/init.lua:648
 msgid "You haven't finished any books yet"
 msgstr "Je hebt nog geen boeken uitgelezen"
 
-#: core/genres.lua:109
+#: core/genres.lua:110
 msgctxt "aire"
 msgid "Young adult"
 msgstr "Young adult"
@@ -2900,11 +2908,11 @@ msgstr ""
 msgid "battery"
 msgstr "batterij"
 
-#: views/update_sheet.lua:287
+#: views/update_sheet.lua:302
 msgid "beta"
 msgstr "bèta"
 
-#: views/stats/init.lua:1287 views/widgets/catalog.lua:262
+#: views/stats/init.lua:1297 views/widgets/catalog.lua:262
 msgid "book"
 msgid_plural "books"
 msgstr[0] "boek"
@@ -2949,7 +2957,7 @@ msgstr "vrij"
 msgid "goal %1"
 msgstr ""
 
-#: views/stats/init.lua:606 views/stats/init.lua:1322
+#: views/stats/init.lua:606 views/stats/init.lua:1330
 msgid "in a row"
 msgstr ""
 
@@ -2973,7 +2981,7 @@ msgstr ""
 msgid "min"
 msgstr ""
 
-#: views/update_sheet.lua:468
+#: views/update_sheet.lua:492
 #, koreader
 msgid "never"
 msgstr ""
@@ -2999,7 +3007,7 @@ msgstr "blz. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "blz. %1 van %2"
 
-#: views/stats/init.lua:1278
+#: views/stats/init.lua:1288
 msgid "pages read"
 msgstr "gelezen pagina’s"
 
