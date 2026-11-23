@@ -1377,7 +1377,7 @@ return function(Aire, ctx)
             L.period = (type(opts) == "table" and opts.period) or nil
         end
         if self.view ~= kind then
-            if self.view == "stats" and self.closeStatsView then self:closeStatsView() end
+            if self.isStatsView and self:isStatsView(self.view) and self.closeStatsView then self:closeStatsView() end
             -- Al entrar: volver a leer (libros nuevos, estados al día)
             L.loaded = false
             L.open = nil

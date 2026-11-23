@@ -687,6 +687,7 @@ return function(Aire, ctx)
         if fits_one_page and free_for_bars > bars_h then
             local extra_recap = math.min(S(44), free_for_bars - bars_h)
             if extra_recap >= S(4) then
+                if recaps_block and recaps_block.free then recaps_block:free() end
                 recaps_block = buildRecapsBlock(extra_recap)
             end
         end
@@ -744,6 +745,13 @@ return function(Aire, ctx)
         local npages = #pages
         local page = math.max(1, math.min(npages, self._stats_page or 1))
         self._stats_page = page
+        for p_idx, p_blks in ipairs(pages) do
+            if p_idx ~= page then
+                for _i, blk in ipairs(p_blks) do
+                    if blk and blk.free then blk:free() end
+                end
+            end
+        end
         for i, blk in ipairs(pages[page]) do
             if i > 1 then table.insert(content, VerticalSpan:new{ width = card_gap }) end
             table.insert(content, blk)
@@ -932,6 +940,7 @@ return function(Aire, ctx)
     -- Calendario (se abre al tocar las barras de la semana)
     -------------------------------------------------------------------------
     function Aire:buildCalendarView()
+        freeStatsCovers(self)
         local now = os.date("*t")
         self._cal = self._cal or { year = now.year, month = now.month, day = now.day }
         local C = self._cal
@@ -1161,6 +1170,7 @@ return function(Aire, ctx)
 
     function Aire:showCalendarView(saved_state)
         if self.pushBack then self:pushBack("calendar") end
+        if self.closeGridViews then self:closeGridViews(true) end
         self._cal = saved_state or nil -- abrir en el mes actual salvo al volver atrás
         config.mode = "library"
         saveConfig()
@@ -1373,6 +1383,8 @@ return function(Aire, ctx)
                     top_card = cand
                     free_bars = rem
                     break
+                else
+                    if cand and cand.free then cand:free() end
                 end
             end
         end
@@ -1550,6 +1562,7 @@ return function(Aire, ctx)
     end
 
     function Aire:buildRecapView()
+        freeStatsCovers(self)
         local now = os.date("*t")
         self._recap = self._recap or { mode = "month", year = now.year, month = now.month, page = 1 }
         local R = self._recap
@@ -1867,6 +1880,10 @@ return function(Aire, ctx)
         self.view = "in_progress"
         self:apply()
         UIManager:setDirty(self.ui, "flashui")
+    end
+
+    function Aire:isStatsView(view)
+        return view == "stats" or view == "in_progress" or view == "calendar" or view == "recap" or view == "habits"
     end
 
     function Aire:closeStatsView()
