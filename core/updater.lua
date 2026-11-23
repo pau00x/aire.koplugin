@@ -60,6 +60,25 @@ local function parseVersion(v)
     return nums, pre or ""
 end
 
+local function comparePre(pa, pb)
+    local sa, sb = {}, {}
+    for p in pa:gmatch("[^%.]+") do table.insert(sa, p) end
+    for p in pb:gmatch("[^%.]+") do table.insert(sb, p) end
+    for i = 1, math.max(#sa, #sb) do
+        local x, y = sa[i], sb[i]
+        if x == nil then return false end
+        if y == nil then return true end
+        if x ~= y then
+            local nx, ny = x:match("^%d+$") and tonumber(x), y:match("^%d+$") and tonumber(y)
+            if nx and ny then return nx > ny end
+            if nx then return false end
+            if ny then return true end
+            return x > y
+        end
+    end
+    return false
+end
+
 function M.isNewer(a, b)
     local na, pa = parseVersion(a)
     local nb, pb = parseVersion(b)
@@ -70,7 +89,7 @@ function M.isNewer(a, b)
     -- Mismos números: la versión final es mayor que su beta
     if pa == "" and pb ~= "" then return true end
     if pa ~= "" and pb == "" then return false end
-    return pa > pb
+    return comparePre(pa, pb)
 end
 
 ---------------------------------------------------------------------------
