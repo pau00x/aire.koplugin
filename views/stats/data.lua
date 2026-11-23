@@ -248,15 +248,22 @@ local function computeTopAuthor(books_rows)
     return best
 end
 
+-- Número de día civil independiente de zona horaria / DST (H. Hinnant)
+local function civilDay(y, m, d)
+    if m <= 2 then y = y - 1 end
+    local era = math.floor(y / 400)
+    local yoe = y - era * 400
+    local doy = math.floor((153 * ((m + 9) % 12) + 2) / 5) + d - 1
+    return era * 146097 + yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+end
+
 -- Mejor racha (días consecutivos) a partir de una lista ordenada de "YYYY-MM-DD"
 local function computeBestStreak(sorted_days)
     local best, run, prev = 0, 0, nil
     for _i, ds in ipairs(sorted_days) do
         local y, m, d = ds:match("^(%d+)%-(%d+)%-(%d+)$")
         if y then
-            local num = math.floor(os.time{
-                year = tonumber(y), month = tonumber(m), day = tonumber(d), hour = 12,
-            } / 86400 + 0.5)
+            local num = civilDay(tonumber(y), tonumber(m), tonumber(d))
             if prev and num == prev + 1 then
                 run = run + 1
             else
@@ -498,7 +505,8 @@ local function loadStats()
 
             -- Últimos 7 días, por día + semana anterior para comparativa
             local by_day = {}
-            local week0 = today0 - 6 * 86400
+            local week0 = os.time{ year = now_t.year, month = now_t.month, day = now_t.day - 6, hour = 0 }
+            local prev_week0 = os.time{ year = now_t.year, month = now_t.month, day = now_t.day - 13, hour = 0 }
             local stmt = conn:prepare("SELECT date(start_time, 'unixepoch', 'localtime') AS day, sum(duration) "
                 .. "FROM page_stat_data WHERE start_time >= ? GROUP BY day")
             stmt:bind(week0)
@@ -512,7 +520,7 @@ local function loadStats()
                 d.secs = by_day[d.key] or 0
                 st.week_total = st.week_total + d.secs
             end
-            st.prev_week_total = queryTotalSecs(conn, week0 - 7 * 86400, week0)
+            st.prev_week_total = queryTotalSecs(conn, prev_week0, week0)
             st.week_delta_pct = calcDelta(st.week_total, st.prev_week_total)
 
             -- Racha actual y mejor racha histórica
@@ -1021,4 +1029,5 @@ return {
     loadRecap = loadRecap,
     deleteBookStats = deleteBookStats,
     countFinishedYear = countFinishedYear,
+    computeBestStreak = computeBestStreak,
 }
