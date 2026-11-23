@@ -56,7 +56,8 @@ function M.normalize(s)
     else
         out = out:lower()
     end
-    out = out:gsub("[_%-–—']+", " ")
+    out = out:gsub("\226\128[\147\148]", " ")
+    out = out:gsub("[_%-']+", " ")
     out = out:gsub("[%s]+", " ")
     return out:match("^%s*(.-)%s*$") or ""
 end
@@ -161,7 +162,7 @@ local ALIAS_GROUPS = {
     romance = {
         "romance", "romantica", "romantico", "romantic", "novela romantica", "novella romantica",
         "historical romance", "contemporary romance", "paranormal romance",
-        "love", "amor", "liebesroman", "romanzo rosa", "romantasy", "роман",
+        "love", "amor", "liebesroman", "romanzo rosa", "romantasy",
     },
     historical = {
         "historical", "historical fiction", "historica", "historic",
