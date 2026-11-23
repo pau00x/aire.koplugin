@@ -395,6 +395,7 @@ def cmd_extract():
 
 
 def cmd_compile():
+    extract_strings()  # rellena PLURALS una sola vez
     count = 0
     for po_path in sorted(L10N_DIR.glob("*/aire.po")):
         lang = po_path.parent.name
@@ -407,7 +408,6 @@ def cmd_compile():
             if cat is not None and k[0] is None and cat.get(k):
                 continue  # ya lo traduce KOReader: no pisarlo
             keep[k] = v
-        extract_strings()  # rellena PLURALS
         plural = plural_forms(lang)
         if not header:
             header = f"Content-Type: text/plain; charset=UTF-8\nPlural-Forms: {plural}\n"
@@ -424,18 +424,25 @@ def show(key):
     return (f"[{key[0]}] " if key[0] else "") + repr(key[1])
 
 
-def cmd_check():
+# Locales cuyo msgid ya está en inglés: las entradas sin traducir caen al msgid
+ENGLISH_FALLBACK = {"en_GB"}
+
+
+def cmd_check(strict_langs=None):
     refs = extract_strings()
     status = 0
+    # Las frases que solo usa la herramienta de pruebas son opcionales
+    optional = {k for k, locs in refs.items()
+                if all(loc.split(":")[0] in TEST_ONLY_FILES or loc.startswith(TEST_ONLY_PREFIX) for loc in locs)}
     for po_path in sorted(L10N_DIR.glob("*/aire.po")):
         lang = po_path.parent.name
         _, entries, flags = parse_po(po_path)
         kk, _found = koreader_keys_for(lang, refs, flags)
-        # Las frases que solo usa la herramienta de pruebas son opcionales
-        optional = {k for k, locs in refs.items()
-                    if all(loc.split(":")[0] in TEST_ONLY_FILES or loc.startswith(TEST_ONLY_PREFIX) for loc in locs)}
         np = nplurals(lang)
-        missing = [k for k in refs if k not in kk and not is_done(entries.get(k), np if k in PLURALS else 1) and k not in optional]
+        if lang in ENGLISH_FALLBACK:
+            missing = []
+        else:
+            missing = [k for k in refs if k not in kk and not is_done(entries.get(k), np if k in PLURALS else 1) and k not in optional]
         stale_marks = [k for k in refs if k in kk and entries.get(k) and entries.get(k) != [""] * len(entries.get(k))]
         bad_ph = []
         for k in refs:
@@ -459,7 +466,7 @@ def cmd_check():
             print("  placeholders:", show(k), "->", repr(entries[k]))
         for k in stale_marks:
             print("  overrides KOReader (run extract):", show(k))
-        if missing or bad_ph or stale_marks:
+        if bad_ph or stale_marks or (missing and (strict_langs is None or lang in strict_langs)):
             status = 1
     return status
 
@@ -472,7 +479,10 @@ if __name__ == "__main__":
     elif cmd == "compile":
         cmd_compile()
     elif cmd == "check":
-        sys.exit(cmd_check())
+        strict = None
+        if len(sys.argv) > 2 and sys.argv[2].startswith("--strict="):
+            strict = {s.strip() for s in sys.argv[2].split("=", 1)[1].split(",") if s.strip()}
+        sys.exit(cmd_check(strict_langs=strict))
     else:
         print("Usage: l10n.py [extract|compile|check]")
         sys.exit(1)
