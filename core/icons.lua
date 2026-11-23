@@ -113,10 +113,34 @@ M.OVERRIDES = {
     ["appbar.pokeball"]      = "aire.pokeball",
 }
 
-local function userIconExists(name)
+local user_icon_cache = {}
+local path_cache = {}
+
+local function findUserIcon(name)
+    local cached = user_icon_cache[name]
+    if cached ~= nil then return cached end
     local base = DataStorage:getDataDir() .. "/icons/" .. name
-    return lfs.attributes(base .. ".svg", "mode") == "file"
-        or lfs.attributes(base .. ".png", "mode") == "file"
+    local p = base .. ".svg"
+    if lfs.attributes(p, "mode") == "file" then
+        user_icon_cache[name] = p
+        return p
+    end
+    p = base .. ".png"
+    if lfs.attributes(p, "mode") == "file" then
+        user_icon_cache[name] = p
+        return p
+    end
+    user_icon_cache[name] = false
+    return false
+end
+
+local function userIconExists(name)
+    return findUserIcon(name) ~= false
+end
+
+function M.clearCache()
+    user_icon_cache = {}
+    path_cache = {}
 end
 
 --- Resolve a KOReader icon name to its Aire equivalent (if any).
@@ -127,15 +151,23 @@ end
 --- Path of an Aire icon: the user's override if there is one, else the bundled
 -- file; nil if neither exists. Works once register() has run.
 function M.path(name)
-    local user_path = DataStorage:getDataDir() .. "/icons/" .. name .. ".svg"
-    if lfs.attributes(user_path, "mode") == "file" then
+    local cached = path_cache[name]
+    if cached ~= nil then return cached or nil end
+    local user_path = findUserIcon(name)
+    if user_path then
+        path_cache[name] = user_path
         return user_path
     end
     local dir = IconWidget._aire_icons_dir
-    local plugin_path = dir and (dir .. "/" .. name .. ".svg")
-    if plugin_path and lfs.attributes(plugin_path, "mode") == "file" then
-        return plugin_path
+    if dir then
+        local plugin_path = dir .. "/" .. name .. ".svg"
+        if lfs.attributes(plugin_path, "mode") == "file" then
+            path_cache[name] = plugin_path
+            return plugin_path
+        end
+        path_cache[name] = false
     end
+    return nil
 end
 
 function M.register(plugin_dir)
