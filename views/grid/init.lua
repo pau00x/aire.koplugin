@@ -617,9 +617,11 @@ return function(Aire, ctx)
             return missing
         end,
         level = function(self, L)
-            local year = os.date("%Y")
-            local month = tonumber(os.date("%m"))
-            local filter = config.fin_filter or "year"
+            local p = L.period
+            local year = p and tostring(p.year or os.date("%Y")) or os.date("%Y")
+            local month = (p and tonumber(p.month)) or tonumber(os.date("%m"))
+            local filter = p and (p.mode == "month" and "month" or (p.mode == "all" and "all" or "year"))
+                or (config.fin_filter or "year")
             local entries = {}
             for _i, b in ipairs(L.books) do
                 if filter == "all" or (b.finished_year == year
@@ -628,13 +630,20 @@ return function(Aire, ctx)
                 end
             end
             sortEntries(entries, config.fin_sort or "recent", config.fin_sort_rev == true)
+            local month_name = require("datetime").longMonthTranslation[({ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" })[month]]
+            local back_title = _("Finished books")
+            if p then
+                local suffix = filter == "month" and (month_name .. " " .. year)
+                    or (filter == "year" and year or _("All time"))
+                back_title = back_title .. " · " .. suffix
+            end
             return {
                 entries = entries,
-                back = { title = _("Finished books"), action = function() self:goBack(function() self:showStatsView() end) end },
+                back = { title = back_title, action = function() self:goBack(function() self:showStatsView() end) end },
                 counts = T(N_("%1 finished book", "%1 finished books", #entries), #entries),
-                filters = { list = { { id = "month", label = require("datetime").longMonthTranslation[({ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" })[month]] }, { id = "year", label = year },
+                filters = not p and { list = { { id = "month", label = month_name }, { id = "year", label = year },
                                      { id = "all", label = _("Always") } },
-                            key = "fin_filter", default = "year" },
+                            key = "fin_filter", default = "year" } or nil,
                 sorts = { list = LISTS.SORTS_FINISHED, key = "fin_sort", default = "recent" },
                 empty = filter == "all" and _("You haven't finished any books yet")
                     or (filter == "month" and _("No books finished this month") or _("No books finished this year")),
@@ -1357,13 +1366,16 @@ return function(Aire, ctx)
     end
 
     -- Abrir una pestaña de cuadrícula desde el dock (o subvista "finished")
-    function Aire:showGridView(kind)
+    function Aire:showGridView(kind, opts)
         if kind == "finished" then
             if self.pushBack then self:pushBack("finished") end
         elseif not self._restoring_back and self.clearBackStack then
             self:clearBackStack()
         end
         local L = state(self, kind)
+        if kind == "finished" then
+            L.period = (type(opts) == "table" and opts.period) or nil
+        end
         if self.view ~= kind then
             if self.view == "stats" and self.closeStatsView then self:closeStatsView() end
             -- Al entrar: volver a leer (libros nuevos, estados al día)

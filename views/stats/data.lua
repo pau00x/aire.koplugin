@@ -687,9 +687,31 @@ end
 ---------------------------------------------------------------------------
 -- Recapitulación mensual o anual
 ---------------------------------------------------------------------------
+local function populateRecapFinished(self, res, mode, year, month)
+    local out = {}
+    local ok_fb, books = false, nil
+    if self.getFinishedBooks then ok_fb, books = pcall(self.getFinishedBooks, self) end
+    if ok_fb and type(books) == "table" then
+        for _i, b in ipairs(books) do
+            if mode == "all"
+                or (tonumber(b.finished_year) == year and (mode == "year" or tonumber(b.finished_month) == month)) then
+                table.insert(out, b)
+            end
+        end
+        table.sort(out, function(a, b) return (a.mtime or 0) > (b.mtime or 0) end)
+    end
+    res.finished_books = out
+end
+
 local function loadRecap(self, mode, year, month)
     local ckey = cacheKey("r:" .. mode .. ":" .. year .. ":" .. (month or 0))
-    if cache.recaps[ckey] then return cache.recaps[ckey] end
+    if cache.recaps[ckey] then
+        local cached = cache.recaps[ckey]
+        if not (state.FAKE and state.FAKE.fakeRecap) then
+            populateRecapFinished(self, cached, mode, year, month)
+        end
+        return cached
+    end
 
     if state.FAKE and state.FAKE.fakeRecap then
         local ok_f, fres = pcall(state.FAKE.fakeRecap, mode, year, month)
@@ -847,17 +869,7 @@ local function loadRecap(self, mode, year, month)
         end
     end
 
-    local ok_fb, books = false, nil
-    if self.getFinishedBooks then ok_fb, books = pcall(self.getFinishedBooks, self) end
-    if ok_fb and type(books) == "table" then
-        for _i, b in ipairs(books) do
-            if mode == "all"
-                or (tonumber(b.finished_year) == year and (mode == "year" or tonumber(b.finished_month) == month)) then
-                table.insert(res.finished_books, b)
-            end
-        end
-        table.sort(res.finished_books, function(a, b) return (a.mtime or 0) > (b.mtime or 0) end)
-    end
+    populateRecapFinished(self, res, mode, year, month)
 
     cache.recaps[ckey] = res
     return res

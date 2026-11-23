@@ -1287,9 +1287,7 @@ return function(Aire, ctx)
                 N_("book", "books", fin_n)),
                 function()
                     if self.showGridView then
-                        config.fin_filter = mode == "month" and "month" or (mode == "all" and "all" or "year")
-                        saveConfig()
-                        self:showGridView("finished")
+                        self:showGridView("finished", { period = { mode = mode, year = recap.year, month = recap.month } })
                     end
                 end),
         }
