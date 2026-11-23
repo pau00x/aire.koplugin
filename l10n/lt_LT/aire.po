@@ -58,7 +58,7 @@ msgstr[1] "%1 žymės"
 msgstr[2] "%1 žymės"
 msgstr[3] "%1 žymių"
 
-#: views/grid/init.lua:548 views/grid/init.lua:549
+#: views/grid/init.lua:551 views/grid/init.lua:552
 msgid "%1 collection"
 msgid_plural "%1 collections"
 msgstr[0] "%1 kolekcija"
@@ -66,7 +66,7 @@ msgstr[1] "%1 kolekcijos"
 msgstr[2] "%1 kolekcijos"
 msgstr[3] "%1 kolekcijų"
 
-#: views/stats/init.lua:608 views/stats/init.lua:815 views/stats/init.lua:1322
+#: views/stats/init.lua:608 views/stats/init.lua:823 views/stats/init.lua:1330
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 diena"
@@ -82,7 +82,7 @@ msgstr[1] "prieš %1 dienas"
 msgstr[2] "prieš %1 dienos"
 msgstr[3] "prieš %1 dienų"
 
-#: styles/plugins/calendar.lua:237 views/stats/init.lua:951 views/stats/init.lua:1590
+#: styles/plugins/calendar.lua:237 views/stats/init.lua:960 views/stats/init.lua:1601
 msgid "%1 day reading"
 msgid_plural "%1 days reading"
 msgstr[0] "%1 skaitymo diena"
@@ -98,7 +98,7 @@ msgstr[1] "baigta: %1"
 msgstr[2] "baigta: %1"
 msgstr[3] "baigta: %1"
 
-#: views/grid/init.lua:631
+#: views/grid/init.lua:643
 msgid "%1 finished book"
 msgid_plural "%1 finished books"
 msgstr[0] "%1 baigta knyga"
@@ -118,7 +118,7 @@ msgstr[1] "prieš %1 mėnesius"
 msgstr[2] "prieš %1 mėnesio"
 msgstr[3] "prieš %1 mėnesių"
 
-#: views/stats/init.lua:1595
+#: views/stats/init.lua:1606
 msgid "%1 of %2 days reading"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr[3] "perskaityta %1 psl."
 msgid "%1 pp."
 msgstr "%1 psl."
 
-#: styles/plugins/readerprogress.lua:205 views/stats/init.lua:302 views/stats/init.lua:811 views/stats/init.lua:1278 views/stats/init.lua:1592
+#: styles/plugins/readerprogress.lua:205 views/stats/init.lua:302 views/stats/init.lua:819 views/stats/init.lua:1288 views/stats/init.lua:1603
 msgid "%1 pp./h"
 msgstr "%1 psl./val."
 
@@ -170,7 +170,7 @@ msgstr[1] "%1 serijos"
 msgstr[2] "%1 serijos"
 msgstr[3] "%1 serijų"
 
-#: views/stats/init.lua:1811
+#: views/stats/init.lua:1822
 msgid "%1 started book"
 msgid_plural "%1 started books"
 msgstr[0] ""
@@ -194,7 +194,7 @@ msgstr "%2 %3 d., %1"
 msgid "%1/7 days"
 msgstr ""
 
-#: views/stats/init.lua:1282
+#: views/stats/init.lua:1292
 msgid "%1/day"
 msgstr ""
 
@@ -222,7 +222,7 @@ msgstr "%d iš 5 žvaigždučių"
 msgid "+ Brightness"
 msgstr "+ Ryškumas"
 
-#: views/stats/init.lua:1126
+#: views/stats/init.lua:1135
 msgid "+%1 more"
 msgstr "+dar %1"
 
@@ -250,7 +250,7 @@ msgstr "4 stulpeliai"
 msgid "7 days"
 msgstr ""
 
-#: views/update_sheet.lua:293
+#: views/update_sheet.lua:308
 msgid "A new version is available"
 msgstr "Yra nauja versija"
 
@@ -266,7 +266,7 @@ msgstr "AKTYVI PAIEŠKA"
 msgid "ADDED"
 msgstr "PRIDĖTA"
 
-#: views/stats/init.lua:1359
+#: views/stats/init.lua:1367
 msgid "ANNUAL RHYTHM"
 msgstr ""
 
@@ -300,7 +300,7 @@ msgstr "Pridėti valdiklį"
 msgid "Advanced"
 msgstr "Išplėstiniai"
 
-#: core/genres.lua:106
+#: core/genres.lua:107
 msgctxt "aire"
 msgid "Adventure"
 msgstr ""
@@ -314,11 +314,11 @@ msgstr ""
 msgid "Aire"
 msgstr "Aire"
 
-#: views/update_sheet.lua:229 views/update_sheet.lua:286
+#: views/update_sheet.lua:244 views/update_sheet.lua:301
 msgid "Aire %1"
 msgstr "Aire %1"
 
-#: views/power.lua:147 views/update_sheet.lua:499
+#: views/power.lua:147 views/update_sheet.lua:523
 msgid "Aire %1 available"
 msgstr "Aire %1 pasiekiama"
 
@@ -349,16 +349,16 @@ msgstr ""
 msgid "All finished"
 msgstr "Visos baigtos"
 
-#: views/stats/init.lua:637 views/stats/init.lua:645 views/stats/init.lua:1587 views/stats/init.lua:1640 views/stats/init.lua:1649
+#: views/grid/init.lua:637 views/stats/init.lua:637 views/stats/init.lua:645 views/stats/init.lua:1598 views/stats/init.lua:1651
 msgid "All time"
 msgstr ""
 
-#: views/grid/init.lua:633 views/widgets/catalog.lua:300
+#: views/grid/init.lua:645 views/widgets/catalog.lua:300
 #, koreader
 msgid "Always"
 msgstr ""
 
-#: views/stats/init.lua:643 views/stats/init.lua:1638
+#: views/stats/init.lua:643 views/stats/init.lua:1649
 msgid "Annual"
 msgstr "Metai"
 
@@ -414,9 +414,17 @@ msgstr ""
 msgid "Automatic tests"
 msgstr "Automatiniai testai"
 
-#: views/grid/init.lua:995
+#: views/grid/init.lua:1006
 msgid "Automatic: books by this author"
 msgstr "Automatinė: šio autoriaus knygos"
+
+#: views/grid/init.lua:1009
+msgid "Automatic: books in this genre"
+msgstr ""
+
+#: views/grid/init.lua:1011
+msgid "Automatic: books in this language"
+msgstr ""
 
 #: dev/devtools.lua:965
 msgid "Average speed"
@@ -457,31 +465,31 @@ msgstr ""
 msgid "Battery"
 msgstr "Baterija"
 
-#: views/stats/init.lua:1319
+#: views/stats/init.lua:1327
 msgid "Best day"
 msgstr "Geriausia diena"
 
-#: views/stats/init.lua:1302
+#: views/stats/init.lua:1310
 msgid "Best month"
 msgstr "Geriausias mėnuo"
 
-#: views/stats/init.lua:1322
+#: views/stats/init.lua:1330
 msgid "Best streak"
 msgstr ""
 
-#: views/stats/init.lua:814
+#: views/stats/init.lua:822
 msgid "Best streak: %1"
 msgstr ""
 
-#: views/stats/init.lua:1308
+#: views/stats/init.lua:1316
 msgid "Best week"
 msgstr ""
 
-#: views/stats/init.lua:1300
+#: views/stats/init.lua:1308
 msgid "Best year"
 msgstr ""
 
-#: core/genres.lua:113
+#: core/genres.lua:114
 msgctxt "aire"
 msgid "Biography"
 msgstr ""
@@ -553,7 +561,7 @@ msgstr "Žymės ir paryškinimai"
 msgid "Books"
 msgstr ""
 
-#: views/grid/init.lua:956
+#: views/grid/init.lua:968
 msgid "Books are not deleted, only the collection."
 msgstr "Knygos neištrinamos, tik kolekcija."
 
@@ -571,7 +579,7 @@ msgstr ""
 msgid "Bottom menus (sheets)"
 msgstr "Apatiniai meniu (lapai)"
 
-#: core/genres.lua:119
+#: core/genres.lua:120
 msgctxt "aire"
 msgid "Business"
 msgstr ""
@@ -592,7 +600,7 @@ msgstr "DABARTINĖ SESIJA"
 msgid "CURRENTLY READING"
 msgstr "DABAR SKAITOMA"
 
-#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:945
+#: styles/plugins/calendar.lua:115 styles/plugins/calendar.lua:230 views/stats/init.lua:954
 msgid "Calendar"
 msgstr "Kalendorius"
 
@@ -608,7 +616,7 @@ msgstr ""
 msgid "Calendar (with data)"
 msgstr ""
 
-#: dev/devtools.lua:626 dev/devtools.lua:777 dev/devtools.lua:877 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:1064
+#: dev/devtools.lua:626 dev/devtools.lua:777 dev/devtools.lua:877 styles/filemanager/sortwidget.lua:129 views/stats/init.lua:1073
 #, koreader
 msgid "Cancel"
 msgstr ""
@@ -655,11 +663,11 @@ msgstr "Įkrauta"
 msgid "Charging"
 msgstr "Kraunama"
 
-#: views/update_sheet.lua:448
+#: views/update_sheet.lua:472
 msgid "Check every week"
 msgstr "Tikrinti kas savaitę"
 
-#: views/update_sheet.lua:441
+#: views/update_sheet.lua:465
 #, koreader
 msgid "Check for updates"
 msgstr ""
@@ -668,7 +676,7 @@ msgstr ""
 msgid "Check patches and plugins on startup"
 msgstr "Tikrinti pataisas ir įskiepius paleidžiant"
 
-#: core/genres.lua:110
+#: core/genres.lua:111
 msgctxt "aire"
 msgid "Children"
 msgstr ""
@@ -682,7 +690,7 @@ msgstr ""
 msgid "Classics"
 msgstr ""
 
-#: core/genres.lua:107
+#: core/genres.lua:108
 msgctxt "aire"
 msgid "Classics"
 msgstr ""
@@ -708,7 +716,7 @@ msgstr ""
 msgid "Collection order"
 msgstr "Kolekcijos tvarka"
 
-#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1294
+#: views/dock.lua:38 views/grid/init.lua:76 views/grid/init.lua:1314
 #, koreader
 msgid "Collections"
 msgstr ""
@@ -721,7 +729,7 @@ msgstr ""
 msgid "Collections order"
 msgstr "Kolekcijų tvarka"
 
-#: core/genres.lua:122
+#: core/genres.lua:123
 msgctxt "aire"
 msgid "Comics"
 msgstr ""
@@ -738,7 +746,7 @@ msgstr ""
 msgid "Connected"
 msgstr "Prisijungta"
 
-#: core/genres.lua:108
+#: core/genres.lua:109
 msgctxt "aire"
 msgid "Contemporary"
 msgstr ""
@@ -762,7 +770,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: views/update_sheet.lua:357
+#: views/update_sheet.lua:372
 msgid "Could not check for updates. Try again later."
 msgstr "Nepavyko patikrinti naujinimų. Bandykite vėliau."
 
@@ -773,7 +781,7 @@ msgid ""
 "Check that Wi-Fi is on and the password is correct, and try again."
 msgstr ""
 
-#: views/update_sheet.lua:212
+#: views/update_sheet.lua:227
 msgid "Could not install the update. Aire %1 is still installed."
 msgstr "Nepavyko įdiegti naujinimo. Aire %1 tebėra įdiegta."
 
@@ -808,11 +816,11 @@ msgstr ""
 msgid "Currently reading"
 msgstr "Dabar skaitoma"
 
-#: views/stats/init.lua:1355
+#: views/stats/init.lua:1363
 msgid "DAILY RHYTHM"
 msgstr "DIENŲ RITMAS"
 
-#: views/stats/init.lua:908 views/stats/init.lua:1523
+#: views/stats/init.lua:916 views/stats/init.lua:1533
 msgid "DAYS OF THE WEEK"
 msgstr ""
 
@@ -840,11 +848,11 @@ msgstr "Data"
 msgid "Date finished"
 msgstr "Baigimo data"
 
-#: views/stats/init.lua:1306 views/stats/init.lua:1313
+#: views/stats/init.lua:1314 views/stats/init.lua:1321
 msgid "Day %1"
 msgstr "%1 diena"
 
-#: views/stats/init.lua:1307
+#: views/stats/init.lua:1315
 msgid "Days %1–%2"
 msgstr ""
 
@@ -862,16 +870,16 @@ msgctxt "aire"
 msgid "December"
 msgstr "gruodžio"
 
-#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:957 views/stats/init.lua:1084
+#: dev/devtools.lua:786 dev/devtools.lua:865 views/booksheet.lua:226 views/grid/init.lua:969 views/stats/init.lua:1093
 #, koreader
 msgid "Delete"
 msgstr ""
 
-#: views/stats/init.lua:1095
+#: views/stats/init.lua:1104
 msgid "Delete all book stats"
 msgstr "Ištrinti visą knygos statistiką"
 
-#: views/stats/init.lua:1099
+#: views/stats/init.lua:1108
 msgid "Delete all stats?"
 msgstr "Ištrinti visą statistiką?"
 
@@ -880,15 +888,15 @@ msgstr "Ištrinti visą statistiką?"
 msgid "Delete highlight"
 msgstr ""
 
-#: views/stats/init.lua:1082
+#: views/stats/init.lua:1091
 msgid "Delete minutes for this day?"
 msgstr "Ištrinti šios dienos minutes?"
 
-#: views/stats/init.lua:1078
+#: views/stats/init.lua:1087
 msgid "Delete minutes from this day"
 msgstr "Ištrinti šios dienos minutes"
 
-#: views/grid/init.lua:955
+#: views/grid/init.lua:967
 msgid "Delete the collection?"
 msgstr "Ištrinti kolekciją?"
 
@@ -896,7 +904,7 @@ msgstr "Ištrinti kolekciją?"
 msgid "Delete this book? This cannot be undone."
 msgstr ""
 
-#: views/grid/init.lua:1006
+#: views/grid/init.lua:1026
 msgid "Delete…"
 msgstr "Ištrinti…"
 
@@ -949,7 +957,7 @@ msgstr ""
 msgid "Downloading…"
 msgstr ""
 
-#: views/update_sheet.lua:186
+#: views/update_sheet.lua:187
 msgid "Downloading… %1 of %2"
 msgstr "Atsisiunčiama… %1 iš %2"
 
@@ -1051,7 +1059,7 @@ msgstr ""
 msgid "FILE"
 msgstr "FAILAS"
 
-#: views/grid/init.lua:838
+#: views/grid/init.lua:850
 msgid "FILTER"
 msgstr "FILTRAS"
 
@@ -1060,7 +1068,7 @@ msgstr "FILTRAS"
 msgid "Fantasy"
 msgstr ""
 
-#: core/genres.lua:99
+#: core/genres.lua:100
 msgctxt "aire"
 msgid "Fantasy"
 msgstr ""
@@ -1079,7 +1087,7 @@ msgctxt "aire"
 msgid "February"
 msgstr "vasario"
 
-#: core/genres.lua:288
+#: core/genres.lua:289
 msgctxt "aire"
 msgid "Fiction"
 msgstr ""
@@ -1099,11 +1107,11 @@ msgstr ""
 msgid "Filename:"
 msgstr ""
 
-#: views/grid/init.lua:856
+#: views/grid/init.lua:868
 msgid "Filter"
 msgstr "Filtras"
 
-#: dev/devtools.lua:789 views/grid/init.lua:856
+#: dev/devtools.lua:789 views/grid/init.lua:868
 msgid "Filter and sort"
 msgstr "Filtras ir rikiavimas"
 
@@ -1121,7 +1129,7 @@ msgstr "Baigta"
 msgid "Finished (test data)"
 msgstr ""
 
-#: views/grid/init.lua:630 views/stats/init.lua:593 views/widgets/catalog.lua:275
+#: views/grid/init.lua:634 views/stats/init.lua:593 views/widgets/catalog.lua:275
 msgid "Finished books"
 msgstr ""
 
@@ -1213,7 +1221,7 @@ msgstr "Viso ekrano rodiniai"
 msgid "Galician"
 msgstr ""
 
-#: views/stats/init.lua:806
+#: views/stats/init.lua:814
 msgid "Genres & habits"
 msgstr ""
 
@@ -1266,7 +1274,7 @@ msgstr "PARYŠKINIMAS"
 msgid "HOURLY ACTIVITY"
 msgstr ""
 
-#: views/stats/init.lua:1027
+#: views/stats/init.lua:1036
 msgid "Hasn't arrived yet"
 msgstr "Dar neatėjo"
 
@@ -1275,17 +1283,17 @@ msgstr "Dar neatėjo"
 msgid "Highlight"
 msgstr ""
 
-#: core/genres.lua:105
+#: core/genres.lua:106
 msgctxt "aire"
 msgid "Historical"
 msgstr ""
 
-#: views/dock.lua:40 views/grid/init.lua:1295
+#: views/dock.lua:40 views/grid/init.lua:1315
 #, koreader
 msgid "History"
 msgstr ""
 
-#: core/genres.lua:112
+#: core/genres.lua:113
 msgctxt "aire"
 msgid "History"
 msgstr ""
@@ -1294,7 +1302,7 @@ msgstr ""
 msgid "History (test data)"
 msgstr ""
 
-#: views/grid/init.lua:669
+#: views/grid/init.lua:681
 msgid "History is empty"
 msgstr "Istorija tuščia"
 
@@ -1331,12 +1339,12 @@ msgstr "Pradžios ekrano valdikliai"
 msgid "Horizontal"
 msgstr ""
 
-#: core/genres.lua:103
+#: core/genres.lua:104
 msgctxt "aire"
 msgid "Horror"
 msgstr ""
 
-#: core/genres.lua:111
+#: core/genres.lua:112
 msgctxt "aire"
 msgid "Humor"
 msgstr ""
@@ -1361,15 +1369,15 @@ msgstr "Kolekcijose kiekvienam raktažodžiui, turinčiam 2 ar daugiau knygų, r
 msgid "In Collections, a collection appears for each language with 2 or more books. They update automatically and are not saved in KOReader collections."
 msgstr ""
 
-#: views/update_sheet.lua:457
+#: views/update_sheet.lua:481
 msgid "Include beta versions"
 msgstr "Įtraukti beta versijas"
 
-#: views/update_sheet.lua:476
+#: views/update_sheet.lua:500
 msgid "Installed version: %1"
 msgstr "Įdiegta versija: %1"
 
-#: views/update_sheet.lua:198
+#: views/update_sheet.lua:206
 msgid "Installing…"
 msgstr "Diegiama…"
 
@@ -1460,7 +1468,7 @@ msgstr "Paskutinis"
 msgid "Last 7 days · %1"
 msgstr ""
 
-#: views/update_sheet.lua:469
+#: views/update_sheet.lua:493
 msgid "Last check: %1"
 msgstr "Paskutinis tikrinimas: %1"
 
@@ -1468,7 +1476,7 @@ msgstr "Paskutinis tikrinimas: %1"
 msgid "Last read"
 msgstr "Paskutinį kartą skaityta"
 
-#: core/compat.lua:168 views/update_sheet.lua:132 views/update_sheet.lua:329
+#: core/compat.lua:168 views/update_sheet.lua:132 views/update_sheet.lua:344
 #, koreader
 msgid "Later"
 msgstr ""
@@ -1487,7 +1495,7 @@ msgstr "Išdėstymas"
 msgid "Left"
 msgstr ""
 
-#: dev/devtools.lua:803 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1293
+#: dev/devtools.lua:803 views/dock.lua:37 views/dock.lua:249 views/grid/init.lua:1313
 msgid "Library"
 msgstr "Biblioteka"
 
@@ -1543,15 +1551,15 @@ msgstr "ATITIKMUO"
 msgid "MATCH %d"
 msgstr "ATITIKMUO %d"
 
-#: views/stats/init.lua:1357
+#: views/stats/init.lua:1365
 msgid "MONTHLY RHYTHM"
 msgstr "MĖNESIŲ RITMAS"
 
-#: views/stats/init.lua:1243
+#: views/stats/init.lua:1253
 msgid "MOST READ BOOKS"
 msgstr ""
 
-#: views/stats/init.lua:821 views/stats/init.lua:1418
+#: views/stats/init.lua:829 views/stats/init.lua:1428
 msgid "MOST READ GENRES"
 msgstr ""
 
@@ -1559,7 +1567,7 @@ msgstr ""
 msgid "Main view"
 msgstr "Pagrindinis rodinys"
 
-#: core/genres.lua:123
+#: core/genres.lua:124
 msgctxt "aire"
 msgid "Manga"
 msgstr ""
@@ -1582,7 +1590,7 @@ msgstr ""
 msgid "Mark all books in \"%1\" as reading?"
 msgstr "Pažymėti visas knygas „%1“ kaip skaitomas?"
 
-#: views/grid/init.lua:1043
+#: views/grid/init.lua:1063
 msgid "Mark all books in collection \"%1\" as reading?"
 msgstr "Pažymėti visas kolekcijos „%1“ knygas kaip skaitomas?"
 
@@ -1590,11 +1598,11 @@ msgstr "Pažymėti visas kolekcijos „%1“ knygas kaip skaitomas?"
 msgid "Mark as read"
 msgstr ""
 
-#: views/grid/init.lua:1041
+#: views/grid/init.lua:1061
 msgid "Mark entire collection as finished"
 msgstr "Pažymėti visą kolekciją kaip baigtą"
 
-#: views/grid/init.lua:1042
+#: views/grid/init.lua:1062
 msgid "Mark entire collection as reading"
 msgstr "Pažymėti visą kolekciją kaip skaitomą"
 
@@ -1637,11 +1645,11 @@ msgstr ""
 msgid "Mix folders"
 msgstr "Maišyti aplankus"
 
-#: views/grid/init.lua:850
+#: views/grid/init.lua:862
 msgid "Mix series"
 msgstr "Maišyti serijas"
 
-#: views/stats/init.lua:641 views/stats/init.lua:1636
+#: views/stats/init.lua:641 views/stats/init.lua:1647
 msgid "Monthly"
 msgstr "Mėnuo"
 
@@ -1683,7 +1691,7 @@ msgstr ""
 msgid "Multiple fields"
 msgstr ""
 
-#: core/genres.lua:101
+#: core/genres.lua:102
 msgctxt "aire"
 msgid "Mystery"
 msgstr ""
@@ -1732,12 +1740,12 @@ msgctxt "aire"
 msgid "New"
 msgstr "Nauja"
 
-#: views/grid/init.lua:544
+#: views/grid/init.lua:546
 #, koreader
 msgid "New collection"
 msgstr ""
 
-#: views/grid/init.lua:997 views/grid/init.lua:1010
+#: views/grid/init.lua:1017 views/grid/init.lua:1030
 msgid "New collection…"
 msgstr "Nauja kolekcija…"
 
@@ -1780,7 +1788,7 @@ msgstr ""
 msgid "No CoverBrowser data"
 msgstr "Nėra CoverBrowser duomenų"
 
-#: views/home.lua:251 views/stats/init.lua:273 views/stats/init.lua:1820
+#: views/home.lua:251 views/stats/init.lua:273 views/stats/init.lua:1831
 msgid "No book in progress"
 msgstr "Nėra skaitomos knygos"
 
@@ -1788,11 +1796,11 @@ msgstr "Nėra skaitomos knygos"
 msgid "No book matches the filter"
 msgstr "Jokia knyga neatitinka filtro"
 
-#: views/grid/init.lua:637
+#: views/grid/init.lua:649
 msgid "No books finished this month"
 msgstr "Šį mėnesį nebaigta jokių knygų"
 
-#: views/grid/init.lua:637
+#: views/grid/init.lua:649
 msgid "No books finished this year"
 msgstr "Šiais metais nebaigta jokių knygų"
 
@@ -1800,7 +1808,7 @@ msgstr "Šiais metais nebaigta jokių knygų"
 msgid "No books in home folder"
 msgstr "Pradžios aplanke nėra knygų"
 
-#: views/grid/init.lua:333 views/grid/init.lua:525 views/grid/init.lua:669
+#: views/grid/init.lua:333 views/grid/init.lua:525 views/grid/init.lua:681
 msgid "No books with this filter"
 msgstr "Nėra knygų su šiuo filtru"
 
@@ -1808,11 +1816,11 @@ msgstr "Nėra knygų su šiuo filtru"
 msgid "No chapter"
 msgstr "Be skyriaus"
 
-#: views/grid/init.lua:552
+#: views/grid/init.lua:555
 msgid "No collections"
 msgstr "Nėra kolekcijų"
 
-#: views/grid/init.lua:552
+#: views/grid/init.lua:555
 msgid "No collections with this filter"
 msgstr "Nėra kolekcijų su šiuo filtru"
 
@@ -1824,7 +1832,7 @@ msgstr "Nėra dabartinės knygos"
 msgid "No data: enable the Statistics plugin and read a bit"
 msgstr "Nėra duomenų: įjunkite Statistikos įskiepį ir šiek tiek paskaitykite"
 
-#: views/stats/init.lua:837 views/stats/init.lua:1435
+#: views/stats/init.lua:845 views/stats/init.lua:1445
 msgid "No genre metadata yet"
 msgstr ""
 
@@ -1841,7 +1849,7 @@ msgstr "Nėra kitos nebaigtos knygos"
 msgid "No previous book"
 msgstr "Nėra ankstesnės knygos"
 
-#: styles/plugins/statspages.lua:487 views/stats/init.lua:1683
+#: styles/plugins/statspages.lua:487 views/stats/init.lua:1694
 msgid "No reading activity in this period"
 msgstr "Šiuo laikotarpiu skaitymo nėra"
 
@@ -1870,7 +1878,7 @@ msgstr "Nėra nepradėtų knygų"
 msgid "No vocabulary words"
 msgstr "Žodžių nėra"
 
-#: core/genres.lua:120
+#: core/genres.lua:121
 msgctxt "aire"
 msgid "Non-fiction"
 msgstr ""
@@ -1902,7 +1910,7 @@ msgstr "Užrašai"
 msgid "Notice"
 msgstr "Pranešimas"
 
-#: core/genres.lua:287
+#: core/genres.lua:288
 msgctxt "aire"
 msgid "Novel"
 msgstr ""
@@ -1945,7 +1953,7 @@ msgctxt "aire"
 msgid "On hold"
 msgstr "Sulaikyta"
 
-#: views/update_sheet.lua:449
+#: views/update_sheet.lua:473
 msgid "Only when Wi-Fi is already on: Aire never turns it on."
 msgstr "Tik kai „Wi-Fi“ jau įjungtas: Aire niekada jo neįjungia."
 
@@ -1954,7 +1962,7 @@ msgstr "Tik kai „Wi-Fi“ jau įjungtas: Aire niekada jo neįjungia."
 msgid "Open"
 msgstr ""
 
-#: views/grid/init.lua:1040
+#: views/grid/init.lua:1060
 msgid "Open collection"
 msgstr "Atverti kolekciją"
 
@@ -1962,7 +1970,7 @@ msgstr "Atverti kolekciją"
 msgid "Open library"
 msgstr ""
 
-#: views/grid/init.lua:1040
+#: views/grid/init.lua:1060
 msgid "Open series"
 msgstr "Atverti seriją"
 
@@ -2022,7 +2030,7 @@ msgstr ""
 msgid "Page fit"
 msgstr "Puslapio pritaikymas"
 
-#: views/stats/init.lua:1284
+#: views/stats/init.lua:1294
 #, koreader
 msgid "Pages"
 msgstr ""
@@ -2042,7 +2050,7 @@ msgstr ""
 msgid "Pages read today"
 msgstr ""
 
-#: core/genres.lua:116
+#: core/genres.lua:117
 msgctxt "aire"
 msgid "Philosophy"
 msgstr ""
@@ -2055,7 +2063,7 @@ msgstr ""
 msgid "Plugin sheet (options)"
 msgstr ""
 
-#: core/genres.lua:121
+#: core/genres.lua:122
 msgctxt "aire"
 msgid "Poetry"
 msgstr ""
@@ -2093,7 +2101,7 @@ msgstr ""
 msgid "Progress"
 msgstr ""
 
-#: core/genres.lua:117
+#: core/genres.lua:118
 msgctxt "aire"
 msgid "Psychology"
 msgstr ""
@@ -2201,7 +2209,7 @@ msgstr ""
 msgid "Reading time"
 msgstr ""
 
-#: views/stats/init.lua:1567
+#: views/stats/init.lua:1578
 msgid "Recap"
 msgstr "Apžvalga"
 
@@ -2237,12 +2245,12 @@ msgstr "Pašalinti"
 msgid "Remove bookmark"
 msgstr ""
 
-#: views/booksheet.lua:567 views/grid/init.lua:558
+#: views/booksheet.lua:567 views/grid/init.lua:561
 msgctxt "aire"
 msgid "Remove from collection"
 msgstr "Pašalinti iš kolekcijos"
 
-#: views/booksheet.lua:531 views/grid/init.lua:674
+#: views/booksheet.lua:531 views/grid/init.lua:686
 #, koreader
 msgid "Remove from history"
 msgstr ""
@@ -2262,7 +2270,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: views/grid/init.lua:1004
+#: views/grid/init.lua:1024
 msgid "Rename…"
 msgstr "Pervadinti…"
 
@@ -2298,7 +2306,7 @@ msgstr "Paleiskite KOReader iš naujo, kad ją naudotumėte. Jūsų nustatymai i
 msgid "Restart now"
 msgstr ""
 
-#: views/explorer.lua:104 views/grid/init.lua:844
+#: views/explorer.lua:104 views/grid/init.lua:856
 #, koreader
 msgid "Reverse sorting"
 msgstr ""
@@ -2313,7 +2321,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: core/genres.lua:104
+#: core/genres.lua:105
 msgctxt "aire"
 msgid "Romance"
 msgstr ""
@@ -2328,7 +2336,7 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: views/explorer.lua:113 views/grid/init.lua:840
+#: views/explorer.lua:113 views/grid/init.lua:852
 msgid "SORT BY"
 msgstr "RIKIUOTI PAGAL"
 
@@ -2360,7 +2368,7 @@ msgstr ""
 msgid "Saved"
 msgstr ""
 
-#: core/genres.lua:114
+#: core/genres.lua:115
 msgctxt "aire"
 msgid "Science"
 msgstr ""
@@ -2369,7 +2377,7 @@ msgstr ""
 msgid "Science Fiction"
 msgstr ""
 
-#: core/genres.lua:100
+#: core/genres.lua:101
 msgctxt "aire"
 msgid "Science fiction"
 msgstr ""
@@ -2396,11 +2404,11 @@ msgstr ""
 msgid "Search results (with data)"
 msgstr ""
 
-#: views/update_sheet.lua:307
+#: views/update_sheet.lua:322
 msgid "See all changes"
 msgstr "Žiūrėti visus pakeitimus"
 
-#: core/genres.lua:118
+#: core/genres.lua:119
 msgctxt "aire"
 msgid "Self-help"
 msgstr ""
@@ -2433,7 +2441,7 @@ msgstr ""
 msgid "Set font"
 msgstr ""
 
-#: views/update_sheet.lua:445
+#: views/update_sheet.lua:469
 #, koreader
 msgid "Settings"
 msgstr ""
@@ -2447,7 +2455,7 @@ msgstr ""
 msgid "Short message"
 msgstr ""
 
-#: core/genres.lua:124
+#: core/genres.lua:125
 msgctxt "aire"
 msgid "Short stories"
 msgstr ""
@@ -2490,7 +2498,7 @@ msgstr "Rodyti aprašymą"
 msgid "Size:"
 msgstr ""
 
-#: views/update_sheet.lua:324
+#: views/update_sheet.lua:339
 msgid "Skip"
 msgstr "Praleisti"
 
@@ -2519,16 +2527,16 @@ msgstr ""
 msgid "Sort a list"
 msgstr ""
 
-#: dev/devtools.lua:743 views/grid/init.lua:856
+#: dev/devtools.lua:743 views/grid/init.lua:868
 #, koreader
 msgid "Sort by"
 msgstr ""
 
-#: dev/devtools.lua:955 views/grid/init.lua:975
+#: dev/devtools.lua:955 views/grid/init.lua:987
 msgid "Sort collections"
 msgstr "Rikiuoti kolekcijas"
 
-#: views/grid/init.lua:998 views/grid/init.lua:1011
+#: views/grid/init.lua:1018 views/grid/init.lua:1031
 msgid "Sort collections…"
 msgstr "Rikiuoti kolekcijas…"
 
@@ -2553,7 +2561,7 @@ msgstr "Pradėti"
 msgid "Started"
 msgstr ""
 
-#: views/stats/init.lua:1807
+#: views/stats/init.lua:1818
 msgid "Started books"
 msgstr ""
 
@@ -2613,12 +2621,12 @@ msgstr "Bakstelėkite, kad sustabdytumėte"
 msgid "Tap to view definition"
 msgstr "Bakstelėkite, kad pamatytumėte apibrėžimą"
 
-#: core/genres.lua:115
+#: core/genres.lua:116
 msgctxt "aire"
 msgid "Technology"
 msgstr ""
 
-#: views/grid/init.lua:1195
+#: views/grid/init.lua:1215
 msgid "Test book"
 msgstr "Bandomoji knyga"
 
@@ -2675,7 +2683,7 @@ msgstr "Dabartinė knyga nepriklauso serijai"
 msgid "This collection is empty"
 msgstr "Ši kolekcija tuščia"
 
-#: views/update_sheet.lua:319
+#: views/update_sheet.lua:334
 msgid "This copy has the dev/ folder (tests). The new version does not include it, so it will be removed."
 msgstr "Šioje kopijoje yra aplankas dev/ (testai). Naujoje versijoje jo nėra, todėl jis bus pašalintas."
 
@@ -2699,12 +2707,12 @@ msgstr "Šią savaitę: %1"
 msgid "This year"
 msgstr "Šiais metais"
 
-#: core/genres.lua:102
+#: core/genres.lua:103
 msgctxt "aire"
 msgid "Thriller"
 msgstr ""
 
-#: dev/devtools.lua:843 views/stats/init.lua:1282
+#: dev/devtools.lua:843 views/stats/init.lua:1292
 #, koreader
 msgid "Time"
 msgstr ""
@@ -2760,7 +2768,7 @@ msgstr "Šiandien ir serija"
 msgid "Today's timeline"
 msgstr ""
 
-#: views/stats/init.lua:1325
+#: views/stats/init.lua:1333
 msgid "Top author"
 msgstr "Mėgstamiausias autorius"
 
@@ -2782,16 +2790,16 @@ msgstr ""
 msgid "Two numbers (margins)"
 msgstr ""
 
-#: views/power.lua:131 views/power.lua:158 views/update_sheet.lua:211 views/update_sheet.lua:330 views/update_sheet.lua:357
+#: views/power.lua:131 views/power.lua:158 views/update_sheet.lua:226 views/update_sheet.lua:345 views/update_sheet.lua:372
 #, koreader
 msgid "Update"
 msgstr ""
 
-#: views/update_sheet.lua:436
+#: views/update_sheet.lua:460
 msgid "Update Aire"
 msgstr "Atnaujinti Aire"
 
-#: views/update_sheet.lua:436
+#: views/update_sheet.lua:460
 msgid "Update Aire (%1 available)"
 msgstr "Atnaujinti Aire (pasiekiama %1)"
 
@@ -2843,7 +2851,7 @@ msgstr ""
 msgid "WEEKLY ACTIVITY"
 msgstr "SAVAITĖS VEIKLA"
 
-#: views/stats/init.lua:856 views/stats/init.lua:1463
+#: views/stats/init.lua:864 views/stats/init.lua:1473
 msgid "WHEN YOU READ"
 msgstr ""
 
@@ -2884,11 +2892,11 @@ msgstr "Valdikliai %1–%2"
 msgid "Wikipedia"
 msgstr ""
 
-#: views/update_sheet.lua:379
+#: views/update_sheet.lua:403
 msgid "You already have the latest version (%1)."
 msgstr "Jau turite naujausią versiją (%1)."
 
-#: views/stats/init.lua:1027
+#: views/stats/init.lua:1036
 msgid "You didn't read that day"
 msgstr "Tą dieną neskaitėte"
 
@@ -2900,15 +2908,15 @@ msgstr "Dar neturite paryškinimų"
 msgid "You have not opened any book yet"
 msgstr "Dar neatvėrėte jokios knygos"
 
-#: views/power.lua:150 views/update_sheet.lua:295
+#: views/power.lua:150 views/update_sheet.lua:310
 msgid "You have version %1"
 msgstr "Turite versiją %1"
 
-#: views/grid/init.lua:636
+#: views/grid/init.lua:648
 msgid "You haven't finished any books yet"
 msgstr "Dar nebaigėte jokios knygos"
 
-#: core/genres.lua:109
+#: core/genres.lua:110
 msgctxt "aire"
 msgid "Young adult"
 msgstr ""
@@ -2942,11 +2950,11 @@ msgstr ""
 msgid "battery"
 msgstr "baterija"
 
-#: views/update_sheet.lua:287
+#: views/update_sheet.lua:302
 msgid "beta"
 msgstr "beta"
 
-#: views/stats/init.lua:1287 views/widgets/catalog.lua:262
+#: views/stats/init.lua:1297 views/widgets/catalog.lua:262
 msgid "book"
 msgid_plural "books"
 msgstr[0] "knyga"
@@ -2995,7 +3003,7 @@ msgstr "laisva"
 msgid "goal %1"
 msgstr ""
 
-#: views/stats/init.lua:606 views/stats/init.lua:1322
+#: views/stats/init.lua:606 views/stats/init.lua:1330
 msgid "in a row"
 msgstr ""
 
@@ -3019,7 +3027,7 @@ msgstr ""
 msgid "min"
 msgstr ""
 
-#: views/update_sheet.lua:468
+#: views/update_sheet.lua:492
 #, koreader
 msgid "never"
 msgstr ""
@@ -3045,7 +3053,7 @@ msgstr "psl. %1 / %2"
 msgid "p. %1 of %2"
 msgstr "psl. %1 iš %2"
 
-#: views/stats/init.lua:1278
+#: views/stats/init.lua:1288
 msgid "pages read"
 msgstr "perskaityta puslapių"
 
